@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOReg</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch17.html" title="Miscellaneous">
+<link rel="prev" href="ch17.html" title="Miscellaneous">
+<link rel="next" href="GOSearchReplace.html" title="GOSearchReplace">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch17.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch17.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GOSearchReplace.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#goffice-0.8-GOReg.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#goffice-0.8-GOReg.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOReg">
+<a name="goffice-0.8-GOReg"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="goffice-0.8-GOReg.top_of_page"></a>GOReg</span></h2>
+<p>GOReg</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="goffice-0.8-GOReg.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="goffice-0.8-GOReg.html#GO-REG-OK:CAPS" title="GO_REG_OK">GO_REG_OK</a>
+                    <a class="link" href="goffice-0.8-GOReg.html#GORegexp" title="GORegexp">GORegexp</a>;
+typedef             <a class="link" href="goffice-0.8-GOReg.html#GORegoff" title="GORegoff">GORegoff</a>;
+                    <a class="link" href="goffice-0.8-GOReg.html#GORegmatch" title="GORegmatch">GORegmatch</a>;
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GOReg.html#go-regcomp" title="go_regcomp ()">go_regcomp</a>                          (<em class="parameter"><code><a class="link" href="goffice-0.8-GOReg.html#GORegexp" title="GORegexp"><span class="type">GORegexp</span></a> *preg</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *pattern</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> cflags</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GOReg.html#go-regexec" title="go_regexec ()">go_regexec</a>                          (<em class="parameter"><code>const <a class="link" href="goffice-0.8-GOReg.html#GORegexp" title="GORegexp"><span class="type">GORegexp</span></a> *preg</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *string</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> nmatch</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOReg.html#GORegmatch" title="GORegmatch"><span class="type">GORegmatch</span></a> pmatch[]</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> eflags</code></em>);
+<span class="returnvalue">size_t</span>              <a class="link" href="goffice-0.8-GOReg.html#go-regerror" title="go_regerror ()">go_regerror</a>                         (<em class="parameter"><code><span class="type">int</span> errcode</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="goffice-0.8-GOReg.html#GORegexp" title="GORegexp"><span class="type">GORegexp</span></a> *preg</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *errbuf</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> errbuf_size</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOReg.html#go-regfree" title="go_regfree ()">go_regfree</a>                          (<em class="parameter"><code><a class="link" href="goffice-0.8-GOReg.html#GORegexp" title="GORegexp"><span class="type">GORegexp</span></a> *preg</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="goffice-0.8-GOReg.html#go-regexp-quote1" title="go_regexp_quote1 ()">go_regexp_quote1</a>                    (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> *target</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *s</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOReg.html#go-regexp-quote" title="go_regexp_quote ()">go_regexp_quote</a>                     (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> *target</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *s</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="goffice-0.8-GOReg.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="goffice-0.8-GOReg.details"></a><h2>Details</h2>
+<div class="refsect2" title="GO_REG_OK">
+<a name="GO-REG-OK:CAPS"></a><h3>GO_REG_OK</h3>
+<pre class="programlisting">#define GO_REG_OK GO_REG_NOERROR
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GORegexp">
+<a name="GORegexp"></a><h3>GORegexp</h3>
+<pre class="programlisting">typedef struct {
+  size_t re_nsub;
+} GORegexp;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GORegoff">
+<a name="GORegoff"></a><h3>GORegoff</h3>
+<pre class="programlisting">typedef int GORegoff;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GORegmatch">
+<a name="GORegmatch"></a><h3>GORegmatch</h3>
+<pre class="programlisting">typedef struct {
+  GORegoff rm_so, rm_eo;
+} GORegmatch;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_regcomp ()">
+<a name="go-regcomp"></a><h3>go_regcomp ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_regcomp                          (<em class="parameter"><code><a class="link" href="goffice-0.8-GOReg.html#GORegexp" title="GORegexp"><span class="type">GORegexp</span></a> *preg</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *pattern</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> cflags</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>preg</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pattern</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cflags</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_regexec ()">
+<a name="go-regexec"></a><h3>go_regexec ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_regexec                          (<em class="parameter"><code>const <a class="link" href="goffice-0.8-GOReg.html#GORegexp" title="GORegexp"><span class="type">GORegexp</span></a> *preg</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *string</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> nmatch</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOReg.html#GORegmatch" title="GORegmatch"><span class="type">GORegmatch</span></a> pmatch[]</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> eflags</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>preg</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>nmatch</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pmatch</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>eflags</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_regerror ()">
+<a name="go-regerror"></a><h3>go_regerror ()</h3>
+<pre class="programlisting"><span class="returnvalue">size_t</span>              go_regerror                         (<em class="parameter"><code><span class="type">int</span> errcode</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="goffice-0.8-GOReg.html#GORegexp" title="GORegexp"><span class="type">GORegexp</span></a> *preg</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *errbuf</code></em>,
+                                                         <em class="parameter"><code><span class="type">size_t</span> errbuf_size</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>errcode</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>preg</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>errbuf</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>errbuf_size</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_regfree ()">
+<a name="go-regfree"></a><h3>go_regfree ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_regfree                          (<em class="parameter"><code><a class="link" href="goffice-0.8-GOReg.html#GORegexp" title="GORegexp"><span class="type">GORegexp</span></a> *preg</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>preg</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_regexp_quote1 ()">
+<a name="go-regexp-quote1"></a><h3>go_regexp_quote1 ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        go_regexp_quote1                    (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> *target</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *s</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>s</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_regexp_quote ()">
+<a name="go-regexp-quote"></a><h3>go_regexp_quote ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_regexp_quote                     (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> *target</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *s</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>s</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

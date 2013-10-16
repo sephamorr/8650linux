@@ -1,0 +1,479 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOFormatSel</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch09.html" title="Selectors">
+<link rel="prev" href="GOFontSel.html" title="GOFontSel">
+<link rel="next" href="GOLocaleSel.html" title="GOLocaleSel">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GOFontSel.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch09.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GOLocaleSel.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GOFormatSel.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GOFormatSel.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GOFormatSel.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GOFormatSel.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#GOFormatSel.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOFormatSel">
+<a name="GOFormatSel"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GOFormatSel.top_of_page"></a>GOFormatSel</span></h2>
+<p>GOFormatSel</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GOFormatSel.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="GOFormatSel.html#GO-TYPE-FORMAT-SEL:CAPS" title="GO_TYPE_FORMAT_SEL">GO_TYPE_FORMAT_SEL</a>
+#define             <a class="link" href="GOFormatSel.html#GO-FORMAT-SEL:CAPS" title="GO_FORMAT_SEL()">GO_FORMAT_SEL</a>                       (o)
+#define             <a class="link" href="GOFormatSel.html#GO-IS-FORMAT-SEL:CAPS" title="GO_IS_FORMAT_SEL()">GO_IS_FORMAT_SEL</a>                    (o)
+                    <a class="link" href="GOFormatSel.html#GOFormatSel-struct" title="GOFormatSel">GOFormatSel</a>;
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GOFormatSel.html#go-format-sel-get-type" title="go_format_sel_get_type ()">go_format_sel_get_type</a>              (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GOFormatSel.html#go-format-sel-new" title="go_format_sel_new ()">go_format_sel_new</a>                   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GOFormatSel.html#go-format-sel-new-full" title="go_format_sel_new_full ()">go_format_sel_new_full</a>              (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> use_markup</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOFormatSel.html#go-format-sel-set-focus" title="go_format_sel_set_focus ()">go_format_sel_set_focus</a>             (<em class="parameter"><code><a class="link" href="GOFormatSel.html" title="GOFormatSel"><span class="type">GOFormatSel</span></a> *gfs</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOFormatSel.html#go-format-sel-set-style-format" title="go_format_sel_set_style_format ()">go_format_sel_set_style_format</a>      (<em class="parameter"><code><a class="link" href="GOFormatSel.html" title="GOFormatSel"><span class="type">GOFormatSel</span></a> *gfs</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOFormat.html#GOFormat" title="GOFormat"><span class="type">GOFormat</span></a> const *style_format</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOFormatSel.html#go-format-sel-set-locale" title="go_format_sel_set_locale ()">go_format_sel_set_locale</a>            (<em class="parameter"><code><a class="link" href="GOFormatSel.html" title="GOFormatSel"><span class="type">GOFormatSel</span></a> *gfs</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *locale</code></em>);
+<a class="link" href="goffice-0.8-GOFormat.html#GOFormat" title="GOFormat"><span class="returnvalue">GOFormat</span></a> const *    <a class="link" href="GOFormatSel.html#go-format-sel-get-fmt" title="go_format_sel_get_fmt ()">go_format_sel_get_fmt</a>               (<em class="parameter"><code><a class="link" href="GOFormatSel.html" title="GOFormatSel"><span class="type">GOFormatSel</span></a> *gfs</code></em>);
+<span class="returnvalue">GODateConventions</span> const * <a class="link" href="GOFormatSel.html#go-format-sel-get-dateconv" title="go_format_sel_get_dateconv ()">go_format_sel_get_dateconv</a>    (<em class="parameter"><code><a class="link" href="GOFormatSel.html" title="GOFormatSel"><span class="type">GOFormatSel</span></a> *gfs</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOFormatSel.html#go-format-sel-set-dateconv" title="go_format_sel_set_dateconv ()">go_format_sel_set_dateconv</a>          (<em class="parameter"><code><a class="link" href="GOFormatSel.html" title="GOFormatSel"><span class="type">GOFormatSel</span></a> *gfs</code></em>,
+                                                         <em class="parameter"><code><span class="type">GODateConventions</span> const *date_conv</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOFormatSel.html#go-format-sel-show-preview" title="go_format_sel_show_preview ()">go_format_sel_show_preview</a>          (<em class="parameter"><code><a class="link" href="GOFormatSel.html" title="GOFormatSel"><span class="type">GOFormatSel</span></a> *gfs</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOFormatSel.html#go-format-sel-hide-preview" title="go_format_sel_hide_preview ()">go_format_sel_hide_preview</a>          (<em class="parameter"><code><a class="link" href="GOFormatSel.html" title="GOFormatSel"><span class="type">GOFormatSel</span></a> *gfs</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOFormatSel.html#go-format-sel-editable-enters" title="go_format_sel_editable_enters ()">go_format_sel_editable_enters</a>       (<em class="parameter"><code><a class="link" href="GOFormatSel.html" title="GOFormatSel"><span class="type">GOFormatSel</span></a> *gfs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/unstable/GtkWindow.html"><span class="type">GtkWindow</span></a> *window</code></em>);
+<span class="returnvalue">char</span> const *        <a class="link" href="GOFormatSel.html#go-format-sel-format-classification" title="go_format_sel_format_classification ()">go_format_sel_format_classification</a> (<em class="parameter"><code><a class="link" href="goffice-0.8-GOFormat.html#GOFormat" title="GOFormat"><span class="type">GOFormat</span></a> const *style_format</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GOFormatSel.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkObject.html">GtkObject</a>
+               +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html">GtkWidget</a>
+                     +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkContainer.html">GtkContainer</a>
+                           +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkBox.html">GtkBox</a>
+                                 +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkHBox.html">GtkHBox</a>
+                                       +----GOFormatSel
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GOFormatSel.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GOFormatSel implements
+ AtkImplementorIface,  <a href="http://library.gnome.org/devel/gtk/unstable/GtkBuildable.html">GtkBuildable</a> and  <a href="http://library.gnome.org/devel/gtk/unstable/gtk-Orientable.html#GtkOrientable">GtkOrientable</a>.</p>
+</div>
+<div class="refsect1" title="Signals">
+<a name="GOFormatSel.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GOFormatSel.html#GOFormatSel-format-changed" title='The "format-changed" signal'>format-changed</a>"                                 : Run Last
+  "<a class="link" href="GOFormatSel.html#GOFormatSel-generate-preview" title='The "generate-preview" signal'>generate-preview</a>"                               : Run Last
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GOFormatSel.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GOFormatSel.details"></a><h2>Details</h2>
+<div class="refsect2" title="GO_TYPE_FORMAT_SEL">
+<a name="GO-TYPE-FORMAT-SEL:CAPS"></a><h3>GO_TYPE_FORMAT_SEL</h3>
+<pre class="programlisting">#define GO_TYPE_FORMAT_SEL (go_format_sel_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_FORMAT_SEL()">
+<a name="GO-FORMAT-SEL:CAPS"></a><h3>GO_FORMAT_SEL()</h3>
+<pre class="programlisting">#define GO_FORMAT_SEL(o) (G_TYPE_CHECK_INSTANCE_CAST((o), GO_TYPE_FORMAT_SEL, GOFormatSel))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_IS_FORMAT_SEL()">
+<a name="GO-IS-FORMAT-SEL:CAPS"></a><h3>GO_IS_FORMAT_SEL()</h3>
+<pre class="programlisting">#define GO_IS_FORMAT_SEL(o) (G_TYPE_CHECK_INSTANCE_TYPE((o), GO_TYPE_FORMAT_SEL))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOFormatSel">
+<a name="GOFormatSel-struct"></a><h3>GOFormatSel</h3>
+<pre class="programlisting">typedef struct _GOFormatSel GOFormatSel;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_format_sel_get_type ()">
+<a name="go-format-sel-get-type"></a><h3>go_format_sel_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_format_sel_get_type              (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_format_sel_new ()">
+<a name="go-format-sel-new"></a><h3>go_format_sel_new ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         go_format_sel_new                   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates a format selector widget, with general format selected
+by default, and formats using pango markup disabled. See
+<em class="parameter"><code>go_format_sel_new_full</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a format selector widget.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_format_sel_new_full ()">
+<a name="go-format-sel-new-full"></a><h3>go_format_sel_new_full ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         go_format_sel_new_full              (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> use_markup</code></em>);</pre>
+<p>
+Creates a format selector widget, with general format selected
+by default. When <em class="parameter"><code>use_markup</code></em> is set to <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, it shows additional
+widgets for editing properties of formats using pango markup
+(e.g. scientific format with superscripted exponent).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>use_markup</code></em> :</span></p></td>
+<td>enable formats using pango markup
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a format selector widget.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_format_sel_set_focus ()">
+<a name="go-format-sel-set-focus"></a><h3>go_format_sel_set_focus ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_format_sel_set_focus             (<em class="parameter"><code><a class="link" href="GOFormatSel.html" title="GOFormatSel"><span class="type">GOFormatSel</span></a> *gfs</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>gfs</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_format_sel_set_style_format ()">
+<a name="go-format-sel-set-style-format"></a><h3>go_format_sel_set_style_format ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_format_sel_set_style_format      (<em class="parameter"><code><a class="link" href="GOFormatSel.html" title="GOFormatSel"><span class="type">GOFormatSel</span></a> *gfs</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOFormat.html#GOFormat" title="GOFormat"><span class="type">GOFormat</span></a> const *style_format</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gfs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style_format</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_format_sel_set_locale ()">
+<a name="go-format-sel-set-locale"></a><h3>go_format_sel_set_locale ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_format_sel_set_locale            (<em class="parameter"><code><a class="link" href="GOFormatSel.html" title="GOFormatSel"><span class="type">GOFormatSel</span></a> *gfs</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *locale</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gfs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>locale</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_format_sel_get_fmt ()">
+<a name="go-format-sel-get-fmt"></a><h3>go_format_sel_get_fmt ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GOFormat.html#GOFormat" title="GOFormat"><span class="returnvalue">GOFormat</span></a> const *    go_format_sel_get_fmt               (<em class="parameter"><code><a class="link" href="GOFormatSel.html" title="GOFormatSel"><span class="type">GOFormatSel</span></a> *gfs</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gfs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_format_sel_get_dateconv ()">
+<a name="go-format-sel-get-dateconv"></a><h3>go_format_sel_get_dateconv ()</h3>
+<pre class="programlisting"><span class="returnvalue">GODateConventions</span> const * go_format_sel_get_dateconv    (<em class="parameter"><code><a class="link" href="GOFormatSel.html" title="GOFormatSel"><span class="type">GOFormatSel</span></a> *gfs</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gfs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_format_sel_set_dateconv ()">
+<a name="go-format-sel-set-dateconv"></a><h3>go_format_sel_set_dateconv ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_format_sel_set_dateconv          (<em class="parameter"><code><a class="link" href="GOFormatSel.html" title="GOFormatSel"><span class="type">GOFormatSel</span></a> *gfs</code></em>,
+                                                         <em class="parameter"><code><span class="type">GODateConventions</span> const *date_conv</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gfs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>date_conv</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_format_sel_show_preview ()">
+<a name="go-format-sel-show-preview"></a><h3>go_format_sel_show_preview ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_format_sel_show_preview          (<em class="parameter"><code><a class="link" href="GOFormatSel.html" title="GOFormatSel"><span class="type">GOFormatSel</span></a> *gfs</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>gfs</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_format_sel_hide_preview ()">
+<a name="go-format-sel-hide-preview"></a><h3>go_format_sel_hide_preview ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_format_sel_hide_preview          (<em class="parameter"><code><a class="link" href="GOFormatSel.html" title="GOFormatSel"><span class="type">GOFormatSel</span></a> *gfs</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>gfs</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_format_sel_editable_enters ()">
+<a name="go-format-sel-editable-enters"></a><h3>go_format_sel_editable_enters ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_format_sel_editable_enters       (<em class="parameter"><code><a class="link" href="GOFormatSel.html" title="GOFormatSel"><span class="type">GOFormatSel</span></a> *gfs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/unstable/GtkWindow.html"><span class="type">GtkWindow</span></a> *window</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gfs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_format_sel_format_classification ()">
+<a name="go-format-sel-format-classification"></a><h3>go_format_sel_format_classification ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const *        go_format_sel_format_classification (<em class="parameter"><code><a class="link" href="goffice-0.8-GOFormat.html#GOFormat" title="GOFormat"><span class="type">GOFormat</span></a> const *style_format</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style_format</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="GOFormatSel.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "format-changed" signal'>
+<a name="GOFormatSel-format-changed"></a><h3>The <code class="literal">"format-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GOFormatSel.html" title="GOFormatSel"><span class="type">GOFormatSel</span></a> *goformatsel,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     user_data)        : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>goformatsel</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "generate-preview" signal'>
+<a name="GOFormatSel-generate-preview"></a><h3>The <code class="literal">"generate-preview"</code> signal</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a>*              user_function                      (<a class="link" href="GOFormatSel.html" title="GOFormatSel"><span class="type">GOFormatSel</span></a> *goformatsel,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     user_data)        : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>goformatsel</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GogAxisMap</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch04.html" title="Utilities">
+<link rel="prev" href="goffice-0.8-GogChartMap.html" title="GogChartMap">
+<link rel="next" href="Gog3DBox.html" title="Gog3DBox">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="goffice-0.8-GogChartMap.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="Gog3DBox.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#goffice-0.8-GogAxisMap.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#goffice-0.8-GogAxisMap.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="GogAxisMap">
+<a name="goffice-0.8-GogAxisMap"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="goffice-0.8-GogAxisMap.top_of_page"></a>GogAxisMap</span></h2>
+<p>GogAxisMap</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="goffice-0.8-GogAxisMap.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gog-axis.h&gt;
+
+                    <a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap">GogAxisMap</a>;
+<a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="returnvalue">GogAxisMap</span></a>*         <a class="link" href="goffice-0.8-GogAxisMap.html#gog-axis-map-new" title="gog_axis_map_new ()">gog_axis_map_new</a>                    (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> offset</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> length</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-GogAxisMap.html#gog-axis-map" title="gog_axis_map ()">gog_axis_map</a>                        (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> value</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-GogAxisMap.html#gog-axis-map-to-view" title="gog_axis_map_to_view ()">gog_axis_map_to_view</a>                (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> value</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-GogAxisMap.html#gog-axis-map-derivative-to-view" title="gog_axis_map_derivative_to_view ()">gog_axis_map_derivative_to_view</a>     (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> value</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-GogAxisMap.html#gog-axis-map-from-view" title="gog_axis_map_from_view ()">gog_axis_map_from_view</a>              (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> value</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-GogAxisMap.html#gog-axis-map-finite" title="gog_axis_map_finite ()">gog_axis_map_finite</a>                 (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> value</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-GogAxisMap.html#gog-axis-map-get-baseline" title="gog_axis_map_get_baseline ()">gog_axis_map_get_baseline</a>           (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GogAxisMap.html#gog-axis-map-get-extents" title="gog_axis_map_get_extents ()">gog_axis_map_get_extents</a>            (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *start</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *stop</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GogAxisMap.html#gog-axis-map-get-bounds" title="gog_axis_map_get_bounds ()">gog_axis_map_get_bounds</a>             (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *minimum</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *maximum</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GogAxisMap.html#gog-axis-map-free" title="gog_axis_map_free ()">gog_axis_map_free</a>                   (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-GogAxisMap.html#gog-axis-map-is-valid" title="gog_axis_map_is_valid ()">gog_axis_map_is_valid</a>               (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-GogAxisMap.html#gog-axis-map-is-inverted" title="gog_axis_map_is_inverted ()">gog_axis_map_is_inverted</a>            (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-GogAxisMap.html#gog-axis-map-is-discrete" title="gog_axis_map_is_discrete ()">gog_axis_map_is_discrete</a>            (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="goffice-0.8-GogAxisMap.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="goffice-0.8-GogAxisMap.details"></a><h2>Details</h2>
+<div class="refsect2" title="GogAxisMap">
+<a name="GogAxisMap"></a><h3>GogAxisMap</h3>
+<pre class="programlisting">typedef struct _GogAxisMap GogAxisMap;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_map_new ()">
+<a name="gog-axis-map-new"></a><h3>gog_axis_map_new ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="returnvalue">GogAxisMap</span></a>*         gog_axis_map_new                    (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> offset</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> length</code></em>);</pre>
+<p>
+Creates a <a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> for data mapping to plot window.
+offset and length are optional parameters to be used with
+gog_axis_map_to_view in order to translates data coordinates
+into canvas space.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>a <a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>offset</code></em> :</span></p></td>
+<td>start of plot area.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td>length of plot area.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a newly allocated <a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_map ()">
+<a name="gog-axis-map"></a><h3>gog_axis_map ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              gog_axis_map                        (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> value</code></em>);</pre>
+<p>
+Converts <em class="parameter"><code>value</code></em> to plot coordinates. A value in [0,1.0] range means a data
+within axis bounds.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>map</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>value to map to plot space.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> mapped value.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_map_to_view ()">
+<a name="gog-axis-map-to-view"></a><h3>gog_axis_map_to_view ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              gog_axis_map_to_view                (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> value</code></em>);</pre>
+<p>
+Converts value from data space to canvas space, using
+offset and length parameters given to gog_axis_map_new.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>map</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>value to map to canvas space
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a value in canvas coordinates
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_map_derivative_to_view ()">
+<a name="gog-axis-map-derivative-to-view"></a><h3>gog_axis_map_derivative_to_view ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              gog_axis_map_derivative_to_view     (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> value</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>map</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>value to map to canvas space
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the derivative of the mapping expression at value.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_map_from_view ()">
+<a name="gog-axis-map-from-view"></a><h3>gog_axis_map_from_view ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              gog_axis_map_from_view              (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> value</code></em>);</pre>
+<p>
+Converts value from canvas space to data space.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>map</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>value to unmap from canvas space.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> value in data coordinates
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_map_finite ()">
+<a name="gog-axis-map-finite"></a><h3>gog_axis_map_finite ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_axis_map_finite                 (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> value</code></em>);</pre>
+<p>
+Tests whether <em class="parameter"><code>value</code></em> is valid for the given <em class="parameter"><code>map</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>map</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>value to test
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if value means something
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_map_get_baseline ()">
+<a name="gog-axis-map-get-baseline"></a><h3>gog_axis_map_get_baseline ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              gog_axis_map_get_baseline           (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>map</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the baseline for <em class="parameter"><code>map</code></em>, in view coordinates,
+	clipped to offset and offset+length, where offset and length
+	are the parameters of gog_axis_map_new.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_map_get_extents ()">
+<a name="gog-axis-map-get-extents"></a><h3>gog_axis_map_get_extents ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_axis_map_get_extents            (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *start</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *stop</code></em>);</pre>
+<p>
+Gets start and stop for the given axis map in data coordinates. If
+axis is not inverted, start = minimum and stop = maximum.  If axis is invalid,
+it'll return arbitrary bounds.
+</p>
+<p>
+Any of <em class="parameter"><code>start</code></em> and <em class="parameter"><code>stop</code></em> may be NULL.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>map</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>start</code></em> :</span></p></td>
+<td>location to store start for this axis
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stop</code></em> :</span></p></td>
+<td>location to store stop for this axis
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_map_get_bounds ()">
+<a name="gog-axis-map-get-bounds"></a><h3>gog_axis_map_get_bounds ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_axis_map_get_bounds             (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *minimum</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *maximum</code></em>);</pre>
+<p>
+Gets bounds for the given axis map in data coordinates. If axis is invalid,
+it'll return arbitrary bounds.
+</p>
+<p>
+Any of <em class="parameter"><code>minimum</code></em> and <em class="parameter"><code>maximum</code></em> may be NULL.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>map</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minimum</code></em> :</span></p></td>
+<td>location to store minimum for this axis
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>maximum</code></em> :</span></p></td>
+<td>location to store maximum for this axis
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_map_free ()">
+<a name="gog-axis-map-free"></a><h3>gog_axis_map_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_axis_map_free                   (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>);</pre>
+<p>
+Frees <a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>map</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_map_is_valid ()">
+<a name="gog-axis-map-is-valid"></a><h3>gog_axis_map_is_valid ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_axis_map_is_valid               (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>);</pre>
+<p>
+Tests if <em class="parameter"><code>map</code></em> was correctly initialized, i.e. if bounds are
+valid.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>map</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if map is valid
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_map_is_inverted ()">
+<a name="gog-axis-map-is-inverted"></a><h3>gog_axis_map_is_inverted ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_axis_map_is_inverted            (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>map</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> is the axis is inverted;
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_map_is_discrete ()">
+<a name="gog-axis-map-is-discrete"></a><h3>gog_axis_map_is_discrete ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_axis_map_is_discrete            (<em class="parameter"><code><a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a> *map</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>map</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GogAxisMap.html#GogAxisMap" title="GogAxisMap"><span class="type">GogAxisMap</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> is the axis is discrete;
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

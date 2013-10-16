@@ -1,0 +1,770 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GogGraph</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch02.html" title="Objects">
+<link rel="prev" href="ch02.html" title="Objects">
+<link rel="next" href="GogChart.html" title="GogChart">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch02.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GogChart.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GogGraph.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GogGraph.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GogGraph.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GogGraph.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#GogGraph.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#GogGraph.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="GogGraph">
+<a name="GogGraph"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GogGraph.top_of_page"></a>GogGraph</span></h2>
+<p>GogGraph — The graph object.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GogGraph.synopsis"></a><h2>Synopsis</h2>
+<a name="GogGraphView"></a><pre class="synopsis">                    <a class="link" href="GogGraph.html#GogGraph-struct" title="GogGraph">GogGraph</a>;
+                    <a class="link" href="GogGraph.html#GogGraphClass" title="GogGraphClass">GogGraphClass</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogGraph.html#gog-graph-validate-chart-layout" title="gog_graph_validate_chart_layout ()">gog_graph_validate_chart_layout</a>     (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph</code></em>);
+<span class="returnvalue">unsigned</span>            <a class="link" href="GogGraph.html#gog-graph-num-cols" title="gog_graph_num_cols ()">gog_graph_num_cols</a>                  (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> const *graph</code></em>);
+<span class="returnvalue">unsigned</span>            <a class="link" href="GogGraph.html#gog-graph-num-rows" title="gog_graph_num_rows ()">gog_graph_num_rows</a>                  (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> const *graph</code></em>);
+<a class="link" href="GogGraph.html" title="GogGraph"><span class="returnvalue">GogGraph</span></a> *          <a class="link" href="GogGraph.html#gog-graph-dup" title="gog_graph_dup ()">gog_graph_dup</a>                       (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> const *graph</code></em>);
+<a class="link" href="GogTheme.html" title="GogTheme"><span class="returnvalue">GogTheme</span></a> *          <a class="link" href="GogGraph.html#gog-graph-get-theme" title="gog_graph_get_theme ()">gog_graph_get_theme</a>                 (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> const *graph</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogGraph.html#gog-graph-set-theme" title="gog_graph_set_theme ()">gog_graph_set_theme</a>                 (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogTheme.html" title="GogTheme"><span class="type">GogTheme</span></a> *theme</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="GogGraph.html#gog-graph-get-data" title="gog_graph_get_data ()">gog_graph_get_data</a>                  (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> const *graph</code></em>);
+<a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            <a class="link" href="GogGraph.html#gog-graph-ref-data" title="gog_graph_ref_data ()">gog_graph_ref_data</a>                  (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *dat</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogGraph.html#gog-graph-unref-data" title="gog_graph_unref_data ()">gog_graph_unref_data</a>                (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *dat</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogGraph.html#gog-graph-get-size" title="gog_graph_get_size ()">gog_graph_get_size</a>                  (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *height</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogGraph.html#gog-graph-set-size" title="gog_graph_set_size ()">gog_graph_set_size</a>                  (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> height</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="GogGraph.html#gog-graph-get-supported-image-formats" title="gog_graph_get_supported_image_formats ()">gog_graph_get_supported_image_formats</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogGraph.html#gog-graph-export-image" title="gog_graph_export_image ()">gog_graph_export_image</a>              (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-go-image.html#GOImageFormat" title="enum GOImageFormat"><span class="type">GOImageFormat</span></a> format</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-Output-to-unstructured-files.html#GsfOutput"><span class="type">GsfOutput</span></a> *output</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x_dpi</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y_dpi</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogGraph.html#gog-graph-render-to-cairo" title="gog_graph_render_to_cairo ()">gog_graph_render_to_cairo</a>           (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cairo</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> w</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> h</code></em>);
+
+                    <a class="link" href="GogGraph.html#GogGraphView-struct" title="GogGraphView">GogGraphView</a>;
+<span class="returnvalue">void</span>                <a class="link" href="GogGraph.html#gog-graph-view-handle-event" title="gog_graph_view_handle_event ()">gog_graph_view_handle_event</a>         (<em class="parameter"><code><a class="link" href="GogGraph.html#GogGraphView"><span class="type">GogGraphView</span></a> *gview</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk/unstable/gdk-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x_offset</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y_offset</code></em>);
+<a class="link" href="GogView.html" title="GogView"><span class="returnvalue">GogView</span></a> *           <a class="link" href="GogGraph.html#gog-graph-view-get-selection" title="gog_graph_view_get_selection ()">gog_graph_view_get_selection</a>        (<em class="parameter"><code><a class="link" href="GogGraph.html#GogGraphView"><span class="type">GogGraphView</span></a> *gview</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogGraph.html#gog-graph-view-set-selection" title="gog_graph_view_set_selection ()">gog_graph_view_set_selection</a>        (<em class="parameter"><code><a class="link" href="GogGraph.html#GogGraphView"><span class="type">GogGraphView</span></a> *gview</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a> *gobj</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GogGraph.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GogObject.html" title="GogObject">GogObject</a>
+         +----<a class="link" href="GogStyledObject.html" title="GogStyledObject">GogStyledObject</a>
+               +----<a class="link" href="GogOutlinedObject.html" title="GogOutlinedObject">GogOutlinedObject</a>
+                     +----GogGraph
+</pre>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GogView.html" title="GogView">GogView</a>
+         +----GogOutlinedView
+               +----GogGraphView
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GogGraph.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GogGraph implements
+ <a class="link" href="GOStyledObject.html" title="GOStyledObject">GOStyledObject</a>.</p>
+</div>
+<div class="refsect1" title="Properties">
+<a name="GogGraph.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GogGraph.html#GogGraph--document" title='The "document" property'>document</a>"                 <a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a>*                : Read / Write
+  "<a class="link" href="GogGraph.html#GogGraph--height-pts" title='The "height-pts" property'>height-pts</a>"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write
+  "<a class="link" href="GogGraph.html#GogGraph--theme" title='The "theme" property'>theme</a>"                    <a class="link" href="GogTheme.html" title="GogTheme"><span class="type">GogTheme</span></a>*             : Read / Write
+  "<a class="link" href="GogGraph.html#GogGraph--theme-name" title='The "theme-name" property'>theme-name</a>"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
+  "<a class="link" href="GogGraph.html#GogGraph--width-pts" title='The "width-pts" property'>width-pts</a>"                <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write
+  "<a class="link" href="GogGraph.html#GogGraphView--renderer" title='The "renderer" property'>renderer</a>"                 <a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a>*          : Write
+</pre>
+</div>
+<div class="refsect1" title="Signals">
+<a name="GogGraph.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GogGraph.html#GogGraph-add-data" title='The "add-data" signal'>add-data</a>"                                       : Run Last
+  "<a class="link" href="GogGraph.html#GogGraph-remove-data" title='The "remove-data" signal'>remove-data</a>"                                    : Run Last
+  "<a class="link" href="GogGraph.html#GogGraphView-selection-changed" title='The "selection-changed" signal'>selection-changed</a>"                              : Run Last
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GogGraph.description"></a><h2>Description</h2>
+<p>
+A graph (in the abstract sense) in GOffice is an hierarical object model,
+with a <a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> object as the top-level object.
+Objects that can be part of a graph is a subclass of <a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a>. Those, and
+related objects have the prefix "Gog" in the class name.
+See <a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a> for how to manipulate the object model, and the individual
+classes for specifics.
+</p>
+<p>
+A <a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> can have 1 or more children in the roles "Chart" and "Title".
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GogGraph.details"></a><h2>Details</h2>
+<div class="refsect2" title="GogGraph">
+<a name="GogGraph-struct"></a><h3>GogGraph</h3>
+<pre class="programlisting">typedef struct _GogGraph GogGraph;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GogGraphClass">
+<a name="GogGraphClass"></a><h3>GogGraphClass</h3>
+<pre class="programlisting">typedef struct {
+	GogOutlinedObjectClass base;
+
+	/* signals */
+	void (*add_data)    (GogGraph *graph, GOData *input);
+	void (*remove_data) (GogGraph *graph, GOData *input);
+} GogGraphClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gog_graph_validate_chart_layout ()">
+<a name="gog-graph-validate-chart-layout"></a><h3>gog_graph_validate_chart_layout ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_graph_validate_chart_layout     (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph</code></em>);</pre>
+<p>
+Check the layout of the chart grid and ensure that there are no empty
+cols or rows, and resize as necessary
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>graph</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if anything changed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_graph_num_cols ()">
+<a name="gog-graph-num-cols"></a><h3>gog_graph_num_cols ()</h3>
+<pre class="programlisting"><span class="returnvalue">unsigned</span>            gog_graph_num_cols                  (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> const *graph</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>graph</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_graph_num_rows ()">
+<a name="gog-graph-num-rows"></a><h3>gog_graph_num_rows ()</h3>
+<pre class="programlisting"><span class="returnvalue">unsigned</span>            gog_graph_num_rows                  (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> const *graph</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>graph</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_graph_dup ()">
+<a name="gog-graph-dup"></a><h3>gog_graph_dup ()</h3>
+<pre class="programlisting"><a class="link" href="GogGraph.html" title="GogGraph"><span class="returnvalue">GogGraph</span></a> *          gog_graph_dup                       (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> const *graph</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>graph</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a deep copy of <em class="parameter"><code>graph</code></em>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_graph_get_theme ()">
+<a name="gog-graph-get-theme"></a><h3>gog_graph_get_theme ()</h3>
+<pre class="programlisting"><a class="link" href="GogTheme.html" title="GogTheme"><span class="returnvalue">GogTheme</span></a> *          gog_graph_get_theme                 (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> const *graph</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>graph</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_graph_set_theme ()">
+<a name="gog-graph-set-theme"></a><h3>gog_graph_set_theme ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_graph_set_theme                 (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogTheme.html" title="GogTheme"><span class="type">GogTheme</span></a> *theme</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>graph</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>theme</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_graph_get_data ()">
+<a name="gog-graph-get-data"></a><h3>gog_graph_get_data ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            gog_graph_get_data                  (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> const *graph</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>graph</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a list of the GOData objects that are data to the graph.
+The caller should _not_ modify or free the list.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_graph_ref_data ()">
+<a name="gog-graph-ref-data"></a><h3>gog_graph_ref_data ()</h3>
+<pre class="programlisting"><a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            gog_graph_ref_data                  (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *dat</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>graph</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dat</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <em class="parameter"><code>dat</code></em> or something equivalent to it that already exists in the graph.
+	Otherwise use <em class="parameter"><code>dat</code></em>.  Adds a gobject ref to the target and increments a
+ count of the number of refs made from this <a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_graph_unref_data ()">
+<a name="gog-graph-unref-data"></a><h3>gog_graph_unref_data ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_graph_unref_data                (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *dat</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>graph</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dat</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_graph_get_size ()">
+<a name="gog-graph-get-size"></a><h3>gog_graph_get_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_graph_get_size                  (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *height</code></em>);</pre>
+<p>
+FIXME Returns the logical size of graph, in points.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>graph</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>logical width in pts
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>logical height in pts
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_graph_set_size ()">
+<a name="gog-graph-set-size"></a><h3>gog_graph_set_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_graph_set_size                  (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> height</code></em>);</pre>
+<p>
+Sets the logical size of graph, given in points.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>graph</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>logical width in pts
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>logical height in pts
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_graph_get_supported_image_formats ()">
+<a name="gog-graph-get-supported-image-formats"></a><h3>gog_graph_get_supported_image_formats ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            gog_graph_get_supported_image_formats
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Builds a list of supported formats for image export.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> of <a class="link" href="goffice-0.8-go-image.html#GOImageFormat" title="enum GOImageFormat"><span class="type">GOImageFormat</span></a>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_graph_export_image ()">
+<a name="gog-graph-export-image"></a><h3>gog_graph_export_image ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_graph_export_image              (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-go-image.html#GOImageFormat" title="enum GOImageFormat"><span class="type">GOImageFormat</span></a> format</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-Output-to-unstructured-files.html#GsfOutput"><span class="type">GsfOutput</span></a> *output</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x_dpi</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y_dpi</code></em>);</pre>
+<p>
+Exports an image of <em class="parameter"><code>graph</code></em> in given <em class="parameter"><code>format</code></em>, writing results in a <a href="/usr/share/gtk-doc/html/gsf/gsf-Output-to-unstructured-files.html#GsfOutput"><span class="type">GsfOutput</span></a> stream.
+If export format type is a bitmap one, it computes image size with x_dpi, y_dpi and
+<em class="parameter"><code>graph</code></em> size (see @<a class="link" href="GogGraph.html#gog-graph-get-size" title="gog_graph_get_size ()"><code class="function">gog_graph_get_size()</code></a>).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>graph</code></em> :</span></p></td>
+<td>a <a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td>image format for export
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>output</code></em> :</span></p></td>
+<td>a <a href="/usr/share/gtk-doc/html/gsf/gsf-Output-to-unstructured-files.html#GsfOutput"><span class="type">GsfOutput</span></a> stream
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x_dpi</code></em> :</span></p></td>
+<td>x resolution of exported graph
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y_dpi</code></em> :</span></p></td>
+<td>y resolution of exported graph
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if export succeed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_graph_render_to_cairo ()">
+<a name="gog-graph-render-to-cairo"></a><h3>gog_graph_render_to_cairo ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_graph_render_to_cairo           (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cairo</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> w</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> h</code></em>);</pre>
+<p>
+Renders a graph using <em class="parameter"><code>cairo</code></em>. <em class="parameter"><code>w</code></em> and <em class="parameter"><code>h</code></em> are the requested width an height of the rendered graph, in the current <em class="parameter"><code>cairo</code></em> coordinate space. This function is not suited for multiple rendering of the same graph. gog_renderer_render_to cairo or gog_renderer_update/gog_renderer_get_cairo_surface should be used instead.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>graph</code></em> :</span></p></td>
+<td>a <a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cairo</code></em> :</span></p></td>
+<td>a cairo context
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>w</code></em> :</span></p></td>
+<td>width
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>h</code></em> :</span></p></td>
+<td>height
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GogGraphView">
+<a name="GogGraphView-struct"></a><h3>GogGraphView</h3>
+<pre class="programlisting">typedef struct _GogGraphView GogGraphView;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gog_graph_view_handle_event ()">
+<a name="gog-graph-view-handle-event"></a><h3>gog_graph_view_handle_event ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_graph_view_handle_event         (<em class="parameter"><code><a class="link" href="GogGraph.html#GogGraphView"><span class="type">GogGraphView</span></a> *gview</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk/unstable/gdk-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x_offset</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y_offset</code></em>);</pre>
+<p>
+Handle events.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gview</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogGraph.html#GogGraphView"><span class="type">GogGraphView</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/gdk/unstable/gdk-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x_offset</code></em> :</span></p></td>
+<td>in pixels
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y_offset</code></em> :</span></p></td>
+<td>in pixels
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_graph_view_get_selection ()">
+<a name="gog-graph-view-get-selection"></a><h3>gog_graph_view_get_selection ()</h3>
+<pre class="programlisting"><a class="link" href="GogView.html" title="GogView"><span class="returnvalue">GogView</span></a> *           gog_graph_view_get_selection        (<em class="parameter"><code><a class="link" href="GogGraph.html#GogGraphView"><span class="type">GogGraphView</span></a> *gview</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gview</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogGraph.html#GogGraphView"><span class="type">GogGraphView</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> current selected view.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_graph_view_set_selection ()">
+<a name="gog-graph-view-set-selection"></a><h3>gog_graph_view_set_selection ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_graph_view_set_selection        (<em class="parameter"><code><a class="link" href="GogGraph.html#GogGraphView"><span class="type">GogGraphView</span></a> *gview</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a> *gobj</code></em>);</pre>
+<p>
+Sets <em class="parameter"><code>gobj</code></em> as current selection. If <em class="parameter"><code>gobj</code></em> is different from previously
+selected object, a selection-changed signal is emitted.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gview</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogGraph.html#GogGraphView"><span class="type">GogGraphView</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gobj</code></em> :</span></p></td>
+<td>new selected object
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="GogGraph.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "document" property'>
+<a name="GogGraph--document"></a><h3>The <code class="literal">"document"</code> property</h3>
+<pre class="programlisting">  "document"                 <a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a>*                : Read / Write</pre>
+<p>the document for this graph.</p>
+</div>
+<hr>
+<div class="refsect2" title='The "height-pts" property'>
+<a name="GogGraph--height-pts"></a><h3>The <code class="literal">"height-pts"</code> property</h3>
+<pre class="programlisting">  "height-pts"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write</pre>
+<p>Logical graph height, in points.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 226.772</p>
+</div>
+<hr>
+<div class="refsect2" title='The "theme" property'>
+<a name="GogGraph--theme"></a><h3>The <code class="literal">"theme"</code> property</h3>
+<pre class="programlisting">  "theme"                    <a class="link" href="GogTheme.html" title="GogTheme"><span class="type">GogTheme</span></a>*             : Read / Write</pre>
+<p>The theme for elements of the graph.</p>
+</div>
+<hr>
+<div class="refsect2" title='The "theme-name" property'>
+<a name="GogGraph--theme-name"></a><h3>The <code class="literal">"theme-name"</code> property</h3>
+<pre class="programlisting">  "theme-name"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
+<p>The name of the theme for elements of the graph.</p>
+<p>Default value: "default"</p>
+</div>
+<hr>
+<div class="refsect2" title='The "width-pts" property'>
+<a name="GogGraph--width-pts"></a><h3>The <code class="literal">"width-pts"</code> property</h3>
+<pre class="programlisting">  "width-pts"                <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write</pre>
+<p>Logical graph width, in points.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 340.157</p>
+</div>
+<hr>
+<div class="refsect2" title='The "renderer" property'>
+<a name="GogGraphView--renderer"></a><h3>The <code class="literal">"renderer"</code> property</h3>
+<pre class="programlisting">  "renderer"                 <a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a>*          : Write</pre>
+<p>the renderer for this view.</p>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="GogGraph.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "add-data" signal'>
+<a name="GogGraph-add-data"></a><h3>The <code class="literal">"add-data"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph,
+                                                        <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>  *data,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>  user_data)      : Run Last</pre>
+<p>
+The ::add-data signal is emitted BEFORE <em class="parameter"><code>data</code></em> has been added.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>graph</code></em> :</span></p></td>
+<td>the object on which the signal is emitted
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>The new <a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> being added to <em class="parameter"><code>graph</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "remove-data" signal'>
+<a name="GogGraph-remove-data"></a><h3>The <code class="literal">"remove-data"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph,
+                                                        <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>  *data,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>  user_data)      : Run Last</pre>
+<p>
+The ::remove-data signal is emitted BEFORE <em class="parameter"><code>data</code></em> has been removed.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>graph</code></em> :</span></p></td>
+<td>the object on which the signal is emitted
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>The new <a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> being removed to <em class="parameter"><code>graph</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "selection-changed" signal'>
+<a name="GogGraphView-selection-changed"></a><h3>The <code class="literal">"selection-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GogGraph.html#GogGraphView"><span class="type">GogGraphView</span></a> *goggraphview,
+                                                        <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>      *arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>      user_data)         : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>goggraphview</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

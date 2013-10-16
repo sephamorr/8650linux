@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>gcr-tree-selector</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Gcr Library Reference Manual">
+<link rel="up" href="widgets.html" title="Part III. Widgets">
+<link rel="prev" href="gcr-gcr-list-selector.html" title="gcr-list-selector">
+<link rel="next" href="gcr-gcr-renderer.html" title="gcr-renderer">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gcr-gcr-list-selector.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="widgets.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Gcr Library Reference Manual</th>
+<td><a accesskey="n" href="gcr-gcr-renderer.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gcr-gcr-tree-selector.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gcr-gcr-tree-selector.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#gcr-gcr-tree-selector.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#gcr-gcr-tree-selector.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#gcr-gcr-tree-selector.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gcr-gcr-tree-selector"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gcr-gcr-tree-selector.top_of_page"></a>gcr-tree-selector</span></h2>
+<p>gcr-tree-selector</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gcr-gcr-tree-selector.synopsis"></a><h2>Synopsis</h2>
+<a name="GcrTreeSelector"></a><pre class="synopsis">struct              <a class="link" href="gcr-gcr-tree-selector.html#GcrTreeSelector-struct" title="struct GcrTreeSelector">GcrTreeSelector</a>;
+struct              <a class="link" href="gcr-gcr-tree-selector.html#GcrTreeSelectorClass" title="struct GcrTreeSelectorClass">GcrTreeSelectorClass</a>;
+<a class="link" href="GcrCollection.html" title="GcrCollection"><span class="returnvalue">GcrCollection</span></a> *     <a class="link" href="gcr-gcr-tree-selector.html#gcr-tree-selector-get-collection" title="gcr_tree_selector_get_collection ()">gcr_tree_selector_get_collection</a>    (<em class="parameter"><code><a class="link" href="gcr-gcr-tree-selector.html#GcrTreeSelector"><span class="type">GcrTreeSelector</span></a> *self</code></em>);
+const <a class="link" href="gcr-GcrColumn.html#GcrColumn" title="GcrColumn"><span class="returnvalue">GcrColumn</span></a> *   <a class="link" href="gcr-gcr-tree-selector.html#gcr-tree-selector-get-columns" title="gcr_tree_selector_get_columns ()">gcr_tree_selector_get_columns</a>       (<em class="parameter"><code><a class="link" href="gcr-gcr-tree-selector.html#GcrTreeSelector"><span class="type">GcrTreeSelector</span></a> *self</code></em>);
+<a class="link" href="gcr-gcr-tree-selector.html#GcrTreeSelector"><span class="returnvalue">GcrTreeSelector</span></a> *   <a class="link" href="gcr-gcr-tree-selector.html#gcr-tree-selector-new" title="gcr_tree_selector_new ()">gcr_tree_selector_new</a>               (<em class="parameter"><code><a class="link" href="GcrCollection.html" title="GcrCollection"><span class="type">GcrCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gcr-GcrColumn.html#GcrColumn" title="GcrColumn"><span class="type">GcrColumn</span></a> *columns</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="gcr-gcr-tree-selector.html#gcr-tree-selector-get-selected" title="gcr_tree_selector_get_selected ()">gcr_tree_selector_get_selected</a>      (<em class="parameter"><code><a class="link" href="gcr-gcr-tree-selector.html#GcrTreeSelector"><span class="type">GcrTreeSelector</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gcr-gcr-tree-selector.html#gcr-tree-selector-set-selected" title="gcr_tree_selector_set_selected ()">gcr_tree_selector_set_selected</a>      (<em class="parameter"><code><a class="link" href="gcr-gcr-tree-selector.html#GcrTreeSelector"><span class="type">GcrTreeSelector</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *selected</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-tree-selector.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----<a href="http://developer.gnome.org/gtk2/GtkWidget.html">GtkWidget</a>
+               +----<a href="http://developer.gnome.org/gtk2/GtkContainer.html">GtkContainer</a>
+                     +----<a href="http://developer.gnome.org/gtk2/GtkTreeView.html">GtkTreeView</a>
+                           +----GcrTreeSelector
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-tree-selector.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GcrTreeSelector implements
+ AtkImplementorIface,  <a href="http://developer.gnome.org/gtk2/GtkBuildable.html">GtkBuildable</a> and  <a href="http://developer.gnome.org/gtk2/GtkScrollable.html">GtkScrollable</a>.</p>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-tree-selector.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="gcr-gcr-tree-selector.html#GcrTreeSelector--collection" title='The "collection" property'>collection</a>"               <a class="link" href="GcrCollection.html" title="GcrCollection"><span class="type">GcrCollection</span></a>*        : Read / Write / Construct Only
+  "<a class="link" href="gcr-gcr-tree-selector.html#GcrTreeSelector--columns" title='The "columns" property'>columns</a>"                  <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>              : Read / Write / Construct Only
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-tree-selector.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-tree-selector.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GcrTreeSelector-struct"></a><h3>struct GcrTreeSelector</h3>
+<pre class="programlisting">struct GcrTreeSelector;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GcrTreeSelectorClass"></a><h3>struct GcrTreeSelectorClass</h3>
+<pre class="programlisting">struct GcrTreeSelectorClass {
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-tree-selector-get-collection"></a><h3>gcr_tree_selector_get_collection ()</h3>
+<pre class="programlisting"><a class="link" href="GcrCollection.html" title="GcrCollection"><span class="returnvalue">GcrCollection</span></a> *     gcr_tree_selector_get_collection    (<em class="parameter"><code><a class="link" href="gcr-gcr-tree-selector.html#GcrTreeSelector"><span class="type">GcrTreeSelector</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-tree-selector-get-columns"></a><h3>gcr_tree_selector_get_columns ()</h3>
+<pre class="programlisting">const <a class="link" href="gcr-GcrColumn.html#GcrColumn" title="GcrColumn"><span class="returnvalue">GcrColumn</span></a> *   gcr_tree_selector_get_columns       (<em class="parameter"><code><a class="link" href="gcr-gcr-tree-selector.html#GcrTreeSelector"><span class="type">GcrTreeSelector</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-tree-selector-new"></a><h3>gcr_tree_selector_new ()</h3>
+<pre class="programlisting"><a class="link" href="gcr-gcr-tree-selector.html#GcrTreeSelector"><span class="returnvalue">GcrTreeSelector</span></a> *   gcr_tree_selector_new               (<em class="parameter"><code><a class="link" href="GcrCollection.html" title="GcrCollection"><span class="type">GcrCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gcr-GcrColumn.html#GcrColumn" title="GcrColumn"><span class="type">GcrColumn</span></a> *columns</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-tree-selector-get-selected"></a><h3>gcr_tree_selector_get_selected ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             gcr_tree_selector_get_selected      (<em class="parameter"><code><a class="link" href="gcr-gcr-tree-selector.html#GcrTreeSelector"><span class="type">GcrTreeSelector</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-tree-selector-set-selected"></a><h3>gcr_tree_selector_set_selected ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcr_tree_selector_set_selected      (<em class="parameter"><code><a class="link" href="gcr-gcr-tree-selector.html#GcrTreeSelector"><span class="type">GcrTreeSelector</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *selected</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-tree-selector.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="GcrTreeSelector--collection"></a><h3>The <code class="literal">"collection"</code> property</h3>
+<pre class="programlisting">  "collection"               <a class="link" href="GcrCollection.html" title="GcrCollection"><span class="type">GcrCollection</span></a>*        : Read / Write / Construct Only</pre>
+<p>Collection to select from.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GcrTreeSelector--columns"></a><h3>The <code class="literal">"columns"</code> property</h3>
+<pre class="programlisting">  "columns"                  <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>              : Read / Write / Construct Only</pre>
+<p>Columns to display in selector.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

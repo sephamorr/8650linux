@@ -1,0 +1,599 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GogTheme</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch04.html" title="Utilities">
+<link rel="prev" href="goffice-0.8-GogPlotEngine.html" title="GogPlotEngine">
+<link rel="next" href="goffice-0.8-GogChartMap.html" title="GogChartMap">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="goffice-0.8-GogPlotEngine.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="goffice-0.8-GogChartMap.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GogTheme.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GogTheme.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GogTheme.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry" title="GogTheme">
+<a name="GogTheme"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GogTheme.top_of_page"></a>GogTheme</span></h2>
+<p>GogTheme — a list of default styles to apply to appropriate graph elements.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GogTheme.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="GogTheme.html#GOG-TYPE-THEME:CAPS" title="GOG_TYPE_THEME">GOG_TYPE_THEME</a>
+#define             <a class="link" href="GogTheme.html#GOG-THEME:CAPS" title="GOG_THEME()">GOG_THEME</a>                           (o)
+#define             <a class="link" href="GogTheme.html#GOG-IS-THEME:CAPS" title="GOG_IS_THEME()">GOG_IS_THEME</a>                        (o)
+                    <a class="link" href="GogTheme.html#GogTheme-struct" title="GogTheme">GogTheme</a>;
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GogTheme.html#gog-theme-get-type" title="gog_theme_get_type ()">gog_theme_get_type</a>                  (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">char</span> const *        <a class="link" href="GogTheme.html#gog-theme-get-name" title="gog_theme_get_name ()">gog_theme_get_name</a>                  (<em class="parameter"><code><a class="link" href="GogTheme.html" title="GogTheme"><span class="type">GogTheme</span></a> const *theme</code></em>);
+<span class="returnvalue">char</span> const *        <a class="link" href="GogTheme.html#gog-theme-get-local-name" title="gog_theme_get_local_name ()">gog_theme_get_local_name</a>            (<em class="parameter"><code><a class="link" href="GogTheme.html" title="GogTheme"><span class="type">GogTheme</span></a> const *theme</code></em>);
+<span class="returnvalue">char</span> const *        <a class="link" href="GogTheme.html#gog-theme-get-description" title="gog_theme_get_description ()">gog_theme_get_description</a>           (<em class="parameter"><code><a class="link" href="GogTheme.html" title="GogTheme"><span class="type">GogTheme</span></a> const *theme</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogTheme.html#gog-theme-fillin-style" title="gog_theme_fillin_style ()">gog_theme_fillin_style</a>              (<em class="parameter"><code><a class="link" href="GogTheme.html" title="GogTheme"><span class="type">GogTheme</span></a> const *theme</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a> const *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> ind</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html#GOStyleFlag" title="enum GOStyleFlag"><span class="type">GOStyleFlag</span></a> relevant_fields</code></em>);
+<a class="link" href="GogTheme.html" title="GogTheme"><span class="returnvalue">GogTheme</span></a> *          <a class="link" href="GogTheme.html#gog-theme-registry-lookup" title="gog_theme_registry_lookup ()">gog_theme_registry_lookup</a>           (<em class="parameter"><code><span class="type">char</span> const *name</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="GogTheme.html#gog-theme-registry-get-theme-names" title="gog_theme_registry_get_theme_names ()">gog_theme_registry_get_theme_names</a>  (<em class="parameter"><code><span class="type">void</span></code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GogTheme.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GogTheme
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GogTheme.description"></a><h2>Description</h2>
+<p>
+The library provides two hard coded themes, "Default", and "Guppi". Other themes
+are described in files, some of which might be distributed with the library.
+</p>
+<p>
+A file defining a theme is an xml file with a &lt;GogTheme&gt; root node. The contents
+must be: _name|name+, _description?|description*, GOStyle+.
+</p>
+<p>
+_name and name nodes:
+</p>
+<p>
+The _name node should be used for themes distributed with goffice, localized
+names will be in *.po files and only the default name for "C" locale needs to
+be there. Other files need at least one name node for the default name, and
+might have some translated names with an appropriate "xml:lang" attribute.
+</p>
+<p>
+_description and description nodes:
+</p>
+<p>
+These work just like name nodes. The difference is that no description node is
+mandatory. A theme can work perfectly without a description.
+</p>
+<p>
+GOStyle nodes:
+</p>
+<p>
+These nodes actually define the theme. Attributes and contents are:
+attributes: class, role.
+contents: (line|outline)?, fill?, marker?, font?, text_layout?
+</p>
+<p>
+The attributes define the target for the style. You might have a class and
+a role attribute, or just one of them. If the role attribute is given, the class attribute,
+if given, represents the class of the parent object.
+A GOStyle node with no class or role will be used
+as default when another style is missing. If several such nodes exist, the
+last one will be used. If no default style exists, the "Default" theme is applied for
+missing nodes.
+The list of GOStyle nodes might be:
+</p>
+<table style="border-spacing:1cm 2mm" id="id2646642">
+<thead><tr>
+<td>class</td>
+<td>role</td>
+<td>contents</td>
+<td>comments</td>
+</tr></thead>
+<tr>
+<td>GogGraph</td>
+<td></td>
+<td>outline, fill</td>
+</tr>
+<tr>
+<td>GogGraph</td>
+<td>Title</td>
+<td>outline, fill, font, text_layout</td>
+<td>The graph title</td>
+</tr>
+<tr>
+<td>GogChart</td>
+<td></td>
+<td>outline, fill</td>
+</tr>
+<tr>
+<td>GogChart</td>
+<td>Title</td>
+<td>outline, fill, font, text_layout</td>
+<td>The chart title</td>
+</tr>
+<tr>
+<td>GogLegend</td>
+<td></td>
+<td>outline, fill, font</td>
+</tr>
+<tr>
+<td>GogAxis</td>
+<td></td>
+<td>line, font, text_layout</td>
+</tr>
+<tr>
+<td>GogAxisLine</td>
+<td></td>
+<td>line, font</td>
+</tr>
+<tr>
+<td>GogGrid</td>
+<td></td>
+<td>outline, fill</td>
+<td>GogGrid is actually the back plane</td>
+</tr>
+<tr>
+<td> </td>
+<td>MajorGrid</td>
+<td>line, fill</td>
+</tr>
+<tr>
+<td> </td>
+<td>MinorGrid</td>
+<td>line, fill</td>
+</tr>
+<tr>
+<td>GogLabel</td>
+<td></td>
+<td>outline, fill, font, text_layout</td>
+</tr>
+<tr>
+<td>GogSeries</td>
+<td></td>
+<td>line, fill, marker</td>
+<td>One is needed for each entry in the palette</td>
+</tr>
+<tr>
+<td>GogTrendLine</td>
+<td></td>
+<td>line, fill</td>
+</tr>
+<tr>
+<td>GogReqEqn</td>
+<td></td>
+<td>line, fill, font, text_layout</td>
+</tr>
+</table>
+<p>
+</p>
+<p>
+The line and outline nodes are actually the same so using line in place of outline is
+not an issue. A color is specified either using the format RR:GG::BB:AA or a string as defined
+in rgb.txt, so black can be specified as "black" or "00:00:00:FF".
+</p>
+<p>
+"line" or "outline" node:
+</p>
+<p>
+</p>
+<table style="border-spacing:1cm 2mm" id="id2646806">
+<thead>
+<tr>
+<td>attribute</td>
+<td>value</td>
+</tr>
+<td>comments</td>
+</thead>
+<tr>
+<td>dash</td>
+<td>one of "none", "solid", "s-dot", "s-dash-dot", "s-dash-dot-dot", "dash-dot-dot-dot", "dot",
+"s-dash", "dash", "l-dash", "dash-dot", or "dash-dot-dot"</td>
+</tr>
+<tr>
+<td>color</td>
+<td>any color as described above</td>
+</tr>
+<tr>
+<td>width</td>
+<td>float</td>
+<td>not always taken into account</td>
+</tr>
+</table>
+<p>
+</p>
+<p>
+"fill" node
+</p>
+<p>
+contents: (pattern|gradient)?
+</p>
+<table style="border-spacing:1cm 2mm" id="id2648659">
+<thead><tr>
+<td>attribute</td>
+<td>value</td>
+<td>comments</td>
+</tr></thead>
+<tr>
+<td>type</td>
+<td>one of "none", "pattern", or "gradient"</td>
+</tr>
+</table>
+<p>
+</p>
+<p>
+"pattern" node
+</p>
+<p>
+Should be included in the fill node if type is pattern.
+</p>
+<table style="border-spacing:1cm 2mm" id="id2648690">
+<thead><tr>
+<td>attribute</td>
+<td>value</td>
+</tr></thead>
+<tr>
+<td>type</td>
+<td>one of "solid", "grey75", "grey50", "grey25", "grey12.5",
+"grey6.25", "horiz", "vert", "rev-diag", "diag", "diag-cross", "thick-diag-cross",
+"thin-horiz", "thin-vert", "thin-rev-diag", "thin-diag", "thin-horiz-cross",
+"thin-diag-cross", "foreground-solid", "small-circles","semi-circles", "thatch",
+"large-circles", or "bricks"</td>
+</tr>
+<tr>
+<td>fore</td>
+<td>any color as described above</td>
+</tr>
+<tr>
+<td>back</td>
+<td>any color as described above</td>
+</tr>
+</table>
+<p>
+</p>
+<p>
+"gradient" node
+</p>
+<p>
+Should be included in the fill node if type is gradient.
+</p>
+<table style="border-spacing:1cm 2mm" id="id2648739">
+<thead><tr>
+<td>attribute</td>
+<td>value</td>
+<td>comments</td>
+</tr></thead>
+<tr>
+<td>direction</td>
+<td>one of "n-s", "s-n", "n-s-mirrored", "s-n-mirrored",
+"w-e", "e-w", "w-e-mirrored", "e-w-mirrored", "nw-se", "se-nw", "nw-se-mirrored",
+"se-nw-mirrored", "ne-sw", "sw-ne", "sw-ne-mirrored", or "ne-sw-mirrored" </td>
+<td></td>
+</tr>
+<tr>
+<td>start_color</td>
+<td>any color as described above</td>
+<td></td>
+</tr>
+<tr>
+<td>brightness</td>
+<td>float</td>
+<td>meaningful only for monocolor gradients</td>
+</tr>
+<tr>
+<td>end_color</td>
+<td>any color as described above</td>
+<td>meaningful only for bicolor gradients</td>
+</tr>
+</table>
+<p>
+</p>
+<p>
+"marker" node
+</p>
+<p>
+</p>
+<table style="border-spacing:1cm 2mm" id="id2648801">
+<thead><tr>
+<td>attribute</td>
+<td>value</td>
+<td>comments</td>
+</tr></thead>
+<tr>
+<td>shape</td>
+<td>one of "none", "square", "diamond", "triangle-down",
+"triangle-up", "triangle-right", "triangle-left", "circle", "x", "cross",
+"asterisk", "bar", "half-bar", "butterfly", "hourglass", or "lefthalf-bar"</td>
+<td></td>
+</tr>
+<tr>
+<td>fill-color</td>
+<td>any color as described above</td>
+<td></td>
+</tr>
+<tr>
+<td>outline-color</td>
+<td>any color as described above</td>
+<td></td>
+</tr>
+<tr>
+<td>size</td>
+<td>float</td>
+<td>not always taken into account</td>
+</tr>
+</table>
+<p>
+</p>
+<p>
+"font" node
+</p>
+<table style="border-spacing:1cm 2mm" id="id2648858">
+<thead><tr>
+<td>attribute</td>
+<td>value</td>
+</tr></thead>
+<tr>
+<td>color</td>
+<td>any color as described above</td>
+</tr>
+<tr>
+<td>font</td>
+<td>a string describing the font such as "Sans 10"</td>
+</tr>
+</table>
+<p>
+</p>
+<p>
+"text_layout" node
+</p>
+<table style="border-spacing:1cm 2mm" id="id2648890">
+<thead><tr>
+<td>attribute</td>
+<td>value</td>
+<td>comments</td>
+</tr></thead>
+<tr>
+<td>angle</td>
+<td>float</td>
+<td>expressed in degrees</td>
+</tr>
+</table>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GogTheme.details"></a><h2>Details</h2>
+<div class="refsect2" title="GOG_TYPE_THEME">
+<a name="GOG-TYPE-THEME:CAPS"></a><h3>GOG_TYPE_THEME</h3>
+<pre class="programlisting">#define GOG_TYPE_THEME (gog_theme_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GOG_THEME()">
+<a name="GOG-THEME:CAPS"></a><h3>GOG_THEME()</h3>
+<pre class="programlisting">#define GOG_THEME(o) (G_TYPE_CHECK_INSTANCE_CAST ((o), GOG_TYPE_THEME, GogTheme))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOG_IS_THEME()">
+<a name="GOG-IS-THEME:CAPS"></a><h3>GOG_IS_THEME()</h3>
+<pre class="programlisting">#define GOG_IS_THEME(o) (G_TYPE_CHECK_INSTANCE_TYPE ((o), GOG_TYPE_THEME))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GogTheme">
+<a name="GogTheme-struct"></a><h3>GogTheme</h3>
+<pre class="programlisting">typedef struct _GogTheme GogTheme;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gog_theme_get_type ()">
+<a name="gog-theme-get-type"></a><h3>gog_theme_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               gog_theme_get_type                  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_theme_get_name ()">
+<a name="gog-theme-get-name"></a><h3>gog_theme_get_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const *        gog_theme_get_name                  (<em class="parameter"><code><a class="link" href="GogTheme.html" title="GogTheme"><span class="type">GogTheme</span></a> const *theme</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>theme</code></em> :</span></p></td>
+<td>a <a class="link" href="GogTheme.html" title="GogTheme"><span class="type">GogTheme</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the GogTheme name.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_theme_get_local_name ()">
+<a name="gog-theme-get-local-name"></a><h3>gog_theme_get_local_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const *        gog_theme_get_local_name            (<em class="parameter"><code><a class="link" href="GogTheme.html" title="GogTheme"><span class="type">GogTheme</span></a> const *theme</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>theme</code></em> :</span></p></td>
+<td>a <a class="link" href="GogTheme.html" title="GogTheme"><span class="type">GogTheme</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the localized GogTheme name.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_theme_get_description ()">
+<a name="gog-theme-get-description"></a><h3>gog_theme_get_description ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const *        gog_theme_get_description           (<em class="parameter"><code><a class="link" href="GogTheme.html" title="GogTheme"><span class="type">GogTheme</span></a> const *theme</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>theme</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_theme_fillin_style ()">
+<a name="gog-theme-fillin-style"></a><h3>gog_theme_fillin_style ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_theme_fillin_style              (<em class="parameter"><code><a class="link" href="GogTheme.html" title="GogTheme"><span class="type">GogTheme</span></a> const *theme</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a> const *obj</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> ind</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html#GOStyleFlag" title="enum GOStyleFlag"><span class="type">GOStyleFlag</span></a> relevant_fields</code></em>);</pre>
+<p>
+Fill in the auto aspects of <em class="parameter"><code>style</code></em> based on <em class="parameter"><code>theme</code></em> 's element for objects of
+type/role similar to <em class="parameter"><code>obj</code></em> with index <em class="parameter"><code>ind</code></em>.  If <em class="parameter"><code>relevant_fields</code></em> is GO_STYLE_ALL,
+fillin the entire style, not just the auto portions included in <em class="parameter"><code>relevant_fields</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>theme</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogTheme.html" title="GogTheme"><span class="type">GogTheme</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> to initialize
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a> The object associated with <em class="parameter"><code>style</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ind</code></em> :</span></p></td>
+<td>an optional index
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>relevant_fields</code></em> :</span></p></td>
+<td>GOStyleFlag
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_theme_registry_lookup ()">
+<a name="gog-theme-registry-lookup"></a><h3>gog_theme_registry_lookup ()</h3>
+<pre class="programlisting"><a class="link" href="GogTheme.html" title="GogTheme"><span class="returnvalue">GogTheme</span></a> *          gog_theme_registry_lookup           (<em class="parameter"><code><span class="type">char</span> const *name</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>a theme name
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a class="link" href="GogTheme.html" title="GogTheme"><span class="type">GogTheme</span></a> from theme registry.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_theme_registry_get_theme_names ()">
+<a name="gog-theme-registry-get-theme-names"></a><h3>gog_theme_registry_get_theme_names ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            gog_theme_registry_get_theme_names  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a newly allocated theme name list from theme registry.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

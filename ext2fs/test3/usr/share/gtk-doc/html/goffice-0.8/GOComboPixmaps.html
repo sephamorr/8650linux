@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOComboPixmaps</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch08.html" title="Base widgets">
+<link rel="prev" href="GOComboBox.html" title="GOComboBox">
+<link rel="next" href="GOOptionMenu.html" title="GOOptionMenu">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GOComboBox.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch08.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GOOptionMenu.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GOComboPixmaps.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GOComboPixmaps.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GOComboPixmaps.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GOComboPixmaps.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#GOComboPixmaps.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOComboPixmaps">
+<a name="GOComboPixmaps"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GOComboPixmaps.top_of_page"></a>GOComboPixmaps</span></h2>
+<p>GOComboPixmaps</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GOComboPixmaps.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="GOComboPixmaps.html#GO-TYPE-COMBO-PIXMAPS:CAPS" title="GO_TYPE_COMBO_PIXMAPS">GO_TYPE_COMBO_PIXMAPS</a>
+#define             <a class="link" href="GOComboPixmaps.html#GO-COMBO-PIXMAPS:CAPS" title="GO_COMBO_PIXMAPS()">GO_COMBO_PIXMAPS</a>                    (o)
+#define             <a class="link" href="GOComboPixmaps.html#GO-IS-COMBO-PIXMAPS:CAPS" title="GO_IS_COMBO_PIXMAPS()">GO_IS_COMBO_PIXMAPS</a>                 (o)
+                    <a class="link" href="GOComboPixmaps.html#GOComboPixmaps-struct" title="GOComboPixmaps">GOComboPixmaps</a>;
+                    <a class="link" href="GOComboPixmaps.html#GOMenuPixmaps" title="GOMenuPixmaps">GOMenuPixmaps</a>;
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GOComboPixmaps.html#go-combo-pixmaps-get-type" title="go_combo_pixmaps_get_type ()">go_combo_pixmaps_get_type</a>           (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="GOComboPixmaps.html" title="GOComboPixmaps"><span class="returnvalue">GOComboPixmaps</span></a> *    <a class="link" href="GOComboPixmaps.html#go-combo-pixmaps-new" title="go_combo_pixmaps_new ()">go_combo_pixmaps_new</a>                (<em class="parameter"><code><span class="type">int</span> ncols</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOComboPixmaps.html#go-combo-pixmaps-add-element" title="go_combo_pixmaps_add_element ()">go_combo_pixmaps_add_element</a>        (<em class="parameter"><code><a class="link" href="GOComboPixmaps.html" title="GOComboPixmaps"><span class="type">GOComboPixmaps</span></a> *combo</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gdk-pixbuf/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> id</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *tooltip</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOComboPixmaps.html#go-combo-pixmaps-select-index" title="go_combo_pixmaps_select_index ()">go_combo_pixmaps_select_index</a>       (<em class="parameter"><code><a class="link" href="GOComboPixmaps.html" title="GOComboPixmaps"><span class="type">GOComboPixmaps</span></a> *combo</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> index</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOComboPixmaps.html#go-combo-pixmaps-select-id" title="go_combo_pixmaps_select_id ()">go_combo_pixmaps_select_id</a>          (<em class="parameter"><code><a class="link" href="GOComboPixmaps.html" title="GOComboPixmaps"><span class="type">GOComboPixmaps</span></a> *combo</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> id</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="GOComboPixmaps.html#go-combo-pixmaps-get-selected" title="go_combo_pixmaps_get_selected ()">go_combo_pixmaps_get_selected</a>       (<em class="parameter"><code><a class="link" href="GOComboPixmaps.html" title="GOComboPixmaps"><span class="type">GOComboPixmaps</span></a> const *combo</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *index</code></em>);
+<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GOComboPixmaps.html#go-combo-pixmaps-get-preview" title="go_combo_pixmaps_get_preview ()">go_combo_pixmaps_get_preview</a>        (<em class="parameter"><code><a class="link" href="GOComboPixmaps.html" title="GOComboPixmaps"><span class="type">GOComboPixmaps</span></a> const *combo</code></em>);
+<a class="link" href="GOComboPixmaps.html#GOMenuPixmaps" title="GOMenuPixmaps"><span class="returnvalue">GOMenuPixmaps</span></a> *     <a class="link" href="GOComboPixmaps.html#go-menu-pixmaps-new" title="go_menu_pixmaps_new ()">go_menu_pixmaps_new</a>                 (<em class="parameter"><code><span class="type">int</span> ncols</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOComboPixmaps.html#go-menu-pixmaps-add-element" title="go_menu_pixmaps_add_element ()">go_menu_pixmaps_add_element</a>         (<em class="parameter"><code><a class="link" href="GOComboPixmaps.html#GOMenuPixmaps" title="GOMenuPixmaps"><span class="type">GOMenuPixmaps</span></a> *menu</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gdk-pixbuf/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> id</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GOComboPixmaps.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkObject.html">GtkObject</a>
+               +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html">GtkWidget</a>
+                     +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkContainer.html">GtkContainer</a>
+                           +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkBox.html">GtkBox</a>
+                                 +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkHBox.html">GtkHBox</a>
+                                       +----<a class="link" href="GOComboBox.html" title="GOComboBox">GOComboBox</a>
+                                             +----GOComboPixmaps
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GOComboPixmaps.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GOComboPixmaps implements
+ AtkImplementorIface,  <a href="http://library.gnome.org/devel/gtk/unstable/GtkBuildable.html">GtkBuildable</a> and  <a href="http://library.gnome.org/devel/gtk/unstable/gtk-Orientable.html#GtkOrientable">GtkOrientable</a>.</p>
+</div>
+<div class="refsect1" title="Signals">
+<a name="GOComboPixmaps.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GOComboPixmaps.html#GOComboPixmaps-changed" title='The "changed" signal'>changed</a>"                                        : Run Last
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GOComboPixmaps.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GOComboPixmaps.details"></a><h2>Details</h2>
+<div class="refsect2" title="GO_TYPE_COMBO_PIXMAPS">
+<a name="GO-TYPE-COMBO-PIXMAPS:CAPS"></a><h3>GO_TYPE_COMBO_PIXMAPS</h3>
+<pre class="programlisting">#define GO_TYPE_COMBO_PIXMAPS (go_combo_pixmaps_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_COMBO_PIXMAPS()">
+<a name="GO-COMBO-PIXMAPS:CAPS"></a><h3>GO_COMBO_PIXMAPS()</h3>
+<pre class="programlisting">#define GO_COMBO_PIXMAPS(o) (G_TYPE_CHECK_INSTANCE_CAST((o), GO_TYPE_COMBO_PIXMAPS, GOComboPixmaps))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_IS_COMBO_PIXMAPS()">
+<a name="GO-IS-COMBO-PIXMAPS:CAPS"></a><h3>GO_IS_COMBO_PIXMAPS()</h3>
+<pre class="programlisting">#define GO_IS_COMBO_PIXMAPS(o) (G_TYPE_CHECK_INSTANCE_TYPE((o), GO_TYPE_COMBO_PIXMAPS))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOComboPixmaps">
+<a name="GOComboPixmaps-struct"></a><h3>GOComboPixmaps</h3>
+<pre class="programlisting">typedef struct _GOComboPixmaps GOComboPixmaps;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GOMenuPixmaps">
+<a name="GOMenuPixmaps"></a><h3>GOMenuPixmaps</h3>
+<pre class="programlisting">typedef struct _GOMenuPixmaps GOMenuPixmaps;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_combo_pixmaps_get_type ()">
+<a name="go-combo-pixmaps-get-type"></a><h3>go_combo_pixmaps_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_combo_pixmaps_get_type           (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_combo_pixmaps_new ()">
+<a name="go-combo-pixmaps-new"></a><h3>go_combo_pixmaps_new ()</h3>
+<pre class="programlisting"><a class="link" href="GOComboPixmaps.html" title="GOComboPixmaps"><span class="returnvalue">GOComboPixmaps</span></a> *    go_combo_pixmaps_new                (<em class="parameter"><code><span class="type">int</span> ncols</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ncols</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_combo_pixmaps_add_element ()">
+<a name="go-combo-pixmaps-add-element"></a><h3>go_combo_pixmaps_add_element ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_combo_pixmaps_add_element        (<em class="parameter"><code><a class="link" href="GOComboPixmaps.html" title="GOComboPixmaps"><span class="type">GOComboPixmaps</span></a> *combo</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gdk-pixbuf/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> id</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *tooltip</code></em>);</pre>
+<p>
+Absorbs a ref to the pixbuf.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>combo</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOComboPixmaps.html" title="GOComboPixmaps"><span class="type">GOComboPixmaps</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pixbuf</code></em> :</span></p></td>
+<td>
+<a href="/usr/share/gtk-doc/html/gdk-pixbuf/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>an identifier for the callbacks
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tooltip</code></em> :</span></p></td>
+<td>optional
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_combo_pixmaps_select_index ()">
+<a name="go-combo-pixmaps-select-index"></a><h3>go_combo_pixmaps_select_index ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_combo_pixmaps_select_index       (<em class="parameter"><code><a class="link" href="GOComboPixmaps.html" title="GOComboPixmaps"><span class="type">GOComboPixmaps</span></a> *combo</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> index</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>combo</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_combo_pixmaps_select_id ()">
+<a name="go-combo-pixmaps-select-id"></a><h3>go_combo_pixmaps_select_id ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_combo_pixmaps_select_id          (<em class="parameter"><code><a class="link" href="GOComboPixmaps.html" title="GOComboPixmaps"><span class="type">GOComboPixmaps</span></a> *combo</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> id</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>combo</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_combo_pixmaps_get_selected ()">
+<a name="go-combo-pixmaps-get-selected"></a><h3>go_combo_pixmaps_get_selected ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_combo_pixmaps_get_selected       (<em class="parameter"><code><a class="link" href="GOComboPixmaps.html" title="GOComboPixmaps"><span class="type">GOComboPixmaps</span></a> const *combo</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *index</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>combo</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_combo_pixmaps_get_preview ()">
+<a name="go-combo-pixmaps-get-preview"></a><h3>go_combo_pixmaps_get_preview ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         go_combo_pixmaps_get_preview        (<em class="parameter"><code><a class="link" href="GOComboPixmaps.html" title="GOComboPixmaps"><span class="type">GOComboPixmaps</span></a> const *combo</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>combo</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_menu_pixmaps_new ()">
+<a name="go-menu-pixmaps-new"></a><h3>go_menu_pixmaps_new ()</h3>
+<pre class="programlisting"><a class="link" href="GOComboPixmaps.html#GOMenuPixmaps" title="GOMenuPixmaps"><span class="returnvalue">GOMenuPixmaps</span></a> *     go_menu_pixmaps_new                 (<em class="parameter"><code><span class="type">int</span> ncols</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ncols</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_menu_pixmaps_add_element ()">
+<a name="go-menu-pixmaps-add-element"></a><h3>go_menu_pixmaps_add_element ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_menu_pixmaps_add_element         (<em class="parameter"><code><a class="link" href="GOComboPixmaps.html#GOMenuPixmaps" title="GOMenuPixmaps"><span class="type">GOMenuPixmaps</span></a> *menu</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gdk-pixbuf/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> id</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>menu</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pixbuf</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="GOComboPixmaps.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "changed" signal'>
+<a name="GOComboPixmaps-changed"></a><h3>The <code class="literal">"changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GOComboPixmaps.html" title="GOComboPixmaps"><span class="type">GOComboPixmaps</span></a> *gocombopixmaps,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>            arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>        user_data)           : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gocombopixmaps</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOStyledObject</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch10.html" title="Graphic object properties">
+<link rel="prev" href="GOStyle.html" title="GOStyle">
+<link rel="next" href="ch11.html" title="Rendering utilities">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GOStyle.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch10.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="ch11.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GOStyledObject.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GOStyledObject.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GOStyledObject.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GOStyledObject.implementations" class="shortcut">Known Implementations</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOStyledObject">
+<a name="GOStyledObject"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GOStyledObject.top_of_page"></a>GOStyledObject</span></h2>
+<p>GOStyledObject — Objects with style</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GOStyledObject.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;goffice/utils/go-styled-object.h&gt;
+
+                    <a class="link" href="GOStyledObject.html#GOStyledObject-struct" title="GOStyledObject">GOStyledObject</a>;
+                    <a class="link" href="GOStyledObject.html#GOStyledObjectClass" title="GOStyledObjectClass">GOStyledObjectClass</a>;
+<a class="link" href="GOStyle.html" title="GOStyle"><span class="returnvalue">GOStyle</span></a> *           <a class="link" href="GOStyledObject.html#go-styled-object-get-style" title="go_styled_object_get_style ()">go_styled_object_get_style</a>          (<em class="parameter"><code><a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a> *gso</code></em>);
+<a class="link" href="GOStyle.html" title="GOStyle"><span class="returnvalue">GOStyle</span></a> *           <a class="link" href="GOStyledObject.html#go-styled-object-get-auto-style" title="go_styled_object_get_auto_style ()">go_styled_object_get_auto_style</a>     (<em class="parameter"><code><a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a> *gso</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOStyledObject.html#go-styled-object-set-style" title="go_styled_object_set_style ()">go_styled_object_set_style</a>          (<em class="parameter"><code><a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a> *gso</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOStyledObject.html#go-styled-object-apply-theme" title="go_styled_object_apply_theme ()">go_styled_object_apply_theme</a>        (<em class="parameter"><code><a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a> *gso</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOStyledObject.html#go-styled-object-style-changed" title="go_styled_object_style_changed ()">go_styled_object_style_changed</a>      (<em class="parameter"><code><a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a> *gso</code></em>);
+<a class="link" href="GODoc.html" title="GODoc"><span class="returnvalue">GODoc</span></a> *             <a class="link" href="GOStyledObject.html#go-styled-object-get-document" title="go_styled_object_get_document ()">go_styled_object_get_document</a>       (<em class="parameter"><code><a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a> *gso</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOStyledObject.html#go-styled-object-set-cairo-fill" title="go_styled_object_set_cairo_fill ()">go_styled_object_set_cairo_fill</a>     (<em class="parameter"><code><a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a> const *so</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOStyledObject.html#go-styled-object-set-cairo-line" title="go_styled_object_set_cairo_line ()">go_styled_object_set_cairo_line</a>     (<em class="parameter"><code><a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a> const *so</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GOStyledObject.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GInterface
+   +----GOStyledObject
+</pre>
+</div>
+<div class="refsect1" title="Known Implementations">
+<a name="GOStyledObject.implementations"></a><h2>Known Implementations</h2>
+<p>
+GOStyledObject is implemented by
+ <a class="link" href="GocArc.html" title="GocArc">GocArc</a>,  <a class="link" href="GocCircle.html" title="GocCircle">GocCircle</a>,  <a class="link" href="GocEllipse.html" title="GocEllipse">GocEllipse</a>,  <a class="link" href="GocLine.html" title="GocLine">GocLine</a>,  GocPath,  <a class="link" href="GocPolygon.html" title="GocPolygon">GocPolygon</a>,  <a class="link" href="GocPolyline.html" title="GocPolyline">GocPolyline</a>,  <a class="link" href="GocRectangle.html" title="GocRectangle">GocRectangle</a>,  <a class="link" href="GocStyledItem.html" title="GocStyledItem">GocStyledItem</a>,  <a class="link" href="GocText.html" title="GocText">GocText</a>,  <a class="link" href="GogAxis.html" title="GogAxis">GogAxis</a>,  <a class="link" href="GogAxisLine.html#GogAxisBase">GogAxisBase</a>,  <a class="link" href="GogAxisLine.html" title="GogAxisLine">GogAxisLine</a>,  <a class="link" href="GogChart.html" title="GogChart">GogChart</a>,  <a class="link" href="GogGraph.html" title="GogGraph">GogGraph</a>,  <a class="link" href="GogGrid.html" title="GogGrid">GogGrid</a>,  <a class="link" href="GogGridLine.html" title="GogGridLine">GogGridLine</a>,  <a class="link" href="GogLabel.html" title="GogLabel">GogLabel</a>,  <a class="link" href="GogLegend.html" title="GogLegend">GogLegend</a>,  <a class="link" href="GogOutlinedObject.html" title="GogOutlinedObject">GogOutlinedObject</a>,  <a class="link" href="GogRegCurve.html" title="GogRegCurve">GogRegCurve</a>,  <a class="link" href="GogRegEqn.html" title="GogRegEqn">GogRegEqn</a>,  <a class="link" href="GogSeries.html" title="GogSeries">GogSeries</a>,  <a class="link" href="GogSeriesLines.html" title="GogSeriesLines">GogSeriesLines</a>,  <a class="link" href="GogSmoothedCurve.html" title="GogSmoothedCurve">GogSmoothedCurve</a>,  <a class="link" href="GogStyledObject.html" title="GogStyledObject">GogStyledObject</a>,  <a class="link" href="GogText.html" title="GogText">GogText</a> and  <a class="link" href="GogTrendLine.html" title="GogTrendLine">GogTrendLine</a>.</p>
+</div>
+<div class="refsect1" title="Description">
+<a name="GOStyledObject.description"></a><h2>Description</h2>
+<p>
+The common GInterface for all objects owning a GOStyle.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GOStyledObject.details"></a><h2>Details</h2>
+<div class="refsect2" title="GOStyledObject">
+<a name="GOStyledObject-struct"></a><h3>GOStyledObject</h3>
+<pre class="programlisting">typedef struct _GOStyledObject GOStyledObject;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GOStyledObjectClass">
+<a name="GOStyledObjectClass"></a><h3>GOStyledObjectClass</h3>
+<pre class="programlisting">typedef struct {
+	GTypeInterface		   base;
+
+	gboolean  (*set_style) 	    (GOStyledObject *gso, GOStyle *style);
+	GOStyle	 *(*get_style)	    (GOStyledObject *gso);
+	GOStyle	 *(*get_auto_style) (GOStyledObject *gso);
+	void	  (*style_changed)  (GOStyledObject *gso);
+	void	  (*apply_theme) (GOStyledObject *gso, GOStyle *style);
+	GODoc    *(*get_document)   (GOStyledObject *gso);
+} GOStyledObjectClass;
+</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GTypeInterface"><span class="type">GTypeInterface</span></a> <em class="structfield"><code><a name="GOStyledObjectClass.base"></a>base</code></em>;</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="GOStyledObjectClass.set-style"></a>set_style</code></em> ()</span></p></td>
+<td>sets the object style.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="GOStyledObjectClass.get-style"></a>get_style</code></em> ()</span></p></td>
+<td>returns the object current style.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="GOStyledObjectClass.get-auto-style"></a>get_auto_style</code></em> ()</span></p></td>
+<td>returns the default style for the object.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="GOStyledObjectClass.style-changed"></a>style_changed</code></em> ()</span></p></td>
+<td>called when the style changed.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="GOStyledObjectClass.apply-theme"></a>apply_theme</code></em> ()</span></p></td>
+<td>apply the current theme if any to the object style.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="GOStyledObjectClass.get-document"></a>get_document</code></em> ()</span></p></td>
+<td>returns the <a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> associated to the object if any.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_styled_object_get_style ()">
+<a name="go-styled-object-get-style"></a><h3>go_styled_object_get_style ()</h3>
+<pre class="programlisting"><a class="link" href="GOStyle.html" title="GOStyle"><span class="returnvalue">GOStyle</span></a> *           go_styled_object_get_style          (<em class="parameter"><code><a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a> *gso</code></em>);</pre>
+<p>
+Simply an accessor function that returns <em class="parameter"><code>gso-&gt;style</code></em>, without referencing it.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gso</code></em> :</span></p></td>
+<td>a <a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the styled object's <a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_styled_object_get_auto_style ()">
+<a name="go-styled-object-get-auto-style"></a><h3>go_styled_object_get_auto_style ()</h3>
+<pre class="programlisting"><a class="link" href="GOStyle.html" title="GOStyle"><span class="returnvalue">GOStyle</span></a> *           go_styled_object_get_auto_style     (<em class="parameter"><code><a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a> *gso</code></em>);</pre>
+<p>
+This function returns a new style that is initialized with the auto values for <em class="parameter"><code>gso</code></em>.
+Caller is responsible for the result.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gso</code></em> :</span></p></td>
+<td>a <a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_styled_object_set_style ()">
+<a name="go-styled-object-set-style"></a><h3>go_styled_object_set_style ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_styled_object_set_style          (<em class="parameter"><code><a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a> *gso</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>);</pre>
+<p>
+Sets a new style for <em class="parameter"><code>gso</code></em>, and emits "style-changed" signal. This function
+does not take ownership of <em class="parameter"><code>style</code></em>.
+</p>
+<p>
+The best way to change the style is to set the "style" property.
+</p>
+<p>
+This function will fail if the new style and the previous style are the same.
+In that case, the function will always return false:
+</p>
+<div class="informalexample"><pre class="programlisting">
+     style = go_styled_object_get_style (gso);
+     style-&gt;line.width = 2;
+     size_changed = go_styled_object_set_style (gso, style);
+ </pre></div>
+<p>
+In this sample, the call to <a class="link" href="GOStyledObject.html#go-styled-object-set-style" title="go_styled_object_set_style ()"><code class="function">go_styled_object_set_style()</code></a> is just useless. You
+need to check yourself if you really change the size, call
+<a class="link" href="GOStyledObject.html#go-styled-object-style-changed" title="go_styled_object_style_changed ()"><code class="function">go_styled_object_style_changed()</code></a> to trigger the "style-changed" event.
+So the following code is much better:
+</p>
+<div class="informalexample"><pre class="programlisting">
+     style = go_styled_object_get_style (gso);
+     if (style-&gt;line.width != 2.) {
+      style-&gt;line.width = 2;
+      go_styled_object_style_changed (gso);
+      size_changed = true;
+     } else
+      size_changed = FALSE;
+ </pre></div>
+<p>
+or even better:
+</p>
+<div class="informalexample"><pre class="programlisting">
+     style = go_style_dup (go_styled_object_get_style (gso));
+     style-&gt;line.width = 2;
+     size_changed = go_styled_object_set_style (gso, style);
+     g_object_unref (style);
+ </pre></div>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gso</code></em> :</span></p></td>
+<td>a <a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>a <a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if new style may lead to change of object size, which
+happens when changing font size for example.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_styled_object_apply_theme ()">
+<a name="go-styled-object-apply-theme"></a><h3>go_styled_object_apply_theme ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_styled_object_apply_theme        (<em class="parameter"><code><a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a> *gso</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>);</pre>
+<p>
+Apply appropriate theme <em class="parameter"><code>style</code></em> if meaningful, i.e. properties with
+auto flag set to <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> should be changed to default theme value.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gso</code></em> :</span></p></td>
+<td>a <a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>a <a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> that will be themed
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_styled_object_style_changed ()">
+<a name="go-styled-object-style-changed"></a><h3>go_styled_object_style_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_styled_object_style_changed      (<em class="parameter"><code><a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a> *gso</code></em>);</pre>
+<p>
+Called when the style changed. Might emit a signal if meaningful.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>gso</code></em> :</span></p></td>
+<td>a <a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_styled_object_get_document ()">
+<a name="go-styled-object-get-document"></a><h3>go_styled_object_get_document ()</h3>
+<pre class="programlisting"><a class="link" href="GODoc.html" title="GODoc"><span class="returnvalue">GODoc</span></a> *             go_styled_object_get_document       (<em class="parameter"><code><a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a> *gso</code></em>);</pre>
+<p>
+A <a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> is necessary to store images. If no GODoc is associated with the
+object, image filling will not be supported.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gso</code></em> :</span></p></td>
+<td>a <a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the <a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> associated with the object if any.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_styled_object_set_cairo_fill ()">
+<a name="go-styled-object-set-cairo-fill"></a><h3>go_styled_object_set_cairo_fill ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_styled_object_set_cairo_fill     (<em class="parameter"><code><a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a> const *so</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>);</pre>
+<p>
+Prepares the cairo context <em class="parameter"><code>cr</code></em> to fill a shape according to the
+item style and canvas scale.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>so</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
+<td>
+<a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the filling is not invisible.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_styled_object_set_cairo_line ()">
+<a name="go-styled-object-set-cairo-line"></a><h3>go_styled_object_set_cairo_line ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_styled_object_set_cairo_line     (<em class="parameter"><code><a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a> const *so</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>);</pre>
+<p>
+Prepares the cairo context <em class="parameter"><code>cr</code></em> to draw a line according to the
+item style and canvas scale.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>so</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOStyledObject.html" title="GOStyledObject"><span class="type">GOStyledObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
+<td>
+<a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the line is not invisible
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

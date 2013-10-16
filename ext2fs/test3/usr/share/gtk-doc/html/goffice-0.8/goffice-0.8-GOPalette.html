@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOPalette</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch08.html" title="Base widgets">
+<link rel="prev" href="GOOptionMenu.html" title="GOOptionMenu">
+<link rel="next" href="GOSelector.html" title="GOSelector">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GOOptionMenu.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch08.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GOSelector.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#goffice-0.8-GOPalette.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#goffice-0.8-GOPalette.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOPalette">
+<a name="goffice-0.8-GOPalette"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="goffice-0.8-GOPalette.top_of_page"></a>GOPalette</span></h2>
+<p>GOPalette</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="goffice-0.8-GOPalette.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis"><span class="returnvalue">void</span>                (<a class="link" href="goffice-0.8-GOPalette.html#GOPaletteSwatchRenderCallback" title="GOPaletteSwatchRenderCallback ()">*GOPaletteSwatchRenderCallback</a>)    (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk/unstable/gdk-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> const *area</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> index</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);
+const <span class="returnvalue">char</span> *        (<a class="link" href="goffice-0.8-GOPalette.html#GOPaletteSwatchTooltipCallback" title="GOPaletteSwatchTooltipCallback ()">*GOPaletteSwatchTooltipCallback</a>)   (<em class="parameter"><code><span class="type">int</span> index</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);
+<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="goffice-0.8-GOPalette.html#go-palette-new" title="go_palette_new ()">go_palette_new</a>                      (<em class="parameter"><code><span class="type">int</span> n_swatches</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> swatch_width</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n_columns</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPalette.html#GOPaletteSwatchRenderCallback" title="GOPaletteSwatchRenderCallback ()"><span class="type">GOPaletteSwatchRenderCallback</span></a> swatch_render</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPalette.html#GOPaletteSwatchTooltipCallback" title="GOPaletteSwatchTooltipCallback ()"><span class="type">GOPaletteSwatchTooltipCallback</span></a> get_tooltip</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> destroy</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GOPalette.html#go-palette-get-n-swatches" title="go_palette_get_n_swatches ()">go_palette_get_n_swatches</a>           (<em class="parameter"><code><span class="type">GOPalette</span> *palette</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="goffice-0.8-GOPalette.html#go-palette-get-user-data" title="go_palette_get_user_data ()">go_palette_get_user_data</a>            (<em class="parameter"><code><span class="type">GOPalette</span> *palette</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOPalette.html#go-palette-show-automatic" title="go_palette_show_automatic ()">go_palette_show_automatic</a>           (<em class="parameter"><code><span class="type">GOPalette</span> *palette</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> index</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *label</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOPalette.html#go-palette-show-custom" title="go_palette_show_custom ()">go_palette_show_custom</a>              (<em class="parameter"><code><span class="type">GOPalette</span> *palette</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *label</code></em>);
+<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="goffice-0.8-GOPalette.html#go-palette-swatch-new" title="go_palette_swatch_new ()">go_palette_swatch_new</a>               (<em class="parameter"><code><span class="type">GOPalette</span> *palette</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> index</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="goffice-0.8-GOPalette.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="goffice-0.8-GOPalette.details"></a><h2>Details</h2>
+<div class="refsect2" title="GOPaletteSwatchRenderCallback ()">
+<a name="GOPaletteSwatchRenderCallback"></a><h3>GOPaletteSwatchRenderCallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*GOPaletteSwatchRenderCallback)    (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk/unstable/gdk-Points-Rectangles-and-Regions.html#GdkRectangle"><span class="type">GdkRectangle</span></a> const *area</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> index</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>area</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOPaletteSwatchTooltipCallback ()">
+<a name="GOPaletteSwatchTooltipCallback"></a><h3>GOPaletteSwatchTooltipCallback ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        (*GOPaletteSwatchTooltipCallback)   (<em class="parameter"><code><span class="type">int</span> index</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_palette_new ()">
+<a name="go-palette-new"></a><h3>go_palette_new ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         go_palette_new                      (<em class="parameter"><code><span class="type">int</span> n_swatches</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> swatch_width</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n_columns</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPalette.html#GOPaletteSwatchRenderCallback" title="GOPaletteSwatchRenderCallback ()"><span class="type">GOPaletteSwatchRenderCallback</span></a> swatch_render</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPalette.html#GOPaletteSwatchTooltipCallback" title="GOPaletteSwatchTooltipCallback ()"><span class="type">GOPaletteSwatchTooltipCallback</span></a> get_tooltip</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> destroy</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_swatches</code></em> :</span></p></td>
+<td>number of palette items
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>swatch_width</code></em> :</span></p></td>
+<td>swatch width as multiple of swatch height
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_columns</code></em> :</span></p></td>
+<td>number of columns for displaying palette items
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>swatch_render</code></em> :</span></p></td>
+<td>a user function used for swatch rendering
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>get_tooltip</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>user data for use by swatch render function
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>destroy</code></em> :</span></p></td>
+<td>a function to destroy user data on widget finalization
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <span class="type">GOPalette</span> object.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_palette_get_n_swatches ()">
+<a name="go-palette-get-n-swatches"></a><h3>go_palette_get_n_swatches ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_palette_get_n_swatches           (<em class="parameter"><code><span class="type">GOPalette</span> *palette</code></em>);</pre>
+<p>
+A convenience function.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <span class="type">GOPalette</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the number of palette items.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_palette_get_user_data ()">
+<a name="go-palette-get-user-data"></a><h3>go_palette_get_user_data ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            go_palette_get_user_data            (<em class="parameter"><code><span class="type">GOPalette</span> *palette</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <span class="type">GOPalette</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a pointer to user data given to go_palette_new function.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_palette_show_automatic ()">
+<a name="go-palette-show-automatic"></a><h3>go_palette_show_automatic ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_palette_show_automatic           (<em class="parameter"><code><span class="type">GOPalette</span> *palette</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> index</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *label</code></em>);</pre>
+<p>
+Adds an automatic button to <em class="parameter"><code>palette</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <span class="type">GOPalette</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>index to use on automatic item activation
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td>if not NULL, replace automatic button label
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_palette_show_custom ()">
+<a name="go-palette-show-custom"></a><h3>go_palette_show_custom ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_palette_show_custom              (<em class="parameter"><code><span class="type">GOPalette</span> *palette</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *label</code></em>);</pre>
+<p>
+Adds a custom button to bottom of <em class="parameter"><code>palette</code></em>. An activation
+of custom button will cause an emition of "custom_activate" signal.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <span class="type">GOPalette</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td>if not NULL, replaces custom button label
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_palette_swatch_new ()">
+<a name="go-palette-swatch-new"></a><h3>go_palette_swatch_new ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         go_palette_swatch_new               (<em class="parameter"><code><span class="type">GOPalette</span> *palette</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> index</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <span class="type">GOPalette</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>default index
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a href="http://library.gnome.org/devel/gtk/unstable/GtkDrawingArea.html"><span class="type">GtkDrawingArea</span></a> which will be rendered like a <em class="parameter"><code>palette</code></em>
+swatch. <em class="parameter"><code>index</code></em> can be changed later by changing swatch "index" data.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

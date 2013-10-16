@@ -1,0 +1,1206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GogRenderer</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch04.html" title="Utilities">
+<link rel="prev" href="ch04.html" title="Utilities">
+<link rel="next" href="goffice-0.8-GogGuru.html" title="GogGuru">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch04.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="goffice-0.8-GogGuru.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GogRenderer.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GogRenderer.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GogRenderer.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GogRenderer.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#GogRenderer.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="GogRenderer">
+<a name="GogRenderer"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GogRenderer.top_of_page"></a>GogRenderer</span></h2>
+<p>GogRenderer — Rendering</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GogRenderer.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="GogRenderer.html#GogRenderer-struct" title="GogRenderer">GogRenderer</a>;
+<a class="link" href="GogRenderer.html" title="GogRenderer"><span class="returnvalue">GogRenderer</span></a> *       <a class="link" href="GogRenderer.html#gog-renderer-new" title="gog_renderer_new ()">gog_renderer_new</a>                    (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-draw-selection-rectangle" title="gog_renderer_draw_selection_rectangle ()">gog_renderer_draw_selection_rectangle</a>
+                                                        (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> const *rectangle</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-draw-shape" title="gog_renderer_draw_shape ()">gog_renderer_draw_shape</a>             (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPath.html#GOPath" title="GOPath"><span class="type">GOPath</span></a> const *path</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-fill-serie" title="gog_renderer_fill_serie ()">gog_renderer_fill_serie</a>             (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPath.html#GOPath" title="GOPath"><span class="type">GOPath</span></a> const *path</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPath.html#GOPath" title="GOPath"><span class="type">GOPath</span></a> const *close_path</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-fill-shape" title="gog_renderer_fill_shape ()">gog_renderer_fill_shape</a>             (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPath.html#GOPath" title="GOPath"><span class="type">GOPath</span></a> const *path</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-fill-circle" title="gog_renderer_fill_circle ()">gog_renderer_fill_circle</a>            (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> r</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-fill-rectangle" title="gog_renderer_fill_rectangle ()">gog_renderer_fill_rectangle</a>         (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> const *rect</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="GogRenderer.html#gog-renderer-get-hairline-width-pts" title="gog_renderer_get_hairline_width_pts ()">gog_renderer_get_hairline_width_pts</a> (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> const *rend</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-push-clip-rectangle" title="gog_renderer_push_clip_rectangle ()">gog_renderer_push_clip_rectangle</a>    (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> w</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> h</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogRenderer.html#gog-renderer-render-to-cairo" title="gog_renderer_render_to_cairo ()">gog_renderer_render_to_cairo</a>        (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cairo</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> height</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-stroke-serie" title="gog_renderer_stroke_serie ()">gog_renderer_stroke_serie</a>           (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPath.html#GOPath" title="GOPath"><span class="type">GOPath</span></a> const *path</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-stroke-shape" title="gog_renderer_stroke_shape ()">gog_renderer_stroke_shape</a>           (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPath.html#GOPath" title="GOPath"><span class="type">GOPath</span></a> const *path</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-stroke-circle" title="gog_renderer_stroke_circle ()">gog_renderer_stroke_circle</a>          (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> r</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-stroke-rectangle" title="gog_renderer_stroke_rectangle ()">gog_renderer_stroke_rectangle</a>       (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> const *rect</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-request-update" title="gog_renderer_request_update ()">gog_renderer_request_update</a>         (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-push-style" title="gog_renderer_push_style ()">gog_renderer_push_style</a>             (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *style</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-pop-style" title="gog_renderer_pop_style ()">gog_renderer_pop_style</a>              (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-push-clip" title="gog_renderer_push_clip ()">gog_renderer_push_clip</a>              (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPath.html#GOPath" title="GOPath"><span class="type">GOPath</span></a> const *path</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-pop-clip" title="gog_renderer_pop_clip ()">gog_renderer_pop_clip</a>               (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-draw-circle" title="gog_renderer_draw_circle ()">gog_renderer_draw_circle</a>            (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> r</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-draw-rectangle" title="gog_renderer_draw_rectangle ()">gog_renderer_draw_rectangle</a>         (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> const *rect</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-draw-text" title="gog_renderer_draw_text ()">gog_renderer_draw_text</a>              (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *text</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> const *pos</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/unstable/gtk-Standard-Enumerations.html#GtkAnchorType"><span class="type">GtkAnchorType</span></a> anchor</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> use_markup</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-draw-marker" title="gog_renderer_draw_marker ()">gog_renderer_draw_marker</a>            (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-draw-grip" title="gog_renderer_draw_grip ()">gog_renderer_draw_grip</a>              (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>);
+#define             <a class="link" href="GogRenderer.html#gog-renderer-in-grip" title="gog_renderer_in_grip()">gog_renderer_in_grip</a>                (x,
+                                                         y,
+                                                         grip_x,
+                                                         grip_y)
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-get-text-OBR" title="gog_renderer_get_text_OBR ()">gog_renderer_get_text_OBR</a>           (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *text</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> use_markup</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOGeometry.html#GOGeometryOBR" title="GOGeometryOBR"><span class="type">GOGeometryOBR</span></a> *obr</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogRenderer.html#gog-renderer-get-text-AABR" title="gog_renderer_get_text_AABR ()">gog_renderer_get_text_AABR</a>          (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *text</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> use_markup</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOGeometry.html#GOGeometryAABR" title="GOGeometryAABR"><span class="type">GOGeometryAABR</span></a> *aabr</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="GogRenderer.html#gog-renderer-line-size" title="gog_renderer_line_size ()">gog_renderer_line_size</a>              (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> const *r</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> width</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="GogRenderer.html#gog-renderer-pt2r-x" title="gog_renderer_pt2r_x ()">gog_renderer_pt2r_x</a>                 (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> const *r</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> d</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="GogRenderer.html#gog-renderer-pt2r-y" title="gog_renderer_pt2r_y ()">gog_renderer_pt2r_y</a>                 (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> const *r</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> d</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="GogRenderer.html#gog-renderer-pt2r" title="gog_renderer_pt2r ()">gog_renderer_pt2r</a>                   (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> const *r</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> d</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogRenderer.html#gog-renderer-export-image" title="gog_renderer_export_image ()">gog_renderer_export_image</a>           (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-go-image.html#GOImageFormat" title="enum GOImageFormat"><span class="type">GOImageFormat</span></a> format</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-Output-to-unstructured-files.html#GsfOutput"><span class="type">GsfOutput</span></a> *output</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x_dpi</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y_dpi</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogRenderer.html#gog-renderer-update" title="gog_renderer_update ()">gog_renderer_update</a>                 (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> w</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> h</code></em>);
+<a href="/usr/share/gtk-doc/html/gdk-pixbuf/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *         <a class="link" href="GogRenderer.html#gog-renderer-get-pixbuf" title="gog_renderer_get_pixbuf ()">gog_renderer_get_pixbuf</a>             (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>);
+<a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="returnvalue">cairo_surface_t</span></a> *   <a class="link" href="GogRenderer.html#gog-renderer-get-cairo-surface" title="gog_renderer_get_cairo_surface ()">gog_renderer_get_cairo_surface</a>      (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GogRenderer.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GogRenderer
+</pre>
+</div>
+<div class="refsect1" title="Properties">
+<a name="GogRenderer.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GogRenderer.html#GogRenderer--model" title='The "model" property'>model</a>"                    <a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a>*             : Read / Write
+  "<a class="link" href="GogRenderer.html#GogRenderer--view" title='The "view" property'>view</a>"                     <a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a>*              : Read
+</pre>
+</div>
+<div class="refsect1" title="Signals">
+<a name="GogRenderer.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GogRenderer.html#GogRenderer-request-update" title='The "request-update" signal'>request-update</a>"                                 : Run Last
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GogRenderer.description"></a><h2>Description</h2>
+<p>
+Note that <a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> has a functions for export/rendering, so you do not always
+need to use a <a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> directly.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GogRenderer.details"></a><h2>Details</h2>
+<div class="refsect2" title="GogRenderer">
+<a name="GogRenderer-struct"></a><h3>GogRenderer</h3>
+<pre class="programlisting">typedef struct _GogRenderer GogRenderer;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_new ()">
+<a name="gog-renderer-new"></a><h3>gog_renderer_new ()</h3>
+<pre class="programlisting"><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="returnvalue">GogRenderer</span></a> *       gog_renderer_new                    (<em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>graph</code></em> :</span></p></td>
+<td>graph model
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>  a new <a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> which can render into a pixbuf, and sets <em class="parameter"><code>graph</code></em>
+	as its model.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_draw_selection_rectangle ()">
+<a name="gog-renderer-draw-selection-rectangle"></a><h3>gog_renderer_draw_selection_rectangle ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_draw_selection_rectangle
+                                                        (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> const *rectangle</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>renderer</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rectangle</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_draw_shape ()">
+<a name="gog-renderer-draw-shape"></a><h3>gog_renderer_draw_shape ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_draw_shape             (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPath.html#GOPath" title="GOPath"><span class="type">GOPath</span></a> const *path</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>renderer</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_fill_serie ()">
+<a name="gog-renderer-fill-serie"></a><h3>gog_renderer_fill_serie ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_fill_serie             (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPath.html#GOPath" title="GOPath"><span class="type">GOPath</span></a> const *path</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPath.html#GOPath" title="GOPath"><span class="type">GOPath</span></a> const *close_path</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>renderer</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>close_path</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_fill_shape ()">
+<a name="gog-renderer-fill-shape"></a><h3>gog_renderer_fill_shape ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_fill_shape             (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPath.html#GOPath" title="GOPath"><span class="type">GOPath</span></a> const *path</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>renderer</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_fill_circle ()">
+<a name="gog-renderer-fill-circle"></a><h3>gog_renderer_fill_circle ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_fill_circle            (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> r</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rend</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>r</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_fill_rectangle ()">
+<a name="gog-renderer-fill-rectangle"></a><h3>gog_renderer_fill_rectangle ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_fill_rectangle         (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> const *rect</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rend</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rect</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_get_hairline_width_pts ()">
+<a name="gog-renderer-get-hairline-width-pts"></a><h3>gog_renderer_get_hairline_width_pts ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              gog_renderer_get_hairline_width_pts (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> const *rend</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rend</code></em> :</span></p></td>
+<td>a <a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the hairline width in pts.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_push_clip_rectangle ()">
+<a name="gog-renderer-push-clip-rectangle"></a><h3>gog_renderer_push_clip_rectangle ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_push_clip_rectangle    (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> w</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> h</code></em>);</pre>
+<p>
+Defines a rectangular clipping region. For efficient screen rendering,
+this function takes care to round the coordinates.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rend</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>left coordinate
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>top coordinate
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>w</code></em> :</span></p></td>
+<td>width of clipping rectangle
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>h</code></em> :</span></p></td>
+<td>height of clipping rectangle
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_render_to_cairo ()">
+<a name="gog-renderer-render-to-cairo"></a><h3>gog_renderer_render_to_cairo ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_renderer_render_to_cairo        (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cairo</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> height</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>renderer</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cairo</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_stroke_serie ()">
+<a name="gog-renderer-stroke-serie"></a><h3>gog_renderer_stroke_serie ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_stroke_serie           (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPath.html#GOPath" title="GOPath"><span class="type">GOPath</span></a> const *path</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>renderer</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_stroke_shape ()">
+<a name="gog-renderer-stroke-shape"></a><h3>gog_renderer_stroke_shape ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_stroke_shape           (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPath.html#GOPath" title="GOPath"><span class="type">GOPath</span></a> const *path</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>renderer</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_stroke_circle ()">
+<a name="gog-renderer-stroke-circle"></a><h3>gog_renderer_stroke_circle ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_stroke_circle          (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> r</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rend</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>r</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_stroke_rectangle ()">
+<a name="gog-renderer-stroke-rectangle"></a><h3>gog_renderer_stroke_rectangle ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_stroke_rectangle       (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> const *rect</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rend</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rect</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_request_update ()">
+<a name="gog-renderer-request-update"></a><h3>gog_renderer_request_update ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_request_update         (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>renderer</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_push_style ()">
+<a name="gog-renderer-push-style"></a><h3>gog_renderer_push_style ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_push_style             (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *style</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rend</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_pop_style ()">
+<a name="gog-renderer-pop-style"></a><h3>gog_renderer_pop_style ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_pop_style              (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>rend</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_push_clip ()">
+<a name="gog-renderer-push-clip"></a><h3>gog_renderer_push_clip ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_push_clip              (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPath.html#GOPath" title="GOPath"><span class="type">GOPath</span></a> const *path</code></em>);</pre>
+<p>
+Defines the current clipping region.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rend</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GOPath.html#GOPath" title="GOPath"><span class="type">GOPath</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_pop_clip ()">
+<a name="gog-renderer-pop-clip"></a><h3>gog_renderer_pop_clip ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_pop_clip               (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>);</pre>
+<p>
+End the current clipping.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>rend</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_draw_circle ()">
+<a name="gog-renderer-draw-circle"></a><h3>gog_renderer_draw_circle ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_draw_circle            (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> r</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rend</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>r</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_draw_rectangle ()">
+<a name="gog-renderer-draw-rectangle"></a><h3>gog_renderer_draw_rectangle ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_draw_rectangle         (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> const *rect</code></em>);</pre>
+<p>
+A utility routine to build a closed rectangle vpath.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rend</code></em> :</span></p></td>
+<td>a <a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rect</code></em> :</span></p></td>
+<td>position and extent of rectangle
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_draw_text ()">
+<a name="gog-renderer-draw-text"></a><h3>gog_renderer_draw_text ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_draw_text              (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *text</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> const *pos</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/unstable/gtk-Standard-Enumerations.html#GtkAnchorType"><span class="type">GtkAnchorType</span></a> anchor</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> use_markup</code></em>);</pre>
+<p>
+Have <em class="parameter"><code>rend</code></em> draw <em class="parameter"><code>text</code></em> in the at <em class="parameter"><code>pos</code></em>.{x,y} anchored by the <em class="parameter"><code>anchor</code></em> corner.
+If <em class="parameter"><code>pos.w</code></em> or <em class="parameter"><code>pos.h</code></em> are &gt;= 0 then clip the results to less than that size.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rend</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td>the string to draw
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pos</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>anchor</code></em> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/gtk/unstable/gtk-Standard-Enumerations.html#GtkAnchorType"><span class="type">GtkAnchorType</span></a> how to draw relative to <em class="parameter"><code>pos</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>use_markup</code></em> :</span></p></td>
+<td>wether to use pango markup
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_draw_marker ()">
+<a name="gog-renderer-draw-marker"></a><h3>gog_renderer_draw_marker ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_draw_marker            (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rend</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>X-coordinate
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>Y-coordinate
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_draw_grip ()">
+<a name="gog-renderer-draw-grip"></a><h3>gog_renderer_draw_grip ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_draw_grip              (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>);</pre>
+<p>
+Draw a grip, used for moving/resizing of objects.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>renderer</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>x position of grip
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>y position of grip
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_in_grip()">
+<a name="gog-renderer-in-grip"></a><h3>gog_renderer_in_grip()</h3>
+<pre class="programlisting">#define             gog_renderer_in_grip(x,y,grip_x,grip_y)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>grip_x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>grip_y</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_get_text_OBR ()">
+<a name="gog-renderer-get-text-OBR"></a><h3>gog_renderer_get_text_OBR ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_get_text_OBR           (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *text</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> use_markup</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOGeometry.html#GOGeometryOBR" title="GOGeometryOBR"><span class="type">GOGeometryOBR</span></a> *obr</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rend</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td>the string to draw
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>use_markup</code></em> :</span></p></td>
+<td>wether to use pango markup
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obr</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-GOGeometry.html#GOGeometryOBR" title="GOGeometryOBR"><span class="type">GOGeometryOBR</span></a> to store the Object Bounding Rectangle of <em class="parameter"><code>text</code></em>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_get_text_AABR ()">
+<a name="gog-renderer-get-text-AABR"></a><h3>gog_renderer_get_text_AABR ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_renderer_get_text_AABR          (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *text</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> use_markup</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOGeometry.html#GOGeometryAABR" title="GOGeometryAABR"><span class="type">GOGeometryAABR</span></a> *aabr</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rend</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td>the string to draw
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>use_markup</code></em> :</span></p></td>
+<td>wether to use pango markup
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>aabr</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-GOGeometry.html#GOGeometryAABR" title="GOGeometryAABR"><span class="type">GOGeometryAABR</span></a> to store the Axis Aligned Bounding Rectangle of <em class="parameter"><code>text</code></em>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_line_size ()">
+<a name="gog-renderer-line-size"></a><h3>gog_renderer_line_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              gog_renderer_line_size              (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> const *r</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> width</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>r</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_pt2r_x ()">
+<a name="gog-renderer-pt2r-x"></a><h3>gog_renderer_pt2r_x ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              gog_renderer_pt2r_x                 (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> const *r</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> d</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>r</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>d</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_pt2r_y ()">
+<a name="gog-renderer-pt2r-y"></a><h3>gog_renderer_pt2r_y ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              gog_renderer_pt2r_y                 (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> const *r</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> d</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>r</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>d</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_pt2r ()">
+<a name="gog-renderer-pt2r"></a><h3>gog_renderer_pt2r ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              gog_renderer_pt2r                   (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> const *r</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> d</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>r</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>d</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_export_image ()">
+<a name="gog-renderer-export-image"></a><h3>gog_renderer_export_image ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_renderer_export_image           (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-go-image.html#GOImageFormat" title="enum GOImageFormat"><span class="type">GOImageFormat</span></a> format</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-Output-to-unstructured-files.html#GsfOutput"><span class="type">GsfOutput</span></a> *output</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x_dpi</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y_dpi</code></em>);</pre>
+<p>
+Exports an image of <em class="parameter"><code>graph</code></em> in given <em class="parameter"><code>format</code></em>, writing results in a <a href="/usr/share/gtk-doc/html/gsf/gsf-Output-to-unstructured-files.html#GsfOutput"><span class="type">GsfOutput</span></a> stream.
+If export format type is a bitmap one, it computes image size with x_dpi, y_dpi and
+<em class="parameter"><code>graph</code></em> size (see <a class="link" href="GogGraph.html#gog-graph-get-size" title="gog_graph_get_size ()"><code class="function">gog_graph_get_size()</code></a>).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>renderer</code></em> :</span></p></td>
+<td>a <a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td>image format for export
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>output</code></em> :</span></p></td>
+<td>a <a href="/usr/share/gtk-doc/html/gsf/gsf-Output-to-unstructured-files.html#GsfOutput"><span class="type">GsfOutput</span></a> stream
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x_dpi</code></em> :</span></p></td>
+<td>x resolution of exported graph
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y_dpi</code></em> :</span></p></td>
+<td>y resolution of exported graph
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if export succeed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_update ()">
+<a name="gog-renderer-update"></a><h3>gog_renderer_update ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_renderer_update                 (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> w</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> h</code></em>);</pre>
+<p>
+Requests a renderer update, only useful for pixbuf based renderer.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>renderer</code></em> :</span></p></td>
+<td>a <a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>w</code></em> :</span></p></td>
+<td>requested width
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>h</code></em> :</span></p></td>
+<td>requested height
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if a redraw is necessary.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_get_pixbuf ()">
+<a name="gog-renderer-get-pixbuf"></a><h3>gog_renderer_get_pixbuf ()</h3>
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/gdk-pixbuf/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *         gog_renderer_get_pixbuf             (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>renderer</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> current pixbuf buffer from a renderer that can render into a pixbuf.
+	or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on error.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_renderer_get_cairo_surface ()">
+<a name="gog-renderer-get-cairo-surface"></a><h3>gog_renderer_get_cairo_surface ()</h3>
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="returnvalue">cairo_surface_t</span></a> *   gog_renderer_get_cairo_surface      (<em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *renderer</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>renderer</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="GogRenderer.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "model" property'>
+<a name="GogRenderer--model"></a><h3>The <code class="literal">"model"</code> property</h3>
+<pre class="programlisting">  "model"                    <a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a>*             : Read / Write</pre>
+<p>The GogGraph this renderer displays.</p>
+</div>
+<hr>
+<div class="refsect2" title='The "view" property'>
+<a name="GogRenderer--view"></a><h3>The <code class="literal">"view"</code> property</h3>
+<pre class="programlisting">  "view"                     <a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a>*              : Read</pre>
+<p>the GogView this renderer is displaying.</p>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="GogRenderer.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "request-update" signal'>
+<a name="GogRenderer-request-update"></a><h3>The <code class="literal">"request-update"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *gogrenderer,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     user_data)        : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gogrenderer</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

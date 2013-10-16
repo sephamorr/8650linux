@@ -1,0 +1,599 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GogChart</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch02.html" title="Objects">
+<link rel="prev" href="GogGraph.html" title="GogGraph">
+<link rel="next" href="GogLegend.html" title="GogLegend">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GogGraph.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GogLegend.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GogChart.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GogChart.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GogChart.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GogChart.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#GogChart.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry" title="GogChart">
+<a name="GogChart"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GogChart.top_of_page"></a>GogChart</span></h2>
+<p>GogChart — A chart.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GogChart.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="GogChart.html#GogChart-struct" title="GogChart">GogChart</a>;
+<a class="link" href="GogAxis.html#GogAxisSet" title="enum GogAxisSet"><span class="returnvalue">GogAxisSet</span></a>          <a class="link" href="GogChart.html#gog-axis-set-from-str" title="gog_axis_set_from_str ()">gog_axis_set_from_str</a>               (<em class="parameter"><code><span class="type">char</span> const *str</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogChart.html#gog-chart-get-position" title="gog_chart_get_position ()">gog_chart_get_position</a>              (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> const *chart</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned</span> *x</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned</span> *y</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned</span> *cols</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned</span> *rows</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogChart.html#gog-chart-set-position" title="gog_chart_set_position ()">gog_chart_set_position</a>              (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> *chart</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> x</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> y</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> cols</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> rows</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogChart.html#gog-chart-get-plot-area" title="gog_chart_get_plot_area ()">gog_chart_get_plot_area</a>             (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> *chart</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> *plot_area</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogChart.html#gog-chart-set-plot-area" title="gog_chart_set_plot_area ()">gog_chart_set_plot_area</a>             (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> *chart</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> const *plot_area</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogChart.html#gog-chart-request-cardinality-update" title="gog_chart_request_cardinality_update ()">gog_chart_request_cardinality_update</a>
+                                                        (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> *chart</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogChart.html#gog-chart-get-cardinality" title="gog_chart_get_cardinality ()">gog_chart_get_cardinality</a>           (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> *chart</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned</span> *full</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned</span> *visible</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogChart.html#gog-chart-foreach-elem" title="gog_chart_foreach_elem ()">gog_chart_foreach_elem</a>              (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> *chart</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> only_visible</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogObject.html#GogEnumFunc" title="GogEnumFunc ()"><span class="type">GogEnumFunc</span></a> handler</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="GogChart.html#gog-chart-get-plots" title="gog_chart_get_plots ()">gog_chart_get_plots</a>                 (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> const *chart</code></em>);
+<a class="link" href="GogAxis.html#GogAxisSet" title="enum GogAxisSet"><span class="returnvalue">GogAxisSet</span></a>          <a class="link" href="GogChart.html#gog-chart-get-axis-set" title="gog_chart_get_axis_set ()">gog_chart_get_axis_set</a>              (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> const *chart</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogChart.html#gog-chart-axis-set-is-valid" title="gog_chart_axis_set_is_valid ()">gog_chart_axis_set_is_valid</a>         (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> const *chart</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html#GogAxisSet" title="enum GogAxisSet"><span class="type">GogAxisSet</span></a> type</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogChart.html#gog-chart-axis-set-assign" title="gog_chart_axis_set_assign ()">gog_chart_axis_set_assign</a>           (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> *chart</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html#GogAxisSet" title="enum GogAxisSet"><span class="type">GogAxisSet</span></a> type</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="GogChart.html#gog-chart-get-axes" title="gog_chart_get_axes ()">gog_chart_get_axes</a>                  (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> const *chart</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html#GogAxisType" title="enum GogAxisType"><span class="type">GogAxisType</span></a> target</code></em>);
+<a class="link" href="GogGrid.html" title="GogGrid"><span class="returnvalue">GogGrid</span></a> *           <a class="link" href="GogChart.html#gog-chart-get-grid" title="gog_chart_get_grid ()">gog_chart_get_grid</a>                  (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> const *chart</code></em>);
+
+<a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="returnvalue">GogViewAllocation</span></a> const * <a class="link" href="GogChart.html#gog-chart-view-get-plot-area" title="gog_chart_view_get_plot_area ()">gog_chart_view_get_plot_area</a>  (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> const *view</code></em>);
+
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogChart.html#gog-chart-is-3d" title="gog_chart_is_3d ()">gog_chart_is_3d</a>                     (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> const *chart</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GogChart.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GogObject.html" title="GogObject">GogObject</a>
+         +----<a class="link" href="GogStyledObject.html" title="GogStyledObject">GogStyledObject</a>
+               +----<a class="link" href="GogOutlinedObject.html" title="GogOutlinedObject">GogOutlinedObject</a>
+                     +----GogChart
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GogChart.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GogChart implements
+ <a class="link" href="GOStyledObject.html" title="GOStyledObject">GOStyledObject</a>.</p>
+</div>
+<div class="refsect1" title="Properties">
+<a name="GogChart.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GogChart.html#GogChart--cardinality-valid" title='The "cardinality-valid" property'>cardinality-valid</a>"        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read
+  "<a class="link" href="GogChart.html#GogChart--columns" title='The "columns" property'>columns</a>"                  <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write
+  "<a class="link" href="GogChart.html#GogChart--is-plot-area-manual" title='The "is-plot-area-manual" property'>is-plot-area-manual</a>"      <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write
+  "<a class="link" href="GogChart.html#GogChart--plot-area" title='The "plot-area" property'>plot-area</a>"                <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
+  "<a class="link" href="GogChart.html#GogChart--rows" title='The "rows" property'>rows</a>"                     <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write
+  "<a class="link" href="GogChart.html#GogChart--xpos" title='The "xpos" property'>xpos</a>"                     <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write
+  "<a class="link" href="GogChart.html#GogChart--ypos" title='The "ypos" property'>ypos</a>"                     <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GogChart.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> wraps one or more <a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> objects, so that you can superimpose
+them on top of each other. In addition, the chart can have a title and a legend.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GogChart.details"></a><h2>Details</h2>
+<div class="refsect2" title="GogChart">
+<a name="GogChart-struct"></a><h3>GogChart</h3>
+<pre class="programlisting">typedef struct _GogChart GogChart;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_set_from_str ()">
+<a name="gog-axis-set-from-str"></a><h3>gog_axis_set_from_str ()</h3>
+<pre class="programlisting"><a class="link" href="GogAxis.html#GogAxisSet" title="enum GogAxisSet"><span class="returnvalue">GogAxisSet</span></a>          gog_axis_set_from_str               (<em class="parameter"><code><span class="type">char</span> const *str</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_chart_get_position ()">
+<a name="gog-chart-get-position"></a><h3>gog_chart_get_position ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_chart_get_position              (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> const *chart</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned</span> *x</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned</span> *y</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned</span> *cols</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned</span> *rows</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chart</code></em> :</span></p></td>
+<td>const <a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the chart has been positioned.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_chart_set_position ()">
+<a name="gog-chart-set-position"></a><h3>gog_chart_set_position ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_chart_set_position              (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> *chart</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> x</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> y</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> cols</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> rows</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>chart</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_chart_get_plot_area ()">
+<a name="gog-chart-get-plot-area"></a><h3>gog_chart_get_plot_area ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_chart_get_plot_area             (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> *chart</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> *plot_area</code></em>);</pre>
+<p>
+Stores plot area in plot_area, in fraction of chart size.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chart</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plot_area</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if plot area position is manual.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_chart_set_plot_area ()">
+<a name="gog-chart-set-plot-area"></a><h3>gog_chart_set_plot_area ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_chart_set_plot_area             (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> *chart</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> const *plot_area</code></em>);</pre>
+<p>
+If plot_area != NULL, sets plot area size and location, in fraction
+of chart size, and sets GogChart::is_plot_area_manual flag to TRUE.
+If plot_area == NULL, sets GogChart::is_plot_area_manual to FALSE.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chart</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plot_area</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_chart_request_cardinality_update ()">
+<a name="gog-chart-request-cardinality-update"></a><h3>gog_chart_request_cardinality_update ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_chart_request_cardinality_update
+                                                        (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> *chart</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>chart</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_chart_get_cardinality ()">
+<a name="gog-chart-get-cardinality"></a><h3>gog_chart_get_cardinality ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_chart_get_cardinality           (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> *chart</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned</span> *full</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned</span> *visible</code></em>);</pre>
+<p>
+Update and cache cardinality values if required, and returns
+full and visible cardinality. Full cardinality is the number of
+chart elements that require a different style. Visible cardinality is
+the number of chart elements shown in chart legend.
+</p>
+<p>
+<em class="parameter"><code>full</code></em> and <em class="parameter"><code>visible</code></em> may be NULL.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chart</code></em> :</span></p></td>
+<td>a <a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>full</code></em> :</span></p></td>
+<td>placeholder for full cardinality
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>visible</code></em> :</span></p></td>
+<td>placeholder for visible cardinality
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_chart_foreach_elem ()">
+<a name="gog-chart-foreach-elem"></a><h3>gog_chart_foreach_elem ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_chart_foreach_elem              (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> *chart</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> only_visible</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogObject.html#GogEnumFunc" title="GogEnumFunc ()"><span class="type">GogEnumFunc</span></a> handler</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chart</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>only_visible</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>handler</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_chart_get_plots ()">
+<a name="gog-chart-get-plots"></a><h3>gog_chart_get_plots ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            gog_chart_get_plots                 (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> const *chart</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chart</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_chart_get_axis_set ()">
+<a name="gog-chart-get-axis-set"></a><h3>gog_chart_get_axis_set ()</h3>
+<pre class="programlisting"><a class="link" href="GogAxis.html#GogAxisSet" title="enum GogAxisSet"><span class="returnvalue">GogAxisSet</span></a>          gog_chart_get_axis_set              (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> const *chart</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chart</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_chart_axis_set_is_valid ()">
+<a name="gog-chart-axis-set-is-valid"></a><h3>gog_chart_axis_set_is_valid ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_chart_axis_set_is_valid         (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> const *chart</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html#GogAxisSet" title="enum GogAxisSet"><span class="type">GogAxisSet</span></a> type</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chart</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_chart_axis_set_assign ()">
+<a name="gog-chart-axis-set-assign"></a><h3>gog_chart_axis_set_assign ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_chart_axis_set_assign           (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> *chart</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html#GogAxisSet" title="enum GogAxisSet"><span class="type">GogAxisSet</span></a> type</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chart</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_chart_get_axes ()">
+<a name="gog-chart-get-axes"></a><h3>gog_chart_get_axes ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            gog_chart_get_axes                  (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> const *chart</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html#GogAxisType" title="enum GogAxisType"><span class="type">GogAxisType</span></a> target</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chart</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogAxis.html#GogAxisType" title="enum GogAxisType"><span class="type">GogAxisType</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a list which the caller must free of all axis of type <em class="parameter"><code>target</code></em>
+associated with <em class="parameter"><code>chart</code></em>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_chart_get_grid ()">
+<a name="gog-chart-get-grid"></a><h3>gog_chart_get_grid ()</h3>
+<pre class="programlisting"><a class="link" href="GogGrid.html" title="GogGrid"><span class="returnvalue">GogGrid</span></a> *           gog_chart_get_grid                  (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> const *chart</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chart</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the grid associated with <em class="parameter"><code>chart</code></em> if one exists
+otherwise NULL.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_chart_view_get_plot_area ()">
+<a name="gog-chart-view-get-plot-area"></a><h3>gog_chart_view_get_plot_area ()</h3>
+<pre class="programlisting"><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="returnvalue">GogViewAllocation</span></a> const * gog_chart_view_get_plot_area  (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> const *view</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_chart_is_3d ()">
+<a name="gog-chart-is-3d"></a><h3>gog_chart_is_3d ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_chart_is_3d                     (<em class="parameter"><code><a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a> const *chart</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chart</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="GogChart.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "cardinality-valid" property'>
+<a name="GogChart--cardinality-valid"></a><h3>The <code class="literal">"cardinality-valid"</code> property</h3>
+<pre class="programlisting">  "cardinality-valid"        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read</pre>
+<p>Is the charts cardinality currently valid.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "columns" property'>
+<a name="GogChart--columns"></a><h3>The <code class="literal">"columns"</code> property</h3>
+<pre class="programlisting">  "columns"                  <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write</pre>
+<p>Number of columns in graph grid.</p>
+<p>Allowed values: &gt;= 1</p>
+<p>Default value: 1</p>
+</div>
+<hr>
+<div class="refsect2" title='The "is-plot-area-manual" property'>
+<a name="GogChart--is-plot-area-manual"></a><h3>The <code class="literal">"is-plot-area-manual"</code> property</h3>
+<pre class="programlisting">  "is-plot-area-manual"      <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write</pre>
+<p>Is plot area manual.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "plot-area" property'>
+<a name="GogChart--plot-area"></a><h3>The <code class="literal">"plot-area"</code> property</h3>
+<pre class="programlisting">  "plot-area"                <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
+<p>Position and size of plot area, in percentage of chart size.</p>
+<p>Default value: "0 0 1 1"</p>
+</div>
+<hr>
+<div class="refsect2" title='The "rows" property'>
+<a name="GogChart--rows"></a><h3>The <code class="literal">"rows"</code> property</h3>
+<pre class="programlisting">  "rows"                     <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write</pre>
+<p>Number of rows in graph grid.</p>
+<p>Allowed values: &gt;= 1</p>
+<p>Default value: 1</p>
+</div>
+<hr>
+<div class="refsect2" title='The "xpos" property'>
+<a name="GogChart--xpos"></a><h3>The <code class="literal">"xpos"</code> property</h3>
+<pre class="programlisting">  "xpos"                     <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write</pre>
+<p>Horizontal chart position in graph grid.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" title='The "ypos" property'>
+<a name="GogChart--ypos"></a><h3>The <code class="literal">"ypos"</code> property</h3>
+<pre class="programlisting">  "ypos"                     <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write</pre>
+<p>Vertical chart position in graph grid.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+</div>
+<div class="refsect1" title="See Also">
+<a name="GogChart.see-also"></a><h2>See Also</h2>
+<a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

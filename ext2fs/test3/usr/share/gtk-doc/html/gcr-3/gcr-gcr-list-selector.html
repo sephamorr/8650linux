@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>gcr-list-selector</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Gcr Library Reference Manual">
+<link rel="up" href="widgets.html" title="Part III. Widgets">
+<link rel="prev" href="gcr-gcr-import-button.html" title="gcr-import-button">
+<link rel="next" href="gcr-gcr-tree-selector.html" title="gcr-tree-selector">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gcr-gcr-import-button.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="widgets.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Gcr Library Reference Manual</th>
+<td><a accesskey="n" href="gcr-gcr-tree-selector.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gcr-gcr-list-selector.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gcr-gcr-list-selector.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#gcr-gcr-list-selector.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#gcr-gcr-list-selector.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#gcr-gcr-list-selector.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gcr-gcr-list-selector"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gcr-gcr-list-selector.top_of_page"></a>gcr-list-selector</span></h2>
+<p>gcr-list-selector</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gcr-gcr-list-selector.synopsis"></a><h2>Synopsis</h2>
+<a name="GcrListSelector"></a><pre class="synopsis">struct              <a class="link" href="gcr-gcr-list-selector.html#GcrListSelector-struct" title="struct GcrListSelector">GcrListSelector</a>;
+struct              <a class="link" href="gcr-gcr-list-selector.html#GcrListSelectorClass" title="struct GcrListSelectorClass">GcrListSelectorClass</a>;
+<a class="link" href="gcr-gcr-list-selector.html#GcrListSelector"><span class="returnvalue">GcrListSelector</span></a> *   <a class="link" href="gcr-gcr-list-selector.html#gcr-list-selector-new" title="gcr_list_selector_new ()">gcr_list_selector_new</a>               (<em class="parameter"><code><a class="link" href="GcrCollection.html" title="GcrCollection"><span class="type">GcrCollection</span></a> *collection</code></em>);
+<a class="link" href="GcrCollection.html" title="GcrCollection"><span class="returnvalue">GcrCollection</span></a> *     <a class="link" href="gcr-gcr-list-selector.html#gcr-list-selector-get-collection" title="gcr_list_selector_get_collection ()">gcr_list_selector_get_collection</a>    (<em class="parameter"><code><a class="link" href="gcr-gcr-list-selector.html#GcrListSelector"><span class="type">GcrListSelector</span></a> *self</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="gcr-gcr-list-selector.html#gcr-list-selector-get-selected" title="gcr_list_selector_get_selected ()">gcr_list_selector_get_selected</a>      (<em class="parameter"><code><a class="link" href="gcr-gcr-list-selector.html#GcrListSelector"><span class="type">GcrListSelector</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gcr-gcr-list-selector.html#gcr-list-selector-set-selected" title="gcr_list_selector_set_selected ()">gcr_list_selector_set_selected</a>      (<em class="parameter"><code><a class="link" href="gcr-gcr-list-selector.html#GcrListSelector"><span class="type">GcrListSelector</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *selected</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-list-selector.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----<a href="http://developer.gnome.org/gtk2/GtkWidget.html">GtkWidget</a>
+               +----<a href="http://developer.gnome.org/gtk2/GtkContainer.html">GtkContainer</a>
+                     +----<a href="http://developer.gnome.org/gtk2/GtkTreeView.html">GtkTreeView</a>
+                           +----GcrListSelector
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-list-selector.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GcrListSelector implements
+ AtkImplementorIface,  <a href="http://developer.gnome.org/gtk2/GtkBuildable.html">GtkBuildable</a> and  <a href="http://developer.gnome.org/gtk2/GtkScrollable.html">GtkScrollable</a>.</p>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-list-selector.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="gcr-gcr-list-selector.html#GcrListSelector--collection" title='The "collection" property'>collection</a>"               <a class="link" href="GcrCollection.html" title="GcrCollection"><span class="type">GcrCollection</span></a>*        : Read / Write / Construct Only
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-list-selector.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-list-selector.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GcrListSelector-struct"></a><h3>struct GcrListSelector</h3>
+<pre class="programlisting">struct GcrListSelector;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GcrListSelectorClass"></a><h3>struct GcrListSelectorClass</h3>
+<pre class="programlisting">struct GcrListSelectorClass {
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-list-selector-new"></a><h3>gcr_list_selector_new ()</h3>
+<pre class="programlisting"><a class="link" href="gcr-gcr-list-selector.html#GcrListSelector"><span class="returnvalue">GcrListSelector</span></a> *   gcr_list_selector_new               (<em class="parameter"><code><a class="link" href="GcrCollection.html" title="GcrCollection"><span class="type">GcrCollection</span></a> *collection</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-list-selector-get-collection"></a><h3>gcr_list_selector_get_collection ()</h3>
+<pre class="programlisting"><a class="link" href="GcrCollection.html" title="GcrCollection"><span class="returnvalue">GcrCollection</span></a> *     gcr_list_selector_get_collection    (<em class="parameter"><code><a class="link" href="gcr-gcr-list-selector.html#GcrListSelector"><span class="type">GcrListSelector</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-list-selector-get-selected"></a><h3>gcr_list_selector_get_selected ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             gcr_list_selector_get_selected      (<em class="parameter"><code><a class="link" href="gcr-gcr-list-selector.html#GcrListSelector"><span class="type">GcrListSelector</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-list-selector-set-selected"></a><h3>gcr_list_selector_set_selected ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcr_list_selector_set_selected      (<em class="parameter"><code><a class="link" href="gcr-gcr-list-selector.html#GcrListSelector"><span class="type">GcrListSelector</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *selected</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-list-selector.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="GcrListSelector--collection"></a><h3>The <code class="literal">"collection"</code> property</h3>
+<pre class="programlisting">  "collection"               <a class="link" href="GcrCollection.html" title="GcrCollection"><span class="type">GcrCollection</span></a>*        : Read / Write / Construct Only</pre>
+<p>Collection to select from.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

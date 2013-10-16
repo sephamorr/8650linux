@@ -1,0 +1,587 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GogView</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch03.html" title="Abstract Base Classes">
+<link rel="prev" href="GogRegCurve.html" title="GogRegCurve">
+<link rel="next" href="GogDataAllocator.html" title="GogDataAllocator">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GogRegCurve.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch03.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GogDataAllocator.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GogView.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GogView.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GogView.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GogView.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry" title="GogView">
+<a name="GogView"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GogView.top_of_page"></a>GogView</span></h2>
+<p>GogView</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GogView.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="GogView.html#GogView-struct" title="GogView">GogView</a>;
+                    <a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation">GogViewAllocation</a>;
+                    <a class="link" href="GogView.html#GogViewPadding" title="GogViewPadding">GogViewPadding</a>;
+                    <a class="link" href="GogView.html#GogViewRequisition" title="GogViewRequisition">GogViewRequisition</a>;
+<a class="link" href="GogObject.html" title="GogObject"><span class="returnvalue">GogObject</span></a> *         <a class="link" href="GogView.html#gog-view-get-model" title="gog_view_get_model ()">gog_view_get_model</a>                  (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> const *view</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogView.html#gog-view-render" title="gog_view_render ()">gog_view_render</a>                     (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> const *bbox</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogView.html#gog-view-queue-redraw" title="gog_view_queue_redraw ()">gog_view_queue_redraw</a>               (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogView.html#gog-view-queue-resize" title="gog_view_queue_resize ()">gog_view_queue_resize</a>               (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogView.html#gog-view-padding-request" title="gog_view_padding_request ()">gog_view_padding_request</a>            (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> const *bbox</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewPadding" title="GogViewPadding"><span class="type">GogViewPadding</span></a> *padding</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogView.html#gog-view-size-request" title="gog_view_size_request ()">gog_view_size_request</a>               (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewRequisition" title="GogViewRequisition"><span class="type">GogViewRequisition</span></a> const *available</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewRequisition" title="GogViewRequisition"><span class="type">GogViewRequisition</span></a> *requisition</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogView.html#gog-view-size-allocate" title="gog_view_size_allocate ()">gog_view_size_allocate</a>              (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> const *allocation</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogView.html#gog-view-update-sizes" title="gog_view_update_sizes ()">gog_view_update_sizes</a>               (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>);
+<a class="link" href="GogView.html" title="GogView"><span class="returnvalue">GogView</span></a> *           <a class="link" href="GogView.html#gog-view-find-child-view" title="gog_view_find_child_view ()">gog_view_find_child_view</a>            (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> const *container</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a> const *target_model</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> const	*      <a class="link" href="GogView.html#gog-view-get-toolkit" title="gog_view_get_toolkit ()">gog_view_get_toolkit</a>                (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogView.html#gog-view-render-toolkit" title="gog_view_render_toolkit ()">gog_view_render_toolkit</a>             (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>);
+<a class="link" href="goffice-0.8-GogTool.html#GogTool" title="GogTool"><span class="returnvalue">GogTool</span></a> *           <a class="link" href="GogView.html#gog-view-get-tool-at-point" title="gog_view_get_tool_at_point ()">gog_view_get_tool_at_point</a>          (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a> **gobj</code></em>);
+<a class="link" href="GogView.html" title="GogView"><span class="returnvalue">GogView</span></a> *           <a class="link" href="GogView.html#gog-view-get-view-at-point" title="gog_view_get_view_at_point ()">gog_view_get_view_at_point</a>          (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a> **obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GogTool.html#GogTool" title="GogTool"><span class="type">GogTool</span></a> **tool</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogView.html#gog-view-size-child-request" title="gog_view_size_child_request ()">gog_view_size_child_request</a>         (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewRequisition" title="GogViewRequisition"><span class="type">GogViewRequisition</span></a> const *available</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewRequisition" title="GogViewRequisition"><span class="type">GogViewRequisition</span></a> *req</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewRequisition" title="GogViewRequisition"><span class="type">GogViewRequisition</span></a> *min_req</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="GogView.html#gog-view-get-tip-at-point" title="gog_view_get_tip_at_point ()">gog_view_get_tip_at_point</a>           (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GogView.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GogView
+         +----GogOutlinedView
+         +----<a class="link" href="GogPlot.html#GogPlotView">GogPlotView</a>
+</pre>
+</div>
+<div class="refsect1" title="Properties">
+<a name="GogView.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GogView.html#GogView--model" title='The "model" property'>model</a>"                    <a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a>*            : Write
+  "<a class="link" href="GogView.html#GogView--parent" title='The "parent" property'>parent</a>"                   <a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a>*              : Write
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GogView.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GogView.details"></a><h2>Details</h2>
+<div class="refsect2" title="GogView">
+<a name="GogView-struct"></a><h3>GogView</h3>
+<pre class="programlisting">typedef struct _GogView GogView;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GogViewAllocation">
+<a name="GogViewAllocation"></a><h3>GogViewAllocation</h3>
+<pre class="programlisting">typedef struct {
+	double w, h;
+	double x, y;
+} GogViewAllocation;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GogViewPadding">
+<a name="GogViewPadding"></a><h3>GogViewPadding</h3>
+<pre class="programlisting">typedef struct {
+	double wr, hb;
+	double wl, ht;
+} GogViewPadding;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GogViewRequisition">
+<a name="GogViewRequisition"></a><h3>GogViewRequisition</h3>
+<pre class="programlisting">typedef struct {
+	double w, h;
+} GogViewRequisition;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gog_view_get_model ()">
+<a name="gog-view-get-model"></a><h3>gog_view_get_model ()</h3>
+<pre class="programlisting"><a class="link" href="GogObject.html" title="GogObject"><span class="returnvalue">GogObject</span></a> *         gog_view_get_model                  (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> const *view</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_view_render ()">
+<a name="gog-view-render"></a><h3>gog_view_render ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_view_render                     (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> const *bbox</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bbox</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_view_queue_redraw ()">
+<a name="gog-view-queue-redraw"></a><h3>gog_view_queue_redraw ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_view_queue_redraw               (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>);</pre>
+<p>
+Requests a redraw for the entire graph.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>a <a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_view_queue_resize ()">
+<a name="gog-view-queue-resize"></a><h3>gog_view_queue_resize ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_view_queue_resize               (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>);</pre>
+<p>
+Flags a view to have its size renegotiated; should
+be called when a model for some reason has a new size request.
+For example, when you change the size of a legend.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>a <a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_view_padding_request ()">
+<a name="gog-view-padding-request"></a><h3>gog_view_padding_request ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_view_padding_request            (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> const *bbox</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewPadding" title="GogViewPadding"><span class="type">GogViewPadding</span></a> *padding</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bbox</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>padding</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_view_size_request ()">
+<a name="gog-view-size-request"></a><h3>gog_view_size_request ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_view_size_request               (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewRequisition" title="GogViewRequisition"><span class="type">GogViewRequisition</span></a> const *available</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewRequisition" title="GogViewRequisition"><span class="type">GogViewRequisition</span></a> *requisition</code></em>);</pre>
+<p>
+When called <em class="parameter"><code>available</code></em> holds the available space and <em class="parameter"><code>requisition</code></em> is populated
+with the desired size based on that input and other elements of the view or
+its model's state (eg the position).
+</p>
+<p>
+Remember that the size request is not necessarily the size a view will
+actually be allocated.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>a <a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>available</code></em> :</span></p></td>
+<td>available space.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>requisition</code></em> :</span></p></td>
+<td>a <a class="link" href="GogView.html#GogViewRequisition" title="GogViewRequisition"><span class="type">GogViewRequisition</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_view_size_allocate ()">
+<a name="gog-view-size-allocate"></a><h3>gog_view_size_allocate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_view_size_allocate              (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> const *allocation</code></em>);</pre>
+<p>
+Assign a size and position to a GogView.  Primarilly used by containers.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>a <a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>allocation</code></em> :</span></p></td>
+<td>position and size to be allocated to <em class="parameter"><code>view</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_view_update_sizes ()">
+<a name="gog-view-update-sizes"></a><h3>gog_view_update_sizes ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_view_update_sizes               (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if a redraw is necessary.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_view_find_child_view ()">
+<a name="gog-view-find-child-view"></a><h3>gog_view_find_child_view ()</h3>
+<pre class="programlisting"><a class="link" href="GogView.html" title="GogView"><span class="returnvalue">GogView</span></a> *           gog_view_find_child_view            (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> const *container</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a> const *target_model</code></em>);</pre>
+<p>
+Find the GogView contained in <em class="parameter"><code>container</code></em> that corresponds to <em class="parameter"><code>model</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target_model</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> NULL on error or if <em class="parameter"><code>target_model</code></em> has no view.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_view_get_toolkit ()">
+<a name="gog-view-get-toolkit"></a><h3>gog_view_get_toolkit ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> const	*      gog_view_get_toolkit                (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> toolkit associated with given view.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_view_render_toolkit ()">
+<a name="gog-view-render-toolkit"></a><h3>gog_view_render_toolkit ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_view_render_toolkit             (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>);</pre>
+<p>
+Render toolkit elements.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_view_get_tool_at_point ()">
+<a name="gog-view-get-tool-at-point"></a><h3>gog_view_get_tool_at_point ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GogTool.html#GogTool" title="GogTool"><span class="returnvalue">GogTool</span></a> *           gog_view_get_tool_at_point          (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a> **gobj</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>in coords
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>in coords
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gobj</code></em> :</span></p></td>
+<td>pointed object or NULL
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> tool under cursor for a given view, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_view_get_view_at_point ()">
+<a name="gog-view-get-view-at-point"></a><h3>gog_view_get_view_at_point ()</h3>
+<pre class="programlisting"><a class="link" href="GogView.html" title="GogView"><span class="returnvalue">GogView</span></a> *           gog_view_get_view_at_point          (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a> **obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GogTool.html#GogTool" title="GogTool"><span class="type">GogTool</span></a> **tool</code></em>);</pre>
+<p>
+Gets view under cursor, searching recursively from <em class="parameter"><code>view</code></em>. Corresponding object
+is stored in <em class="parameter"><code>obj</code></em>. This object may or may not be <em class="parameter"><code>view-&gt;model</code></em> of pointed view.
+This function also stores tool under cursor, for the pointed view.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>cursor x position
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>cursor y position
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>pointed object or NULL
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tool</code></em> :</span></p></td>
+<td>pointed tool or NULL
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the <a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> at x,y position
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_view_size_child_request ()">
+<a name="gog-view-size-child-request"></a><h3>gog_view_size_child_request ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_view_size_child_request         (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewRequisition" title="GogViewRequisition"><span class="type">GogViewRequisition</span></a> const *available</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewRequisition" title="GogViewRequisition"><span class="type">GogViewRequisition</span></a> *req</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewRequisition" title="GogViewRequisition"><span class="type">GogViewRequisition</span></a> *min_req</code></em>);</pre>
+<p>
+Computes additional requision in <em class="parameter"><code>req</code></em> which must be added to parent requisition,
+and minimum requisition in <em class="parameter"><code>min_req</code></em> which is minimum space for displaying all
+children.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>a <a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>available</code></em> :</span></p></td>
+<td>the amount of space available in total
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>req</code></em> :</span></p></td>
+<td>additionnal requisition
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>min_req</code></em> :</span></p></td>
+<td>minimum size for displaying all children
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_view_get_tip_at_point ()">
+<a name="gog-view-get-tip-at-point"></a><h3>gog_view_get_tip_at_point ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              gog_view_get_tip_at_point           (<em class="parameter"><code><a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a> *view</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>);</pre>
+<p>
+Gets a tip string related to the position as defined by (<em class="parameter"><code>x</code></em>,<em class="parameter"><code>y</code></em>) in <em class="parameter"><code>view</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>x position
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>y position
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the newly allocated tip string if the view class supports
+that or NULL.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="GogView.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "model" property'>
+<a name="GogView--model"></a><h3>The <code class="literal">"model"</code> property</h3>
+<pre class="programlisting">  "model"                    <a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a>*            : Write</pre>
+<p>The GogObject this view displays.</p>
+</div>
+<hr>
+<div class="refsect2" title='The "parent" property'>
+<a name="GogView--parent"></a><h3>The <code class="literal">"parent"</code> property</h3>
+<pre class="programlisting">  "parent"                   <a class="link" href="GogView.html" title="GogView"><span class="type">GogView</span></a>*              : Write</pre>
+<p>the GogView parent.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

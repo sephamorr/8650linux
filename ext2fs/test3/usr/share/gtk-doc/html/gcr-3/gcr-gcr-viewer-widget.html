@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>gcr-viewer-widget</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Gcr Library Reference Manual">
+<link rel="up" href="widgets.html" title="Part III. Widgets">
+<link rel="prev" href="gcr-gcr-viewer.html" title="gcr-viewer">
+<link rel="next" href="ch01.html" title="Widget Gallery">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gcr-gcr-viewer.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="widgets.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Gcr Library Reference Manual</th>
+<td><a accesskey="n" href="ch01.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gcr-gcr-viewer-widget.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gcr-gcr-viewer-widget.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#gcr-gcr-viewer-widget.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#gcr-gcr-viewer-widget.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#gcr-gcr-viewer-widget.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#gcr-gcr-viewer-widget.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gcr-gcr-viewer-widget"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gcr-gcr-viewer-widget.top_of_page"></a>gcr-viewer-widget</span></h2>
+<p>gcr-viewer-widget</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gcr-gcr-viewer-widget.synopsis"></a><h2>Synopsis</h2>
+<a name="GcrViewerWidget"></a><pre class="synopsis">                    <a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget-struct" title="GcrViewerWidget">GcrViewerWidget</a>;
+<a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget"><span class="returnvalue">GcrViewerWidget</span></a> *   <a class="link" href="gcr-gcr-viewer-widget.html#gcr-viewer-widget-new" title="gcr_viewer_widget_new ()">gcr_viewer_widget_new</a>               (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gcr-gcr-viewer-widget.html#gcr-viewer-widget-load-data" title="gcr_viewer_widget_load_data ()">gcr_viewer_widget_load_data</a>         (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget"><span class="type">GcrViewerWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *display_name</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> n_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gcr-gcr-viewer-widget.html#gcr-viewer-widget-load-file" title="gcr_viewer_widget_load_file ()">gcr_viewer_widget_load_file</a>         (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget"><span class="type">GcrViewerWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *file</code></em>);
+<a class="link" href="GcrParser.html" title="GcrParser"><span class="returnvalue">GcrParser</span></a> *         <a class="link" href="gcr-gcr-viewer-widget.html#gcr-viewer-widget-get-parser" title="gcr_viewer_widget_get_parser ()">gcr_viewer_widget_get_parser</a>        (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget"><span class="type">GcrViewerWidget</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gcr-gcr-viewer-widget.html#gcr-viewer-widget-show-error" title="gcr_viewer_widget_show_error ()">gcr_viewer_widget_show_error</a>        (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget"><span class="type">GcrViewerWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *message</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> *error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gcr-gcr-viewer-widget.html#gcr-viewer-widget-clear-error" title="gcr_viewer_widget_clear_error ()">gcr_viewer_widget_clear_error</a>       (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget"><span class="type">GcrViewerWidget</span></a> *self</code></em>);
+const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="gcr-gcr-viewer-widget.html#gcr-viewer-widget-get-display-name" title="gcr_viewer_widget_get_display_name ()">gcr_viewer_widget_get_display_name</a>  (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget"><span class="type">GcrViewerWidget</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gcr-gcr-viewer-widget.html#gcr-viewer-widget-set-display-name" title="gcr_viewer_widget_set_display_name ()">gcr_viewer_widget_set_display_name</a>  (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget"><span class="type">GcrViewerWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *display_name</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-viewer-widget.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----<a href="http://developer.gnome.org/gtk2/GtkWidget.html">GtkWidget</a>
+               +----<a href="http://developer.gnome.org/gtk2/GtkContainer.html">GtkContainer</a>
+                     +----<a href="http://developer.gnome.org/gtk2/GtkBox.html">GtkBox</a>
+                           +----GcrViewerWidget
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-viewer-widget.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GcrViewerWidget implements
+ AtkImplementorIface,  <a href="http://developer.gnome.org/gtk2/GtkBuildable.html">GtkBuildable</a> and  <a href="http://developer.gnome.org/gtk2/gtk3-Orientable.html#GtkOrientable">GtkOrientable</a>.</p>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-viewer-widget.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget--display-name" title='The "display-name" property'>display-name</a>"             <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
+  "<a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget--parser" title='The "parser" property'>parser</a>"                   <a class="link" href="GcrParser.html" title="GcrParser"><span class="type">GcrParser</span></a>*            : Read
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-viewer-widget.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget-added" title='The "added" signal'>added</a>"                                          : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-viewer-widget.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-viewer-widget.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GcrViewerWidget-struct"></a><h3>GcrViewerWidget</h3>
+<pre class="programlisting">typedef struct _GcrViewerWidget GcrViewerWidget;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-viewer-widget-new"></a><h3>gcr_viewer_widget_new ()</h3>
+<pre class="programlisting"><a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget"><span class="returnvalue">GcrViewerWidget</span></a> *   gcr_viewer_widget_new               (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-viewer-widget-load-data"></a><h3>gcr_viewer_widget_load_data ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcr_viewer_widget_load_data         (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget"><span class="type">GcrViewerWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *display_name</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> n_data</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-viewer-widget-load-file"></a><h3>gcr_viewer_widget_load_file ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcr_viewer_widget_load_file         (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget"><span class="type">GcrViewerWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *file</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-viewer-widget-get-parser"></a><h3>gcr_viewer_widget_get_parser ()</h3>
+<pre class="programlisting"><a class="link" href="GcrParser.html" title="GcrParser"><span class="returnvalue">GcrParser</span></a> *         gcr_viewer_widget_get_parser        (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget"><span class="type">GcrViewerWidget</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-viewer-widget-show-error"></a><h3>gcr_viewer_widget_show_error ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcr_viewer_widget_show_error        (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget"><span class="type">GcrViewerWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *message</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> *error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-viewer-widget-clear-error"></a><h3>gcr_viewer_widget_clear_error ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcr_viewer_widget_clear_error       (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget"><span class="type">GcrViewerWidget</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-viewer-widget-get-display-name"></a><h3>gcr_viewer_widget_get_display_name ()</h3>
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       gcr_viewer_widget_get_display_name  (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget"><span class="type">GcrViewerWidget</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-viewer-widget-set-display-name"></a><h3>gcr_viewer_widget_set_display_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcr_viewer_widget_set_display_name  (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget"><span class="type">GcrViewerWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *display_name</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-viewer-widget.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="GcrViewerWidget--display-name"></a><h3>The <code class="literal">"display-name"</code> property</h3>
+<pre class="programlisting">  "display-name"             <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
+<p>Display name.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GcrViewerWidget--parser"></a><h3>The <code class="literal">"parser"</code> property</h3>
+<pre class="programlisting">  "parser"                   <a class="link" href="GcrParser.html" title="GcrParser"><span class="type">GcrParser</span></a>*            : Read</pre>
+<p>Parser used to parse viewable items.</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-viewer-widget.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="GcrViewerWidget-added"></a><h3>The <code class="literal">"added"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="gcr-gcr-viewer-widget.html#GcrViewerWidget"><span class="type">GcrViewerWidget</span></a> *gcrviewerwidget,
+                                                        <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>         *arg1,
+                                                        <a class="link" href="GcrParser.html#GcrParsed" title="GcrParsed"><span class="type">GcrParsed</span></a>       *arg2,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>         user_data)            : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gcrviewerwidget</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

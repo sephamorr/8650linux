@@ -1,0 +1,712 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOIOContext</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch15.html" title="Application">
+<link rel="prev" href="GODoc.html" title="GODoc">
+<link rel="next" href="goffice-0.8-go-plugin.html" title="go-plugin">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GODoc.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch15.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="goffice-0.8-go-plugin.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GOIOContext.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GOIOContext.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GOIOContext.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GOIOContext.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#GOIOContext.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOIOContext">
+<a name="GOIOContext"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GOIOContext.top_of_page"></a>GOIOContext</span></h2>
+<p>GOIOContext</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GOIOContext.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="GOIOContext.html#GOIOContext-struct" title="GOIOContext">GOIOContext</a>;
+                    <a class="link" href="GOIOContext.html#GOIOContextClass" title="GOIOContextClass">GOIOContextClass</a>;
+<a class="link" href="GOIOContext.html" title="GOIOContext"><span class="returnvalue">GOIOContext</span></a> *       <a class="link" href="GOIOContext.html#go-io-context-new" title="go_io_context_new ()">go_io_context_new</a>                   (<em class="parameter"><code><a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="type">GOCmdContext</span></a> *cc</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-error-unknown" title="go_io_error_unknown ()">go_io_error_unknown</a>                 (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-error-info-set" title="go_io_error_info_set ()">go_io_error_info_set</a>                (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> *error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-error-string" title="go_io_error_string ()">go_io_error_string</a>                  (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *str</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-error-push" title="go_io_error_push ()">go_io_error_push</a>                    (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> *error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-error-clear" title="go_io_error_clear ()">go_io_error_clear</a>                   (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-error-display" title="go_io_error_display ()">go_io_error_display</a>                 (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOIOContext.html#go-io-error-occurred" title="go_io_error_occurred ()">go_io_error_occurred</a>                (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOIOContext.html#go-io-warning-occurred" title="go_io_warning_occurred ()">go_io_warning_occurred</a>              (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-progress-message" title="go_io_progress_message ()">go_io_progress_message</a>              (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *msg</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-progress-update" title="go_io_progress_update ()">go_io_progress_update</a>               (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> f</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-progress-range-push" title="go_io_progress_range_push ()">go_io_progress_range_push</a>           (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> min</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> max</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-progress-range-pop" title="go_io_progress_range_pop ()">go_io_progress_range_pop</a>            (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-count-progress-set" title="go_io_count_progress_set ()">go_io_count_progress_set</a>            (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> total</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> step</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-count-progress-update" title="go_io_count_progress_update ()">go_io_count_progress_update</a>         (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> inc</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-value-progress-set" title="go_io_value_progress_set ()">go_io_value_progress_set</a>            (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> total</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> step</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-value-progress-update" title="go_io_value_progress_update ()">go_io_value_progress_update</a>         (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-progress-unset" title="go_io_progress_unset ()">go_io_progress_unset</a>                (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-context-set-num-files" title="go_io_context_set_num_files ()">go_io_context_set_num_files</a>         (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> count</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-context-processing-file" title="go_io_context_processing_file ()">go_io_context_processing_file</a>       (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *uri</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-warning" title="go_io_warning ()">go_io_warning</a>                       (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *fmt</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-warning-varargs" title="go_io_warning_varargs ()">go_io_warning_varargs</a>               (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *fmt</code></em>,
+                                                         <em class="parameter"><code><span class="type">va_list</span> args</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-warning-unknown-font" title="go_io_warning_unknown_font ()">go_io_warning_unknown_font</a>          (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *font_name</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-warning-unknown-function" title="go_io_warning_unknown_function ()">go_io_warning_unknown_function</a>      (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *funct_name</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOIOContext.html#go-io-warning-unsupported-feature" title="go_io_warning_unsupported_feature ()">go_io_warning_unsupported_feature</a>   (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *feature</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GOIOContext.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GOIOContext
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GOIOContext.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GOIOContext implements
+ <a class="link" href="GOCmdContext.html" title="GOCmdContext">GOCmdContext</a>.</p>
+</div>
+<div class="refsect1" title="Properties">
+<a name="GOIOContext.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GOIOContext.html#GOIOContext--exec-main-loop" title='The "exec-main-loop" property'>exec-main-loop</a>"           <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GOIOContext.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GOIOContext.details"></a><h2>Details</h2>
+<div class="refsect2" title="GOIOContext">
+<a name="GOIOContext-struct"></a><h3>GOIOContext</h3>
+<pre class="programlisting">typedef struct _GOIOContext GOIOContext;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GOIOContextClass">
+<a name="GOIOContextClass"></a><h3>GOIOContextClass</h3>
+<pre class="programlisting">typedef struct _GOIOContextClass GOIOContextClass;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_io_context_new ()">
+<a name="go-io-context-new"></a><h3>go_io_context_new ()</h3>
+<pre class="programlisting"><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="returnvalue">GOIOContext</span></a> *       go_io_context_new                   (<em class="parameter"><code><a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="type">GOCmdContext</span></a> *cc</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_error_unknown ()">
+<a name="go-io-error-unknown"></a><h3>go_io_error_unknown ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_error_unknown                 (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>ioc</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_error_info_set ()">
+<a name="go-io-error-info-set"></a><h3>go_io_error_info_set ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_error_info_set                (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> *error</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ioc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_error_string ()">
+<a name="go-io-error-string"></a><h3>go_io_error_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_error_string                  (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *str</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ioc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_error_push ()">
+<a name="go-io-error-push"></a><h3>go_io_error_push ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_error_push                    (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> *error</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ioc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_error_clear ()">
+<a name="go-io-error-clear"></a><h3>go_io_error_clear ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_error_clear                   (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>ioc</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_error_display ()">
+<a name="go-io-error-display"></a><h3>go_io_error_display ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_error_display                 (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>ioc</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_error_occurred ()">
+<a name="go-io-error-occurred"></a><h3>go_io_error_occurred ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_io_error_occurred                (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ioc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_warning_occurred ()">
+<a name="go-io-warning-occurred"></a><h3>go_io_warning_occurred ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_io_warning_occurred              (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ioc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_progress_message ()">
+<a name="go-io-progress-message"></a><h3>go_io_progress_message ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_progress_message              (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *msg</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>io_context</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_progress_update ()">
+<a name="go-io-progress-update"></a><h3>go_io_progress_update ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_progress_update               (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> f</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>io_context</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>f</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_progress_range_push ()">
+<a name="go-io-progress-range-push"></a><h3>go_io_progress_range_push ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_progress_range_push           (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> min</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> max</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>io_context</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>min</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>max</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_progress_range_pop ()">
+<a name="go-io-progress-range-pop"></a><h3>go_io_progress_range_pop ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_progress_range_pop            (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>io_context</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_count_progress_set ()">
+<a name="go-io-count-progress-set"></a><h3>go_io_count_progress_set ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_count_progress_set            (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> total</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> step</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>io_context</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>total</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>step</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_count_progress_update ()">
+<a name="go-io-count-progress-update"></a><h3>go_io_count_progress_update ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_count_progress_update         (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> inc</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>io_context</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>inc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_value_progress_set ()">
+<a name="go-io-value-progress-set"></a><h3>go_io_value_progress_set ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_value_progress_set            (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> total</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> step</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>io_context</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>total</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>step</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_value_progress_update ()">
+<a name="go-io-value-progress-update"></a><h3>go_io_value_progress_update ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_value_progress_update         (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> value</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>io_context</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_progress_unset ()">
+<a name="go-io-progress-unset"></a><h3>go_io_progress_unset ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_progress_unset                (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>io_context</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_context_set_num_files ()">
+<a name="go-io-context-set-num-files"></a><h3>go_io_context_set_num_files ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_context_set_num_files         (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> count</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ioc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>count</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_context_processing_file ()">
+<a name="go-io-context-processing-file"></a><h3>go_io_context_processing_file ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_context_processing_file       (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *uri</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ioc</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>An escaped uri (eg "foo%20bar")
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_warning ()">
+<a name="go-io-warning"></a><h3>go_io_warning ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_warning                       (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *fmt</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ioc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fmt</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_warning_varargs ()">
+<a name="go-io-warning-varargs"></a><h3>go_io_warning_varargs ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_warning_varargs               (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *fmt</code></em>,
+                                                         <em class="parameter"><code><span class="type">va_list</span> args</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ioc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fmt</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>args</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_warning_unknown_font ()">
+<a name="go-io-warning-unknown-font"></a><h3>go_io_warning_unknown_font ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_warning_unknown_font          (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *font_name</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ioc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>font_name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_warning_unknown_function ()">
+<a name="go-io-warning-unknown-function"></a><h3>go_io_warning_unknown_function ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_warning_unknown_function      (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *funct_name</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ioc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>funct_name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_io_warning_unsupported_feature ()">
+<a name="go-io-warning-unsupported-feature"></a><h3>go_io_warning_unsupported_feature ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_io_warning_unsupported_feature   (<em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *ioc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *feature</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ioc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>feature</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="GOIOContext.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "exec-main-loop" property'>
+<a name="GOIOContext--exec-main-loop"></a><h3>The <code class="literal">"exec-main-loop"</code> property</h3>
+<pre class="programlisting">  "exec-main-loop"           <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write</pre>
+<p>Execute main loop iteration.</p>
+<p>Default value: TRUE</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

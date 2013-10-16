@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Other utilities</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch07.html" title="Utilities">
+<link rel="prev" href="goffice-0.8-Simple-structures.html" title="Simple structures">
+<link rel="next" href="pt03.html" title="Part III. Widgets">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="goffice-0.8-Simple-structures.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch07.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="pt03.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#goffice-0.8-Other-utilities.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#goffice-0.8-Other-utilities.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="Other utilities">
+<a name="goffice-0.8-Other-utilities"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="goffice-0.8-Other-utilities.top_of_page"></a>Other utilities</span></h2>
+<p>Other utilities</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="goffice-0.8-Other-utilities.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="goffice-0.8-Other-utilities.html#GocPoints" title="GocPoints">GocPoints</a>;
+<a class="link" href="goffice-0.8-Other-utilities.html#GocPoints" title="GocPoints"><span class="returnvalue">GocPoints</span></a> *         <a class="link" href="goffice-0.8-Other-utilities.html#goc-points-new" title="goc_points_new ()">goc_points_new</a>                      (<em class="parameter"><code><span class="type">unsigned </span> n</code></em>);
+<a class="link" href="goffice-0.8-Other-utilities.html#GocPoints" title="GocPoints"><span class="returnvalue">GocPoints</span></a> *         <a class="link" href="goffice-0.8-Other-utilities.html#goc-points-ref" title="goc_points_ref ()">goc_points_ref</a>                      (<em class="parameter"><code><a class="link" href="goffice-0.8-Other-utilities.html#GocPoints" title="GocPoints"><span class="type">GocPoints</span></a> *points</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-Other-utilities.html#goc-points-unref" title="goc_points_unref ()">goc_points_unref</a>                    (<em class="parameter"><code><a class="link" href="goffice-0.8-Other-utilities.html#GocPoints" title="GocPoints"><span class="type">GocPoints</span></a> *points</code></em>);
+                    <a class="link" href="goffice-0.8-Other-utilities.html#GocIntArray" title="GocIntArray">GocIntArray</a>;
+<a class="link" href="goffice-0.8-Other-utilities.html#GocIntArray" title="GocIntArray"><span class="returnvalue">GocIntArray</span></a> *       <a class="link" href="goffice-0.8-Other-utilities.html#goc-int-array-new" title="goc_int_array_new ()">goc_int_array_new</a>                   (<em class="parameter"><code><span class="type">unsigned </span> n</code></em>);
+<a class="link" href="goffice-0.8-Other-utilities.html#GocIntArray" title="GocIntArray"><span class="returnvalue">GocIntArray</span></a> *       <a class="link" href="goffice-0.8-Other-utilities.html#goc-int-array-ref" title="goc_int_array_ref ()">goc_int_array_ref</a>                   (<em class="parameter"><code><a class="link" href="goffice-0.8-Other-utilities.html#GocIntArray" title="GocIntArray"><span class="type">GocIntArray</span></a> *array</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-Other-utilities.html#goc-int-array-unref" title="goc_int_array_unref ()">goc_int_array_unref</a>                 (<em class="parameter"><code><a class="link" href="goffice-0.8-Other-utilities.html#GocIntArray" title="GocIntArray"><span class="type">GocIntArray</span></a> *array</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="goffice-0.8-Other-utilities.description"></a><h2>Description</h2>
+<p>
+Only one structure is currently available: <a class="link" href="goffice-0.8-Other-utilities.html#GocPoints" title="GocPoints"><span class="type">GocPoints</span></a>.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="goffice-0.8-Other-utilities.details"></a><h2>Details</h2>
+<div class="refsect2" title="GocPoints">
+<a name="GocPoints"></a><h3>GocPoints</h3>
+<pre class="programlisting">typedef struct {
+	GocPoint *points;
+} GocPoints;
+</pre>
+<p>
+A boxed type used to hold a list of <a class="link" href="goffice-0.8-Simple-structures.html#GocPoint" title="GocPoint"><span class="type">GocPoint</span></a> instances.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><a class="link" href="goffice-0.8-Simple-structures.html#GocPoint" title="GocPoint"><span class="type">GocPoint</span></a> *<em class="structfield"><code><a name="GocPoints.points"></a>points</code></em>;</span></p></td>
+<td>The embedded points.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_points_new ()">
+<a name="goc-points-new"></a><h3>goc_points_new ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-Other-utilities.html#GocPoints" title="GocPoints"><span class="returnvalue">GocPoints</span></a> *         goc_points_new                      (<em class="parameter"><code><span class="type">unsigned </span> n</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="goffice-0.8-Other-utilities.html#GocPoints" title="GocPoints"><span class="type">GocPoints</span></a> instances with <em class="parameter"><code>n</code></em> points with nul initial
+coordinates. The coordinates can be changed using direct access:
+</p>
+<p>
+</p>
+<pre class="programlisting">
+     GocPoints points = goc_points_new (1);
+     points-&gt;points[0].x = my_x;
+     points-&gt;points[0].y = my_y;
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>the number of <a class="link" href="goffice-0.8-Simple-structures.html#GocPoint" title="GocPoint"><span class="type">GocPoint</span></a> instances.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the newly created <a class="link" href="goffice-0.8-Other-utilities.html#GocPoints" title="GocPoints"><span class="type">GocPoints</span></a> with an initial references count of 1.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_points_ref ()">
+<a name="goc-points-ref"></a><h3>goc_points_ref ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-Other-utilities.html#GocPoints" title="GocPoints"><span class="returnvalue">GocPoints</span></a> *         goc_points_ref                      (<em class="parameter"><code><a class="link" href="goffice-0.8-Other-utilities.html#GocPoints" title="GocPoints"><span class="type">GocPoints</span></a> *points</code></em>);</pre>
+<p>
+Increases the references count of <em class="parameter"><code>points</code></em> by 1.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>points</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-Other-utilities.html#GocPoints" title="GocPoints"><span class="type">GocPoints</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the referenced <a class="link" href="goffice-0.8-Other-utilities.html#GocPoints" title="GocPoints"><span class="type">GocPoints</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_points_unref ()">
+<a name="goc-points-unref"></a><h3>goc_points_unref ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                goc_points_unref                    (<em class="parameter"><code><a class="link" href="goffice-0.8-Other-utilities.html#GocPoints" title="GocPoints"><span class="type">GocPoints</span></a> *points</code></em>);</pre>
+<p>
+Decreases the references count of <em class="parameter"><code>points</code></em> by 1, and destroys it if the
+references count becomes 0.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>points</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-Other-utilities.html#GocPoints" title="GocPoints"><span class="type">GocPoints</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GocIntArray">
+<a name="GocIntArray"></a><h3>GocIntArray</h3>
+<pre class="programlisting">typedef struct {
+	unsigned n;
+	int *vals;
+} GocIntArray;
+</pre>
+<p>
+A boxed type used to hold an array of integers.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="type">int</span> *<em class="structfield"><code><a name="GocIntArray.vals"></a>vals</code></em>;</span></p></td>
+<td>The embedded values.
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 0.8.2</p>
+</div>
+<hr>
+<div class="refsect2" title="goc_int_array_new ()">
+<a name="goc-int-array-new"></a><h3>goc_int_array_new ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-Other-utilities.html#GocIntArray" title="GocIntArray"><span class="returnvalue">GocIntArray</span></a> *       goc_int_array_new                   (<em class="parameter"><code><span class="type">unsigned </span> n</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="goffice-0.8-Other-utilities.html#GocIntArray" title="GocIntArray"><span class="type">GocIntArray</span></a> instances with <em class="parameter"><code>n</code></em> values initialized to 0.
+The values can be changed using direct access:
+</p>
+<p>
+</p>
+<pre class="programlisting">
+     GocIntArray array = goc_int_array_new (2);
+     array-&gt;vals[0] = my_first_int;
+     array-&gt;vals[1] = my_second_int;
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>the number of integers in the array.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the newly created <a class="link" href="goffice-0.8-Other-utilities.html#GocIntArray" title="GocIntArray"><span class="type">GocIntArray</span></a> with an initial references count of 1.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 0.8.2</p>
+</div>
+<hr>
+<div class="refsect2" title="goc_int_array_ref ()">
+<a name="goc-int-array-ref"></a><h3>goc_int_array_ref ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-Other-utilities.html#GocIntArray" title="GocIntArray"><span class="returnvalue">GocIntArray</span></a> *       goc_int_array_ref                   (<em class="parameter"><code><a class="link" href="goffice-0.8-Other-utilities.html#GocIntArray" title="GocIntArray"><span class="type">GocIntArray</span></a> *array</code></em>);</pre>
+<p>
+Increases the references count of <em class="parameter"><code>array</code></em> by 1.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-Other-utilities.html#GocIntArray" title="GocIntArray"><span class="type">GocIntArray</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the referenced <a class="link" href="goffice-0.8-Other-utilities.html#GocIntArray" title="GocIntArray"><span class="type">GocIntArray</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 0.8.2</p>
+</div>
+<hr>
+<div class="refsect2" title="goc_int_array_unref ()">
+<a name="goc-int-array-unref"></a><h3>goc_int_array_unref ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                goc_int_array_unref                 (<em class="parameter"><code><a class="link" href="goffice-0.8-Other-utilities.html#GocIntArray" title="GocIntArray"><span class="type">GocIntArray</span></a> *array</code></em>);</pre>
+<p>
+Decreases the references count of <em class="parameter"><code>array</code></em> by 1, and destroys it if the
+references count becomes 0.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-Other-utilities.html#GocIntArray" title="GocIntArray"><span class="type">GocIntArray</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 0.8.2</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

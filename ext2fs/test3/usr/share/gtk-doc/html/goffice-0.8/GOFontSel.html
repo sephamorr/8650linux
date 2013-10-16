@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOFontSel</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch09.html" title="Selectors">
+<link rel="prev" href="GOCharmapSel.html" title="GOCharmapSel">
+<link rel="next" href="GOFormatSel.html" title="GOFormatSel">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GOCharmapSel.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch09.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GOFormatSel.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GOFontSel.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GOFontSel.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GOFontSel.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GOFontSel.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#GOFontSel.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOFontSel">
+<a name="GOFontSel"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GOFontSel.top_of_page"></a>GOFontSel</span></h2>
+<p>GOFontSel</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GOFontSel.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="GOFontSel.html#GO-TYPE-FONT-SEL:CAPS" title="GO_TYPE_FONT_SEL">GO_TYPE_FONT_SEL</a>
+#define             <a class="link" href="GOFontSel.html#GO-FONT-SEL:CAPS" title="GO_FONT_SEL()">GO_FONT_SEL</a>                         (obj)
+#define             <a class="link" href="GOFontSel.html#GO-IS-FONT-SEL:CAPS" title="GO_IS_FONT_SEL()">GO_IS_FONT_SEL</a>                      (obj)
+                    <a class="link" href="GOFontSel.html#GOFontSel-struct" title="GOFontSel">GOFontSel</a>;
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GOFontSel.html#go-font-sel-get-type" title="go_font_sel_get_type ()">go_font_sel_get_type</a>                (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GOFontSel.html#go-font-sel-new" title="go_font_sel_new ()">go_font_sel_new</a>                     (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOFontSel.html#go-font-sel-set-font" title="go_font_sel_set_font ()">go_font_sel_set_font</a>                (<em class="parameter"><code><a class="link" href="GOFontSel.html" title="GOFontSel"><span class="type">GOFontSel</span></a> *fs</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOFont.html#GOFont" title="GOFont"><span class="type">GOFont</span></a> const *font</code></em>);
+<a class="link" href="goffice-0.8-GOFont.html#GOFont" title="GOFont"><span class="returnvalue">GOFont</span></a> const *      <a class="link" href="GOFontSel.html#go-font-sel-get-font" title="go_font_sel_get_font ()">go_font_sel_get_font</a>                (<em class="parameter"><code><a class="link" href="GOFontSel.html" title="GOFontSel"><span class="type">GOFontSel</span></a> const *fs</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOFontSel.html#go-font-sel-editable-enters" title="go_font_sel_editable_enters ()">go_font_sel_editable_enters</a>         (<em class="parameter"><code><a class="link" href="GOFontSel.html" title="GOFontSel"><span class="type">GOFontSel</span></a> *fs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/unstable/GtkWindow.html"><span class="type">GtkWindow</span></a> *dialog</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOFontSel.html#go-font-sel-set-sample-text" title="go_font_sel_set_sample_text ()">go_font_sel_set_sample_text</a>         (<em class="parameter"><code><a class="link" href="GOFontSel.html" title="GOFontSel"><span class="type">GOFontSel</span></a> *fs</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *text</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GOFontSel.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkObject.html">GtkObject</a>
+               +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html">GtkWidget</a>
+                     +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkContainer.html">GtkContainer</a>
+                           +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkBox.html">GtkBox</a>
+                                 +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkHBox.html">GtkHBox</a>
+                                       +----GOFontSel
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GOFontSel.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GOFontSel implements
+ AtkImplementorIface,  <a href="http://library.gnome.org/devel/gtk/unstable/GtkBuildable.html">GtkBuildable</a> and  <a href="http://library.gnome.org/devel/gtk/unstable/gtk-Orientable.html#GtkOrientable">GtkOrientable</a>.</p>
+</div>
+<div class="refsect1" title="Signals">
+<a name="GOFontSel.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GOFontSel.html#GOFontSel-font-changed" title='The "font-changed" signal'>font-changed</a>"                                   : Run Last
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GOFontSel.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GOFontSel.details"></a><h2>Details</h2>
+<div class="refsect2" title="GO_TYPE_FONT_SEL">
+<a name="GO-TYPE-FONT-SEL:CAPS"></a><h3>GO_TYPE_FONT_SEL</h3>
+<pre class="programlisting">#define GO_TYPE_FONT_SEL (go_font_sel_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_FONT_SEL()">
+<a name="GO-FONT-SEL:CAPS"></a><h3>GO_FONT_SEL()</h3>
+<pre class="programlisting">#define GO_FONT_SEL(obj) (G_TYPE_CHECK_INSTANCE_CAST((obj), GO_TYPE_FONT_SEL, GOFontSel))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_IS_FONT_SEL()">
+<a name="GO-IS-FONT-SEL:CAPS"></a><h3>GO_IS_FONT_SEL()</h3>
+<pre class="programlisting">#define GO_IS_FONT_SEL(obj) (G_TYPE_CHECK_INSTANCE_TYPE((obj), GO_TYPE_FONT_SEL))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOFontSel">
+<a name="GOFontSel-struct"></a><h3>GOFontSel</h3>
+<pre class="programlisting">typedef struct _GOFontSel GOFontSel;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_font_sel_get_type ()">
+<a name="go-font-sel-get-type"></a><h3>go_font_sel_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_font_sel_get_type                (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_font_sel_new ()">
+<a name="go-font-sel-new"></a><h3>go_font_sel_new ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         go_font_sel_new                     (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_font_sel_set_font ()">
+<a name="go-font-sel-set-font"></a><h3>go_font_sel_set_font ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_font_sel_set_font                (<em class="parameter"><code><a class="link" href="GOFontSel.html" title="GOFontSel"><span class="type">GOFontSel</span></a> *fs</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOFont.html#GOFont" title="GOFont"><span class="type">GOFont</span></a> const *font</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>font</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_font_sel_get_font ()">
+<a name="go-font-sel-get-font"></a><h3>go_font_sel_get_font ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GOFont.html#GOFont" title="GOFont"><span class="returnvalue">GOFont</span></a> const *      go_font_sel_get_font                (<em class="parameter"><code><a class="link" href="GOFontSel.html" title="GOFontSel"><span class="type">GOFontSel</span></a> const *fs</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_font_sel_editable_enters ()">
+<a name="go-font-sel-editable-enters"></a><h3>go_font_sel_editable_enters ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_font_sel_editable_enters         (<em class="parameter"><code><a class="link" href="GOFontSel.html" title="GOFontSel"><span class="type">GOFontSel</span></a> *fs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/unstable/GtkWindow.html"><span class="type">GtkWindow</span></a> *dialog</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_font_sel_set_sample_text ()">
+<a name="go-font-sel-set-sample-text"></a><h3>go_font_sel_set_sample_text ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_font_sel_set_sample_text         (<em class="parameter"><code><a class="link" href="GOFontSel.html" title="GOFontSel"><span class="type">GOFontSel</span></a> *fs</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *text</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="GOFontSel.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "font-changed" signal'>
+<a name="GOFontSel-font-changed"></a><h3>The <code class="literal">"font-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GOFontSel.html" title="GOFontSel"><span class="type">GOFontSel</span></a> *gofontsel,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>   arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>   user_data)      : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gofontsel</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

@@ -1,0 +1,741 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOColor</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch10.html" title="Graphic object properties">
+<link rel="prev" href="goffice-0.8-GOArrow.html" title="GOArrow">
+<link rel="next" href="goffice-0.8-GOEditor.html" title="GOEditor">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="goffice-0.8-GOArrow.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch10.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="goffice-0.8-GOEditor.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#goffice-0.8-GOColor.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#goffice-0.8-GOColor.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOColor">
+<a name="goffice-0.8-GOColor"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="goffice-0.8-GOColor.top_of_page"></a>GOColor</span></h2>
+<p>GOColor</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="goffice-0.8-GOColor.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">typedef             <a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor">GOColor</a>;
+                    <a class="link" href="goffice-0.8-GOColor.html#GONamedColor" title="GONamedColor">GONamedColor</a>;
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-FROM-GDK:CAPS" title="GO_COLOR_FROM_GDK()">GO_COLOR_FROM_GDK</a>                   (c)
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-FROM-RGB:CAPS" title="GO_COLOR_FROM_RGB()">GO_COLOR_FROM_RGB</a>                   (r,
+                                                         g,
+                                                         b)
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-FROM-RGBA:CAPS" title="GO_COLOR_FROM_RGBA()">GO_COLOR_FROM_RGBA</a>                  (r,
+                                                         g,
+                                                         b,
+                                                         a)
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-WHITE:CAPS" title="GO_COLOR_WHITE">GO_COLOR_WHITE</a>
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-BLACK:CAPS" title="GO_COLOR_BLACK">GO_COLOR_BLACK</a>
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-RED:CAPS" title="GO_COLOR_RED">GO_COLOR_RED</a>
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-GREEN:CAPS" title="GO_COLOR_GREEN">GO_COLOR_GREEN</a>
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-BLUE:CAPS" title="GO_COLOR_BLUE">GO_COLOR_BLUE</a>
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-YELLOW:CAPS" title="GO_COLOR_YELLOW">GO_COLOR_YELLOW</a>
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-VIOLET:CAPS" title="GO_COLOR_VIOLET">GO_COLOR_VIOLET</a>
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-CYAN:CAPS" title="GO_COLOR_CYAN">GO_COLOR_CYAN</a>
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-GREY:CAPS" title="GO_COLOR_GREY()">GO_COLOR_GREY</a>                       (x)
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-UINT-R:CAPS" title="GO_COLOR_UINT_R()">GO_COLOR_UINT_R</a>                     (x)
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-UINT-G:CAPS" title="GO_COLOR_UINT_G()">GO_COLOR_UINT_G</a>                     (x)
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-UINT-B:CAPS" title="GO_COLOR_UINT_B()">GO_COLOR_UINT_B</a>                     (x)
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-UINT-A:CAPS" title="GO_COLOR_UINT_A()">GO_COLOR_UINT_A</a>                     (x)
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-CHANGE-R:CAPS" title="GO_COLOR_CHANGE_R()">GO_COLOR_CHANGE_R</a>                   (x,
+                                                         r)
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-CHANGE-G:CAPS" title="GO_COLOR_CHANGE_G()">GO_COLOR_CHANGE_G</a>                   (x,
+                                                         g)
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-CHANGE-B:CAPS" title="GO_COLOR_CHANGE_B()">GO_COLOR_CHANGE_B</a>                   (x,
+                                                         b)
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-CHANGE-A:CAPS" title="GO_COLOR_CHANGE_A()">GO_COLOR_CHANGE_A</a>                   (x,
+                                                         a)
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-TO-RGB:CAPS" title="GO_COLOR_TO_RGB()">GO_COLOR_TO_RGB</a>                     (u,
+                                                         r,
+                                                         g,
+                                                         b)
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-TO-RGBA:CAPS" title="GO_COLOR_TO_RGBA()">GO_COLOR_TO_RGBA</a>                    (u,
+                                                         r,
+                                                         g,
+                                                         b,
+                                                         a)
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-MONO-INTERPOLATE:CAPS" title="GO_COLOR_MONO_INTERPOLATE()">GO_COLOR_MONO_INTERPOLATE</a>           (v1,
+                                                         v2,
+                                                         t)
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-INTERPOLATE:CAPS" title="GO_COLOR_INTERPOLATE()">GO_COLOR_INTERPOLATE</a>                (c1,
+                                                         c2,
+                                                         t)
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-DOUBLE-R:CAPS" title="GO_COLOR_DOUBLE_R()">GO_COLOR_DOUBLE_R</a>                   (x)
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-DOUBLE-G:CAPS" title="GO_COLOR_DOUBLE_G()">GO_COLOR_DOUBLE_G</a>                   (x)
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-DOUBLE-B:CAPS" title="GO_COLOR_DOUBLE_B()">GO_COLOR_DOUBLE_B</a>                   (x)
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-DOUBLE-A:CAPS" title="GO_COLOR_DOUBLE_A()">GO_COLOR_DOUBLE_A</a>                   (x)
+#define             <a class="link" href="goffice-0.8-GOColor.html#GO-COLOR-TO-CAIRO:CAPS" title="GO_COLOR_TO_CAIRO()">GO_COLOR_TO_CAIRO</a>                   (x)
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-GOColor.html#go-color-from-str" title="go_color_from_str ()">go_color_from_str</a>                   (<em class="parameter"><code><span class="type">char</span> const *str</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> *res</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="goffice-0.8-GOColor.html#go-color-as-str" title="go_color_as_str ()">go_color_as_str</a>                     (<em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> color</code></em>);
+<a href="/usr/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttribute"><span class="returnvalue">PangoAttribute</span></a> *    <a class="link" href="goffice-0.8-GOColor.html#go-color-to-pango" title="go_color_to_pango ()">go_color_to_pango</a>                   (<em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> color</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> is_fore</code></em>);
+<a href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"><span class="returnvalue">GdkColor</span></a> *          <a class="link" href="goffice-0.8-GOColor.html#go-color-to-gdk" title="go_color_to_gdk ()">go_color_to_gdk</a>                     (<em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> color</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"><span class="type">GdkColor</span></a> *res</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="goffice-0.8-GOColor.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="goffice-0.8-GOColor.details"></a><h2>Details</h2>
+<div class="refsect2" title="GOColor">
+<a name="GOColor"></a><h3>GOColor</h3>
+<pre class="programlisting">typedef guint32					GOColor;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GONamedColor">
+<a name="GONamedColor"></a><h3>GONamedColor</h3>
+<pre class="programlisting">typedef struct {
+	GOColor		 color;
+	char const 	*name; /* english name - eg. "white" */
+} GONamedColor;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_FROM_GDK()">
+<a name="GO-COLOR-FROM-GDK:CAPS"></a><h3>GO_COLOR_FROM_GDK()</h3>
+<pre class="programlisting">#define GO_COLOR_FROM_GDK(c) GO_COLOR_FROM_RGBA(((c).red&gt;&gt;8), ((c).green&gt;&gt;8), ((c).blue&gt;&gt;8), 0xff)
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_FROM_RGB()">
+<a name="GO-COLOR-FROM-RGB:CAPS"></a><h3>GO_COLOR_FROM_RGB()</h3>
+<pre class="programlisting">#define GO_COLOR_FROM_RGB(r,g,b) ((((guint)(r&amp;0xff))&lt;&lt;24)|(((guint)(g&amp;0xff))&lt;&lt;16)|((guint)(b&amp;0xff)&lt;&lt;8)|0xff)
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>r</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>g</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_FROM_RGBA()">
+<a name="GO-COLOR-FROM-RGBA:CAPS"></a><h3>GO_COLOR_FROM_RGBA()</h3>
+<pre class="programlisting">#define GO_COLOR_FROM_RGBA(r,g,b,a) ((((guint)(r&amp;0xff))&lt;&lt;24)|(((guint)(g&amp;0xff))&lt;&lt;16)|((guint)(b&amp;0xff)&lt;&lt;8)|(guint)(a&amp;0xff))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>r</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>g</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_WHITE">
+<a name="GO-COLOR-WHITE:CAPS"></a><h3>GO_COLOR_WHITE</h3>
+<pre class="programlisting">#define GO_COLOR_WHITE  GO_COLOR_FROM_RGB(0xff, 0xff, 0xff)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_BLACK">
+<a name="GO-COLOR-BLACK:CAPS"></a><h3>GO_COLOR_BLACK</h3>
+<pre class="programlisting">#define GO_COLOR_BLACK   GO_COLOR_FROM_RGB(0x00, 0x00, 0x00)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_RED">
+<a name="GO-COLOR-RED:CAPS"></a><h3>GO_COLOR_RED</h3>
+<pre class="programlisting">#define GO_COLOR_RED     GO_COLOR_FROM_RGB(0xff, 0x00, 0x00)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_GREEN">
+<a name="GO-COLOR-GREEN:CAPS"></a><h3>GO_COLOR_GREEN</h3>
+<pre class="programlisting">#define GO_COLOR_GREEN   GO_COLOR_FROM_RGB(0x00, 0xff, 0x00)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_BLUE">
+<a name="GO-COLOR-BLUE:CAPS"></a><h3>GO_COLOR_BLUE</h3>
+<pre class="programlisting">#define GO_COLOR_BLUE   GO_COLOR_FROM_RGB(0x00, 0x00, 0xff)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_YELLOW">
+<a name="GO-COLOR-YELLOW:CAPS"></a><h3>GO_COLOR_YELLOW</h3>
+<pre class="programlisting">#define GO_COLOR_YELLOW  GO_COLOR_FROM_RGB(0xff, 0xff, 0x00)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_VIOLET">
+<a name="GO-COLOR-VIOLET:CAPS"></a><h3>GO_COLOR_VIOLET</h3>
+<pre class="programlisting">#define GO_COLOR_VIOLET  GO_COLOR_FROM_RGB(0xff, 0x00, 0xff)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_CYAN">
+<a name="GO-COLOR-CYAN:CAPS"></a><h3>GO_COLOR_CYAN</h3>
+<pre class="programlisting">#define GO_COLOR_CYAN    GO_COLOR_FROM_RGB(0x00, 0xff, 0xff)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_GREY()">
+<a name="GO-COLOR-GREY:CAPS"></a><h3>GO_COLOR_GREY()</h3>
+<pre class="programlisting">#define GO_COLOR_GREY(x) GO_COLOR_FROM_RGB(x,x,x)
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_UINT_R()">
+<a name="GO-COLOR-UINT-R:CAPS"></a><h3>GO_COLOR_UINT_R()</h3>
+<pre class="programlisting">#define GO_COLOR_UINT_R(x) (((guint)(x))&gt;&gt;24)
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_UINT_G()">
+<a name="GO-COLOR-UINT-G:CAPS"></a><h3>GO_COLOR_UINT_G()</h3>
+<pre class="programlisting">#define GO_COLOR_UINT_G(x) ((((guint)(x))&gt;&gt;16)&amp;0xff)
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_UINT_B()">
+<a name="GO-COLOR-UINT-B:CAPS"></a><h3>GO_COLOR_UINT_B()</h3>
+<pre class="programlisting">#define GO_COLOR_UINT_B(x) ((((guint)(x))&gt;&gt;8)&amp;0xff)
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_UINT_A()">
+<a name="GO-COLOR-UINT-A:CAPS"></a><h3>GO_COLOR_UINT_A()</h3>
+<pre class="programlisting">#define GO_COLOR_UINT_A(x) (((guint)(x))&amp;0xff)
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_CHANGE_R()">
+<a name="GO-COLOR-CHANGE-R:CAPS"></a><h3>GO_COLOR_CHANGE_R()</h3>
+<pre class="programlisting">#define GO_COLOR_CHANGE_R(x, r) (((x)&amp;(~(0xff&lt;&lt;24)))|(((r)&amp;0xff)&lt;&lt;24))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>r</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_CHANGE_G()">
+<a name="GO-COLOR-CHANGE-G:CAPS"></a><h3>GO_COLOR_CHANGE_G()</h3>
+<pre class="programlisting">#define GO_COLOR_CHANGE_G(x, g) (((x)&amp;(~(0xff&lt;&lt;16)))|(((g)&amp;0xff)&lt;&lt;16))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>g</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_CHANGE_B()">
+<a name="GO-COLOR-CHANGE-B:CAPS"></a><h3>GO_COLOR_CHANGE_B()</h3>
+<pre class="programlisting">#define GO_COLOR_CHANGE_B(x, b) (((x)&amp;(~(0xff&lt;&lt;8)))|(((b)&amp;0xff)&lt;&lt;8))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_CHANGE_A()">
+<a name="GO-COLOR-CHANGE-A:CAPS"></a><h3>GO_COLOR_CHANGE_A()</h3>
+<pre class="programlisting">#define GO_COLOR_CHANGE_A(x, a) (((x)&amp;(~0xff))|((a)&amp;0xff))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_TO_RGB()">
+<a name="GO-COLOR-TO-RGB:CAPS"></a><h3>GO_COLOR_TO_RGB()</h3>
+<pre class="programlisting">#define             GO_COLOR_TO_RGB(u,r,g,b)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>u</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>r</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>g</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_TO_RGBA()">
+<a name="GO-COLOR-TO-RGBA:CAPS"></a><h3>GO_COLOR_TO_RGBA()</h3>
+<pre class="programlisting">#define             GO_COLOR_TO_RGBA(u,r,g,b,a)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>u</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>r</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>g</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_MONO_INTERPOLATE()">
+<a name="GO-COLOR-MONO-INTERPOLATE:CAPS"></a><h3>GO_COLOR_MONO_INTERPOLATE()</h3>
+<pre class="programlisting">#define GO_COLOR_MONO_INTERPOLATE(v1, v2, t) ((gint)go_rint((v2)*(t)+(v1)*(1-(t))))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>v1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>v2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>t</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_INTERPOLATE()">
+<a name="GO-COLOR-INTERPOLATE:CAPS"></a><h3>GO_COLOR_INTERPOLATE()</h3>
+<pre class="programlisting">#define             GO_COLOR_INTERPOLATE(c1, c2, t)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>t</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_DOUBLE_R()">
+<a name="GO-COLOR-DOUBLE-R:CAPS"></a><h3>GO_COLOR_DOUBLE_R()</h3>
+<pre class="programlisting">#define GO_COLOR_DOUBLE_R(x) (GO_COLOR_UINT_R(x)/255.0)
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_DOUBLE_G()">
+<a name="GO-COLOR-DOUBLE-G:CAPS"></a><h3>GO_COLOR_DOUBLE_G()</h3>
+<pre class="programlisting">#define GO_COLOR_DOUBLE_G(x) (GO_COLOR_UINT_G(x)/255.0)
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_DOUBLE_B()">
+<a name="GO-COLOR-DOUBLE-B:CAPS"></a><h3>GO_COLOR_DOUBLE_B()</h3>
+<pre class="programlisting">#define GO_COLOR_DOUBLE_B(x) (GO_COLOR_UINT_B(x)/255.0)
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_DOUBLE_A()">
+<a name="GO-COLOR-DOUBLE-A:CAPS"></a><h3>GO_COLOR_DOUBLE_A()</h3>
+<pre class="programlisting">#define GO_COLOR_DOUBLE_A(x) (GO_COLOR_UINT_A(x)/255.0)
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_COLOR_TO_CAIRO()">
+<a name="GO-COLOR-TO-CAIRO:CAPS"></a><h3>GO_COLOR_TO_CAIRO()</h3>
+<pre class="programlisting">#define GO_COLOR_TO_CAIRO(x) GO_COLOR_DOUBLE_R(x),GO_COLOR_DOUBLE_G(x),GO_COLOR_DOUBLE_B(x),GO_COLOR_DOUBLE_A(x)
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_color_from_str ()">
+<a name="go-color-from-str"></a><h3>go_color_from_str ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_color_from_str                   (<em class="parameter"><code><span class="type">char</span> const *str</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> *res</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if <em class="parameter"><code>str</code></em> can be parsed as a color of the form R:G:B:A and the
+	result is stored in <em class="parameter"><code>res</code></em>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_color_as_str ()">
+<a name="go-color-as-str"></a><h3>go_color_as_str ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             go_color_as_str                     (<em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> color</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_color_to_pango ()">
+<a name="go-color-to-pango"></a><h3>go_color_to_pango ()</h3>
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttribute"><span class="returnvalue">PangoAttribute</span></a> *    go_color_to_pango                   (<em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> color</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> is_fore</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_fore</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_color_to_gdk ()">
+<a name="go-color-to-gdk"></a><h3>go_color_to_gdk ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"><span class="returnvalue">GdkColor</span></a> *          go_color_to_gdk                     (<em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> color</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk/unstable/gdk-Colormaps-and-Colors.html#GdkColor"><span class="type">GdkColor</span></a> *res</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

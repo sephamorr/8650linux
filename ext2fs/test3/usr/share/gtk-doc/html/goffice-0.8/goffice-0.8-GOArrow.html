@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOArrow</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch10.html" title="Graphic object properties">
+<link rel="prev" href="ch10.html" title="Graphic object properties">
+<link rel="next" href="goffice-0.8-GOColor.html" title="GOColor">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch10.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch10.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="goffice-0.8-GOColor.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#goffice-0.8-GOArrow.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#goffice-0.8-GOArrow.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOArrow">
+<a name="goffice-0.8-GOArrow"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="goffice-0.8-GOArrow.top_of_page"></a>GOArrow</span></h2>
+<p>GOArrow</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="goffice-0.8-GOArrow.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="goffice-0.8-GOArrow.html#GOArrow" title="GOArrow">GOArrow</a>;
+enum                <a class="link" href="goffice-0.8-GOArrow.html#GOArrowType" title="enum GOArrowType">GOArrowType</a>;
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOArrow.html#go-arrow-clear" title="go_arrow_clear ()">go_arrow_clear</a>                      (<em class="parameter"><code><a class="link" href="goffice-0.8-GOArrow.html#GOArrow" title="GOArrow"><span class="type">GOArrow</span></a> *dst</code></em>);
+<a class="link" href="goffice-0.8-GOArrow.html#GOArrow" title="GOArrow"><span class="returnvalue">GOArrow</span></a> *           <a class="link" href="goffice-0.8-GOArrow.html#go-arrow-dup" title="go_arrow_dup ()">go_arrow_dup</a>                        (<em class="parameter"><code><a class="link" href="goffice-0.8-GOArrow.html#GOArrow" title="GOArrow"><span class="type">GOArrow</span></a> *src</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOArrow.html#go-arrow-init" title="go_arrow_init ()">go_arrow_init</a>                       (<em class="parameter"><code><a class="link" href="goffice-0.8-GOArrow.html#GOArrow" title="GOArrow"><span class="type">GOArrow</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOArrow.html#GOArrowType" title="enum GOArrowType"><span class="type">GOArrowType</span></a> typ</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> a</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> b</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> c</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOArrow.html#go-arrow-init-kite" title="go_arrow_init_kite ()">go_arrow_init_kite</a>                  (<em class="parameter"><code><a class="link" href="goffice-0.8-GOArrow.html#GOArrow" title="GOArrow"><span class="type">GOArrow</span></a> *dst</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> a</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> b</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> c</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOArrow.html#go-arrow-init-oval" title="go_arrow_init_oval ()">go_arrow_init_oval</a>                  (<em class="parameter"><code><a class="link" href="goffice-0.8-GOArrow.html#GOArrow" title="GOArrow"><span class="type">GOArrow</span></a> *dst</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> ra</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> rb</code></em>);
+<span class="returnvalue">char</span> const *        <a class="link" href="goffice-0.8-GOArrow.html#go-arrow-type-as-str" title="go_arrow_type_as_str ()">go_arrow_type_as_str</a>                (<em class="parameter"><code><a class="link" href="goffice-0.8-GOArrow.html#GOArrowType" title="enum GOArrowType"><span class="type">GOArrowType</span></a> typ</code></em>);
+<a class="link" href="goffice-0.8-GOArrow.html#GOArrowType" title="enum GOArrowType"><span class="returnvalue">GOArrowType</span></a>         <a class="link" href="goffice-0.8-GOArrow.html#go-arrow-type-from-str" title="go_arrow_type_from_str ()">go_arrow_type_from_str</a>              (<em class="parameter"><code>const <span class="type">char</span> *name</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="goffice-0.8-GOArrow.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="goffice-0.8-GOArrow.details"></a><h2>Details</h2>
+<div class="refsect2" title="GOArrow">
+<a name="GOArrow"></a><h3>GOArrow</h3>
+<pre class="programlisting">typedef struct {
+	GOArrowType typ;
+	double a, b, c;
+} GOArrow;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum GOArrowType">
+<a name="GOArrowType"></a><h3>enum GOArrowType</h3>
+<pre class="programlisting">typedef enum {
+	GO_ARROW_NONE,
+	GO_ARROW_KITE,
+	GO_ARROW_OVAL
+	/* GO_ARROW_STEALTH */
+	/* GO_ARROW_DIAMOND */
+	/* GO_ARROW_OPEN */
+} GOArrowType;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_arrow_clear ()">
+<a name="go-arrow-clear"></a><h3>go_arrow_clear ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_arrow_clear                      (<em class="parameter"><code><a class="link" href="goffice-0.8-GOArrow.html#GOArrow" title="GOArrow"><span class="type">GOArrow</span></a> *dst</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>dst</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_arrow_dup ()">
+<a name="go-arrow-dup"></a><h3>go_arrow_dup ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GOArrow.html#GOArrow" title="GOArrow"><span class="returnvalue">GOArrow</span></a> *           go_arrow_dup                        (<em class="parameter"><code><a class="link" href="goffice-0.8-GOArrow.html#GOArrow" title="GOArrow"><span class="type">GOArrow</span></a> *src</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_arrow_init ()">
+<a name="go-arrow-init"></a><h3>go_arrow_init ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_arrow_init                       (<em class="parameter"><code><a class="link" href="goffice-0.8-GOArrow.html#GOArrow" title="GOArrow"><span class="type">GOArrow</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOArrow.html#GOArrowType" title="enum GOArrowType"><span class="type">GOArrowType</span></a> typ</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> a</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> b</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> c</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>typ</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_arrow_init_kite ()">
+<a name="go-arrow-init-kite"></a><h3>go_arrow_init_kite ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_arrow_init_kite                  (<em class="parameter"><code><a class="link" href="goffice-0.8-GOArrow.html#GOArrow" title="GOArrow"><span class="type">GOArrow</span></a> *dst</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> a</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> b</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> c</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dst</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_arrow_init_oval ()">
+<a name="go-arrow-init-oval"></a><h3>go_arrow_init_oval ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_arrow_init_oval                  (<em class="parameter"><code><a class="link" href="goffice-0.8-GOArrow.html#GOArrow" title="GOArrow"><span class="type">GOArrow</span></a> *dst</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> ra</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> rb</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dst</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ra</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rb</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_arrow_type_as_str ()">
+<a name="go-arrow-type-as-str"></a><h3>go_arrow_type_as_str ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const *        go_arrow_type_as_str                (<em class="parameter"><code><a class="link" href="goffice-0.8-GOArrow.html#GOArrowType" title="enum GOArrowType"><span class="type">GOArrowType</span></a> typ</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>typ</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_arrow_type_from_str ()">
+<a name="go-arrow-type-from-str"></a><h3>go_arrow_type_from_str ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GOArrow.html#GOArrowType" title="enum GOArrowType"><span class="returnvalue">GOArrowType</span></a>         go_arrow_type_from_str              (<em class="parameter"><code>const <span class="type">char</span> *name</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

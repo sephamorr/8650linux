@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOPersist</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch17.html" title="Miscellaneous">
+<link rel="prev" href="goffice-0.8-GOLibxmlExtras.html" title="GOLibxmlExtras">
+<link rel="next" href="goffice-0.8-GOUndo.html" title="GOUndo">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="goffice-0.8-GOLibxmlExtras.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch17.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="goffice-0.8-GOUndo.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GOPersist.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GOPersist.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GOPersist.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GOPersist.implementations" class="shortcut">Known Implementations</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOPersist">
+<a name="GOPersist"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GOPersist.top_of_page"></a>GOPersist</span></h2>
+<p>GOPersist</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GOPersist.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="GOPersist.html#GOPersist-struct" title="GOPersist">GOPersist</a>;
+                    <a class="link" href="GOPersist.html#GOPersistClass" title="GOPersistClass">GOPersistClass</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOPersist.html#go-persist-dom-load" title="go_persist_dom_load ()">go_persist_dom_load</a>                 (<em class="parameter"><code><a class="link" href="GOPersist.html" title="GOPersist"><span class="type">GOPersist</span></a> *gp</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlNode</span> *node</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOPersist.html#go-persist-sax-save" title="go_persist_sax_save ()">go_persist_sax_save</a>                 (<em class="parameter"><code><a class="link" href="GOPersist.html" title="GOPersist"><span class="type">GOPersist</span></a> const *gp</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-XML-and-libxml.html#GsfXMLOut"><span class="type">GsfXMLOut</span></a> *output</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOPersist.html#go-persist-prep-sax" title="go_persist_prep_sax ()">go_persist_prep_sax</a>                 (<em class="parameter"><code><a class="link" href="GOPersist.html" title="GOPersist"><span class="type">GOPersist</span></a> *gp</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-XML-and-libxml.html#GsfXMLIn"><span class="type">GsfXMLIn</span></a> *xin</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlChar</span> const **attrs</code></em>);
+#define             <a class="link" href="GOPersist.html#GO-PARAM-PERSISTENT:CAPS" title="GO_PARAM_PERSISTENT">GO_PARAM_PERSISTENT</a>
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GOPersist.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GInterface
+   +----GOPersist
+</pre>
+</div>
+<div class="refsect1" title="Known Implementations">
+<a name="GOPersist.implementations"></a><h2>Known Implementations</h2>
+<p>
+GOPersist is implemented by
+ <a class="link" href="goffice-0.8-go-distribution.html#GODistribution">GODistribution</a>,  <a class="link" href="GOStyle.html" title="GOStyle">GOStyle</a>,  <a class="link" href="GogErrorBar.html" title="GogErrorBar">GogErrorBar</a> and  <a class="link" href="GogStyledObject.html#GogStyle">GogStyle</a>.</p>
+</div>
+<div class="refsect1" title="Description">
+<a name="GOPersist.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GOPersist.details"></a><h2>Details</h2>
+<div class="refsect2" title="GOPersist">
+<a name="GOPersist-struct"></a><h3>GOPersist</h3>
+<pre class="programlisting">typedef struct _GOPersist GOPersist;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GOPersistClass">
+<a name="GOPersistClass"></a><h3>GOPersistClass</h3>
+<pre class="programlisting">typedef struct {
+	GTypeInterface base;
+
+	gboolean (*dom_load) (GOPersist *gp, xmlNode *node);
+	void	 (*prep_sax) (GOPersist *gp, GsfXMLIn *xin, xmlChar const **attrs);
+	void     (*sax_save) (GOPersist const *gp, GsfXMLOut *output);
+} GOPersistClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_persist_dom_load ()">
+<a name="go-persist-dom-load"></a><h3>go_persist_dom_load ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_persist_dom_load                 (<em class="parameter"><code><a class="link" href="GOPersist.html" title="GOPersist"><span class="type">GOPersist</span></a> *gp</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlNode</span> *node</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gp</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_persist_sax_save ()">
+<a name="go-persist-sax-save"></a><h3>go_persist_sax_save ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_persist_sax_save                 (<em class="parameter"><code><a class="link" href="GOPersist.html" title="GOPersist"><span class="type">GOPersist</span></a> const *gp</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-XML-and-libxml.html#GsfXMLOut"><span class="type">GsfXMLOut</span></a> *output</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gp</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>output</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_persist_prep_sax ()">
+<a name="go-persist-prep-sax"></a><h3>go_persist_prep_sax ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_persist_prep_sax                 (<em class="parameter"><code><a class="link" href="GOPersist.html" title="GOPersist"><span class="type">GOPersist</span></a> *gp</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-XML-and-libxml.html#GsfXMLIn"><span class="type">GsfXMLIn</span></a> *xin</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlChar</span> const **attrs</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gp</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xin</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_PARAM_PERSISTENT">
+<a name="GO-PARAM-PERSISTENT:CAPS"></a><h3>GO_PARAM_PERSISTENT</h3>
+<pre class="programlisting">#define GO_PARAM_PERSISTENT (1 &lt;&lt; (G_PARAM_USER_SHIFT+0))
+</pre>
+<p>
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

@@ -1,0 +1,2697 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GckAttributes</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Gck Library Reference Manual">
+<link rel="up" href="reference.html" title="PKCS#11 GObject Bindings">
+<link rel="prev" href="gck-GckAttribute.html" title="GckAttribute">
+<link rel="next" href="GckObjectCache.html" title="GckObjectCache">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gck-GckAttribute.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="reference.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Gck Library Reference Manual</th>
+<td><a accesskey="n" href="GckObjectCache.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GckAttributes.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GckAttributes.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GckAttributes.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="GckAttributes"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GckAttributes.top_of_page"></a>GckAttributes</span></h2>
+<p>GckAttributes — A set of PKCS11 attributes.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GckAttributes.synopsis"></a><h2>Synopsis</h2>
+<a name="GckBuilder"></a><pre class="synopsis">                    <a class="link" href="GckAttributes.html#GckAttributes-struct" title="GckAttributes">GckAttributes</a>;
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="returnvalue">GckAttributes</span></a> *     <a class="link" href="GckAttributes.html#gck-attributes-new-empty" title="gck_attributes_new_empty ()">gck_attributes_new_empty</a>            (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> first_type</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+const <a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> * <a class="link" href="GckAttributes.html#gck-attributes-at" title="gck_attributes_at ()">gck_attributes_at</a>                  (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> index</code></em>);
+const <a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> * <a class="link" href="GckAttributes.html#gck-attributes-find" title="gck_attributes_find ()">gck_attributes_find</a>                (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GckAttributes.html#gck-attributes-find-boolean" title="gck_attributes_find_boolean ()">gck_attributes_find_boolean</a>         (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *value</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GckAttributes.html#gck-attributes-find-ulong" title="gck_attributes_find_ulong ()">gck_attributes_find_ulong</a>           (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> *value</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GckAttributes.html#gck-attributes-find-string" title="gck_attributes_find_string ()">gck_attributes_find_string</a>          (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **value</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GckAttributes.html#gck-attributes-find-date" title="gck_attributes_find_date ()">gck_attributes_find_date</a>            (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDate"><span class="type">GDate</span></a> *value</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="returnvalue">gulong</span></a>              <a class="link" href="GckAttributes.html#gck-attributes-count" title="gck_attributes_count ()">gck_attributes_count</a>                (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>);
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="returnvalue">GckAttributes</span></a> *     <a class="link" href="GckAttributes.html#gck-attributes-ref" title="gck_attributes_ref ()">gck_attributes_ref</a>                  (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>);
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="returnvalue">GckAttributes</span></a> *     <a class="link" href="GckAttributes.html#gck-attributes-ref-sink" title="gck_attributes_ref_sink ()">gck_attributes_ref_sink</a>             (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-attributes-unref" title="gck_attributes_unref ()">gck_attributes_unref</a>                (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> attrs</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GckAttributes.html#gck-attributes-contains" title="gck_attributes_contains ()">gck_attributes_contains</a>             (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="type">GckAttribute</span></a> *match</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="GckAttributes.html#gck-attributes-to-string" title="gck_attributes_to_string ()">gck_attributes_to_string</a>            (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-attributes-dump" title="gck_attributes_dump ()">gck_attributes_dump</a>                 (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>);
+struct              <a class="link" href="GckAttributes.html#GckBuilder-struct" title="struct GckBuilder">GckBuilder</a>;
+enum                <a class="link" href="GckAttributes.html#GckBuilderFlags" title="enum GckBuilderFlags">GckBuilderFlags</a>;
+#define             <a class="link" href="GckAttributes.html#GCK-BUILDER-INIT:CAPS" title="GCK_BUILDER_INIT">GCK_BUILDER_INIT</a>
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-init" title="gck_builder_init ()">gck_builder_init</a>                    (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-init-full" title="gck_builder_init_full ()">gck_builder_init_full</a>               (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilderFlags" title="enum GckBuilderFlags"><span class="type">GckBuilderFlags</span></a> flags</code></em>);
+<a class="link" href="GckAttributes.html#GckBuilder"><span class="returnvalue">GckBuilder</span></a> *        <a class="link" href="GckAttributes.html#gck-builder-new" title="gck_builder_new ()">gck_builder_new</a>                     (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilderFlags" title="enum GckBuilderFlags"><span class="type">GckBuilderFlags</span></a> flags</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-add-boolean" title="gck_builder_add_boolean ()">gck_builder_add_boolean</a>             (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-set-boolean" title="gck_builder_set_boolean ()">gck_builder_set_boolean</a>             (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-add-data" title="gck_builder_add_data ()">gck_builder_add_data</a>                (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *value</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> length</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-set-data" title="gck_builder_set_data ()">gck_builder_set_data</a>                (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *value</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> length</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-take-data" title="gck_builder_take_data ()">gck_builder_take_data</a>               (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *value</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> length</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-add-date" title="gck_builder_add_date ()">gck_builder_add_date</a>                (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDate"><span class="type">GDate</span></a> *value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-set-date" title="gck_builder_set_date ()">gck_builder_set_date</a>                (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDate"><span class="type">GDate</span></a> *value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-add-string" title="gck_builder_add_string ()">gck_builder_add_string</a>              (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-set-string" title="gck_builder_set_string ()">gck_builder_set_string</a>              (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-add-ulong" title="gck_builder_add_ulong ()">gck_builder_add_ulong</a>               (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-set-ulong" title="gck_builder_set_ulong ()">gck_builder_set_ulong</a>               (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-add-empty" title="gck_builder_add_empty ()">gck_builder_add_empty</a>               (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-set-empty" title="gck_builder_set_empty ()">gck_builder_set_empty</a>               (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-add-invalid" title="gck_builder_add_invalid ()">gck_builder_add_invalid</a>             (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-set-invalid" title="gck_builder_set_invalid ()">gck_builder_set_invalid</a>             (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-add-attribute" title="gck_builder_add_attribute ()">gck_builder_add_attribute</a>           (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="type">GckAttribute</span></a> *attr</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-add-all" title="gck_builder_add_all ()">gck_builder_add_all</a>                 (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-set-all" title="gck_builder_set_all ()">gck_builder_set_all</a>                 (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-add-except" title="gck_builder_add_except ()">gck_builder_add_except</a>              (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> except_type</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-add-exceptv" title="gck_builder_add_exceptv ()">gck_builder_add_exceptv</a>             (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> *except_types</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_except_types</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-add-only" title="gck_builder_add_only ()">gck_builder_add_only</a>                (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> only_type</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-add-onlyv" title="gck_builder_add_onlyv ()">gck_builder_add_onlyv</a>               (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> *only_types</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_only_types</code></em>);
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="returnvalue">GckAttributes</span></a> *     <a class="link" href="GckAttributes.html#gck-builder-end" title="gck_builder_end ()">gck_builder_end</a>                     (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-clear" title="gck_builder_clear ()">gck_builder_clear</a>                   (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>);
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="returnvalue">GckAttributes</span></a> *     <a class="link" href="GckAttributes.html#gck-builder-steal" title="gck_builder_steal ()">gck_builder_steal</a>                   (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>);
+<a class="link" href="GckAttributes.html#GckBuilder"><span class="returnvalue">GckBuilder</span></a> *        <a class="link" href="GckAttributes.html#gck-builder-ref" title="gck_builder_ref ()">gck_builder_ref</a>                     (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-builder-unref" title="gck_builder_unref ()">gck_builder_unref</a>                   (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> builder</code></em>);
+<a class="link" href="GckAttributes.html#GckBuilder"><span class="returnvalue">GckBuilder</span></a> *        <a class="link" href="GckAttributes.html#gck-builder-copy" title="gck_builder_copy ()">gck_builder_copy</a>                    (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>);
+const <a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> * <a class="link" href="GckAttributes.html#gck-builder-find" title="gck_builder_find ()">gck_builder_find</a>                   (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GckAttributes.html#gck-builder-find-boolean" title="gck_builder_find_boolean ()">gck_builder_find_boolean</a>            (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *value</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GckAttributes.html#gck-builder-find-date" title="gck_builder_find_date ()">gck_builder_find_date</a>               (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDate"><span class="type">GDate</span></a> *value</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GckAttributes.html#gck-builder-find-string" title="gck_builder_find_string ()">gck_builder_find_string</a>             (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **value</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GckAttributes.html#gck-builder-find-ulong" title="gck_builder_find_ulong ()">gck_builder_find_ulong</a>              (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> *value</code></em>);
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="returnvalue">GckAttributes</span></a> *     <a class="link" href="GckAttributes.html#gck-attributes-new" title="gck_attributes_new ()">gck_attributes_new</a>                  (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> reserved</code></em>);
+<a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> *      <a class="link" href="GckAttributes.html#gck-attributes-add" title="gck_attributes_add ()">gck_attributes_add</a>                  (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="type">GckAttribute</span></a> *attr</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-attributes-add-all" title="gck_attributes_add_all ()">gck_attributes_add_all</a>              (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *from</code></em>);
+<a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> *      <a class="link" href="GckAttributes.html#gck-attributes-add-boolean" title="gck_attributes_add_boolean ()">gck_attributes_add_boolean</a>          (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> value</code></em>);
+<a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> *      <a class="link" href="GckAttributes.html#gck-attributes-add-data" title="gck_attributes_add_data ()">gck_attributes_add_data</a>             (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *value</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> length</code></em>);
+<a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> *      <a class="link" href="GckAttributes.html#gck-attributes-add-date" title="gck_attributes_add_date ()">gck_attributes_add_date</a>             (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDate"><span class="type">GDate</span></a> *value</code></em>);
+<a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> *      <a class="link" href="GckAttributes.html#gck-attributes-add-empty" title="gck_attributes_add_empty ()">gck_attributes_add_empty</a>            (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>);
+<a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> *      <a class="link" href="GckAttributes.html#gck-attributes-add-invalid" title="gck_attributes_add_invalid ()">gck_attributes_add_invalid</a>          (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>);
+<a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> *      <a class="link" href="GckAttributes.html#gck-attributes-add-string" title="gck_attributes_add_string ()">gck_attributes_add_string</a>           (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *value</code></em>);
+<a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> *      <a class="link" href="GckAttributes.html#gck-attributes-add-ulong" title="gck_attributes_add_ulong ()">gck_attributes_add_ulong</a>            (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> value</code></em>);
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="returnvalue">GckAttributes</span></a> *     <a class="link" href="GckAttributes.html#gck-attributes-dup" title="gck_attributes_dup ()">gck_attributes_dup</a>                  (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>);
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="returnvalue">GckAttributes</span></a> *     <a class="link" href="GckAttributes.html#gck-attributes-new-full" title="gck_attributes_new_full ()">gck_attributes_new_full</a>             (<em class="parameter"><code><span class="type">GckAllocator</span> allocator</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-attributes-set" title="gck_attributes_set ()">gck_attributes_set</a>                  (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="type">GckAttribute</span></a> *attr</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-attributes-set-all" title="gck_attributes_set_all ()">gck_attributes_set_all</a>              (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *from</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-attributes-set-boolean" title="gck_attributes_set_boolean ()">gck_attributes_set_boolean</a>          (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-attributes-set-date" title="gck_attributes_set_date ()">gck_attributes_set_date</a>             (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDate"><span class="type">GDate</span></a> *value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-attributes-set-string" title="gck_attributes_set_string ()">gck_attributes_set_string</a>           (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckAttributes.html#gck-attributes-set-ulong" title="gck_attributes_set_ulong ()">gck_attributes_set_ulong</a>            (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> value</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="GckAttributes.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GBoxed
+   +----GckAttributes
+</pre>
+<pre class="synopsis">
+  GBoxed
+   +----GckBuilder
+</pre>
+</div>
+<div class="refsect1">
+<a name="GckAttributes.description"></a><h2>Description</h2>
+<p>
+A set of GckAttribute structures. These attributes contain information
+about a PKCS11 object. Use <a class="link" href="GckObject.html#gck-object-get" title="gck_object_get ()"><code class="function">gck_object_get()</code></a> or <a class="link" href="GckObject.html#gck-object-set" title="gck_object_set ()"><code class="function">gck_object_set()</code></a> to set and retrieve
+attributes on an object.
+</p>
+</div>
+<div class="refsect1">
+<a name="GckAttributes.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GckAttributes-struct"></a><h3>GckAttributes</h3>
+<pre class="programlisting">typedef struct _GckAttributes GckAttributes;</pre>
+<p>
+A set of GckAttribute structures.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-new-empty"></a><h3>gck_attributes_new_empty ()</h3>
+<pre class="programlisting"><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="returnvalue">GckAttributes</span></a> *     gck_attributes_new_empty            (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> first_type</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+Creates an GckAttributes array with empty attributes
+</p>
+<p>
+Terminate the argument list with <a class="link" href="gck-Miscellaneous-Functions.html#GCK-INVALID:CAPS" title="GCK_INVALID"><code class="literal">GCK_INVALID</code></a>.
+</p>
+<p>
+The returned set of attributes is floating, and should either be passed to
+another gck library function which consumes this floating reference, or if
+you wish to keep these attributes around you should ref them with
+<a class="link" href="GckAttributes.html#gck-attributes-ref-sink" title="gck_attributes_ref_sink ()"><code class="function">gck_attributes_ref_sink()</code></a> and unref them later with <a class="link" href="GckAttributes.html#gck-attributes-unref" title="gck_attributes_unref ()"><code class="function">gck_attributes_unref()</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>first_type</code></em> :</span></p></td>
+<td>the first empty attribute type</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>the other empty attribute types</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a floating reference to an empty set of attributes. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-at"></a><h3>gck_attributes_at ()</h3>
+<pre class="programlisting">const <a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> * gck_attributes_at                  (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> index</code></em>);</pre>
+<p>
+Get attribute at the specified index in the attribute array.
+</p>
+<p>
+Use <a class="link" href="GckAttributes.html#gck-attributes-count" title="gck_attributes_count ()"><code class="function">gck_attributes_count()</code></a> to determine how many attributes are
+in the array.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>The attributes array.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>The attribute index to retrieve.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the specified attribute. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-find"></a><h3>gck_attributes_find ()</h3>
+<pre class="programlisting">const <a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> * gck_attributes_find                (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>);</pre>
+<p>
+Find an attribute with the specified type in the array.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>The attributes array to search.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>The type of attribute to find.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the first attribute found with the specified type,
+or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-find-boolean"></a><h3>gck_attributes_find_boolean ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gck_attributes_find_boolean         (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *value</code></em>);</pre>
+<p>
+Find an attribute with the specified type in the array.
+</p>
+<p>
+The attribute (if found) must be of the right size to store
+a boolean value (ie: CK_BBOOL). If the attribute is marked invalid
+then it will be treated as not found.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>The attributes array to search.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>The type of attribute to find.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>The resulting gboolean value.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Whether a value was found or not.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-find-ulong"></a><h3>gck_attributes_find_ulong ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gck_attributes_find_ulong           (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> *value</code></em>);</pre>
+<p>
+Find an attribute with the specified type in the array.
+</p>
+<p>
+The attribute (if found) must be of the right size to store
+a unsigned long value (ie: CK_ULONG). If the attribute is marked invalid
+then it will be treated as not found.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>The attributes array to search.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>The type of attribute to find.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>The resulting gulong value.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Whether a value was found or not.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-find-string"></a><h3>gck_attributes_find_string ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gck_attributes_find_string          (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **value</code></em>);</pre>
+<p>
+Find an attribute with the specified type in the array.
+</p>
+<p>
+If the attribute is marked invalid then it will be treated as not found.
+The resulting string will be null-terminated, and must be freed by the caller
+using <a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>The attributes array to search.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>The type of attribute to find.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>The resulting string value.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Whether a value was found or not.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-find-date"></a><h3>gck_attributes_find_date ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gck_attributes_find_date            (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDate"><span class="type">GDate</span></a> *value</code></em>);</pre>
+<p>
+Find an attribute with the specified type in the array.
+</p>
+<p>
+The attribute (if found) must be of the right size to store
+a date value (ie: CK_DATE). If the attribute is marked invalid
+then it will be treated as not found.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>The attributes array to search.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>The type of attribute to find.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>The resulting GDate value.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Whether a value was found or not.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-count"></a><h3>gck_attributes_count ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="returnvalue">gulong</span></a>              gck_attributes_count                (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>);</pre>
+<p>
+Get the number of attributes in this attribute array.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>The attributes array to count.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The number of contained attributes.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-ref"></a><h3>gck_attributes_ref ()</h3>
+<pre class="programlisting"><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="returnvalue">GckAttributes</span></a> *     gck_attributes_ref                  (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>);</pre>
+<p>
+Reference this attributes array.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>An attribute array</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the attributes</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-ref-sink"></a><h3>gck_attributes_ref_sink ()</h3>
+<pre class="programlisting"><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="returnvalue">GckAttributes</span></a> *     gck_attributes_ref_sink             (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>);</pre>
+<p>
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> uses a floating reference count system. <a class="link" href="GckAttributes.html#gck-builder-end" title="gck_builder_end ()"><code class="function">gck_builder_end()</code></a>
+and <a class="link" href="GckAttributes.html#gck-attributes-new-empty" title="gck_attributes_new_empty ()"><code class="function">gck_attributes_new_empty()</code></a> both return floating references.
+</p>
+<p>
+Calling <a class="link" href="GckAttributes.html#gck-attributes-ref-sink" title="gck_attributes_ref_sink ()"><code class="function">gck_attributes_ref_sink()</code></a> on a <a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> with a floating
+reference will convert the floating reference into a full reference.
+Calling <a class="link" href="GckAttributes.html#gck-attributes-ref-sink" title="gck_attributes_ref_sink ()"><code class="function">gck_attributes_ref_sink()</code></a> on a non-floating <a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> results
+in an additional normal reference being added.
+</p>
+<p>
+In other words, if the <em class="parameter"><code>attrs</code></em> is floating, then this call "assumes
+ownership" of the floating reference, converting it to a normal
+reference.  If the <em class="parameter"><code>attrs</code></em> is not floating, then this call adds a
+new normal reference increasing the reference count by one.
+</p>
+<p>
+All Gck library functions that assume ownership of floating references
+are documented as such. Essentially any Gck function that performs
+an operation using a <a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> argument rather than operating on the
+atributes themselves, will accept a floating reference.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>an attribute array</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the referenced attributes</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-unref"></a><h3>gck_attributes_unref ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_attributes_unref                (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> attrs</code></em>);</pre>
+<p>
+Unreference this attribute array.
+</p>
+<p>
+When all outstanding references are gone, the array will be freed.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>(type Gck.Attributes): An attribute array. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-contains"></a><h3>gck_attributes_contains ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gck_attributes_contains             (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="type">GckAttribute</span></a> *match</code></em>);</pre>
+<p>
+Check whether the attributes contain a certain attribute.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>The attributes to check</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>match</code></em> :</span></p></td>
+<td>The attribute to find</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the attributes contain the attribute.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-to-string"></a><h3>gck_attributes_to_string ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             gck_attributes_to_string            (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>);</pre>
+<p>
+Print out attributes to a string in aform that's useful for debugging
+or logging.
+</p>
+<p>
+The format of the string returned may change in the future.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>the attributes</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a newly allocated string</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-dump"></a><h3>gck_attributes_dump ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_attributes_dump                 (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>);</pre>
+<p>
+Dump the attributes using <a href="http://library.gnome.org/devel/glib/unstable/glib-Warnings-and-Assertions.html#g-printerr"><code class="function">g_printerr()</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>The attributes</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GckBuilder-struct"></a><h3>struct GckBuilder</h3>
+<pre class="programlisting">struct GckBuilder {
+};
+</pre>
+<p>
+A builder for a set of attributes. Add attributes to a builder, and then use
+<a class="link" href="GckAttributes.html#gck-builder-end" title="gck_builder_end ()"><code class="function">gck_builder_end()</code></a> to get the completed <a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a>.
+</p>
+<p>
+The fields of <a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> are private and not to be accessed directly.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GckBuilderFlags"></a><h3>enum GckBuilderFlags</h3>
+<pre class="programlisting">typedef enum {
+	GCK_BUILDER_NONE,
+	GCK_BUILDER_SECURE_MEMORY = 1,
+} GckBuilderFlags;
+</pre>
+<p>
+Flags to be used with a <a class="link" href="GckAttributes.html#gck-builder-init-full" title="gck_builder_init_full ()"><code class="function">gck_builder_init_full()</code></a> and <a class="link" href="GckAttributes.html#gck-builder-new" title="gck_builder_new ()"><code class="function">gck_builder_new()</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><a name="GCK-BUILDER-NONE:CAPS"></a><span class="term"><code class="literal">GCK_BUILDER_NONE</code></span></p></td>
+<td>no special flags
+</td>
+</tr>
+<tr>
+<td><p><a name="GCK-BUILDER-SECURE-MEMORY:CAPS"></a><span class="term"><code class="literal">GCK_BUILDER_SECURE_MEMORY</code></span></p></td>
+<td>use non-pageable memory for the values of the attributes
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GCK-BUILDER-INIT:CAPS"></a><h3>GCK_BUILDER_INIT</h3>
+<pre class="programlisting">#define              GCK_BUILDER_INIT                       { { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 } }
+</pre>
+<p>
+Values that can be assigned to a <a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> allocated on the stack.
+</p>
+<p>
+</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GckBuilder</span><span class="normal"> builder </span><span class="symbol">=</span><span class="normal"> <a href="GckAttributes.html#GCK-BUILDER-INIT:CAPS">GCK_BUILDER_INIT</a></span><span class="symbol">;</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-init"></a><h3>gck_builder_init ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_init                    (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>);</pre>
+<p>
+Initialize a stack allocated builder, with the default flags.
+</p>
+<p>
+This is equivalent to initializing a builder variable with the
+<a class="link" href="GckAttributes.html#GCK-BUILDER-INIT:CAPS" title="GCK_BUILDER_INIT"><code class="literal">GCK_BUILDER_INIT</code></a> constant, or setting it to zeroed memory.
+</p>
+<p>
+</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="comment">/* Equivalent ways of initializing a GckBuilder */</span>
+<span class="usertype">GckBuilder</span><span class="normal"> builder </span><span class="symbol">=</span><span class="normal"> <a href="GckAttributes.html#GCK-BUILDER-INIT:CAPS">GCK_BUILDER_INIT</a></span><span class="symbol">;</span>
+<span class="usertype">GckBuilder</span><span class="normal"> builder2</span><span class="symbol">;</span>
+<span class="usertype">GckBuilder</span><span class="normal"> builder3</span><span class="symbol">;</span>
+
+<span class="function"><a href="GckAttributes.html#gck-builder-init">gck_builder_init</a></span><span class="normal"> </span><span class="symbol">(&amp;</span><span class="normal">builder2</span><span class="symbol">);</span>
+
+<span class="function">memset</span><span class="normal"> </span><span class="symbol">(&amp;</span><span class="normal">builder3</span><span class="symbol">,</span><span class="normal"> </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="keyword">sizeof</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">builder3</span><span class="symbol">));</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-init-full"></a><h3>gck_builder_init_full ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_init_full               (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilderFlags" title="enum GckBuilderFlags"><span class="type">GckBuilderFlags</span></a> flags</code></em>);</pre>
+<p>
+Initialize a stack allocated builder, with the appropriate flags.
+</p>
+<p>
+If the <a class="link" href="GckAttributes.html#GCK-BUILDER-SECURE-MEMORY:CAPS"><code class="literal">GCK_BUILDER_SECURE_MEMORY</code></a> flag is specified then non-pageable memory
+will be used for the various values of the attributes in the builder
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>the flags for the new builder</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-new"></a><h3>gck_builder_new ()</h3>
+<pre class="programlisting"><a class="link" href="GckAttributes.html#GckBuilder"><span class="returnvalue">GckBuilder</span></a> *        gck_builder_new                     (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilderFlags" title="enum GckBuilderFlags"><span class="type">GckBuilderFlags</span></a> flags</code></em>);</pre>
+<p>
+Create a new <a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> not allocated on the stack, so it can be shared
+across a single scope, and referenced / unreferenced.
+</p>
+<p>
+Normally a <a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> is created on the stack, and simply initialized.
+</p>
+<p>
+If the <a class="link" href="GckAttributes.html#GCK-BUILDER-SECURE-MEMORY:CAPS"><code class="literal">GCK_BUILDER_SECURE_MEMORY</code></a> flag is specified then non-pageable memory
+will be used for the various values of the attributes in the builder
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>flags for the new builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new builder, to be freed with <a class="link" href="GckAttributes.html#gck-builder-unref" title="gck_builder_unref ()"><code class="function">gck_builder_unref()</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-add-boolean"></a><h3>gck_builder_add_boolean ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_add_boolean             (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> value</code></em>);</pre>
+<p>
+Add a new attribute to the builder for the boolean <em class="parameter"><code>value</code></em>.
+Unconditionally adds a new attribute, even if one with the same <em class="parameter"><code>attr_type</code></em>
+already exists.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the new attribute type</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the attribute value</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-set-boolean"></a><h3>gck_builder_set_boolean ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_set_boolean             (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> value</code></em>);</pre>
+<p>
+Set an attribute on the builder for the boolean <em class="parameter"><code>value</code></em>.
+If an attribute with <em class="parameter"><code>attr_type</code></em> already exists in the builder then it is
+changed to the new value, otherwise an attribute is added.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the new attribute type</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the attribute value</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-add-data"></a><h3>gck_builder_add_data ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_add_data                (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *value</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> length</code></em>);</pre>
+<p>
+Add a new attribute to the builder with an arbitrary value. Unconditionally
+adds a new attribute, even if one with the same <em class="parameter"><code>attr_type</code></em> already exists.
+</p>
+<p>
+The memory in <em class="parameter"><code>value</code></em> is copied by the builder.
+</p>
+<p>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> may be specified for the <em class="parameter"><code>value</code></em> argument, in which case an empty
+attribute is created. GCK_INVALID may be specified for the length, in
+which case an invalid attribute is created in the PKCS#11 style.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the new attribute type</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>(allow-none): the new attribute memory. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=length]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td>the length of the memory</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-set-data"></a><h3>gck_builder_set_data ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_set_data                (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *value</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> length</code></em>);</pre>
+<p>
+Set a new attribute to the builder with an arbitrary value. If an attribute
+with <em class="parameter"><code>attr_type</code></em> already exists in the builder then it is changed to the new
+value, otherwise an attribute is added.
+</p>
+<p>
+The memory in <em class="parameter"><code>value</code></em> is copied by the builder.
+</p>
+<p>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> may be specified for the <em class="parameter"><code>value</code></em> argument, in which case an empty
+attribute is created. GCK_INVALID may be specified for the length, in
+which case an invalid attribute is created in the PKCS#11 style.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the attribute type</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>(allow-none): the new attribute memory. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=length]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td>the length of the memory</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-take-data"></a><h3>gck_builder_take_data ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_take_data               (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *value</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> length</code></em>);</pre>
+<p>
+Add a new attribute to the builder with an arbitrary value. Unconditionally
+adds a new attribute, even if one with the same <em class="parameter"><code>attr_type</code></em> already exists.
+</p>
+<p>
+Ownership of the <em class="parameter"><code>value</code></em> memory is taken by the builder, may be reallocated,
+and is eventually freed with <a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. The memory must have been allocated
+using the standard GLib memory allocation routines.
+</p>
+<p>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> may be specified for the <em class="parameter"><code>value</code></em> argument, in which case an empty
+attribute is created. GCK_INVALID may be specified for the length, in
+which case an invalid attribute is created in the PKCS#11 style.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the new attribute type</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>(array length=length): (allow-none): the new
+attribute memory. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td>the length of the memory</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-add-date"></a><h3>gck_builder_add_date ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_add_date                (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDate"><span class="type">GDate</span></a> *value</code></em>);</pre>
+<p>
+Add a new attribute to the builder for the date <em class="parameter"><code>value</code></em>.
+Unconditionally adds a new attribute, even if one with the same <em class="parameter"><code>attr_type</code></em>
+already exists.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the new attribute type</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the attribute value</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-set-date"></a><h3>gck_builder_set_date ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_set_date                (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDate"><span class="type">GDate</span></a> *value</code></em>);</pre>
+<p>
+Set an attribute on the builder for the date <em class="parameter"><code>value</code></em>.
+If an attribute with <em class="parameter"><code>attr_type</code></em> already exists in the builder then it is
+changed to the new value, otherwise an attribute is added.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the new attribute type</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the attribute value</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-add-string"></a><h3>gck_builder_add_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_add_string              (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *value</code></em>);</pre>
+<p>
+Add a new attribute to the builder for the string <em class="parameter"><code>value</code></em> or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+Unconditionally adds a new attribute, even if one with the same <em class="parameter"><code>attr_type</code></em>
+already exists.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the new attribute type</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the attribute value. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-set-string"></a><h3>gck_builder_set_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_set_string              (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *value</code></em>);</pre>
+<p>
+Set an attribute on the builder for the string <em class="parameter"><code>value</code></em> or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+If an attribute with <em class="parameter"><code>attr_type</code></em> already exists in the builder then it is
+changed to the new value, otherwise an attribute is added.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the new attribute type</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the attribute value</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-add-ulong"></a><h3>gck_builder_add_ulong ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_add_ulong               (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> value</code></em>);</pre>
+<p>
+Add a new attribute to the builder for the unsigned long <em class="parameter"><code>value</code></em>.
+Unconditionally adds a new attribute, even if one with the same <em class="parameter"><code>attr_type</code></em>
+already exists.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the new attribute type</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the attribute value</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-set-ulong"></a><h3>gck_builder_set_ulong ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_set_ulong               (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> value</code></em>);</pre>
+<p>
+Set an attribute on the builder for the unsigned long <em class="parameter"><code>value</code></em>.
+If an attribute with <em class="parameter"><code>attr_type</code></em> already exists in the builder then it is
+changed to the new value, otherwise an attribute is added.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the new attribute type</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the attribute value</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-add-empty"></a><h3>gck_builder_add_empty ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_add_empty               (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>);</pre>
+<p>
+Add a new attribute to the builder that is empty. Unconditionally
+adds a new attribute, even if one with the same <em class="parameter"><code>attr_type</code></em> already exists.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the new attribute type</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-set-empty"></a><h3>gck_builder_set_empty ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_set_empty               (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>);</pre>
+<p>
+Set an attribute on the builder that is empty. If an attribute
+with <em class="parameter"><code>attr_type</code></em> already exists in the builder then it is changed to the new
+value, otherwise an attribute is added.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the attribute type</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-add-invalid"></a><h3>gck_builder_add_invalid ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_add_invalid             (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>);</pre>
+<p>
+Add a new attribute to the builder that is invalid in the PKCS#11 sense.
+Unconditionally adds a new attribute, even if one with the same <em class="parameter"><code>attr_type</code></em>
+already exists.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the new attribute type</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-set-invalid"></a><h3>gck_builder_set_invalid ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_set_invalid             (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>);</pre>
+<p>
+Set an attribute on the builder that is invalid in the PKCS#11 sense.
+If an attribute with <em class="parameter"><code>attr_type</code></em> already exists in the builder then it is
+changed to the new value, otherwise an attribute is added.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the attribute type</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-add-attribute"></a><h3>gck_builder_add_attribute ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_add_attribute           (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="type">GckAttribute</span></a> *attr</code></em>);</pre>
+<p>
+Add an attribute to the builder. The attribute is added unconditionally whether
+or not an attribute with the same type already exists on the builder.
+</p>
+<p>
+The <em class="parameter"><code>attr</code></em> attribute must have been created or owned by the Gck library.
+If you call this function on an arbitrary <a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="type">GckAttribute</span></a> that is allocated on
+the stack or elsewhere, then this will result in undefined behavior.
+</p>
+<p>
+As an optimization, the attribute memory value is automatically shared
+between the attribute and the builder.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr</code></em> :</span></p></td>
+<td>the attribute to add</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-add-all"></a><h3>gck_builder_add_all ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_add_all                 (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>);</pre>
+<p>
+Add all the <em class="parameter"><code>attrs</code></em> attributes to the builder. The attributes are added
+uncondititionally whether or not attributes with the same types already
+exist in the builder.
+</p>
+<p>
+As an optimization, the attribute memory values are automatically shared
+between the attributes and the builder.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>the attributes to add</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-set-all"></a><h3>gck_builder_set_all ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_set_all                 (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>);</pre>
+<p>
+Set all the <em class="parameter"><code>attrs</code></em> attributes to the builder. If any attributes with the
+same types are already present in the builder, then those attributes are
+changed to the new values.
+</p>
+<p>
+As an optimization, the attribute memory values are automatically shared
+between the attributes and the builder.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>the attributes to set</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-add-except"></a><h3>gck_builder_add_except ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_add_except              (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> except_type</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+Add the attributes in <em class="parameter"><code>attrs</code></em> to the builder, with the exception of those
+in the argument list. The attributes are added uncondititionally whether or
+not attributes with the same types already exist in the builder.
+</p>
+<p>
+The variable arguments must be unsigned longs.
+</p>
+<p>
+</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="comment">/* Add all attributes in attrs except CKA_CLASS to the builder */</span>
+<span class="function"><a href="GckAttributes.html#gck-builder-add-except">gck_builder_add_except</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">builder</span><span class="symbol">,</span><span class="normal"> attrs</span><span class="symbol">,</span><span class="normal"> CKA_CLASS</span><span class="symbol">,</span><span class="normal"> <a href="gck-Miscellaneous-Functions.html#GCK-INVALID:CAPS">GCK_INVALID</a></span><span class="symbol">);</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+</p>
+<p>
+As an optimization, the attribute memory values are automatically shared
+between the attributes and the builder.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>the attributes to add</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>except_type</code></em> :</span></p></td>
+<td>the first type of attribute to to exclude</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>the remaining attribute types to exclude, ending with <a class="link" href="gck-Miscellaneous-Functions.html#GCK-INVALID:CAPS" title="GCK_INVALID"><code class="literal">GCK_INVALID</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-add-exceptv"></a><h3>gck_builder_add_exceptv ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_add_exceptv             (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> *except_types</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_except_types</code></em>);</pre>
+<p>
+Add the attributes in <em class="parameter"><code>attrs</code></em> to the builder, with the exception of those
+whose types are specified in <em class="parameter"><code>except_types</code></em>. The attributes are added
+uncondititionally whether or not attributes with the same types already
+exist in the builder.
+</p>
+<p>
+</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="comment">/* Add all attributes in attrs except CKA_CLASS to the builder */</span>
+<span class="usertype">gulong</span><span class="normal"> except_types</span><span class="symbol">[]</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> </span><span class="cbracket">{</span><span class="normal"> CKA_CLASS </span><span class="cbracket">}</span><span class="symbol">;</span>
+<span class="function"><a href="GckAttributes.html#gck-builder-add-exceptv">gck_builder_add_exceptv</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">builder</span><span class="symbol">,</span><span class="normal"> attrs</span><span class="symbol">,</span><span class="normal"> except_types</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1</span><span class="symbol">);</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+</p>
+<p>
+As an optimization, the attribute memory values are automatically shared
+between the attributes and the builder.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>the attributes to add</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>except_types</code></em> :</span></p></td>
+<td>the except types. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_except_types]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_except_types</code></em> :</span></p></td>
+<td>the number of except types</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-add-only"></a><h3>gck_builder_add_only ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_add_only                (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> only_type</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+Add the attributes specified in the argument list from <em class="parameter"><code>attrs</code></em> to the
+builder. The attributes are added uncondititionally whether or not
+attributes with the same types already exist in the builder.
+</p>
+<p>
+The variable arguments must be unsigned longs.
+</p>
+<p>
+</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="comment">/* Add the CKA_ID and CKA_CLASS attributes from attrs to builder */</span>
+<span class="function"><a href="GckAttributes.html#gck-builder-add-only">gck_builder_add_only</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">builder</span><span class="symbol">,</span><span class="normal"> attrs</span><span class="symbol">,</span><span class="normal"> CKA_ID</span><span class="symbol">,</span><span class="normal"> CKA_CLASS</span><span class="symbol">,</span><span class="normal"> <a href="gck-Miscellaneous-Functions.html#GCK-INVALID:CAPS">GCK_INVALID</a></span><span class="symbol">);</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+</p>
+<p>
+As an optimization, the attribute memory values are automatically shared
+between the attributes and the builder.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>the attributes to add</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>only_type</code></em> :</span></p></td>
+<td>the first type of attribute to add</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>the remaining attribute types to add, ending with <a class="link" href="gck-Miscellaneous-Functions.html#GCK-INVALID:CAPS" title="GCK_INVALID"><code class="literal">GCK_INVALID</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-add-onlyv"></a><h3>gck_builder_add_onlyv ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_add_onlyv               (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> *only_types</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_only_types</code></em>);</pre>
+<p>
+Add the attributes with the types in <em class="parameter"><code>only_types</code></em> from <em class="parameter"><code>attrs</code></em> to the
+builder. The attributes are added uncondititionally whether or not
+attributes with the same types already exist in the builder.
+</p>
+<p>
+</p>
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="comment">/* Add the CKA_ID and CKA_CLASS attributes from attrs to builder */</span>
+<span class="usertype">gulong</span><span class="normal"> only</span><span class="symbol">[]</span><span class="normal"> </span><span class="symbol">=</span><span class="normal"> </span><span class="cbracket">{</span><span class="normal"> CKA_ID</span><span class="symbol">,</span><span class="normal"> CKA_CLASS </span><span class="cbracket">}</span><span class="symbol">;</span>
+<span class="function"><a href="GckAttributes.html#gck-builder-add-onlyv">gck_builder_add_onlyv</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">builder</span><span class="symbol">,</span><span class="normal"> attrs</span><span class="symbol">,</span><span class="normal"> only</span><span class="symbol">,</span><span class="normal"> </span><span class="number">2</span><span class="symbol">);</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+</p>
+<p>
+As an optimization, the attribute memory values are automatically shared
+between the attributes and the builder.
+</p>
+<p>
+Rename to: gck_builder_add_only
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>the attributes to add</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>only_types</code></em> :</span></p></td>
+<td>the types of attributes to add. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_only_types]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_only_types</code></em> :</span></p></td>
+<td>the number of attributes</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-end"></a><h3>gck_builder_end ()</h3>
+<pre class="programlisting"><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="returnvalue">GckAttributes</span></a> *     gck_builder_end                     (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>);</pre>
+<p>
+Complete the <a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a>, and return the attributes contained in the builder.
+The <a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> will be cleared after this function call, and it is no
+longer necessary to use <a class="link" href="GckAttributes.html#gck-builder-clear" title="gck_builder_clear ()"><code class="function">gck_builder_clear()</code></a> on it, although it is also
+permitted. The builder may be used again to build another set of attributes
+after this function call.
+</p>
+<p>
+The returned set of attributes is floating, and should either be passed to
+another gck library function which consumes this floating reference, or if
+you wish to keep these attributes around you should ref them with
+<a class="link" href="GckAttributes.html#gck-attributes-ref-sink" title="gck_attributes_ref_sink ()"><code class="function">gck_attributes_ref_sink()</code></a> and unref them later with <a class="link" href="GckAttributes.html#gck-attributes-unref" title="gck_attributes_unref ()"><code class="function">gck_attributes_unref()</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a floating reference to the attributes created
+in the builder. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-clear"></a><h3>gck_builder_clear ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_clear                   (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>);</pre>
+<p>
+Clear the builder and release all allocated memory. The builder may be used
+again to build another set of attributes after this function call.
+</p>
+<p>
+If memory is shared between this builder and other attributes, then that
+memory is only freed when both of them are cleared or unreferenced.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-steal"></a><h3>gck_builder_steal ()</h3>
+<pre class="programlisting"><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="returnvalue">GckAttributes</span></a> *     gck_builder_steal                   (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>);</pre>
+<p>
+Take the attributes that have been built in the <a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a>. The builder
+will no longer contain any attributes after this function call.
+</p>
+<p>
+The returned set of attributes is a full reference, not floating.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the stolen attributes, which should be freed with
+<a class="link" href="GckAttributes.html#gck-attributes-unref" title="gck_attributes_unref ()"><code class="function">gck_attributes_unref()</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-ref"></a><h3>gck_builder_ref ()</h3>
+<pre class="programlisting"><a class="link" href="GckAttributes.html#GckBuilder"><span class="returnvalue">GckBuilder</span></a> *        gck_builder_ref                     (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>);</pre>
+<p>
+Add a reference to a builder that was created with <a class="link" href="GckAttributes.html#gck-builder-new" title="gck_builder_new ()"><code class="function">gck_builder_new()</code></a>. The
+builder must later be unreferenced again with <a class="link" href="GckAttributes.html#gck-builder-unref" title="gck_builder_unref ()"><code class="function">gck_builder_unref()</code></a>.
+</p>
+<p>
+It is an error to use this function on builders that were allocated on the
+stack.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the builder</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-unref"></a><h3>gck_builder_unref ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_builder_unref                   (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> builder</code></em>);</pre>
+<p>
+Unreferences a builder. If this was the last reference then the builder
+is freed.
+</p>
+<p>
+It is an error to use this function on builders that were allocated on the
+stack.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-copy"></a><h3>gck_builder_copy ()</h3>
+<pre class="programlisting"><a class="link" href="GckAttributes.html#GckBuilder"><span class="returnvalue">GckBuilder</span></a> *        gck_builder_copy                    (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>);</pre>
+<p>
+Make a copy of the builder and its state. The new builder is allocated
+with <a class="link" href="GckAttributes.html#gck-builder-new" title="gck_builder_new ()"><code class="function">gck_builder_new()</code></a> and should be freed with <a class="link" href="GckAttributes.html#gck-builder-unref" title="gck_builder_unref ()"><code class="function">gck_builder_unref()</code></a>.
+</p>
+<p>
+Attribute value memory is automatically shared between the two builders,
+and is only freed when both are gone.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder to copy</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the builder copy, which should be freed with
+<a class="link" href="GckAttributes.html#gck-builder-unref" title="gck_builder_unref ()"><code class="function">gck_builder_unref()</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-find"></a><h3>gck_builder_find ()</h3>
+<pre class="programlisting">const <a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> * gck_builder_find                   (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>);</pre>
+<p>
+Find an attribute in the builder. Both valid and invalid attributes (in
+the PKCS#11 sense) are returned. If multiple attributes exist for the given
+attribute type, then the first one is returned.
+</p>
+<p>
+The returned <a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="type">GckAttribute</span></a> is owned by the builder and may not be modified
+in any way. It is only valid until another attribute is added to or set on
+the builder, or until the builder is cleared or unreferenced.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the type of attribute to find</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the attribute or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if not found</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-find-boolean"></a><h3>gck_builder_find_boolean ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gck_builder_find_boolean            (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *value</code></em>);</pre>
+<p>
+Find a boolean attribute in the builder that has the type <em class="parameter"><code>attr_type</code></em>, is
+of the correct boolean size, and is not invalid in the PKCS#11 sense.
+If multiple attributes exist for the given attribute type, then the first\
+one is returned.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the type of attribute to find</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the location to place the found value. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether a valid boolean attribute was found</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-find-date"></a><h3>gck_builder_find_date ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gck_builder_find_date               (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDate"><span class="type">GDate</span></a> *value</code></em>);</pre>
+<p>
+Find a date attribute in the builder that has the type <em class="parameter"><code>attr_type</code></em>, is of
+the correct date size, and is not invalid in the PKCS#11 sense.
+If multiple attributes exist for the given attribute type, then the first
+one is returned.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the type of attribute to find</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the location to place the found value. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether a valid date attribute was found</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-find-string"></a><h3>gck_builder_find_string ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gck_builder_find_string             (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **value</code></em>);</pre>
+<p>
+Find a string attribute in the builder that has the type <em class="parameter"><code>attr_type</code></em>, has a
+non <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> value pointer, and is not invalid in the PKCS#11 sense.
+If multiple attributes exist for the given attribute type, then the first
+one is returned.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the type of attribute to find</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the location to place the found value. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether a valid string attribute was found</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-builder-find-ulong"></a><h3>gck_builder_find_ulong ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gck_builder_find_ulong              (<em class="parameter"><code><a class="link" href="GckAttributes.html#GckBuilder"><span class="type">GckBuilder</span></a> *builder</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> *value</code></em>);</pre>
+<p>
+Find a unsigned long attribute in the builder that has the type <em class="parameter"><code>attr_type</code></em>,
+is of the correct unsigned long size, and is not invalid in the PKCS#11 sense.
+If multiple attributes exist for the given attribute type, then the first\
+one is returned.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>the builder</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the type of attribute to find</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the location to place the found value. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether a valid unsigned long attribute was found</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-new"></a><h3>gck_attributes_new ()</h3>
+<pre class="programlisting"><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="returnvalue">GckAttributes</span></a> *     gck_attributes_new                  (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> reserved</code></em>);</pre>
+<p>
+Create a new empty GckAttributes array.
+</p>
+<p>
+The returned set of attributes is floating, and should either be passed to
+another gck library function which consumes this floating reference, or if
+you wish to keep these attributes around you should ref them with
+<a class="link" href="GckAttributes.html#gck-attributes-ref-sink" title="gck_attributes_ref_sink ()"><code class="function">gck_attributes_ref_sink()</code></a> and unref them later with <a class="link" href="GckAttributes.html#gck-attributes-unref" title="gck_attributes_unref ()"><code class="function">gck_attributes_unref()</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>reserved</code></em> :</span></p></td>
+<td>Should be set to always be GCK_INVALID</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a floating reference to the new attributes array;
+when done with the array release it with <a class="link" href="GckAttributes.html#gck-attributes-unref" title="gck_attributes_unref ()"><code class="function">gck_attributes_unref()</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-add"></a><h3>gck_attributes_add ()</h3>
+<pre class="programlisting"><a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> *      gck_attributes_add                  (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="type">GckAttribute</span></a> *attr</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gck_attributes_add</code> has been deprecated since version 3.4 and should not be used in newly-written code. Use <a class="link" href="GckAttributes.html#gck-builder-set-all" title="gck_builder_set_all ()"><code class="function">gck_builder_set_all()</code></a> instead.</p>
+</div>
+<p>
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> are now immutable. This method no longer does anything.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>the attributes array to add to</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr</code></em> :</span></p></td>
+<td>the attribute to add</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-add-all"></a><h3>gck_attributes_add_all ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_attributes_add_all              (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *from</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gck_attributes_add_all</code> has been deprecated since version 3.4 and should not be used in newly-written code. Use <a class="link" href="GckAttributes.html#gck-builder-add-all" title="gck_builder_add_all ()"><code class="function">gck_builder_add_all()</code></a> instead.</p>
+</div>
+<p>
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> are now immutable. This method no longer does anything.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>a set of attributes</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>from</code></em> :</span></p></td>
+<td>attributes to add</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-add-boolean"></a><h3>gck_attributes_add_boolean ()</h3>
+<pre class="programlisting"><a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> *      gck_attributes_add_boolean          (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> value</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gck_attributes_add_boolean</code> has been deprecated since version 3.4 and should not be used in newly-written code. Use <a class="link" href="GckAttributes.html#gck-builder-add-boolean" title="gck_builder_add_boolean ()"><code class="function">gck_builder_add_boolean()</code></a> instead.</p>
+</div>
+<p>
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> are now immutable. This method no longer does anything.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>the attributes array to add to</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the type of attribute to add</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the boolean value to add</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-add-data"></a><h3>gck_attributes_add_data ()</h3>
+<pre class="programlisting"><a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> *      gck_attributes_add_data             (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *value</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> length</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gck_attributes_add_data</code> has been deprecated since version 3.4 and should not be used in newly-written code. Use <a class="link" href="GckAttributes.html#gck-builder-add-data" title="gck_builder_add_data ()"><code class="function">gck_builder_add_data()</code></a> instead.</p>
+</div>
+<p>
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> are now immutable. This method no longer does anything.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>The attributes array to add to.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>The type of attribute to add.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the raw memory of the attribute value. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=length]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td>The length of the attribute value.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-add-date"></a><h3>gck_attributes_add_date ()</h3>
+<pre class="programlisting"><a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> *      gck_attributes_add_date             (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDate"><span class="type">GDate</span></a> *value</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gck_attributes_add_date</code> has been deprecated since version 3.4 and should not be used in newly-written code. Use <a class="link" href="GckAttributes.html#gck-builder-add-date" title="gck_builder_add_date ()"><code class="function">gck_builder_add_date()</code></a> instead.</p>
+</div>
+<p>
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> are now immutable. This method no longer does anything.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>the attributes array to add to</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the type of attribute to add</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the GDate value to add</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-add-empty"></a><h3>gck_attributes_add_empty ()</h3>
+<pre class="programlisting"><a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> *      gck_attributes_add_empty            (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gck_attributes_add_empty</code> has been deprecated since version 3.4 and should not be used in newly-written code. Use <a class="link" href="GckAttributes.html#gck-builder-add-empty" title="gck_builder_add_empty ()"><code class="function">gck_builder_add_empty()</code></a> instead.</p>
+</div>
+<p>
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> are now immutable. This method no longer does anything.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>The attributes array to add.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>The type of attribute to add.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-add-invalid"></a><h3>gck_attributes_add_invalid ()</h3>
+<pre class="programlisting"><a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> *      gck_attributes_add_invalid          (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gck_attributes_add_invalid</code> has been deprecated since version 3.4 and should not be used in newly-written code. Use <a class="link" href="GckAttributes.html#gck-builder-add-invalid" title="gck_builder_add_invalid ()"><code class="function">gck_builder_add_invalid()</code></a> instead</p>
+</div>
+<p>
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> are now immutable. This method no longer does anything.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>The attributes array to add to.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>The type of attribute to add.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-add-string"></a><h3>gck_attributes_add_string ()</h3>
+<pre class="programlisting"><a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> *      gck_attributes_add_string           (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *value</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gck_attributes_add_string</code> has been deprecated since version 3.4 and should not be used in newly-written code. Use <a class="link" href="GckAttributes.html#gck-builder-add-string" title="gck_builder_add_string ()"><code class="function">gck_builder_add_string()</code></a> instead.</p>
+</div>
+<p>
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> are now immutable. This method no longer does anything.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>the attributes array to add to</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the type of attribute to add</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the null terminated string value to add</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-add-ulong"></a><h3>gck_attributes_add_ulong ()</h3>
+<pre class="programlisting"><a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="returnvalue">GckAttribute</span></a> *      gck_attributes_add_ulong            (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> value</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gck_attributes_add_ulong</code> has been deprecated since version 3.4 and should not be used in newly-written code. Use <a class="link" href="GckAttributes.html#gck-builder-add-ulong" title="gck_builder_add_ulong ()"><code class="function">gck_builder_add_ulong()</code></a> instead.</p>
+</div>
+<p>
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> are now immutable. This method no longer does anything.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>the attributes array to add to</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the type of attribute to add</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the gulong value to add</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-dup"></a><h3>gck_attributes_dup ()</h3>
+<pre class="programlisting"><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="returnvalue">GckAttributes</span></a> *     gck_attributes_dup                  (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gck_attributes_dup</code> has been deprecated since version 3.4 and should not be used in newly-written code. Use <a class="link" href="GckAttributes.html#gck-attributes-ref" title="gck_attributes_ref ()"><code class="function">gck_attributes_ref()</code></a> or <a class="link" href="GckAttributes.html#gck-builder-add-all" title="gck_builder_add_all ()"><code class="function">gck_builder_add_all()</code></a> instead.</p>
+</div>
+<p>
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> are now immutable, and can be used in mulitple places.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>set of attributes to copy</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new floating <a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-new-full"></a><h3>gck_attributes_new_full ()</h3>
+<pre class="programlisting"><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="returnvalue">GckAttributes</span></a> *     gck_attributes_new_full             (<em class="parameter"><code><span class="type">GckAllocator</span> allocator</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gck_attributes_new_full</code> has been deprecated since version 3.4 and should not be used in newly-written code. Use <a class="link" href="GckAttributes.html#gck-builder-set-all" title="gck_builder_set_all ()"><code class="function">gck_builder_set_all()</code></a> instead.</p>
+</div>
+<p>
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> are now immutable. This method no longer does anything.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>allocator</code></em> :</span></p></td>
+<td>memory allocator for attribute data, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for default</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-set"></a><h3>gck_attributes_set ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_attributes_set                  (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gck-GckAttribute.html#GckAttribute" title="struct GckAttribute"><span class="type">GckAttribute</span></a> *attr</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gck_attributes_set</code> has been deprecated since version 3.4 and should not be used in newly-written code. Use <a class="link" href="GckAttributes.html#gck-builder-set-data" title="gck_builder_set_data ()"><code class="function">gck_builder_set_data()</code></a> instead.</p>
+</div>
+<p>
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> are now immutable. This method no longer does anything.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>attributes array to add to</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr</code></em> :</span></p></td>
+<td>attribute to set</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-set-all"></a><h3>gck_attributes_set_all ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_attributes_set_all              (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *from</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gck_attributes_set_all</code> has been deprecated since version 3.4 and should not be used in newly-written code. Use <a class="link" href="GckAttributes.html#gck-builder-set-all" title="gck_builder_set_all ()"><code class="function">gck_builder_set_all()</code></a> instead.</p>
+</div>
+<p>
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> are now immutable. This method no longer does anything.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>set of attributes</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>from</code></em> :</span></p></td>
+<td>attributes to add</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-set-boolean"></a><h3>gck_attributes_set_boolean ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_attributes_set_boolean          (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> value</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gck_attributes_set_boolean</code> has been deprecated since version 3.4 and should not be used in newly-written code. Use <a class="link" href="GckAttributes.html#gck-builder-set-boolean" title="gck_builder_set_boolean ()"><code class="function">gck_builder_set_boolean()</code></a> instead.</p>
+</div>
+<p>
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> are now immutable. This method no longer does anything.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>the attributes</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the type of attribute to set</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>boolean value to set</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-set-date"></a><h3>gck_attributes_set_date ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_attributes_set_date             (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDate"><span class="type">GDate</span></a> *value</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gck_attributes_set_date</code> has been deprecated since version 3.4 and should not be used in newly-written code. Use <a class="link" href="GckAttributes.html#gck-builder-set-date" title="gck_builder_set_date ()"><code class="function">gck_builder_set_date()</code></a> instead.</p>
+</div>
+<p>
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> are now immutable. This method no longer does anything.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>the attributes</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the type of attribute to set</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>date value to set</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-set-string"></a><h3>gck_attributes_set_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_attributes_set_string           (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *value</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gck_attributes_set_string</code> has been deprecated since version 3.4 and should not be used in newly-written code. Use <a class="link" href="GckAttributes.html#gck-builder-set-string" title="gck_builder_set_string ()"><code class="function">gck_builder_set_string()</code></a> instead.</p>
+</div>
+<p>
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> are now immutable. This method no longer does anything.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>the attributes</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the type of attribute to set</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>null terminated string value to set</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-attributes-set-ulong"></a><h3>gck_attributes_set_ulong ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_attributes_set_ulong            (<em class="parameter"><code><a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> attr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"><span class="type">gulong</span></a> value</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gck_attributes_set_ulong</code> has been deprecated since version 3.4 and should not be used in newly-written code. Use <a class="link" href="GckAttributes.html#gck-builder-set-ulong" title="gck_builder_set_ulong ()"><code class="function">gck_builder_set_ulong()</code></a> instead.</p>
+</div>
+<p>
+<a class="link" href="GckAttributes.html" title="GckAttributes"><span class="type">GckAttributes</span></a> are now immutable. This method no longer does anything.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>the attributes</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attr_type</code></em> :</span></p></td>
+<td>the type of attribute to set</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>gulong value to set</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

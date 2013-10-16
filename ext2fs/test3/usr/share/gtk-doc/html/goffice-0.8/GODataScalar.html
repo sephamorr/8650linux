@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GODataScalar</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch12.html" title="Data">
+<link rel="prev" href="GOData.html" title="GOData">
+<link rel="next" href="GODataVector.html" title="GODataVector">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GOData.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch12.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GODataVector.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GODataScalar.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GODataScalar.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GODataScalar.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry" title="GODataScalar">
+<a name="GODataScalar"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GODataScalar.top_of_page"></a>GODataScalar</span></h2>
+<p>GODataScalar</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GODataScalar.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="GODataScalar.html#GODataScalar-struct" title="GODataScalar">GODataScalar</a>;
+                    <a class="link" href="GODataScalar.html#GODataScalarClass" title="GODataScalarClass">GODataScalarClass</a>;
+
+<span class="returnvalue">double</span>              <a class="link" href="GODataScalar.html#go-data-scalar-get-value" title="go_data_scalar_get_value ()">go_data_scalar_get_value</a>            (<em class="parameter"><code><a class="link" href="GODataScalar.html" title="GODataScalar"><span class="type">GODataScalar</span></a> *val</code></em>);
+<span class="returnvalue">char</span> const *        <a class="link" href="GODataScalar.html#go-data-scalar-get-str" title="go_data_scalar_get_str ()">go_data_scalar_get_str</a>              (<em class="parameter"><code><a class="link" href="GODataScalar.html" title="GODataScalar"><span class="type">GODataScalar</span></a> *val</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GODataScalar.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GOData.html" title="GOData">GOData</a>
+         +----GODataScalar
+               +----<a class="link" href="goffice-0.8-go-data-simple.html#GODataScalarStr">GODataScalarStr</a>
+               +----<a class="link" href="goffice-0.8-go-data-simple.html#GODataScalarVal">GODataScalarVal</a>
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GODataScalar.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GODataScalar.details"></a><h2>Details</h2>
+<div class="refsect2" title="GODataScalar">
+<a name="GODataScalar-struct"></a><h3>GODataScalar</h3>
+<pre class="programlisting">typedef struct _GODataScalar GODataScalar;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GODataScalarClass">
+<a name="GODataScalarClass"></a><h3>GODataScalarClass</h3>
+<pre class="programlisting">typedef struct {
+	GODataClass base;
+	double       (*get_value)  (GODataScalar *scalar);
+	char const  *(*get_str)	   (GODataScalar *scalar);
+} GODataScalarClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_data_scalar_get_value ()">
+<a name="go-data-scalar-get-value"></a><h3>go_data_scalar_get_value ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_data_scalar_get_value            (<em class="parameter"><code><a class="link" href="GODataScalar.html" title="GODataScalar"><span class="type">GODataScalar</span></a> *val</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_scalar_get_str ()">
+<a name="go-data-scalar-get-str"></a><h3>go_data_scalar_get_str ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const *        go_data_scalar_get_str              (<em class="parameter"><code><a class="link" href="GODataScalar.html" title="GODataScalar"><span class="type">GODataScalar</span></a> *val</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

@@ -1,0 +1,647 @@
+#!/bin/bash
+
+parseopts() {
+    local opt= optarg= i= shortopts=$1
+    local -a longopts=() unused_argv=()
+
+    shift
+    while [[ $1 && $1 != '--' ]]; do
+        longopts+=("$1")
+        shift
+    done
+    shift
+
+    longoptmatch() {
+        local o longmatch=()
+        for o in "${longopts[@]}"; do
+            if [[ ${o%:} = "$1" ]]; then
+                longmatch=("$o")
+                break
+            fi
+            [[ ${o%:} = "$1"* ]] && longmatch+=("$o")
+        done
+
+        case ${#longmatch[*]} in
+            1)
+                # success, override with opt and return arg req (0 == none, 1 == required)
+                opt=${longmatch%:}
+                if [[ $longmatch = *: ]]; then
+                    return 1
+                else
+                    return 0
+                fi ;;
+            0)
+                # fail, no match found
+                return 255 ;;
+            *)
+                # fail, ambiguous match
+                printf "%s: option '%s' is ambiguous; possibilities:%s\n" "${0##*/}" \
+                    "--$1" "$(printf " '%s'" "${longmatch[@]%:}")"
+                return 254 ;;
+        esac
+    }
+
+    while (( $# )); do
+        case $1 in
+            --) # explicit end of options
+                shift
+                break
+                ;;
+            -[!-]*) # short option
+                for (( i = 1; i < ${#1}; i++ )); do
+                    opt=${1:i:1}
+
+                    # option doesn't exist
+                    if [[ $shortopts != *$opt* ]]; then
+                        printf "%s: invalid option -- '%s'\n" "${0##*/}" "$opt"
+                        OPTRET=(--)
+                        return 1
+                    fi
+
+                    OPTRET+=("-$opt")
+                    # option requires optarg
+                    if [[ $shortopts = *$opt:* ]]; then
+                        # if we're not at the end of the option chunk, the rest is the optarg
+                        if (( i < ${#1} - 1 )); then
+                            OPTRET+=("${1:i+1}")
+                            break
+                        # if we're at the end, grab the the next positional, if it exists
+                        elif (( i == ${#1} - 1 )) && [[ $2 ]]; then
+                            OPTRET+=("$2")
+                            shift
+                            break
+                        # parse failure
+                        else
+                            printf "%s: option '%s' requires an argument\n" "${0##*/}" "-$opt"
+                            OPTRET=(--)
+                            return 1
+                        fi
+                    fi
+                done
+                ;;
+            --?*=*|--?*) # long option
+                IFS='=' read -r opt optarg <<< "${1#--}"
+                longoptmatch "$opt"
+                case $? in
+                    0)
+                        if [[ $optarg ]]; then
+                            printf "%s: option '--%s' doesn't allow an argument\n" "${0##*/}" "$opt"
+                            OPTRET=(--)
+                            return 1
+                        else
+                            OPTRET+=("--$opt")
+                            shift
+                            continue 2
+                        fi
+                        ;;
+                    1)
+                        # --longopt=optarg
+                        if [[ $optarg ]]; then
+                            OPTRET+=("--$opt" "$optarg")
+                            shift
+                        # --longopt optarg
+                        elif [[ $2 ]]; then
+                            OPTRET+=("--$opt" "$2" )
+                            shift 2
+                        else
+                            printf "%s: option '--%s' requires an argument\n" "${0##*/}" "$opt"
+                            OPTRET=(--)
+                            return 1
+                        fi
+                        continue 2
+                        ;;
+                    254)
+                        # ambiguous option -- error was reported for us by longoptmatch()
+                        OPTRET=(--)
+                        return 1
+                        ;;
+                    255)
+                        # parse failure
+                        printf "%s: unrecognized option '%s'\n" "${0##*/}" "--$opt"
+                        OPTRET=(--)
+                        return 1
+                        ;;
+                esac
+                ;;
+            *) # non-option arg encountered, add it as a parameter
+                unused_argv+=("$1")
+                ;;
+        esac
+        shift
+    done
+
+    # add end-of-opt terminator and any leftover positional parameters
+    OPTRET+=('--' "${unused_argv[@]}" "$@")
+    unset longoptmatch
+
+    return 0
+}
+
+plain() {
+    local mesg=$1; shift
+    printf "$BOLD    $mesg$NC\n" "$@" >&1
+}
+
+msg() {
+    local mesg=$1; shift
+    printf "$GREEN==>$NC$BOLD $mesg$NC\n" "$@" >&1
+}
+
+msg2() {
+    local mesg=$1; shift
+    printf "$BLUE  ->$NC$BOLD $mesg$NC\n" "$@" >&1
+}
+
+warning() {
+    local mesg=$1; shift
+    printf "$YELLOW==> WARNING:$NC$BOLD $mesg$NC\n" "$@" >&2
+}
+
+error() {
+    local mesg=$1; shift
+    printf "$RED==> ERROR:$NC$BOLD $mesg$NC\n" "$@" >&2
+    return 1
+}
+
+die() {
+    error "$@"
+    cleanup 1
+}
+
+in_array() {
+    # Search for an element in an array.
+    #   $1: needle
+    #   ${@:2}: haystack
+
+    local item= needle=$1; shift
+
+    for item in "$@"; do
+        [[ $item = $needle ]] && return 0 # Found
+    done
+    return 1 # Not Found
+}
+
+funcgrep() {
+    awk -v funcmatch="$1" '
+        /^[[:space:]]*[[:alnum:]_]+[[:space:]]*\([[:space:]]*\)/ {
+            match($1, funcmatch)
+            print substr($1, RSTART, RLENGTH)
+        }' "$2"
+}
+
+list_hookpoints() {
+    local funcs
+
+    [[ -e ${1/install/hooks} ]] || return 0
+
+    mapfile -t funcs < <(funcgrep '^run_[[:alnum:]_]+' "${1/install/hooks}")
+
+    echo
+    msg "This hook has runtime scripts:"
+    in_array run_earlyhook "${funcs[@]}" && msg2 "early hook"
+    in_array run_hook "${funcs[@]}" && msg2 "pre-mount hook"
+    in_array run_latehook "${funcs[@]}" && msg2 "post-mount hook"
+    in_array run_cleanuphook "${funcs[@]}" && msg2 "cleanup hook"
+}
+
+auto_modules() {
+    # Perform auto detection of modules via sysfs.
+
+    local mods=
+
+    IFS=$'\n' read -rd '' -a mods < \
+        <(find /sys/devices -name modalias -exec sort -u {} + |
+        # delimit each input by a newline, expanded in place
+        xargs -d $'\n' modprobe -qaRS "$KERNELVERSION" |
+        sort -u)
+
+    printf "%s\n" "${mods[@]//-/_}"
+    (( ${#mods[*]} ))
+}
+
+all_modules() {
+    # Add modules to the initcpio, filtered by grep.
+    #   $@: filter arguments to grep
+    #   -f FILTER: ERE to filter found modules
+
+    local -i count=0
+    local mod= OPTIND= OPTARG= filter=()
+
+    while getopts ':f:' flag; do
+        case $flag in f) filter+=("$OPTARG") ;; esac
+    done
+    shift $(( OPTIND - 1 ))
+
+    while read -r -d '' mod; do
+        (( ++count ))
+
+        for f in "${filter[@]}"; do
+            [[ $mod =~ $f ]] && continue 2
+        done
+
+        mod=${mod##*/}
+        mod="${mod%.ko*}"
+        printf '%s\n' "${mod//-/_}"
+    done < <(find "$MODULEDIR" -name '*.ko*' -print0 2>/dev/null | grep -EZz "$@")
+
+    (( count ))
+}
+
+add_all_modules() {
+    # Add modules to the initcpio.
+    #   $@: arguments to all_modules
+
+    local mod mods
+
+    mapfile -t mods < <(all_modules "$@")
+
+    for mod in "${mods[@]}"; do
+        add_module "$mod"
+    done
+
+    return $(( !${#mods[*]} ))
+}
+
+add_checked_modules() {
+    # Add modules to the initcpio, filtered by the list of autodetected
+    # modules.
+    #   $@: arguments to all_modules
+
+    local mod mods
+
+    if [[ -s $MODULE_FILE ]]; then
+        mapfile -t mods < <(all_modules "$@" | grep -xFf "$MODULE_FILE")
+    else
+        mapfile -t mods < <(all_modules "$@")
+    fi
+
+    for mod in "${mods[@]}"; do
+        add_module "$mod"
+    done
+
+    return $(( !${#mods[*]} ))
+}
+
+checked_modules() {
+    # Returns a list of modules filtered by the list of autodetected modules.
+    #   $@: arguments to all_modules
+    #
+    # DEPRECATED: Use add_checked_modules instead
+    #
+
+    if [[ -s $MODULE_FILE ]]; then
+        grep -xFf "$MODULE_FILE" <(all_modules "$@")
+        return 1
+    else
+        all_modules "$@"
+    fi
+}
+
+add_module() {
+    # Add a kernel module to the initcpio image. Dependencies will be
+    # discovered and added.
+    #   $1: module name
+
+    local module= path= dep= deps= field= value=
+    local ign_errors=0
+
+    if [[ $1 = *\? ]]; then
+        ign_errors=1
+        set -- "${1%?}"
+    fi
+
+    module=${1%.ko*}
+
+    # skip expensive stuff if this module has already been added
+    in_array "${module//-/_}" "${ADDED_MODULES[@]}" && return
+
+    while IFS=':= ' read -r -d '' field value; do
+        case "$field" in
+            filename)
+                path=$value
+                ;;
+            depends)
+                IFS=',' read -r -a deps <<< "$value"
+                for dep in "${deps[@]}"; do
+                    add_module "$dep"
+                done
+                ;;
+            firmware)
+                if [[ -e /usr/lib/firmware/$value ]]; then
+                    add_file "/usr/lib/firmware/$value" "/usr/lib/firmware/$value" 644
+                fi
+                ;;
+        esac
+    done < <(modinfo -k "$KERNELVERSION" -0 "$module" 2>/dev/null)
+
+    if [[ -z $path ]]; then
+        (( ign_errors )) && return 0
+        error "module not found: \`%s'" "$module"
+        return 1
+    fi
+
+    # aggregate modules and add them all at once to save some forks
+    (( QUIET )) || plain "adding module: %s" "$1"
+    MODPATHS+=("$path")
+    ADDED_MODULES+=("${module//-/_}")
+
+    # handle module quirks
+    case $module in
+        fat)
+            add_module "nls_cp437?"
+            ;;
+        ocfs2)
+            add_module "configfs?"
+            ;;
+        libcrc32c)
+            add_module "crc32c_intel?"
+            add_module "crc32c?"
+            ;;
+    esac
+}
+
+add_full_dir() {
+    # Add a directory and all its contents, recursively, to the initcpio image.
+    # No parsing is performed and the contents of the directory is added as is.
+    #   $1: path to directory
+
+    local f=
+
+    if [[ -n $1 && -d $1 ]]; then
+        for f in "$1"/*; do
+            if [[ -L $f ]]; then
+                add_symlink "$f" "$(readlink "$f")"
+            elif [[ -d $f ]]; then
+                add_dir "$f"
+                add_full_dir "$f"
+            elif [[ -f $f ]]; then
+                add_file "$f"
+            fi
+        done
+    fi
+}
+
+add_dir() {
+    # add a directory (with parents) to $BUILDROOT
+    #   $1: pathname on initcpio
+    #   $2: mode (optional)
+
+    if [[ -z $1 || $1 != /?* ]]; then
+        return 1
+    fi
+
+    local path=$1 mode=${2:-755}
+
+    if [[ -d $BUILDROOT$1 ]]; then
+        # ignore dir already exists
+        return 0
+    fi
+
+    (( QUIET )) || plain "adding dir: %s" "$path"
+    command install -dm$mode "$BUILDROOT$path"
+}
+
+add_symlink() {
+    # Add a symlink to the initcpio image.
+    #   $1: pathname of symlink on image
+    #   $2: absolute path to target of symlink
+
+    (( $# == 2 )) || return 1
+
+    add_dir "${1%/*}"
+
+    if (( ! QUIET )); then
+        if [[ -L $BUILDROOT$1 ]]; then
+            plain "overwriting symlink %s -> %s" "$1" "$2"
+        else
+            plain "adding symlink: %s -> %s" "$1" "$2"
+        fi
+    fi
+    ln -sfn "$2" "$BUILDROOT$1"
+}
+
+add_file() {
+    # Add a plain file to the initcpio image. No parsing is performed and only
+    # the singular file is added.
+    #   $1: path to file
+    #   $2: destination on initcpio (optional, defaults to same as source)
+    #   $3: mode
+
+    (( $# )) || return 1
+
+    # determine source and destination
+    local src=$1 dest=${2:-$1} mode=
+
+    if [[ ! -f $src ]]; then
+        error "file not found: \`%s'" "$src"
+        return 1
+    fi
+
+    mode=${3:-$(stat -c %a "$src")}
+    if [[ -z $mode ]]; then
+        error "failed to stat file: \`%s'." "$src"
+        return 1
+    fi
+
+    if (( ! QUIET )); then
+        if [[ -e $BUILDROOT$dest ]]; then
+            plain "overwriting file: %s" "$dest"
+        else
+            plain "adding file: %s" "$dest"
+        fi
+    fi
+    command install -Dm$mode "$src" "$BUILDROOT$dest"
+}
+
+add_runscript() {
+    # Adds a runtime script to the initcpio image. The name is derived from the
+    # script which calls it, though it can be overriden by passing the name of
+    # the runtime hook as the first argument to the function. This shouldn't be
+    # needed and is only left for legacy compatability reasons. It may not work
+    # in future versions of mkinitcpio.
+
+    local funcs fn script hookname=${SCRIPT:-${BASH_SOURCE[1]##*/}}
+
+    if ! script=$(find_in_dirs "$hookname" "${HOOKDIR[@]}"); then
+        error "runtime script for \`%s' not found" "$hookname"
+        return
+    fi
+
+    add_file "$script" "/hooks/$hookname" 755
+
+    mapfile -t funcs < <(funcgrep '^run_[[:alnum:]_]+' "$script")
+
+    for fn in "${funcs[@]}"; do
+        case $fn in
+            run_earlyhook)
+                RUNHOOKS['early']+=" $hookname"
+                ;;
+            run_hook)
+                RUNHOOKS['hooks']+=" $hookname"
+                ;;
+            run_latehook)
+                RUNHOOKS['late']+=" $hookname"
+                ;;
+            run_cleanuphook)
+                RUNHOOKS['cleanup']="$hookname ${RUNHOOKS['cleanup']}"
+                ;;
+        esac
+    done
+}
+
+add_binary() {
+    # Add a binary file to the initcpio image. library dependencies will
+    # be discovered and added.
+    #   $1: path to binary
+    #   $2: destination on initcpio (optional, defaults to same as source)
+
+    local -a sodeps
+    local line= regex= binary= dest= mode= sodep= resolved= dirname=
+
+    if [[ ${1:0:1} != '/' ]]; then
+        binary=$(type -P "$1")
+    else
+        binary=$1
+    fi
+
+    if [[ ! -f $binary ]]; then
+        error "file not found: \`%s'" "$1"
+        return 1
+    fi
+
+    dest=${2:-$binary}
+    mode=$(stat -c %a "$binary")
+
+    # always add the binary itself
+    add_file "$binary" "$dest" "$mode"
+
+    # negate this so that the RETURN trap is not fired on non-binaries
+    ! lddout=$(ldd "$binary" 2>/dev/null) && return 0
+
+    # resolve sodeps
+    regex='(/.+) \(0x[a-fA-F0-9]+\)'
+    while read line; do
+        if [[ $line =~ $regex ]]; then
+            sodep=${BASH_REMATCH[1]}
+        elif [[ $line = *'not found' ]]; then
+            error "binary dependency \`%s' not found for \`%s'" "${line%% *}" "$1"
+            (( ++builderrors ))
+            continue
+        fi
+
+        if [[ -f $sodep && ! -e $BUILDROOT$sodep ]]; then
+            if [[ ! -L $sodep ]]; then
+                add_file "$sodep" "$sodep" "$(stat -c %a "$sodep")"
+            else
+                resolved=$(readlink -e "$sodep")
+                dirname=${resolved%/*}
+                add_dir "$dirname" 755
+                add_symlink "$sodep" "$resolved"
+                add_file "$resolved" "$resolved" 755
+            fi
+        fi
+    done <<< "$lddout"
+
+    return 0
+}
+
+parse_hook() {
+    # parse key global variables set by install hooks. This function is called
+    # prior to the start of hook processing, and after each hook's build
+    # function is run.
+
+    local item=
+
+    for item in $MODULES; do
+        add_module "$item"
+    done
+
+    for item in $BINARIES; do
+        add_binary "$item"
+    done
+
+    for item in $FILES; do
+        add_file "$item"
+    done
+
+    if [[ $SCRIPT ]]; then
+        add_runscript "$SCRIPT"
+    fi
+}
+
+find_in_dirs() {
+    local dir
+
+    for dir in "${@:2}"; do
+        if [[ -e $dir/$1 ]]; then
+            printf '%s' "$dir/$1"
+            return 0
+        fi
+    done
+
+    return 1
+}
+
+write_image_config() {
+    # write a config file. re-source the config as we can't guarantee the
+    # environment hasn't been modified, but subshell it so it doesn't disturb
+    # anyone else.
+    (
+        . "$CONFIG"
+
+        # sanitize of any extra whitespace
+        read -ra modules <<<"${MODULES//-/_}"
+        for mod in "${modules[@]}"; do
+            in_array "${mod%\?}" "${ADDED_MODULES[@]}" || continue
+            add+=("${mod%\?}")
+        done
+        (( ${#add[*]} )) && printf 'MODULES="%s"\n' "${add[*]}"
+
+        printf '%s="%s"\n' \
+            'EARLYHOOKS' "${RUNHOOKS['early']# }" \
+            'HOOKS' "${RUNHOOKS['hooks']# }" \
+            'LATEHOOKS' "${RUNHOOKS['late']# }" \
+            'CLEANUPHOOKS' "${RUNHOOKS['cleanup']% }"
+
+    ) >"$BUILDROOT/config"
+}
+
+run_build_hook() {
+    local hook=$1 script= realscript=
+    local MODULES= BINARIES= FILES= SCRIPT=
+
+    # find script in install dirs
+    if ! script=$(find_in_dirs "$hook" "${INSTDIR[@]}"); then
+        error "Hook '$hook' cannot be found"
+        return 1
+    fi
+
+    # check for deprecation
+    if [[ -L $script ]]; then
+        if ! realscript=$(readlink -e "$script"); then
+            error "$script is a broken symlink to $(readlink "$script")"
+            return 1
+        fi
+        warning "Hook '%s' is deprecated. Replace it with '%s' in your config" "$script" "$realscript"
+        script=$realscript
+    fi
+
+    # source
+    unset -f build
+    if ! . "$script"; then
+        error 'Failed to read %s' "$script"
+        return 1
+    fi
+
+    if ! declare -f build >/dev/null; then
+        error 'Hook '$script' has no build function'
+        return 1
+    fi
+
+    # run
+    msg2 "Running build hook: [%s]" "${script##*/}"
+    build
+    parse_hook
+}
+
+# vim: set ft=sh ts=4 sw=4 et:

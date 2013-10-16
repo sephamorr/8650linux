@@ -1,0 +1,1458 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOGlibExtras</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch17.html" title="Miscellaneous">
+<link rel="prev" href="goffice-0.8-GOFormat.html" title="GOFormat">
+<link rel="next" href="goffice-0.8-GOLibxmlExtras.html" title="GOLibxmlExtras">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="goffice-0.8-GOFormat.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch17.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="goffice-0.8-GOLibxmlExtras.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#goffice-0.8-GOGlibExtras.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#goffice-0.8-GOGlibExtras.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOGlibExtras">
+<a name="goffice-0.8-GOGlibExtras"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="goffice-0.8-GOGlibExtras.top_of_page"></a>GOGlibExtras</span></h2>
+<p>GOGlibExtras</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="goffice-0.8-GOGlibExtras.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            (<a class="link" href="goffice-0.8-GOGlibExtras.html#GOMapFunc" title="GOMapFunc ()">*GOMapFunc</a>)                        (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOGlibExtras.html#go-ptr-array-insert" title="go_ptr_array_insert ()">go_ptr_array_insert</a>                 (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *array</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> value</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> index</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="goffice-0.8-GOGlibExtras.html#go-hash-keys" title="go_hash_keys ()">go_hash_keys</a>                        (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Hash-Tables.html#GHashTable"><span class="type">GHashTable</span></a> *hash</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="goffice-0.8-GOGlibExtras.html#go-hash-values" title="go_hash_values ()">go_hash_values</a>                      (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Hash-Tables.html#GHashTable"><span class="type">GHashTable</span></a> *hash</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="goffice-0.8-GOGlibExtras.html#go-slist-map" title="go_slist_map ()">go_slist_map</a>                        (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> const *list</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOGlibExtras.html#GOMapFunc" title="GOMapFunc ()"><span class="type">GOMapFunc</span></a> map_func</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="goffice-0.8-GOGlibExtras.html#go-slist-create" title="go_slist_create ()">go_slist_create</a>                     (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> item1</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOGlibExtras.html#go-slist-free-custom" title="go_slist_free_custom ()">go_slist_free_custom</a>                (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *list</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Miscellaneous-Utility-Functions.html#GFreeFunc"><span class="type">GFreeFunc</span></a> free_func</code></em>);
+#define             <a class="link" href="goffice-0.8-GOGlibExtras.html#go-string-slist-copy" title="go_string_slist_copy()">go_string_slist_copy</a>                (list)
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="goffice-0.8-GOGlibExtras.html#go-strsplit-to-slist" title="go_strsplit_to_slist ()">go_strsplit_to_slist</a>                (<em class="parameter"><code><span class="type">char</span> const *str</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> delimiter</code></em>);
+#define             <a class="link" href="goffice-0.8-GOGlibExtras.html#GO-SLIST-FOREACH:CAPS" title="GO_SLIST_FOREACH()">GO_SLIST_FOREACH</a>                    (list,
+                                                         valtype,
+                                                         val,
+                                                         stmnt)
+#define             <a class="link" href="goffice-0.8-GOGlibExtras.html#GO-SLIST-PREPEND:CAPS" title="GO_SLIST_PREPEND()">GO_SLIST_PREPEND</a>                    (list,
+                                                         item)
+#define             <a class="link" href="goffice-0.8-GOGlibExtras.html#GO-SLIST-APPEND:CAPS" title="GO_SLIST_APPEND()">GO_SLIST_APPEND</a>                     (list,
+                                                         item)
+#define             <a class="link" href="goffice-0.8-GOGlibExtras.html#GO-SLIST-REMOVE:CAPS" title="GO_SLIST_REMOVE()">GO_SLIST_REMOVE</a>                     (list,
+                                                         item)
+#define             <a class="link" href="goffice-0.8-GOGlibExtras.html#GO-SLIST-CONCAT:CAPS" title="GO_SLIST_CONCAT()">GO_SLIST_CONCAT</a>                     (list_a,
+                                                         list_b)
+#define             <a class="link" href="goffice-0.8-GOGlibExtras.html#GO-SLIST-REVERSE:CAPS" title="GO_SLIST_REVERSE()">GO_SLIST_REVERSE</a>                    (list)
+#define             <a class="link" href="goffice-0.8-GOGlibExtras.html#GO-SLIST-SORT:CAPS" title="GO_SLIST_SORT()">GO_SLIST_SORT</a>                       (list,
+                                                         cmp_func)
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="goffice-0.8-GOGlibExtras.html#go-list-index-custom" title="go_list_index_custom ()">go_list_index_custom</a>                (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *list</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GCompareFunc"><span class="type">GCompareFunc</span></a> cmp_func</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOGlibExtras.html#go-list-free-custom" title="go_list_free_custom ()">go_list_free_custom</a>                 (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *list</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Miscellaneous-Utility-Functions.html#GFreeFunc"><span class="type">GFreeFunc</span></a> free_func</code></em>);
+#define             <a class="link" href="goffice-0.8-GOGlibExtras.html#GO-LIST-FOREACH:CAPS" title="GO_LIST_FOREACH()">GO_LIST_FOREACH</a>                     (list,
+                                                         valtype,
+                                                         val,
+                                                         stmnt)
+#define             <a class="link" href="goffice-0.8-GOGlibExtras.html#GO-LIST-PREPEND:CAPS" title="GO_LIST_PREPEND()">GO_LIST_PREPEND</a>                     (list,
+                                                         item)
+#define             <a class="link" href="goffice-0.8-GOGlibExtras.html#GO-LIST-APPEND:CAPS" title="GO_LIST_APPEND()">GO_LIST_APPEND</a>                      (list,
+                                                         item)
+#define             <a class="link" href="goffice-0.8-GOGlibExtras.html#GO-LIST-REMOVE:CAPS" title="GO_LIST_REMOVE()">GO_LIST_REMOVE</a>                      (list,
+                                                         item)
+#define             <a class="link" href="goffice-0.8-GOGlibExtras.html#GO-LIST-CONCAT:CAPS" title="GO_LIST_CONCAT()">GO_LIST_CONCAT</a>                      (list_a,
+                                                         list_b)
+#define             <a class="link" href="goffice-0.8-GOGlibExtras.html#GO-LIST-REVERSE:CAPS" title="GO_LIST_REVERSE()">GO_LIST_REVERSE</a>                     (list)
+#define             <a class="link" href="goffice-0.8-GOGlibExtras.html#GO-LIST-SORT:CAPS" title="GO_LIST_SORT()">GO_LIST_SORT</a>                        (list,
+                                                         cmp_func)
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GOGlibExtras.html#go-str-compare" title="go_str_compare ()">go_str_compare</a>                      (<em class="parameter"><code><span class="type">void</span> const *x</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> const *y</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="goffice-0.8-GOGlibExtras.html#go-ascii-strcase-hash" title="go_ascii_strcase_hash ()">go_ascii_strcase_hash</a>               (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> v</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="goffice-0.8-GOGlibExtras.html#go-ascii-strcase-equal" title="go_ascii_strcase_equal ()">go_ascii_strcase_equal</a>              (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> v</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> v2</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="goffice-0.8-GOGlibExtras.html#go-utf8-collate-casefold" title="go_utf8_collate_casefold ()">go_utf8_collate_casefold</a>            (<em class="parameter"><code><span class="type">char</span> const *a</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *b</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="goffice-0.8-GOGlibExtras.html#go-utf8-strcapital" title="go_utf8_strcapital ()">go_utf8_strcapital</a>                  (<em class="parameter"><code><span class="type">char</span> const *p</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gssize"><span class="type">gssize</span></a> len</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOGlibExtras.html#go-strescape" title="go_strescape ()">go_strescape</a>                        (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> *target</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *str</code></em>);
+<span class="returnvalue">char</span> const *        <a class="link" href="goffice-0.8-GOGlibExtras.html#go-strunescape" title="go_strunescape ()">go_strunescape</a>                      (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> *target</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *str</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOGlibExtras.html#go-string-append-gstring" title="go_string_append_gstring ()">go_string_append_gstring</a>            (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> *target</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> *src</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOGlibExtras.html#go-string-append-c-n" title="go_string_append_c_n ()">go_string_append_c_n</a>                (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> *target</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> c</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> n</code></em>);
+<span class="returnvalue">char</span> const *        <a class="link" href="goffice-0.8-GOGlibExtras.html#go-guess-encoding" title="go_guess_encoding ()">go_guess_encoding</a>                   (<em class="parameter"><code><span class="type">char</span> const *raw</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> len</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *user_guess</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> **utf8_str</code></em>);
+<span class="returnvalue">char</span> const *        <a class="link" href="goffice-0.8-GOGlibExtras.html#go-get-real-name" title="go_get_real_name ()">go_get_real_name</a>                    (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOGlibExtras.html#go-destroy-password" title="go_destroy_password ()">go_destroy_password</a>                 (<em class="parameter"><code><span class="type">char</span> *passwd</code></em>);
+
+                    <a class="link" href="goffice-0.8-GOGlibExtras.html#GOMemChunk" title="GOMemChunk">GOMemChunk</a>;
+<a class="link" href="goffice-0.8-GOGlibExtras.html#GOMemChunk" title="GOMemChunk"><span class="returnvalue">GOMemChunk</span></a> *        <a class="link" href="goffice-0.8-GOGlibExtras.html#go-mem-chunk-new" title="go_mem_chunk_new ()">go_mem_chunk_new</a>                    (<em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> user_atom_size</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> chunk_size</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOGlibExtras.html#go-mem-chunk-destroy" title="go_mem_chunk_destroy ()">go_mem_chunk_destroy</a>                (<em class="parameter"><code><a class="link" href="goffice-0.8-GOGlibExtras.html#GOMemChunk" title="GOMemChunk"><span class="type">GOMemChunk</span></a> *chunk</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> expect_leaks</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="goffice-0.8-GOGlibExtras.html#go-mem-chunk-alloc" title="go_mem_chunk_alloc ()">go_mem_chunk_alloc</a>                  (<em class="parameter"><code><a class="link" href="goffice-0.8-GOGlibExtras.html#GOMemChunk" title="GOMemChunk"><span class="type">GOMemChunk</span></a> *chunk</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="goffice-0.8-GOGlibExtras.html#go-mem-chunk-alloc0" title="go_mem_chunk_alloc0 ()">go_mem_chunk_alloc0</a>                 (<em class="parameter"><code><a class="link" href="goffice-0.8-GOGlibExtras.html#GOMemChunk" title="GOMemChunk"><span class="type">GOMemChunk</span></a> *chunk</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOGlibExtras.html#go-mem-chunk-free" title="go_mem_chunk_free ()">go_mem_chunk_free</a>                   (<em class="parameter"><code><a class="link" href="goffice-0.8-GOGlibExtras.html#GOMemChunk" title="GOMemChunk"><span class="type">GOMemChunk</span></a> *chunk</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> mem</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOGlibExtras.html#go-mem-chunk-foreach-leak" title="go_mem_chunk_foreach_leak ()">go_mem_chunk_foreach_leak</a>           (<em class="parameter"><code><a class="link" href="goffice-0.8-GOGlibExtras.html#GOMemChunk" title="GOMemChunk"><span class="type">GOMemChunk</span></a> *chunk</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GFunc"><span class="type">GFunc</span></a> cb</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user</code></em>);
+
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOGlibExtras.html#go-object-toggle" title="go_object_toggle ()">go_object_toggle</a>                    (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> object</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="goffice-0.8-GOGlibExtras.html#go-object-properties-collect" title="go_object_properties_collect ()">go_object_properties_collect</a>        (<em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *obj</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOGlibExtras.html#go-object-properties-apply" title="go_object_properties_apply ()">go_object_properties_apply</a>          (<em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *props</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> changed_only</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOGlibExtras.html#go-object-properties-free" title="go_object_properties_free ()">go_object_properties_free</a>           (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *props</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-GOGlibExtras.html#go-object-set-property" title="go_object_set_property ()">go_object_set_property</a>              (<em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *obj</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *property_name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *user_prop_name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *value</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *error_template</code></em>);
+
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            (<a class="link" href="goffice-0.8-GOGlibExtras.html#GOParseKeyValueFunc" title="GOParseKeyValueFunc ()">*GOParseKeyValueFunc</a>)              (<em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *value</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-GOGlibExtras.html#go-parse-key-value" title="go_parse_key_value ()">go_parse_key_value</a>                  (<em class="parameter"><code>const <span class="type">char</span> *options</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOGlibExtras.html#GOParseKeyValueFunc" title="GOParseKeyValueFunc ()"><span class="type">GOParseKeyValueFunc</span></a> handler</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="goffice-0.8-GOGlibExtras.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="goffice-0.8-GOGlibExtras.details"></a><h2>Details</h2>
+<div class="refsect2" title="GOMapFunc ()">
+<a name="GOMapFunc"></a><h3>GOMapFunc ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            (*GOMapFunc)                        (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> value</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_ptr_array_insert ()">
+<a name="go-ptr-array-insert"></a><h3>go_ptr_array_insert ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_ptr_array_insert                 (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *array</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> value</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> index</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_hash_keys ()">
+<a name="go-hash-keys"></a><h3>go_hash_keys ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            go_hash_keys                        (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Hash-Tables.html#GHashTable"><span class="type">GHashTable</span></a> *hash</code></em>);</pre>
+<p>
+Collects an unordered list of the keys in <em class="parameter"><code>hash</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hash</code></em> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Hash-Tables.html#GHashTable"><span class="type">GHashTable</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a list which the caller needs to free.
+	The content has not additional references added
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_hash_values ()">
+<a name="go-hash-values"></a><h3>go_hash_values ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            go_hash_values                      (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Hash-Tables.html#GHashTable"><span class="type">GHashTable</span></a> *hash</code></em>);</pre>
+<p>
+Collects an unordered list of the values in <em class="parameter"><code>hash</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hash</code></em> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Hash-Tables.html#GHashTable"><span class="type">GHashTable</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a list which the caller needs to free.
+	The content has not additional references added
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_slist_map ()">
+<a name="go-slist-map"></a><h3>go_slist_map ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            go_slist_map                        (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> const *list</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOGlibExtras.html#GOMapFunc" title="GOMapFunc ()"><span class="type">GOMapFunc</span></a> map_func</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>list of some items
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>map_func</code></em> :</span></p></td>
+<td>mapping function
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_slist_create ()">
+<a name="go-slist-create"></a><h3>go_slist_create ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            go_slist_create                     (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> item1</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+Creates a GList from NULL-terminated list of arguments.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item1</code></em> :</span></p></td>
+<td>itionally <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> terminated list of additional items
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> created list.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_slist_free_custom ()">
+<a name="go-slist-free-custom"></a><h3>go_slist_free_custom ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_slist_free_custom                (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *list</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Miscellaneous-Utility-Functions.html#GFreeFunc"><span class="type">GFreeFunc</span></a> free_func</code></em>);</pre>
+<p>
+Clears a list, calling <em class="parameter"><code>free_func</code></em> for each list item.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>list of some items
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>free_func</code></em> :</span></p></td>
+<td>function freeing list item
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_slist_copy()">
+<a name="go-string-slist-copy"></a><h3>go_string_slist_copy()</h3>
+<pre class="programlisting">#define	 go_string_slist_copy(list) go_slist_map (list, (GOMapFunc) g_strdup)
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_strsplit_to_slist ()">
+<a name="go-strsplit-to-slist"></a><h3>go_strsplit_to_slist ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            go_strsplit_to_slist                (<em class="parameter"><code><span class="type">char</span> const *str</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> delimiter</code></em>);</pre>
+<p>
+Splits up string into tokens at delim and returns a string list.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>String to split
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>delimiter</code></em> :</span></p></td>
+<td>Token delimiter
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> string list which you should free after use using function
+<code class="function">e_free_string_list()</code>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_SLIST_FOREACH()">
+<a name="GO-SLIST-FOREACH:CAPS"></a><h3>GO_SLIST_FOREACH()</h3>
+<pre class="programlisting">#define             GO_SLIST_FOREACH(list,valtype,val,stmnt)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>valtype</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stmnt</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_SLIST_PREPEND()">
+<a name="GO-SLIST-PREPEND:CAPS"></a><h3>GO_SLIST_PREPEND()</h3>
+<pre class="programlisting">#define             GO_SLIST_PREPEND(list,item)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_SLIST_APPEND()">
+<a name="GO-SLIST-APPEND:CAPS"></a><h3>GO_SLIST_APPEND()</h3>
+<pre class="programlisting">#define             GO_SLIST_APPEND(list,item)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_SLIST_REMOVE()">
+<a name="GO-SLIST-REMOVE:CAPS"></a><h3>GO_SLIST_REMOVE()</h3>
+<pre class="programlisting">#define             GO_SLIST_REMOVE(list,item)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_SLIST_CONCAT()">
+<a name="GO-SLIST-CONCAT:CAPS"></a><h3>GO_SLIST_CONCAT()</h3>
+<pre class="programlisting">#define             GO_SLIST_CONCAT(list_a,list_b)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list_a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list_b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_SLIST_REVERSE()">
+<a name="GO-SLIST-REVERSE:CAPS"></a><h3>GO_SLIST_REVERSE()</h3>
+<pre class="programlisting">#define             GO_SLIST_REVERSE(list)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_SLIST_SORT()">
+<a name="GO-SLIST-SORT:CAPS"></a><h3>GO_SLIST_SORT()</h3>
+<pre class="programlisting">#define             GO_SLIST_SORT(list,cmp_func)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cmp_func</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_list_index_custom ()">
+<a name="go-list-index-custom"></a><h3>go_list_index_custom ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                go_list_index_custom                (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *list</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GCompareFunc"><span class="type">GCompareFunc</span></a> cmp_func</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cmp_func</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_list_free_custom ()">
+<a name="go-list-free-custom"></a><h3>go_list_free_custom ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_list_free_custom                 (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *list</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Miscellaneous-Utility-Functions.html#GFreeFunc"><span class="type">GFreeFunc</span></a> free_func</code></em>);</pre>
+<p>
+Clears a list, calling <em class="parameter"><code>free_func</code></em> for each list item.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>list of some items
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>free_func</code></em> :</span></p></td>
+<td>function freeing list item
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_LIST_FOREACH()">
+<a name="GO-LIST-FOREACH:CAPS"></a><h3>GO_LIST_FOREACH()</h3>
+<pre class="programlisting">#define             GO_LIST_FOREACH(list,valtype,val,stmnt)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>valtype</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stmnt</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_LIST_PREPEND()">
+<a name="GO-LIST-PREPEND:CAPS"></a><h3>GO_LIST_PREPEND()</h3>
+<pre class="programlisting">#define             GO_LIST_PREPEND(list,item)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_LIST_APPEND()">
+<a name="GO-LIST-APPEND:CAPS"></a><h3>GO_LIST_APPEND()</h3>
+<pre class="programlisting">#define             GO_LIST_APPEND(list,item)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_LIST_REMOVE()">
+<a name="GO-LIST-REMOVE:CAPS"></a><h3>GO_LIST_REMOVE()</h3>
+<pre class="programlisting">#define             GO_LIST_REMOVE(list,item)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_LIST_CONCAT()">
+<a name="GO-LIST-CONCAT:CAPS"></a><h3>GO_LIST_CONCAT()</h3>
+<pre class="programlisting">#define             GO_LIST_CONCAT(list_a,list_b)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list_a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list_b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_LIST_REVERSE()">
+<a name="GO-LIST-REVERSE:CAPS"></a><h3>GO_LIST_REVERSE()</h3>
+<pre class="programlisting">#define             GO_LIST_REVERSE(list)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_LIST_SORT()">
+<a name="GO-LIST-SORT:CAPS"></a><h3>GO_LIST_SORT()</h3>
+<pre class="programlisting">#define             GO_LIST_SORT(list,cmp_func)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cmp_func</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_str_compare ()">
+<a name="go-str-compare"></a><h3>go_str_compare ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_str_compare                      (<em class="parameter"><code><span class="type">void</span> const *x</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> const *y</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_ascii_strcase_hash ()">
+<a name="go-ascii-strcase-hash"></a><h3>go_ascii_strcase_hash ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               go_ascii_strcase_hash               (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> v</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>v</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_ascii_strcase_equal ()">
+<a name="go-ascii-strcase-equal"></a><h3>go_ascii_strcase_equal ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                go_ascii_strcase_equal              (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> v</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> v2</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>v</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>v2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_utf8_collate_casefold ()">
+<a name="go-utf8-collate-casefold"></a><h3>go_utf8_collate_casefold ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                go_utf8_collate_casefold            (<em class="parameter"><code><span class="type">char</span> const *a</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *b</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_utf8_strcapital ()">
+<a name="go-utf8-strcapital"></a><h3>go_utf8_strcapital ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              go_utf8_strcapital                  (<em class="parameter"><code><span class="type">char</span> const *p</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gssize"><span class="type">gssize</span></a> len</code></em>);</pre>
+<p>
+Similar to g_utf8_strup and g_utf8_strup, except that this function
+creates a string "Very Much Like: This, One".
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>p</code></em> :</span></p></td>
+<td>pointer to UTF-8 string
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
+<td>length in bytes, or -1.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> newly allocated string.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_strescape ()">
+<a name="go-strescape"></a><h3>go_strescape ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_strescape                        (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> *target</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *str</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_strunescape ()">
+<a name="go-strunescape"></a><h3>go_strunescape ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const *        go_strunescape                      (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> *target</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *str</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_append_gstring ()">
+<a name="go-string-append-gstring"></a><h3>go_string_append_gstring ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_string_append_gstring            (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> *target</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> *src</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_append_c_n ()">
+<a name="go-string-append-c-n"></a><h3>go_string_append_c_n ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_string_append_c_n                (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> *target</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> c</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> n</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_guess_encoding ()">
+<a name="go-guess-encoding"></a><h3>go_guess_encoding ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const *        go_guess_encoding                   (<em class="parameter"><code><span class="type">char</span> const *raw</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> len</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *user_guess</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> **utf8_str</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>raw</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_guess</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>utf8_str</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_get_real_name ()">
+<a name="go-get-real-name"></a><h3>go_get_real_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const *        go_get_real_name                    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a utf8 encoded string with the current user name.
+	Caller should _NOT_ free the result.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_destroy_password ()">
+<a name="go-destroy-password"></a><h3>go_destroy_password ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_destroy_password                 (<em class="parameter"><code><span class="type">char</span> *passwd</code></em>);</pre>
+<p>
+Overwrite a string holding a password.  This is a separate routine to
+ensure that the compiler does not try to outsmart us.
+</p>
+<p>
+Note: this does not free the memory.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>passwd</code></em> :</span></p></td>
+<td>The buffer to clear
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOMemChunk">
+<a name="GOMemChunk"></a><h3>GOMemChunk</h3>
+<pre class="programlisting">typedef struct _GOMemChunk GOMemChunk;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_mem_chunk_new ()">
+<a name="go-mem-chunk-new"></a><h3>go_mem_chunk_new ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GOGlibExtras.html#GOMemChunk" title="GOMemChunk"><span class="returnvalue">GOMemChunk</span></a> *        go_mem_chunk_new                    (<em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> user_atom_size</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> chunk_size</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_atom_size</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chunk_size</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_mem_chunk_destroy ()">
+<a name="go-mem-chunk-destroy"></a><h3>go_mem_chunk_destroy ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_mem_chunk_destroy                (<em class="parameter"><code><a class="link" href="goffice-0.8-GOGlibExtras.html#GOMemChunk" title="GOMemChunk"><span class="type">GOMemChunk</span></a> *chunk</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> expect_leaks</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chunk</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>expect_leaks</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_mem_chunk_alloc ()">
+<a name="go-mem-chunk-alloc"></a><h3>go_mem_chunk_alloc ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            go_mem_chunk_alloc                  (<em class="parameter"><code><a class="link" href="goffice-0.8-GOGlibExtras.html#GOMemChunk" title="GOMemChunk"><span class="type">GOMemChunk</span></a> *chunk</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chunk</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_mem_chunk_alloc0 ()">
+<a name="go-mem-chunk-alloc0"></a><h3>go_mem_chunk_alloc0 ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            go_mem_chunk_alloc0                 (<em class="parameter"><code><a class="link" href="goffice-0.8-GOGlibExtras.html#GOMemChunk" title="GOMemChunk"><span class="type">GOMemChunk</span></a> *chunk</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chunk</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_mem_chunk_free ()">
+<a name="go-mem-chunk-free"></a><h3>go_mem_chunk_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_mem_chunk_free                   (<em class="parameter"><code><a class="link" href="goffice-0.8-GOGlibExtras.html#GOMemChunk" title="GOMemChunk"><span class="type">GOMemChunk</span></a> *chunk</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> mem</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chunk</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mem</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_mem_chunk_foreach_leak ()">
+<a name="go-mem-chunk-foreach-leak"></a><h3>go_mem_chunk_foreach_leak ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_mem_chunk_foreach_leak           (<em class="parameter"><code><a class="link" href="goffice-0.8-GOGlibExtras.html#GOMemChunk" title="GOMemChunk"><span class="type">GOMemChunk</span></a> *chunk</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GFunc"><span class="type">GFunc</span></a> cb</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chunk</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cb</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_object_toggle ()">
+<a name="go-object-toggle"></a><h3>go_object_toggle ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_object_toggle                    (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> object</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>);</pre>
+<p>
+Toggle a boolean object property.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_name</code></em> :</span></p></td>
+<td>name
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_object_properties_collect ()">
+<a name="go-object-properties-collect"></a><h3>go_object_properties_collect ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            go_object_properties_collect        (<em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *obj</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_object_properties_apply ()">
+<a name="go-object-properties-apply"></a><h3>go_object_properties_apply ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_object_properties_apply          (<em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *props</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> changed_only</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>props</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>changed_only</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_object_properties_free ()">
+<a name="go-object-properties-free"></a><h3>go_object_properties_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_object_properties_free           (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *props</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>props</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_object_set_property ()">
+<a name="go-object-set-property"></a><h3>go_object_set_property ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_object_set_property              (<em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *obj</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *property_name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *user_prop_name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *value</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *error_template</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_prop_name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error_template</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOParseKeyValueFunc ()">
+<a name="GOParseKeyValueFunc"></a><h3>GOParseKeyValueFunc ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            (*GOParseKeyValueFunc)              (<em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *value</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_parse_key_value ()">
+<a name="go-parse-key-value"></a><h3>go_parse_key_value ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_parse_key_value                  (<em class="parameter"><code>const <span class="type">char</span> *options</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOGlibExtras.html#GOParseKeyValueFunc" title="GOParseKeyValueFunc ()"><span class="type">GOParseKeyValueFunc</span></a> handler</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>options</code></em> :</span></p></td>
+<td>Options string.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>Reference to store GError if parsing fails.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>handler</code></em> :</span></p></td>
+<td>Handler to call for each key-value pair.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user</code></em> :</span></p></td>
+<td>user pointer.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

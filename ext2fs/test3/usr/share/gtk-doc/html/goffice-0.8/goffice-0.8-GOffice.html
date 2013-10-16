@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOffice</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch01.html" title="">
+<link rel="prev" href="ch01.html" title="">
+<link rel="next" href="pt01.html" title="Part I. Graphs">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch01.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="pt01.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#goffice-0.8-GOffice.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#goffice-0.8-GOffice.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOffice">
+<a name="goffice-0.8-GOffice"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="goffice-0.8-GOffice.top_of_page"></a>GOffice</span></h2>
+<p>GOffice</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="goffice-0.8-GOffice.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="goffice-0.8-GOffice.html#GO-VAR-DECL:CAPS" title="GO_VAR_DECL">GO_VAR_DECL</a>
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOffice.html#libgoffice-init" title="libgoffice_init ()">libgoffice_init</a>                     (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOffice.html#libgoffice-shutdown" title="libgoffice_shutdown ()">libgoffice_shutdown</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="goffice-0.8-GOffice.description"></a><h2>Description</h2>
+<p>
+GOffice is a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> based C library. It provides easy API access to
+creating and manipulating graphs and canvases. See <a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> and <a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>.
+It also includes a number of utilities and widgets that might be useful in
+office productivity software and similar.
+</p>
+<p>
+The GOffice code was originally a part of Gnumeric, but was split into a
+separate library in 2005. Today it is being used by projects such as
+Gnumeric, Gnucash, Abiword (optional), GChemUtils and more.
+</p>
+<p>
+GOffice is cross platform, with support for Windows, OSX, GNU/Linux,
+and other Unix-like systems. It can be built with or without GTK+
+integration support.
+</p>
+<p>
+To include GOffice use:
+</p>
+<div class="informalexample"><pre class="programlisting">
+#include &lt;goffice/goffice.h&gt;
+</pre></div>
+<p>
+GOffice provides a pkg-config metadata file named
+"libgoffice-$major.$minor.pc", where $major and $minor denote which version
+GOffice is. So to link against GOffice 0.8 series, use:
+</p>
+<div class="informalexample"><pre class="programlisting">
+pkg-config --libs libgoffice-0.8
+</pre></div>
+<p>
+</p>
+<p>
+API and ABI compatability is maintained per minor release series, e.g:
+all 0.8.x releases are ABI/API compatible with previous 0.8.x releases.
+</p>
+<p>
+As of September 2010, there are no bindings for other languages
+than C available.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="goffice-0.8-GOffice.details"></a><h2>Details</h2>
+<div class="refsect2" title="GO_VAR_DECL">
+<a name="GO-VAR-DECL:CAPS"></a><h3>GO_VAR_DECL</h3>
+<pre class="programlisting">#define             GO_VAR_DECL</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="libgoffice_init ()">
+<a name="libgoffice-init"></a><h3>libgoffice_init ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                libgoffice_init                     (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Initialize GOffice.
+</p>
+<p>
+This function can be called several times; each call will
+increment a reference counter. Code that calls this function should call
+<a class="link" href="goffice-0.8-GOffice.html#libgoffice-shutdown" title="libgoffice_shutdown ()"><code class="function">libgoffice_shutdown()</code></a> when done to decrement the counter.
+</p>
+</div>
+<hr>
+<div class="refsect2" title="libgoffice_shutdown ()">
+<a name="libgoffice-shutdown"></a><h3>libgoffice_shutdown ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                libgoffice_shutdown                 (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Decrements the counter for data initialized by <a class="link" href="goffice-0.8-GOffice.html#libgoffice-init" title="libgoffice_init ()"><code class="function">libgoffice_init()</code></a>.
+When the counter reaches 0, the data is freed/cleaned up as appropriate.
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

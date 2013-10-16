@@ -1,0 +1,681 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GogSeries</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch03.html" title="Abstract Base Classes">
+<link rel="prev" href="GogPlot.html" title="GogPlot">
+<link rel="next" href="GogTrendLine.html" title="GogTrendLine">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GogPlot.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch03.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GogTrendLine.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GogSeries.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GogSeries.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GogSeries.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GogSeries.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#GogSeries.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry" title="GogSeries">
+<a name="GogSeries"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GogSeries.top_of_page"></a>GogSeries</span></h2>
+<p>GogSeries — A single data series.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GogSeries.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="GogSeries.html#GogSeries-struct" title="GogSeries">GogSeries</a>;
+enum                <a class="link" href="GogSeries.html#GogSeriesFillType" title="enum GogSeriesFillType">GogSeriesFillType</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogSeries.html#gog-series-is-valid" title="gog_series_is_valid ()">gog_series_is_valid</a>                 (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogSeries.html#gog-series-has-legend" title="gog_series_has_legend ()">gog_series_has_legend</a>               (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>);
+<a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            <a class="link" href="GogSeries.html#gog-series-get-name" title="gog_series_get_name ()">gog_series_get_name</a>                 (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>);
+<a class="link" href="GogPlot.html" title="GogPlot"><span class="returnvalue">GogPlot</span></a> *           <a class="link" href="GogSeries.html#gog-series-get-plot" title="gog_series_get_plot ()">gog_series_get_plot</a>                 (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogSeries.html#gog-series-set-name" title="gog_series_set_name ()">gog_series_set_name</a>                 (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> *series</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GODataScalar.html" title="GODataScalar"><span class="type">GODataScalar</span></a> *name_src</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogSeries.html#gog-series-set-dim" title="gog_series_set_dim ()">gog_series_set_dim</a>                  (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> *series</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dim_i</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *val</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogSeries.html#gog-series-set-index" title="gog_series_set_index ()">gog_series_set_index</a>                (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> *series</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> ind</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> is_manual</code></em>);
+<span class="returnvalue">unsigned</span>            <a class="link" href="GogSeries.html#gog-series-num-elements" title="gog_series_num_elements ()">gog_series_num_elements</a>             (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> const  	 *    <a class="link" href="GogSeries.html#gog-series-get-overrides" title="gog_series_get_overrides ()">gog_series_get_overrides</a>            (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>);
+<a class="link" href="GogSeries.html#GogSeriesFillType" title="enum GogSeriesFillType"><span class="returnvalue">GogSeriesFillType</span></a>   <a class="link" href="GogSeries.html#gog-series-get-fill-type" title="gog_series_get_fill_type ()">gog_series_get_fill_type</a>            (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>);
+<a class="link" href="GogSeries.html#GogSeriesFillType" title="enum GogSeriesFillType"><span class="returnvalue">GogSeriesFillType</span></a>   <a class="link" href="GogSeries.html#gog-series-get-fill-type-from-combo" title="gog_series_get_fill_type_from_combo ()">gog_series_get_fill_type_from_combo</a> (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/unstable/GtkComboBox.html"><span class="type">GtkComboBox</span></a> *combo</code></em>);
+<span class="returnvalue">unsigned</span>            <a class="link" href="GogSeries.html#gog-series-get-xy-data" title="gog_series_get_xy_data ()">gog_series_get_xy_data</a>              (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> const **x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> const **y</code></em>);
+<span class="returnvalue">unsigned</span>            <a class="link" href="GogSeries.html#gog-series-get-xyz-data" title="gog_series_get_xyz_data ()">gog_series_get_xyz_data</a>             (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> const **x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> const **y</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> const **z</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogSeries.html#gog-series-lines-use-markers" title="gog_series_lines_use_markers ()">gog_series_lines_use_markers</a>        (<em class="parameter"><code><a class="link" href="GogSeriesLines.html" title="GogSeriesLines"><span class="type">GogSeriesLines</span></a> *lines</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> use_markers</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogSeries.html#gog-series-populate-fill-type-combo" title="gog_series_populate_fill_type_combo ()">gog_series_populate_fill_type_combo</a> (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/unstable/GtkComboBox.html"><span class="type">GtkComboBox</span></a> *combo</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogSeries.html#gog-series-set-fill-type" title="gog_series_set_fill_type ()">gog_series_set_fill_type</a>            (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> *series</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogSeries.html#GogSeriesFillType" title="enum GogSeriesFillType"><span class="type">GogSeriesFillType</span></a> fill_type</code></em>);
+<a class="link" href="GogDataset.html" title="GogDataset"><span class="returnvalue">GogDataset</span></a> *        <a class="link" href="GogSeries.html#gog-series-get-interpolation-params" title="gog_series_get_interpolation_params ()">gog_series_get_interpolation_params</a> (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogSeries.html#gog-series-lines-stroke" title="gog_series_lines_stroke ()">gog_series_lines_stroke</a>             (<em class="parameter"><code><a class="link" href="GogSeriesLines.html" title="GogSeriesLines"><span class="type">GogSeriesLines</span></a> *lines</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> const *bbox</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPath.html#GOPath" title="GOPath"><span class="type">GOPath</span></a> *path</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> invert</code></em>);
+#define             <a class="link" href="GogSeries.html#GOG-SERIES-ACCEPT-TREND-LINE:CAPS" title="GOG_SERIES_ACCEPT_TREND_LINE">GOG_SERIES_ACCEPT_TREND_LINE</a>
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GogSeries.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GogObject.html" title="GogObject">GogObject</a>
+         +----<a class="link" href="GogStyledObject.html" title="GogStyledObject">GogStyledObject</a>
+               +----GogSeries
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GogSeries.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GogSeries implements
+ <a class="link" href="GOStyledObject.html" title="GOStyledObject">GOStyledObject</a> and  <a class="link" href="GogDataset.html" title="GogDataset">GogDataset</a>.</p>
+</div>
+<div class="refsect1" title="Properties">
+<a name="GogSeries.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GogSeries.html#GogSeries--fill-type" title='The "fill-type" property'>fill-type</a>"                <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
+  "<a class="link" href="GogSeries.html#GogSeries--has-legend" title='The "has-legend" property'>has-legend</a>"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write
+  "<a class="link" href="GogSeries.html#GogSeries--interpolation" title='The "interpolation" property'>interpolation</a>"            <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
+  "<a class="link" href="GogSeries.html#GogSeries--interpolation-skip-invalid" title='The "interpolation-skip-invalid" property'>interpolation-skip-invalid</a>" <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GogSeries.description"></a><h2>Description</h2>
+<p>
+A <a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> represents a data series that can be added to a <a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a>.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GogSeries.details"></a><h2>Details</h2>
+<div class="refsect2" title="GogSeries">
+<a name="GogSeries-struct"></a><h3>GogSeries</h3>
+<pre class="programlisting">typedef struct _GogSeries GogSeries;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum GogSeriesFillType">
+<a name="GogSeriesFillType"></a><h3>enum GogSeriesFillType</h3>
+<pre class="programlisting">typedef enum {
+	GOG_SERIES_FILL_TYPE_Y_ORIGIN,
+	GOG_SERIES_FILL_TYPE_X_ORIGIN,
+	GOG_SERIES_FILL_TYPE_BOTTOM,
+	GOG_SERIES_FILL_TYPE_LEFT,
+	GOG_SERIES_FILL_TYPE_TOP,
+	GOG_SERIES_FILL_TYPE_RIGHT,
+	GOG_SERIES_FILL_TYPE_ORIGIN,
+	GOG_SERIES_FILL_TYPE_CENTER,
+	GOG_SERIES_FILL_TYPE_EDGE,
+	GOG_SERIES_FILL_TYPE_SELF,
+	GOG_SERIES_FILL_TYPE_NEXT,
+	GOG_SERIES_FILL_TYPE_INVALID
+} GogSeriesFillType;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gog_series_is_valid ()">
+<a name="gog-series-is-valid"></a><h3>gog_series_is_valid ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_series_is_valid                 (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>series</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the current cached validity.  Does not recheck
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_series_has_legend ()">
+<a name="gog-series-has-legend"></a><h3>gog_series_has_legend ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_series_has_legend               (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>series</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the series has a visible legend entry
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_series_get_name ()">
+<a name="gog-series-get-name"></a><h3>gog_series_get_name ()</h3>
+<pre class="programlisting"><a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            gog_series_get_name                 (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>);</pre>
+<p>
+Gets the _source_ of the name associated with the series.
+NOTE : this is _NOT_ the actual name.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>series</code></em> :</span></p></td>
+<td>a <a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a class="link" href="GODataScalar.html" title="GODataScalar"><span class="type">GODataScalar</span></a>, without added reference.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_series_get_plot ()">
+<a name="gog-series-get-plot"></a><h3>gog_series_get_plot ()</h3>
+<pre class="programlisting"><a class="link" href="GogPlot.html" title="GogPlot"><span class="returnvalue">GogPlot</span></a> *           gog_series_get_plot                 (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>series</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the possibly NULL plot that contains this series.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_series_set_name ()">
+<a name="gog-series-set-name"></a><h3>gog_series_set_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_series_set_name                 (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> *series</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GODataScalar.html" title="GODataScalar"><span class="type">GODataScalar</span></a> *name_src</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Absorbs a ref to <em class="parameter"><code>name_src</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>series</code></em> :</span></p></td>
+<td>a <a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name_src</code></em> :</span></p></td>
+<td>a <a class="link" href="GODataScalar.html" title="GODataScalar"><span class="type">GODataScalar</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_series_set_dim ()">
+<a name="gog-series-set-dim"></a><h3>gog_series_set_dim ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_series_set_dim                  (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> *series</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dim_i</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *val</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Absorbs a ref to <em class="parameter"><code>val</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>series</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dim_i</code></em> :</span></p></td>
+<td>Which dimension
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>optional <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> pointer
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_series_set_index ()">
+<a name="gog-series-set-index"></a><h3>gog_series_set_index ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_series_set_index                (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> *series</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> ind</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> is_manual</code></em>);</pre>
+<p>
+If <em class="parameter"><code>ind</code></em> &gt;= 0 attempt to assign the new index.  Auto
+indicies (<em class="parameter"><code>is_manual</code></em> == FALSE) will not override the current
+index if it is manual.  An <em class="parameter"><code>index</code></em> &lt; 0, will reset the index to
+automatic and potentially queue a revaluation of the parent
+chart's cardinality.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>series</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ind</code></em> :</span></p></td>
+<td>&gt;= 0 assigns a new index, &lt; 0 resets to auto
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_manual</code></em> :</span></p></td>
+<td>gboolean
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_series_num_elements ()">
+<a name="gog-series-num-elements"></a><h3>gog_series_num_elements ()</h3>
+<pre class="programlisting"><span class="returnvalue">unsigned</span>            gog_series_num_elements             (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>series</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the number of elements in the series
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_series_get_overrides ()">
+<a name="gog-series-get-overrides"></a><h3>gog_series_get_overrides ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> const  	 *    gog_series_get_overrides            (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>series</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_series_get_fill_type ()">
+<a name="gog-series-get-fill-type"></a><h3>gog_series_get_fill_type ()</h3>
+<pre class="programlisting"><a class="link" href="GogSeries.html#GogSeriesFillType" title="enum GogSeriesFillType"><span class="returnvalue">GogSeriesFillType</span></a>   gog_series_get_fill_type            (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>series</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_series_get_fill_type_from_combo ()">
+<a name="gog-series-get-fill-type-from-combo"></a><h3>gog_series_get_fill_type_from_combo ()</h3>
+<pre class="programlisting"><a class="link" href="GogSeries.html#GogSeriesFillType" title="enum GogSeriesFillType"><span class="returnvalue">GogSeriesFillType</span></a>   gog_series_get_fill_type_from_combo (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/unstable/GtkComboBox.html"><span class="type">GtkComboBox</span></a> *combo</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>series</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>combo</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_series_get_xy_data ()">
+<a name="gog-series-get-xy-data"></a><h3>gog_series_get_xy_data ()</h3>
+<pre class="programlisting"><span class="returnvalue">unsigned</span>            gog_series_get_xy_data              (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> const **x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> const **y</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>series</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_series_get_xyz_data ()">
+<a name="gog-series-get-xyz-data"></a><h3>gog_series_get_xyz_data ()</h3>
+<pre class="programlisting"><span class="returnvalue">unsigned</span>            gog_series_get_xyz_data             (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> const **x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> const **y</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> const **z</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>series</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>z</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_series_lines_use_markers ()">
+<a name="gog-series-lines-use-markers"></a><h3>gog_series_lines_use_markers ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_series_lines_use_markers        (<em class="parameter"><code><a class="link" href="GogSeriesLines.html" title="GogSeriesLines"><span class="type">GogSeriesLines</span></a> *lines</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> use_markers</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lines</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>use_markers</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_series_populate_fill_type_combo ()">
+<a name="gog-series-populate-fill-type-combo"></a><h3>gog_series_populate_fill_type_combo ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_series_populate_fill_type_combo (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gtk/unstable/GtkComboBox.html"><span class="type">GtkComboBox</span></a> *combo</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>series</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>combo</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_series_set_fill_type ()">
+<a name="gog-series-set-fill-type"></a><h3>gog_series_set_fill_type ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_series_set_fill_type            (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> *series</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogSeries.html#GogSeriesFillType" title="enum GogSeriesFillType"><span class="type">GogSeriesFillType</span></a> fill_type</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>series</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fill_type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_series_get_interpolation_params ()">
+<a name="gog-series-get-interpolation-params"></a><h3>gog_series_get_interpolation_params ()</h3>
+<pre class="programlisting"><a class="link" href="GogDataset.html" title="GogDataset"><span class="returnvalue">GogDataset</span></a> *        gog_series_get_interpolation_params (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> const *series</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>series</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_series_lines_stroke ()">
+<a name="gog-series-lines-stroke"></a><h3>gog_series_lines_stroke ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_series_lines_stroke             (<em class="parameter"><code><a class="link" href="GogSeriesLines.html" title="GogSeriesLines"><span class="type">GogSeriesLines</span></a> *lines</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogView.html#GogViewAllocation" title="GogViewAllocation"><span class="type">GogViewAllocation</span></a> const *bbox</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPath.html#GOPath" title="GOPath"><span class="type">GOPath</span></a> *path</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> invert</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lines</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rend</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bbox</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>invert</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOG_SERIES_ACCEPT_TREND_LINE">
+<a name="GOG-SERIES-ACCEPT-TREND-LINE:CAPS"></a><h3>GOG_SERIES_ACCEPT_TREND_LINE</h3>
+<pre class="programlisting">#define GOG_SERIES_ACCEPT_TREND_LINE 1
+</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="GogSeries.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "fill-type" property'>
+<a name="GogSeries--fill-type"></a><h3>The <code class="literal">"fill-type"</code> property</h3>
+<pre class="programlisting">  "fill-type"                <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
+<p>How to fill the area.</p>
+<p>Default value: "invalid"</p>
+</div>
+<hr>
+<div class="refsect2" title='The "has-legend" property'>
+<a name="GogSeries--has-legend"></a><h3>The <code class="literal">"has-legend"</code> property</h3>
+<pre class="programlisting">  "has-legend"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write</pre>
+<p>Should the series show up in legends.</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "interpolation" property'>
+<a name="GogSeries--interpolation"></a><h3>The <code class="literal">"interpolation"</code> property</h3>
+<pre class="programlisting">  "interpolation"            <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
+<p>Type of line interpolation.</p>
+<p>Default value: "linear"</p>
+</div>
+<hr>
+<div class="refsect2" title='The "interpolation-skip-invalid" property'>
+<a name="GogSeries--interpolation-skip-invalid"></a><h3>The <code class="literal">"interpolation-skip-invalid"</code> property</h3>
+<pre class="programlisting">  "interpolation-skip-invalid" <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write</pre>
+<p>Should the series interpolation ignore the invalid data.</p>
+<p>Default value: FALSE</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

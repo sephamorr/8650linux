@@ -1,0 +1,476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOSelector</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch08.html" title="Base widgets">
+<link rel="prev" href="goffice-0.8-GOPalette.html" title="GOPalette">
+<link rel="next" href="ch09.html" title="Selectors">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="goffice-0.8-GOPalette.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch08.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="ch09.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GOSelector.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GOSelector.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GOSelector.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GOSelector.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#GOSelector.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOSelector">
+<a name="GOSelector"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GOSelector.top_of_page"></a>GOSelector</span></h2>
+<p>GOSelector</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GOSelector.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="GOSelector.html#GOSelector-struct" title="GOSelector">GOSelector</a>;
+                    <a class="link" href="GOSelector.html#GOSelectorClass" title="GOSelectorClass">GOSelectorClass</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            (<a class="link" href="GOSelector.html#GOSelectorDndDataGet" title="GOSelectorDndDataGet ()">*GOSelectorDndDataGet</a>)             (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="GOSelector.html#GOSelectorDndDataReceived" title="GOSelectorDndDataReceived ()">*GOSelectorDndDataReceived</a>)        (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> const *data</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="GOSelector.html#GOSelectorDndFillIcon" title="GOSelectorDndFillIcon ()">*GOSelectorDndFillIcon</a>)            (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gdk-pixbuf/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>);
+                    <a class="link" href="GOSelector.html#GOSelectorPrivate" title="GOSelectorPrivate">GOSelectorPrivate</a>;
+<span class="returnvalue">void</span>                <a class="link" href="GOSelector.html#go-selector-activate" title="go_selector_activate ()">go_selector_activate</a>                (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="GOSelector.html#go-selector-get-active" title="go_selector_get_active ()">go_selector_get_active</a>              (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *is_auto</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="GOSelector.html#go-selector-get-user-data" title="go_selector_get_user_data ()">go_selector_get_user_data</a>           (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>);
+<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GOSelector.html#go-selector-new" title="go_selector_new ()">go_selector_new</a>                     (<em class="parameter"><code><span class="type">GOPalette</span> *palette</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOSelector.html#go-selector-set-active" title="go_selector_set_active ()">go_selector_set_active</a>              (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> index</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOSelector.html#go-selector-setup-dnd" title="go_selector_setup_dnd ()">go_selector_setup_dnd</a>               (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *dnd_target</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dnd_length</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOSelector.html#GOSelectorDndDataGet" title="GOSelectorDndDataGet ()"><span class="type">GOSelectorDndDataGet</span></a> data_get</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOSelector.html#GOSelectorDndDataReceived" title="GOSelectorDndDataReceived ()"><span class="type">GOSelectorDndDataReceived</span></a> data_received</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOSelector.html#GOSelectorDndFillIcon" title="GOSelectorDndFillIcon ()"><span class="type">GOSelectorDndFillIcon</span></a> fill_icon</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOSelector.html#go-selector-update-swatch" title="go_selector_update_swatch ()">go_selector_update_swatch</a>           (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>);
+<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GOSelector.html#go-gradient-selector-new" title="go_gradient_selector_new ()">go_gradient_selector_new</a>            (<em class="parameter"><code><a class="link" href="goffice-0.8-GOGradient.html#GOGradientDirection" title="enum GOGradientDirection"><span class="type">GOGradientDirection</span></a> initial_direction</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOGradient.html#GOGradientDirection" title="enum GOGradientDirection"><span class="type">GOGradientDirection</span></a> default_direction</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOSelector.html#go-gradient-selector-set-colors" title="go_gradient_selector_set_colors ()">go_gradient_selector_set_colors</a>     (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> start</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> stop</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GOSelector.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkObject.html">GtkObject</a>
+               +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html">GtkWidget</a>
+                     +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkContainer.html">GtkContainer</a>
+                           +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkBox.html">GtkBox</a>
+                                 +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkHBox.html">GtkHBox</a>
+                                       +----GOSelector
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GOSelector.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GOSelector implements
+ AtkImplementorIface,  <a href="http://library.gnome.org/devel/gtk/unstable/GtkBuildable.html">GtkBuildable</a> and  <a href="http://library.gnome.org/devel/gtk/unstable/gtk-Orientable.html#GtkOrientable">GtkOrientable</a>.</p>
+</div>
+<div class="refsect1" title="Signals">
+<a name="GOSelector.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GOSelector.html#GOSelector-activate" title='The "activate" signal'>activate</a>"                                       : Run Last
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GOSelector.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GOSelector.details"></a><h2>Details</h2>
+<div class="refsect2" title="GOSelector">
+<a name="GOSelector-struct"></a><h3>GOSelector</h3>
+<pre class="programlisting">typedef struct _GOSelector GOSelector;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GOSelectorClass">
+<a name="GOSelectorClass"></a><h3>GOSelectorClass</h3>
+<pre class="programlisting">typedef struct {
+	GtkHBoxClass parent_class;
+
+	/* signals */
+	void (*activate)		(GtkWidget *selector);
+} GOSelectorClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GOSelectorDndDataGet ()">
+<a name="GOSelectorDndDataGet"></a><h3>GOSelectorDndDataGet ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            (*GOSelectorDndDataGet)             (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOSelectorDndDataReceived ()">
+<a name="GOSelectorDndDataReceived"></a><h3>GOSelectorDndDataReceived ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*GOSelectorDndDataReceived)        (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> const *data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOSelectorDndFillIcon ()">
+<a name="GOSelectorDndFillIcon"></a><h3>GOSelectorDndFillIcon ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*GOSelectorDndFillIcon)            (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gdk-pixbuf/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pixbuf</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOSelectorPrivate">
+<a name="GOSelectorPrivate"></a><h3>GOSelectorPrivate</h3>
+<pre class="programlisting">typedef struct _GOSelectorPrivate GOSelectorPrivate;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_selector_activate ()">
+<a name="go-selector-activate"></a><h3>go_selector_activate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_selector_activate                (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>);</pre>
+<p>
+Updates slector swatch and emits an "activate" signal.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td>a <a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_selector_get_active ()">
+<a name="go-selector-get-active"></a><h3>go_selector_get_active ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_selector_get_active              (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *is_auto</code></em>);</pre>
+<p>
+Retrieves current selection index, and set <em class="parameter"><code>is_auto</code></em> to TRUE if
+current selection was set by clicking on automatic palette item.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td>a <a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_auto</code></em> :</span></p></td>
+<td>boolean
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> current index.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_selector_get_user_data ()">
+<a name="go-selector-get-user-data"></a><h3>go_selector_get_user_data ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            go_selector_get_user_data           (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>);</pre>
+<p>
+A convenience function to access user_data of selector palette.
+(See <em class="parameter"><code>go_palette_get_user_data</code></em>).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td>a <a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a pointer to palette user_data.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_selector_new ()">
+<a name="go-selector-new"></a><h3>go_selector_new ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         go_selector_new                     (<em class="parameter"><code><span class="type">GOPalette</span> *palette</code></em>);</pre>
+<p>
+Creates a new selector, using <em class="parameter"><code>palette</code></em>. Selector button swatch will use
+swatch render function of <em class="parameter"><code>palette</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <span class="type">GOPalette</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="type">GtkWidget</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_selector_set_active ()">
+<a name="go-selector-set-active"></a><h3>go_selector_set_active ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_selector_set_active              (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> index</code></em>);</pre>
+<p>
+Sets current selection index, and emits "activate" signal if
+selection is actually changed.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td>a <a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>new index
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if selection is actually changed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_selector_setup_dnd ()">
+<a name="go-selector-setup-dnd"></a><h3>go_selector_setup_dnd ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_selector_setup_dnd               (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *dnd_target</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dnd_length</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOSelector.html#GOSelectorDndDataGet" title="GOSelectorDndDataGet ()"><span class="type">GOSelectorDndDataGet</span></a> data_get</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOSelector.html#GOSelectorDndDataReceived" title="GOSelectorDndDataReceived ()"><span class="type">GOSelectorDndDataReceived</span></a> data_received</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOSelector.html#GOSelectorDndFillIcon" title="GOSelectorDndFillIcon ()"><span class="type">GOSelectorDndFillIcon</span></a> fill_icon</code></em>);</pre>
+<p>
+Setups drag and drop for <em class="parameter"><code>selector</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td>a <a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dnd_target</code></em> :</span></p></td>
+<td>drag and drop target type
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dnd_length</code></em> :</span></p></td>
+<td>length of data transfered on drop
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data_get</code></em> :</span></p></td>
+<td>a user provided data_get method
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data_received</code></em> :</span></p></td>
+<td>a user provided data_received method
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fill_icon</code></em> :</span></p></td>
+<td>a user function for dnd icon creation
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_selector_update_swatch ()">
+<a name="go-selector-update-swatch"></a><h3>go_selector_update_swatch ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_selector_update_swatch           (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>);</pre>
+<p>
+Requests a swatch update.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td>a <a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_gradient_selector_new ()">
+<a name="go-gradient-selector-new"></a><h3>go_gradient_selector_new ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         go_gradient_selector_new            (<em class="parameter"><code><a class="link" href="goffice-0.8-GOGradient.html#GOGradientDirection" title="enum GOGradientDirection"><span class="type">GOGradientDirection</span></a> initial_direction</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOGradient.html#GOGradientDirection" title="enum GOGradientDirection"><span class="type">GOGradientDirection</span></a> default_direction</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>initial_direction</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>default_direction</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_gradient_selector_set_colors ()">
+<a name="go-gradient-selector-set-colors"></a><h3>go_gradient_selector_set_colors ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_gradient_selector_set_colors     (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> start</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> stop</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>start</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stop</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="GOSelector.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "activate" signal'>
+<a name="GOSelector-activate"></a><h3>The <code class="literal">"activate"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *goselector,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>    user_data)       : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>goselector</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>
