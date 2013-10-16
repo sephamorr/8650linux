@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOComboText</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch09.html" title="Selectors">
+<link rel="prev" href="GOComboColor.html" title="GOComboColor">
+<link rel="next" href="GOCharmapSel.html" title="GOCharmapSel">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GOComboColor.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch09.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GOCharmapSel.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GOComboText.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GOComboText.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GOComboText.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GOComboText.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#GOComboText.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOComboText">
+<a name="GOComboText"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GOComboText.top_of_page"></a>GOComboText</span></h2>
+<p>GOComboText</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GOComboText.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="GOComboText.html#GO-TYPE-COMBO-TEXT:CAPS" title="GO_TYPE_COMBO_TEXT">GO_TYPE_COMBO_TEXT</a>
+#define             <a class="link" href="GOComboText.html#GO-COMBO-TEXT:CAPS" title="GO_COMBO_TEXT()">GO_COMBO_TEXT</a>                       (obj)
+#define             <a class="link" href="GOComboText.html#GO-IS-COMBO-TEXT:CAPS" title="GO_IS_COMBO_TEXT()">GO_IS_COMBO_TEXT</a>                    (obj)
+                    <a class="link" href="GOComboText.html#GOComboText-struct" title="GOComboText">GOComboText</a>;
+enum                <a class="link" href="GOComboText.html#GOComboTextSearch" title="enum GOComboTextSearch">GOComboTextSearch</a>;
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GOComboText.html#go-combo-text-get-type" title="go_combo_text_get_type ()">go_combo_text_get_type</a>              (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GOComboText.html#go-combo-text-new" title="go_combo_text_new ()">go_combo_text_new</a>                   (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GCompareFunc"><span class="type">GCompareFunc</span></a> cmp_func</code></em>);
+<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GOComboText.html#go-combo-text-new-default" title="go_combo_text_new_default ()">go_combo_text_new_default</a>           (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GOComboText.html#go-combo-text-get-entry" title="go_combo_text_get_entry ()">go_combo_text_get_entry</a>             (<em class="parameter"><code><a class="link" href="GOComboText.html" title="GOComboText"><span class="type">GOComboText</span></a> *ct</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOComboText.html#go-combo-text-set-text" title="go_combo_text_set_text ()">go_combo_text_set_text</a>              (<em class="parameter"><code><a class="link" href="GOComboText.html" title="GOComboText"><span class="type">GOComboText</span></a> *ct</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOComboText.html#GOComboTextSearch" title="enum GOComboTextSearch"><span class="type">GOComboTextSearch</span></a> start</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOComboText.html#go-combo-text-add-item" title="go_combo_text_add_item ()">go_combo_text_add_item</a>              (<em class="parameter"><code><a class="link" href="GOComboText.html" title="GOComboText"><span class="type">GOComboText</span></a> *ct</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GOComboText.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkObject.html">GtkObject</a>
+               +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html">GtkWidget</a>
+                     +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkContainer.html">GtkContainer</a>
+                           +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkBox.html">GtkBox</a>
+                                 +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkHBox.html">GtkHBox</a>
+                                       +----<a class="link" href="GOComboBox.html" title="GOComboBox">GOComboBox</a>
+                                             +----GOComboText
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GOComboText.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GOComboText implements
+ AtkImplementorIface,  <a href="http://library.gnome.org/devel/gtk/unstable/GtkBuildable.html">GtkBuildable</a> and  <a href="http://library.gnome.org/devel/gtk/unstable/gtk-Orientable.html#GtkOrientable">GtkOrientable</a>.</p>
+</div>
+<div class="refsect1" title="Signals">
+<a name="GOComboText.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GOComboText.html#GOComboText-entry-changed" title='The "entry-changed" signal'>entry-changed</a>"                                  : Run Last
+  "<a class="link" href="GOComboText.html#GOComboText-selection-changed" title='The "selection-changed" signal'>selection-changed</a>"                              : Run Last
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GOComboText.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GOComboText.details"></a><h2>Details</h2>
+<div class="refsect2" title="GO_TYPE_COMBO_TEXT">
+<a name="GO-TYPE-COMBO-TEXT:CAPS"></a><h3>GO_TYPE_COMBO_TEXT</h3>
+<pre class="programlisting">#define GO_TYPE_COMBO_TEXT (go_combo_text_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_COMBO_TEXT()">
+<a name="GO-COMBO-TEXT:CAPS"></a><h3>GO_COMBO_TEXT()</h3>
+<pre class="programlisting">#define GO_COMBO_TEXT(obj) (G_TYPE_CHECK_INSTANCE_CAST (obj, GO_TYPE_COMBO_TEXT, GOComboText))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_IS_COMBO_TEXT()">
+<a name="GO-IS-COMBO-TEXT:CAPS"></a><h3>GO_IS_COMBO_TEXT()</h3>
+<pre class="programlisting">#define GO_IS_COMBO_TEXT(obj) (G_TYPE_CHECK_INSTANCE_TYPE (obj, GO_TYPE_COMBO_TEXT))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOComboText">
+<a name="GOComboText-struct"></a><h3>GOComboText</h3>
+<pre class="programlisting">typedef struct _GOComboText GOComboText;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum GOComboTextSearch">
+<a name="GOComboTextSearch"></a><h3>enum GOComboTextSearch</h3>
+<pre class="programlisting">typedef enum {		/* begin the search from : */
+	GO_COMBO_TEXT_FROM_TOP, /* the top of the list */
+	GO_COMBO_TEXT_CURRENT,		/* the current selection */
+	GO_COMBO_TEXT_NEXT		/* the next element after current */
+} GOComboTextSearch;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_combo_text_get_type ()">
+<a name="go-combo-text-get-type"></a><h3>go_combo_text_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_combo_text_get_type              (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_combo_text_new ()">
+<a name="go-combo-text-new"></a><h3>go_combo_text_new ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         go_combo_text_new                   (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GCompareFunc"><span class="type">GCompareFunc</span></a> cmp_func</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cmp_func</code></em> :</span></p></td>
+<td>an optional comparison routine.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_combo_text_new_default ()">
+<a name="go-combo-text-new-default"></a><h3>go_combo_text_new_default ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         go_combo_text_new_default           (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_combo_text_get_entry ()">
+<a name="go-combo-text-get-entry"></a><h3>go_combo_text_get_entry ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         go_combo_text_get_entry             (<em class="parameter"><code><a class="link" href="GOComboText.html" title="GOComboText"><span class="type">GOComboText</span></a> *ct</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ct</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_combo_text_set_text ()">
+<a name="go-combo-text-set-text"></a><h3>go_combo_text_set_text ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_combo_text_set_text              (<em class="parameter"><code><a class="link" href="GOComboText.html" title="GOComboText"><span class="type">GOComboText</span></a> *ct</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOComboText.html#GOComboTextSearch" title="enum GOComboTextSearch"><span class="type">GOComboTextSearch</span></a> start</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ct</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOComboText.html" title="GOComboText"><span class="type">GOComboText</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td>the label for the new item
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>start</code></em> :</span></p></td>
+<td>where to begin the search in the list.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the item is found in the list.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_combo_text_add_item ()">
+<a name="go-combo-text-add-item"></a><h3>go_combo_text_add_item ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_combo_text_add_item              (<em class="parameter"><code><a class="link" href="GOComboText.html" title="GOComboText"><span class="type">GOComboText</span></a> *ct</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ct</code></em> :</span></p></td>
+<td>The text combo that will get the new element.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td>the user visible label for the new item
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="GOComboText.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "entry-changed" signal'>
+<a name="GOComboText-entry-changed"></a><h3>The <code class="literal">"entry-changed"</code> signal</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            user_function                      (<a class="link" href="GOComboText.html" title="GOComboText"><span class="type">GOComboText</span></a> *gocombotext,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     user_data)        : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gocombotext</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "selection-changed" signal'>
+<a name="GOComboText-selection-changed"></a><h3>The <code class="literal">"selection-changed"</code> signal</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            user_function                      (<a class="link" href="GOComboText.html" title="GOComboText"><span class="type">GOComboText</span></a> *gocombotext,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     user_data)        : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gocombotext</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

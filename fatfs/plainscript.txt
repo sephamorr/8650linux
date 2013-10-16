@@ -1,0 +1,7 @@
+display init force
+mmcinit 0
+textout -1 -1 \"Loading kernel...\" FFFFFF
+fatload mmc 0 0 uzImage.bin
+textout -1 -1 \"Starting Arch Linux...\" 0000FF
+setenv bootargs 'mem=214M root=/dev/mmcblk0p2 noinitrd rw rootfstype=ext3 rootdelay=1'
+bootm 0

@@ -1,0 +1,733 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DConfChangeset</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="dconf Reference Manual">
+<link rel="up" href="ch01.html" title="DConf Client API">
+<link rel="prev" href="dconf-dconf-Paths.html" title="dconf Paths">
+<link rel="next" href="DConfClient.html" title="DConfClient">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="dconf-dconf-Paths.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">dconf Reference Manual</th>
+<td><a accesskey="n" href="DConfClient.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#dconf-DConfChangeset.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#dconf-DConfChangeset.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="dconf-DConfChangeset"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="dconf-DConfChangeset.top_of_page"></a>DConfChangeset</span></h2>
+<p>DConfChangeset — A set of changes to a dconf database</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="dconf-DConfChangeset.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a href="dconf-DConfChangeset.html#DConfChangeset">DConfChangeset</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            (<a href="dconf-DConfChangeset.html#DConfChangesetPredicate">*DConfChangesetPredicate</a>)          (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *path</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *value</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a href="dconf-DConfChangeset.html#dconf-changeset-all">dconf_changeset_all</a>                 (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>,
+                                                         <em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangesetPredicate"><span class="type">DConfChangesetPredicate</span></a> predicate</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<span class="returnvalue">void</span>                <a href="dconf-DConfChangeset.html#dconf-changeset-change">dconf_changeset_change</a>              (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>,
+                                                         <em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changes</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a href="dconf-DConfChangeset.html#dconf-changeset-describe">dconf_changeset_describe</a>            (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **prefix</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> * const **paths</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> * const **values</code></em>);
+<a href="dconf-DConfChangeset.html#DConfChangeset"><span class="returnvalue">DConfChangeset</span></a> *    <a href="dconf-DConfChangeset.html#dconf-changeset-deserialise">dconf_changeset_deserialise</a>         (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *serialised</code></em>);
+<a href="dconf-DConfChangeset.html#DConfChangeset"><span class="returnvalue">DConfChangeset</span></a> *    <a href="dconf-DConfChangeset.html#dconf-changeset-diff">dconf_changeset_diff</a>                (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *from</code></em>,
+                                                         <em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *to</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a href="dconf-DConfChangeset.html#dconf-changeset-get">dconf_changeset_get</a>                 (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> **value</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a href="dconf-DConfChangeset.html#dconf-changeset-is-empty">dconf_changeset_is_empty</a>            (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a href="dconf-DConfChangeset.html#dconf-changeset-is-similar-to">dconf_changeset_is_similar_to</a>       (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>,
+                                                         <em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *other</code></em>);
+<a href="dconf-DConfChangeset.html#DConfChangeset"><span class="returnvalue">DConfChangeset</span></a> *    <a href="dconf-DConfChangeset.html#dconf-changeset-new">dconf_changeset_new</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="dconf-DConfChangeset.html#DConfChangeset"><span class="returnvalue">DConfChangeset</span></a> *    <a href="dconf-DConfChangeset.html#dconf-changeset-new-database">dconf_changeset_new_database</a>        (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *copy_of</code></em>);
+<a href="dconf-DConfChangeset.html#DConfChangeset"><span class="returnvalue">DConfChangeset</span></a> *    <a href="dconf-DConfChangeset.html#dconf-changeset-new-write">dconf_changeset_new_write</a>           (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *path</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *value</code></em>);
+<a href="dconf-DConfChangeset.html#DConfChangeset"><span class="returnvalue">DConfChangeset</span></a> *    <a href="dconf-DConfChangeset.html#dconf-changeset-ref">dconf_changeset_ref</a>                 (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          <a href="dconf-DConfChangeset.html#dconf-changeset-serialise">dconf_changeset_serialise</a>           (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>);
+<span class="returnvalue">void</span>                <a href="dconf-DConfChangeset.html#dconf-changeset-set">dconf_changeset_set</a>                 (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *path</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *value</code></em>);
+<span class="returnvalue">void</span>                <a href="dconf-DConfChangeset.html#dconf-changeset-unref">dconf_changeset_unref</a>               (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>);
+<span class="returnvalue">void</span>                <a href="dconf-DConfChangeset.html#dconf-changeset-seal">dconf_changeset_seal</a>                (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="dconf-DConfChangeset.description"></a><h2>Description</h2>
+<p>
+<a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> represents a set of changes that can be made to a
+dconf database.  Currently supported operations are writing new
+values to keys and resetting keys and dirs.
+</p>
+<p>
+Create the changeset with <a href="dconf-DConfChangeset.html#dconf-changeset-new"><code class="function">dconf_changeset_new()</code></a> and populate it with
+<a href="dconf-DConfChangeset.html#dconf-changeset-set"><code class="function">dconf_changeset_set()</code></a>.  Submit it to dconf with
+<a href="DConfClient.html#dconf-client-change-fast"><code class="function">dconf_client_change_fast()</code></a> or <a href="DConfClient.html#dconf-client-change-sync"><code class="function">dconf_client_change_sync()</code></a>.
+<a href="dconf-DConfChangeset.html#dconf-changeset-new-write"><code class="function">dconf_changeset_new_write()</code></a> is a convenience constructor for the
+common case of writing or resetting a single value.
+</p>
+</div>
+<div class="refsect1">
+<a name="dconf-DConfChangeset.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="DConfChangeset"></a><h3>DConfChangeset</h3>
+<pre class="programlisting">typedef struct _DConfChangeset DConfChangeset;</pre>
+<p>
+This is a reference counted opaque structure type.  It is not a
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>.
+</p>
+<p>
+Use <a href="dconf-DConfChangeset.html#dconf-changeset-ref"><code class="function">dconf_changeset_ref()</code></a> and <a href="dconf-DConfChangeset.html#dconf-changeset-unref"><code class="function">dconf_changeset_unref()</code></a> to manipulate
+references.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="DConfChangesetPredicate"></a><h3>DConfChangesetPredicate ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            (*DConfChangesetPredicate)          (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *path</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *value</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Callback function type for predicates over items in a
+<a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a>.
+</p>
+<p>
+Use with <a href="dconf-DConfChangeset.html#dconf-changeset-all"><code class="function">dconf_changeset_all()</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>a path, as per <a href="dconf-dconf-Paths.html#dconf-is-path"><code class="function">dconf_is_path()</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a>, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data pointer</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the predicate is met for the given <em class="parameter"><code>path</code></em> and <em class="parameter"><code>value</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dconf-changeset-all"></a><h3>dconf_changeset_all ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            dconf_changeset_all                 (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>,
+                                                         <em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangesetPredicate"><span class="type">DConfChangesetPredicate</span></a> predicate</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Checks if all changes in the changeset satisfy <em class="parameter"><code>predicate</code></em>.
+</p>
+<p>
+<em class="parameter"><code>predicate</code></em> is called on each item in the changeset, in turn, until it
+returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>changeset</code></em> :</span></p></td>
+<td>a <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>predicate</code></em> :</span></p></td>
+<td>a <a href="dconf-DConfChangeset.html#DConfChangesetPredicate"><span class="type">DConfChangesetPredicate</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data to pass to <em class="parameter"><code>predicate</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if all items in <em class="parameter"><code>changeset</code></em> satisfy <em class="parameter"><code>predicate</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dconf-changeset-change"></a><h3>dconf_changeset_change ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                dconf_changeset_change              (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>,
+                                                         <em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changes</code></em>);</pre>
+<p>
+Applies <em class="parameter"><code>changes</code></em> to <em class="parameter"><code>changeset</code></em>.
+</p>
+<p>
+If <em class="parameter"><code>changeset</code></em> is a normal changeset then reset requests in <em class="parameter"><code>changes</code></em>
+will be allied to <em class="parameter"><code>changeset</code></em> and then copied down into it.  In this
+case the two changesets are effectively being merged.
+</p>
+<p>
+If <em class="parameter"><code>changeset</code></em> is in database mode then the reset operations in
+<em class="parameter"><code>changes</code></em> will simply be applied to <em class="parameter"><code>changeset</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>changeset</code></em> :</span></p></td>
+<td>a <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> (to be changed)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>changes</code></em> :</span></p></td>
+<td>the changes to make to <em class="parameter"><code>changeset</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 0.16</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dconf-changeset-describe"></a><h3>dconf_changeset_describe ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               dconf_changeset_describe            (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **prefix</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> * const **paths</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> * const **values</code></em>);</pre>
+<p>
+Describes <em class="parameter"><code>changeset</code></em>.
+</p>
+<p>
+<em class="parameter"><code>prefix</code></em> and <em class="parameter"><code>paths</code></em> are presented in the same way as they are for the
+DConfClient::changed signal.  <em class="parameter"><code>values</code></em> is an array of the same length
+as <em class="parameter"><code>paths</code></em>.  For each key described by an element in <em class="parameter"><code>paths</code></em>, <em class="parameter"><code>values</code></em>
+will contain either a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> (the requested new value of that key)
+or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> (to reset a reset).
+</p>
+<p>
+The <em class="parameter"><code>paths</code></em> array is returned in an order such that dir will always
+come before keys contained within those dirs.
+</p>
+<p>
+If <em class="parameter"><code>changeset</code></em> is not already sealed then this call will implicitly
+seal it.  See <a href="dconf-DConfChangeset.html#dconf-changeset-seal"><code class="function">dconf_changeset_seal()</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>changeset</code></em> :</span></p></td>
+<td>a <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prefix</code></em> :</span></p></td>
+<td>the prefix under which changes have been requested</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>paths</code></em> :</span></p></td>
+<td>the list of paths changed, relative to <em class="parameter"><code>prefix</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>values</code></em> :</span></p></td>
+<td>the list of values changed</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the number of changes (the length of <em class="parameter"><code>changes</code></em> and <em class="parameter"><code>values</code></em>).</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dconf-changeset-deserialise"></a><h3>dconf_changeset_deserialise ()</h3>
+<pre class="programlisting"><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="returnvalue">DConfChangeset</span></a> *    dconf_changeset_deserialise         (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *serialised</code></em>);</pre>
+<p>
+Creates a <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> according to a serialised description
+returned from an earlier call to <a href="dconf-DConfChangeset.html#dconf-changeset-serialise"><code class="function">dconf_changeset_serialise()</code></a>.
+</p>
+<p>
+<em class="parameter"><code>serialised</code></em> has no particular format -- you should only pass a value
+that resulted from an earlier serialise operation.
+</p>
+<p>
+This call never fails, even if <em class="parameter"><code>serialised</code></em> is not in the correct
+format.  Improperly-formatted parts are simply ignored.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>serialised</code></em> :</span></p></td>
+<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> from <a href="dconf-DConfChangeset.html#dconf-changeset-serialise"><code class="function">dconf_changeset_serialise()</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dconf-changeset-diff"></a><h3>dconf_changeset_diff ()</h3>
+<pre class="programlisting"><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="returnvalue">DConfChangeset</span></a> *    dconf_changeset_diff                (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *from</code></em>,
+                                                         <em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *to</code></em>);</pre>
+<p>
+Compares to database-mode changesets and produces a changeset that
+describes their differences.
+</p>
+<p>
+If there is no difference, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is returned.
+</p>
+<p>
+Applying the returned changeset to <em class="parameter"><code>from</code></em> using
+<a href="dconf-DConfChangeset.html#dconf-changeset-change"><code class="function">dconf_changeset_change()</code></a> will result in the two changesets being
+equal.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>from</code></em> :</span></p></td>
+<td>a database mode changeset</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>to</code></em> :</span></p></td>
+<td>a database mode changeset</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the changes, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 0.16</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dconf-changeset-get"></a><h3>dconf_changeset_get ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            dconf_changeset_get                 (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> **value</code></em>);</pre>
+<p>
+Checks if a <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> has an outstanding request to change
+the value of the given <em class="parameter"><code>key</code></em>.
+</p>
+<p>
+If the change doesn't involve <em class="parameter"><code>key</code></em> then <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> is returned and the
+<em class="parameter"><code>value</code></em> is unmodified.
+</p>
+<p>
+If the change modifies <em class="parameter"><code>key</code></em> then <em class="parameter"><code>value</code></em> is set either to the value
+for that key, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> in the case that the key is being reset by the
+request.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>changeset</code></em> :</span></p></td>
+<td>a <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>the key to check</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>a return location for the value, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the key is being modified by the change</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dconf-changeset-is-empty"></a><h3>dconf_changeset_is_empty ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            dconf_changeset_is_empty            (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>);</pre>
+<p>
+Checks if <em class="parameter"><code>changeset</code></em> is empty (ie: contains no changes).
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>changeset</code></em> :</span></p></td>
+<td>a <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>changeset</code></em> is empty</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dconf-changeset-is-similar-to"></a><h3>dconf_changeset_is_similar_to ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            dconf_changeset_is_similar_to       (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>,
+                                                         <em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *other</code></em>);</pre>
+<p>
+Checks if <em class="parameter"><code>changeset</code></em> is similar to <em class="parameter"><code>other</code></em>.
+</p>
+<p>
+Two changes are considered similar if they write to the exact same
+set of keys.  The values written are not considered.
+</p>
+<p>
+This check is used to prevent building up a queue of repeated writes
+of the same keys.  This is often seen when an application writes to a
+key on every move of a slider or an application window.
+</p>
+<p>
+Strictly speaking, a write resettings all of "/a/" after a write
+containing "/a/b" could cause the later to be removed from the queue,
+but this situation is difficult to detect and is expected to be
+extremely rare.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>changeset</code></em> :</span></p></td>
+<td>a <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>other</code></em> :</span></p></td>
+<td>another <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the changes are similar</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dconf-changeset-new"></a><h3>dconf_changeset_new ()</h3>
+<pre class="programlisting"><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="returnvalue">DConfChangeset</span></a> *    dconf_changeset_new                 (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates a new, empty, <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dconf-changeset-new-database"></a><h3>dconf_changeset_new_database ()</h3>
+<pre class="programlisting"><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="returnvalue">DConfChangeset</span></a> *    dconf_changeset_new_database        (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *copy_of</code></em>);</pre>
+<p>
+Creates a new <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> in "database" mode, possibly
+initialising it with the values of another changeset.
+</p>
+<p>
+In a certain sense it's possible to imagine that a <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a>
+could express the contents of an entire dconf database -- the
+contents are the database are what you would have if you applied the
+changeset to an empty database.  One thing that fails to map in this
+analogy are reset operations -- if we start with an empty database
+then reset operations are meaningless.
+</p>
+<p>
+A "database" mode changeset is therefore a changeset which is
+incapable of containing reset operations.
+</p>
+<p>
+It is not permitted to use a database-mode changeset for most
+operations (such as the <em class="parameter"><code>change</code></em> argument to <a href="dconf-DConfChangeset.html#dconf-changeset-change"><code class="function">dconf_changeset_change()</code></a>
+or the <em class="parameter"><code>changeset</code></em> argument to <a href="DConfClient.html"><span class="type">DConfClient</span></a> APIs).
+</p>
+<p>
+If <em class="parameter"><code>copy_of</code></em> is non-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> then its contents will be copied into the
+created changeset.  <em class="parameter"><code>copy_of</code></em> must be a database-mode changeset.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>copy_of</code></em> :</span></p></td>
+<td>a <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> to copy. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> in "database" mode</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 0.16</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dconf-changeset-new-write"></a><h3>dconf_changeset_new_write ()</h3>
+<pre class="programlisting"><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="returnvalue">DConfChangeset</span></a> *    dconf_changeset_new_write           (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *path</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *value</code></em>);</pre>
+<p>
+Creates a new <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> with one change.  This is equivalent to
+calling <a href="dconf-DConfChangeset.html#dconf-changeset-new"><code class="function">dconf_changeset_new()</code></a> and then <a href="dconf-DConfChangeset.html#dconf-changeset-set"><code class="function">dconf_changeset_set()</code></a> with
+<em class="parameter"><code>path</code></em> and <em class="parameter"><code>value</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>a dconf path</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a>, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dconf-changeset-ref"></a><h3>dconf_changeset_ref ()</h3>
+<pre class="programlisting"><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="returnvalue">DConfChangeset</span></a> *    dconf_changeset_ref                 (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>);</pre>
+<p>
+Increases the reference count on <em class="parameter"><code>changeset</code></em>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>changeset</code></em> :</span></p></td>
+<td>a <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td><em class="parameter"><code>changeset</code></em></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dconf-changeset-serialise"></a><h3>dconf_changeset_serialise ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          dconf_changeset_serialise           (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>);</pre>
+<p>
+Serialises a <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a>.
+</p>
+<p>
+The returned value has no particular format and should only be passed
+to <a href="dconf-DConfChangeset.html#dconf-changeset-deserialise"><code class="function">dconf_changeset_deserialise()</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>changeset</code></em> :</span></p></td>
+<td>a <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a floating <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dconf-changeset-set"></a><h3>dconf_changeset_set ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                dconf_changeset_set                 (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *path</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *value</code></em>);</pre>
+<p>
+Adds an operation to modify <em class="parameter"><code>path</code></em> to a <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a>.
+</p>
+<p>
+<em class="parameter"><code>path</code></em> may either be a key or a dir.  If it is a key then <em class="parameter"><code>value</code></em> may
+be a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a>, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> (to set or reset the key).
+</p>
+<p>
+If <em class="parameter"><code>path</code></em> is a dir then this must be a reset operation: <em class="parameter"><code>value</code></em> must be
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.  It is not permitted to assign a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> value to a dir.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>changeset</code></em> :</span></p></td>
+<td>a <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>a path to modify</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the value for the key, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to reset</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dconf-changeset-unref"></a><h3>dconf_changeset_unref ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                dconf_changeset_unref               (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>);</pre>
+<p>
+Releases a <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> reference.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>changeset</code></em> :</span></p></td>
+<td>a <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="dconf-changeset-seal"></a><h3>dconf_changeset_seal ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                dconf_changeset_seal                (<em class="parameter"><code><a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> *changeset</code></em>);</pre>
+<p>
+Seals <em class="parameter"><code>changeset</code></em>.
+</p>
+<p>
+When a <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a> is first created, it is mutable and
+non-threadsafe.  Once the changeset is populated with the required
+changes, it can be shared between multiple threads, but only by
+making it immutable by "sealing" it.
+</p>
+<p>
+After the changeset is sealed, you cannot call <a href="dconf-DConfChangeset.html#dconf-changeset-set"><code class="function">dconf_changeset_set()</code></a>
+or any other functions that would modify it.  It is safe, however, to
+share it between multiple threads.
+</p>
+<p>
+All changesets are unsealed on creation, including those that are
+made by copying changesets that are sealed.
+<a href="dconf-DConfChangeset.html#dconf-changeset-describe"><code class="function">dconf_changeset_describe()</code></a> will implicitly seal a changeset.
+</p>
+<p>
+This function is idempotent.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>changeset</code></em> :</span></p></td>
+<td>a <a href="dconf-DConfChangeset.html#DConfChangeset"><span class="type">DConfChangeset</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 0.18</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.19.1</div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>gcr-combo-selector</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Gcr Library Reference Manual">
+<link rel="up" href="widgets.html" title="Part III. Widgets">
+<link rel="prev" href="gcr-GcrColumn.html" title="GcrColumn">
+<link rel="next" href="gcr-gcr-import-button.html" title="gcr-import-button">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gcr-GcrColumn.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="widgets.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Gcr Library Reference Manual</th>
+<td><a accesskey="n" href="gcr-gcr-import-button.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gcr-gcr-combo-selector.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gcr-gcr-combo-selector.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#gcr-gcr-combo-selector.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#gcr-gcr-combo-selector.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#gcr-gcr-combo-selector.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gcr-gcr-combo-selector"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gcr-gcr-combo-selector.top_of_page"></a>gcr-combo-selector</span></h2>
+<p>gcr-combo-selector</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gcr-gcr-combo-selector.synopsis"></a><h2>Synopsis</h2>
+<a name="GcrComboSelector"></a><pre class="synopsis">struct              <a class="link" href="gcr-gcr-combo-selector.html#GcrComboSelector-struct" title="struct GcrComboSelector">GcrComboSelector</a>;
+struct              <a class="link" href="gcr-gcr-combo-selector.html#GcrComboSelectorClass" title="struct GcrComboSelectorClass">GcrComboSelectorClass</a>;
+<a class="link" href="GcrCollection.html" title="GcrCollection"><span class="returnvalue">GcrCollection</span></a> *     <a class="link" href="gcr-gcr-combo-selector.html#gcr-combo-selector-get-collection" title="gcr_combo_selector_get_collection ()">gcr_combo_selector_get_collection</a>   (<em class="parameter"><code><a class="link" href="gcr-gcr-combo-selector.html#GcrComboSelector"><span class="type">GcrComboSelector</span></a> *self</code></em>);
+<a class="link" href="gcr-gcr-combo-selector.html#GcrComboSelector"><span class="returnvalue">GcrComboSelector</span></a> *  <a class="link" href="gcr-gcr-combo-selector.html#gcr-combo-selector-new" title="gcr_combo_selector_new ()">gcr_combo_selector_new</a>              (<em class="parameter"><code><a class="link" href="GcrCollection.html" title="GcrCollection"><span class="type">GcrCollection</span></a> *collection</code></em>);
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="returnvalue">GObject</span></a> *           <a class="link" href="gcr-gcr-combo-selector.html#gcr-combo-selector-get-selected" title="gcr_combo_selector_get_selected ()">gcr_combo_selector_get_selected</a>     (<em class="parameter"><code><a class="link" href="gcr-gcr-combo-selector.html#GcrComboSelector"><span class="type">GcrComboSelector</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gcr-gcr-combo-selector.html#gcr-combo-selector-set-selected" title="gcr_combo_selector_set_selected ()">gcr_combo_selector_set_selected</a>     (<em class="parameter"><code><a class="link" href="gcr-gcr-combo-selector.html#GcrComboSelector"><span class="type">GcrComboSelector</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *selected</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-combo-selector.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----<a href="http://developer.gnome.org/gtk2/GtkWidget.html">GtkWidget</a>
+               +----<a href="http://developer.gnome.org/gtk2/GtkContainer.html">GtkContainer</a>
+                     +----<a href="http://developer.gnome.org/gtk2/GtkBin.html">GtkBin</a>
+                           +----<a href="http://developer.gnome.org/gtk2/GtkComboBox.html">GtkComboBox</a>
+                                 +----GcrComboSelector
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-combo-selector.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GcrComboSelector implements
+ AtkImplementorIface,  <a href="http://developer.gnome.org/gtk2/GtkBuildable.html">GtkBuildable</a>,  <a href="http://developer.gnome.org/gtk2/GtkCellLayout.html">GtkCellLayout</a> and  <a href="http://developer.gnome.org/gtk2/GtkCellEditable.html">GtkCellEditable</a>.</p>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-combo-selector.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="gcr-gcr-combo-selector.html#GcrComboSelector--collection" title='The "collection" property'>collection</a>"               <a class="link" href="GcrCollection.html" title="GcrCollection"><span class="type">GcrCollection</span></a>*        : Read / Write / Construct Only
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-combo-selector.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-combo-selector.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GcrComboSelector-struct"></a><h3>struct GcrComboSelector</h3>
+<pre class="programlisting">struct GcrComboSelector;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GcrComboSelectorClass"></a><h3>struct GcrComboSelectorClass</h3>
+<pre class="programlisting">struct GcrComboSelectorClass {
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-combo-selector-get-collection"></a><h3>gcr_combo_selector_get_collection ()</h3>
+<pre class="programlisting"><a class="link" href="GcrCollection.html" title="GcrCollection"><span class="returnvalue">GcrCollection</span></a> *     gcr_combo_selector_get_collection   (<em class="parameter"><code><a class="link" href="gcr-gcr-combo-selector.html#GcrComboSelector"><span class="type">GcrComboSelector</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-combo-selector-new"></a><h3>gcr_combo_selector_new ()</h3>
+<pre class="programlisting"><a class="link" href="gcr-gcr-combo-selector.html#GcrComboSelector"><span class="returnvalue">GcrComboSelector</span></a> *  gcr_combo_selector_new              (<em class="parameter"><code><a class="link" href="GcrCollection.html" title="GcrCollection"><span class="type">GcrCollection</span></a> *collection</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-combo-selector-get-selected"></a><h3>gcr_combo_selector_get_selected ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="returnvalue">GObject</span></a> *           gcr_combo_selector_get_selected     (<em class="parameter"><code><a class="link" href="gcr-gcr-combo-selector.html#GcrComboSelector"><span class="type">GcrComboSelector</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-combo-selector-set-selected"></a><h3>gcr_combo_selector_set_selected ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcr_combo_selector_set_selected     (<em class="parameter"><code><a class="link" href="gcr-gcr-combo-selector.html#GcrComboSelector"><span class="type">GcrComboSelector</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *selected</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-combo-selector.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="GcrComboSelector--collection"></a><h3>The <code class="literal">"collection"</code> property</h3>
+<pre class="programlisting">  "collection"               <a class="link" href="GcrCollection.html" title="GcrCollection"><span class="type">GcrCollection</span></a>*        : Read / Write / Construct Only</pre>
+<p>Collection to select from.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

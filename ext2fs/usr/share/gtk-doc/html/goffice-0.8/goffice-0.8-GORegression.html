@@ -1,0 +1,675 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GORegression</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch13.html" title="Mathematical functions">
+<link rel="prev" href="goffice-0.8-GORange.html" title="GORange">
+<link rel="next" href="goffice-0.8-Units.html" title="Units">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="goffice-0.8-GORange.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch13.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="goffice-0.8-Units.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#goffice-0.8-GORegression.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#goffice-0.8-GORegression.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="GORegression">
+<a name="goffice-0.8-GORegression"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="goffice-0.8-GORegression.top_of_page"></a>GORegression</span></h2>
+<p>GORegression</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="goffice-0.8-GORegression.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="goffice-0.8-GORegression.html#GO-LOGFIT-C-ACCURACY:CAPS" title="GO_LOGFIT_C_ACCURACY">GO_LOGFIT_C_ACCURACY</a>
+#define             <a class="link" href="goffice-0.8-GORegression.html#GO-LOGFIT-C-STEP-FACTOR:CAPS" title="GO_LOGFIT_C_STEP_FACTOR">GO_LOGFIT_C_STEP_FACTOR</a>
+#define             <a class="link" href="goffice-0.8-GORegression.html#GO-LOGFIT-C-RANGE-FACTOR:CAPS" title="GO_LOGFIT_C_RANGE_FACTOR">GO_LOGFIT_C_RANGE_FACTOR</a>
+enum                <a class="link" href="goffice-0.8-GORegression.html#GORegressionResult" title="enum GORegressionResult">GORegressionResult</a>;
+<a class="link" href="goffice-0.8-GORegression.html#GORegressionResult" title="enum GORegressionResult"><span class="returnvalue">GORegressionResult</span></a>  (<a class="link" href="goffice-0.8-GORegression.html#GORegressionFunction" title="GORegressionFunction ()">*GORegressionFunction</a>)             (<em class="parameter"><code><span class="type">double</span> *x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *params</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *f</code></em>);
+<a class="link" href="goffice-0.8-GORegression.html#GORegressionResult" title="enum GORegressionResult"><span class="returnvalue">GORegressionResult</span></a>  <a class="link" href="goffice-0.8-GORegression.html#go-linear-regression" title="go_linear_regression ()">go_linear_regression</a>                (<em class="parameter"><code><span class="type">double</span> **xss</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dim</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">double</span> *ys</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> affine</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GORegression.html#go-regression-stat-t" title="go_regression_stat_t"><span class="type">go_regression_stat_t</span></a> *stat_</code></em>);
+<a class="link" href="goffice-0.8-GORegression.html#GORegressionResult" title="enum GORegressionResult"><span class="returnvalue">GORegressionResult</span></a>  <a class="link" href="goffice-0.8-GORegression.html#go-exponential-regression" title="go_exponential_regression ()">go_exponential_regression</a>           (<em class="parameter"><code><span class="type">double</span> **xss</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dim</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">double</span> *ys</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> affine</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GORegression.html#go-regression-stat-t" title="go_regression_stat_t"><span class="type">go_regression_stat_t</span></a> *stat_</code></em>);
+<a class="link" href="goffice-0.8-GORegression.html#GORegressionResult" title="enum GORegressionResult"><span class="returnvalue">GORegressionResult</span></a>  <a class="link" href="goffice-0.8-GORegression.html#go-logarithmic-regression" title="go_logarithmic_regression ()">go_logarithmic_regression</a>           (<em class="parameter"><code><span class="type">double</span> **xss</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dim</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">double</span> *ys</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> affine</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GORegression.html#go-regression-stat-t" title="go_regression_stat_t"><span class="type">go_regression_stat_t</span></a> *stat_</code></em>);
+<a class="link" href="goffice-0.8-GORegression.html#GORegressionResult" title="enum GORegressionResult"><span class="returnvalue">GORegressionResult</span></a>  <a class="link" href="goffice-0.8-GORegression.html#go-non-linear-regression" title="go_non_linear_regression ()">go_non_linear_regression</a>            (<em class="parameter"><code><a class="link" href="goffice-0.8-GORegression.html#GORegressionFunction" title="GORegressionFunction ()"><span class="type">GORegressionFunction</span></a> f</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> **xvals</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *par</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *yvals</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *sigmas</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x_dim</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> p_dim</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *chi</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *errors</code></em>);
+<a class="link" href="goffice-0.8-GORegression.html#GORegressionResult" title="enum GORegressionResult"><span class="returnvalue">GORegressionResult</span></a>  <a class="link" href="goffice-0.8-GORegression.html#go-power-regression" title="go_power_regression ()">go_power_regression</a>                 (<em class="parameter"><code><span class="type">double</span> **xss</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dim</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">double</span> *ys</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> affine</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GORegression.html#go-regression-stat-t" title="go_regression_stat_t"><span class="type">go_regression_stat_t</span></a> *stat_</code></em>);
+<a class="link" href="goffice-0.8-GORegression.html#GORegressionResult" title="enum GORegressionResult"><span class="returnvalue">GORegressionResult</span></a>  <a class="link" href="goffice-0.8-GORegression.html#go-logarithmic-fit" title="go_logarithmic_fit ()">go_logarithmic_fit</a>                  (<em class="parameter"><code><span class="type">double</span> *xs</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">double</span> *ys</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-GORegression.html#go-matrix-invert" title="go_matrix_invert ()">go_matrix_invert</a>                    (<em class="parameter"><code><span class="type">double</span> **A</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-GORegression.html#go-matrix-determinant" title="go_matrix_determinant ()">go_matrix_determinant</a>               (<em class="parameter"><code><span class="type">double</span> *const *const A</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>);
+
+                    <a class="link" href="goffice-0.8-GORegression.html#go-regression-stat-t" title="go_regression_stat_t">go_regression_stat_t</a>;
+<a class="link" href="goffice-0.8-GORegression.html#go-regression-stat-t" title="go_regression_stat_t"><span class="returnvalue">go_regression_stat_t</span></a> * <a class="link" href="goffice-0.8-GORegression.html#go-regression-stat-new" title="go_regression_stat_new ()">go_regression_stat_new</a>           (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GORegression.html#go-regression-stat-destroy" title="go_regression_stat_destroy ()">go_regression_stat_destroy</a>          (<em class="parameter"><code><a class="link" href="goffice-0.8-GORegression.html#go-regression-stat-t" title="go_regression_stat_t"><span class="type">go_regression_stat_t</span></a> *stat_</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="goffice-0.8-GORegression.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="goffice-0.8-GORegression.details"></a><h2>Details</h2>
+<div class="refsect2" title="GO_LOGFIT_C_ACCURACY">
+<a name="GO-LOGFIT-C-ACCURACY:CAPS"></a><h3>GO_LOGFIT_C_ACCURACY</h3>
+<pre class="programlisting">#define GO_LOGFIT_C_ACCURACY 0.000001
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_LOGFIT_C_STEP_FACTOR">
+<a name="GO-LOGFIT-C-STEP-FACTOR:CAPS"></a><h3>GO_LOGFIT_C_STEP_FACTOR</h3>
+<pre class="programlisting">#define GO_LOGFIT_C_STEP_FACTOR 0.05
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_LOGFIT_C_RANGE_FACTOR">
+<a name="GO-LOGFIT-C-RANGE-FACTOR:CAPS"></a><h3>GO_LOGFIT_C_RANGE_FACTOR</h3>
+<pre class="programlisting">#define GO_LOGFIT_C_RANGE_FACTOR 100
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum GORegressionResult">
+<a name="GORegressionResult"></a><h3>enum GORegressionResult</h3>
+<pre class="programlisting">typedef enum {
+	GO_REG_ok,
+	GO_REG_invalid_dimensions,
+	GO_REG_invalid_data,
+	GO_REG_not_enough_data,
+	GO_REG_near_singular_good, /* Probably good result */
+	GO_REG_near_singular_bad, 	/* Probably bad result */
+	GO_REG_singular
+} GORegressionResult;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GORegressionFunction ()">
+<a name="GORegressionFunction"></a><h3>GORegressionFunction ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GORegression.html#GORegressionResult" title="enum GORegressionResult"><span class="returnvalue">GORegressionResult</span></a>  (*GORegressionFunction)             (<em class="parameter"><code><span class="type">double</span> *x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *params</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *f</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>params</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>f</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_linear_regression ()">
+<a name="go-linear-regression"></a><h3>go_linear_regression ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GORegression.html#GORegressionResult" title="enum GORegressionResult"><span class="returnvalue">GORegressionResult</span></a>  go_linear_regression                (<em class="parameter"><code><span class="type">double</span> **xss</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dim</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">double</span> *ys</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> affine</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GORegression.html#go-regression-stat-t" title="go_regression_stat_t"><span class="type">go_regression_stat_t</span></a> *stat_</code></em>);</pre>
+<p>
+Performs multi-dimensional linear regressions on the input points.
+Fits to "y = b + a1 * x1 + ... ad * xd".
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xss</code></em> :</span></p></td>
+<td>x-vectors (i.e. independent data)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dim</code></em> :</span></p></td>
+<td>number of x-vectors.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ys</code></em> :</span></p></td>
+<td>y-vector.  (Dependent data.)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>number of data points.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>affine</code></em> :</span></p></td>
+<td>if true, a non-zero constant is allowed.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>output place for constant[0] and slope1[1], slope2[2],... There will be dim+1 results.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stat_</code></em> :</span></p></td>
+<td>non-NULL storage for additional results.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="goffice-0.8-GORegression.html#GORegressionResult" title="enum GORegressionResult"><span class="type">GORegressionResult</span></a> as above.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_exponential_regression ()">
+<a name="go-exponential-regression"></a><h3>go_exponential_regression ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GORegression.html#GORegressionResult" title="enum GORegressionResult"><span class="returnvalue">GORegressionResult</span></a>  go_exponential_regression           (<em class="parameter"><code><span class="type">double</span> **xss</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dim</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">double</span> *ys</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> affine</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GORegression.html#go-regression-stat-t" title="go_regression_stat_t"><span class="type">go_regression_stat_t</span></a> *stat_</code></em>);</pre>
+<p>
+Performs one-dimensional linear regressions on the input points.
+Fits to "y = b * m1^x1 * ... * md^xd " or equivalently to
+"log y = log b + x1 * log m1 + ... + xd * log md".
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xss</code></em> :</span></p></td>
+<td>x-vectors (i.e. independent data)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dim</code></em> :</span></p></td>
+<td>number of x-vectors
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ys</code></em> :</span></p></td>
+<td>y-vector (dependent data)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>number of data points
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>affine</code></em> :</span></p></td>
+<td>if <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, a non-one multiplier is allowed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>output place for constant[0] and root1[1], root2[2],... There will be dim+1 results.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stat_</code></em> :</span></p></td>
+<td>non-NULL storage for additional results.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="goffice-0.8-GORegression.html#GORegressionResult" title="enum GORegressionResult"><span class="type">GORegressionResult</span></a> as above.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_logarithmic_regression ()">
+<a name="go-logarithmic-regression"></a><h3>go_logarithmic_regression ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GORegression.html#GORegressionResult" title="enum GORegressionResult"><span class="returnvalue">GORegressionResult</span></a>  go_logarithmic_regression           (<em class="parameter"><code><span class="type">double</span> **xss</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dim</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">double</span> *ys</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> affine</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GORegression.html#go-regression-stat-t" title="go_regression_stat_t"><span class="type">go_regression_stat_t</span></a> *stat_</code></em>);</pre>
+<p>
+This is almost a copy of linear_regression and produces multi-dimensional
+linear regressions on the input points after transforming xss to ln(xss).
+Fits to "y = b + a1 * z1 + ... ad * zd" with "zi = ln (xi)".
+Problems with arrays in the calling function: see comment to
+gnumeric_linest, which is also valid for gnumeric_logreg.
+</p>
+<p>
+(Errors: less than two points, all points on a vertical line, non-positive x data.)
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xss</code></em> :</span></p></td>
+<td>x-vectors (i.e. independent data)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dim</code></em> :</span></p></td>
+<td>number of x-vectors
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ys</code></em> :</span></p></td>
+<td>y-vector (dependent data)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>number of data points
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>affine</code></em> :</span></p></td>
+<td>if <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, a non-zero constant is allowed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>output place for constant[0] and factor1[1], factor2[2],... There will be dim+1 results.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stat_</code></em> :</span></p></td>
+<td>non-NULL storage for additional results.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="goffice-0.8-GORegression.html#GORegressionResult" title="enum GORegressionResult"><span class="type">GORegressionResult</span></a> as above.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_non_linear_regression ()">
+<a name="go-non-linear-regression"></a><h3>go_non_linear_regression ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GORegression.html#GORegressionResult" title="enum GORegressionResult"><span class="returnvalue">GORegressionResult</span></a>  go_non_linear_regression            (<em class="parameter"><code><a class="link" href="goffice-0.8-GORegression.html#GORegressionFunction" title="GORegressionFunction ()"><span class="type">GORegressionFunction</span></a> f</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> **xvals</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *par</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *yvals</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *sigmas</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x_dim</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> p_dim</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *chi</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *errors</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>f</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xvals</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>par</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>yvals</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sigmas</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x_dim</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>p_dim</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chi</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>errors</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_power_regression ()">
+<a name="go-power-regression"></a><h3>go_power_regression ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GORegression.html#GORegressionResult" title="enum GORegressionResult"><span class="returnvalue">GORegressionResult</span></a>  go_power_regression                 (<em class="parameter"><code><span class="type">double</span> **xss</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dim</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">double</span> *ys</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> affine</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GORegression.html#go-regression-stat-t" title="go_regression_stat_t"><span class="type">go_regression_stat_t</span></a> *stat_</code></em>);</pre>
+<p>
+Performs one-dimensional linear regressions on the input points.
+Fits to "y = b * x1^m1 * ... * xd^md " or equivalently to
+"log y = log b + m1 * log x1 + ... + md * log xd".
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xss</code></em> :</span></p></td>
+<td>x-vectors (i.e. independent data)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dim</code></em> :</span></p></td>
+<td>number of x-vectors
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ys</code></em> :</span></p></td>
+<td>y-vector (dependent data)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>number of data points
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>affine</code></em> :</span></p></td>
+<td>if <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, a non-one multiplier is allowed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>output place for constant[0] and root1[1], root2[2],... There will be dim+1 results.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stat_</code></em> :</span></p></td>
+<td>non-NULL storage for additional results.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="goffice-0.8-GORegression.html#GORegressionResult" title="enum GORegressionResult"><span class="type">GORegressionResult</span></a> as above.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_logarithmic_fit ()">
+<a name="go-logarithmic-fit"></a><h3>go_logarithmic_fit ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GORegression.html#GORegressionResult" title="enum GORegressionResult"><span class="returnvalue">GORegressionResult</span></a>  go_logarithmic_fit                  (<em class="parameter"><code><span class="type">double</span> *xs</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">double</span> *ys</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);</pre>
+<p>
+Performs a two-dimensional non-linear fitting on the input points.
+Fits to "y = a + b * ln (sign * (x - c))", with sign in {-1, +1}.
+The graph is a logarithmic curve moved horizontally by c and possibly
+mirrored across the y-axis (if sign = -1).
+</p>
+<p>
+Fits c (and sign) by iterative trials, but seems to be fast enough even
+for automatic recomputation.
+</p>
+<p>
+Adapts c until a local minimum of squared residuals is reached. For each
+new c tried out the corresponding a and b are calculated by linear
+regression. If no local minimum is found, an error is returned. If there
+is more than one local minimum, the one found is not necessarily the
+smallest (i.e., there might be cases in which the returned fit is not the
+best possible). If the shape of the point cloud is to different from
+``logarithmic'', either sign can not be determined (error returned) or no
+local minimum will be found.
+</p>
+<p>
+(Requires: at least 3 different x values, at least 3 different y values.)
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xs</code></em> :</span></p></td>
+<td>x-vector (i.e. independent data)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ys</code></em> :</span></p></td>
+<td>y-vector (dependent data)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>number of data points
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>output place for sign[0], a[1], b[2], c[3], and sum of squared residuals[4].
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="goffice-0.8-GORegression.html#GORegressionResult" title="enum GORegressionResult"><span class="type">GORegressionResult</span></a> as above.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_matrix_invert ()">
+<a name="go-matrix-invert"></a><h3>go_matrix_invert ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_matrix_invert                    (<em class="parameter"><code><span class="type">double</span> **A</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>A</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_matrix_determinant ()">
+<a name="go-matrix-determinant"></a><h3>go_matrix_determinant ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_matrix_determinant               (<em class="parameter"><code><span class="type">double</span> *const *const A</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>A</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_regression_stat_t">
+<a name="go-regression-stat-t"></a><h3>go_regression_stat_t</h3>
+<pre class="programlisting">typedef struct {
+        double *se;		/* SE for each parameter estimator */
+        double *t;  		/* t values for each parameter estimator */
+        double sqr_r;
+	double adj_sqr_r;
+        double se_y; 		/* The Standard Error of Y */
+        double F;
+        int    df_reg;
+        int    df_resid;
+        int    df_total;
+        double ss_reg;
+        double ss_resid;
+        double ss_total;
+        double ms_reg;
+        double ms_resid;
+	double ybar;
+	double *xbar;
+	double var; 		/* The variance of the entire regression: sum(errors^2)/(n-xdim) */
+} go_regression_stat_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_regression_stat_new ()">
+<a name="go-regression-stat-new"></a><h3>go_regression_stat_new ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GORegression.html#go-regression-stat-t" title="go_regression_stat_t"><span class="returnvalue">go_regression_stat_t</span></a> * go_regression_stat_new           (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_regression_stat_destroy ()">
+<a name="go-regression-stat-destroy"></a><h3>go_regression_stat_destroy ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_regression_stat_destroy          (<em class="parameter"><code><a class="link" href="goffice-0.8-GORegression.html#go-regression-stat-t" title="go_regression_stat_t"><span class="type">go_regression_stat_t</span></a> *stat_</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>stat_</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

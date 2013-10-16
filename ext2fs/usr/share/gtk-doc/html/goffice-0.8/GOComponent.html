@@ -1,0 +1,618 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOComponent</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch16.html" title="Components">
+<link rel="prev" href="goffice-0.8-GOComponentFactory.html" title="GOComponentFactory">
+<link rel="next" href="ch17.html" title="Miscellaneous">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="goffice-0.8-GOComponentFactory.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch16.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="ch17.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GOComponent.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GOComponent.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GOComponent.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GOComponent.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#GOComponent.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOComponent">
+<a name="GOComponent"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GOComponent.top_of_page"></a>GOComponent</span></h2>
+<p>GOComponent</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GOComponent.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="GOComponent.html#GOComponent-struct" title="GOComponent">GOComponent</a>;
+                    <a class="link" href="GOComponent.html#GOComponentClass" title="GOComponentClass">GOComponentClass</a>;
+<a class="link" href="GOComponent.html" title="GOComponent"><span class="returnvalue">GOComponent</span></a> *       <a class="link" href="GOComponent.html#go-component-new-by-mime-type" title="go_component_new_by_mime_type ()">go_component_new_by_mime_type</a>       (<em class="parameter"><code><span class="type">char</span> const *mime_type</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOComponent.html#go-component-set-default-size" title="go_component_set_default_size ()">go_component_set_default_size</a>       (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> ascent</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> descent</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOComponent.html#go-component-needs-window" title="go_component_needs_window ()">go_component_needs_window</a>           (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOComponent.html#go-component-set-window" title="go_component_set_window ()">go_component_set_window</a>             (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOComponent.html#go-component-set-data" title="go_component_set_data ()">go_component_set_data</a>               (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *data</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> length</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOComponent.html#go-component-get-data" title="go_component_get_data ()">go_component_get_data</a>               (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> *data</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *length</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> *clearfunc</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> *user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOComponent.html#go-component-set-size" title="go_component_set_size ()">go_component_set_size</a>               (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> height</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOComponent.html#go-component-is-resizable" title="go_component_is_resizable ()">go_component_is_resizable</a>           (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOComponent.html#go-component-is-editable" title="go_component_is_editable ()">go_component_is_editable</a>            (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>);
+<a href="http://library.gnome.org/devel/gtk/unstable/GtkWindow.html"><span class="returnvalue">GtkWindow</span></a>*          <a class="link" href="GOComponent.html#go-component-edit" title="go_component_edit ()">go_component_edit</a>                   (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOComponent.html#go-component-emit-changed" title="go_component_emit_changed ()">go_component_emit_changed</a>           (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOComponent.html#go-component-set-command-context" title="go_component_set_command_context ()">go_component_set_command_context</a>    (<em class="parameter"><code><a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="type">GOCmdContext</span></a> *cc</code></em>);
+<a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="returnvalue">GOCmdContext</span></a> *      <a class="link" href="GOComponent.html#go-component-get-command-context" title="go_component_get_command_context ()">go_component_get_command_context</a>    (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOComponent.html#go-component-render" title="go_component_render ()">go_component_render</a>                 (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> height</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GOComponent.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GOComponent
+</pre>
+</div>
+<div class="refsect1" title="Properties">
+<a name="GOComponent.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GOComponent.html#GOComponent--ascent" title='The "ascent" property'>ascent</a>"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write
+  "<a class="link" href="GOComponent.html#GOComponent--descent" title='The "descent" property'>descent</a>"                  <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write
+  "<a class="link" href="GOComponent.html#GOComponent--height" title='The "height" property'>height</a>"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read
+  "<a class="link" href="GOComponent.html#GOComponent--mime-type" title='The "mime-type" property'>mime-type</a>"                <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
+  "<a class="link" href="GOComponent.html#GOComponent--width" title='The "width" property'>width</a>"                    <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Signals">
+<a name="GOComponent.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GOComponent.html#GOComponent-changed" title='The "changed" signal'>changed</a>"                                        : Run Last
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GOComponent.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GOComponent.details"></a><h2>Details</h2>
+<div class="refsect2" title="GOComponent">
+<a name="GOComponent-struct"></a><h3>GOComponent</h3>
+<pre class="programlisting">typedef struct _GOComponent GOComponent;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GOComponentClass">
+<a name="GOComponentClass"></a><h3>GOComponentClass</h3>
+<pre class="programlisting">typedef struct {
+	GObjectClass parent_class;
+
+	GtkWindow* (*edit) (GOComponent *component);
+	gboolean (*get_data) (GOComponent *component, gpointer *data, int *length,
+			      GDestroyNotify *clearfunc, gpointer *user_data);
+	void (*mime_type_set) (GOComponent* component);
+	void (*set_data) (GOComponent *component);
+	void (*set_default_size) (GOComponent* component);
+	void (*set_size) (GOComponent *component);
+	void (*set_window) (GOComponent *component);
+	void (*render) (GOComponent *component, cairo_t *cr,
+			    double width, double height);
+
+	/* signals */
+	void (*changed) (GOComponent* component);
+} GOComponentClass;
+</pre>
+<p>
+The component base object class.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObjectClass"><span class="type">GObjectClass</span></a> <em class="structfield"><code><a name="GOComponentClass.parent-class"></a>parent_class</code></em>;</span></p></td>
+<td>the parent object class.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="GOComponentClass.edit"></a>edit</code></em> ()</span></p></td>
+<td>callback for component edition.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="GOComponentClass.get-data"></a>get_data</code></em> ()</span></p></td>
+<td>returns the data embedded in the component.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="GOComponentClass.mime-type-set"></a>mime_type_set</code></em> ()</span></p></td>
+<td>sets the mime type.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="GOComponentClass.set-data"></a>set_data</code></em> ()</span></p></td>
+<td>sets the data embedded in the component.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="GOComponentClass.set-default-size"></a>set_default_size</code></em> ()</span></p></td>
+<td>sets the default size for the component.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="GOComponentClass.set-size"></a>set_size</code></em> ()</span></p></td>
+<td>sets the requested size.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="GOComponentClass.set-window"></a>set_window</code></em> ()</span></p></td>
+<td>sets the window if the component uses a <a href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>. The new
+window is stored in the <em class="parameter"><code>window</code></em> field of <a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="GOComponentClass.render"></a>render</code></em> ()</span></p></td>
+<td>displays the contents.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="GOComponentClass.changed"></a>changed</code></em> ()</span></p></td>
+<td>callback called when the component contents changed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_component_new_by_mime_type ()">
+<a name="go-component-new-by-mime-type"></a><h3>go_component_new_by_mime_type ()</h3>
+<pre class="programlisting"><a class="link" href="GOComponent.html" title="GOComponent"><span class="returnvalue">GOComponent</span></a> *       go_component_new_by_mime_type       (<em class="parameter"><code><span class="type">char</span> const *mime_type</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mime_type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_component_set_default_size ()">
+<a name="go-component-set-default-size"></a><h3>go_component_set_default_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_component_set_default_size       (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> ascent</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> descent</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>component</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ascent</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>descent</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_component_needs_window ()">
+<a name="go-component-needs-window"></a><h3>go_component_needs_window ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_component_needs_window           (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>component</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE  if the component uses its own <a href="http://library.gnome.org/devel/gtk/unstable/GtkWindow.html"><span class="type">GtkWindow</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_component_set_window ()">
+<a name="go-component-set-window"></a><h3>go_component_set_window ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_component_set_window             (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gdk/unstable/gdk-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>component</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_component_set_data ()">
+<a name="go-component-set-data"></a><h3>go_component_set_data ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_component_set_data               (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *data</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> length</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>component</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_component_get_data ()">
+<a name="go-component-get-data"></a><h3>go_component_get_data ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_component_get_data               (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> *data</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *length</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> *clearfunc</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> *user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>component</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>clearfunc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_component_set_size ()">
+<a name="go-component-set-size"></a><h3>go_component_set_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_component_set_size               (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> height</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>component</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_component_is_resizable ()">
+<a name="go-component-is-resizable"></a><h3>go_component_is_resizable ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_component_is_resizable           (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>component</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_component_is_editable ()">
+<a name="go-component-is-editable"></a><h3>go_component_is_editable ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_component_is_editable            (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>component</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_component_edit ()">
+<a name="go-component-edit"></a><h3>go_component_edit ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/unstable/GtkWindow.html"><span class="returnvalue">GtkWindow</span></a>*          go_component_edit                   (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>component</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_component_emit_changed ()">
+<a name="go-component-emit-changed"></a><h3>go_component_emit_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_component_emit_changed           (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>component</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_component_set_command_context ()">
+<a name="go-component-set-command-context"></a><h3>go_component_set_command_context ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_component_set_command_context    (<em class="parameter"><code><a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="type">GOCmdContext</span></a> *cc</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>cc</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_component_get_command_context ()">
+<a name="go-component-get-command-context"></a><h3>go_component_get_command_context ()</h3>
+<pre class="programlisting"><a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="returnvalue">GOCmdContext</span></a> *      go_component_get_command_context    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_component_render ()">
+<a name="go-component-render"></a><h3>go_component_render ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_component_render                 (<em class="parameter"><code><a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *component</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> height</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>component</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="GOComponent.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "ascent" property'>
+<a name="GOComponent--ascent"></a><h3>The <code class="literal">"ascent"</code> property</h3>
+<pre class="programlisting">  "ascent"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write</pre>
+<p>Component ascent.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" title='The "descent" property'>
+<a name="GOComponent--descent"></a><h3>The <code class="literal">"descent"</code> property</h3>
+<pre class="programlisting">  "descent"                  <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write</pre>
+<p>Component descent.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" title='The "height" property'>
+<a name="GOComponent--height"></a><h3>The <code class="literal">"height"</code> property</h3>
+<pre class="programlisting">  "height"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read</pre>
+<p>Component height.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" title='The "mime-type" property'>
+<a name="GOComponent--mime-type"></a><h3>The <code class="literal">"mime-type"</code> property</h3>
+<pre class="programlisting">  "mime-type"                <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
+<p>mime type of the content of the component.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2" title='The "width" property'>
+<a name="GOComponent--width"></a><h3>The <code class="literal">"width"</code> property</h3>
+<pre class="programlisting">  "width"                    <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write</pre>
+<p>Component width.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="GOComponent.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "changed" signal'>
+<a name="GOComponent-changed"></a><h3>The <code class="literal">"changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GOComponent.html" title="GOComponent"><span class="type">GOComponent</span></a> *gocomponent,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     user_data)        : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gocomponent</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

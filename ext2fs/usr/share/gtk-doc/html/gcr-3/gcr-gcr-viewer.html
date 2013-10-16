@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>gcr-viewer</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Gcr Library Reference Manual">
+<link rel="up" href="widgets.html" title="Part III. Widgets">
+<link rel="prev" href="gcr-gcr-renderer.html" title="gcr-renderer">
+<link rel="next" href="gcr-gcr-viewer-widget.html" title="gcr-viewer-widget">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gcr-gcr-renderer.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="widgets.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Gcr Library Reference Manual</th>
+<td><a accesskey="n" href="gcr-gcr-viewer-widget.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gcr-gcr-viewer.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gcr-gcr-viewer.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#gcr-gcr-viewer.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#gcr-gcr-viewer.prerequisites" class="shortcut">Prerequisites</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gcr-gcr-viewer"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gcr-gcr-viewer.top_of_page"></a>gcr-viewer</span></h2>
+<p>gcr-viewer</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gcr-gcr-viewer.synopsis"></a><h2>Synopsis</h2>
+<a name="GcrViewer"></a><pre class="synopsis">                    <a class="link" href="gcr-gcr-viewer.html#GcrViewer-struct" title="GcrViewer">GcrViewer</a>;
+struct              <a class="link" href="gcr-gcr-viewer.html#GcrViewerIface" title="struct GcrViewerIface">GcrViewerIface</a>;
+<a class="link" href="gcr-gcr-viewer.html#GcrViewer"><span class="returnvalue">GcrViewer</span></a> *         <a class="link" href="gcr-gcr-viewer.html#gcr-viewer-new" title="gcr_viewer_new ()">gcr_viewer_new</a>                      (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="gcr-gcr-viewer.html#GcrViewer"><span class="returnvalue">GcrViewer</span></a> *         <a class="link" href="gcr-gcr-viewer.html#gcr-viewer-new-scrolled" title="gcr_viewer_new_scrolled ()">gcr_viewer_new_scrolled</a>             (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gcr-gcr-viewer.html#gcr-viewer-add-renderer" title="gcr_viewer_add_renderer ()">gcr_viewer_add_renderer</a>             (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer.html#GcrViewer"><span class="type">GcrViewer</span></a> *viewer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gcr-gcr-renderer.html#GcrRenderer"><span class="type">GcrRenderer</span></a> *renderer</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gcr-gcr-viewer.html#gcr-viewer-insert-renderer" title="gcr_viewer_insert_renderer ()">gcr_viewer_insert_renderer</a>          (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer.html#GcrViewer"><span class="type">GcrViewer</span></a> *viewer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gcr-gcr-renderer.html#GcrRenderer"><span class="type">GcrRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gcr-gcr-renderer.html#GcrRenderer"><span class="type">GcrRenderer</span></a> *before</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gcr-gcr-viewer.html#gcr-viewer-remove-renderer" title="gcr_viewer_remove_renderer ()">gcr_viewer_remove_renderer</a>          (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer.html#GcrViewer"><span class="type">GcrViewer</span></a> *viewer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gcr-gcr-renderer.html#GcrRenderer"><span class="type">GcrRenderer</span></a> *renderer</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="gcr-gcr-viewer.html#gcr-viewer-count-renderers" title="gcr_viewer_count_renderers ()">gcr_viewer_count_renderers</a>          (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer.html#GcrViewer"><span class="type">GcrViewer</span></a> *viewer</code></em>);
+<a class="link" href="gcr-gcr-renderer.html#GcrRenderer"><span class="returnvalue">GcrRenderer</span></a> *       <a class="link" href="gcr-gcr-viewer.html#gcr-viewer-get-renderer" title="gcr_viewer_get_renderer ()">gcr_viewer_get_renderer</a>             (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer.html#GcrViewer"><span class="type">GcrViewer</span></a> *viewer</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> index_</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-viewer.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GInterface
+   +----GcrViewer
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-viewer.prerequisites"></a><h2>Prerequisites</h2>
+<p>
+GcrViewer requires
+ <a href="http://developer.gnome.org/gtk2/GtkWidget.html">GtkWidget</a>.</p>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-viewer.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-viewer.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GcrViewer-struct"></a><h3>GcrViewer</h3>
+<pre class="programlisting">typedef struct _GcrViewer GcrViewer;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GcrViewerIface"></a><h3>struct GcrViewerIface</h3>
+<pre class="programlisting">struct GcrViewerIface {
+	GTypeInterface parent;
+
+	void (*add_renderer) (GcrViewer *viewer,
+	                      GcrRenderer *renderer);
+
+	void (*insert_renderer) (GcrViewer *viewer,
+	                         GcrRenderer *renderer,
+	                         GcrRenderer *before);
+
+	void (*remove_renderer) (GcrViewer *viewer,
+	                         GcrRenderer *renderer);
+
+	guint (*count_renderers) (GcrViewer *viewer);
+
+	GcrRenderer* (*get_renderer) (GcrViewer *viewer,
+	                              guint index_);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-viewer-new"></a><h3>gcr_viewer_new ()</h3>
+<pre class="programlisting"><a class="link" href="gcr-gcr-viewer.html#GcrViewer"><span class="returnvalue">GcrViewer</span></a> *         gcr_viewer_new                      (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-viewer-new-scrolled"></a><h3>gcr_viewer_new_scrolled ()</h3>
+<pre class="programlisting"><a class="link" href="gcr-gcr-viewer.html#GcrViewer"><span class="returnvalue">GcrViewer</span></a> *         gcr_viewer_new_scrolled             (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-viewer-add-renderer"></a><h3>gcr_viewer_add_renderer ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcr_viewer_add_renderer             (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer.html#GcrViewer"><span class="type">GcrViewer</span></a> *viewer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gcr-gcr-renderer.html#GcrRenderer"><span class="type">GcrRenderer</span></a> *renderer</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-viewer-insert-renderer"></a><h3>gcr_viewer_insert_renderer ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcr_viewer_insert_renderer          (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer.html#GcrViewer"><span class="type">GcrViewer</span></a> *viewer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gcr-gcr-renderer.html#GcrRenderer"><span class="type">GcrRenderer</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gcr-gcr-renderer.html#GcrRenderer"><span class="type">GcrRenderer</span></a> *before</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-viewer-remove-renderer"></a><h3>gcr_viewer_remove_renderer ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcr_viewer_remove_renderer          (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer.html#GcrViewer"><span class="type">GcrViewer</span></a> *viewer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gcr-gcr-renderer.html#GcrRenderer"><span class="type">GcrRenderer</span></a> *renderer</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-viewer-count-renderers"></a><h3>gcr_viewer_count_renderers ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gcr_viewer_count_renderers          (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer.html#GcrViewer"><span class="type">GcrViewer</span></a> *viewer</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-viewer-get-renderer"></a><h3>gcr_viewer_get_renderer ()</h3>
+<pre class="programlisting"><a class="link" href="gcr-gcr-renderer.html#GcrRenderer"><span class="returnvalue">GcrRenderer</span></a> *       gcr_viewer_get_renderer             (<em class="parameter"><code><a class="link" href="gcr-gcr-viewer.html#GcrViewer"><span class="type">GcrViewer</span></a> *viewer</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> index_</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

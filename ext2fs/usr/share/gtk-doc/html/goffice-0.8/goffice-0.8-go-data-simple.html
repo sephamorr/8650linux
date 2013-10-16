@@ -1,0 +1,647 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>go-data-simple</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch12.html" title="Data">
+<link rel="prev" href="GODataMatrix.html" title="GODataMatrix">
+<link rel="next" href="ch13.html" title="Mathematical functions">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GODataMatrix.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch12.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="ch13.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#goffice-0.8-go-data-simple.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#goffice-0.8-go-data-simple.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#goffice-0.8-go-data-simple.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry" title="go-data-simple">
+<a name="goffice-0.8-go-data-simple"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="goffice-0.8-go-data-simple.top_of_page"></a>go-data-simple</span></h2>
+<p>go-data-simple</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="goffice-0.8-go-data-simple.synopsis"></a><h2>Synopsis</h2>
+<a name="GODataScalarVal"></a><a name="GODataScalarStr"></a><a name="GODataVectorVal"></a><a name="GODataVectorStr"></a><a name="GODataMatrixVal"></a><pre class="synopsis">                    <a class="link" href="goffice-0.8-go-data-simple.html#GODataScalarVal-struct" title="GODataScalarVal">GODataScalarVal</a>;
+<a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            <a class="link" href="goffice-0.8-go-data-simple.html#go-data-scalar-val-new" title="go_data_scalar_val_new ()">go_data_scalar_val_new</a>              (<em class="parameter"><code><span class="type">double</span> val</code></em>);
+#define             <a class="link" href="goffice-0.8-go-data-simple.html#GO-TYPE-DATA-SCALAR-STR:CAPS" title="GO_TYPE_DATA_SCALAR_STR">GO_TYPE_DATA_SCALAR_STR</a>
+#define             <a class="link" href="goffice-0.8-go-data-simple.html#GO-DATA-SCALAR-STR:CAPS" title="GO_DATA_SCALAR_STR()">GO_DATA_SCALAR_STR</a>                  (o)
+#define             <a class="link" href="goffice-0.8-go-data-simple.html#GO-IS-DATA-SCALAR-STR:CAPS" title="GO_IS_DATA_SCALAR_STR()">GO_IS_DATA_SCALAR_STR</a>               (o)
+                    <a class="link" href="goffice-0.8-go-data-simple.html#GODataScalarStr-struct" title="GODataScalarStr">GODataScalarStr</a>;
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="goffice-0.8-go-data-simple.html#go-data-scalar-str-get-type" title="go_data_scalar_str_get_type ()">go_data_scalar_str_get_type</a>         (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            <a class="link" href="goffice-0.8-go-data-simple.html#go-data-scalar-str-new" title="go_data_scalar_str_new ()">go_data_scalar_str_new</a>              (<em class="parameter"><code><span class="type">char</span> const *text</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> needs_free</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-data-simple.html#go-data-scalar-str-set-str" title="go_data_scalar_str_set_str ()">go_data_scalar_str_set_str</a>          (<em class="parameter"><code><a class="link" href="goffice-0.8-go-data-simple.html#GODataScalarStr"><span class="type">GODataScalarStr</span></a> *str</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *text</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> needs_free</code></em>);
+#define             <a class="link" href="goffice-0.8-go-data-simple.html#GO-TYPE-DATA-VECTOR-VAL:CAPS" title="GO_TYPE_DATA_VECTOR_VAL">GO_TYPE_DATA_VECTOR_VAL</a>
+#define             <a class="link" href="goffice-0.8-go-data-simple.html#GO-DATA-VECTOR-VAL:CAPS" title="GO_DATA_VECTOR_VAL()">GO_DATA_VECTOR_VAL</a>                  (o)
+#define             <a class="link" href="goffice-0.8-go-data-simple.html#GO-IS-DATA-VECTOR-VAL:CAPS" title="GO_IS_DATA_VECTOR_VAL()">GO_IS_DATA_VECTOR_VAL</a>               (o)
+                    <a class="link" href="goffice-0.8-go-data-simple.html#GODataVectorVal-struct" title="GODataVectorVal">GODataVectorVal</a>;
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="goffice-0.8-go-data-simple.html#go-data-vector-val-get-type" title="go_data_vector_val_get_type ()">go_data_vector_val_get_type</a>         (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            <a class="link" href="goffice-0.8-go-data-simple.html#go-data-vector-val-new" title="go_data_vector_val_new ()">go_data_vector_val_new</a>              (<em class="parameter"><code><span class="type">double</span> *val</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned </span> n</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> notify</code></em>);
+#define             <a class="link" href="goffice-0.8-go-data-simple.html#GO-TYPE-DATA-VECTOR-STR:CAPS" title="GO_TYPE_DATA_VECTOR_STR">GO_TYPE_DATA_VECTOR_STR</a>
+#define             <a class="link" href="goffice-0.8-go-data-simple.html#GO-DATA-VECTOR-STR:CAPS" title="GO_DATA_VECTOR_STR()">GO_DATA_VECTOR_STR</a>                  (o)
+#define             <a class="link" href="goffice-0.8-go-data-simple.html#GO-IS-DATA-VECTOR-STR:CAPS" title="GO_IS_DATA_VECTOR_STR()">GO_IS_DATA_VECTOR_STR</a>               (o)
+                    <a class="link" href="goffice-0.8-go-data-simple.html#GODataVectorStr-struct" title="GODataVectorStr">GODataVectorStr</a>;
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="goffice-0.8-go-data-simple.html#go-data-vector-str-get-type" title="go_data_vector_str_get_type ()">go_data_vector_str_get_type</a>         (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            <a class="link" href="goffice-0.8-go-data-simple.html#go-data-vector-str-new" title="go_data_vector_str_new ()">go_data_vector_str_new</a>              (<em class="parameter"><code><span class="type">char</span> const * const *str</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned </span> n</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> notify</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-data-simple.html#go-data-vector-str-set-translate-func" title="go_data_vector_str_set_translate_func ()">go_data_vector_str_set_translate_func</a>
+                                                        (<em class="parameter"><code><a class="link" href="goffice-0.8-go-data-simple.html#GODataVectorStr"><span class="type">GODataVectorStr</span></a> *vector</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-Other.html#GOTranslateFunc" title="GOTranslateFunc ()"><span class="type">GOTranslateFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> notify</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-data-simple.html#go-data-vector-str-set-translation-domain" title="go_data_vector_str_set_translation_domain ()">go_data_vector_str_set_translation_domain</a>
+                                                        (<em class="parameter"><code><a class="link" href="goffice-0.8-go-data-simple.html#GODataVectorStr"><span class="type">GODataVectorStr</span></a> *vector</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *domain</code></em>);
+#define             <a class="link" href="goffice-0.8-go-data-simple.html#GO-TYPE-DATA-MATRIX-VAL:CAPS" title="GO_TYPE_DATA_MATRIX_VAL">GO_TYPE_DATA_MATRIX_VAL</a>
+#define             <a class="link" href="goffice-0.8-go-data-simple.html#GO-DATA-MATRIX-VAL:CAPS" title="GO_DATA_MATRIX_VAL()">GO_DATA_MATRIX_VAL</a>                  (o)
+#define             <a class="link" href="goffice-0.8-go-data-simple.html#GO-IS-DATA-MATRIX-VAL:CAPS" title="GO_IS_DATA_MATRIX_VAL()">GO_IS_DATA_MATRIX_VAL</a>               (o)
+                    <a class="link" href="goffice-0.8-go-data-simple.html#GODataMatrixVal-struct" title="GODataMatrixVal">GODataMatrixVal</a>;
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="goffice-0.8-go-data-simple.html#go-data-matrix-val-get-type" title="go_data_matrix_val_get_type ()">go_data_matrix_val_get_type</a>         (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            <a class="link" href="goffice-0.8-go-data-simple.html#go-data-matrix-val-new" title="go_data_matrix_val_new ()">go_data_matrix_val_new</a>              (<em class="parameter"><code><span class="type">double</span> *val</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned </span> rows</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned </span> columns</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> notify</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="goffice-0.8-go-data-simple.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GOData.html" title="GOData">GOData</a>
+         +----<a class="link" href="GODataScalar.html" title="GODataScalar">GODataScalar</a>
+               +----GODataScalarVal
+</pre>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GOData.html" title="GOData">GOData</a>
+         +----<a class="link" href="GODataScalar.html" title="GODataScalar">GODataScalar</a>
+               +----GODataScalarStr
+</pre>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GOData.html" title="GOData">GOData</a>
+         +----<a class="link" href="GODataVector.html" title="GODataVector">GODataVector</a>
+               +----GODataVectorVal
+</pre>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GOData.html" title="GOData">GOData</a>
+         +----<a class="link" href="GODataVector.html" title="GODataVector">GODataVector</a>
+               +----GODataVectorStr
+</pre>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GOData.html" title="GOData">GOData</a>
+         +----<a class="link" href="GODataMatrix.html" title="GODataMatrix">GODataMatrix</a>
+               +----GODataMatrixVal
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="goffice-0.8-go-data-simple.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="goffice-0.8-go-data-simple.details"></a><h2>Details</h2>
+<div class="refsect2" title="GODataScalarVal">
+<a name="GODataScalarVal-struct"></a><h3>GODataScalarVal</h3>
+<pre class="programlisting">typedef struct _GODataScalarVal GODataScalarVal;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_data_scalar_val_new ()">
+<a name="go-data-scalar-val-new"></a><h3>go_data_scalar_val_new ()</h3>
+<pre class="programlisting"><a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            go_data_scalar_val_new              (<em class="parameter"><code><span class="type">double</span> val</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_TYPE_DATA_SCALAR_STR">
+<a name="GO-TYPE-DATA-SCALAR-STR:CAPS"></a><h3>GO_TYPE_DATA_SCALAR_STR</h3>
+<pre class="programlisting">#define GO_TYPE_DATA_SCALAR_STR  (go_data_scalar_str_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_DATA_SCALAR_STR()">
+<a name="GO-DATA-SCALAR-STR:CAPS"></a><h3>GO_DATA_SCALAR_STR()</h3>
+<pre class="programlisting">#define GO_DATA_SCALAR_STR(o)	 (G_TYPE_CHECK_INSTANCE_CAST ((o), GO_TYPE_DATA_SCALAR_STR, GODataScalarStr))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_IS_DATA_SCALAR_STR()">
+<a name="GO-IS-DATA-SCALAR-STR:CAPS"></a><h3>GO_IS_DATA_SCALAR_STR()</h3>
+<pre class="programlisting">#define GO_IS_DATA_SCALAR_STR(o) (G_TYPE_CHECK_INSTANCE_TYPE ((o), GO_TYPE_DATA_SCALAR_STR))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GODataScalarStr">
+<a name="GODataScalarStr-struct"></a><h3>GODataScalarStr</h3>
+<pre class="programlisting">typedef struct _GODataScalarStr GODataScalarStr;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_data_scalar_str_get_type ()">
+<a name="go-data-scalar-str-get-type"></a><h3>go_data_scalar_str_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_data_scalar_str_get_type         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_scalar_str_new ()">
+<a name="go-data-scalar-str-new"></a><h3>go_data_scalar_str_new ()</h3>
+<pre class="programlisting"><a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            go_data_scalar_str_new              (<em class="parameter"><code><span class="type">char</span> const *text</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> needs_free</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>needs_free</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_scalar_str_set_str ()">
+<a name="go-data-scalar-str-set-str"></a><h3>go_data_scalar_str_set_str ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_data_scalar_str_set_str          (<em class="parameter"><code><a class="link" href="goffice-0.8-go-data-simple.html#GODataScalarStr"><span class="type">GODataScalarStr</span></a> *str</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *text</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> needs_free</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>needs_free</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_TYPE_DATA_VECTOR_VAL">
+<a name="GO-TYPE-DATA-VECTOR-VAL:CAPS"></a><h3>GO_TYPE_DATA_VECTOR_VAL</h3>
+<pre class="programlisting">#define GO_TYPE_DATA_VECTOR_VAL  (go_data_vector_val_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_DATA_VECTOR_VAL()">
+<a name="GO-DATA-VECTOR-VAL:CAPS"></a><h3>GO_DATA_VECTOR_VAL()</h3>
+<pre class="programlisting">#define GO_DATA_VECTOR_VAL(o)	 (G_TYPE_CHECK_INSTANCE_CAST ((o), GO_TYPE_DATA_VECTOR_VAL, GODataVectorVal))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_IS_DATA_VECTOR_VAL()">
+<a name="GO-IS-DATA-VECTOR-VAL:CAPS"></a><h3>GO_IS_DATA_VECTOR_VAL()</h3>
+<pre class="programlisting">#define GO_IS_DATA_VECTOR_VAL(o) (G_TYPE_CHECK_INSTANCE_TYPE ((o), GO_TYPE_DATA_VECTOR_VAL))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GODataVectorVal">
+<a name="GODataVectorVal-struct"></a><h3>GODataVectorVal</h3>
+<pre class="programlisting">typedef struct _GODataVectorVal GODataVectorVal;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_data_vector_val_get_type ()">
+<a name="go-data-vector-val-get-type"></a><h3>go_data_vector_val_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_data_vector_val_get_type         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_vector_val_new ()">
+<a name="go-data-vector-val-new"></a><h3>go_data_vector_val_new ()</h3>
+<pre class="programlisting"><a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            go_data_vector_val_new              (<em class="parameter"><code><span class="type">double</span> *val</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned </span> n</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> notify</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>notify</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_TYPE_DATA_VECTOR_STR">
+<a name="GO-TYPE-DATA-VECTOR-STR:CAPS"></a><h3>GO_TYPE_DATA_VECTOR_STR</h3>
+<pre class="programlisting">#define GO_TYPE_DATA_VECTOR_STR  (go_data_vector_str_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_DATA_VECTOR_STR()">
+<a name="GO-DATA-VECTOR-STR:CAPS"></a><h3>GO_DATA_VECTOR_STR()</h3>
+<pre class="programlisting">#define GO_DATA_VECTOR_STR(o)	 (G_TYPE_CHECK_INSTANCE_CAST ((o), GO_TYPE_DATA_VECTOR_STR, GODataVectorStr))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_IS_DATA_VECTOR_STR()">
+<a name="GO-IS-DATA-VECTOR-STR:CAPS"></a><h3>GO_IS_DATA_VECTOR_STR()</h3>
+<pre class="programlisting">#define GO_IS_DATA_VECTOR_STR(o) (G_TYPE_CHECK_INSTANCE_TYPE ((o), GO_TYPE_DATA_VECTOR_STR))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GODataVectorStr">
+<a name="GODataVectorStr-struct"></a><h3>GODataVectorStr</h3>
+<pre class="programlisting">typedef struct _GODataVectorStr GODataVectorStr;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_data_vector_str_get_type ()">
+<a name="go-data-vector-str-get-type"></a><h3>go_data_vector_str_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_data_vector_str_get_type         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_vector_str_new ()">
+<a name="go-data-vector-str-new"></a><h3>go_data_vector_str_new ()</h3>
+<pre class="programlisting"><a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            go_data_vector_str_new              (<em class="parameter"><code><span class="type">char</span> const * const *str</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned </span> n</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> notify</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>notify</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_vector_str_set_translate_func ()">
+<a name="go-data-vector-str-set-translate-func"></a><h3>go_data_vector_str_set_translate_func ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_data_vector_str_set_translate_func
+                                                        (<em class="parameter"><code><a class="link" href="goffice-0.8-go-data-simple.html#GODataVectorStr"><span class="type">GODataVectorStr</span></a> *vector</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-Other.html#GOTranslateFunc" title="GOTranslateFunc ()"><span class="type">GOTranslateFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> notify</code></em>);</pre>
+<p>
+Sets a function to be used for translating elements of <em class="parameter"><code>vec</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vector</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-go-data-simple.html#GODataVectorStr"><span class="type">GODataVectorStr</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-Other.html#GOTranslateFunc" title="GOTranslateFunc ()"><span class="type">GOTranslateFunc</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>data to be passed to <em class="parameter"><code>func</code></em> and <em class="parameter"><code>notify</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>notify</code></em> :</span></p></td>
+<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> function to be called when <em class="parameter"><code>vec</code></em> is
+  destroyed or when the translation function is changed
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_vector_str_set_translation_domain ()">
+<a name="go-data-vector-str-set-translation-domain"></a><h3>go_data_vector_str_set_translation_domain ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_data_vector_str_set_translation_domain
+                                                        (<em class="parameter"><code><a class="link" href="goffice-0.8-go-data-simple.html#GODataVectorStr"><span class="type">GODataVectorStr</span></a> *vector</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *domain</code></em>);</pre>
+<p>
+Sets the translation domain and uses <code class="function">dgettext()</code> for translating the
+elements of <em class="parameter"><code>vec</code></em>.
+Note that libgoffice expects all strings to be encoded in UTF-8, therefore
+the translation domain must have its codeset set to UTF-8, see
+<code class="function">bind_textdomain_codeset()</code> in the <code class="function">gettext()</code> documentation.
+</p>
+<p>
+If you're not using <code class="function">gettext()</code> for localization, see
+<a class="link" href="goffice-0.8-go-data-simple.html#go-data-vector-str-set-translate-func" title="go_data_vector_str_set_translate_func ()"><code class="function">go_data_vector_str_set_translate_func()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vector</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-go-data-simple.html#GODataVectorStr"><span class="type">GODataVectorStr</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>domain</code></em> :</span></p></td>
+<td>the translation domain to use for <code class="function">dgettext()</code> calls
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_TYPE_DATA_MATRIX_VAL">
+<a name="GO-TYPE-DATA-MATRIX-VAL:CAPS"></a><h3>GO_TYPE_DATA_MATRIX_VAL</h3>
+<pre class="programlisting">#define GO_TYPE_DATA_MATRIX_VAL  (go_data_matrix_val_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_DATA_MATRIX_VAL()">
+<a name="GO-DATA-MATRIX-VAL:CAPS"></a><h3>GO_DATA_MATRIX_VAL()</h3>
+<pre class="programlisting">#define GO_DATA_MATRIX_VAL(o)	 (G_TYPE_CHECK_INSTANCE_CAST ((o), GO_TYPE_DATA_MATRIX_VAL, GODataMatrixVal))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_IS_DATA_MATRIX_VAL()">
+<a name="GO-IS-DATA-MATRIX-VAL:CAPS"></a><h3>GO_IS_DATA_MATRIX_VAL()</h3>
+<pre class="programlisting">#define GO_IS_DATA_MATRIX_VAL(o) (G_TYPE_CHECK_INSTANCE_TYPE ((o), GO_TYPE_DATA_MATRIX_VAL))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GODataMatrixVal">
+<a name="GODataMatrixVal-struct"></a><h3>GODataMatrixVal</h3>
+<pre class="programlisting">typedef struct _GODataMatrixVal GODataMatrixVal;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_data_matrix_val_get_type ()">
+<a name="go-data-matrix-val-get-type"></a><h3>go_data_matrix_val_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_data_matrix_val_get_type         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_matrix_val_new ()">
+<a name="go-data-matrix-val-new"></a><h3>go_data_matrix_val_new ()</h3>
+<pre class="programlisting"><a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            go_data_matrix_val_new              (<em class="parameter"><code><span class="type">double</span> *val</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned </span> rows</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned </span> columns</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> notify</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rows</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>columns</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>notify</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

@@ -1,0 +1,514 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOLine</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch10.html" title="Graphic object properties">
+<link rel="prev" href="goffice-0.8-GOGradient.html" title="GOGradient">
+<link rel="next" href="GOMarker.html" title="GOMarker">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="goffice-0.8-GOGradient.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch10.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GOMarker.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#goffice-0.8-GOLine.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#goffice-0.8-GOLine.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOLine">
+<a name="goffice-0.8-GOLine"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="goffice-0.8-GOLine.top_of_page"></a>GOLine</span></h2>
+<p>GOLine</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="goffice-0.8-GOLine.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">enum                <a class="link" href="goffice-0.8-GOLine.html#GOLineDashType" title="enum GOLineDashType">GOLineDashType</a>;
+                    <a class="link" href="goffice-0.8-GOLine.html#GOLineDashSequence" title="GOLineDashSequence">GOLineDashSequence</a>;
+<a class="link" href="goffice-0.8-GOLine.html#GOLineDashType" title="enum GOLineDashType"><span class="returnvalue">GOLineDashType</span></a>      <a class="link" href="goffice-0.8-GOLine.html#go-line-dash-from-str" title="go_line_dash_from_str ()">go_line_dash_from_str</a>               (<em class="parameter"><code><span class="type">char</span> const *name</code></em>);
+<span class="returnvalue">char</span> const 		*      <a class="link" href="goffice-0.8-GOLine.html#go-line-dash-as-str" title="go_line_dash_as_str ()">go_line_dash_as_str</a>                 (<em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineDashType" title="enum GOLineDashType"><span class="type">GOLineDashType</span></a> type</code></em>);
+<span class="returnvalue">char</span> const 		*      <a class="link" href="goffice-0.8-GOLine.html#go-line-dash-as-label" title="go_line_dash_as_label ()">go_line_dash_as_label</a>               (<em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineDashType" title="enum GOLineDashType"><span class="type">GOLineDashType</span></a> type</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-GOLine.html#go-line-dash-get-length" title="go_line_dash_get_length ()">go_line_dash_get_length</a>             (<em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineDashType" title="enum GOLineDashType"><span class="type">GOLineDashType</span></a> type</code></em>);
+<a class="link" href="goffice-0.8-GOLine.html#GOLineDashSequence" title="GOLineDashSequence"><span class="returnvalue">GOLineDashSequence</span></a> * <a class="link" href="goffice-0.8-GOLine.html#go-line-dash-get-sequence" title="go_line_dash_get_sequence ()">go_line_dash_get_sequence</a>          (<em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineDashType" title="enum GOLineDashType"><span class="type">GOLineDashType</span></a> type</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> scale</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOLine.html#go-line-dash-sequence-free" title="go_line_dash_sequence_free ()">go_line_dash_sequence_free</a>          (<em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineDashSequence" title="GOLineDashSequence"><span class="type">GOLineDashSequence</span></a> *sequence</code></em>);
+<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="goffice-0.8-GOLine.html#go-line-dash-selector-new" title="go_line_dash_selector_new ()">go_line_dash_selector_new</a>           (<em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineDashType" title="enum GOLineDashType"><span class="type">GOLineDashType</span></a> initial_type</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineDashType" title="enum GOLineDashType"><span class="type">GOLineDashType</span></a> default_type</code></em>);
+enum                <a class="link" href="goffice-0.8-GOLine.html#GOLineInterpolation" title="enum GOLineInterpolation">GOLineInterpolation</a>;
+<a class="link" href="goffice-0.8-GOLine.html#GOLineInterpolation" title="enum GOLineInterpolation"><span class="returnvalue">GOLineInterpolation</span></a>  <a class="link" href="goffice-0.8-GOLine.html#go-line-interpolation-from-str" title="go_line_interpolation_from_str ()">go_line_interpolation_from_str</a>     (<em class="parameter"><code><span class="type">char</span> const *name</code></em>);
+<span class="returnvalue">char</span> const 		*      <a class="link" href="goffice-0.8-GOLine.html#go-line-interpolation-as-str" title="go_line_interpolation_as_str ()">go_line_interpolation_as_str</a>        (<em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineInterpolation" title="enum GOLineInterpolation"><span class="type">GOLineInterpolation</span></a> type</code></em>);
+<span class="returnvalue">char</span> const 		*      <a class="link" href="goffice-0.8-GOLine.html#go-line-interpolation-as-label" title="go_line_interpolation_as_label ()">go_line_interpolation_as_label</a>      (<em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineInterpolation" title="enum GOLineInterpolation"><span class="type">GOLineInterpolation</span></a> type</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-GOLine.html#go-line-interpolation-supports-radial" title="go_line_interpolation_supports_radial ()">go_line_interpolation_supports_radial</a>
+                                                        (<em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineInterpolation" title="enum GOLineInterpolation"><span class="type">GOLineInterpolation</span></a> type</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-GOLine.html#go-line-interpolation-auto-skip" title="go_line_interpolation_auto_skip ()">go_line_interpolation_auto_skip</a>     (<em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineInterpolation" title="enum GOLineInterpolation"><span class="type">GOLineInterpolation</span></a> type</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="goffice-0.8-GOLine.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="goffice-0.8-GOLine.details"></a><h2>Details</h2>
+<div class="refsect2" title="enum GOLineDashType">
+<a name="GOLineDashType"></a><h3>enum GOLineDashType</h3>
+<pre class="programlisting">typedef enum {
+	GO_LINE_NONE,
+	GO_LINE_SOLID,
+	GO_LINE_S_DOT,
+	GO_LINE_S_DASH_DOT,
+	GO_LINE_S_DASH_DOT_DOT,
+	GO_LINE_DASH_DOT_DOT_DOT,
+	GO_LINE_DOT,
+	GO_LINE_S_DASH,
+	GO_LINE_DASH,
+	GO_LINE_LONG_DASH,
+	GO_LINE_DASH_DOT,
+	GO_LINE_DASH_DOT_DOT,
+	GO_LINE_MAX
+} GOLineDashType;
+</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="GO-LINE-NONE:CAPS"></a><span class="term"><code class="literal">GO_LINE_NONE</code></span></p></td>
+<td>No line displayed.
+</td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-SOLID:CAPS"></a><span class="term"><code class="literal">GO_LINE_SOLID</code></span></p></td>
+<td>Solid line.
+</td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-S-DOT:CAPS"></a><span class="term"><code class="literal">GO_LINE_S_DOT</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-S-DASH-DOT:CAPS"></a><span class="term"><code class="literal">GO_LINE_S_DASH_DOT</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-S-DASH-DOT-DOT:CAPS"></a><span class="term"><code class="literal">GO_LINE_S_DASH_DOT_DOT</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-DASH-DOT-DOT-DOT:CAPS"></a><span class="term"><code class="literal">GO_LINE_DASH_DOT_DOT_DOT</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-DOT:CAPS"></a><span class="term"><code class="literal">GO_LINE_DOT</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-S-DASH:CAPS"></a><span class="term"><code class="literal">GO_LINE_S_DASH</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-DASH:CAPS"></a><span class="term"><code class="literal">GO_LINE_DASH</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-LONG-DASH:CAPS"></a><span class="term"><code class="literal">GO_LINE_LONG_DASH</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-DASH-DOT:CAPS"></a><span class="term"><code class="literal">GO_LINE_DASH_DOT</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-DASH-DOT-DOT:CAPS"></a><span class="term"><code class="literal">GO_LINE_DASH_DOT_DOT</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-MAX:CAPS"></a><span class="term"><code class="literal">GO_LINE_MAX</code></span></p></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOLineDashSequence">
+<a name="GOLineDashSequence"></a><h3>GOLineDashSequence</h3>
+<pre class="programlisting">typedef struct {
+	double		 offset;
+	unsigned int	 n_dash;
+	double		*dash;
+} GOLineDashSequence;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_line_dash_from_str ()">
+<a name="go-line-dash-from-str"></a><h3>go_line_dash_from_str ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GOLine.html#GOLineDashType" title="enum GOLineDashType"><span class="returnvalue">GOLineDashType</span></a>      go_line_dash_from_str               (<em class="parameter"><code><span class="type">char</span> const *name</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>Name of the dash type
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a class="link" href="goffice-0.8-GOLine.html#GOLineDashType" title="enum GOLineDashType"><span class="type">GOLineDashType</span></a> corresponding to name, or <a class="link" href="goffice-0.8-GOLine.html#GO-LINE-NONE:CAPS"><code class="literal">GO_LINE_NONE</code></a>
+	if not found.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_line_dash_as_str ()">
+<a name="go-line-dash-as-str"></a><h3>go_line_dash_as_str ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const 		*      go_line_dash_as_str                 (<em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineDashType" title="enum GOLineDashType"><span class="type">GOLineDashType</span></a> type</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GOLine.html#GOLineDashType" title="enum GOLineDashType"><span class="type">GOLineDashType</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a pointer to the nickname of the dash type, or "none" if
+	type is invalid. The returning string should not be freed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_line_dash_as_label ()">
+<a name="go-line-dash-as-label"></a><h3>go_line_dash_as_label ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const 		*      go_line_dash_as_label               (<em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineDashType" title="enum GOLineDashType"><span class="type">GOLineDashType</span></a> type</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GOLine.html#GOLineDashType" title="enum GOLineDashType"><span class="type">GOLineDashType</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a pointer to the user readable name of the dash type,
+	or the name of <a class="link" href="goffice-0.8-GOLine.html#GO-LINE-NONE:CAPS"><code class="literal">GO_LINE_NONE</code></a> if type is invalid. The returned
+	string should not be freed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_line_dash_get_length ()">
+<a name="go-line-dash-get-length"></a><h3>go_line_dash_get_length ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_line_dash_get_length             (<em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineDashType" title="enum GOLineDashType"><span class="type">GOLineDashType</span></a> type</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-GOLine.html#GOLineDashType" title="enum GOLineDashType"><span class="type">GOLineDashType</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the unscaled length of the dash sequence.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_line_dash_get_sequence ()">
+<a name="go-line-dash-get-sequence"></a><h3>go_line_dash_get_sequence ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GOLine.html#GOLineDashSequence" title="GOLineDashSequence"><span class="returnvalue">GOLineDashSequence</span></a> * go_line_dash_get_sequence          (<em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineDashType" title="enum GOLineDashType"><span class="type">GOLineDashType</span></a> type</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> scale</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GOLine.html#GOLineDashType" title="enum GOLineDashType"><span class="type">GOLineDashType</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>scale</code></em> :</span></p></td>
+<td>dash scale
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a struct containing the dash sequence corresponding to <em class="parameter"><code>type</code></em>,
+	or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if type is invalid or equal to <a class="link" href="goffice-0.8-GOLine.html#GO-LINE-NONE:CAPS"><code class="literal">GO_LINE_NONE</code></a>.
+	The lengths are scaled according to <em class="parameter"><code>scale</code></em>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_line_dash_sequence_free ()">
+<a name="go-line-dash-sequence-free"></a><h3>go_line_dash_sequence_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_line_dash_sequence_free          (<em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineDashSequence" title="GOLineDashSequence"><span class="type">GOLineDashSequence</span></a> *sequence</code></em>);</pre>
+<p>
+Frees the dash sequence struct.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>sequence</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GOLine.html#GOLineDashSequence" title="GOLineDashSequence"><span class="type">GOLineDashSequence</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_line_dash_selector_new ()">
+<a name="go-line-dash-selector-new"></a><h3>go_line_dash_selector_new ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         go_line_dash_selector_new           (<em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineDashType" title="enum GOLineDashType"><span class="type">GOLineDashType</span></a> initial_type</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineDashType" title="enum GOLineDashType"><span class="type">GOLineDashType</span></a> default_type</code></em>);</pre>
+<p>
+Creates a new line type selector.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>initial_type</code></em> :</span></p></td>
+<td>line type initially selected
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>default_type</code></em> :</span></p></td>
+<td>automatic line type
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="type">GtkWidget</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="enum GOLineInterpolation">
+<a name="GOLineInterpolation"></a><h3>enum GOLineInterpolation</h3>
+<pre class="programlisting">typedef enum {
+	GO_LINE_INTERPOLATION_LINEAR,
+	GO_LINE_INTERPOLATION_SPLINE,
+	GO_LINE_INTERPOLATION_CLOSED_SPLINE,
+	GO_LINE_INTERPOLATION_CUBIC_SPLINE,
+	GO_LINE_INTERPOLATION_PARABOLIC_CUBIC_SPLINE,
+	GO_LINE_INTERPOLATION_CUBIC_CUBIC_SPLINE,
+	GO_LINE_INTERPOLATION_CLAMPED_CUBIC_SPLINE,
+	GO_LINE_INTERPOLATION_STEP_START,
+	GO_LINE_INTERPOLATION_STEP_END,
+	GO_LINE_INTERPOLATION_STEP_CENTER_X,
+	GO_LINE_INTERPOLATION_STEP_CENTER_Y,
+	GO_LINE_INTERPOLATION_MAX
+} GOLineInterpolation;
+</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="GO-LINE-INTERPOLATION-LINEAR:CAPS"></a><span class="term"><code class="literal">GO_LINE_INTERPOLATION_LINEAR</code></span></p></td>
+<td>Linear interpolation.
+</td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-INTERPOLATION-SPLINE:CAPS"></a><span class="term"><code class="literal">GO_LINE_INTERPOLATION_SPLINE</code></span></p></td>
+<td>Bezier cubic spline interpolation.
+</td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-INTERPOLATION-CLOSED-SPLINE:CAPS"></a><span class="term"><code class="literal">GO_LINE_INTERPOLATION_CLOSED_SPLINE</code></span></p></td>
+<td>Closed Bezier cubic spline interpolation.
+</td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-INTERPOLATION-CUBIC-SPLINE:CAPS"></a><span class="term"><code class="literal">GO_LINE_INTERPOLATION_CUBIC_SPLINE</code></span></p></td>
+<td>Cubic spline interpolation with natural limits.
+</td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-INTERPOLATION-PARABOLIC-CUBIC-SPLINE:CAPS"></a><span class="term"><code class="literal">GO_LINE_INTERPOLATION_PARABOLIC_CUBIC_SPLINE</code></span></p></td>
+<td>Cubic spline interpolation with parabolic limits.
+</td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-INTERPOLATION-CUBIC-CUBIC-SPLINE:CAPS"></a><span class="term"><code class="literal">GO_LINE_INTERPOLATION_CUBIC_CUBIC_SPLINE</code></span></p></td>
+<td>Cubic spline interpolation with cubic limits.
+</td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-INTERPOLATION-CLAMPED-CUBIC-SPLINE:CAPS"></a><span class="term"><code class="literal">GO_LINE_INTERPOLATION_CLAMPED_CUBIC_SPLINE</code></span></p></td>
+<td>Cubic spline interpolation with fixed derivatives at both ends.
+</td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-INTERPOLATION-STEP-START:CAPS"></a><span class="term"><code class="literal">GO_LINE_INTERPOLATION_STEP_START</code></span></p></td>
+<td>Steps using first y value.
+</td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-INTERPOLATION-STEP-END:CAPS"></a><span class="term"><code class="literal">GO_LINE_INTERPOLATION_STEP_END</code></span></p></td>
+<td>Steps using last y value.
+</td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-INTERPOLATION-STEP-CENTER-X:CAPS"></a><span class="term"><code class="literal">GO_LINE_INTERPOLATION_STEP_CENTER_X</code></span></p></td>
+<td>Steps centered around each point.
+</td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-INTERPOLATION-STEP-CENTER-Y:CAPS"></a><span class="term"><code class="literal">GO_LINE_INTERPOLATION_STEP_CENTER_Y</code></span></p></td>
+<td>Steps using mean y value.
+</td>
+</tr>
+<tr>
+<td><p><a name="GO-LINE-INTERPOLATION-MAX:CAPS"></a><span class="term"><code class="literal">GO_LINE_INTERPOLATION_MAX</code></span></p></td>
+<td>First invalid value.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_line_interpolation_from_str ()">
+<a name="go-line-interpolation-from-str"></a><h3>go_line_interpolation_from_str ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GOLine.html#GOLineInterpolation" title="enum GOLineInterpolation"><span class="returnvalue">GOLineInterpolation</span></a>  go_line_interpolation_from_str     (<em class="parameter"><code><span class="type">char</span> const *name</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>an interpolation type nickname
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a class="link" href="goffice-0.8-GOLine.html#GOLineInterpolation" title="enum GOLineInterpolation"><span class="type">GOLineInterpolation</span></a> corresponding to <em class="parameter"><code>name</code></em>, or
+	<a class="link" href="goffice-0.8-GOLine.html#GO-LINE-INTERPOLATION-LINEAR:CAPS"><code class="literal">GO_LINE_INTERPOLATION_LINEAR</code></a> if not found.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_line_interpolation_as_str ()">
+<a name="go-line-interpolation-as-str"></a><h3>go_line_interpolation_as_str ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const 		*      go_line_interpolation_as_str        (<em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineInterpolation" title="enum GOLineInterpolation"><span class="type">GOLineInterpolation</span></a> type</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>an interpolation type
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the line interpolation type forces skipping invalid
+data, FALSE if it is only optional.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_line_interpolation_as_label ()">
+<a name="go-line-interpolation-as-label"></a><h3>go_line_interpolation_as_label ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const 		*      go_line_interpolation_as_label      (<em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineInterpolation" title="enum GOLineInterpolation"><span class="type">GOLineInterpolation</span></a> type</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>an interpolation type
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a pointer to the label of <em class="parameter"><code>type</code></em>, or the name of
+<a class="link" href="goffice-0.8-GOLine.html#GO-LINE-INTERPOLATION-LINEAR:CAPS"><code class="literal">GO_LINE_INTERPOLATION_LINEAR</code></a> if type is invalid.
+The returned string should not be freed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_line_interpolation_supports_radial ()">
+<a name="go-line-interpolation-supports-radial"></a><h3>go_line_interpolation_supports_radial ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_line_interpolation_supports_radial
+                                                        (<em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineInterpolation" title="enum GOLineInterpolation"><span class="type">GOLineInterpolation</span></a> type</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_line_interpolation_auto_skip ()">
+<a name="go-line-interpolation-auto-skip"></a><h3>go_line_interpolation_auto_skip ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_line_interpolation_auto_skip     (<em class="parameter"><code><a class="link" href="goffice-0.8-GOLine.html#GOLineInterpolation" title="enum GOLineInterpolation"><span class="type">GOLineInterpolation</span></a> type</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

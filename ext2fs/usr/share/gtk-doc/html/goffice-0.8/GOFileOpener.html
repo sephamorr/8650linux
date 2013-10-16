@@ -1,0 +1,778 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOFileOpener</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch14.html" title="File utilities">
+<link rel="prev" href="goffice-0.8-GOFile.html" title="GOFile">
+<link rel="next" href="GOFileSaver.html" title="GOFileSaver">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="goffice-0.8-GOFile.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch14.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GOFileSaver.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GOFileOpener.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GOFileOpener.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GOFileOpener.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOFileOpener">
+<a name="GOFileOpener"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GOFileOpener.top_of_page"></a>GOFileOpener</span></h2>
+<p>GOFileOpener</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GOFileOpener.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="GOFileOpener.html#GOFileOpener-struct" title="GOFileOpener">GOFileOpener</a>;
+                    <a class="link" href="GOFileOpener.html#GOFileOpenerClass" title="GOFileOpenerClass">GOFileOpenerClass</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            (<a class="link" href="GOFileOpener.html#GOFileOpenerProbeFunc" title="GOFileOpenerProbeFunc ()">*GOFileOpenerProbeFunc</a>)            (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-Input-from-unstructured-files.html#GsfInput"><span class="type">GsfInput</span></a> *input</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOFile.html#GOFileProbeLevel" title="enum GOFileProbeLevel"><span class="type">GOFileProbeLevel</span></a> pl</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="GOFileOpener.html#GOFileOpenerOpenFunc" title="GOFileOpenerOpenFunc ()">*GOFileOpenerOpenFunc</a>)             (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> FIXME_FIXME_workbook_view</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-Input-from-unstructured-files.html#GsfInput"><span class="type">GsfInput</span></a> *input</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="GOFileOpener.html#GOFileOpenerOpenFuncWithEnc" title="GOFileOpenerOpenFuncWithEnc ()">*GOFileOpenerOpenFuncWithEnc</a>)      (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> const *enc</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> FIXME_workbook_view</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-Input-from-unstructured-files.html#GsfInput"><span class="type">GsfInput</span></a> *input</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOFileOpener.html#go-file-opener-can-probe" title="go_file_opener_can_probe ()">go_file_opener_can_probe</a>            (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOFile.html#GOFileProbeLevel" title="enum GOFileProbeLevel"><span class="type">GOFileProbeLevel</span></a> pl</code></em>);
+<a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="returnvalue">GOFileOpener</span></a> *      <a class="link" href="GOFileOpener.html#go-file-opener-for-id" title="go_file_opener_for_id ()">go_file_opener_for_id</a>               (<em class="parameter"><code><span class="type">char</span> const *id</code></em>);
+<span class="returnvalue">char</span> const *        <a class="link" href="GOFileOpener.html#go-file-opener-get-description" title="go_file_opener_get_description ()">go_file_opener_get_description</a>      (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>);
+<span class="returnvalue">char</span> const *        <a class="link" href="GOFileOpener.html#go-file-opener-get-id" title="go_file_opener_get_id ()">go_file_opener_get_id</a>               (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> const *      <a class="link" href="GOFileOpener.html#go-file-opener-get-mimes" title="go_file_opener_get_mimes ()">go_file_opener_get_mimes</a>            (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> const *      <a class="link" href="GOFileOpener.html#go-file-opener-get-suffixes" title="go_file_opener_get_suffixes ()">go_file_opener_get_suffixes</a>         (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>);
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GOFileOpener.html#go-file-opener-get-type" title="go_file_opener_get_type ()">go_file_opener_get_type</a>             (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOFileOpener.html#go-file-opener-is-encoding-dependent" title="go_file_opener_is_encoding_dependent ()">go_file_opener_is_encoding_dependent</a>
+                                                        (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>);
+<a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="returnvalue">GOFileOpener</span></a> *      <a class="link" href="GOFileOpener.html#go-file-opener-new" title="go_file_opener_new ()">go_file_opener_new</a>                  (<em class="parameter"><code><span class="type">char</span> const *id</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *description</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *suffixes</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *mimes</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOFileOpener.html#GOFileOpenerProbeFunc" title="GOFileOpenerProbeFunc ()"><span class="type">GOFileOpenerProbeFunc</span></a> probe_func</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOFileOpener.html#GOFileOpenerOpenFunc" title="GOFileOpenerOpenFunc ()"><span class="type">GOFileOpenerOpenFunc</span></a> open_func</code></em>);
+<a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="returnvalue">GOFileOpener</span></a> *      <a class="link" href="GOFileOpener.html#go-file-opener-new-with-enc" title="go_file_opener_new_with_enc ()">go_file_opener_new_with_enc</a>         (<em class="parameter"><code><span class="type">char</span> const *id</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *description</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *suffixes</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *mimes</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOFileOpener.html#GOFileOpenerProbeFunc" title="GOFileOpenerProbeFunc ()"><span class="type">GOFileOpenerProbeFunc</span></a> probe_func</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOFileOpener.html#GOFileOpenerOpenFuncWithEnc" title="GOFileOpenerOpenFuncWithEnc ()"><span class="type">GOFileOpenerOpenFuncWithEnc</span></a> open_func</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOFileOpener.html#go-file-opener-open" title="go_file_opener_open ()">go_file_opener_open</a>                 (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> const *opt_enc</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> FIXME_workbook_view</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-Input-from-unstructured-files.html#GsfInput"><span class="type">GsfInput</span></a> *input</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOFileOpener.html#go-file-opener-probe" title="go_file_opener_probe ()">go_file_opener_probe</a>                (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-Input-from-unstructured-files.html#GsfInput"><span class="type">GsfInput</span></a> *input</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOFile.html#GOFileProbeLevel" title="enum GOFileProbeLevel"><span class="type">GOFileProbeLevel</span></a> pl</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOFileOpener.html#go-file-opener-register" title="go_file_opener_register ()">go_file_opener_register</a>             (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> *fo</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> priority</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOFileOpener.html#go-file-opener-setup" title="go_file_opener_setup ()">go_file_opener_setup</a>                (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> *fo</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *id</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *description</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *suffixes</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *mimes</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> encoding_dependent</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOFileOpener.html#GOFileOpenerProbeFunc" title="GOFileOpenerProbeFunc ()"><span class="type">GOFileOpenerProbeFunc</span></a> probe_func</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOFileOpener.html#GOFileOpenerOpenFunc" title="GOFileOpenerOpenFunc ()"><span class="type">GOFileOpenerOpenFunc</span></a> open_func</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOFileOpener.html#go-file-opener-unregister" title="go_file_opener_unregister ()">go_file_opener_unregister</a>           (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> *fo</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="GOFileOpener.html#go-get-file-openers" title="go_get_file_openers ()">go_get_file_openers</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
+#define             <a class="link" href="GOFileOpener.html#GO-FILE-OPENER-METHOD:CAPS" title="GO_FILE_OPENER_METHOD()">GO_FILE_OPENER_METHOD</a>               (obj,
+                                                         name)
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GOFileOpener.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GOFileOpener
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GOFileOpener.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GOFileOpener.details"></a><h2>Details</h2>
+<div class="refsect2" title="GOFileOpener">
+<a name="GOFileOpener-struct"></a><h3>GOFileOpener</h3>
+<pre class="programlisting">typedef struct _GOFileOpener GOFileOpener;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GOFileOpenerClass">
+<a name="GOFileOpenerClass"></a><h3>GOFileOpenerClass</h3>
+<pre class="programlisting">typedef struct {
+	GObjectClass parent_class;
+
+	/* private */
+	gboolean  (*can_probe) (GOFileOpener const *fo,
+				GOFileProbeLevel pl);
+	gboolean  (*probe) (GOFileOpener const *fo,
+	                    GsfInput *input,
+	                    GOFileProbeLevel pl);
+	void      (*open)  (GOFileOpener const *fo,
+			    gchar const *opt_enc,
+	                    GOIOContext *io_context,
+	                    gpointer  fixme_fixme_workbook_view,
+	                    GsfInput *input);
+} GOFileOpenerClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GOFileOpenerProbeFunc ()">
+<a name="GOFileOpenerProbeFunc"></a><h3>GOFileOpenerProbeFunc ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            (*GOFileOpenerProbeFunc)            (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-Input-from-unstructured-files.html#GsfInput"><span class="type">GsfInput</span></a> *input</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOFile.html#GOFileProbeLevel" title="enum GOFileProbeLevel"><span class="type">GOFileProbeLevel</span></a> pl</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fo</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>input</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pl</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOFileOpenerOpenFunc ()">
+<a name="GOFileOpenerOpenFunc"></a><h3>GOFileOpenerOpenFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*GOFileOpenerOpenFunc)             (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> FIXME_FIXME_workbook_view</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-Input-from-unstructured-files.html#GsfInput"><span class="type">GsfInput</span></a> *input</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fo</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>io_context</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>FIXME_FIXME_workbook_view</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>input</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOFileOpenerOpenFuncWithEnc ()">
+<a name="GOFileOpenerOpenFuncWithEnc"></a><h3>GOFileOpenerOpenFuncWithEnc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*GOFileOpenerOpenFuncWithEnc)      (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> const *enc</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> FIXME_workbook_view</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-Input-from-unstructured-files.html#GsfInput"><span class="type">GsfInput</span></a> *input</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fo</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>enc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>io_context</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>FIXME_workbook_view</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>input</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_file_opener_can_probe ()">
+<a name="go-file-opener-can-probe"></a><h3>go_file_opener_can_probe ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_file_opener_can_probe            (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOFile.html#GOFileProbeLevel" title="enum GOFileProbeLevel"><span class="type">GOFileProbeLevel</span></a> pl</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fo</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pl</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_file_opener_for_id ()">
+<a name="go-file-opener-for-id"></a><h3>go_file_opener_for_id ()</h3>
+<pre class="programlisting"><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="returnvalue">GOFileOpener</span></a> *      go_file_opener_for_id               (<em class="parameter"><code><span class="type">char</span> const *id</code></em>);</pre>
+<p>
+Searches for file opener with given <em class="parameter"><code>id</code></em>, registered using
+go_file_opener_register
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>File opener's ID
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> object or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if opener cannot be found.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_file_opener_get_description ()">
+<a name="go-file-opener-get-description"></a><h3>go_file_opener_get_description ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const *        go_file_opener_get_description      (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fo</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_file_opener_get_id ()">
+<a name="go-file-opener-get-id"></a><h3>go_file_opener_get_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const *        go_file_opener_get_id               (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fo</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_file_opener_get_mimes ()">
+<a name="go-file-opener-get-mimes"></a><h3>go_file_opener_get_mimes ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> const *      go_file_opener_get_mimes            (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fo</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_file_opener_get_suffixes ()">
+<a name="go-file-opener-get-suffixes"></a><h3>go_file_opener_get_suffixes ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> const *      go_file_opener_get_suffixes         (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fo</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_file_opener_get_type ()">
+<a name="go-file-opener-get-type"></a><h3>go_file_opener_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_file_opener_get_type             (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_file_opener_is_encoding_dependent ()">
+<a name="go-file-opener-is-encoding-dependent"></a><h3>go_file_opener_is_encoding_dependent ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_file_opener_is_encoding_dependent
+                                                        (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fo</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_file_opener_new ()">
+<a name="go-file-opener-new"></a><h3>go_file_opener_new ()</h3>
+<pre class="programlisting"><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="returnvalue">GOFileOpener</span></a> *      go_file_opener_new                  (<em class="parameter"><code><span class="type">char</span> const *id</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *description</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *suffixes</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *mimes</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOFileOpener.html#GOFileOpenerProbeFunc" title="GOFileOpenerProbeFunc ()"><span class="type">GOFileOpenerProbeFunc</span></a> probe_func</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOFileOpener.html#GOFileOpenerOpenFunc" title="GOFileOpenerOpenFunc ()"><span class="type">GOFileOpenerOpenFunc</span></a> open_func</code></em>);</pre>
+<p>
+Creates new GOFileOpener object. Optional <em class="parameter"><code>id</code></em> will be used
+after registering it with go_file_opener_register function.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>Optional ID of the opener (or NULL)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>description</code></em> :</span></p></td>
+<td>Description of supported file format
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>suffixes</code></em> :</span></p></td>
+<td>List of suffixes to associate with the opener
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mimes</code></em> :</span></p></td>
+<td>List of mime types to associate with the opener
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>probe_func</code></em> :</span></p></td>
+<td>Optional pointer to "probe" function (or NULL)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>open_func</code></em> :</span></p></td>
+<td>Pointer to "open" function
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> newly created GOFileOpener object.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_file_opener_new_with_enc ()">
+<a name="go-file-opener-new-with-enc"></a><h3>go_file_opener_new_with_enc ()</h3>
+<pre class="programlisting"><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="returnvalue">GOFileOpener</span></a> *      go_file_opener_new_with_enc         (<em class="parameter"><code><span class="type">char</span> const *id</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *description</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *suffixes</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *mimes</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOFileOpener.html#GOFileOpenerProbeFunc" title="GOFileOpenerProbeFunc ()"><span class="type">GOFileOpenerProbeFunc</span></a> probe_func</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOFileOpener.html#GOFileOpenerOpenFuncWithEnc" title="GOFileOpenerOpenFuncWithEnc ()"><span class="type">GOFileOpenerOpenFuncWithEnc</span></a> open_func</code></em>);</pre>
+<p>
+Creates new GOFileOpener object. Optional <em class="parameter"><code>id</code></em> will be used
+after registering it with go_file_opener_register function.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>Optional ID of the opener (or NULL)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>description</code></em> :</span></p></td>
+<td>Description of supported file format
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>suffixes</code></em> :</span></p></td>
+<td>List of suffixes to associate with the opener
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mimes</code></em> :</span></p></td>
+<td>List of mime types to associate with the opener
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>probe_func</code></em> :</span></p></td>
+<td>Optional pointer to "probe" function (or NULL)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>open_func</code></em> :</span></p></td>
+<td>Pointer to "open" function
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> newly created <a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> object.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_file_opener_open ()">
+<a name="go-file-opener-open"></a><h3>go_file_opener_open ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_file_opener_open                 (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> const *opt_enc</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOIOContext.html" title="GOIOContext"><span class="type">GOIOContext</span></a> *io_context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> FIXME_workbook_view</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-Input-from-unstructured-files.html#GsfInput"><span class="type">GsfInput</span></a> *input</code></em>);</pre>
+<p>
+Reads content of <em class="parameter"><code>file_name</code></em> file into workbook <em class="parameter"><code>wbv</code></em> is attached to.
+Results are reported using <em class="parameter"><code>io_context</code></em> object, use
+go_io_error_occurred to find out if operation was successful.
+The state of <em class="parameter"><code>wbv</code></em> and its workbook is undefined if operation fails, you
+should destroy them in that case.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fo</code></em> :</span></p></td>
+<td>GOFileOpener object
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>opt_enc</code></em> :</span></p></td>
+<td>Optional encoding
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>io_context</code></em> :</span></p></td>
+<td>Context for i/o operation
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>FIXME_workbook_view</code></em> :</span></p></td>
+<td>Workbook View
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>input</code></em> :</span></p></td>
+<td>Gsf input stream
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_file_opener_probe ()">
+<a name="go-file-opener-probe"></a><h3>go_file_opener_probe ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_file_opener_probe                (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> const *fo</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-Input-from-unstructured-files.html#GsfInput"><span class="type">GsfInput</span></a> *input</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOFile.html#GOFileProbeLevel" title="enum GOFileProbeLevel"><span class="type">GOFileProbeLevel</span></a> pl</code></em>);</pre>
+<p>
+Checks if a given file is supported by the opener.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fo</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>input</code></em> :</span></p></td>
+<td>
+<a href="/usr/share/gtk-doc/html/gsf/gsf-Input-from-unstructured-files.html#GsfInput"><span class="type">GsfInput</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pl</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-GOFile.html#GOFileProbeLevel" title="enum GOFileProbeLevel"><span class="type">GOFileProbeLevel</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, if the opener can read given file and <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_file_opener_register ()">
+<a name="go-file-opener-register"></a><h3>go_file_opener_register ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_file_opener_register             (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> *fo</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> priority</code></em>);</pre>
+<p>
+Adds <em class="parameter"><code>fo</code></em> opener to the list of available file openers, making it
+available for Gnumeric i/o routines. The opener is registered with given
+<em class="parameter"><code>priority</code></em>. The priority is used to determine the order in which openers
+will be tried when reading a file. The higher the priority, the sooner it
+will be tried. Default XML-based Gnumeric file opener is registered at
+priority 50. Recommended range for <em class="parameter"><code>priority</code></em> is [0, 100].
+Reference count for the opener is incremented inside the function, but
+you don't have to (and shouldn't) call g_object_unref on it if it's
+floating object (for example, when you pass object newly created with
+go_file_opener_new and not referenced anywhere).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fo</code></em> :</span></p></td>
+<td>GOFileOpener object
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>priority</code></em> :</span></p></td>
+<td>Opener's priority
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_file_opener_setup ()">
+<a name="go-file-opener-setup"></a><h3>go_file_opener_setup ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_file_opener_setup                (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> *fo</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *id</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *description</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *suffixes</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *mimes</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> encoding_dependent</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOFileOpener.html#GOFileOpenerProbeFunc" title="GOFileOpenerProbeFunc ()"><span class="type">GOFileOpenerProbeFunc</span></a> probe_func</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOFileOpener.html#GOFileOpenerOpenFunc" title="GOFileOpenerOpenFunc ()"><span class="type">GOFileOpenerOpenFunc</span></a> open_func</code></em>);</pre>
+<p>
+Sets up GOFileOpener object, newly created with g_object_new function.
+This is intended to be used only by GOFileOpener derivates.
+Use go_file_opener_new, if you want to create GOFileOpener object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fo</code></em> :</span></p></td>
+<td>Newly created GOFileOpener object
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>Optional ID of the opener (or NULL)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>description</code></em> :</span></p></td>
+<td>Description of supported file format
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>suffixes</code></em> :</span></p></td>
+<td>List of suffixes to associate with the opener
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mimes</code></em> :</span></p></td>
+<td>List of mime types to associate with the opener
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>encoding_dependent</code></em> :</span></p></td>
+<td>whether the opener depends on an encoding sel.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>probe_func</code></em> :</span></p></td>
+<td>Optional pointer to "probe" function (or NULL)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>open_func</code></em> :</span></p></td>
+<td>Pointer to "open" function
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_file_opener_unregister ()">
+<a name="go-file-opener-unregister"></a><h3>go_file_opener_unregister ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_file_opener_unregister           (<em class="parameter"><code><a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> *fo</code></em>);</pre>
+<p>
+Removes <em class="parameter"><code>fo</code></em> opener from list of available file openers. Reference count
+for the opener is decremented inside the function.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>fo</code></em> :</span></p></td>
+<td>GOFileOpener object previously registered using
+               go_file_opener_register
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_get_file_openers ()">
+<a name="go-get-file-openers"></a><h3>go_get_file_openers ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             go_get_file_openers                 (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> list of known <a class="link" href="GOFileOpener.html" title="GOFileOpener"><span class="type">GOFileOpener</span></a> types (do not modify list)
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_FILE_OPENER_METHOD()">
+<a name="GO-FILE-OPENER-METHOD:CAPS"></a><h3>GO_FILE_OPENER_METHOD()</h3>
+<pre class="programlisting">#define             GO_FILE_OPENER_METHOD(obj,name)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

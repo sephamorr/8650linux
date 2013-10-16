@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Key Fingerprints</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Gcr Library Reference Manual">
+<link rel="up" href="misc.html" title="Part VI. Miscellaneous">
+<link rel="prev" href="gcr-Library-Settings.html" title="Library Settings">
+<link rel="next" href="GcrSecretExchange.html" title="GcrSecretExchange">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gcr-Library-Settings.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="misc.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Gcr Library Reference Manual</th>
+<td><a accesskey="n" href="GcrSecretExchange.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gcr-Key-Fingerprints.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gcr-Key-Fingerprints.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gcr-Key-Fingerprints"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gcr-Key-Fingerprints.top_of_page"></a>Key Fingerprints</span></h2>
+<p>Key Fingerprints — Fingerprints for public and private keys</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gcr-Key-Fingerprints.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="returnvalue">guchar</span></a> *            <a class="link" href="gcr-Key-Fingerprints.html#gcr-fingerprint-from-attributes" title="gcr_fingerprint_from_attributes ()">gcr_fingerprint_from_attributes</a>     (<em class="parameter"><code><a href="http://developer.gnome.org/gck/stable/GckAttributes.html"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Data-Checksums.html#GChecksumType"><span class="type">GChecksumType</span></a> checksum_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *n_fingerprint</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="returnvalue">guchar</span></a> *            <a class="link" href="gcr-Key-Fingerprints.html#gcr-fingerprint-from-subject-public-key-info" title="gcr_fingerprint_from_subject_public_key_info ()">gcr_fingerprint_from_subject_public_key_info</a>
+                                                        (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *key_info</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> n_key_info</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Data-Checksums.html#GChecksumType"><span class="type">GChecksumType</span></a> checksum_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *n_fingerprint</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-Key-Fingerprints.description"></a><h2>Description</h2>
+<p>
+These functions generate key fingerprints for public keys, certificates and
+key data. The fingerprints are created so that they they will be identical
+for a key and its corresponding certificate.
+</p>
+<p>
+Note that in the case of certificates these are not fingerprints of the
+actual certificate data, but rather of the public key contained in a
+certificate.
+</p>
+<p>
+These fingerprints are created using the subjectPublicKeyInfo ASN.1 structure.
+</p>
+</div>
+<div class="refsect1">
+<a name="gcr-Key-Fingerprints.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="gcr-fingerprint-from-attributes"></a><h3>gcr_fingerprint_from_attributes ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="returnvalue">guchar</span></a> *            gcr_fingerprint_from_attributes     (<em class="parameter"><code><a href="http://developer.gnome.org/gck/stable/GckAttributes.html"><span class="type">GckAttributes</span></a> *attrs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Data-Checksums.html#GChecksumType"><span class="type">GChecksumType</span></a> checksum_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *n_fingerprint</code></em>);</pre>
+<p>
+Create a key fingerprint for a certificate, public key or private key.
+Note that this is not a fingerprint of certificate data, which you would
+use <a class="link" href="GcrCertificate.html#gcr-certificate-get-fingerprint" title="gcr_certificate_get_fingerprint ()"><code class="function">gcr_certificate_get_fingerprint()</code></a> for.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>attributes for key or certificate</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>checksum_type</code></em> :</span></p></td>
+<td>the type of fingerprint to create</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_fingerprint</code></em> :</span></p></td>
+<td>the length of fingerprint returned</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the
+fingerprint or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the input was invalid. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_fingerprint]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-fingerprint-from-subject-public-key-info"></a><h3>gcr_fingerprint_from_subject_public_key_info ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="returnvalue">guchar</span></a> *            gcr_fingerprint_from_subject_public_key_info
+                                                        (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *key_info</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> n_key_info</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Data-Checksums.html#GChecksumType"><span class="type">GChecksumType</span></a> checksum_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="type">gsize</span></a> *n_fingerprint</code></em>);</pre>
+<p>
+Create a key fingerprint for a DER encoded subjectPublicKeyInfo.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key_info</code></em> :</span></p></td>
+<td>DER encoded subjectPublicKeyInfo structure. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_key_info]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_key_info</code></em> :</span></p></td>
+<td>length of DER encoded structure</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>checksum_type</code></em> :</span></p></td>
+<td>the type of fingerprint to create</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_fingerprint</code></em> :</span></p></td>
+<td>the length of fingerprint returned</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the
+fingerprint or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the input was invalid. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_fingerprint]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

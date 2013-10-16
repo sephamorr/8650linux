@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GODataVector</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch12.html" title="Data">
+<link rel="prev" href="GODataScalar.html" title="GODataScalar">
+<link rel="next" href="GODataMatrix.html" title="GODataMatrix">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GODataScalar.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch12.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GODataMatrix.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GODataVector.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GODataVector.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GODataVector.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry" title="GODataVector">
+<a name="GODataVector"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GODataVector.top_of_page"></a>GODataVector</span></h2>
+<p>GODataVector</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GODataVector.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="GODataVector.html#GODataVector-struct" title="GODataVector">GODataVector</a>;
+                    <a class="link" href="GODataVector.html#GODataVectorClass" title="GODataVectorClass">GODataVectorClass</a>;
+
+<span class="returnvalue">int</span>                 <a class="link" href="GODataVector.html#go-data-vector-get-len" title="go_data_vector_get_len ()">go_data_vector_get_len</a>              (<em class="parameter"><code><a class="link" href="GODataVector.html" title="GODataVector"><span class="type">GODataVector</span></a> *vec</code></em>);
+<span class="returnvalue">double</span> *            <a class="link" href="GODataVector.html#go-data-vector-get-values" title="go_data_vector_get_values ()">go_data_vector_get_values</a>           (<em class="parameter"><code><a class="link" href="GODataVector.html" title="GODataVector"><span class="type">GODataVector</span></a> *vec</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="GODataVector.html#go-data-vector-get-value" title="go_data_vector_get_value ()">go_data_vector_get_value</a>            (<em class="parameter"><code><a class="link" href="GODataVector.html" title="GODataVector"><span class="type">GODataVector</span></a> *vec</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned </span> i</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="GODataVector.html#go-data-vector-get-str" title="go_data_vector_get_str ()">go_data_vector_get_str</a>              (<em class="parameter"><code><a class="link" href="GODataVector.html" title="GODataVector"><span class="type">GODataVector</span></a> *vec</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned </span> i</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GODataVector.html#go-data-vector-get-minmax" title="go_data_vector_get_minmax ()">go_data_vector_get_minmax</a>           (<em class="parameter"><code><a class="link" href="GODataVector.html" title="GODataVector"><span class="type">GODataVector</span></a> *vec</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *min</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *max</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GODataVector.html#go-data-vector-increasing" title="go_data_vector_increasing ()">go_data_vector_increasing</a>           (<em class="parameter"><code><a class="link" href="GODataVector.html" title="GODataVector"><span class="type">GODataVector</span></a> *vec</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GODataVector.html#go-data-vector-decreasing" title="go_data_vector_decreasing ()">go_data_vector_decreasing</a>           (<em class="parameter"><code><a class="link" href="GODataVector.html" title="GODataVector"><span class="type">GODataVector</span></a> *vec</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GODataVector.html#go-data-vector-vary-uniformly" title="go_data_vector_vary_uniformly ()">go_data_vector_vary_uniformly</a>       (<em class="parameter"><code><a class="link" href="GODataVector.html" title="GODataVector"><span class="type">GODataVector</span></a> *vec</code></em>);
+#define             <a class="link" href="GODataVector.html#GO-DATA-VECTOR-LEN-CACHED:CAPS" title="GO_DATA_VECTOR_LEN_CACHED">GO_DATA_VECTOR_LEN_CACHED</a>
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GODataVector.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GOData.html" title="GOData">GOData</a>
+         +----GODataVector
+               +----<a class="link" href="goffice-0.8-go-data-simple.html#GODataVectorStr">GODataVectorStr</a>
+               +----<a class="link" href="goffice-0.8-go-data-simple.html#GODataVectorVal">GODataVectorVal</a>
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GODataVector.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GODataVector.details"></a><h2>Details</h2>
+<div class="refsect2" title="GODataVector">
+<a name="GODataVector-struct"></a><h3>GODataVector</h3>
+<pre class="programlisting">typedef struct _GODataVector GODataVector;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GODataVectorClass">
+<a name="GODataVectorClass"></a><h3>GODataVectorClass</h3>
+<pre class="programlisting">typedef struct {
+	GODataClass base;
+
+	void	 (*load_len)    (GODataVector *vec);
+	void	 (*load_values) (GODataVector *vec);
+	double	 (*get_value)   (GODataVector *vec, unsigned i);
+	char *(*get_str) (GODataVector *vec, unsigned i);
+} GODataVectorClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_data_vector_get_len ()">
+<a name="go-data-vector-get-len"></a><h3>go_data_vector_get_len ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_data_vector_get_len              (<em class="parameter"><code><a class="link" href="GODataVector.html" title="GODataVector"><span class="type">GODataVector</span></a> *vec</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_vector_get_values ()">
+<a name="go-data-vector-get-values"></a><h3>go_data_vector_get_values ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span> *            go_data_vector_get_values           (<em class="parameter"><code><a class="link" href="GODataVector.html" title="GODataVector"><span class="type">GODataVector</span></a> *vec</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_vector_get_value ()">
+<a name="go-data-vector-get-value"></a><h3>go_data_vector_get_value ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_data_vector_get_value            (<em class="parameter"><code><a class="link" href="GODataVector.html" title="GODataVector"><span class="type">GODataVector</span></a> *vec</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned </span> i</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>i</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_vector_get_str ()">
+<a name="go-data-vector-get-str"></a><h3>go_data_vector_get_str ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              go_data_vector_get_str              (<em class="parameter"><code><a class="link" href="GODataVector.html" title="GODataVector"><span class="type">GODataVector</span></a> *vec</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned </span> i</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>i</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_vector_get_minmax ()">
+<a name="go-data-vector-get-minmax"></a><h3>go_data_vector_get_minmax ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_data_vector_get_minmax           (<em class="parameter"><code><a class="link" href="GODataVector.html" title="GODataVector"><span class="type">GODataVector</span></a> *vec</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *min</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *max</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>min</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>max</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_vector_increasing ()">
+<a name="go-data-vector-increasing"></a><h3>go_data_vector_increasing ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_data_vector_increasing           (<em class="parameter"><code><a class="link" href="GODataVector.html" title="GODataVector"><span class="type">GODataVector</span></a> *vec</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_vector_decreasing ()">
+<a name="go-data-vector-decreasing"></a><h3>go_data_vector_decreasing ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_data_vector_decreasing           (<em class="parameter"><code><a class="link" href="GODataVector.html" title="GODataVector"><span class="type">GODataVector</span></a> *vec</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_vector_vary_uniformly ()">
+<a name="go-data-vector-vary-uniformly"></a><h3>go_data_vector_vary_uniformly ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_data_vector_vary_uniformly       (<em class="parameter"><code><a class="link" href="GODataVector.html" title="GODataVector"><span class="type">GODataVector</span></a> *vec</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_DATA_VECTOR_LEN_CACHED">
+<a name="GO-DATA-VECTOR-LEN-CACHED:CAPS"></a><h3>GO_DATA_VECTOR_LEN_CACHED</h3>
+<pre class="programlisting">#define GO_DATA_VECTOR_LEN_CACHED GO_DATA_SIZE_CACHED
+</pre>
+<p>
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

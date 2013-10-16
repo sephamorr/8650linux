@@ -1,0 +1,724 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOStyle</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch10.html" title="Graphic object properties">
+<link rel="prev" href="goffice-0.8-GOPattern.html" title="GOPattern">
+<link rel="next" href="GOStyledObject.html" title="GOStyledObject">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="goffice-0.8-GOPattern.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch10.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GOStyledObject.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GOStyle.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GOStyle.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GOStyle.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GOStyle.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOStyle">
+<a name="GOStyle"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GOStyle.top_of_page"></a>GOStyle</span></h2>
+<p>GOStyle</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GOStyle.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;goffice/utils/go-style.h&gt;
+
+                    <a class="link" href="GOStyle.html#GOStyle-struct" title="GOStyle">GOStyle</a>;
+enum                <a class="link" href="GOStyle.html#GOStyleFlag" title="enum GOStyleFlag">GOStyleFlag</a>;
+enum                <a class="link" href="GOStyle.html#GOStyleFill" title="enum GOStyleFill">GOStyleFill</a>;
+enum                <a class="link" href="GOStyle.html#GOImageType" title="enum GOImageType">GOImageType</a>;
+                    <a class="link" href="GOStyle.html#GOStyleLine" title="GOStyleLine">GOStyleLine</a>;
+                    <a class="link" href="GOStyle.html#GOStyleMark" title="GOStyleMark">GOStyleMark</a>;
+<a class="link" href="GOStyle.html" title="GOStyle"><span class="returnvalue">GOStyle</span></a> *           <a class="link" href="GOStyle.html#go-style-new" title="go_style_new ()">go_style_new</a>                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="GOStyle.html" title="GOStyle"><span class="returnvalue">GOStyle</span></a> *           <a class="link" href="GOStyle.html#go-style-dup" title="go_style_dup ()">go_style_dup</a>                        (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *style</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOStyle.html#go-style-assign" title="go_style_assign ()">go_style_assign</a>                     (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *dst</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *src</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOStyle.html#go-style-apply-theme" title="go_style_apply_theme ()">go_style_apply_theme</a>                (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *dst</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *src</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html#GOStyleFlag" title="enum GOStyleFlag"><span class="type">GOStyleFlag</span></a> fields</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOStyle.html#go-style-set-marker" title="go_style_set_marker ()">go_style_set_marker</a>                 (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOMarker.html" title="GOMarker"><span class="type">GOMarker</span></a> *marker</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOStyle.html#go-style-set-font-desc" title="go_style_set_font_desc ()">go_style_set_font_desc</a>              (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription"><span class="type">PangoFontDescription</span></a> *desc</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOStyle.html#go-style-set-font" title="go_style_set_font ()">go_style_set_font</a>                   (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOFont.html#GOFont" title="GOFont"><span class="type">GOFont</span></a> const *font</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOStyle.html#go-style-set-fill-brightness" title="go_style_set_fill_brightness ()">go_style_set_fill_brightness</a>        (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> brightness</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOStyle.html#go-style-set-text-angle" title="go_style_set_text_angle ()">go_style_set_text_angle</a>             (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> angle</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOStyle.html#go-style-is-different-size" title="go_style_is_different_size ()">go_style_is_different_size</a>          (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *a</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *b</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOStyle.html#go-style-is-marker-visible" title="go_style_is_marker_visible ()">go_style_is_marker_visible</a>          (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *style</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOStyle.html#go-style-is-line-visible" title="go_style_is_line_visible ()">go_style_is_line_visible</a>            (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *style</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOStyle.html#go-style-is-outline-visible" title="go_style_is_outline_visible ()">go_style_is_outline_visible</a>         (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *style</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOStyle.html#go-style-is-fill-visible" title="go_style_is_fill_visible ()">go_style_is_fill_visible</a>            (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *style</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOStyle.html#go-style-force-auto" title="go_style_force_auto ()">go_style_force_auto</a>                 (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="GOStyle.html#go-style-get-editor" title="go_style_get_editor ()">go_style_get_editor</a>                 (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *default_style</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="type">GOCmdContext</span></a> *cc</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object_with_style</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOStyle.html#go-style-populate-editor" title="go_style_populate_editor ()">go_style_populate_editor</a>            (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOEditor.html#GOEditor" title="GOEditor"><span class="type">GOEditor</span></a> *editor</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *default_style</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="type">GOCmdContext</span></a> *cc</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object_with_style</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> watch_for_external_change</code></em>);
+<a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-pattern-t.html#cairo-pattern-t"><span class="returnvalue">cairo_pattern_t</span></a> *   <a class="link" href="GOStyle.html#go-style-create-cairo-pattern" title="go_style_create_cairo_pattern ()">go_style_create_cairo_pattern</a>       (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *style</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOStyle.html#go-style-set-cairo-line" title="go_style_set_cairo_line ()">go_style_set_cairo_line</a>             (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *style</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>);
+<a class="link" href="GOMarker.html" title="GOMarker"><span class="returnvalue">GOMarker</span></a> const *    <a class="link" href="GOStyle.html#go-style-get-marker" title="go_style_get_marker ()">go_style_get_marker</a>                 (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GOStyle.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GOStyle
+         +----<a class="link" href="GogStyledObject.html#GogStyle">GogStyle</a>
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GOStyle.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GOStyle implements
+ <a class="link" href="GOPersist.html" title="GOPersist">GOPersist</a>.</p>
+</div>
+<div class="refsect1" title="Description">
+<a name="GOStyle.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GOStyle.details"></a><h2>Details</h2>
+<div class="refsect2" title="GOStyle">
+<a name="GOStyle-struct"></a><h3>GOStyle</h3>
+<pre class="programlisting">typedef struct _GOStyle GOStyle;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum GOStyleFlag">
+<a name="GOStyleFlag"></a><h3>enum GOStyleFlag</h3>
+<pre class="programlisting">typedef enum {
+	GO_STYLE_OUTLINE = 1 &lt;&lt; 0,
+	GO_STYLE_FILL		= 1 &lt;&lt; 1,
+	GO_STYLE_LINE		= 1 &lt;&lt; 2,
+	GO_STYLE_MARKER = 1 &lt;&lt; 3,
+	GO_STYLE_FONT		= 1 &lt;&lt; 4,
+	GO_STYLE_TEXT_LAYOUT = 1 &lt;&lt; 5,
+	GO_STYLE_INTERPOLATION = 1 &lt;&lt; 6,
+	GO_STYLE_MARKER_NO_COLOR = 1 &lt;&lt; 7,
+	GO_STYLE_ALL		= 0x1F
+} GOStyleFlag;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum GOStyleFill">
+<a name="GOStyleFill"></a><h3>enum GOStyleFill</h3>
+<pre class="programlisting">typedef enum {
+	GO_STYLE_FILL_NONE = 0,
+	GO_STYLE_FILL_PATTERN = 1,
+	GO_STYLE_FILL_GRADIENT = 2,
+	GO_STYLE_FILL_IMAGE = 3
+} GOStyleFill;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum GOImageType">
+<a name="GOImageType"></a><h3>enum GOImageType</h3>
+<pre class="programlisting">typedef enum {
+	GO_IMAGE_STRETCHED,
+	GO_IMAGE_WALLPAPER,
+	GO_IMAGE_CENTERED
+} GOImageType;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GOStyleLine">
+<a name="GOStyleLine"></a><h3>GOStyleLine</h3>
+<pre class="programlisting">typedef struct {
+	/* &lt;0 == no outline,
+	 * =0 == hairline : unscaled, minimum useful (can be bigger than visible) size.
+	 * &gt;0 in pts */
+	double	 	 width;
+	GOLineDashType 	 dash_type;
+	gboolean	 auto_dash;
+	GOColor	 	 color; /* color is used as background for compatibility
+						(pattern == 0 means filled with background color) */
+	GOColor	 	 fore;
+	gboolean 	 auto_color;
+	gboolean 	 auto_fore;
+	GOPatternType	 pattern;
+	cairo_line_cap_t cap;
+	cairo_line_join_t join;
+	double		 miter_limit;
+} GOStyleLine;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GOStyleMark">
+<a name="GOStyleMark"></a><h3>GOStyleMark</h3>
+<pre class="programlisting">typedef struct {
+	GOMarker *mark;
+	gboolean auto_shape;
+	gboolean auto_outline_color;
+	gboolean auto_fill_color;
+} GOStyleMark;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_style_new ()">
+<a name="go-style-new"></a><h3>go_style_new ()</h3>
+<pre class="programlisting"><a class="link" href="GOStyle.html" title="GOStyle"><span class="returnvalue">GOStyle</span></a> *           go_style_new                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_style_dup ()">
+<a name="go-style-dup"></a><h3>go_style_dup ()</h3>
+<pre class="programlisting"><a class="link" href="GOStyle.html" title="GOStyle"><span class="returnvalue">GOStyle</span></a> *           go_style_dup                        (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *style</code></em>);</pre>
+<p>
+Duplicates <em class="parameter"><code>style</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>a source <a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_style_assign ()">
+<a name="go-style-assign"></a><h3>go_style_assign ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_style_assign                     (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *dst</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *src</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dst</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_style_apply_theme ()">
+<a name="go-style-apply-theme"></a><h3>go_style_apply_theme ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_style_apply_theme                (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *dst</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *src</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html#GOStyleFlag" title="enum GOStyleFlag"><span class="type">GOStyleFlag</span></a> fields</code></em>);</pre>
+<p>
+Merge the attributes from <em class="parameter"><code>src</code></em> onto the elements of <em class="parameter"><code>dst</code></em> that were not user
+assigned (is_auto)
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dst</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fields</code></em> :</span></p></td>
+<td>the fields to which the copy should be limited
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_style_set_marker ()">
+<a name="go-style-set-marker"></a><h3>go_style_set_marker ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_style_set_marker                 (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOMarker.html" title="GOMarker"><span class="type">GOMarker</span></a> *marker</code></em>);</pre>
+<p>
+Absorb a reference to <em class="parameter"><code>marker</code></em> and assign it to <em class="parameter"><code>style</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>marker</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOMarker.html" title="GOMarker"><span class="type">GOMarker</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_style_set_font_desc ()">
+<a name="go-style-set-font-desc"></a><h3>go_style_set_font_desc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_style_set_font_desc              (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription"><span class="type">PangoFontDescription</span></a> *desc</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>desc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_style_set_font ()">
+<a name="go-style-set-font"></a><h3>go_style_set_font ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_style_set_font                   (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOFont.html#GOFont" title="GOFont"><span class="type">GOFont</span></a> const *font</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>font</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_style_set_fill_brightness ()">
+<a name="go-style-set-fill-brightness"></a><h3>go_style_set_fill_brightness ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_style_set_fill_brightness        (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> brightness</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>brightness</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_style_set_text_angle ()">
+<a name="go-style-set-text-angle"></a><h3>go_style_set_text_angle ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_style_set_text_angle             (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> angle</code></em>);</pre>
+<p>
+Set text rotation angle in degrees. Valid values are in the range
+[-180.0° , 180.0°].
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>angle</code></em> :</span></p></td>
+<td>text rotation in degrees
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_style_is_different_size ()">
+<a name="go-style-is-different-size"></a><h3>go_style_is_different_size ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_style_is_different_size          (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *a</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *b</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_style_is_marker_visible ()">
+<a name="go-style-is-marker-visible"></a><h3>go_style_is_marker_visible ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_style_is_marker_visible          (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *style</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_style_is_line_visible ()">
+<a name="go-style-is-line-visible"></a><h3>go_style_is_line_visible ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_style_is_line_visible            (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *style</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_style_is_outline_visible ()">
+<a name="go-style-is-outline-visible"></a><h3>go_style_is_outline_visible ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_style_is_outline_visible         (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *style</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_style_is_fill_visible ()">
+<a name="go-style-is-fill-visible"></a><h3>go_style_is_fill_visible ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_style_is_fill_visible            (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *style</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_style_force_auto ()">
+<a name="go-style-force-auto"></a><h3>go_style_force_auto ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_style_force_auto                 (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_style_get_editor ()">
+<a name="go-style-get-editor"></a><h3>go_style_get_editor ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            go_style_get_editor                 (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *default_style</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="type">GOCmdContext</span></a> *cc</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object_with_style</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>default_style</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object_with_style</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_style_populate_editor ()">
+<a name="go-style-populate-editor"></a><h3>go_style_populate_editor ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_style_populate_editor            (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOEditor.html#GOEditor" title="GOEditor"><span class="type">GOEditor</span></a> *editor</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *default_style</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="type">GOCmdContext</span></a> *cc</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object_with_style</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> watch_for_external_change</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>editor</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>default_style</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object_with_style</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>watch_for_external_change</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_style_create_cairo_pattern ()">
+<a name="go-style-create-cairo-pattern"></a><h3>go_style_create_cairo_pattern ()</h3>
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-pattern-t.html#cairo-pattern-t"><span class="returnvalue">cairo_pattern_t</span></a> *   go_style_create_cairo_pattern       (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *style</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>);</pre>
+<p>
+Create a cairo_patern_t using the current style settings for filling.
+A pattern will be created only if the style has the corresponding field
+and if it is not set to a none constant.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
+<td>a cairo context
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the pattern or NULL if it could not be created.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_style_set_cairo_line ()">
+<a name="go-style-set-cairo-line"></a><h3>go_style_set_cairo_line ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_style_set_cairo_line             (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> const *style</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_style_get_marker ()">
+<a name="go-style-get-marker"></a><h3>go_style_get_marker ()</h3>
+<pre class="programlisting"><a class="link" href="GOMarker.html" title="GOMarker"><span class="returnvalue">GOMarker</span></a> const *    go_style_get_marker                 (<em class="parameter"><code><a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a> *style</code></em>);</pre>
+<p>
+Accessor for <em class="parameter"><code>style</code></em>::marker, without referencing it.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOStyle.html" title="GOStyle"><span class="type">GOStyle</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the style <a class="link" href="GOMarker.html" title="GOMarker"><span class="type">GOMarker</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

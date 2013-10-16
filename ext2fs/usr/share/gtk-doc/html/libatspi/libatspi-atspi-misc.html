@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>atspi-misc</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="libatspi Reference Manual">
+<link rel="up" href="ch01.html" title="API reference">
+<link rel="prev" href="libatspi-atspi-constants.html" title="atspi-constants">
+<link rel="next" href="libatspi-atspi-misc-private.html" title="atspi-misc-private">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libatspi-atspi-constants.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libatspi Reference Manual</th>
+<td><a accesskey="n" href="libatspi-atspi-misc-private.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libatspi-atspi-misc.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libatspi-atspi-misc.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libatspi-atspi-misc"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libatspi-atspi-misc.top_of_page"></a>atspi-misc</span></h2>
+<p>atspi-misc — Miscellaneous methods for using AT-SPI services.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libatspi-atspi-misc.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis"><span class="returnvalue">int</span>                 <a class="link" href="libatspi-atspi-misc.html#atspi-init" title="atspi_init ()">atspi_init</a>                          (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libatspi-atspi-misc.html#atspi-event-main" title="atspi_event_main ()">atspi_event_main</a>                    ();
+<span class="returnvalue">void</span>                <a class="link" href="libatspi-atspi-misc.html#atspi-event-quit" title="atspi_event_quit ()">atspi_event_quit</a>                    ();
+<span class="returnvalue">int</span>                 <a class="link" href="libatspi-atspi-misc.html#atspi-exit" title="atspi_exit ()">atspi_exit</a>                          ();
+</pre>
+</div>
+<div class="refsect1">
+<a name="libatspi-atspi-misc.description"></a><h2>Description</h2>
+<p>
+Miscellaneous methods for using AT-SPI services.
+</p>
+</div>
+<div class="refsect1">
+<a name="libatspi-atspi-misc.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="atspi-init"></a><h3>atspi_init ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 atspi_init                          (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Connects to the accessibility registry and initializes the SPI.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>0 on success, 1 if already initialized, or an integer error code.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="atspi-event-main"></a><h3>atspi_event_main ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                atspi_event_main                    ();</pre>
+<p>
+Starts/enters the main event loop for the AT-SPI services.
+</p>
+<p>
+NOTE: This method does not return control; it is exited via a call to
+<a class="link" href="libatspi-atspi-misc.html#atspi-event-quit" title="atspi_event_quit ()"><span class="type">atspi_event_quit</span></a> from within an event handler.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="atspi-event-quit"></a><h3>atspi_event_quit ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                atspi_event_quit                    ();</pre>
+<p>
+Quits the last main event loop for the AT-SPI services,
+See: <a class="link" href="libatspi-atspi-misc.html#atspi-event-main" title="atspi_event_main ()"><span class="type">atspi_event_main</span></a>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="atspi-exit"></a><h3>atspi_exit ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 atspi_exit                          ();</pre>
+<p>
+Disconnects from <span class="type">AtspiRegistry</span> instances and releases 
+any floating resources. Call only once at exit.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>0 if there were no leaks, otherwise other integer values.</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18.1</div>
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOUndo</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch17.html" title="Miscellaneous">
+<link rel="prev" href="GOPersist.html" title="GOPersist">
+<link rel="next" href="goffice-0.8-go-string.html" title="go-string">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GOPersist.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch17.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="goffice-0.8-go-string.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#goffice-0.8-GOUndo.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#goffice-0.8-GOUndo.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOUndo">
+<a name="goffice-0.8-GOUndo"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="goffice-0.8-GOUndo.top_of_page"></a>GOUndo</span></h2>
+<p>GOUndo</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="goffice-0.8-GOUndo.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="goffice-0.8-GOUndo.html#go-undo-binary-get-type" title="go_undo_binary_get_type ()">go_undo_binary_get_type</a>             (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">GOUndo</span> *            <a class="link" href="goffice-0.8-GOUndo.html#go-undo-binary-new" title="go_undo_binary_new ()">go_undo_binary_new</a>                  (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> a</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> b</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOUndoBinaryFunc</span> undo</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Miscellaneous-Utility-Functions.html#GFreeFunc"><span class="type">GFreeFunc</span></a> fa</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Miscellaneous-Utility-Functions.html#GFreeFunc"><span class="type">GFreeFunc</span></a> fb</code></em>);
+<span class="returnvalue">GOUndo</span> *            <a class="link" href="goffice-0.8-GOUndo.html#go-undo-combine" title="go_undo_combine ()">go_undo_combine</a>                     (<em class="parameter"><code><span class="type">GOUndo</span> *a</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOUndo</span> *b</code></em>);
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="goffice-0.8-GOUndo.html#go-undo-get-type" title="go_undo_get_type ()">go_undo_get_type</a>                    (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOUndo.html#go-undo-group-add" title="go_undo_group_add ()">go_undo_group_add</a>                   (<em class="parameter"><code><span class="type">GOUndoGroup</span> *g</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOUndo</span> *u</code></em>);
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="goffice-0.8-GOUndo.html#go-undo-group-get-type" title="go_undo_group_get_type ()">go_undo_group_get_type</a>              (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">GOUndoGroup</span> *       <a class="link" href="goffice-0.8-GOUndo.html#go-undo-group-new" title="go_undo_group_new ()">go_undo_group_new</a>                   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="goffice-0.8-GOUndo.html#go-undo-unary-get-type" title="go_undo_unary_get_type ()">go_undo_unary_get_type</a>              (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">GOUndo</span> *            <a class="link" href="goffice-0.8-GOUndo.html#go-undo-unary-new" title="go_undo_unary_new ()">go_undo_unary_new</a>                   (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> a</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOUndoUnaryFunc</span> undo</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Miscellaneous-Utility-Functions.html#GFreeFunc"><span class="type">GFreeFunc</span></a> fa</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOUndo.html#go-undo-undo" title="go_undo_undo ()">go_undo_undo</a>                        (<em class="parameter"><code><span class="type">GOUndo</span> *u</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOUndo.html#go-undo-undo-with-data" title="go_undo_undo_with_data ()">go_undo_undo_with_data</a>              (<em class="parameter"><code><span class="type">GOUndo</span> *u</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="goffice-0.8-GOUndo.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="goffice-0.8-GOUndo.details"></a><h2>Details</h2>
+<div class="refsect2" title="go_undo_binary_get_type ()">
+<a name="go-undo-binary-get-type"></a><h3>go_undo_binary_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_undo_binary_get_type             (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_undo_binary_new ()">
+<a name="go-undo-binary-new"></a><h3>go_undo_binary_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">GOUndo</span> *            go_undo_binary_new                  (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> a</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> b</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOUndoBinaryFunc</span> undo</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Miscellaneous-Utility-Functions.html#GFreeFunc"><span class="type">GFreeFunc</span></a> fa</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Miscellaneous-Utility-Functions.html#GFreeFunc"><span class="type">GFreeFunc</span></a> fb</code></em>);</pre>
+<p>
+This function creates a new undo object for undo operations of two
+arguments.  (In addition, an undo-time argument is added for context.)
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>first argument for undo operation
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>second argument for undo operation
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>undo</code></em> :</span></p></td>
+<td>function to call with arguments <em class="parameter"><code>a</code></em> and <em class="parameter"><code>b</code></em> for undo.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fa</code></em> :</span></p></td>
+<td>optional function to free <em class="parameter"><code>a</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fb</code></em> :</span></p></td>
+<td>optional function to free <em class="parameter"><code>b</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new undo object.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_undo_combine ()">
+<a name="go-undo-combine"></a><h3>go_undo_combine ()</h3>
+<pre class="programlisting"><span class="returnvalue">GOUndo</span> *            go_undo_combine                     (<em class="parameter"><code><span class="type">GOUndo</span> *a</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOUndo</span> *b</code></em>);</pre>
+<p>
+This function takes ownership of the argument references and gives ownership
+of the result to the caller.  Either argument may be NULL in which case the
+other is returned.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>optional first undo operation
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>optional last undo operation
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the combination of two undo operations.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_undo_get_type ()">
+<a name="go-undo-get-type"></a><h3>go_undo_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_undo_get_type                    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_undo_group_add ()">
+<a name="go-undo-group-add"></a><h3>go_undo_group_add ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_undo_group_add                   (<em class="parameter"><code><span class="type">GOUndoGroup</span> *g</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOUndo</span> *u</code></em>);</pre>
+<p>
+This function adds <em class="parameter"><code>u</code></em> to <em class="parameter"><code>g</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>g</code></em> :</span></p></td>
+<td>undo group
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>u</code></em> :</span></p></td>
+<td>undo object
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_undo_group_get_type ()">
+<a name="go-undo-group-get-type"></a><h3>go_undo_group_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_undo_group_get_type              (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_undo_group_new ()">
+<a name="go-undo-group-new"></a><h3>go_undo_group_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">GOUndoGroup</span> *       go_undo_group_new                   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+This function creates a new undo group for compounding undo objects.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new, empty undo group.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_undo_unary_get_type ()">
+<a name="go-undo-unary-get-type"></a><h3>go_undo_unary_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_undo_unary_get_type              (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_undo_unary_new ()">
+<a name="go-undo-unary-new"></a><h3>go_undo_unary_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">GOUndo</span> *            go_undo_unary_new                   (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> a</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOUndoUnaryFunc</span> undo</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Miscellaneous-Utility-Functions.html#GFreeFunc"><span class="type">GFreeFunc</span></a> fa</code></em>);</pre>
+<p>
+This function creates a new undo object for undo operations of one
+argument.  (In addition, an undo-time argument is added for context.)
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>argument for undo operation
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>undo</code></em> :</span></p></td>
+<td>function to call with argument <em class="parameter"><code>a</code></em> for undo.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fa</code></em> :</span></p></td>
+<td>optional function to free <em class="parameter"><code>a</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new undo object.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_undo_undo ()">
+<a name="go-undo-undo"></a><h3>go_undo_undo ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_undo_undo                        (<em class="parameter"><code><span class="type">GOUndo</span> *u</code></em>);</pre>
+<p>
+Execute the stored undo operation.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>u</code></em> :</span></p></td>
+<td>undo object
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_undo_undo_with_data ()">
+<a name="go-undo-undo-with-data"></a><h3>go_undo_undo_with_data ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_undo_undo_with_data              (<em class="parameter"><code><span class="type">GOUndo</span> *u</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
+<p>
+Execute the stored undo operation.  <em class="parameter"><code>data</code></em> is supplied to the undo
+operation as an extra argument.  It is meant not to affect the undo
+operation in any way, but rather supply a context through which
+progress and errors can be reported.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>u</code></em> :</span></p></td>
+<td>undo object
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>user data
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

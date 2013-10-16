@@ -1,0 +1,923 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GODoc</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch15.html" title="Application">
+<link rel="prev" href="GODocControl.html" title="GODocControl">
+<link rel="next" href="GOIOContext.html" title="GOIOContext">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GODocControl.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch15.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GOIOContext.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GODoc.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GODoc.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GODoc.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GODoc.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#GODoc.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="GODoc">
+<a name="GODoc"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GODoc.top_of_page"></a>GODoc</span></h2>
+<p>GODoc</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GODoc.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="GODoc.html#GO-TYPE-DOC:CAPS" title="GO_TYPE_DOC">GO_TYPE_DOC</a>
+#define             <a class="link" href="GODoc.html#GO-DOC:CAPS" title="GO_DOC()">GO_DOC</a>                              (o)
+#define             <a class="link" href="GODoc.html#GO-IS-DOC:CAPS" title="GO_IS_DOC()">GO_IS_DOC</a>                           (o)
+                    <a class="link" href="GODoc.html#GODoc-struct" title="GODoc">GODoc</a>;
+                    <a class="link" href="GODoc.html#GODocClass" title="GODocClass">GODocClass</a>;
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GODoc.html#go-doc-get-type" title="go_doc_get_type ()">go_doc_get_type</a>                     (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="GODoc.html" title="GODoc"><span class="returnvalue">GODoc</span></a> *             <a class="link" href="GODoc.html#go-doc-new-from-input" title="go_doc_new_from_input ()">go_doc_new_from_input</a>               (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-Input-from-unstructured-files.html#GsfInput"><span class="type">GsfInput</span></a> *input</code></em>,
+                                                         <em class="parameter"><code><span class="type">GODocImporter</span> const *fmt</code></em>,
+                                                         <em class="parameter"><code><span class="type">XXXGOIOContext</span> *context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> const *encoding</code></em>);
+<a class="link" href="GODoc.html" title="GODoc"><span class="returnvalue">GODoc</span></a> *             <a class="link" href="GODoc.html#go-doc-new-from-uri" title="go_doc_new_from_uri ()">go_doc_new_from_uri</a>                 (<em class="parameter"><code><span class="type">char</span> const *uri</code></em>,
+                                                         <em class="parameter"><code><span class="type">GnmFileOpener</span> const *fmt</code></em>,
+                                                         <em class="parameter"><code><span class="type">XXXGOIOContext</span> *context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> const *encoding</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GODoc.html#go-doc-save" title="go_doc_save ()">go_doc_save</a>                         (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><span class="type">XXXGOIOContext</span> *context</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GODoc.html#go-doc-save-as" title="go_doc_save_as ()">go_doc_save_as</a>                      (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><span class="type">GODocExporter</span> *fmt</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *uri</code></em>,
+                                                         <em class="parameter"><code><span class="type">XXXGOIOContext</span> *cc</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GODoc.html#go-doc-sendto" title="go_doc_sendto ()">go_doc_sendto</a>                       (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><span class="type">XXXGOIOContext</span> *cc</code></em>);
+<a href="/usr/share/gtk-doc/html/gsf/gsf-metadata.html#GsfDocMetaData"><span class="returnvalue">GsfDocMetaData</span></a> *    <a class="link" href="GODoc.html#go-doc-get-meta-data" title="go_doc_get_meta_data ()">go_doc_get_meta_data</a>                (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> const *doc</code></em>);
+<span class="returnvalue">char</span> const	*        <a class="link" href="GODoc.html#go-doc-get-uri" title="go_doc_get_uri ()">go_doc_get_uri</a>                      (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> const *doc</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GODoc.html#go-doc-is-dirty" title="go_doc_is_dirty ()">go_doc_is_dirty</a>                     (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> const *doc</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GODoc.html#go-doc-is-pristine" title="go_doc_is_pristine ()">go_doc_is_pristine</a>                  (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> const *doc</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GODoc.html#go-doc-set-dirty" title="go_doc_set_dirty ()">go_doc_set_dirty</a>                    (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> is_dirty</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GODoc.html#go-doc-set-meta-data" title="go_doc_set_meta_data ()">go_doc_set_meta_data</a>                (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-metadata.html#GsfDocMetaData"><span class="type">GsfDocMetaData</span></a> *data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GODoc.html#go-doc-set-pristine" title="go_doc_set_pristine ()">go_doc_set_pristine</a>                 (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> pristine</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GODoc.html#go-doc-set-uri" title="go_doc_set_uri ()">go_doc_set_uri</a>                      (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *uri</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GODoc.html#go-doc-update-meta-data" title="go_doc_update_meta_data ()">go_doc_update_meta_data</a>             (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>);
+<a class="link" href="goffice-0.8-go-image.html#GOImage"><span class="returnvalue">GOImage</span></a> *           <a class="link" href="GODoc.html#go-doc-get-image" title="go_doc_get_image ()">go_doc_get_image</a>                    (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *id</code></em>);
+<a class="link" href="goffice-0.8-go-image.html#GOImage"><span class="returnvalue">GOImage</span></a> *           <a class="link" href="GODoc.html#go-doc-add-image" title="go_doc_add_image ()">go_doc_add_image</a>                    (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *id</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-go-image.html#GOImage"><span class="type">GOImage</span></a> *image</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Hash-Tables.html#GHashTable"><span class="returnvalue">GHashTable</span></a> *        <a class="link" href="GODoc.html#go-doc-get-images" title="go_doc_get_images ()">go_doc_get_images</a>                   (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GODoc.html#go-doc-init-write" title="go_doc_init_write ()">go_doc_init_write</a>                   (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-XML-and-libxml.html#GsfXMLOut"><span class="type">GsfXMLOut</span></a> *output</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GODoc.html#go-doc-write" title="go_doc_write ()">go_doc_write</a>                        (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-XML-and-libxml.html#GsfXMLOut"><span class="type">GsfXMLOut</span></a> *output</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GODoc.html#go-doc-save-image" title="go_doc_save_image ()">go_doc_save_image</a>                   (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *id</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GODoc.html#go-doc-init-read" title="go_doc_init_read ()">go_doc_init_read</a>                    (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-Input-from-unstructured-files.html#GsfInput"><span class="type">GsfInput</span></a> *input</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GODoc.html#go-doc-read" title="go_doc_read ()">go_doc_read</a>                         (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-XML-and-libxml.html#GsfXMLIn"><span class="type">GsfXMLIn</span></a> *xin</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlChar</span> const **attrs</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GODoc.html#go-doc-end-read" title="go_doc_end_read ()">go_doc_end_read</a>                     (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>);
+<a class="link" href="goffice-0.8-go-image.html#GOImage"><span class="returnvalue">GOImage</span></a> *           <a class="link" href="GODoc.html#go-doc-image-fetch" title="go_doc_image_fetch ()">go_doc_image_fetch</a>                  (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *id</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GODoc.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GODoc
+</pre>
+</div>
+<div class="refsect1" title="Properties">
+<a name="GODoc.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GODoc.html#GODoc--dirty" title='The "dirty" property'>dirty</a>"                    <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write
+  "<a class="link" href="GODoc.html#GODoc--pristine" title='The "pristine" property'>pristine</a>"                 <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write
+  "<a class="link" href="GODoc.html#GODoc--uri" title='The "uri" property'>uri</a>"                      <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Signals">
+<a name="GODoc.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GODoc.html#GODoc-metadata-changed" title='The "metadata-changed" signal'>metadata-changed</a>"                               : Run Last
+  "<a class="link" href="GODoc.html#GODoc-metadata-update" title='The "metadata-update" signal'>metadata-update</a>"                                : Run Last
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GODoc.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GODoc.details"></a><h2>Details</h2>
+<div class="refsect2" title="GO_TYPE_DOC">
+<a name="GO-TYPE-DOC:CAPS"></a><h3>GO_TYPE_DOC</h3>
+<pre class="programlisting">#define GO_TYPE_DOC	    (go_doc_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_DOC()">
+<a name="GO-DOC:CAPS"></a><h3>GO_DOC()</h3>
+<pre class="programlisting">#define GO_DOC(o)	    (G_TYPE_CHECK_INSTANCE_CAST ((o), GO_TYPE_DOC, GODoc))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_IS_DOC()">
+<a name="GO-IS-DOC:CAPS"></a><h3>GO_IS_DOC()</h3>
+<pre class="programlisting">#define GO_IS_DOC(o)	    (G_TYPE_CHECK_INSTANCE_TYPE ((o), GO_TYPE_DOC))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GODoc">
+<a name="GODoc-struct"></a><h3>GODoc</h3>
+<pre class="programlisting">typedef struct _GODoc GODoc;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GODocClass">
+<a name="GODocClass"></a><h3>GODocClass</h3>
+<pre class="programlisting">typedef struct {
+	GObjectClass base;
+
+	struct {
+		/* Reload doc statistics and update linked values */
+		void (*update)  (GODoc *doc);
+		void (*changed) (GODoc *doc);
+	} meta_data;
+} GODocClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_get_type ()">
+<a name="go-doc-get-type"></a><h3>go_doc_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_doc_get_type                     (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_new_from_input ()">
+<a name="go-doc-new-from-input"></a><h3>go_doc_new_from_input ()</h3>
+<pre class="programlisting"><a class="link" href="GODoc.html" title="GODoc"><span class="returnvalue">GODoc</span></a> *             go_doc_new_from_input               (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-Input-from-unstructured-files.html#GsfInput"><span class="type">GsfInput</span></a> *input</code></em>,
+                                                         <em class="parameter"><code><span class="type">GODocImporter</span> const *fmt</code></em>,
+                                                         <em class="parameter"><code><span class="type">XXXGOIOContext</span> *context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> const *encoding</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>input</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fmt</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>encoding</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_new_from_uri ()">
+<a name="go-doc-new-from-uri"></a><h3>go_doc_new_from_uri ()</h3>
+<pre class="programlisting"><a class="link" href="GODoc.html" title="GODoc"><span class="returnvalue">GODoc</span></a> *             go_doc_new_from_uri                 (<em class="parameter"><code><span class="type">char</span> const *uri</code></em>,
+                                                         <em class="parameter"><code><span class="type">GnmFileOpener</span> const *fmt</code></em>,
+                                                         <em class="parameter"><code><span class="type">XXXGOIOContext</span> *context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> const *encoding</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fmt</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>encoding</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_save ()">
+<a name="go-doc-save"></a><h3>go_doc_save ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_doc_save                         (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><span class="type">XXXGOIOContext</span> *context</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_save_as ()">
+<a name="go-doc-save-as"></a><h3>go_doc_save_as ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_doc_save_as                      (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><span class="type">GODocExporter</span> *fmt</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *uri</code></em>,
+                                                         <em class="parameter"><code><span class="type">XXXGOIOContext</span> *cc</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fmt</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_sendto ()">
+<a name="go-doc-sendto"></a><h3>go_doc_sendto ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_doc_sendto                       (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><span class="type">XXXGOIOContext</span> *cc</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_get_meta_data ()">
+<a name="go-doc-get-meta-data"></a><h3>go_doc_get_meta_data ()</h3>
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/gsf/gsf-metadata.html#GsfDocMetaData"><span class="returnvalue">GsfDocMetaData</span></a> *    go_doc_get_meta_data                (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> const *doc</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_get_uri ()">
+<a name="go-doc-get-uri"></a><h3>go_doc_get_uri ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const	*        go_doc_get_uri                      (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> const *doc</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_is_dirty ()">
+<a name="go-doc-is-dirty"></a><h3>go_doc_is_dirty ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_doc_is_dirty                     (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> const *doc</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+<a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if <em class="parameter"><code>doc</code></em> has been modified.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_is_pristine ()">
+<a name="go-doc-is-pristine"></a><h3>go_doc_is_pristine ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_doc_is_pristine                  (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> const *doc</code></em>);</pre>
+<p>
+This checks to see if the doc has ever been
+used ( approximately )
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+<a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if we can discard this doc.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_set_dirty ()">
+<a name="go-doc-set-dirty"></a><h3>go_doc_set_dirty ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_doc_set_dirty                    (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> is_dirty</code></em>);</pre>
+<p>
+Changes the dirty state of <em class="parameter"><code>doc</code></em> to <em class="parameter"><code>is_dirty</code></em> and clears the pristine state
+no matter what.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+<a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_dirty</code></em> :</span></p></td>
+<td>bool
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_set_meta_data ()">
+<a name="go-doc-set-meta-data"></a><h3>go_doc_set_meta_data ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_doc_set_meta_data                (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-metadata.html#GsfDocMetaData"><span class="type">GsfDocMetaData</span></a> *data</code></em>);</pre>
+<p>
+Adds a ref to <em class="parameter"><code>data</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+<a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+<a href="/usr/share/gtk-doc/html/gsf/gsf-metadata.html#GsfDocMetaData"><span class="type">GsfDocMetaData</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_set_pristine ()">
+<a name="go-doc-set-pristine"></a><h3>go_doc_set_pristine ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_doc_set_pristine                 (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> pristine</code></em>);</pre>
+<p>
+Sets the indication of whether this document is unchanged since it was
+created.  Note: if both "dirty" and "pristine" are being set, set
+"pristine" last.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+<a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pristine</code></em> :</span></p></td>
+<td>a gboolean.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_set_uri ()">
+<a name="go-doc-set-uri"></a><h3>go_doc_set_uri ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_doc_set_uri                      (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *uri</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>the document to modify
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>the uri for this worksheet.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the name was set succesfully.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_update_meta_data ()">
+<a name="go-doc-update-meta-data"></a><h3>go_doc_update_meta_data ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_doc_update_meta_data             (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>);</pre>
+<p>
+Signal that <em class="parameter"><code>doc</code></em>'s metadata should be updated
+	- statistics (sheet count, word count)
+	- content (sheet names, bookmarks)
+	- reloading linked items
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+<a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_get_image ()">
+<a name="go-doc-get-image"></a><h3>go_doc_get_image ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-go-image.html#GOImage"><span class="returnvalue">GOImage</span></a> *           go_doc_get_image                    (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *id</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_add_image ()">
+<a name="go-doc-add-image"></a><h3>go_doc_add_image ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-go-image.html#GOImage"><span class="returnvalue">GOImage</span></a> *           go_doc_add_image                    (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *id</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-go-image.html#GOImage"><span class="type">GOImage</span></a> *image</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>image</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_get_images ()">
+<a name="go-doc-get-images"></a><h3>go_doc_get_images ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Hash-Tables.html#GHashTable"><span class="returnvalue">GHashTable</span></a> *        go_doc_get_images                   (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_init_write ()">
+<a name="go-doc-init-write"></a><h3>go_doc_init_write ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_doc_init_write                   (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-XML-and-libxml.html#GsfXMLOut"><span class="type">GsfXMLOut</span></a> *output</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>output</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_write ()">
+<a name="go-doc-write"></a><h3>go_doc_write ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_doc_write                        (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-XML-and-libxml.html#GsfXMLOut"><span class="type">GsfXMLOut</span></a> *output</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>output</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_save_image ()">
+<a name="go-doc-save-image"></a><h3>go_doc_save_image ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_doc_save_image                   (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *id</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_init_read ()">
+<a name="go-doc-init-read"></a><h3>go_doc_init_read ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_doc_init_read                    (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-Input-from-unstructured-files.html#GsfInput"><span class="type">GsfInput</span></a> *input</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>input</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_read ()">
+<a name="go-doc-read"></a><h3>go_doc_read ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_doc_read                         (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-XML-and-libxml.html#GsfXMLIn"><span class="type">GsfXMLIn</span></a> *xin</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlChar</span> const **attrs</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xin</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_end_read ()">
+<a name="go-doc-end-read"></a><h3>go_doc_end_read ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_doc_end_read                     (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_doc_image_fetch ()">
+<a name="go-doc-image-fetch"></a><h3>go_doc_image_fetch ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-go-image.html#GOImage"><span class="returnvalue">GOImage</span></a> *           go_doc_image_fetch                  (<em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *doc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *id</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="GODoc.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "dirty" property'>
+<a name="GODoc--dirty"></a><h3>The <code class="literal">"dirty"</code> property</h3>
+<pre class="programlisting">  "dirty"                    <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write</pre>
+<p>Whether the document has been changed.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "pristine" property'>
+<a name="GODoc--pristine"></a><h3>The <code class="literal">"pristine"</code> property</h3>
+<pre class="programlisting">  "pristine"                 <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write</pre>
+<p>Whether the document is unchanged since it was created.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "uri" property'>
+<a name="GODoc--uri"></a><h3>The <code class="literal">"uri"</code> property</h3>
+<pre class="programlisting">  "uri"                      <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
+<p>The URI associated with this document.</p>
+<p>Default value: NULL</p>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="GODoc.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "metadata-changed" signal'>
+<a name="GODoc-metadata-changed"></a><h3>The <code class="literal">"metadata-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a>   *godoc,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data)      : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>godoc</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "metadata-update" signal'>
+<a name="GODoc-metadata-update"></a><h3>The <code class="literal">"metadata-update"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a>   *godoc,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data)      : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>godoc</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

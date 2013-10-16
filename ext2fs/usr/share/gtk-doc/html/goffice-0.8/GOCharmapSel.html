@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOCharmapSel</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch09.html" title="Selectors">
+<link rel="prev" href="GOComboText.html" title="GOComboText">
+<link rel="next" href="GOFontSel.html" title="GOFontSel">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GOComboText.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch09.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GOFontSel.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GOCharmapSel.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GOCharmapSel.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GOCharmapSel.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GOCharmapSel.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#GOCharmapSel.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#GOCharmapSel.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOCharmapSel">
+<a name="GOCharmapSel"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GOCharmapSel.top_of_page"></a>GOCharmapSel</span></h2>
+<p>GOCharmapSel</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GOCharmapSel.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="GOCharmapSel.html#GO-TYPE-CHARMAP-SEL:CAPS" title="GO_TYPE_CHARMAP_SEL">GO_TYPE_CHARMAP_SEL</a>
+#define             <a class="link" href="GOCharmapSel.html#GO-CHARMAP-SEL:CAPS" title="GO_CHARMAP_SEL()">GO_CHARMAP_SEL</a>                      (obj)
+#define             <a class="link" href="GOCharmapSel.html#GO-IS-CHARMAP-SEL:CAPS" title="GO_IS_CHARMAP_SEL()">GO_IS_CHARMAP_SEL</a>                   (obj)
+                    <a class="link" href="GOCharmapSel.html#GOCharmapSel-struct" title="GOCharmapSel">GOCharmapSel</a>;
+enum                <a class="link" href="GOCharmapSel.html#GOCharmapSelTestDirection" title="enum GOCharmapSelTestDirection">GOCharmapSelTestDirection</a>;
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GOCharmapSel.html#go-charmap-sel-get-type" title="go_charmap_sel_get_type ()">go_charmap_sel_get_type</a>             (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GOCharmapSel.html#go-charmap-sel-new" title="go_charmap_sel_new ()">go_charmap_sel_new</a>                  (<em class="parameter"><code><a class="link" href="GOCharmapSel.html#GOCharmapSelTestDirection" title="enum GOCharmapSelTestDirection"><span class="type">GOCharmapSelTestDirection</span></a> test</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> const *       <a class="link" href="GOCharmapSel.html#go-charmap-sel-get-encoding" title="go_charmap_sel_get_encoding ()">go_charmap_sel_get_encoding</a>         (<em class="parameter"><code><a class="link" href="GOCharmapSel.html" title="GOCharmapSel"><span class="type">GOCharmapSel</span></a> *cs</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOCharmapSel.html#go-charmap-sel-set-encoding" title="go_charmap_sel_set_encoding ()">go_charmap_sel_set_encoding</a>         (<em class="parameter"><code><a class="link" href="GOCharmapSel.html" title="GOCharmapSel"><span class="type">GOCharmapSel</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *enc</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="GOCharmapSel.html#go-charmap-sel-get-encoding-name" title="go_charmap_sel_get_encoding_name ()">go_charmap_sel_get_encoding_name</a>    (<em class="parameter"><code><a class="link" href="GOCharmapSel.html" title="GOCharmapSel"><span class="type">GOCharmapSel</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *enc</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GOCharmapSel.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkObject.html">GtkObject</a>
+               +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html">GtkWidget</a>
+                     +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkContainer.html">GtkContainer</a>
+                           +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkBox.html">GtkBox</a>
+                                 +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkHBox.html">GtkHBox</a>
+                                       +----GOCharmapSel
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GOCharmapSel.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GOCharmapSel implements
+ AtkImplementorIface,  <a href="http://library.gnome.org/devel/gtk/unstable/GtkBuildable.html">GtkBuildable</a> and  <a href="http://library.gnome.org/devel/gtk/unstable/gtk-Orientable.html#GtkOrientable">GtkOrientable</a>.</p>
+</div>
+<div class="refsect1" title="Properties">
+<a name="GOCharmapSel.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GOCharmapSel.html#GOCharmapSel--TestDirection" title='The "TestDirection" property'>TestDirection</a>"            <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Signals">
+<a name="GOCharmapSel.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GOCharmapSel.html#GOCharmapSel-charmap-changed" title='The "charmap-changed" signal'>charmap-changed</a>"                                : Run Last
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GOCharmapSel.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GOCharmapSel.details"></a><h2>Details</h2>
+<div class="refsect2" title="GO_TYPE_CHARMAP_SEL">
+<a name="GO-TYPE-CHARMAP-SEL:CAPS"></a><h3>GO_TYPE_CHARMAP_SEL</h3>
+<pre class="programlisting">#define GO_TYPE_CHARMAP_SEL        (go_charmap_sel_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_CHARMAP_SEL()">
+<a name="GO-CHARMAP-SEL:CAPS"></a><h3>GO_CHARMAP_SEL()</h3>
+<pre class="programlisting">#define GO_CHARMAP_SEL(obj)        (G_TYPE_CHECK_INSTANCE_CAST((obj), GO_TYPE_CHARMAP_SEL, GOCharmapSel))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_IS_CHARMAP_SEL()">
+<a name="GO-IS-CHARMAP-SEL:CAPS"></a><h3>GO_IS_CHARMAP_SEL()</h3>
+<pre class="programlisting">#define GO_IS_CHARMAP_SEL(obj)     (G_TYPE_CHECK_INSTANCE_TYPE((obj), GO_TYPE_CHARMAP_SEL))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOCharmapSel">
+<a name="GOCharmapSel-struct"></a><h3>GOCharmapSel</h3>
+<pre class="programlisting">typedef struct _GOCharmapSel GOCharmapSel;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum GOCharmapSelTestDirection">
+<a name="GOCharmapSelTestDirection"></a><h3>enum GOCharmapSelTestDirection</h3>
+<pre class="programlisting">typedef enum {
+	GO_CHARMAP_SEL_TO_UTF8 = 0,
+	GO_CHARMAP_SEL_FROM_UTF8
+} GOCharmapSelTestDirection;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_charmap_sel_get_type ()">
+<a name="go-charmap-sel-get-type"></a><h3>go_charmap_sel_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_charmap_sel_get_type             (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_charmap_sel_new ()">
+<a name="go-charmap-sel-new"></a><h3>go_charmap_sel_new ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         go_charmap_sel_new                  (<em class="parameter"><code><a class="link" href="GOCharmapSel.html#GOCharmapSelTestDirection" title="enum GOCharmapSelTestDirection"><span class="type">GOCharmapSelTestDirection</span></a> test</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>test</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_charmap_sel_get_encoding ()">
+<a name="go-charmap-sel-get-encoding"></a><h3>go_charmap_sel_get_encoding ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> const *       go_charmap_sel_get_encoding         (<em class="parameter"><code><a class="link" href="GOCharmapSel.html" title="GOCharmapSel"><span class="type">GOCharmapSel</span></a> *cs</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_charmap_sel_set_encoding ()">
+<a name="go-charmap-sel-set-encoding"></a><h3>go_charmap_sel_set_encoding ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_charmap_sel_set_encoding         (<em class="parameter"><code><a class="link" href="GOCharmapSel.html" title="GOCharmapSel"><span class="type">GOCharmapSel</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *enc</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>enc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_charmap_sel_get_encoding_name ()">
+<a name="go-charmap-sel-get-encoding-name"></a><h3>go_charmap_sel_get_encoding_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        go_charmap_sel_get_encoding_name    (<em class="parameter"><code><a class="link" href="GOCharmapSel.html" title="GOCharmapSel"><span class="type">GOCharmapSel</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *enc</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>enc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="GOCharmapSel.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "TestDirection" property'>
+<a name="GOCharmapSel--TestDirection"></a><h3>The <code class="literal">"TestDirection"</code> property</h3>
+<pre class="programlisting">  "TestDirection"            <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write</pre>
+<p>This value determines which iconv test to perform.</p>
+<p>Allowed values: &lt;= 1</p>
+<p>Default value: 0</p>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="GOCharmapSel.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "charmap-changed" signal'>
+<a name="GOCharmapSel-charmap-changed"></a><h3>The <code class="literal">"charmap-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GOCharmapSel.html" title="GOCharmapSel"><span class="type">GOCharmapSel</span></a> *gocharmapsel,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>      arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>      user_data)         : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gocharmapsel</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

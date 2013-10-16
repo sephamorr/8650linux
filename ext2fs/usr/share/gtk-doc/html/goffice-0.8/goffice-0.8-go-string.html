@@ -1,0 +1,635 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>go-string</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch17.html" title="Miscellaneous">
+<link rel="prev" href="goffice-0.8-GOUndo.html" title="GOUndo">
+<link rel="next" href="goffice-0.8-Other.html" title="Other">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="goffice-0.8-GOUndo.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch17.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="goffice-0.8-Other.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#goffice-0.8-go-string.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#goffice-0.8-go-string.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="go-string">
+<a name="goffice-0.8-go-string"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="goffice-0.8-go-string.top_of_page"></a>go-string</span></h2>
+<p>go-string</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="goffice-0.8-go-string.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="goffice-0.8-go-string.html#GOStringPhonetic" title="GOStringPhonetic">GOStringPhonetic</a>;
+                    <a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString">GOString</a>;
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="goffice-0.8-go-string.html#go-string-get-type" title="go_string_get_type ()">go_string_get_type</a>                  (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="returnvalue">GOString</span></a> *          <a class="link" href="goffice-0.8-go-string.html#go-string-new" title="go_string_new ()">go_string_new</a>                       (<em class="parameter"><code><span class="type">char</span> const *str</code></em>);
+<a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="returnvalue">GOString</span></a> *          <a class="link" href="goffice-0.8-go-string.html#go-string-new-len" title="go_string_new_len ()">go_string_new_len</a>                   (<em class="parameter"><code><span class="type">char</span> const *str</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> len</code></em>);
+<a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="returnvalue">GOString</span></a> *          <a class="link" href="goffice-0.8-go-string.html#go-string-new-nocopy" title="go_string_new_nocopy ()">go_string_new_nocopy</a>                (<em class="parameter"><code><span class="type">char</span> *str</code></em>);
+<a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="returnvalue">GOString</span></a> *          <a class="link" href="goffice-0.8-go-string.html#go-string-new-nocopy-len" title="go_string_new_nocopy_len ()">go_string_new_nocopy_len</a>            (<em class="parameter"><code><span class="type">char</span> *str</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> len</code></em>);
+<a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="returnvalue">GOString</span></a> *          <a class="link" href="goffice-0.8-go-string.html#go-string-new-rich" title="go_string_new_rich ()">go_string_new_rich</a>                  (<em class="parameter"><code><span class="type">char</span> const *str</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> byte_len</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> copy</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttrList"><span class="type">PangoAttrList</span></a> *markup</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-go-string.html#GOStringPhonetic" title="GOStringPhonetic"><span class="type">GOStringPhonetic</span></a> *phonetic</code></em>);
+<a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="returnvalue">GOString</span></a> *          <a class="link" href="goffice-0.8-go-string.html#go-string-ref" title="go_string_ref ()">go_string_ref</a>                       (<em class="parameter"><code><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="type">GOString</span></a> *gstr</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-string.html#go-string-unref" title="go_string_unref ()">go_string_unref</a>                     (<em class="parameter"><code><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="type">GOString</span></a> *gstr</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             <a class="link" href="goffice-0.8-go-string.html#go-string-get-len" title="go_string_get_len ()">go_string_get_len</a>                   (<em class="parameter"><code><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="type">GOString</span></a> const *gstr</code></em>);
+unsigned <span class="returnvalue">int</span>        <a class="link" href="goffice-0.8-go-string.html#go-string-get-ref-count" title="go_string_get_ref_count ()">go_string_get_ref_count</a>             (<em class="parameter"><code><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="type">GOString</span></a> const *gstr</code></em>);
+<span class="returnvalue">char</span> const	 *       <a class="link" href="goffice-0.8-go-string.html#go-string-get-collation" title="go_string_get_collation ()">go_string_get_collation</a>             (<em class="parameter"><code><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="type">GOString</span></a> const *gstr</code></em>);
+<span class="returnvalue">char</span> const	 *       <a class="link" href="goffice-0.8-go-string.html#go-string-get-casefold" title="go_string_get_casefold ()">go_string_get_casefold</a>              (<em class="parameter"><code><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="type">GOString</span></a> const *gstr</code></em>);
+<a href="/usr/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttrList"><span class="returnvalue">PangoAttrList</span></a> *     <a class="link" href="goffice-0.8-go-string.html#go-string-get-markup" title="go_string_get_markup ()">go_string_get_markup</a>                (<em class="parameter"><code><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="type">GOString</span></a> const *gstr</code></em>);
+<a class="link" href="goffice-0.8-go-string.html#GOStringPhonetic" title="GOStringPhonetic"><span class="returnvalue">GOStringPhonetic</span></a> *  <a class="link" href="goffice-0.8-go-string.html#go-string-get-phonetic" title="go_string_get_phonetic ()">go_string_get_phonetic</a>              (<em class="parameter"><code><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="type">GOString</span></a> const *gstr</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             <a class="link" href="goffice-0.8-go-string.html#go-string-hash" title="go_string_hash ()">go_string_hash</a>                      (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-go-string.html#go-string-cmp" title="go_string_cmp ()">go_string_cmp</a>                       (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr_a</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr_b</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-go-string.html#go-string-cmp-ignorecase" title="go_string_cmp_ignorecase ()">go_string_cmp_ignorecase</a>            (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr_a</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr_b</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-go-string.html#go-string-equal" title="go_string_equal ()">go_string_equal</a>                     (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr_a</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr_b</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-go-string.html#go-string-equal-ignorecase" title="go_string_equal_ignorecase ()">go_string_equal_ignorecase</a>          (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr_a</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr_b</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-go-string.html#go-string-equal-rich" title="go_string_equal_rich ()">go_string_equal_rich</a>                (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr_a</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr_b</code></em>);
+<a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="returnvalue">GOString</span></a> *          <a class="link" href="goffice-0.8-go-string.html#go-string-ERROR" title="go_string_ERROR ()">go_string_ERROR</a>                     (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-string.html#go-string-foreach-base" title="go_string_foreach_base ()">go_string_foreach_base</a>              (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Hash-Tables.html#GHFunc"><span class="type">GHFunc</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="goffice-0.8-go-string.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="goffice-0.8-go-string.details"></a><h2>Details</h2>
+<div class="refsect2" title="GOStringPhonetic">
+<a name="GOStringPhonetic"></a><h3>GOStringPhonetic</h3>
+<pre class="programlisting">typedef struct _GOStringPhonetic GOStringPhonetic;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GOString">
+<a name="GOString"></a><h3>GOString</h3>
+<pre class="programlisting">typedef struct {
+	char const *str; /* utf-8 */
+	/* &lt;private data&gt; */
+} GOString;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_string_get_type ()">
+<a name="go-string-get-type"></a><h3>go_string_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_string_get_type                  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Register <a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="type">GOString</span></a> as a type for <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_new ()">
+<a name="go-string-new"></a><h3>go_string_new ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="returnvalue">GOString</span></a> *          go_string_new                       (<em class="parameter"><code><span class="type">char</span> const *str</code></em>);</pre>
+<p>
+GOString duplicates <em class="parameter"><code>str</code></em> if no string already exists.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>string (optionally <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a reference to a <a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="type">GOString</span></a> containing <em class="parameter"><code>str</code></em>, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>str</code></em> is NULL
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_new_len ()">
+<a name="go-string-new-len"></a><h3>go_string_new_len ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="returnvalue">GOString</span></a> *          go_string_new_len                   (<em class="parameter"><code><span class="type">char</span> const *str</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> len</code></em>);</pre>
+<p>
+GOString duplicates <em class="parameter"><code>str</code></em> if no string already exists.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>string (optionally <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
+<td>guint32
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a reference to a <a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="type">GOString</span></a> containing <em class="parameter"><code>str</code></em>, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>str</code></em> is NULL
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_new_nocopy ()">
+<a name="go-string-new-nocopy"></a><h3>go_string_new_nocopy ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="returnvalue">GOString</span></a> *          go_string_new_nocopy                (<em class="parameter"><code><span class="type">char</span> *str</code></em>);</pre>
+<p>
+GOString takes ownership of <em class="parameter"><code>str</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>string
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a reference to a <a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="type">GOString</span></a> containing <em class="parameter"><code>str</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_new_nocopy_len ()">
+<a name="go-string-new-nocopy-len"></a><h3>go_string_new_nocopy_len ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="returnvalue">GOString</span></a> *          go_string_new_nocopy_len            (<em class="parameter"><code><span class="type">char</span> *str</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> len</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_new_rich ()">
+<a name="go-string-new-rich"></a><h3>go_string_new_rich ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="returnvalue">GOString</span></a> *          go_string_new_rich                  (<em class="parameter"><code><span class="type">char</span> const *str</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> byte_len</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> copy</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttrList"><span class="type">PangoAttrList</span></a> *markup</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-go-string.html#GOStringPhonetic" title="GOStringPhonetic"><span class="type">GOStringPhonetic</span></a> *phonetic</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>string.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>byte_len</code></em> :</span></p></td>
+<td>&lt; 0 will call strlen.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>copy</code></em> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> <em class="parameter"><code>str</code></em> should be copied when adding to the string table.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>markup</code></em> :</span></p></td>
+<td>optionally <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> list, GOString steals the ref.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>phonetic</code></em> :</span></p></td>
+<td>optionally <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> list of phonetic extensions, GOString steals the ref.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a string.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_ref ()">
+<a name="go-string-ref"></a><h3>go_string_ref ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="returnvalue">GOString</span></a> *          go_string_ref                       (<em class="parameter"><code><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="type">GOString</span></a> *gstr</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_unref ()">
+<a name="go-string-unref"></a><h3>go_string_unref ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_string_unref                     (<em class="parameter"><code><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="type">GOString</span></a> *gstr</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>gstr</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_get_len ()">
+<a name="go-string-get-len"></a><h3>go_string_get_len ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             go_string_get_len                   (<em class="parameter"><code><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="type">GOString</span></a> const *gstr</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_get_ref_count ()">
+<a name="go-string-get-ref-count"></a><h3>go_string_get_ref_count ()</h3>
+<pre class="programlisting">unsigned <span class="returnvalue">int</span>        go_string_get_ref_count             (<em class="parameter"><code><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="type">GOString</span></a> const *gstr</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_get_collation ()">
+<a name="go-string-get-collation"></a><h3>go_string_get_collation ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const	 *       go_string_get_collation             (<em class="parameter"><code><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="type">GOString</span></a> const *gstr</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_get_casefold ()">
+<a name="go-string-get-casefold"></a><h3>go_string_get_casefold ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const	 *       go_string_get_casefold              (<em class="parameter"><code><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="type">GOString</span></a> const *gstr</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_get_markup ()">
+<a name="go-string-get-markup"></a><h3>go_string_get_markup ()</h3>
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/pango/pango-Text-Attributes.html#PangoAttrList"><span class="returnvalue">PangoAttrList</span></a> *     go_string_get_markup                (<em class="parameter"><code><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="type">GOString</span></a> const *gstr</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_get_phonetic ()">
+<a name="go-string-get-phonetic"></a><h3>go_string_get_phonetic ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-go-string.html#GOStringPhonetic" title="GOStringPhonetic"><span class="returnvalue">GOStringPhonetic</span></a> *  go_string_get_phonetic              (<em class="parameter"><code><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="type">GOString</span></a> const *gstr</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_hash ()">
+<a name="go-string-hash"></a><h3>go_string_hash ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             go_string_hash                      (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_cmp ()">
+<a name="go-string-cmp"></a><h3>go_string_cmp ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_string_cmp                       (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr_a</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr_b</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstr_a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstr_b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_cmp_ignorecase ()">
+<a name="go-string-cmp-ignorecase"></a><h3>go_string_cmp_ignorecase ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_string_cmp_ignorecase            (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr_a</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr_b</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstr_a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstr_b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_equal ()">
+<a name="go-string-equal"></a><h3>go_string_equal ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_string_equal                     (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr_a</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr_b</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstr_a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstr_b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_equal_ignorecase ()">
+<a name="go-string-equal-ignorecase"></a><h3>go_string_equal_ignorecase ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_string_equal_ignorecase          (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr_a</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr_b</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstr_a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstr_b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_equal_rich ()">
+<a name="go-string-equal-rich"></a><h3>go_string_equal_rich ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_string_equal_rich                (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr_a</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> gstr_b</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstr_a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstr_b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_ERROR ()">
+<a name="go-string-ERROR"></a><h3>go_string_ERROR ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-go-string.html#GOString" title="GOString"><span class="returnvalue">GOString</span></a> *          go_string_ERROR                     (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+A convenience for g_return_val to share one error string without adding a
+reference to functions that do not add references to the result
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A string saying 'ERROR' but does not add a ref to it.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_string_foreach_base ()">
+<a name="go-string-foreach-base"></a><h3>go_string_foreach_base ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_string_foreach_base              (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Hash-Tables.html#GHFunc"><span class="type">GHFunc</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

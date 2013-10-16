@@ -1,0 +1,633 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOLibxmlExtras</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch17.html" title="Miscellaneous">
+<link rel="prev" href="goffice-0.8-GOGlibExtras.html" title="GOGlibExtras">
+<link rel="next" href="GOPersist.html" title="GOPersist">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="goffice-0.8-GOGlibExtras.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch17.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GOPersist.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#goffice-0.8-GOLibxmlExtras.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#goffice-0.8-GOLibxmlExtras.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOLibxmlExtras">
+<a name="goffice-0.8-GOLibxmlExtras"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="goffice-0.8-GOLibxmlExtras.top_of_page"></a>GOLibxmlExtras</span></h2>
+<p>GOLibxmlExtras</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="goffice-0.8-GOLibxmlExtras.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis"><span class="returnvalue">xmlDocPtr</span>           <a class="link" href="goffice-0.8-GOLibxmlExtras.html#go-xml-parse-file" title="go_xml_parse_file ()">go_xml_parse_file</a>                   (<em class="parameter"><code>const <span class="type">char</span> *filename</code></em>);
+<span class="returnvalue">xmlChar</span> *           <a class="link" href="goffice-0.8-GOLibxmlExtras.html#go-xml-node-get-cstr" title="go_xml_node_get_cstr ()">go_xml_node_get_cstr</a>                (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOLibxmlExtras.html#go-xml-node-set-cstr" title="go_xml_node_set_cstr ()">go_xml_node_set_cstr</a>                (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *val</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-GOLibxmlExtras.html#go-xml-node-get-bool" title="go_xml_node_get_bool ()">go_xml_node_get_bool</a>                (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *result</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOLibxmlExtras.html#go-xml-node-set-bool" title="go_xml_node_set_bool ()">go_xml_node_set_bool</a>                (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> val</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-GOLibxmlExtras.html#go-xml-node-get-int" title="go_xml_node_get_int ()">go_xml_node_get_int</a>                 (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *result</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOLibxmlExtras.html#go-xml-node-set-int" title="go_xml_node_set_int ()">go_xml_node_set_int</a>                 (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> val</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-GOLibxmlExtras.html#go-xml-node-get-double" title="go_xml_node_get_double ()">go_xml_node_get_double</a>              (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *result</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOLibxmlExtras.html#go-xml-node-set-double" title="go_xml_node_set_double ()">go_xml_node_set_double</a>              (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> val</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> precision</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-GOLibxmlExtras.html#go-xml-node-get-gocolor" title="go_xml_node_get_gocolor ()">go_xml_node_get_gocolor</a>             (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> *result</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOLibxmlExtras.html#go-xml-node-set-gocolor" title="go_xml_node_set_gocolor ()">go_xml_node_set_gocolor</a>             (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> val</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-GOLibxmlExtras.html#go-xml-node-get-enum" title="go_xml_node_get_enum ()">go_xml_node_get_enum</a>                (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> etype</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *val</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOLibxmlExtras.html#go-xml-node-set-enum" title="go_xml_node_set_enum ()">go_xml_node_set_enum</a>                (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> etype</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> val</code></em>);
+<span class="returnvalue">xmlNode</span> *           <a class="link" href="goffice-0.8-GOLibxmlExtras.html#go-xml-get-child-by-name" title="go_xml_get_child_by_name ()">go_xml_get_child_by_name</a>            (<em class="parameter"><code><span class="type">xmlNode</span> const *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>);
+<span class="returnvalue">xmlNode</span> *           <a class="link" href="goffice-0.8-GOLibxmlExtras.html#go-xml-get-child-by-name-no-lang" title="go_xml_get_child_by_name_no_lang ()">go_xml_get_child_by_name_no_lang</a>    (<em class="parameter"><code><span class="type">xmlNode</span> const *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>);
+<span class="returnvalue">xmlNode</span> *           <a class="link" href="goffice-0.8-GOLibxmlExtras.html#go-xml-get-child-by-name-by-lang" title="go_xml_get_child_by_name_by_lang ()">go_xml_get_child_by_name_by_lang</a>    (<em class="parameter"><code><span class="type">xmlNode</span> const *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOLibxmlExtras.html#go-xml-out-add-color" title="go_xml_out_add_color ()">go_xml_out_add_color</a>                (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-XML-and-libxml.html#GsfXMLOut"><span class="type">GsfXMLOut</span></a> *out</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *id</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> c</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="goffice-0.8-GOLibxmlExtras.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="goffice-0.8-GOLibxmlExtras.details"></a><h2>Details</h2>
+<div class="refsect2" title="go_xml_parse_file ()">
+<a name="go-xml-parse-file"></a><h3>go_xml_parse_file ()</h3>
+<pre class="programlisting"><span class="returnvalue">xmlDocPtr</span>           go_xml_parse_file                   (<em class="parameter"><code>const <span class="type">char</span> *filename</code></em>);</pre>
+<p>
+Like xmlParseFile, but faster.  Does not accept compressed files.
+See http://bugzilla.gnome.org/show_bug.cgi?id=168414
+</p>
+<p>
+Note: this reads the entire file into memory and should therefore
+not be used for user-supplied files.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>the locale path to a file to parse.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A libxml2 xmlDocPtr or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_xml_node_get_cstr ()">
+<a name="go-xml-node-get-cstr"></a><h3>go_xml_node_get_cstr ()</h3>
+<pre class="programlisting"><span class="returnvalue">xmlChar</span> *           go_xml_node_get_cstr                (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_xml_node_set_cstr ()">
+<a name="go-xml-node-set-cstr"></a><h3>go_xml_node_set_cstr ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_xml_node_set_cstr                (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *val</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_xml_node_get_bool ()">
+<a name="go-xml-node-get-bool"></a><h3>go_xml_node_get_bool ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_xml_node_get_bool                (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *result</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_xml_node_set_bool ()">
+<a name="go-xml-node-set-bool"></a><h3>go_xml_node_set_bool ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_xml_node_set_bool                (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> val</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_xml_node_get_int ()">
+<a name="go-xml-node-get-int"></a><h3>go_xml_node_get_int ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_xml_node_get_int                 (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *result</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_xml_node_set_int ()">
+<a name="go-xml-node-set-int"></a><h3>go_xml_node_set_int ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_xml_node_set_int                 (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> val</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_xml_node_get_double ()">
+<a name="go-xml-node-get-double"></a><h3>go_xml_node_get_double ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_xml_node_get_double              (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *result</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_xml_node_set_double ()">
+<a name="go-xml-node-set-double"></a><h3>go_xml_node_set_double ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_xml_node_set_double              (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> val</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> precision</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>precision</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_xml_node_get_gocolor ()">
+<a name="go-xml-node-get-gocolor"></a><h3>go_xml_node_get_gocolor ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_xml_node_get_gocolor             (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> *result</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_xml_node_set_gocolor ()">
+<a name="go-xml-node-set-gocolor"></a><h3>go_xml_node_set_gocolor ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_xml_node_set_gocolor             (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> val</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_xml_node_get_enum ()">
+<a name="go-xml-node-get-enum"></a><h3>go_xml_node_get_enum ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_xml_node_get_enum                (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> etype</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *val</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>etype</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_xml_node_set_enum ()">
+<a name="go-xml-node-set-enum"></a><h3>go_xml_node_set_enum ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_xml_node_set_enum                (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> etype</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> val</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>etype</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_xml_get_child_by_name ()">
+<a name="go-xml-get-child-by-name"></a><h3>go_xml_get_child_by_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">xmlNode</span> *           go_xml_get_child_by_name            (<em class="parameter"><code><span class="type">xmlNode</span> const *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_xml_get_child_by_name_no_lang ()">
+<a name="go-xml-get-child-by-name-no-lang"></a><h3>go_xml_get_child_by_name_no_lang ()</h3>
+<pre class="programlisting"><span class="returnvalue">xmlNode</span> *           go_xml_get_child_by_name_no_lang    (<em class="parameter"><code><span class="type">xmlNode</span> const *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_xml_get_child_by_name_by_lang ()">
+<a name="go-xml-get-child-by-name-by-lang"></a><h3>go_xml_get_child_by_name_by_lang ()</h3>
+<pre class="programlisting"><span class="returnvalue">xmlNode</span> *           go_xml_get_child_by_name_by_lang    (<em class="parameter"><code><span class="type">xmlNode</span> const *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *name</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_xml_out_add_color ()">
+<a name="go-xml-out-add-color"></a><h3>go_xml_out_add_color ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_xml_out_add_color                (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/gsf/gsf-XML-and-libxml.html#GsfXMLOut"><span class="type">GsfXMLOut</span></a> *out</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *id</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> c</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

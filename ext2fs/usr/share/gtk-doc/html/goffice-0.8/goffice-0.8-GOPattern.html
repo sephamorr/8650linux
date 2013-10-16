@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOPattern</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch10.html" title="Graphic object properties">
+<link rel="prev" href="GOMarker.html" title="GOMarker">
+<link rel="next" href="GOStyle.html" title="GOStyle">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GOMarker.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch10.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GOStyle.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#goffice-0.8-GOPattern.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#goffice-0.8-GOPattern.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOPattern">
+<a name="goffice-0.8-GOPattern"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="goffice-0.8-GOPattern.top_of_page"></a>GOPattern</span></h2>
+<p>GOPattern</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="goffice-0.8-GOPattern.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="goffice-0.8-GOPattern.html#GOPattern" title="GOPattern">GOPattern</a>;
+enum                <a class="link" href="goffice-0.8-GOPattern.html#GOPatternType" title="enum GOPatternType">GOPatternType</a>;
+<a class="link" href="goffice-0.8-GOPattern.html#GOPatternType" title="enum GOPatternType"><span class="returnvalue">GOPatternType</span></a>       <a class="link" href="goffice-0.8-GOPattern.html#go-pattern-from-str" title="go_pattern_from_str ()">go_pattern_from_str</a>                 (<em class="parameter"><code><span class="type">char</span> const *name</code></em>);
+<span class="returnvalue">char</span> const	*        <a class="link" href="goffice-0.8-GOPattern.html#go-pattern-as-str" title="go_pattern_as_str ()">go_pattern_as_str</a>                   (<em class="parameter"><code><a class="link" href="goffice-0.8-GOPattern.html#GOPatternType" title="enum GOPatternType"><span class="type">GOPatternType</span></a> pattern</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-GOPattern.html#go-pattern-is-solid" title="go_pattern_is_solid ()">go_pattern_is_solid</a>                 (<em class="parameter"><code><a class="link" href="goffice-0.8-GOPattern.html#GOPattern" title="GOPattern"><span class="type">GOPattern</span></a> const *pat</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> *color</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOPattern.html#go-pattern-set-solid" title="go_pattern_set_solid ()">go_pattern_set_solid</a>                (<em class="parameter"><code><a class="link" href="goffice-0.8-GOPattern.html#GOPattern" title="GOPattern"><span class="type">GOPattern</span></a> *pat</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> fore</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint8"><span class="returnvalue">guint8</span></a> const 	*     <a class="link" href="goffice-0.8-GOPattern.html#go-pattern-get-pattern" title="go_pattern_get_pattern ()">go_pattern_get_pattern</a>              (<em class="parameter"><code><a class="link" href="goffice-0.8-GOPattern.html#GOPattern" title="GOPattern"><span class="type">GOPattern</span></a> const *pat</code></em>);
+<span class="returnvalue">xmlChar</span> *           <a class="link" href="goffice-0.8-GOPattern.html#go-pattern-get-svg-path" title="go_pattern_get_svg_path ()">go_pattern_get_svg_path</a>             (<em class="parameter"><code><a class="link" href="goffice-0.8-GOPattern.html#GOPattern" title="GOPattern"><span class="type">GOPattern</span></a> const *pattern</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *height</code></em>);
+<a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-pattern-t.html#cairo-pattern-t"><span class="returnvalue">cairo_pattern_t</span></a> *   <a class="link" href="goffice-0.8-GOPattern.html#go-pattern-create-cairo-pattern" title="go_pattern_create_cairo_pattern ()">go_pattern_create_cairo_pattern</a>     (<em class="parameter"><code><a class="link" href="goffice-0.8-GOPattern.html#GOPattern" title="GOPattern"><span class="type">GOPattern</span></a> const *pattern</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>);
+<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="goffice-0.8-GOPattern.html#go-pattern-selector-new" title="go_pattern_selector_new ()">go_pattern_selector_new</a>             (<em class="parameter"><code><a class="link" href="goffice-0.8-GOPattern.html#GOPatternType" title="enum GOPatternType"><span class="type">GOPatternType</span></a> initial_type</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPattern.html#GOPatternType" title="enum GOPatternType"><span class="type">GOPatternType</span></a> default_type</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOPattern.html#go-pattern-selector-set-colors" title="go_pattern_selector_set_colors ()">go_pattern_selector_set_colors</a>      (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> foreground</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> background</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="goffice-0.8-GOPattern.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="goffice-0.8-GOPattern.details"></a><h2>Details</h2>
+<div class="refsect2" title="GOPattern">
+<a name="GOPattern"></a><h3>GOPattern</h3>
+<pre class="programlisting">typedef struct {
+	GOColor	 fore, back;
+	unsigned pattern;
+} GOPattern;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum GOPatternType">
+<a name="GOPatternType"></a><h3>enum GOPatternType</h3>
+<pre class="programlisting">typedef enum {
+	GO_PATTERN_SOLID,
+	GO_PATTERN_GREY75,
+	GO_PATTERN_GREY50,
+	GO_PATTERN_GREY25,
+	GO_PATTERN_GREY125,
+	GO_PATTERN_GREY625,
+	GO_PATTERN_HORIZ,
+	GO_PATTERN_VERT,
+	GO_PATTERN_REV_DIAG,
+	GO_PATTERN_DIAG,
+	GO_PATTERN_DIAG_CROSS,
+	GO_PATTERN_THICK_DIAG_CROSS,
+	GO_PATTERN_THIN_HORIZ,
+	GO_PATTERN_THIN_VERT,
+	GO_PATTERN_THIN_REV_DIAG,
+	GO_PATTERN_THIN_DIAG,
+	GO_PATTERN_THIN_HORIZ_CROSS,
+	GO_PATTERN_THIN_DIAG_CROSS,
+	GO_PATTERN_FOREGROUND_SOLID,
+	GO_PATTERN_SMALL_CIRCLES,
+	GO_PATTERN_SEMI_CIRCLES,
+	GO_PATTERN_THATCH,
+	GO_PATTERN_LARGE_CIRCLES,
+	GO_PATTERN_BRICKS,
+	GO_PATTERN_MAX
+} GOPatternType;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_pattern_from_str ()">
+<a name="go-pattern-from-str"></a><h3>go_pattern_from_str ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GOPattern.html#GOPatternType" title="enum GOPatternType"><span class="returnvalue">GOPatternType</span></a>       go_pattern_from_str                 (<em class="parameter"><code><span class="type">char</span> const *name</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_pattern_as_str ()">
+<a name="go-pattern-as-str"></a><h3>go_pattern_as_str ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const	*        go_pattern_as_str                   (<em class="parameter"><code><a class="link" href="goffice-0.8-GOPattern.html#GOPatternType" title="enum GOPatternType"><span class="type">GOPatternType</span></a> pattern</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pattern</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_pattern_is_solid ()">
+<a name="go-pattern-is-solid"></a><h3>go_pattern_is_solid ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_pattern_is_solid                 (<em class="parameter"><code><a class="link" href="goffice-0.8-GOPattern.html#GOPattern" title="GOPattern"><span class="type">GOPattern</span></a> const *pat</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> *color</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pat</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-GOPattern.html#GOPattern" title="GOPattern"><span class="type">GOPattern</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>color</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> if <em class="parameter"><code>pat</code></em> is solid, and stores the color in <em class="parameter"><code>color</code></em>.
+	If <em class="parameter"><code>pat</code></em> is not solid <em class="parameter"><code>color</code></em> is not touched.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_pattern_set_solid ()">
+<a name="go-pattern-set-solid"></a><h3>go_pattern_set_solid ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_pattern_set_solid                (<em class="parameter"><code><a class="link" href="goffice-0.8-GOPattern.html#GOPattern" title="GOPattern"><span class="type">GOPattern</span></a> *pat</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> fore</code></em>);</pre>
+<p>
+Makes <em class="parameter"><code>pat</code></em> a solid pattern with colour <em class="parameter"><code>fore</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pat</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GOPattern.html#GOPattern" title="GOPattern"><span class="type">GOPattern</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fore</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_pattern_get_pattern ()">
+<a name="go-pattern-get-pattern"></a><h3>go_pattern_get_pattern ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint8"><span class="returnvalue">guint8</span></a> const 	*     go_pattern_get_pattern              (<em class="parameter"><code><a class="link" href="goffice-0.8-GOPattern.html#GOPattern" title="GOPattern"><span class="type">GOPattern</span></a> const *pat</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pat</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_pattern_get_svg_path ()">
+<a name="go-pattern-get-svg-path"></a><h3>go_pattern_get_svg_path ()</h3>
+<pre class="programlisting"><span class="returnvalue">xmlChar</span> *           go_pattern_get_svg_path             (<em class="parameter"><code><a class="link" href="goffice-0.8-GOPattern.html#GOPattern" title="GOPattern"><span class="type">GOPattern</span></a> const *pattern</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *width</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *height</code></em>);</pre>
+<p>
+Retrieves an SVG path as string, which represents pattern shape.
+Caller is responsible for freeing the resulting string.
+</p>
+<p>
+If width != NULL, returns pattern width.
+If height != NULL, returns pattern height.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pattern</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GOPattern.html#GOPattern" title="GOPattern"><span class="type">GOPattern</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>pattern width
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>pattern height
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <span class="type">xmlChar</span> buffer (free using xmlFree).
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_pattern_create_cairo_pattern ()">
+<a name="go-pattern-create-cairo-pattern"></a><h3>go_pattern_create_cairo_pattern ()</h3>
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-pattern-t.html#cairo-pattern-t"><span class="returnvalue">cairo_pattern_t</span></a> *   go_pattern_create_cairo_pattern     (<em class="parameter"><code><a class="link" href="goffice-0.8-GOPattern.html#GOPattern" title="GOPattern"><span class="type">GOPattern</span></a> const *pattern</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pattern</code></em> :</span></p></td>
+<td>a <a class="link" href="goffice-0.8-GOPattern.html#GOPattern" title="GOPattern"><span class="type">GOPattern</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
+<td>a cairo context
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a cairo pattern object corresponding to <em class="parameter"><code>pattern</code></em> parameters. The returned
+	surface must be freed after use, using cairo_pattern_destroy.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_pattern_selector_new ()">
+<a name="go-pattern-selector-new"></a><h3>go_pattern_selector_new ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         go_pattern_selector_new             (<em class="parameter"><code><a class="link" href="goffice-0.8-GOPattern.html#GOPatternType" title="enum GOPatternType"><span class="type">GOPatternType</span></a> initial_type</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOPattern.html#GOPatternType" title="enum GOPatternType"><span class="type">GOPatternType</span></a> default_type</code></em>);</pre>
+<p>
+Creates a new pattern selector.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>initial_type</code></em> :</span></p></td>
+<td>pattern type initially selected
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>default_type</code></em> :</span></p></td>
+<td>automatic pattern type
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"><span class="type">GtkWidget</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_pattern_selector_set_colors ()">
+<a name="go-pattern-selector-set-colors"></a><h3>go_pattern_selector_set_colors ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_pattern_selector_set_colors      (<em class="parameter"><code><a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a> *selector</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> foreground</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOColor.html#GOColor" title="GOColor"><span class="type">GOColor</span></a> background</code></em>);</pre>
+<p>
+Updates swatch colors of <em class="parameter"><code>selector</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selector</code></em> :</span></p></td>
+<td>a pattern <a class="link" href="GOSelector.html" title="GOSelector"><span class="type">GOSelector</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>foreground</code></em> :</span></p></td>
+<td>foreground color
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>background</code></em> :</span></p></td>
+<td>background color
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

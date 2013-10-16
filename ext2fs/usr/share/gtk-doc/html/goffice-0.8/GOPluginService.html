@@ -1,0 +1,984 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOPluginService</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch15.html" title="Application">
+<link rel="prev" href="GOPluginLoaderModule.html" title="GOPluginLoaderModule">
+<link rel="next" href="ch16.html" title="Components">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GOPluginLoaderModule.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch15.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="ch16.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GOPluginService.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GOPluginService.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GOPluginService.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOPluginService">
+<a name="GOPluginService"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GOPluginService.top_of_page"></a>GOPluginService</span></h2>
+<p>GOPluginService</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GOPluginService.synopsis"></a><h2>Synopsis</h2>
+<a name="GOPluginServiceGeneral"></a><a name="GOPluginServiceFileOpener"></a><a name="GOPluginServiceFileSaver"></a><a name="GOPluginServicePluginLoader"></a><a name="GOPluginServiceGObjectLoader"></a><a name="GOPluginServiceSimple"></a><pre class="synopsis">#define             <a class="link" href="GOPluginService.html#GO-TYPE-PLUGIN-SERVICE:CAPS" title="GO_TYPE_PLUGIN_SERVICE">GO_TYPE_PLUGIN_SERVICE</a>
+#define             <a class="link" href="GOPluginService.html#GO-PLUGIN-SERVICE:CAPS" title="GO_PLUGIN_SERVICE()">GO_PLUGIN_SERVICE</a>                   (o)
+#define             <a class="link" href="GOPluginService.html#GO-IS-PLUGIN-SERVICE:CAPS" title="GO_IS_PLUGIN_SERVICE()">GO_IS_PLUGIN_SERVICE</a>                (o)
+                    <a class="link" href="GOPluginService.html#GOPluginService-struct" title="GOPluginService">GOPluginService</a>;
+                    <a class="link" href="GOPluginService.html#GOPluginServiceClass" title="GOPluginServiceClass">GOPluginServiceClass</a>;
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GOPluginService.html#go-plugin-service-get-type" title="go_plugin_service_get_type ()">go_plugin_service_get_type</a>          (<em class="parameter"><code><span class="type">void</span></code></em>);
+#define             <a class="link" href="GOPluginService.html#GO-TYPE-PLUGIN-SERVICE-GENERAL:CAPS" title="GO_TYPE_PLUGIN_SERVICE_GENERAL">GO_TYPE_PLUGIN_SERVICE_GENERAL</a>
+#define             <a class="link" href="GOPluginService.html#GO-PLUGIN-SERVICE-GENERAL:CAPS" title="GO_PLUGIN_SERVICE_GENERAL()">GO_PLUGIN_SERVICE_GENERAL</a>           (o)
+#define             <a class="link" href="GOPluginService.html#GO-IS-PLUGIN-SERVICE-GENERAL:CAPS" title="GO_IS_PLUGIN_SERVICE_GENERAL()">GO_IS_PLUGIN_SERVICE_GENERAL</a>        (o)
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GOPluginService.html#go-plugin-service-general-get-type" title="go_plugin_service_general_get_type ()">go_plugin_service_general_get_type</a>  (<em class="parameter"><code><span class="type">void</span></code></em>);
+                    <a class="link" href="GOPluginService.html#GOPluginServiceGeneral-struct" title="GOPluginServiceGeneral">GOPluginServiceGeneral</a>;
+                    <a class="link" href="GOPluginService.html#GOPluginServiceGeneralCallbacks" title="GOPluginServiceGeneralCallbacks">GOPluginServiceGeneralCallbacks</a>;
+#define             <a class="link" href="GOPluginService.html#GO-TYPE-PLUGIN-SERVICE-FILE-OPENER:CAPS" title="GO_TYPE_PLUGIN_SERVICE_FILE_OPENER">GO_TYPE_PLUGIN_SERVICE_FILE_OPENER</a>
+#define             <a class="link" href="GOPluginService.html#GO-PLUGIN-SERVICE-FILE-OPENER:CAPS" title="GO_PLUGIN_SERVICE_FILE_OPENER()">GO_PLUGIN_SERVICE_FILE_OPENER</a>       (o)
+#define             <a class="link" href="GOPluginService.html#GO-IS-PLUGIN-SERVICE-FILE-OPENER:CAPS" title="GO_IS_PLUGIN_SERVICE_FILE_OPENER()">GO_IS_PLUGIN_SERVICE_FILE_OPENER</a>    (o)
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GOPluginService.html#go-plugin-service-file-opener-get-type" title="go_plugin_service_file_opener_get_type ()">go_plugin_service_file_opener_get_type</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+                    <a class="link" href="GOPluginService.html#GOPluginServiceFileOpener-struct" title="GOPluginServiceFileOpener">GOPluginServiceFileOpener</a>;
+                    <a class="link" href="GOPluginService.html#GOPluginServiceFileOpenerCallbacks" title="GOPluginServiceFileOpenerCallbacks">GOPluginServiceFileOpenerCallbacks</a>;
+#define             <a class="link" href="GOPluginService.html#GO-TYPE-PLUGIN-SERVICE-FILE-SAVER:CAPS" title="GO_TYPE_PLUGIN_SERVICE_FILE_SAVER">GO_TYPE_PLUGIN_SERVICE_FILE_SAVER</a>
+#define             <a class="link" href="GOPluginService.html#GO-PLUGIN-SERVICE-FILE-SAVER:CAPS" title="GO_PLUGIN_SERVICE_FILE_SAVER()">GO_PLUGIN_SERVICE_FILE_SAVER</a>        (o)
+#define             <a class="link" href="GOPluginService.html#GO-IS-PLUGIN-SERVICE-FILE-SAVER:CAPS" title="GO_IS_PLUGIN_SERVICE_FILE_SAVER()">GO_IS_PLUGIN_SERVICE_FILE_SAVER</a>     (o)
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GOPluginService.html#go-plugin-service-file-saver-get-type" title="go_plugin_service_file_saver_get_type ()">go_plugin_service_file_saver_get_type</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+                    <a class="link" href="GOPluginService.html#GOPluginServiceFileSaver-struct" title="GOPluginServiceFileSaver">GOPluginServiceFileSaver</a>;
+                    <a class="link" href="GOPluginService.html#GOPluginServiceFileSaverCallbacks" title="GOPluginServiceFileSaverCallbacks">GOPluginServiceFileSaverCallbacks</a>;
+#define             <a class="link" href="GOPluginService.html#GO-TYPE-PLUGIN-SERVICE-PLUGIN-LOADER:CAPS" title="GO_TYPE_PLUGIN_SERVICE_PLUGIN_LOADER">GO_TYPE_PLUGIN_SERVICE_PLUGIN_LOADER</a>
+#define             <a class="link" href="GOPluginService.html#GO-PLUGIN-SERVICE-PLUGIN-LOADER:CAPS" title="GO_PLUGIN_SERVICE_PLUGIN_LOADER()">GO_PLUGIN_SERVICE_PLUGIN_LOADER</a>     (o)
+#define             <a class="link" href="GOPluginService.html#GO-IS-PLUGIN-SERVICE-PLUGIN-LOADER:CAPS" title="GO_IS_PLUGIN_SERVICE_PLUGIN_LOADER()">GO_IS_PLUGIN_SERVICE_PLUGIN_LOADER</a>  (o)
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GOPluginService.html#go-plugin-service-plugin-loader-get-type" title="go_plugin_service_plugin_loader_get_type ()">go_plugin_service_plugin_loader_get_type</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+                    <a class="link" href="GOPluginService.html#GOPluginServicePluginLoader-struct" title="GOPluginServicePluginLoader">GOPluginServicePluginLoader</a>;
+                    <a class="link" href="GOPluginService.html#GOPluginServicePluginLoaderCallbacks" title="GOPluginServicePluginLoaderCallbacks">GOPluginServicePluginLoaderCallbacks</a>;
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GOPluginService.html#go-plugin-service-plugin-loader-generate-type" title="go_plugin_service_plugin_loader_generate_type ()">go_plugin_service_plugin_loader_generate_type</a>
+                                                        (<em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);
+#define             <a class="link" href="GOPluginService.html#GO-TYPE-PLUGIN-SERVICE-GOBJECT-LOADER:CAPS" title="GO_TYPE_PLUGIN_SERVICE_GOBJECT_LOADER">GO_TYPE_PLUGIN_SERVICE_GOBJECT_LOADER</a>
+#define             <a class="link" href="GOPluginService.html#GO-PLUGIN-SERVICE-GOBJECT-LOADER:CAPS" title="GO_PLUGIN_SERVICE_GOBJECT_LOADER()">GO_PLUGIN_SERVICE_GOBJECT_LOADER</a>    (o)
+#define             <a class="link" href="GOPluginService.html#GO-IS-PLUGIN-SERVICE-GOBJECT-LOADER:CAPS" title="GO_IS_PLUGIN_SERVICE_GOBJECT_LOADER()">GO_IS_PLUGIN_SERVICE_GOBJECT_LOADER</a> (o)
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GOPluginService.html#go-plugin-service-gobject-loader-get-type" title="go_plugin_service_gobject_loader_get_type ()">go_plugin_service_gobject_loader_get_type</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+                    <a class="link" href="GOPluginService.html#GOPluginServiceGObjectLoader-struct" title="GOPluginServiceGObjectLoader">GOPluginServiceGObjectLoader</a>;
+                    <a class="link" href="GOPluginService.html#GOPluginServiceGObjectLoaderClass" title="GOPluginServiceGObjectLoaderClass">GOPluginServiceGObjectLoaderClass</a>;
+#define             <a class="link" href="GOPluginService.html#GO-TYPE-PLUGIN-SERVICE-SIMPLE:CAPS" title="GO_TYPE_PLUGIN_SERVICE_SIMPLE">GO_TYPE_PLUGIN_SERVICE_SIMPLE</a>
+#define             <a class="link" href="GOPluginService.html#GO-PLUGIN-SERVICE-SIMPLE:CAPS" title="GO_PLUGIN_SERVICE_SIMPLE()">GO_PLUGIN_SERVICE_SIMPLE</a>            (o)
+#define             <a class="link" href="GOPluginService.html#GO-IS-PLUGIN-SERVICE-SIMPLE:CAPS" title="GO_IS_PLUGIN_SERVICE_SIMPLE()">GO_IS_PLUGIN_SERVICE_SIMPLE</a>         (o)
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GOPluginService.html#go-plugin-service-simple-get-type" title="go_plugin_service_simple_get_type ()">go_plugin_service_simple_get_type</a>   (<em class="parameter"><code><span class="type">void</span></code></em>);
+                    <a class="link" href="GOPluginService.html#GOPluginServiceSimple-struct" title="GOPluginServiceSimple">GOPluginServiceSimple</a>;
+                    <a class="link" href="GOPluginService.html#GOPluginServiceSimpleClass" title="GOPluginServiceSimpleClass">GOPluginServiceSimpleClass</a>;
+<a class="link" href="GOPluginService.html" title="GOPluginService"><span class="returnvalue">GOPluginService</span></a> *   <a class="link" href="GOPluginService.html#go-plugin-service-new" title="go_plugin_service_new ()">go_plugin_service_new</a>               (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlNode</span> *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);
+<span class="returnvalue">char</span> const     *    <a class="link" href="GOPluginService.html#go-plugin-service-get-id" title="go_plugin_service_get_id ()">go_plugin_service_get_id</a>            (<em class="parameter"><code>const <a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>);
+<span class="returnvalue">char</span> const     *    <a class="link" href="GOPluginService.html#go-plugin-service-get-description" title="go_plugin_service_get_description ()">go_plugin_service_get_description</a>   (<em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>);
+<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="returnvalue">GOPlugin</span></a> *          <a class="link" href="GOPluginService.html#go-plugin-service-get-plugin" title="go_plugin_service_get_plugin ()">go_plugin_service_get_plugin</a>        (<em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="GOPluginService.html#go-plugin-service-get-cbs" title="go_plugin_service_get_cbs ()">go_plugin_service_get_cbs</a>           (<em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOPluginService.html#go-plugin-service-activate" title="go_plugin_service_activate ()">go_plugin_service_activate</a>          (<em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOPluginService.html#go-plugin-service-deactivate" title="go_plugin_service_deactivate ()">go_plugin_service_deactivate</a>        (<em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOPluginService.html#go-plugin-service-load" title="go_plugin_service_load ()">go_plugin_service_load</a>              (<em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOPluginService.html#go-plugin-service-unload" title="go_plugin_service_unload ()">go_plugin_service_unload</a>            (<em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               (<a class="link" href="GOPluginService.html#GOPluginServiceCreate" title="GOPluginServiceCreate ()">*GOPluginServiceCreate</a>)            (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOPluginService.html#go-plugin-services-shutdown" title="go_plugin_services_shutdown ()">go_plugin_services_shutdown</a>         (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOPluginService.html#go-plugin-service-define" title="go_plugin_service_define ()">go_plugin_service_define</a>            (<em class="parameter"><code><span class="type">char</span> const *type_str</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOPluginService.html#GOPluginServiceCreate" title="GOPluginServiceCreate ()"><span class="type">GOPluginServiceCreate</span></a> ctor</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GOPluginService.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GOPluginService
+         +----<a class="link" href="GOPluginService.html#GOPluginServiceFileOpener">GOPluginServiceFileOpener</a>
+         +----<a class="link" href="GOPluginService.html#GOPluginServiceFileSaver">GOPluginServiceFileSaver</a>
+         +----<a class="link" href="GOPluginService.html#GOPluginServiceGeneral">GOPluginServiceGeneral</a>
+         +----<a class="link" href="GOPluginService.html#GOPluginServiceSimple">GOPluginServiceSimple</a>
+         +----<a class="link" href="GOPluginService.html#GOPluginServicePluginLoader">GOPluginServicePluginLoader</a>
+</pre>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GOPluginService.html" title="GOPluginService">GOPluginService</a>
+         +----GOPluginServiceGeneral
+</pre>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GOPluginService.html" title="GOPluginService">GOPluginService</a>
+         +----GOPluginServiceFileOpener
+</pre>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GOPluginService.html" title="GOPluginService">GOPluginService</a>
+         +----GOPluginServiceFileSaver
+</pre>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GOPluginService.html" title="GOPluginService">GOPluginService</a>
+         +----GOPluginServicePluginLoader
+</pre>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GOPluginService.html" title="GOPluginService">GOPluginService</a>
+         +----<a class="link" href="GOPluginService.html#GOPluginServiceSimple">GOPluginServiceSimple</a>
+               +----GOPluginServiceGObjectLoader
+</pre>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GOPluginService.html" title="GOPluginService">GOPluginService</a>
+         +----GOPluginServiceSimple
+               +----<a class="link" href="GOPluginService.html#GOPluginServiceGObjectLoader">GOPluginServiceGObjectLoader</a>
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GOPluginService.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GOPluginService.details"></a><h2>Details</h2>
+<div class="refsect2" title="GO_TYPE_PLUGIN_SERVICE">
+<a name="GO-TYPE-PLUGIN-SERVICE:CAPS"></a><h3>GO_TYPE_PLUGIN_SERVICE</h3>
+<pre class="programlisting">#define GO_TYPE_PLUGIN_SERVICE         (go_plugin_service_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_PLUGIN_SERVICE()">
+<a name="GO-PLUGIN-SERVICE:CAPS"></a><h3>GO_PLUGIN_SERVICE()</h3>
+<pre class="programlisting">#define GO_PLUGIN_SERVICE(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), GO_TYPE_PLUGIN_SERVICE, GOPluginService))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_IS_PLUGIN_SERVICE()">
+<a name="GO-IS-PLUGIN-SERVICE:CAPS"></a><h3>GO_IS_PLUGIN_SERVICE()</h3>
+<pre class="programlisting">#define GO_IS_PLUGIN_SERVICE(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), GO_TYPE_PLUGIN_SERVICE))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOPluginService">
+<a name="GOPluginService-struct"></a><h3>GOPluginService</h3>
+<pre class="programlisting">typedef struct _GOPluginService GOPluginService;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GOPluginServiceClass">
+<a name="GOPluginServiceClass"></a><h3>GOPluginServiceClass</h3>
+<pre class="programlisting">typedef struct {
+	GObjectClass g_object_class;
+
+	void (*read_xml) (GOPluginService *service, xmlNode *tree, GOErrorInfo **ret_error);
+	void (*activate) (GOPluginService *service, GOErrorInfo **ret_error);
+	void (*deactivate) (GOPluginService *service, GOErrorInfo **ret_error);
+	char *(*get_description) (GOPluginService *service);
+} GOPluginServiceClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_service_get_type ()">
+<a name="go-plugin-service-get-type"></a><h3>go_plugin_service_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_plugin_service_get_type          (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_TYPE_PLUGIN_SERVICE_GENERAL">
+<a name="GO-TYPE-PLUGIN-SERVICE-GENERAL:CAPS"></a><h3>GO_TYPE_PLUGIN_SERVICE_GENERAL</h3>
+<pre class="programlisting">#define GO_TYPE_PLUGIN_SERVICE_GENERAL  (go_plugin_service_general_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_PLUGIN_SERVICE_GENERAL()">
+<a name="GO-PLUGIN-SERVICE-GENERAL:CAPS"></a><h3>GO_PLUGIN_SERVICE_GENERAL()</h3>
+<pre class="programlisting">#define GO_PLUGIN_SERVICE_GENERAL(o)    (G_TYPE_CHECK_INSTANCE_CAST ((o), GO_TYPE_PLUGIN_SERVICE_GENERAL, GOPluginServiceGeneral))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_IS_PLUGIN_SERVICE_GENERAL()">
+<a name="GO-IS-PLUGIN-SERVICE-GENERAL:CAPS"></a><h3>GO_IS_PLUGIN_SERVICE_GENERAL()</h3>
+<pre class="programlisting">#define GO_IS_PLUGIN_SERVICE_GENERAL(o) (G_TYPE_CHECK_INSTANCE_TYPE ((o), GO_TYPE_PLUGIN_SERVICE_GENERAL))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_service_general_get_type ()">
+<a name="go-plugin-service-general-get-type"></a><h3>go_plugin_service_general_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_plugin_service_general_get_type  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOPluginServiceGeneral">
+<a name="GOPluginServiceGeneral-struct"></a><h3>GOPluginServiceGeneral</h3>
+<pre class="programlisting">typedef struct _GOPluginServiceGeneral GOPluginServiceGeneral;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GOPluginServiceGeneralCallbacks">
+<a name="GOPluginServiceGeneralCallbacks"></a><h3>GOPluginServiceGeneralCallbacks</h3>
+<pre class="programlisting">typedef struct {
+	void (*plugin_func_init) (GOPluginService *service, GOErrorInfo **ret_error);
+	void (*plugin_func_cleanup) (GOPluginService *service, GOErrorInfo **ret_error);
+} GOPluginServiceGeneralCallbacks;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_TYPE_PLUGIN_SERVICE_FILE_OPENER">
+<a name="GO-TYPE-PLUGIN-SERVICE-FILE-OPENER:CAPS"></a><h3>GO_TYPE_PLUGIN_SERVICE_FILE_OPENER</h3>
+<pre class="programlisting">#define GO_TYPE_PLUGIN_SERVICE_FILE_OPENER  (go_plugin_service_file_opener_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_PLUGIN_SERVICE_FILE_OPENER()">
+<a name="GO-PLUGIN-SERVICE-FILE-OPENER:CAPS"></a><h3>GO_PLUGIN_SERVICE_FILE_OPENER()</h3>
+<pre class="programlisting">#define GO_PLUGIN_SERVICE_FILE_OPENER(o)    (G_TYPE_CHECK_INSTANCE_CAST ((o), GO_TYPE_PLUGIN_SERVICE_FILE_OPENER, GOPluginServiceFileOpener))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_IS_PLUGIN_SERVICE_FILE_OPENER()">
+<a name="GO-IS-PLUGIN-SERVICE-FILE-OPENER:CAPS"></a><h3>GO_IS_PLUGIN_SERVICE_FILE_OPENER()</h3>
+<pre class="programlisting">#define GO_IS_PLUGIN_SERVICE_FILE_OPENER(o) (G_TYPE_CHECK_INSTANCE_TYPE ((o), GO_TYPE_PLUGIN_SERVICE_FILE_OPENER))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_service_file_opener_get_type ()">
+<a name="go-plugin-service-file-opener-get-type"></a><h3>go_plugin_service_file_opener_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_plugin_service_file_opener_get_type
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOPluginServiceFileOpener">
+<a name="GOPluginServiceFileOpener-struct"></a><h3>GOPluginServiceFileOpener</h3>
+<pre class="programlisting">typedef struct _GOPluginServiceFileOpener GOPluginServiceFileOpener;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GOPluginServiceFileOpenerCallbacks">
+<a name="GOPluginServiceFileOpenerCallbacks"></a><h3>GOPluginServiceFileOpenerCallbacks</h3>
+<pre class="programlisting">typedef struct {
+	/* plugin_func_file_probe may be NULL */
+	gboolean (*plugin_func_file_probe) (
+	         GOFileOpener const *fo, GOPluginService *service,
+	         GsfInput *input, GOFileProbeLevel pl);
+	void     (*plugin_func_file_open) (
+	         GOFileOpener const *fo, GOPluginService *service,
+	         GOIOContext *io_context, gpointer fixme_workbook_view,
+		 GsfInput *input);
+} GOPluginServiceFileOpenerCallbacks;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_TYPE_PLUGIN_SERVICE_FILE_SAVER">
+<a name="GO-TYPE-PLUGIN-SERVICE-FILE-SAVER:CAPS"></a><h3>GO_TYPE_PLUGIN_SERVICE_FILE_SAVER</h3>
+<pre class="programlisting">#define GO_TYPE_PLUGIN_SERVICE_FILE_SAVER  (go_plugin_service_file_saver_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_PLUGIN_SERVICE_FILE_SAVER()">
+<a name="GO-PLUGIN-SERVICE-FILE-SAVER:CAPS"></a><h3>GO_PLUGIN_SERVICE_FILE_SAVER()</h3>
+<pre class="programlisting">#define GO_PLUGIN_SERVICE_FILE_SAVER(o)    (G_TYPE_CHECK_INSTANCE_CAST ((o), GO_TYPE_PLUGIN_SERVICE_FILE_SAVER, GOPluginServiceFileSaver))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_IS_PLUGIN_SERVICE_FILE_SAVER()">
+<a name="GO-IS-PLUGIN-SERVICE-FILE-SAVER:CAPS"></a><h3>GO_IS_PLUGIN_SERVICE_FILE_SAVER()</h3>
+<pre class="programlisting">#define GO_IS_PLUGIN_SERVICE_FILE_SAVER(o) (G_TYPE_CHECK_INSTANCE_TYPE ((o), GO_TYPE_PLUGIN_SERVICE_FILE_SAVER))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_service_file_saver_get_type ()">
+<a name="go-plugin-service-file-saver-get-type"></a><h3>go_plugin_service_file_saver_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_plugin_service_file_saver_get_type
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOPluginServiceFileSaver">
+<a name="GOPluginServiceFileSaver-struct"></a><h3>GOPluginServiceFileSaver</h3>
+<pre class="programlisting">typedef struct _GOPluginServiceFileSaver GOPluginServiceFileSaver;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GOPluginServiceFileSaverCallbacks">
+<a name="GOPluginServiceFileSaverCallbacks"></a><h3>GOPluginServiceFileSaverCallbacks</h3>
+<pre class="programlisting">typedef struct {
+	void  (*plugin_func_file_save) (
+	      GOFileSaver const *fs, GOPluginService *service,
+	      GOIOContext *io_context, gconstpointer fixme_workbook_view,
+	      GsfOutput *output);
+} GOPluginServiceFileSaverCallbacks;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_TYPE_PLUGIN_SERVICE_PLUGIN_LOADER">
+<a name="GO-TYPE-PLUGIN-SERVICE-PLUGIN-LOADER:CAPS"></a><h3>GO_TYPE_PLUGIN_SERVICE_PLUGIN_LOADER</h3>
+<pre class="programlisting">#define GO_TYPE_PLUGIN_SERVICE_PLUGIN_LOADER  (go_plugin_service_plugin_loader_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_PLUGIN_SERVICE_PLUGIN_LOADER()">
+<a name="GO-PLUGIN-SERVICE-PLUGIN-LOADER:CAPS"></a><h3>GO_PLUGIN_SERVICE_PLUGIN_LOADER()</h3>
+<pre class="programlisting">#define GO_PLUGIN_SERVICE_PLUGIN_LOADER(o)    (G_TYPE_CHECK_INSTANCE_CAST ((o), GO_TYPE_PLUGIN_SERVICE_PLUGIN_LOADER, GOPluginServicePluginLoader))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_IS_PLUGIN_SERVICE_PLUGIN_LOADER()">
+<a name="GO-IS-PLUGIN-SERVICE-PLUGIN-LOADER:CAPS"></a><h3>GO_IS_PLUGIN_SERVICE_PLUGIN_LOADER()</h3>
+<pre class="programlisting">#define GO_IS_PLUGIN_SERVICE_PLUGIN_LOADER(o) (G_TYPE_CHECK_INSTANCE_TYPE ((o), GO_TYPE_PLUGIN_SERVICE_PLUGIN_LOADER))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_service_plugin_loader_get_type ()">
+<a name="go-plugin-service-plugin-loader-get-type"></a><h3>go_plugin_service_plugin_loader_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_plugin_service_plugin_loader_get_type
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOPluginServicePluginLoader">
+<a name="GOPluginServicePluginLoader-struct"></a><h3>GOPluginServicePluginLoader</h3>
+<pre class="programlisting">typedef struct _GOPluginServicePluginLoader GOPluginServicePluginLoader;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GOPluginServicePluginLoaderCallbacks">
+<a name="GOPluginServicePluginLoaderCallbacks"></a><h3>GOPluginServicePluginLoaderCallbacks</h3>
+<pre class="programlisting">typedef struct {
+	GType (*plugin_func_get_loader_type) (
+	      GOPluginService *service, GOErrorInfo **ret_error);
+} GOPluginServicePluginLoaderCallbacks;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_service_plugin_loader_generate_type ()">
+<a name="go-plugin-service-plugin-loader-generate-type"></a><h3>go_plugin_service_plugin_loader_generate_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_plugin_service_plugin_loader_generate_type
+                                                        (<em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>service</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ret_error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_TYPE_PLUGIN_SERVICE_GOBJECT_LOADER">
+<a name="GO-TYPE-PLUGIN-SERVICE-GOBJECT-LOADER:CAPS"></a><h3>GO_TYPE_PLUGIN_SERVICE_GOBJECT_LOADER</h3>
+<pre class="programlisting">#define GO_TYPE_PLUGIN_SERVICE_GOBJECT_LOADER  (go_plugin_service_gobject_loader_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_PLUGIN_SERVICE_GOBJECT_LOADER()">
+<a name="GO-PLUGIN-SERVICE-GOBJECT-LOADER:CAPS"></a><h3>GO_PLUGIN_SERVICE_GOBJECT_LOADER()</h3>
+<pre class="programlisting">#define GO_PLUGIN_SERVICE_GOBJECT_LOADER(o)    (G_TYPE_CHECK_INSTANCE_CAST ((o), GO_TYPE_PLUGIN_SERVICE_GOBJECT_LOADER, GOPluginServiceGObjectLoader))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_IS_PLUGIN_SERVICE_GOBJECT_LOADER()">
+<a name="GO-IS-PLUGIN-SERVICE-GOBJECT-LOADER:CAPS"></a><h3>GO_IS_PLUGIN_SERVICE_GOBJECT_LOADER()</h3>
+<pre class="programlisting">#define GO_IS_PLUGIN_SERVICE_GOBJECT_LOADER(o) (G_TYPE_CHECK_INSTANCE_TYPE ((o), GO_TYPE_PLUGIN_SERVICE_GOBJECT_LOADER))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_service_gobject_loader_get_type ()">
+<a name="go-plugin-service-gobject-loader-get-type"></a><h3>go_plugin_service_gobject_loader_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_plugin_service_gobject_loader_get_type
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOPluginServiceGObjectLoader">
+<a name="GOPluginServiceGObjectLoader-struct"></a><h3>GOPluginServiceGObjectLoader</h3>
+<pre class="programlisting">typedef struct _GOPluginServiceGObjectLoader GOPluginServiceGObjectLoader;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GOPluginServiceGObjectLoaderClass">
+<a name="GOPluginServiceGObjectLoaderClass"></a><h3>GOPluginServiceGObjectLoaderClass</h3>
+<pre class="programlisting">typedef struct {
+	GOPluginServiceClass plugin_service_class;
+	GHashTable *pending; /* has service instances by type names */
+} GOPluginServiceGObjectLoaderClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_TYPE_PLUGIN_SERVICE_SIMPLE">
+<a name="GO-TYPE-PLUGIN-SERVICE-SIMPLE:CAPS"></a><h3>GO_TYPE_PLUGIN_SERVICE_SIMPLE</h3>
+<pre class="programlisting">#define GO_TYPE_PLUGIN_SERVICE_SIMPLE  (go_plugin_service_simple_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GO_PLUGIN_SERVICE_SIMPLE()">
+<a name="GO-PLUGIN-SERVICE-SIMPLE:CAPS"></a><h3>GO_PLUGIN_SERVICE_SIMPLE()</h3>
+<pre class="programlisting">#define GO_PLUGIN_SERVICE_SIMPLE(o)    (G_TYPE_CHECK_INSTANCE_CAST ((o), GO_TYPE_PLUGIN_SERVICE_SIMPLE, GOPluginServiceSimple))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GO_IS_PLUGIN_SERVICE_SIMPLE()">
+<a name="GO-IS-PLUGIN-SERVICE-SIMPLE:CAPS"></a><h3>GO_IS_PLUGIN_SERVICE_SIMPLE()</h3>
+<pre class="programlisting">#define GO_IS_PLUGIN_SERVICE_SIMPLE(o) (G_TYPE_CHECK_INSTANCE_TYPE ((o), GO_TYPE_PLUGIN_SERVICE_SIMPLE))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_service_simple_get_type ()">
+<a name="go-plugin-service-simple-get-type"></a><h3>go_plugin_service_simple_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               go_plugin_service_simple_get_type   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOPluginServiceSimple">
+<a name="GOPluginServiceSimple-struct"></a><h3>GOPluginServiceSimple</h3>
+<pre class="programlisting">typedef struct _GOPluginServiceSimple GOPluginServiceSimple;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GOPluginServiceSimpleClass">
+<a name="GOPluginServiceSimpleClass"></a><h3>GOPluginServiceSimpleClass</h3>
+<pre class="programlisting">typedef struct {
+	GOPluginServiceClass plugin_service_class;
+} GOPluginServiceSimpleClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_service_new ()">
+<a name="go-plugin-service-new"></a><h3>go_plugin_service_new ()</h3>
+<pre class="programlisting"><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="returnvalue">GOPluginService</span></a> *   go_plugin_service_new               (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlNode</span> *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ret_error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_service_get_id ()">
+<a name="go-plugin-service-get-id"></a><h3>go_plugin_service_get_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const     *    go_plugin_service_get_id            (<em class="parameter"><code>const <a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>service</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_service_get_description ()">
+<a name="go-plugin-service-get-description"></a><h3>go_plugin_service_get_description ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const     *    go_plugin_service_get_description   (<em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>service</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_service_get_plugin ()">
+<a name="go-plugin-service-get-plugin"></a><h3>go_plugin_service_get_plugin ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="returnvalue">GOPlugin</span></a> *          go_plugin_service_get_plugin        (<em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>service</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_service_get_cbs ()">
+<a name="go-plugin-service-get-cbs"></a><h3>go_plugin_service_get_cbs ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            go_plugin_service_get_cbs           (<em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>service</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_service_activate ()">
+<a name="go-plugin-service-activate"></a><h3>go_plugin_service_activate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugin_service_activate          (<em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>service</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ret_error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_service_deactivate ()">
+<a name="go-plugin-service-deactivate"></a><h3>go_plugin_service_deactivate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugin_service_deactivate        (<em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>service</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ret_error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_service_load ()">
+<a name="go-plugin-service-load"></a><h3>go_plugin_service_load ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugin_service_load              (<em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>service</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ret_error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_service_unload ()">
+<a name="go-plugin-service-unload"></a><h3>go_plugin_service_unload ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugin_service_unload            (<em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>service</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ret_error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GOPluginServiceCreate ()">
+<a name="GOPluginServiceCreate"></a><h3>GOPluginServiceCreate ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               (*GOPluginServiceCreate)            (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_services_shutdown ()">
+<a name="go-plugin-services-shutdown"></a><h3>go_plugin_services_shutdown ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugin_services_shutdown         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_service_define ()">
+<a name="go-plugin-service-define"></a><h3>go_plugin_service_define ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugin_service_define            (<em class="parameter"><code><span class="type">char</span> const *type_str</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOPluginService.html#GOPluginServiceCreate" title="GOPluginServiceCreate ()"><span class="type">GOPluginServiceCreate</span></a> ctor</code></em>);</pre>
+<p>
+Allow the definition of new service types
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type_str</code></em> :</span></p></td>
+<td>char const *
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ctor</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOPluginService.html#GOPluginServiceCreate" title="GOPluginServiceCreate ()"><span class="type">GOPluginServiceCreate</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

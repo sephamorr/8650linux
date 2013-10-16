@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GocGroup</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch05.html" title="Base objects">
+<link rel="prev" href="GocItem.html" title="GocItem">
+<link rel="next" href="GocStyledItem.html" title="GocStyledItem">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GocItem.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch05.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GocStyledItem.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GocGroup.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GocGroup.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GocGroup.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GocGroup.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry" title="GocGroup">
+<a name="GocGroup"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GocGroup.top_of_page"></a>GocGroup</span></h2>
+<p>GocGroup — Group item</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GocGroup.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="GocGroup.html#GocGroup-struct" title="GocGroup">GocGroup</a>;
+                    <a class="link" href="GocGroup.html#GocGroupClass" title="GocGroupClass">GocGroupClass</a>;
+<a class="link" href="GocGroup.html" title="GocGroup"><span class="returnvalue">GocGroup</span></a> *          <a class="link" href="GocGroup.html#goc-group-new" title="goc_group_new ()">goc_group_new</a>                       (<em class="parameter"><code><a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a> *parent</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GocGroup.html#goc-group-add-child" title="goc_group_add_child ()">goc_group_add_child</a>                 (<em class="parameter"><code><a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a> *parent</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GocItem.html" title="GocItem"><span class="type">GocItem</span></a> *item</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GocGroup.html#goc-group-remove-child" title="goc_group_remove_child ()">goc_group_remove_child</a>              (<em class="parameter"><code><a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a> *parent</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GocItem.html" title="GocItem"><span class="type">GocItem</span></a> *item</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GocGroup.html#goc-group-clear" title="goc_group_clear ()">goc_group_clear</a>                     (<em class="parameter"><code><a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a> *group</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GocGroup.html#goc-group-adjust-bounds" title="goc_group_adjust_bounds ()">goc_group_adjust_bounds</a>             (<em class="parameter"><code><a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a> const *group</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *x0</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *y0</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *x1</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *y1</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GocGroup.html#goc-group-adjust-coords" title="goc_group_adjust_coords ()">goc_group_adjust_coords</a>             (<em class="parameter"><code><a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a> const *group</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *y</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GocGroup.html#goc-group-cairo-transform" title="goc_group_cairo_transform ()">goc_group_cairo_transform</a>           (<em class="parameter"><code><a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a> const *group</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GocGroup.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GocItem.html" title="GocItem">GocItem</a>
+         +----GocGroup
+</pre>
+</div>
+<div class="refsect1" title="Properties">
+<a name="GocGroup.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GocGroup.html#GocGroup--x" title='The "x" property'>x</a>"                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write
+  "<a class="link" href="GocGroup.html#GocGroup--y" title='The "y" property'>y</a>"                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GocGroup.description"></a><h2>Description</h2>
+<p>
+A <a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a> is a <a class="link" href="GocItem.html" title="GocItem"><span class="type">GocItem</span></a> which just contains other items.
+</p>
+<p>
+The contents
+of the canvas are stored as a tree where <a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a> items are branches and
+other items are leafs.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GocGroup.details"></a><h2>Details</h2>
+<div class="refsect2" title="GocGroup">
+<a name="GocGroup-struct"></a><h3>GocGroup</h3>
+<pre class="programlisting">typedef struct _GocGroup GocGroup;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GocGroupClass">
+<a name="GocGroupClass"></a><h3>GocGroupClass</h3>
+<pre class="programlisting">typedef struct {
+	GocItemClass base;
+} GocGroupClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="goc_group_new ()">
+<a name="goc-group-new"></a><h3>goc_group_new ()</h3>
+<pre class="programlisting"><a class="link" href="GocGroup.html" title="GocGroup"><span class="returnvalue">GocGroup</span></a> *          goc_group_new                       (<em class="parameter"><code><a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a> *parent</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a> as a child of <em class="parameter"><code>parent</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the newly created <a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_group_add_child ()">
+<a name="goc-group-add-child"></a><h3>goc_group_add_child ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                goc_group_add_child                 (<em class="parameter"><code><a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a> *parent</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GocItem.html" title="GocItem"><span class="type">GocItem</span></a> *item</code></em>);</pre>
+<p>
+Adds <em class="parameter"><code>item</code></em> as a new child to <em class="parameter"><code>parent</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocItem.html" title="GocItem"><span class="type">GocItem</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_group_remove_child ()">
+<a name="goc-group-remove-child"></a><h3>goc_group_remove_child ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                goc_group_remove_child              (<em class="parameter"><code><a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a> *parent</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GocItem.html" title="GocItem"><span class="type">GocItem</span></a> *item</code></em>);</pre>
+<p>
+Removes <em class="parameter"><code>item</code></em> from <em class="parameter"><code>parent</code></em>. This function will fail if <em class="parameter"><code>item</code></em> is not a
+child of <em class="parameter"><code>parent</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocItem.html" title="GocItem"><span class="type">GocItem</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_group_clear ()">
+<a name="goc-group-clear"></a><h3>goc_group_clear ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                goc_group_clear                     (<em class="parameter"><code><a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a> *group</code></em>);</pre>
+<p>
+Destroys all <em class="parameter"><code>group</code></em> children.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_group_adjust_bounds ()">
+<a name="goc-group-adjust-bounds"></a><h3>goc_group_adjust_bounds ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                goc_group_adjust_bounds             (<em class="parameter"><code><a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a> const *group</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *x0</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *y0</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *x1</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *y1</code></em>);</pre>
+<p>
+Adds <em class="parameter"><code>group</code></em> horizontal offset to <em class="parameter"><code>x0</code></em> and <em class="parameter"><code>x1</code></em>, and vertical offset to <em class="parameter"><code>y0</code></em>
+and <em class="parameter"><code>y1</code></em>. This function is called recursively so that when returning <em class="parameter"><code>x0</code></em>,
+<em class="parameter"><code>y0</code></em>, <em class="parameter"><code>x1</code></em>, and <em class="parameter"><code>y1</code></em> are absolute coordinates in canvas space,
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x0</code></em> :</span></p></td>
+<td>first horizontal coordinate
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y0</code></em> :</span></p></td>
+<td>first vertical coordinate
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x1</code></em> :</span></p></td>
+<td>last horizontal coordinate
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y1</code></em> :</span></p></td>
+<td>last vertical coordinate
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_group_adjust_coords ()">
+<a name="goc-group-adjust-coords"></a><h3>goc_group_adjust_coords ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                goc_group_adjust_coords             (<em class="parameter"><code><a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a> const *group</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *y</code></em>);</pre>
+<p>
+Adds <em class="parameter"><code>group</code></em> horizontal offset to <em class="parameter"><code>x0</code></em>, and vertical offset to <em class="parameter"><code>y0</code></em>.
+This function is called recursively so that when returning <em class="parameter"><code>x0</code></em> and
+<em class="parameter"><code>y0</code></em> are absolute coordinates in canvas space,
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>horizontal coordinate
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>vertical coordinate
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_group_cairo_transform ()">
+<a name="goc-group-cairo-transform"></a><h3>goc_group_cairo_transform ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                goc_group_cairo_transform           (<em class="parameter"><code><a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a> const *group</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>);</pre>
+<p>
+Translates <em class="parameter"><code>cr</code></em> current context so that operations start at (<em class="parameter"><code>x</code></em>,<em class="parameter"><code>y</code></em>), which
+are <em class="parameter"><code>group</code></em> relative coordinates, and is scaled according to the containing
+<a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> current scale (see <a class="link" href="GocCanvas.html#goc-canvas-get-pixels-per-unit" title="goc_canvas_get_pixels_per_unit ()"><code class="function">goc_canvas_get_pixels_per_unit()</code></a>). The
+translation takes all <em class="parameter"><code>group</code></em> ancestors into account.
+</p>
+<p>
+This function does not call <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-save"><code class="function">cairo_save()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
+<td>
+<a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>horizontal coordinate
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>vertical coordinate
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="GocGroup.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "x" property'>
+<a name="GocGroup--x"></a><h3>The <code class="literal">"x"</code> property</h3>
+<pre class="programlisting">  "x"                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write</pre>
+<p>The group horizontal offset.</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" title='The "y" property'>
+<a name="GocGroup--y"></a><h3>The <code class="literal">"y"</code> property</h3>
+<pre class="programlisting">  "y"                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write</pre>
+<p>The group vertical offset.</p>
+<p>Default value: 0</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

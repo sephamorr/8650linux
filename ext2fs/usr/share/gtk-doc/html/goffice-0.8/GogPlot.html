@@ -1,0 +1,779 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GogPlot</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch03.html" title="Abstract Base Classes">
+<link rel="prev" href="GogOutlinedObject.html" title="GogOutlinedObject">
+<link rel="next" href="GogSeries.html" title="GogSeries">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GogOutlinedObject.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch03.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GogSeries.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GogPlot.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GogPlot.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GogPlot.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GogPlot.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry" title="GogPlot">
+<a name="GogPlot"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GogPlot.top_of_page"></a>GogPlot</span></h2>
+<p>GogPlot — A plot.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GogPlot.synopsis"></a><h2>Synopsis</h2>
+<a name="GogPlotView"></a><pre class="synopsis">                    <a class="link" href="GogPlot.html#GogPlot-struct" title="GogPlot">GogPlot</a>;
+                    <a class="link" href="GogPlot.html#GogPlotClass" title="GogPlotClass">GogPlotClass</a>;
+                    <a class="link" href="GogPlot.html#GogPlotBoundInfo" title="GogPlotBoundInfo">GogPlotBoundInfo</a>;
+<a class="link" href="GogPlot.html" title="GogPlot"><span class="returnvalue">GogPlot</span></a> *           <a class="link" href="GogPlot.html#gog-plot-new-by-type" title="gog_plot_new_by_type ()">gog_plot_new_by_type</a>                (<em class="parameter"><code><a class="link" href="goffice-0.8-GogPlotEngine.html#GogPlotType" title="GogPlotType"><span class="type">GogPlotType</span></a> const *type</code></em>);
+<a class="link" href="GogPlot.html" title="GogPlot"><span class="returnvalue">GogPlot</span></a> *           <a class="link" href="GogPlot.html#gog-plot-new-by-name" title="gog_plot_new_by_name ()">gog_plot_new_by_name</a>                (<em class="parameter"><code><span class="type">char</span> const *id</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogPlot.html#gog-plot-request-cardinality-update" title="gog_plot_request_cardinality_update ()">gog_plot_request_cardinality_update</a> (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogPlot.html#gog-plot-get-cardinality" title="gog_plot_get_cardinality ()">gog_plot_get_cardinality</a>            (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned</span> *full</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned</span> *visible</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogPlot.html#gog-plot-update-cardinality" title="gog_plot_update_cardinality ()">gog_plot_update_cardinality</a>         (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> index_num</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogPlot.html#gog-plot-foreach-elem" title="gog_plot_foreach_elem ()">gog_plot_foreach_elem</a>               (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> only_visible</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogObject.html#GogEnumFunc" title="GogEnumFunc ()"><span class="type">GogEnumFunc</span></a> handler</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> const *      <a class="link" href="GogPlot.html#gog-plot-get-series" title="gog_plot_get_series ()">gog_plot_get_series</a>                 (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> const *plot</code></em>);
+<a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            <a class="link" href="GogPlot.html#gog-plot-get-axis-bounds" title="gog_plot_get_axis_bounds ()">gog_plot_get_axis_bounds</a>            (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html#GogAxisType" title="enum GogAxisType"><span class="type">GogAxisType</span></a> axis</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogPlot.html#GogPlotBoundInfo" title="GogPlotBoundInfo"><span class="type">GogPlotBoundInfo</span></a> *bounds</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogPlot.html#gog-plot-supports-vary-style-by-element" title="gog_plot_supports_vary_style_by_element ()">gog_plot_supports_vary_style_by_element</a>
+                                                        (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> const *plot</code></em>);
+<a class="link" href="GogSeries.html" title="GogSeries"><span class="returnvalue">GogSeries</span></a> *         <a class="link" href="GogPlot.html#gog-plot-new-series" title="gog_plot_new_series ()">gog_plot_new_series</a>                 (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>);
+<span class="returnvalue">GogPlotDesc</span> const * <a class="link" href="GogPlot.html#gog-plot-description" title="gog_plot_description ()">gog_plot_description</a>                (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> const *plot</code></em>);
+<a class="link" href="GogAxis.html#GogAxisSet" title="enum GogAxisSet"><span class="returnvalue">GogAxisSet</span></a>          <a class="link" href="GogPlot.html#gog-plot-axis-set-pref" title="gog_plot_axis_set_pref ()">gog_plot_axis_set_pref</a>              (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> const *plot</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogPlot.html#gog-plot-axis-set-is-valid" title="gog_plot_axis_set_is_valid ()">gog_plot_axis_set_is_valid</a>          (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> const *plot</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html#GogAxisSet" title="enum GogAxisSet"><span class="type">GogAxisSet</span></a> type</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogPlot.html#gog-plot-axis-set-assign" title="gog_plot_axis_set_assign ()">gog_plot_axis_set_assign</a>            (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html#GogAxisSet" title="enum GogAxisSet"><span class="type">GogAxisSet</span></a> type</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogPlot.html#gog-plot-axis-clear" title="gog_plot_axis_clear ()">gog_plot_axis_clear</a>                 (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html#GogAxisSet" title="enum GogAxisSet"><span class="type">GogAxisSet</span></a> filter</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogPlot.html#gog-plot-set-axis" title="gog_plot_set_axis ()">gog_plot_set_axis</a>                   (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>);
+<a class="link" href="GogAxis.html" title="GogAxis"><span class="returnvalue">GogAxis</span></a> *           <a class="link" href="GogPlot.html#gog-plot-get-axis" title="gog_plot_get_axis ()">gog_plot_get_axis</a>                   (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> const *plot</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html#GogAxisType" title="enum GogAxisType"><span class="type">GogAxisType</span></a> type</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogPlot.html#gog-plot-update-3d" title="gog_plot_update_3d ()">gog_plot_update_3d</a>                  (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogPlot.html#gog-plot-guru-helper" title="gog_plot_guru_helper ()">gog_plot_guru_helper</a>                (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogPlot.html#gog-plot-clear-series" title="gog_plot_clear_series ()">gog_plot_clear_series</a>               (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>);
+
+                    <a class="link" href="GogPlot.html#GogPlotView-struct" title="GogPlotView">GogPlotView</a>;
+<span class="returnvalue">int</span>                 <a class="link" href="GogPlot.html#gog-plot-view-get-data-at-point" title="gog_plot_view_get_data_at_point ()">gog_plot_view_get_data_at_point</a>     (<em class="parameter"><code><a class="link" href="GogPlot.html#GogPlotView"><span class="type">GogPlotView</span></a> *view</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> **series</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GogPlot.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GogObject.html" title="GogObject">GogObject</a>
+         +----GogPlot
+</pre>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GogView.html" title="GogView">GogView</a>
+         +----GogPlotView
+</pre>
+</div>
+<div class="refsect1" title="Properties">
+<a name="GogPlot.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GogPlot.html#GogPlot--guru-hints" title='The "guru-hints" property'>guru-hints</a>"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
+  "<a class="link" href="GogPlot.html#GogPlot--interpolation" title='The "interpolation" property'>interpolation</a>"            <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
+  "<a class="link" href="GogPlot.html#GogPlot--plot-group" title='The "plot-group" property'>plot-group</a>"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
+  "<a class="link" href="GogPlot.html#GogPlot--vary-style-by-element" title='The "vary-style-by-element" property'>vary-style-by-element</a>"    <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write
+  "<a class="link" href="GogPlot.html#GogPlot--x-axis" title='The "x-axis" property'>x-axis</a>"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write
+  "<a class="link" href="GogPlot.html#GogPlot--y-axis" title='The "y-axis" property'>y-axis</a>"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GogPlot.description"></a><h2>Description</h2>
+<p>
+This is the object that visualizes data.
+To manipulate the data shown in the plot, use <a class="link" href="GogPlot.html#gog-plot-new-series" title="gog_plot_new_series ()"><code class="function">gog_plot_new_series()</code></a> and
+<a class="link" href="GogPlot.html#gog-plot-clear-series" title="gog_plot_clear_series ()"><code class="function">gog_plot_clear_series()</code></a>
+</p>
+<p>
+Plots are implemented as plug-ins, so make sure the plug-in system is
+initialized before trying to create one. See <a class="link" href="goffice-0.8-go-plugin.html#go-plugins-init" title="go_plugins_init ()"><code class="function">go_plugins_init()</code></a>
+</p>
+<p>
+GOffice ships a number of common plot implementations by default.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GogPlot.details"></a><h2>Details</h2>
+<div class="refsect2" title="GogPlot">
+<a name="GogPlot-struct"></a><h3>GogPlot</h3>
+<pre class="programlisting">typedef struct _GogPlot GogPlot;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GogPlotClass">
+<a name="GogPlotClass"></a><h3>GogPlotClass</h3>
+<pre class="programlisting">typedef struct {
+	GogObjectClass base;
+
+	GogPlotDesc desc;
+	GType		series_type;
+
+	GogAxisSet axis_set;
+
+	/* Virtuals */
+
+	GOData	  *(*axis_get_bounds) 	(GogPlot *plot, GogAxisType axis,
+					 GogPlotBoundInfo *bounds);
+
+	gboolean   (*supports_vary_style_by_element) (GogPlot const *plot);
+
+	/* %TRUE if the plot prefers to display series in reverse order for
+	 * legends (e.g. stacked plots want top element to be the last series) */
+	gboolean   (*enum_in_reverse) (GogPlot const *plot);
+
+	void       (*foreach_elem)    	(GogPlot *plot, gboolean only_visible,
+					 GogEnumFunc handler, gpointer data);
+
+	void       (*update_3d)		(GogPlot *plot);
+	void	   (*guru_helper) (GogPlot *plot, char const *hint);
+} GogPlotClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GogPlotBoundInfo">
+<a name="GogPlotBoundInfo"></a><h3>GogPlotBoundInfo</h3>
+<pre class="programlisting">typedef struct {
+	struct {
+		double minima, maxima;
+	} val, logical;
+	gboolean is_discrete;
+	gboolean center_on_ticks;
+	GOFormat *fmt;
+
+	const GODateConventions *date_conv;
+} GogPlotBoundInfo;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_new_by_type ()">
+<a name="gog-plot-new-by-type"></a><h3>gog_plot_new_by_type ()</h3>
+<pre class="programlisting"><a class="link" href="GogPlot.html" title="GogPlot"><span class="returnvalue">GogPlot</span></a> *           gog_plot_new_by_type                (<em class="parameter"><code><a class="link" href="goffice-0.8-GogPlotEngine.html#GogPlotType" title="GogPlotType"><span class="type">GogPlotType</span></a> const *type</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_new_by_name ()">
+<a name="gog-plot-new-by-name"></a><h3>gog_plot_new_by_name ()</h3>
+<pre class="programlisting"><a class="link" href="GogPlot.html" title="GogPlot"><span class="returnvalue">GogPlot</span></a> *           gog_plot_new_by_name                (<em class="parameter"><code><span class="type">char</span> const *id</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_request_cardinality_update ()">
+<a name="gog-plot-request-cardinality-update"></a><h3>gog_plot_request_cardinality_update ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_plot_request_cardinality_update (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>plot</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_get_cardinality ()">
+<a name="gog-plot-get-cardinality"></a><h3>gog_plot_get_cardinality ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_plot_get_cardinality            (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned</span> *full</code></em>,
+                                                         <em class="parameter"><code><span class="type">unsigned</span> *visible</code></em>);</pre>
+<p>
+Return the number of logical elements in the plot.
+See <em class="parameter"><code>gog_chart_get_cardinality</code></em>.
+</p>
+<p>
+<em class="parameter"><code>full</code></em> and <em class="parameter"><code>visible</code></em> may be NULL.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plot</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>full</code></em> :</span></p></td>
+<td>placeholder for full cardinality
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>visible</code></em> :</span></p></td>
+<td>placeholder for visible cardinality
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_update_cardinality ()">
+<a name="gog-plot-update-cardinality"></a><h3>gog_plot_update_cardinality ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_plot_update_cardinality         (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> index_num</code></em>);</pre>
+<p>
+Update cardinality and cache result. See <em class="parameter"><code>gog_chart_get_cardinality</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plot</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index_num</code></em> :</span></p></td>
+<td>index offset for this plot
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_foreach_elem ()">
+<a name="gog-plot-foreach-elem"></a><h3>gog_plot_foreach_elem ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_plot_foreach_elem               (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> only_visible</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogObject.html#GogEnumFunc" title="GogEnumFunc ()"><span class="type">GogEnumFunc</span></a> handler</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plot</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>only_visible</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>handler</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_get_series ()">
+<a name="gog-plot-get-series"></a><h3>gog_plot_get_series ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> const *      gog_plot_get_series                 (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> const *plot</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plot</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A list of the series in <em class="parameter"><code>plot</code></em>.  Do not modify or free the list.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_get_axis_bounds ()">
+<a name="gog-plot-get-axis-bounds"></a><h3>gog_plot_get_axis_bounds ()</h3>
+<pre class="programlisting"><a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            gog_plot_get_axis_bounds            (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html#GogAxisType" title="enum GogAxisType"><span class="type">GogAxisType</span></a> axis</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogPlot.html#GogPlotBoundInfo" title="GogPlotBoundInfo"><span class="type">GogPlotBoundInfo</span></a> *bounds</code></em>);</pre>
+<p>
+Queries <em class="parameter"><code>plot</code></em> for its axis preferences for <em class="parameter"><code>axis</code></em> and stores the results in
+<em class="parameter"><code>bounds</code></em>.  All elements of <em class="parameter"><code>bounds</code></em> are initialized to sane values before the
+query _EXCEPT_ ::fmt.  The caller is responsible for initializing it.  This
+is done so that once on plot has selected a format the others need not do
+the lookup too if so desired.
+</p>
+<p>
+Caller is responsible for unrefing ::fmt.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plot</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogAxis.html#GogAxisType" title="enum GogAxisType"><span class="type">GogAxisType</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bounds</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogPlot.html#GogPlotBoundInfo" title="GogPlotBoundInfo"><span class="type">GogPlotBoundInfo</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The data providing the bound (does not add a ref)
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_supports_vary_style_by_element ()">
+<a name="gog-plot-supports-vary-style-by-element"></a><h3>gog_plot_supports_vary_style_by_element ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_plot_supports_vary_style_by_element
+                                                        (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> const *plot</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plot</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_new_series ()">
+<a name="gog-plot-new-series"></a><h3>gog_plot_new_series ()</h3>
+<pre class="programlisting"><a class="link" href="GogSeries.html" title="GogSeries"><span class="returnvalue">GogSeries</span></a> *         gog_plot_new_series                 (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plot</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new GogSeries of a type consistent with <em class="parameter"><code>plot</code></em>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_description ()">
+<a name="gog-plot-description"></a><h3>gog_plot_description ()</h3>
+<pre class="programlisting"><span class="returnvalue">GogPlotDesc</span> const * gog_plot_description                (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> const *plot</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plot</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_axis_set_pref ()">
+<a name="gog-plot-axis-set-pref"></a><h3>gog_plot_axis_set_pref ()</h3>
+<pre class="programlisting"><a class="link" href="GogAxis.html#GogAxisSet" title="enum GogAxisSet"><span class="returnvalue">GogAxisSet</span></a>          gog_plot_axis_set_pref              (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> const *plot</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plot</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_axis_set_is_valid ()">
+<a name="gog-plot-axis-set-is-valid"></a><h3>gog_plot_axis_set_is_valid ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_plot_axis_set_is_valid          (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> const *plot</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html#GogAxisSet" title="enum GogAxisSet"><span class="type">GogAxisSet</span></a> type</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plot</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_axis_set_assign ()">
+<a name="gog-plot-axis-set-assign"></a><h3>gog_plot_axis_set_assign ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_plot_axis_set_assign            (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html#GogAxisSet" title="enum GogAxisSet"><span class="type">GogAxisSet</span></a> type</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plot</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_axis_clear ()">
+<a name="gog-plot-axis-clear"></a><h3>gog_plot_axis_clear ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_plot_axis_clear                 (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html#GogAxisSet" title="enum GogAxisSet"><span class="type">GogAxisSet</span></a> filter</code></em>);</pre>
+<p>
+A utility method to clear all existing axis associations flagged by <em class="parameter"><code>filter</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plot</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filter</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogAxis.html#GogAxisSet" title="enum GogAxisSet"><span class="type">GogAxisSet</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_set_axis ()">
+<a name="gog-plot-set-axis"></a><h3>gog_plot_set_axis ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_plot_set_axis                   (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>);</pre>
+<p>
+Connect <em class="parameter"><code>axis</code></em> and <em class="parameter"><code>plot</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plot</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_get_axis ()">
+<a name="gog-plot-get-axis"></a><h3>gog_plot_get_axis ()</h3>
+<pre class="programlisting"><a class="link" href="GogAxis.html" title="GogAxis"><span class="returnvalue">GogAxis</span></a> *           gog_plot_get_axis                   (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> const *plot</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html#GogAxisType" title="enum GogAxisType"><span class="type">GogAxisType</span></a> type</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plot</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_update_3d ()">
+<a name="gog-plot-update-3d"></a><h3>gog_plot_update_3d ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_plot_update_3d                  (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>plot</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_guru_helper ()">
+<a name="gog-plot-guru-helper"></a><h3>gog_plot_guru_helper ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_plot_guru_helper                (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>plot</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_clear_series ()">
+<a name="gog-plot-clear-series"></a><h3>gog_plot_clear_series ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_plot_clear_series               (<em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> *plot</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>plot</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GogPlotView">
+<a name="GogPlotView-struct"></a><h3>GogPlotView</h3>
+<pre class="programlisting">typedef struct _GogPlotView GogPlotView;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gog_plot_view_get_data_at_point ()">
+<a name="gog-plot-view-get-data-at-point"></a><h3>gog_plot_view_get_data_at_point ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 gog_plot_view_get_data_at_point     (<em class="parameter"><code><a class="link" href="GogPlot.html#GogPlotView"><span class="type">GogPlotView</span></a> *view</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> **series</code></em>);</pre>
+<p>
+Search a data represented at (<em class="parameter"><code>x</code></em>,<em class="parameter"><code>y</code></em>) in <em class="parameter"><code>view</code></em> and set <em class="parameter"><code>series</code></em> on success.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogPlot.html#GogPlotView"><span class="type">GogPlotView</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>x position
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>y position
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>series</code></em> :</span></p></td>
+<td>where to store the series
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> index of the found data in <em class="parameter"><code>series</code></em> or -1.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="GogPlot.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "guru-hints" property'>
+<a name="GogPlot--guru-hints"></a><h3>The <code class="literal">"guru-hints"</code> property</h3>
+<pre class="programlisting">  "guru-hints"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
+<p>Semicolon separated list of hints for automatic addition of objects in guru dialog.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2" title='The "interpolation" property'>
+<a name="GogPlot--interpolation"></a><h3>The <code class="literal">"interpolation"</code> property</h3>
+<pre class="programlisting">  "interpolation"            <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
+<p>Default type of series line interpolation.</p>
+<p>Default value: "linear"</p>
+</div>
+<hr>
+<div class="refsect2" title='The "plot-group" property'>
+<a name="GogPlot--plot-group"></a><h3>The <code class="literal">"plot-group"</code> property</h3>
+<pre class="programlisting">  "plot-group"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
+<p>Name of plot group if any.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2" title='The "vary-style-by-element" property'>
+<a name="GogPlot--vary-style-by-element"></a><h3>The <code class="literal">"vary-style-by-element"</code> property</h3>
+<pre class="programlisting">  "vary-style-by-element"    <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write</pre>
+<p>Use a different style for each segments.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "x-axis" property'>
+<a name="GogPlot--x-axis"></a><h3>The <code class="literal">"x-axis"</code> property</h3>
+<pre class="programlisting">  "x-axis"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write</pre>
+<p>Reference to X axis.</p>
+<p>Allowed values: &lt;= G_MAXLONG</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" title='The "y-axis" property'>
+<a name="GogPlot--y-axis"></a><h3>The <code class="literal">"y-axis"</code> property</h3>
+<pre class="programlisting">  "y-axis"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write</pre>
+<p>Reference to Y axis.</p>
+<p>Allowed values: &lt;= G_MAXLONG</p>
+<p>Default value: 0</p>
+</div>
+</div>
+<div class="refsect1" title="See Also">
+<a name="GogPlot.see-also"></a><h2>See Also</h2>
+<a class="link" href="GogChart.html" title="GogChart"><span class="type">GogChart</span></a>, <a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

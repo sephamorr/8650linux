@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Xfce Gtk+ extensions</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Libxfce4ui Reference Manual">
+<link rel="up" href="libxfce4ui-extensions.html" title="Part III. Xfce UI Extensions">
+<link rel="prev" href="libxfce4ui-xfce-gdk-extensions.html" title="Xfce Gdk(-pixbuf) extensions">
+<link rel="next" href="libxfce4ui-widgets.html" title="Part IV. Xfce UI Widget">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libxfce4ui-xfce-gdk-extensions.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libxfce4ui-extensions.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Libxfce4ui Reference Manual</th>
+<td><a accesskey="n" href="libxfce4ui-widgets.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libxfce4ui-xfce-gtk-extensions.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libxfce4ui-xfce-gtk-extensions.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libxfce4ui-xfce-gtk-extensions"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libxfce4ui-xfce-gtk-extensions.top_of_page"></a>Xfce Gtk+ extensions</span></h2>
+<p>Xfce Gtk+ extensions — Common used functions for <a href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a>'s that are not provided by
+the Gtk+ library.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libxfce4ui-xfce-gtk-extensions.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libxfce4ui/libxfce4ui.h&gt;
+
+<a href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="libxfce4ui-xfce-gtk-extensions.html#xfce-gtk-button-new-mixed" title="xfce_gtk_button_new_mixed ()">xfce_gtk_button_new_mixed</a>           (<em class="parameter"><code>const <span class="type">gchar</span> *stock_id</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *label</code></em>);
+<a href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="libxfce4ui-xfce-gtk-extensions.html#xfce-gtk-frame-box-new" title="xfce_gtk_frame_box_new ()">xfce_gtk_frame_box_new</a>              (<em class="parameter"><code>const <span class="type">gchar</span> *label</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> **container_return</code></em>);
+<a href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="libxfce4ui-xfce-gtk-extensions.html#xfce-gtk-frame-box-new-with-content" title="xfce_gtk_frame_box_new_with_content ()">xfce_gtk_frame_box_new_with_content</a> (<em class="parameter"><code>const <span class="type">gchar</span> *label</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *content</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libxfce4ui-xfce-gtk-extensions.html#xfce-gtk-window-center-on-active-screen" title="xfce_gtk_window_center_on_active_screen ()">xfce_gtk_window_center_on_active_screen</a>
+                                                        (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/gtk/GtkWindow.html"><span class="type">GtkWindow</span></a> *window</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libxfce4ui-xfce-gtk-extensions.description"></a><h2>Description</h2>
+<p>
+These functions allow the developer to quickly create common widgets,
+without the hassle of creating formatted string or a lot of code
+dupplication.
+</p>
+</div>
+<div class="refsect1">
+<a name="libxfce4ui-xfce-gtk-extensions.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="xfce-gtk-button-new-mixed"></a><h3>xfce_gtk_button_new_mixed ()</h3>
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         xfce_gtk_button_new_mixed           (<em class="parameter"><code>const <span class="type">gchar</span> *stock_id</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *label</code></em>);</pre>
+<p>
+Creates a new <a href="/usr/share/gtk-doc/html/gtk/GtkButton.html"><span class="type">GtkButton</span></a> containing a mnemonic label and a stock icon.
+The <em class="parameter"><code>stock_id</code></em> could be something like <a href="/usr/share/gtk-doc/html/gtk/gtk-Stock-Items.html#GTK-STOCK-OK:CAPS"><span class="type">GTK_STOCK_OK</span></a> or <a href="/usr/share/gtk-doc/html/gtk/gtk-Stock-Items.html#GTK-STOCK-APPLY:CAPS"><span class="type">GTK_STOCK_APPLY</span></a>.
+</p>
+<p>
+When the <em class="parameter"><code>stock_id</code></em> is <code class="literal">NULL</code> a normal mnemonic button will be created,
+when <em class="parameter"><code>label</code></em> is <code class="literal">NULL</code> a stock button will be created. This behaviour
+is added for <a class="link" href="libxfce4ui-xfce-dialogs.html#xfce-message-dialog-new" title="xfce_message_dialog_new ()"><code class="function">xfce_message_dialog_new()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stock_id</code></em> :</span></p></td>
+<td>the name of the stock item.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td>the text of the button, with an underscore in front of
+the mnemonic character.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the newly created <a href="/usr/share/gtk-doc/html/gtk/GtkButton.html"><span class="type">GtkButton</span></a> widget.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-gtk-frame-box-new"></a><h3>xfce_gtk_frame_box_new ()</h3>
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         xfce_gtk_frame_box_new              (<em class="parameter"><code>const <span class="type">gchar</span> *label</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> **container_return</code></em>);</pre>
+<p>
+Creates an Xfce-styled frame. The frame is a <a href="/usr/share/gtk-doc/html/gtk/GtkFrame.html"><span class="type">GtkFrame</span></a>, without
+outline and an optional bolded text label.  The contents of the
+frame are indented on the left.
+The return value is the <a href="/usr/share/gtk-doc/html/gtk/GtkFrame.html"><span class="type">GtkFrame</span></a> itself.  The <em class="parameter"><code>container_return</code></em> is
+a <a href="/usr/share/gtk-doc/html/gtk/GtkAlignment.html"><span class="type">GtkAlignment</span></a> widget to which children of the frame should be added.
+</p>
+<p>
+See also: <a class="link" href="libxfce4ui-xfce-gtk-extensions.html#xfce-gtk-frame-box-new-with-content" title="xfce_gtk_frame_box_new_with_content ()"><code class="function">xfce_gtk_frame_box_new_with_content()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td>the text to use as the label of the frame.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>container_return</code></em> :</span></p></td>
+<td>return location for the frame's container.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the newly created <a href="/usr/share/gtk-doc/html/gtk/GtkFrame.html"><span class="type">GtkFrame</span></a> widget.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-gtk-frame-box-new-with-content"></a><h3>xfce_gtk_frame_box_new_with_content ()</h3>
+<pre class="programlisting"><a href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"><span class="returnvalue">GtkWidget</span></a> *         xfce_gtk_frame_box_new_with_content (<em class="parameter"><code>const <span class="type">gchar</span> *label</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> *content</code></em>);</pre>
+<p>
+Creates a widget with <a class="link" href="libxfce4ui-xfce-gtk-extensions.html#xfce-gtk-frame-box-new" title="xfce_gtk_frame_box_new ()"><code class="function">xfce_gtk_frame_box_new()</code></a> and adds the
+<em class="parameter"><code>content</code></em> <a href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> to the frame.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td>the text to use as the label of the frame.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>content</code></em> :</span></p></td>
+<td>the <a href="/usr/share/gtk-doc/html/gtk/GtkWidget.html"><span class="type">GtkWidget</span></a> to put inside the frame.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the newly created <a href="/usr/share/gtk-doc/html/gtk/GtkFrame.html"><span class="type">GtkFrame</span></a> widget.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-gtk-window-center-on-active-screen"></a><h3>xfce_gtk_window_center_on_active_screen ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                xfce_gtk_window_center_on_active_screen
+                                                        (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/gtk/GtkWindow.html"><span class="type">GtkWindow</span></a> *window</code></em>);</pre>
+<p>
+Determines the screen that contains the pointer and centers the
+<em class="parameter"><code>window</code></em> on it. If it failes to determine the current pointer position,
+<em class="parameter"><code>window</code></em> is centered on the default screen.
+</p>
+<p>
+This function only works properly if you call it before realizing the
+window and you haven't set a fixed window position using <a href="/usr/share/gtk-doc/html/gtk/GtkWindow.html#gtk-window-move"><code class="function">gtk_window_move()</code></a>.
+</p>
+<p>
+See also: <a class="link" href="libxfce4ui-xfce-gdk-extensions.html#xfce-gdk-screen-get-active" title="xfce_gdk_screen_get_active ()"><code class="function">xfce_gdk_screen_get_active()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
+<td>the <a href="/usr/share/gtk-doc/html/gtk/GtkWindow.html"><span class="type">GtkWindow</span></a> to center.</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

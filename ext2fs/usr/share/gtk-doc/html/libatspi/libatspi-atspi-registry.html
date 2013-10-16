@@ -1,0 +1,482 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>atspi-registry</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="libatspi Reference Manual">
+<link rel="up" href="ch01.html" title="API reference">
+<link rel="prev" href="libatspi-atspi-component.html" title="atspi-component">
+<link rel="next" href="libatspi-atspi-types.html" title="atspi-types">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libatspi-atspi-component.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libatspi Reference Manual</th>
+<td><a accesskey="n" href="libatspi-atspi-types.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libatspi-atspi-registry.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libatspi-atspi-registry.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libatspi-atspi-registry"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libatspi-atspi-registry.top_of_page"></a>atspi-registry</span></h2>
+<p>atspi-registry — A service through which applications providing accessibility services
+can rendezvous with consumers of those services.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libatspi-atspi-registry.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis"><a href="../gobject/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="libatspi-atspi-registry.html#atspi-key-definition-get-type" title="atspi_key_definition_get_type ()">atspi_key_definition_get_type</a>       ();
+<a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="libatspi-atspi-registry.html#atspi-get-desktop-count" title="atspi_get_desktop_count ()">atspi_get_desktop_count</a>             ();
+<a class="link" href="AtspiAccessible.html" title="AtspiAccessible"><span class="returnvalue">AtspiAccessible</span></a> *   <a class="link" href="libatspi-atspi-registry.html#atspi-get-desktop" title="atspi_get_desktop ()">atspi_get_desktop</a>                   (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> i</code></em>);
+<a href="../glib/glib-Arrays.html#GArray"><span class="returnvalue">GArray</span></a> *            <a class="link" href="libatspi-atspi-registry.html#atspi-get-desktop-list" title="atspi_get_desktop_list ()">atspi_get_desktop_list</a>              ();
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libatspi-atspi-registry.html#atspi-register-keystroke-listener" title="atspi_register_keystroke_listener ()">atspi_register_keystroke_listener</a>   (<em class="parameter"><code><a class="link" href="AtspiDeviceListener.html" title="atspi-devicelistener"><span class="type">AtspiDeviceListener</span></a> *listener</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Arrays.html#GArray"><span class="type">GArray</span></a> *key_set</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libatspi-atspi-types.html#AtspiKeyMaskType" title="AtspiKeyMaskType"><span class="type">AtspiKeyMaskType</span></a> modmask</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libatspi-atspi-types.html#AtspiKeyEventMask" title="AtspiKeyEventMask"><span class="type">AtspiKeyEventMask</span></a> event_types</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> sync_type</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libatspi-atspi-registry.html#atspi-deregister-keystroke-listener" title="atspi_deregister_keystroke_listener ()">atspi_deregister_keystroke_listener</a> (<em class="parameter"><code><a class="link" href="AtspiDeviceListener.html" title="atspi-devicelistener"><span class="type">AtspiDeviceListener</span></a> *listener</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Arrays.html#GArray"><span class="type">GArray</span></a> *key_set</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libatspi-atspi-types.html#AtspiKeyMaskType" title="AtspiKeyMaskType"><span class="type">AtspiKeyMaskType</span></a> modmask</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libatspi-atspi-types.html#AtspiKeyEventMask" title="AtspiKeyEventMask"><span class="type">AtspiKeyEventMask</span></a> event_types</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libatspi-atspi-registry.html#atspi-register-device-event-listener" title="atspi_register_device_event_listener ()">atspi_register_device_event_listener</a>
+                                                        (<em class="parameter"><code><a class="link" href="AtspiDeviceListener.html" title="atspi-devicelistener"><span class="type">AtspiDeviceListener</span></a> *listener</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libatspi-atspi-types.html#AtspiDeviceEventMask" title="AtspiDeviceEventMask"><span class="type">AtspiDeviceEventMask</span></a> event_types</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *filter</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libatspi-atspi-registry.html#atspi-deregister-device-event-listener" title="atspi_deregister_device_event_listener ()">atspi_deregister_device_event_listener</a>
+                                                        (<em class="parameter"><code><a class="link" href="AtspiDeviceListener.html" title="atspi-devicelistener"><span class="type">AtspiDeviceListener</span></a> *listener</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *filter</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libatspi-atspi-registry.html#atspi-generate-keyboard-event" title="atspi_generate_keyboard_event ()">atspi_generate_keyboard_event</a>       (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#glong"><span class="type">glong</span></a> keyval</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *keystring</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libatspi-atspi-constants.html#AtspiKeySynthType" title="enum AtspiKeySynthType"><span class="type">AtspiKeySynthType</span></a> synth_type</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libatspi-atspi-registry.html#atspi-generate-mouse-event" title="atspi_generate_mouse_event ()">atspi_generate_mouse_event</a>          (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#glong"><span class="type">glong</span></a> x</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#glong"><span class="type">glong</span></a> y</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libatspi-atspi-registry.description"></a><h2>Description</h2>
+<p>
+A service through which applications providing accessibility services (servers)
+can rendezvous with consumers of those services (Assistive Technologies). The
+atspi-registry is the first "port of call" for accessible applications and for
+assistive technologies wishing to query and interact with those applications.
+</p>
+</div>
+<div class="refsect1">
+<a name="libatspi-atspi-registry.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="atspi-key-definition-get-type"></a><h3>atspi_key_definition_get_type ()</h3>
+<pre class="programlisting"><a href="../gobject/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               atspi_key_definition_get_type       ();</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="atspi-get-desktop-count"></a><h3>atspi_get_desktop_count ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                atspi_get_desktop_count             ();</pre>
+<p>
+Gets the number of virtual desktops.
+NOTE: multiple virtual desktops are not implemented yet; as a 
+consequence, this function always returns 1.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> indicating the number of active virtual desktops.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="atspi-get-desktop"></a><h3>atspi_get_desktop ()</h3>
+<pre class="programlisting"><a class="link" href="AtspiAccessible.html" title="AtspiAccessible"><span class="returnvalue">AtspiAccessible</span></a> *   atspi_get_desktop                   (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> i</code></em>);</pre>
+<p>
+Gets the virtual desktop indicated by index <em class="parameter"><code>i</code></em>.
+NOTE: currently multiple virtual desktops are not implemented;
+as a consequence, any <em class="parameter"><code>i</code></em> value different from 0 will not return a
+virtual desktop - instead it will return NULL.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>i</code></em> :</span></p></td>
+<td>a <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> indicating which of the accessible desktops is to be returned.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a pointer to the <em class="parameter"><code>i</code></em>-th virtual desktop's
+<a class="link" href="AtspiAccessible.html" title="AtspiAccessible"><span class="type">AtspiAccessible</span></a> representation. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="atspi-get-desktop-list"></a><h3>atspi_get_desktop_list ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Arrays.html#GArray"><span class="returnvalue">GArray</span></a> *            atspi_get_desktop_list              ();</pre>
+<p>
+Gets the list of virtual desktops.  On return, <em class="parameter"><code>list</code></em> will point
+    to a newly-created, NULL terminated array of virtual desktop
+    pointers.
+    It is the responsibility of the caller to free this array when
+    it is no longer needed.
+NOTE: currently multiple virtual desktops are not implemented;
+this implementation always returns a <span class="type">Garray</span> with a single
+<a class="link" href="AtspiAccessible.html" title="AtspiAccessible"><span class="type">AtspiAccessible</span></a> desktop.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a href="../glib/glib-Arrays.html#GArray"><span class="type">GArray</span></a> of desktops. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="atspi-register-keystroke-listener"></a><h3>atspi_register_keystroke_listener ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            atspi_register_keystroke_listener   (<em class="parameter"><code><a class="link" href="AtspiDeviceListener.html" title="atspi-devicelistener"><span class="type">AtspiDeviceListener</span></a> *listener</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Arrays.html#GArray"><span class="type">GArray</span></a> *key_set</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libatspi-atspi-types.html#AtspiKeyMaskType" title="AtspiKeyMaskType"><span class="type">AtspiKeyMaskType</span></a> modmask</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libatspi-atspi-types.html#AtspiKeyEventMask" title="AtspiKeyEventMask"><span class="type">AtspiKeyEventMask</span></a> event_types</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> sync_type</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Registers a listener for keystroke events, either pre-emptively for
+            all windows (<a class="link" href="libatspi-atspi-types.html#ATSPI-KEYLISTENER-ALL-WINDOWS:CAPS"><code class="literal">ATSPI_KEYLISTENER_ALL_WINDOWS</code></a>),
+            non-preemptively (<a class="link" href="libatspi-atspi-types.html#ATSPI-KEYLISTENER-NOSYNC:CAPS"><code class="literal">ATSPI_KEYLISTENER_NOSYNC</code></a>), or
+            pre-emptively at the toolkit level (<a class="link" href="libatspi-atspi-types.html#ATSPI-KEYLISTENER-CANCONSUME:CAPS"><code class="literal">ATSPI_KEYLISTENER_CANCONSUME</code></a>).
+            If ALL_WINDOWS or CANCONSUME are used, the event is consumed
+            upon receipt if one of <em class="parameter"><code>listener</code></em>'s callbacks returns <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> 
+            (other sync_type values may be available in the future).
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>listener</code></em> :</span></p></td>
+<td>a pointer to the <a class="link" href="AtspiDeviceListener.html" title="atspi-devicelistener"><span class="type">AtspiDeviceListener</span></a> for which
+keystroke events are requested.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key_set</code></em> :</span></p></td>
+<td>a pointer to the
+<a class="link" href="libatspi-atspi-types.html#AtspiKeyDefinition"><span class="type">AtspiKeyDefinition</span></a> array indicating which keystroke events are
+requested, or NULL
+to indicate that all keycodes and keyvals for the specified
+modifier set are to be included. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> AtspiKeyDefinition][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>modmask</code></em> :</span></p></td>
+<td>an <a class="link" href="libatspi-atspi-types.html#AtspiKeyMaskType" title="AtspiKeyMaskType"><span class="type">AtspiKeyMaskType</span></a> mask indicating which
+key event modifiers must be set in combination with <em class="parameter"><code>keys</code></em>,
+events will only be reported for key events for which all
+modifiers in <em class="parameter"><code>modmask</code></em> are set.  If you wish to listen for
+events with multiple modifier combinations, you must call
+<a class="link" href="libatspi-atspi-registry.html#atspi-register-keystroke-listener" title="atspi_register_keystroke_listener ()"><span class="type">atspi_register_keystroke_listener</span></a> once for each
+combination.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event_types</code></em> :</span></p></td>
+<td>an <a class="link" href="libatspi-atspi-types.html#AtspiKeyMaskType" title="AtspiKeyMaskType"><span class="type">AtspiKeyMaskType</span></a> mask indicating which
+types of key events are requested (<a class="link" href="libatspi-atspi-constants.html#ATSPI-KEY-PRESSED:CAPS"><code class="literal">ATSPI_KEY_PRESSED</code></a> etc.).</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sync_type</code></em> :</span></p></td>
+<td>an <a class="link" href="libatspi-atspi-types.html#AtspiKeyListenerSyncType" title="enum AtspiKeyListenerSyncType"><span class="type">AtspiKeyListenerSyncType</span></a> parameter indicating
+the behavior of the notification/listener transaction.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a pointer to a <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> pointer, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if successful, otherwise <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="atspi-deregister-keystroke-listener"></a><h3>atspi_deregister_keystroke_listener ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            atspi_deregister_keystroke_listener (<em class="parameter"><code><a class="link" href="AtspiDeviceListener.html" title="atspi-devicelistener"><span class="type">AtspiDeviceListener</span></a> *listener</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Arrays.html#GArray"><span class="type">GArray</span></a> *key_set</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libatspi-atspi-types.html#AtspiKeyMaskType" title="AtspiKeyMaskType"><span class="type">AtspiKeyMaskType</span></a> modmask</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libatspi-atspi-types.html#AtspiKeyEventMask" title="AtspiKeyEventMask"><span class="type">AtspiKeyEventMask</span></a> event_types</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Removes a keystroke event listener from the registry's listener queue,
+           ceasing notification of events with modifiers matching <em class="parameter"><code>modmask</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>listener</code></em> :</span></p></td>
+<td>a pointer to the <a class="link" href="AtspiDeviceListener.html" title="atspi-devicelistener"><span class="type">AtspiDeviceListener</span></a> for which
+keystroke events are requested.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key_set</code></em> :</span></p></td>
+<td>a pointer to the
+<a class="link" href="libatspi-atspi-types.html#AtspiKeyDefinition"><span class="type">AtspiKeyDefinition</span></a> array indicating which keystroke events are
+requested, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+to indicate that all keycodes and keyvals for the specified
+modifier set are to be included. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> AtspiKeyDefinition][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>modmask</code></em> :</span></p></td>
+<td>the key modifier mask for which this listener is to be
+'deregistered' (of type <a class="link" href="libatspi-atspi-types.html#AtspiKeyMaskType" title="AtspiKeyMaskType"><span class="type">AtspiKeyMaskType</span></a>).</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event_types</code></em> :</span></p></td>
+<td>an <a class="link" href="libatspi-atspi-types.html#AtspiKeyMaskType" title="AtspiKeyMaskType"><span class="type">AtspiKeyMaskType</span></a> mask indicating which
+types of key events were requested (<a class="link" href="libatspi-atspi-constants.html#ATSPI-KEY-PRESSED:CAPS"><code class="literal">ATSPI_KEY_PRESSED</code></a>, etc.).</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a pointer to a <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> pointer, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if successful, otherwise <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="atspi-register-device-event-listener"></a><h3>atspi_register_device_event_listener ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            atspi_register_device_event_listener
+                                                        (<em class="parameter"><code><a class="link" href="AtspiDeviceListener.html" title="atspi-devicelistener"><span class="type">AtspiDeviceListener</span></a> *listener</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libatspi-atspi-types.html#AtspiDeviceEventMask" title="AtspiDeviceEventMask"><span class="type">AtspiDeviceEventMask</span></a> event_types</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *filter</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Registers a listener for device events, for instance button events.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>listener</code></em> :</span></p></td>
+<td>a pointer to the <a class="link" href="AtspiDeviceListener.html" title="atspi-devicelistener"><span class="type">AtspiDeviceListener</span></a> which requests
+the events.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event_types</code></em> :</span></p></td>
+<td>an <a class="link" href="libatspi-atspi-types.html#AtspiDeviceEventMask" title="AtspiDeviceEventMask"><span class="type">AtspiDeviceEventMask</span></a> mask indicating which
+types of key events are requested (<a class="link" href="libatspi-atspi-constants.html#ATSPI-KEY-PRESSED:CAPS"><code class="literal">ATSPI_KEY_PRESSED</code></a>, etc.).</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filter</code></em> :</span></p></td>
+<td>Unused parameter.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a pointer to a <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> pointer, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if successful, otherwise <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="atspi-deregister-device-event-listener"></a><h3>atspi_deregister_device_event_listener ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            atspi_deregister_device_event_listener
+                                                        (<em class="parameter"><code><a class="link" href="AtspiDeviceListener.html" title="atspi-devicelistener"><span class="type">AtspiDeviceListener</span></a> *listener</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> *filter</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Removes a device event listener from the registry's listener queue,
+           ceasing notification of events of the specified type.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>listener</code></em> :</span></p></td>
+<td>a pointer to the <a class="link" href="AtspiDeviceListener.html" title="atspi-devicelistener"><span class="type">AtspiDeviceListener</span></a> for which
+device events are requested.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filter</code></em> :</span></p></td>
+<td>Unused parameter.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a pointer to a <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> pointer, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if successful, otherwise <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="atspi-generate-keyboard-event"></a><h3>atspi_generate_keyboard_event ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            atspi_generate_keyboard_event       (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#glong"><span class="type">glong</span></a> keyval</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *keystring</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libatspi-atspi-constants.html#AtspiKeySynthType" title="enum AtspiKeySynthType"><span class="type">AtspiKeySynthType</span></a> synth_type</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Synthesizes a keyboard event (as if a hardware keyboard event occurred in the
+current UI context).
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>keyval</code></em> :</span></p></td>
+<td>a <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> indicating the keycode or keysym of the key event
+being synthesized.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>keystring</code></em> :</span></p></td>
+<td>an (optional) UTF-8 string which, if
+<em class="parameter"><code>synth_type</code></em> is <a class="link" href="libatspi-atspi-constants.html#ATSPI-KEY-STRING:CAPS"><code class="literal">ATSPI_KEY_STRING</code></a>, indicates a 'composed'
+keyboard input string being synthesized; this type of
+keyboard event synthesis does not emulate hardware
+keypresses but injects the string as though a composing
+input method (such as XIM) were used. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>synth_type</code></em> :</span></p></td>
+<td>an <a class="link" href="libatspi-atspi-constants.html#AtspiKeySynthType" title="enum AtspiKeySynthType"><span class="type">AtspiKeySynthType</span></a> flag indicating whether <em class="parameter"><code>keyval</code></em>
+is to be interpreted as a keysym rather than a keycode
+(<a class="link" href="libatspi-atspi-constants.html#ATSPI-KEY-SYM:CAPS"><code class="literal">ATSPI_KEY_SYM</code></a>) or a string (<a class="link" href="libatspi-atspi-constants.html#ATSPI-KEY-STRING:CAPS"><code class="literal">ATSPI_KEY_STRING</code></a>), or
+whether to synthesize <a class="link" href="libatspi-atspi-constants.html#ATSPI-KEY-PRESS:CAPS"><code class="literal">ATSPI_KEY_PRESS</code></a>,
+<a class="link" href="libatspi-atspi-constants.html#ATSPI-KEY-RELEASE:CAPS"><code class="literal">ATSPI_KEY_RELEASE</code></a>, or both (<a class="link" href="libatspi-atspi-constants.html#ATSPI-KEY-PRESSRELEASE:CAPS"><code class="literal">ATSPI_KEY_PRESSRELEASE</code></a>).</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a pointer to a <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> pointer, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if successful, otherwise <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="atspi-generate-mouse-event"></a><h3>atspi_generate_mouse_event ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            atspi_generate_mouse_event          (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#glong"><span class="type">glong</span></a> x</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#glong"><span class="type">glong</span></a> y</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Synthesizes a mouse event at a specific screen coordinate.
+Most AT clients should use the <span class="type">AccessibleAction</span> interface when
+tempted to generate mouse events, rather than this method.
+Event names: b1p = button 1 press; b2r = button 2 release;
+             b3c = button 3 click; b2d = button 2 double-click;
+             abs = absolute motion; rel = relative motion.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>a <a href="../glib/glib-Basic-Types.html#glong"><span class="type">glong</span></a> indicating the screen x coordinate of the mouse event.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>a <a href="../glib/glib-Basic-Types.html#glong"><span class="type">glong</span></a> indicating the screen y coordinate of the mouse event.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>a string indicating which mouse event to be synthesized
+(e.g. "b1p", "b1c", "b2r", "rel", "abs").</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a pointer to a <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> pointer, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if successful, otherwise <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18.1</div>
+</body>
+</html>

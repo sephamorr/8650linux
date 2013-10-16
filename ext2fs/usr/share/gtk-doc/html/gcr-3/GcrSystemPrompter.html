@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GcrSystemPrompter</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Gcr Library Reference Manual">
+<link rel="up" href="prompts.html" title="Part IV. Prompting">
+<link rel="prev" href="GcrSystemPrompt.html" title="GcrSystemPrompt">
+<link rel="next" href="storage.html" title="Part V. Storage">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GcrSystemPrompt.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="prompts.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Gcr Library Reference Manual</th>
+<td><a accesskey="n" href="storage.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GcrSystemPrompter.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GcrSystemPrompter.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GcrSystemPrompter.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GcrSystemPrompter.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="#GcrSystemPrompter.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="GcrSystemPrompter"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GcrSystemPrompter.top_of_page"></a>GcrSystemPrompter</span></h2>
+<p>GcrSystemPrompter — a prompter which displays system prompts</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GcrSystemPrompter.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="GcrSystemPrompter.html#GcrSystemPrompter-struct" title="struct GcrSystemPrompter">GcrSystemPrompter</a>;
+struct              <a class="link" href="GcrSystemPrompter.html#GcrSystemPrompterClass" title="struct GcrSystemPrompterClass">GcrSystemPrompterClass</a>;
+enum                <a class="link" href="GcrSystemPrompter.html#GcrSystemPrompterMode" title="enum GcrSystemPrompterMode">GcrSystemPrompterMode</a>;
+<a class="link" href="GcrSystemPrompter.html" title="GcrSystemPrompter"><span class="returnvalue">GcrSystemPrompter</span></a> * <a class="link" href="GcrSystemPrompter.html#gcr-system-prompter-new" title="gcr_system_prompter_new ()">gcr_system_prompter_new</a>             (<em class="parameter"><code><a class="link" href="GcrSystemPrompter.html#GcrSystemPrompterMode" title="enum GcrSystemPrompterMode"><span class="type">GcrSystemPrompterMode</span></a> mode</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> prompt_type</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GcrSystemPrompter.html#gcr-system-prompter-register" title="gcr_system_prompter_register ()">gcr_system_prompter_register</a>        (<em class="parameter"><code><a class="link" href="GcrSystemPrompter.html" title="GcrSystemPrompter"><span class="type">GcrSystemPrompter</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GDBusConnection.html"><span class="type">GDBusConnection</span></a> *connection</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GcrSystemPrompter.html#gcr-system-prompter-unregister" title="gcr_system_prompter_unregister ()">gcr_system_prompter_unregister</a>      (<em class="parameter"><code><a class="link" href="GcrSystemPrompter.html" title="GcrSystemPrompter"><span class="type">GcrSystemPrompter</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> wait</code></em>);
+<a class="link" href="GcrSystemPrompter.html#GcrSystemPrompterMode" title="enum GcrSystemPrompterMode"><span class="returnvalue">GcrSystemPrompterMode</span></a> <a class="link" href="GcrSystemPrompter.html#gcr-system-prompter-get-mode" title="gcr_system_prompter_get_mode ()">gcr_system_prompter_get_mode</a>      (<em class="parameter"><code><a class="link" href="GcrSystemPrompter.html" title="GcrSystemPrompter"><span class="type">GcrSystemPrompter</span></a> *self</code></em>);
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GcrSystemPrompter.html#gcr-system-prompter-get-prompt-type" title="gcr_system_prompter_get_prompt_type ()">gcr_system_prompter_get_prompt_type</a> (<em class="parameter"><code><a class="link" href="GcrSystemPrompter.html" title="GcrSystemPrompter"><span class="type">GcrSystemPrompter</span></a> *self</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GcrSystemPrompter.html#gcr-system-prompter-get-prompting" title="gcr_system_prompter_get_prompting ()">gcr_system_prompter_get_prompting</a>   (<em class="parameter"><code><a class="link" href="GcrSystemPrompter.html" title="GcrSystemPrompter"><span class="type">GcrSystemPrompter</span></a> *self</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="GcrSystemPrompter.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GcrSystemPrompter
+</pre>
+</div>
+<div class="refsect1">
+<a name="GcrSystemPrompter.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GcrSystemPrompter.html#GcrSystemPrompter--mode" title='The "mode" property'>mode</a>"                     <a class="link" href="GcrSystemPrompter.html#GcrSystemPrompterMode" title="enum GcrSystemPrompterMode"><span class="type">GcrSystemPrompterMode</span></a>  : Read / Write / Construct Only
+  "<a class="link" href="GcrSystemPrompter.html#GcrSystemPrompter--prompt-type" title='The "prompt-type" property'>prompt-type</a>"              <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a>*                : Read / Write / Construct Only
+  "<a class="link" href="GcrSystemPrompter.html#GcrSystemPrompter--prompting" title='The "prompting" property'>prompting</a>"                <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read
+</pre>
+</div>
+<div class="refsect1">
+<a name="GcrSystemPrompter.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GcrSystemPrompter.html#GcrSystemPrompter-new-prompt" title='The "new-prompt" signal'>new-prompt</a>"                                     : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="GcrSystemPrompter.description"></a><h2>Description</h2>
+<p>
+This is a DBus service which is rarely implemented. Use <a class="link" href="GcrSystemPrompt.html" title="GcrSystemPrompt"><span class="type">GcrSystemPrompt</span></a>
+to display system prompts.
+</p>
+<p>
+The GcrSystemPrompter service responds to dbus requests to create system
+prompts and creates <a class="link" href="GcrPrompt.html" title="GcrPrompt"><span class="type">GcrPrompt</span></a> type objects to display those prompts.
+</p>
+<p>
+Pass the GType of the implementation of <a class="link" href="GcrPrompt.html" title="GcrPrompt"><span class="type">GcrPrompt</span></a> to <a class="link" href="GcrSystemPrompter.html#gcr-system-prompter-new" title="gcr_system_prompter_new ()"><code class="function">gcr_system_prompter_new()</code></a>.
+</p>
+</div>
+<div class="refsect1">
+<a name="GcrSystemPrompter.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GcrSystemPrompter-struct"></a><h3>struct GcrSystemPrompter</h3>
+<pre class="programlisting">struct GcrSystemPrompter;</pre>
+<p>
+A prompter used by implementations of system prompts.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GcrSystemPrompterClass"></a><h3>struct GcrSystemPrompterClass</h3>
+<pre class="programlisting">struct GcrSystemPrompterClass {
+	GObjectClass parent_class;
+
+	/* signals */
+
+	GcrPrompt *    (* new_prompt)     (GcrSystemPrompter *self);
+};
+</pre>
+<p>
+The class for <a class="link" href="GcrSystemPrompter.html" title="GcrSystemPrompter"><span class="type">GcrSystemPrompter</span></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObjectClass"><span class="type">GObjectClass</span></a> <em class="structfield"><code><a name="GcrSystemPrompterClass.parent-class"></a>parent_class</code></em>;</span></p></td>
+<td>parent class</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="GcrSystemPrompterClass.new-prompt"></a>new_prompt</code></em> ()</span></p></td>
+<td>default handler for the <a class="link" href="GcrSystemPrompter.html#GcrSystemPrompter-new-prompt" title='The "new-prompt" signal'><span class="type">"new-prompt"</span></a> signal</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GcrSystemPrompterMode"></a><h3>enum GcrSystemPrompterMode</h3>
+<pre class="programlisting">typedef enum {
+	GCR_SYSTEM_PROMPTER_SINGLE,
+	GCR_SYSTEM_PROMPTER_MULTIPLE
+} GcrSystemPrompterMode;
+</pre>
+<p>
+The mode for the system prompter. Most system prompters can only show
+one prompt at a time and would use the <a class="link" href="GcrSystemPrompter.html#GCR-SYSTEM-PROMPTER-SINGLE:CAPS"><code class="literal">GCR_SYSTEM_PROMPTER_SINGLE</code></a> mode.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><a name="GCR-SYSTEM-PROMPTER-SINGLE:CAPS"></a><span class="term"><code class="literal">GCR_SYSTEM_PROMPTER_SINGLE</code></span></p></td>
+<td>only one prompt shown at a time
+</td>
+</tr>
+<tr>
+<td><p><a name="GCR-SYSTEM-PROMPTER-MULTIPLE:CAPS"></a><span class="term"><code class="literal">GCR_SYSTEM_PROMPTER_MULTIPLE</code></span></p></td>
+<td>more than one prompt shown at a time
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-system-prompter-new"></a><h3>gcr_system_prompter_new ()</h3>
+<pre class="programlisting"><a class="link" href="GcrSystemPrompter.html" title="GcrSystemPrompter"><span class="returnvalue">GcrSystemPrompter</span></a> * gcr_system_prompter_new             (<em class="parameter"><code><a class="link" href="GcrSystemPrompter.html#GcrSystemPrompterMode" title="enum GcrSystemPrompterMode"><span class="type">GcrSystemPrompterMode</span></a> mode</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> prompt_type</code></em>);</pre>
+<p>
+Create a new system prompter service. This prompter won't do anything unless
+you connect to its signals and show appropriate prompts.
+</p>
+<p>
+If <em class="parameter"><code>prompt_type</code></em> is zero, then the new-prompt signal must be handled and
+return a valid prompt object implementing the <a class="link" href="GcrPrompt.html" title="GcrPrompt"><span class="type">GcrPrompt</span></a> interface.
+</p>
+<p>
+If <em class="parameter"><code>prompt_type</code></em> is non-zero then the <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> must implement the <a class="link" href="GcrPrompt.html" title="GcrPrompt"><span class="type">GcrPrompt</span></a>
+interface.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
+<td>the mode for the prompt</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prompt_type</code></em> :</span></p></td>
+<td>the gobject type for prompts created by this prompter</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new prompter service. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-system-prompter-register"></a><h3>gcr_system_prompter_register ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcr_system_prompter_register        (<em class="parameter"><code><a class="link" href="GcrSystemPrompter.html" title="GcrSystemPrompter"><span class="type">GcrSystemPrompter</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GDBusConnection.html"><span class="type">GDBusConnection</span></a> *connection</code></em>);</pre>
+<p>
+Register this system prompter on the DBus <em class="parameter"><code>connection</code></em>.
+</p>
+<p>
+This makes the prompter available for clients to call. The prompter will
+remain registered until <a class="link" href="GcrSystemPrompter.html#gcr-system-prompter-unregister" title="gcr_system_prompter_unregister ()"><code class="function">gcr_system_prompter_unregister()</code></a> is called, or the
+prompter is unreferenced.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the system prompter</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
+<td>a DBus connection</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-system-prompter-unregister"></a><h3>gcr_system_prompter_unregister ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcr_system_prompter_unregister      (<em class="parameter"><code><a class="link" href="GcrSystemPrompter.html" title="GcrSystemPrompter"><span class="type">GcrSystemPrompter</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> wait</code></em>);</pre>
+<p>
+Unregister this system prompter on the DBus <em class="parameter"><code>connection</code></em>.
+</p>
+<p>
+The prompter must have previously been registered with <a class="link" href="GcrSystemPrompter.html#gcr-system-prompter-register" title="gcr_system_prompter_register ()"><code class="function">gcr_system_prompter_register()</code></a>.
+</p>
+<p>
+If <em class="parameter"><code>wait</code></em> is set then this function will wait until all prompts have been closed
+or cancelled. This is usually only used by tests.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the system prompter</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>wait</code></em> :</span></p></td>
+<td>whether to wait for closing prompts</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-system-prompter-get-mode"></a><h3>gcr_system_prompter_get_mode ()</h3>
+<pre class="programlisting"><a class="link" href="GcrSystemPrompter.html#GcrSystemPrompterMode" title="enum GcrSystemPrompterMode"><span class="returnvalue">GcrSystemPrompterMode</span></a> gcr_system_prompter_get_mode      (<em class="parameter"><code><a class="link" href="GcrSystemPrompter.html" title="GcrSystemPrompter"><span class="type">GcrSystemPrompter</span></a> *self</code></em>);</pre>
+<p>
+Get the mode for this prompter.
+</p>
+<p>
+Most system prompters only display one prompt at a time and therefore
+return <a class="link" href="GcrSystemPrompter.html#GCR-SYSTEM-PROMPTER-SINGLE:CAPS"><code class="literal">GCR_SYSTEM_PROMPTER_SINGLE</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the prompter</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the prompter mode</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-system-prompter-get-prompt-type"></a><h3>gcr_system_prompter_get_prompt_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               gcr_system_prompter_get_prompt_type (<em class="parameter"><code><a class="link" href="GcrSystemPrompter.html" title="GcrSystemPrompter"><span class="type">GcrSystemPrompter</span></a> *self</code></em>);</pre>
+<p>
+Get the <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> for prompts created by this prompter.
+</p>
+<p>
+The returned <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> will be a <a class="link" href="GcrPrompt.html" title="GcrPrompt"><span class="type">GcrPrompt</span></a> implementation.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the prompter</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the prompt <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-system-prompter-get-prompting"></a><h3>gcr_system_prompter_get_prompting ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gcr_system_prompter_get_prompting   (<em class="parameter"><code><a class="link" href="GcrSystemPrompter.html" title="GcrSystemPrompter"><span class="type">GcrSystemPrompter</span></a> *self</code></em>);</pre>
+<p>
+Get whether prompting or not.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the prompter</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether prompting or not</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="GcrSystemPrompter.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="GcrSystemPrompter--mode"></a><h3>The <code class="literal">"mode"</code> property</h3>
+<pre class="programlisting">  "mode"                     <a class="link" href="GcrSystemPrompter.html#GcrSystemPrompterMode" title="enum GcrSystemPrompterMode"><span class="type">GcrSystemPrompterMode</span></a>  : Read / Write / Construct Only</pre>
+<p>
+The mode for this prompter.
+</p>
+<p>
+Most system prompters only display one prompt at a time and therefore
+return <a class="link" href="GcrSystemPrompter.html#GCR-SYSTEM-PROMPTER-SINGLE:CAPS"><code class="literal">GCR_SYSTEM_PROMPTER_SINGLE</code></a>.
+</p>
+<p>Default value: GCR_SYSTEM_PROMPTER_SINGLE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GcrSystemPrompter--prompt-type"></a><h3>The <code class="literal">"prompt-type"</code> property</h3>
+<pre class="programlisting">  "prompt-type"              <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a>*                : Read / Write / Construct Only</pre>
+<p>
+The <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> for prompts created by this prompter. This must be a
+<a class="link" href="GcrPrompt.html" title="GcrPrompt"><span class="type">GcrPrompt</span></a> implementation.
+</p>
+<p>Allowed values: GcrPrompt</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GcrSystemPrompter--prompting"></a><h3>The <code class="literal">"prompting"</code> property</h3>
+<pre class="programlisting">  "prompting"                <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read</pre>
+<p>
+Whether the prompter is prompting or not.
+</p>
+<p>Default value: FALSE</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GcrSystemPrompter.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="GcrSystemPrompter-new-prompt"></a><h3>The <code class="literal">"new-prompt"</code> signal</h3>
+<pre class="programlisting"><a class="link" href="GcrPrompt.html" title="GcrPrompt"><span class="returnvalue">GcrPrompt</span></a>*          user_function                      (<a class="link" href="GcrSystemPrompter.html" title="GcrSystemPrompter"><span class="type">GcrSystemPrompter</span></a> *Returns,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>           user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+<p>
+Signal emitted to create a new prompt when needed.
+</p>
+<p>
+The default implementation of this signal creates a prompt of the type
+<a class="link" href="GcrSystemPrompter.html#gcr-system-prompter-get-prompt-type" title="gcr_system_prompter_get_prompt_type ()"><code class="function">gcr_system_prompter_get_prompt_type()</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new prompt. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,978 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>go-plugin</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch15.html" title="Application">
+<link rel="prev" href="GOIOContext.html" title="GOIOContext">
+<link rel="next" href="GOPluginLoader.html" title="GOPluginLoader">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GOIOContext.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch15.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GOPluginLoader.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#goffice-0.8-go-plugin.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#goffice-0.8-go-plugin.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#goffice-0.8-go-plugin.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#goffice-0.8-go-plugin.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="go-plugin">
+<a name="goffice-0.8-go-plugin"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="goffice-0.8-go-plugin.top_of_page"></a>go-plugin</span></h2>
+<p>go-plugin</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="goffice-0.8-go-plugin.synopsis"></a><h2>Synopsis</h2>
+<a name="GOPlugin"></a><pre class="synopsis">                    <a class="link" href="goffice-0.8-go-plugin.html#GOPlugin-struct" title="GOPlugin">GOPlugin</a>;
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-init" title="go_plugin_init ()">go_plugin_init</a>                      (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="type">GOCmdContext</span></a> *cc</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-shutdown" title="go_plugin_shutdown ()">go_plugin_shutdown</a>                  (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="type">GOCmdContext</span></a> *cc</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-activate" title="go_plugin_activate ()">go_plugin_activate</a>                  (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-deactivate" title="go_plugin_deactivate ()">go_plugin_deactivate</a>                (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-is-active" title="go_plugin_is_active ()">go_plugin_is_active</a>                 (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-can-deactivate" title="go_plugin_can_deactivate ()">go_plugin_can_deactivate</a>            (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);
+<a class="link" href="GOPluginLoader.html" title="GOPluginLoader"><span class="returnvalue">GOPluginLoader</span></a> *    <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-get-loader" title="go_plugin_get_loader ()">go_plugin_get_loader</a>                (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-load-service" title="go_plugin_load_service ()">go_plugin_load_service</a>              (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-unload-service" title="go_plugin_unload_service ()">go_plugin_unload_service</a>            (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-is-loaded" title="go_plugin_is_loaded ()">go_plugin_is_loaded</a>                 (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-use-ref" title="go_plugin_use_ref ()">go_plugin_use_ref</a>                   (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-use-unref" title="go_plugin_use_unref ()">go_plugin_use_unref</a>                 (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);
+<a href="http://library.gnome.org/devel/gobject/unstable/GTypeModule.html"><span class="returnvalue">GTypeModule</span></a> *       <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-get-type-module" title="go_plugin_get_type_module ()">go_plugin_get_type_module</a>           (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);
+<span class="returnvalue">char</span> const  *       <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-get-dir-name" title="go_plugin_get_dir_name ()">go_plugin_get_dir_name</a>              (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);
+<span class="returnvalue">char</span> const  *       <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-get-id" title="go_plugin_get_id ()">go_plugin_get_id</a>                    (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);
+<span class="returnvalue">char</span> const  *       <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-get-name" title="go_plugin_get_name ()">go_plugin_get_name</a>                  (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);
+<span class="returnvalue">char</span> const  *       <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-get-description" title="go_plugin_get_description ()">go_plugin_get_description</a>           (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);
+<span class="returnvalue">char</span> const  *       <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-get-textdomain" title="go_plugin_get_textdomain ()">go_plugin_get_textdomain</a>            (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-get-services" title="go_plugin_get_services ()">go_plugin_get_services</a>              (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-get-dependencies-ids" title="go_plugin_get_dependencies_ids ()">go_plugin_get_dependencies_ids</a>      (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-plugin.html#go-plugins-init" title="go_plugins_init ()">go_plugins_init</a>                     (<em class="parameter"><code><a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="type">GOCmdContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> const *known_states</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> const *active_plugins</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *plugin_dirs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> activate_new_plugins</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> default_loader_type</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="goffice-0.8-go-plugin.html#go-plugins-shutdown" title="go_plugins_shutdown ()">go_plugins_shutdown</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-plugin.html#go-plugins-add" title="go_plugins_add ()">go_plugins_add</a>                      (<em class="parameter"><code><a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="type">GOCmdContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> const *known_states</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> const *active_plugins</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *plugin_dirs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> default_loader_type</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-plugin.html#go-plugins-register-loader" title="go_plugins_register_loader ()">go_plugins_register_loader</a>          (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *id_str</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-plugin.html#go-plugins-unregister-loader" title="go_plugins_unregister_loader ()">go_plugins_unregister_loader</a>        (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *id_str</code></em>);
+<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="returnvalue">GOPlugin</span></a> *          <a class="link" href="goffice-0.8-go-plugin.html#go-plugins-get-plugin-by-id" title="go_plugins_get_plugin_by_id ()">go_plugins_get_plugin_by_id</a>         (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *plugin_id</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="goffice-0.8-go-plugin.html#go-plugins-get-available-plugins" title="go_plugins_get_available_plugins ()">go_plugins_get_available_plugins</a>    (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="goffice-0.8-go-plugin.html#go-plugins-get-active-plugins" title="go_plugins_get_active_plugins ()">go_plugins_get_active_plugins</a>       (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-plugin.html#go-plugins-rescan" title="go_plugins_rescan ()">go_plugins_rescan</a>                   (<em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> **ret_new_plugins</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="goffice-0.8-go-plugin.html#go-plugins-get-plugin-dir" title="go_plugins_get_plugin_dir ()">go_plugins_get_plugin_dir</a>           (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-db-mark-plugin-for-deactivation" title="go_plugin_db_mark_plugin_for_deactivation ()">go_plugin_db_mark_plugin_for_deactivation</a>
+                                                        (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> mark</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-db-is-plugin-marked-for-deactivation" title="go_plugin_db_is_plugin_marked_for_deactivation ()">go_plugin_db_is_plugin_marked_for_deactivation</a>
+                                                        (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-db-activate-plugin-list" title="go_plugin_db_activate_plugin_list ()">go_plugin_db_activate_plugin_list</a>   (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *plugins</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-plugin.html#go-plugin-db-deactivate-plugin-list" title="go_plugin_db_deactivate_plugin_list ()">go_plugin_db_deactivate_plugin_list</a> (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *plugins</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="goffice-0.8-go-plugin.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GOPlugin
+</pre>
+</div>
+<div class="refsect1" title="Signals">
+<a name="goffice-0.8-go-plugin.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin-can-deactivate-changed" title='The "can-deactivate-changed" signal'>can-deactivate-changed</a>"                         : Run Last
+  "<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin-state-changed" title='The "state-changed" signal'>state-changed</a>"                                  : Run Last
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="goffice-0.8-go-plugin.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="goffice-0.8-go-plugin.details"></a><h2>Details</h2>
+<div class="refsect2" title="GOPlugin">
+<a name="GOPlugin-struct"></a><h3>GOPlugin</h3>
+<pre class="programlisting">typedef struct _GOPlugin GOPlugin;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_init ()">
+<a name="go-plugin-init"></a><h3>go_plugin_init ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugin_init                      (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="type">GOCmdContext</span></a> *cc</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_shutdown ()">
+<a name="go-plugin-shutdown"></a><h3>go_plugin_shutdown ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugin_shutdown                  (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="type">GOCmdContext</span></a> *cc</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_activate ()">
+<a name="go-plugin-activate"></a><h3>go_plugin_activate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugin_activate                  (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);</pre>
+<p>
+Activates <em class="parameter"><code>plugin</code></em> together with all its dependencies.
+In case of error the plugin won't be activated and detailed error
+information will be returned using <em class="parameter"><code>ret_error</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ret_error</code></em> :</span></p></td>
+<td>Pointer used to report errors
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_deactivate ()">
+<a name="go-plugin-deactivate"></a><h3>go_plugin_deactivate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugin_deactivate                (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);</pre>
+<p>
+Dectivates <em class="parameter"><code>plugin</code></em>. Its dependencies will NOT be automatically
+deactivated.
+In case of error the plugin won't be deactivated and detailed error
+information will be returned using <em class="parameter"><code>ret_error</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ret_error</code></em> :</span></p></td>
+<td>Pointer used to report errors
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_is_active ()">
+<a name="go-plugin-is-active"></a><h3>go_plugin_is_active ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_plugin_is_active                 (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if <em class="parameter"><code>plugin</code></em> is active and FALSE otherwise.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_can_deactivate ()">
+<a name="go-plugin-can-deactivate"></a><h3>go_plugin_can_deactivate ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_plugin_can_deactivate            (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);</pre>
+<p>
+Tells if the plugin can be deactivated using go_plugin_deactivate.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if <em class="parameter"><code>plugin</code></em> can be deactivated and FALSE otherwise.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_get_loader ()">
+<a name="go-plugin-get-loader"></a><h3>go_plugin_get_loader ()</h3>
+<pre class="programlisting"><a class="link" href="GOPluginLoader.html" title="GOPluginLoader"><span class="returnvalue">GOPluginLoader</span></a> *    go_plugin_get_loader                (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The loader.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_load_service ()">
+<a name="go-plugin-load-service"></a><h3>go_plugin_load_service ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugin_load_service              (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);</pre>
+<p>
+Loads base part of the plugin if it is not loaded and then loads given
+plugin service (prepares necessary part of the plugin for direct use).
+This function is intended for use by GOPluginService objects.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>service</code></em> :</span></p></td>
+<td>Plugin service
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ret_error</code></em> :</span></p></td>
+<td>Pointer used to report errors
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_unload_service ()">
+<a name="go-plugin-unload-service"></a><h3>go_plugin_unload_service ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugin_unload_service            (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);</pre>
+<p>
+...
+This function is intended for use by GOPluginService objects.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>service</code></em> :</span></p></td>
+<td>Plugin service
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ret_error</code></em> :</span></p></td>
+<td>Pointer used to report errors
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_is_loaded ()">
+<a name="go-plugin-is-loaded"></a><h3>go_plugin_is_loaded ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_plugin_is_loaded                 (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if <em class="parameter"><code>plugin</code></em> is loaded and FALSE otherwise.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_use_ref ()">
+<a name="go-plugin-use-ref"></a><h3>go_plugin_use_ref ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugin_use_ref                   (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_use_unref ()">
+<a name="go-plugin-use-unref"></a><h3>go_plugin_use_unref ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugin_use_unref                 (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_get_type_module ()">
+<a name="go-plugin-get-type-module"></a><h3>go_plugin_get_type_module ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/GTypeModule.html"><span class="returnvalue">GTypeModule</span></a> *       go_plugin_get_type_module           (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the GTypeModule associated with the plugin creating it if necessary.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_get_dir_name ()">
+<a name="go-plugin-get-dir-name"></a><h3>go_plugin_get_dir_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const  *       go_plugin_get_dir_name              (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the name of the directory in which <em class="parameter"><code>plugin</code></em> is located.
+	Returned string is != NULL and stays valid during <em class="parameter"><code>plugin</code></em>'s lifetime.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_get_id ()">
+<a name="go-plugin-get-id"></a><h3>go_plugin_get_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const  *       go_plugin_get_id                    (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the ID of <em class="parameter"><code>plugin</code></em> (unique string used for idenfification of
+	plugin).  Returned string is != NULL and stays valid during <em class="parameter"><code>plugin</code></em>'s
+	lifetime.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_get_name ()">
+<a name="go-plugin-get-name"></a><h3>go_plugin_get_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const  *       go_plugin_get_name                  (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> textual name of <em class="parameter"><code>plugin</code></em>. If the real name is not available
+	for some reason, automatically generated string will be returned.
+	Returned string is != NULL and stays valid during <em class="parameter"><code>plugin</code></em>'s lifetime.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_get_description ()">
+<a name="go-plugin-get-description"></a><h3>go_plugin_get_description ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const  *       go_plugin_get_description           (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> textual description of <em class="parameter"><code>plugin</code></em> or NULL if description is not
+	available.  Returned string stays valid during <em class="parameter"><code>plugin</code></em>'s lifetime.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_get_textdomain ()">
+<a name="go-plugin-get-textdomain"></a><h3>go_plugin_get_textdomain ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const  *       go_plugin_get_textdomain            (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> plugin's textdomain for use with textdomain(3) and d*gettext(3)
+	functions.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_get_services ()">
+<a name="go-plugin-get-services"></a><h3>go_plugin_get_services ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            go_plugin_get_services              (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A list of services.  The list must not be freed or changed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_get_dependencies_ids ()">
+<a name="go-plugin-get-dependencies-ids"></a><h3>go_plugin_get_dependencies_ids ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            go_plugin_get_dependencies_ids      (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the list of identifiers of plugins that <em class="parameter"><code>plugin</code></em> depends on.
+	All these plugins will be automatically activated before activating the
+	<em class="parameter"><code>plugin</code></em> itself.  The caller must free the returned list together with
+	the strings it points to (use go_slist_free_custom (list, g_free) to do
+	this).
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugins_init ()">
+<a name="go-plugins-init"></a><h3>go_plugins_init ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugins_init                     (<em class="parameter"><code><a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="type">GOCmdContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> const *known_states</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> const *active_plugins</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *plugin_dirs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> activate_new_plugins</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> default_loader_type</code></em>);</pre>
+<p>
+Initializes the plugin subsystem. Don't call this function more than
+once.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="type">GOCmdContext</span></a> used to report errors
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>known_states</code></em> :</span></p></td>
+<td>A list of known states (defined how ?)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>active_plugins</code></em> :</span></p></td>
+<td>A list of active plugins
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin_dirs</code></em> :</span></p></td>
+<td>a list of directories to search for plugins
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>activate_new_plugins</code></em> :</span></p></td>
+<td>activate plugins we have no seen before.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>default_loader_type</code></em> :</span></p></td>
+<td>importer to use by default.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugins_shutdown ()">
+<a name="go-plugins-shutdown"></a><h3>go_plugins_shutdown ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            go_plugins_shutdown                 (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugins_add ()">
+<a name="go-plugins-add"></a><h3>go_plugins_add ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugins_add                      (<em class="parameter"><code><a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="type">GOCmdContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> const *known_states</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> const *active_plugins</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *plugin_dirs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> default_loader_type</code></em>);</pre>
+<div class="warning" title="Warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">go_plugins_add</code> is deprecated and should not be used in newly-written code. this function is deprecated and should not be used at all. It will be removed
+during next development cycle. Use <a class="link" href="goffice-0.8-go-plugin.html#go-plugins-init" title="go_plugins_init ()"><code class="function">go_plugins_init()</code></a> instead.</p>
+</div>
+<p>
+Adds new plugins to currently used plugins.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="type">GOCmdContext</span></a> used to report errors
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>known_states</code></em> :</span></p></td>
+<td>A list of known states (defined how ?)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>active_plugins</code></em> :</span></p></td>
+<td>A list of active plugins
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin_dirs</code></em> :</span></p></td>
+<td>a list of directories to search for plugins
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>default_loader_type</code></em> :</span></p></td>
+<td>importer to use by default.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugins_register_loader ()">
+<a name="go-plugins-register-loader"></a><h3>go_plugins_register_loader ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugins_register_loader          (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *id_str</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOPluginService.html" title="GOPluginService"><span class="type">GOPluginService</span></a> *service</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id_str</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>service</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugins_unregister_loader ()">
+<a name="go-plugins-unregister-loader"></a><h3>go_plugins_unregister_loader ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugins_unregister_loader        (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *id_str</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>id_str</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugins_get_plugin_by_id ()">
+<a name="go-plugins-get-plugin-by-id"></a><h3>go_plugins_get_plugin_by_id ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="returnvalue">GOPlugin</span></a> *          go_plugins_get_plugin_by_id         (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *plugin_id</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin_id</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugins_get_available_plugins ()">
+<a name="go-plugins-get-available-plugins"></a><h3>go_plugins_get_available_plugins ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            go_plugins_get_available_plugins    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugins_get_active_plugins ()">
+<a name="go-plugins-get-active-plugins"></a><h3>go_plugins_get_active_plugins ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            go_plugins_get_active_plugins       (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugins_rescan ()">
+<a name="go-plugins-rescan"></a><h3>go_plugins_rescan ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugins_rescan                   (<em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> **ret_new_plugins</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ret_error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ret_new_plugins</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugins_get_plugin_dir ()">
+<a name="go-plugins-get-plugin-dir"></a><h3>go_plugins_get_plugin_dir ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              go_plugins_get_plugin_dir           (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_db_mark_plugin_for_deactivation ()">
+<a name="go-plugin-db-mark-plugin-for-deactivation"></a><h3>go_plugin_db_mark_plugin_for_deactivation ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugin_db_mark_plugin_for_deactivation
+                                                        (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> mark</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mark</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_db_is_plugin_marked_for_deactivation ()">
+<a name="go-plugin-db-is-plugin-marked-for-deactivation"></a><h3>go_plugin_db_is_plugin_marked_for_deactivation ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_plugin_db_is_plugin_marked_for_deactivation
+                                                        (<em class="parameter"><code><a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *plugin</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_db_activate_plugin_list ()">
+<a name="go-plugin-db-activate-plugin-list"></a><h3>go_plugin_db_activate_plugin_list ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugin_db_activate_plugin_list   (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *plugins</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugins</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ret_error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_plugin_db_deactivate_plugin_list ()">
+<a name="go-plugin-db-deactivate-plugin-list"></a><h3>go_plugin_db_deactivate_plugin_list ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_plugin_db_deactivate_plugin_list (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *plugins</code></em>,
+                                                         <em class="parameter"><code><span class="type">GOErrorInfo</span> **ret_error</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugins</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ret_error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="goffice-0.8-go-plugin.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "can-deactivate-changed" signal'>
+<a name="GOPlugin-can-deactivate-changed"></a><h3>The <code class="literal">"can-deactivate-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *goplugin,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>  user_data)      : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>goplugin</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "state-changed" signal'>
+<a name="GOPlugin-state-changed"></a><h3>The <code class="literal">"state-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="goffice-0.8-go-plugin.html#GOPlugin"><span class="type">GOPlugin</span></a> *goplugin,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>  user_data)      : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>goplugin</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

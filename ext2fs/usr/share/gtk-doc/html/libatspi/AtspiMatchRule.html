@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>atspi-matchrule</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.1">
+<link rel="home" href="index.html" title="libatspi Reference Manual">
+<link rel="up" href="ch01.html" title="API reference">
+<link rel="prev" href="libatspi-atspi-image.html" title="atspi-image">
+<link rel="next" href="libatspi-atspi-document.html" title="atspi-document">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libatspi-atspi-image.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libatspi Reference Manual</th>
+<td><a accesskey="n" href="libatspi-atspi-document.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#AtspiMatchRule.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#AtspiMatchRule.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#AtspiMatchRule.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="AtspiMatchRule"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="AtspiMatchRule.top_of_page"></a>atspi-matchrule</span></h2>
+<p>atspi-matchrule — An interface that allows the definition of match rules
+for accessible objects.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="AtspiMatchRule.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="AtspiMatchRule.html#AtspiMatchRule-struct" title="struct AtspiMatchRule">AtspiMatchRule</a>;
+struct              <a class="link" href="AtspiMatchRule.html#AtspiMatchRuleClass" title="struct AtspiMatchRuleClass">AtspiMatchRuleClass</a>;
+<a class="link" href="AtspiMatchRule.html" title="atspi-matchrule"><span class="returnvalue">AtspiMatchRule</span></a> *    <a class="link" href="AtspiMatchRule.html#atspi-match-rule-new" title="atspi_match_rule_new ()">atspi_match_rule_new</a>                (<em class="parameter"><code><a class="link" href="AtspiStateSet.html" title="atspi-stateset"><span class="type">AtspiStateSet</span></a> *states</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libatspi-atspi-constants.html#AtspiCollectionMatchType" title="enum AtspiCollectionMatchType"><span class="type">AtspiCollectionMatchType</span></a> statematchtype</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Hash-Tables.html#GHashTable"><span class="type">GHashTable</span></a> *attributes</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libatspi-atspi-constants.html#AtspiCollectionMatchType" title="enum AtspiCollectionMatchType"><span class="type">AtspiCollectionMatchType</span></a> attributematchtype</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Arrays.html#GArray"><span class="type">GArray</span></a> *roles</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libatspi-atspi-constants.html#AtspiCollectionMatchType" title="enum AtspiCollectionMatchType"><span class="type">AtspiCollectionMatchType</span></a> rolematchtype</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Arrays.html#GArray"><span class="type">GArray</span></a> *interfaces</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libatspi-atspi-constants.html#AtspiCollectionMatchType" title="enum AtspiCollectionMatchType"><span class="type">AtspiCollectionMatchType</span></a> interfacematchtype</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> invert</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="AtspiMatchRule.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----AtspiMatchRule
+</pre>
+</div>
+<div class="refsect1">
+<a name="AtspiMatchRule.description"></a><h2>Description</h2>
+<p>
+An interface that allows the definition of match rules
+for accessible objects.
+</p>
+</div>
+<div class="refsect1">
+<a name="AtspiMatchRule.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="AtspiMatchRule-struct"></a><h3>struct AtspiMatchRule</h3>
+<pre class="programlisting">struct AtspiMatchRule;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AtspiMatchRuleClass"></a><h3>struct AtspiMatchRuleClass</h3>
+<pre class="programlisting">struct AtspiMatchRuleClass {
+  GObjectClass parent_class;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="atspi-match-rule-new"></a><h3>atspi_match_rule_new ()</h3>
+<pre class="programlisting"><a class="link" href="AtspiMatchRule.html" title="atspi-matchrule"><span class="returnvalue">AtspiMatchRule</span></a> *    atspi_match_rule_new                (<em class="parameter"><code><a class="link" href="AtspiStateSet.html" title="atspi-stateset"><span class="type">AtspiStateSet</span></a> *states</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libatspi-atspi-constants.html#AtspiCollectionMatchType" title="enum AtspiCollectionMatchType"><span class="type">AtspiCollectionMatchType</span></a> statematchtype</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Hash-Tables.html#GHashTable"><span class="type">GHashTable</span></a> *attributes</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libatspi-atspi-constants.html#AtspiCollectionMatchType" title="enum AtspiCollectionMatchType"><span class="type">AtspiCollectionMatchType</span></a> attributematchtype</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Arrays.html#GArray"><span class="type">GArray</span></a> *roles</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libatspi-atspi-constants.html#AtspiCollectionMatchType" title="enum AtspiCollectionMatchType"><span class="type">AtspiCollectionMatchType</span></a> rolematchtype</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Arrays.html#GArray"><span class="type">GArray</span></a> *interfaces</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libatspi-atspi-constants.html#AtspiCollectionMatchType" title="enum AtspiCollectionMatchType"><span class="type">AtspiCollectionMatchType</span></a> interfacematchtype</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> invert</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="AtspiMatchRule.html" title="atspi-matchrule"><span class="type">AtspiMatchRule</span></a> with specified <em class="parameter"><code>states</code></em>, <em class="parameter"><code>attributes</code></em>, 
+<em class="parameter"><code>interfaces</code></em>, and <em class="parameter"><code>roles</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>states</code></em> :</span></p></td>
+<td>An <a class="link" href="AtspiStateSet.html" title="atspi-stateset"><span class="type">AtspiStateSet</span></a> specifying the states to match or NULL if none.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>statematchtype</code></em> :</span></p></td>
+<td>An <a class="link" href="libatspi-atspi-constants.html#AtspiCollectionMatchType" title="enum AtspiCollectionMatchType"><span class="type">AtspiCollectionMatchType</span></a> specifying how to interpret
+<em class="parameter"><code>states</code></em>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attributes</code></em> :</span></p></td>
+<td>A <a href="../glib/glib-Hash-Tables.html#GHashTable"><span class="type">GHashTable</span></a> specifying
+attributes to match. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> gchar* gchar*]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attributematchtype</code></em> :</span></p></td>
+<td>An <a class="link" href="libatspi-atspi-constants.html#AtspiCollectionMatchType" title="enum AtspiCollectionMatchType"><span class="type">AtspiCollectionMatchType</span></a> specifying how to
+interpret <em class="parameter"><code>attributes</code></em>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>roles</code></em> :</span></p></td>
+<td>A <a href="../glib/glib-Arrays.html#GArray"><span class="type">GArray</span></a> of roles to match, or NULL if
+not applicable. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> AtspiRole]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rolematchtype</code></em> :</span></p></td>
+<td>An <a class="link" href="libatspi-atspi-constants.html#AtspiCollectionMatchType" title="enum AtspiCollectionMatchType"><span class="type">AtspiCollectionMatchType</span></a> specifying how to
+interpret <em class="parameter"><code>roles</code></em>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>interfaces</code></em> :</span></p></td>
+<td>An array of interfaces to match, or
+NULL if not applicable.  Interface names should be specified
+by their DBus names (org.a11y.Atspi.Accessible,
+org.a11y.Atspi.Component, etc). <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> gchar*]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>interfacematchtype</code></em> :</span></p></td>
+<td>An <a class="link" href="libatspi-atspi-constants.html#AtspiCollectionMatchType" title="enum AtspiCollectionMatchType"><span class="type">AtspiCollectionMatchType</span></a> specifying how to
+interpret <em class="parameter"><code>interfaces</code></em>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>invert</code></em> :</span></p></td>
+<td>if <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><span class="type">TRUE</span></a>, the match rule should be denied (inverted); if <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><span class="type">FALSE</span></a>,
+it should not. For example, if the match rule defines that a match is
+an object of ROLE_HEADING which has STATE_FOCUSABLE and a click action,
+inverting it would match all objects that are not of ROLE_HEADING,
+focusable and clickable at the same time.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A new <a class="link" href="AtspiMatchRule.html" title="atspi-matchrule"><span class="type">AtspiMatchRule</span></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18.1</div>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>gcr-collection-model</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Gcr Library Reference Manual">
+<link rel="up" href="collections.html" title="Part II. Collections">
+<link rel="prev" href="GcrSimpleCollection.html" title="GcrSimpleCollection">
+<link rel="next" href="widgets.html" title="Part III. Widgets">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GcrSimpleCollection.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="collections.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Gcr Library Reference Manual</th>
+<td><a accesskey="n" href="widgets.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gcr-gcr-collection-model.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gcr-gcr-collection-model.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#gcr-gcr-collection-model.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#gcr-gcr-collection-model.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#gcr-gcr-collection-model.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gcr-gcr-collection-model"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gcr-gcr-collection-model.top_of_page"></a>gcr-collection-model</span></h2>
+<p>gcr-collection-model</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gcr-gcr-collection-model.synopsis"></a><h2>Synopsis</h2>
+<a name="GcrCollectionModel"></a><pre class="synopsis">struct              <a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel-struct" title="struct GcrCollectionModel">GcrCollectionModel</a>;
+struct              <a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModelClass" title="struct GcrCollectionModelClass">GcrCollectionModelClass</a>;
+enum                <a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModelMode" title="enum GcrCollectionModelMode">GcrCollectionModelMode</a>;
+<a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="returnvalue">GcrCollectionModel</span></a> * <a class="link" href="gcr-gcr-collection-model.html#gcr-collection-model-new" title="gcr_collection_model_new ()">gcr_collection_model_new</a>           (<em class="parameter"><code><a class="link" href="GcrCollection.html" title="GcrCollection"><span class="type">GcrCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModelMode" title="enum GcrCollectionModelMode"><span class="type">GcrCollectionModelMode</span></a> mode</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="returnvalue">GcrCollectionModel</span></a> * <a class="link" href="gcr-gcr-collection-model.html#gcr-collection-model-new-full" title="gcr_collection_model_new_full ()">gcr_collection_model_new_full</a>      (<em class="parameter"><code><a class="link" href="GcrCollection.html" title="GcrCollection"><span class="type">GcrCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModelMode" title="enum GcrCollectionModelMode"><span class="type">GcrCollectionModelMode</span></a> mode</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gcr-GcrColumn.html#GcrColumn" title="GcrColumn"><span class="type">GcrColumn</span></a> *columns</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="gcr-gcr-collection-model.html#gcr-collection-model-set-columns" title="gcr_collection_model_set_columns ()">gcr_collection_model_set_columns</a>    (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gcr-GcrColumn.html#GcrColumn" title="GcrColumn"><span class="type">GcrColumn</span></a> *columns</code></em>);
+<a class="link" href="GcrCollection.html" title="GcrCollection"><span class="returnvalue">GcrCollection</span></a> *     <a class="link" href="gcr-gcr-collection-model.html#gcr-collection-model-get-collection" title="gcr_collection_model_get_collection ()">gcr_collection_model_get_collection</a> (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gcr-gcr-collection-model.html#gcr-collection-model-set-collection" title="gcr_collection_model_set_collection ()">gcr_collection_model_set_collection</a> (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GcrCollection.html" title="GcrCollection"><span class="type">GcrCollection</span></a> *collection</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gcr-gcr-collection-model.html#gcr-collection-model-iter-for-object" title="gcr_collection_model_iter_for_object ()">gcr_collection_model_iter_for_object</a>
+                                                        (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a> *iter</code></em>);
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="returnvalue">GObject</span></a> *           <a class="link" href="gcr-gcr-collection-model.html#gcr-collection-model-object-for-iter" title="gcr_collection_model_object_for_iter ()">gcr_collection_model_object_for_iter</a>
+                                                        (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://developer.gnome.org/gtk2/GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a> *iter</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gcr-gcr-collection-model.html#gcr-collection-model-is-selected" title="gcr_collection_model_is_selected ()">gcr_collection_model_is_selected</a>    (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a> *iter</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gcr-gcr-collection-model.html#gcr-collection-model-change-selected" title="gcr_collection_model_change_selected ()">gcr_collection_model_change_selected</a>
+                                                        (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a> *iter</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> selected</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gcr-gcr-collection-model.html#gcr-collection-model-toggle-selected" title="gcr_collection_model_toggle_selected ()">gcr_collection_model_toggle_selected</a>
+                                                        (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a> *iter</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="gcr-gcr-collection-model.html#gcr-collection-model-get-selected-objects" title="gcr_collection_model_get_selected_objects ()">gcr_collection_model_get_selected_objects</a>
+                                                        (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gcr-gcr-collection-model.html#gcr-collection-model-set-selected-objects" title="gcr_collection_model_set_selected_objects ()">gcr_collection_model_set_selected_objects</a>
+                                                        (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *selected</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gcr-gcr-collection-model.html#gcr-collection-model-column-for-selected" title="gcr_collection_model_column_for_selected ()">gcr_collection_model_column_for_selected</a>
+                                                        (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-collection-model.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GcrCollectionModel
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-collection-model.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GcrCollectionModel implements
+ <a href="http://developer.gnome.org/gtk2/GtkTreeModel.html">GtkTreeModel</a> and  <a href="http://developer.gnome.org/gtk2/GtkTreeSortable.html">GtkTreeSortable</a>.</p>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-collection-model.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel--collection" title='The "collection" property'>collection</a>"               <a class="link" href="GcrCollection.html" title="GcrCollection"><span class="type">GcrCollection</span></a>*        : Read / Write
+  "<a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel--columns" title='The "columns" property'>columns</a>"                  <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>              : Read / Write / Construct Only
+  "<a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel--mode" title='The "mode" property'>mode</a>"                     <a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModelMode" title="enum GcrCollectionModelMode"><span class="type">GcrCollectionModelMode</span></a>  : Read / Write / Construct Only
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-collection-model.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-collection-model.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GcrCollectionModel-struct"></a><h3>struct GcrCollectionModel</h3>
+<pre class="programlisting">struct GcrCollectionModel;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GcrCollectionModelClass"></a><h3>struct GcrCollectionModelClass</h3>
+<pre class="programlisting">struct GcrCollectionModelClass {
+	GObjectClass parent_class;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GcrCollectionModelMode"></a><h3>enum GcrCollectionModelMode</h3>
+<pre class="programlisting">typedef enum {
+	GCR_COLLECTION_MODEL_LIST = 0,
+	GCR_COLLECTION_MODEL_TREE
+} GcrCollectionModelMode;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-collection-model-new"></a><h3>gcr_collection_model_new ()</h3>
+<pre class="programlisting"><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="returnvalue">GcrCollectionModel</span></a> * gcr_collection_model_new           (<em class="parameter"><code><a class="link" href="GcrCollection.html" title="GcrCollection"><span class="type">GcrCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModelMode" title="enum GcrCollectionModelMode"><span class="type">GcrCollectionModelMode</span></a> mode</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-collection-model-new-full"></a><h3>gcr_collection_model_new_full ()</h3>
+<pre class="programlisting"><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="returnvalue">GcrCollectionModel</span></a> * gcr_collection_model_new_full      (<em class="parameter"><code><a class="link" href="GcrCollection.html" title="GcrCollection"><span class="type">GcrCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModelMode" title="enum GcrCollectionModelMode"><span class="type">GcrCollectionModelMode</span></a> mode</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gcr-GcrColumn.html#GcrColumn" title="GcrColumn"><span class="type">GcrColumn</span></a> *columns</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-collection-model-set-columns"></a><h3>gcr_collection_model_set_columns ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gcr_collection_model_set_columns    (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gcr-GcrColumn.html#GcrColumn" title="GcrColumn"><span class="type">GcrColumn</span></a> *columns</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-collection-model-get-collection"></a><h3>gcr_collection_model_get_collection ()</h3>
+<pre class="programlisting"><a class="link" href="GcrCollection.html" title="GcrCollection"><span class="returnvalue">GcrCollection</span></a> *     gcr_collection_model_get_collection (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-collection-model-set-collection"></a><h3>gcr_collection_model_set_collection ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcr_collection_model_set_collection (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GcrCollection.html" title="GcrCollection"><span class="type">GcrCollection</span></a> *collection</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-collection-model-iter-for-object"></a><h3>gcr_collection_model_iter_for_object ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gcr_collection_model_iter_for_object
+                                                        (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a> *iter</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-collection-model-object-for-iter"></a><h3>gcr_collection_model_object_for_iter ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="returnvalue">GObject</span></a> *           gcr_collection_model_object_for_iter
+                                                        (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://developer.gnome.org/gtk2/GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a> *iter</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-collection-model-is-selected"></a><h3>gcr_collection_model_is_selected ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gcr_collection_model_is_selected    (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a> *iter</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-collection-model-change-selected"></a><h3>gcr_collection_model_change_selected ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcr_collection_model_change_selected
+                                                        (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a> *iter</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> selected</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-collection-model-toggle-selected"></a><h3>gcr_collection_model_toggle_selected ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcr_collection_model_toggle_selected
+                                                        (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://developer.gnome.org/gtk2/GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a> *iter</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-collection-model-get-selected-objects"></a><h3>gcr_collection_model_get_selected_objects ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             gcr_collection_model_get_selected_objects
+                                                        (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-collection-model-set-selected-objects"></a><h3>gcr_collection_model_set_selected_objects ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcr_collection_model_set_selected_objects
+                                                        (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *selected</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-collection-model-column-for-selected"></a><h3>gcr_collection_model_column_for_selected ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gcr_collection_model_column_for_selected
+                                                        (<em class="parameter"><code><a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModel"><span class="type">GcrCollectionModel</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-collection-model.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="GcrCollectionModel--collection"></a><h3>The <code class="literal">"collection"</code> property</h3>
+<pre class="programlisting">  "collection"               <a class="link" href="GcrCollection.html" title="GcrCollection"><span class="type">GcrCollection</span></a>*        : Read / Write</pre>
+<p>Collection to get objects from.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GcrCollectionModel--columns"></a><h3>The <code class="literal">"columns"</code> property</h3>
+<pre class="programlisting">  "columns"                  <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>              : Read / Write / Construct Only</pre>
+<p>Columns for the model.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GcrCollectionModel--mode"></a><h3>The <code class="literal">"mode"</code> property</h3>
+<pre class="programlisting">  "mode"                     <a class="link" href="gcr-gcr-collection-model.html#GcrCollectionModelMode" title="enum GcrCollectionModelMode"><span class="type">GcrCollectionModelMode</span></a>  : Read / Write / Construct Only</pre>
+<p>Tree or list mode.</p>
+<p>Default value: GCR_COLLECTION_MODEL_TREE</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

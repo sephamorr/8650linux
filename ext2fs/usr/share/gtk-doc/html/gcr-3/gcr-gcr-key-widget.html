@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>gcr-key-widget</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Gcr Library Reference Manual">
+<link rel="up" href="widgets.html" title="Part III. Widgets">
+<link rel="prev" href="gcr-gcr-certificate-widget.html" title="gcr-certificate-widget">
+<link rel="next" href="gcr-GcrColumn.html" title="GcrColumn">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gcr-gcr-certificate-widget.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="widgets.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Gcr Library Reference Manual</th>
+<td><a accesskey="n" href="gcr-GcrColumn.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gcr-gcr-key-widget.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gcr-gcr-key-widget.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#gcr-gcr-key-widget.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#gcr-gcr-key-widget.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#gcr-gcr-key-widget.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gcr-gcr-key-widget"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gcr-gcr-key-widget.top_of_page"></a>gcr-key-widget</span></h2>
+<p>gcr-key-widget</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gcr-gcr-key-widget.synopsis"></a><h2>Synopsis</h2>
+<a name="GcrKeyWidget"></a><a name="GcrKeyRenderer"></a><pre class="synopsis">                    <a class="link" href="gcr-gcr-key-widget.html#GcrKeyWidget-struct" title="GcrKeyWidget">GcrKeyWidget</a>;
+                    <a class="link" href="gcr-gcr-key-widget.html#GcrKeyWidgetClass" title="GcrKeyWidgetClass">GcrKeyWidgetClass</a>;
+struct              <a class="link" href="gcr-gcr-key-widget.html#GcrKeyRenderer-struct" title="struct GcrKeyRenderer">GcrKeyRenderer</a>;
+struct              <a class="link" href="gcr-gcr-key-widget.html#GcrKeyRendererClass" title="struct GcrKeyRendererClass">GcrKeyRendererClass</a>;
+<a class="link" href="gcr-gcr-key-widget.html#GcrKeyWidget"><span class="returnvalue">GcrKeyWidget</span></a> *      <a class="link" href="gcr-gcr-key-widget.html#gcr-key-widget-new" title="gcr_key_widget_new ()">gcr_key_widget_new</a>                  (<em class="parameter"><code><a href="http://developer.gnome.org/gck/stable/GckAttributes.html"><span class="type">GckAttributes</span></a> *attrs</code></em>);
+<a href="http://developer.gnome.org/gck/stable/GckAttributes.html"><span class="returnvalue">GckAttributes</span></a> *     <a class="link" href="gcr-gcr-key-widget.html#gcr-key-widget-get-attributes" title="gcr_key_widget_get_attributes ()">gcr_key_widget_get_attributes</a>       (<em class="parameter"><code><a class="link" href="gcr-gcr-key-widget.html#GcrKeyWidget"><span class="type">GcrKeyWidget</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gcr-gcr-key-widget.html#gcr-key-widget-set-attributes" title="gcr_key_widget_set_attributes ()">gcr_key_widget_set_attributes</a>       (<em class="parameter"><code><a class="link" href="gcr-gcr-key-widget.html#GcrKeyWidget"><span class="type">GcrKeyWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://developer.gnome.org/gck/stable/GckAttributes.html"><span class="type">GckAttributes</span></a> *attrs</code></em>);
+<a class="link" href="gcr-gcr-key-widget.html#GcrKeyRenderer"><span class="returnvalue">GcrKeyRenderer</span></a> *    <a class="link" href="gcr-gcr-key-widget.html#gcr-key-renderer-new" title="gcr_key_renderer_new ()">gcr_key_renderer_new</a>                (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>,
+                                                         <em class="parameter"><code><a href="http://developer.gnome.org/gck/stable/GckAttributes.html"><span class="type">GckAttributes</span></a> *attrs</code></em>);
+<a href="http://developer.gnome.org/gck/stable/GckAttributes.html"><span class="returnvalue">GckAttributes</span></a> *     <a class="link" href="gcr-gcr-key-widget.html#gcr-key-renderer-get-attributes" title="gcr_key_renderer_get_attributes ()">gcr_key_renderer_get_attributes</a>     (<em class="parameter"><code><a class="link" href="gcr-gcr-key-widget.html#GcrKeyRenderer"><span class="type">GcrKeyRenderer</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gcr-gcr-key-widget.html#gcr-key-renderer-set-attributes" title="gcr_key_renderer_set_attributes ()">gcr_key_renderer_set_attributes</a>     (<em class="parameter"><code><a class="link" href="gcr-gcr-key-widget.html#GcrKeyRenderer"><span class="type">GcrKeyRenderer</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://developer.gnome.org/gck/stable/GckAttributes.html"><span class="type">GckAttributes</span></a> *attrs</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-key-widget.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----<a href="http://developer.gnome.org/gtk2/GtkWidget.html">GtkWidget</a>
+               +----<a href="http://developer.gnome.org/gtk2/GtkContainer.html">GtkContainer</a>
+                     +----<a href="http://developer.gnome.org/gtk2/GtkBin.html">GtkBin</a>
+                           +----<a href="http://developer.gnome.org/gtk2/GtkAlignment.html">GtkAlignment</a>
+                                 +----GcrKeyWidget
+</pre>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GcrKeyRenderer
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-key-widget.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GcrKeyWidget implements
+ AtkImplementorIface and  <a href="http://developer.gnome.org/gtk2/GtkBuildable.html">GtkBuildable</a>.</p>
+<p>
+GcrKeyRenderer implements
+ <a class="link" href="gcr-gcr-renderer.html#GcrRenderer">GcrRenderer</a>.</p>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-key-widget.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="gcr-gcr-key-widget.html#GcrKeyWidget--attributes" title='The "attributes" property'>attributes</a>"               <a href="http://developer.gnome.org/gck/stable/GckAttributes.html"><span class="type">GckAttributes</span></a>*        : Read / Write
+  "<a class="link" href="gcr-gcr-key-widget.html#GcrKeyRenderer--object" title='The "object" property'>object</a>"                   <a href="http://developer.gnome.org/gck/stable/GckObject.html"><span class="type">GckObject</span></a>*            : Read / Write
+</pre>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-key-widget.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-key-widget.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GcrKeyWidget-struct"></a><h3>GcrKeyWidget</h3>
+<pre class="programlisting">typedef struct _GcrKeyWidget GcrKeyWidget;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GcrKeyWidgetClass"></a><h3>GcrKeyWidgetClass</h3>
+<pre class="programlisting">typedef struct _GcrKeyWidgetClass GcrKeyWidgetClass;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GcrKeyRenderer-struct"></a><h3>struct GcrKeyRenderer</h3>
+<pre class="programlisting">struct GcrKeyRenderer;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GcrKeyRendererClass"></a><h3>struct GcrKeyRendererClass</h3>
+<pre class="programlisting">struct GcrKeyRendererClass {
+	GObjectClass parent_class;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-key-widget-new"></a><h3>gcr_key_widget_new ()</h3>
+<pre class="programlisting"><a class="link" href="gcr-gcr-key-widget.html#GcrKeyWidget"><span class="returnvalue">GcrKeyWidget</span></a> *      gcr_key_widget_new                  (<em class="parameter"><code><a href="http://developer.gnome.org/gck/stable/GckAttributes.html"><span class="type">GckAttributes</span></a> *attrs</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-key-widget-get-attributes"></a><h3>gcr_key_widget_get_attributes ()</h3>
+<pre class="programlisting"><a href="http://developer.gnome.org/gck/stable/GckAttributes.html"><span class="returnvalue">GckAttributes</span></a> *     gcr_key_widget_get_attributes       (<em class="parameter"><code><a class="link" href="gcr-gcr-key-widget.html#GcrKeyWidget"><span class="type">GcrKeyWidget</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-key-widget-set-attributes"></a><h3>gcr_key_widget_set_attributes ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcr_key_widget_set_attributes       (<em class="parameter"><code><a class="link" href="gcr-gcr-key-widget.html#GcrKeyWidget"><span class="type">GcrKeyWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://developer.gnome.org/gck/stable/GckAttributes.html"><span class="type">GckAttributes</span></a> *attrs</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-key-renderer-new"></a><h3>gcr_key_renderer_new ()</h3>
+<pre class="programlisting"><a class="link" href="gcr-gcr-key-widget.html#GcrKeyRenderer"><span class="returnvalue">GcrKeyRenderer</span></a> *    gcr_key_renderer_new                (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>,
+                                                         <em class="parameter"><code><a href="http://developer.gnome.org/gck/stable/GckAttributes.html"><span class="type">GckAttributes</span></a> *attrs</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-key-renderer-get-attributes"></a><h3>gcr_key_renderer_get_attributes ()</h3>
+<pre class="programlisting"><a href="http://developer.gnome.org/gck/stable/GckAttributes.html"><span class="returnvalue">GckAttributes</span></a> *     gcr_key_renderer_get_attributes     (<em class="parameter"><code><a class="link" href="gcr-gcr-key-widget.html#GcrKeyRenderer"><span class="type">GcrKeyRenderer</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gcr-key-renderer-set-attributes"></a><h3>gcr_key_renderer_set_attributes ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gcr_key_renderer_set_attributes     (<em class="parameter"><code><a class="link" href="gcr-gcr-key-widget.html#GcrKeyRenderer"><span class="type">GcrKeyRenderer</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://developer.gnome.org/gck/stable/GckAttributes.html"><span class="type">GckAttributes</span></a> *attrs</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="gcr-gcr-key-widget.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="GcrKeyWidget--attributes"></a><h3>The <code class="literal">"attributes"</code> property</h3>
+<pre class="programlisting">  "attributes"               <a href="http://developer.gnome.org/gck/stable/GckAttributes.html"><span class="type">GckAttributes</span></a>*        : Read / Write</pre>
+<p>The data displayed in the widget.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GcrKeyRenderer--object"></a><h3>The <code class="literal">"object"</code> property</h3>
+<pre class="programlisting">  "object"                   <a href="http://developer.gnome.org/gck/stable/GckObject.html"><span class="type">GckObject</span></a>*            : Read / Write</pre>
+<p>Key Object.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

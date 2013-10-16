@@ -1,0 +1,353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GogDataset</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch03.html" title="Abstract Base Classes">
+<link rel="prev" href="GogDataAllocator.html" title="GogDataAllocator">
+<link rel="next" href="GogText.html" title="GogText">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GogDataAllocator.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch03.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GogText.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GogDataset.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GogDataset.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GogDataset.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GogDataset.implementations" class="shortcut">Known Implementations</a>
+</td></tr>
+</table>
+<div class="refentry" title="GogDataset">
+<a name="GogDataset"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GogDataset.top_of_page"></a>GogDataset</span></h2>
+<p>GogDataset</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GogDataset.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="GogDataset.html#GogDataset-struct" title="GogDataset">GogDataset</a>;
+                    <a class="link" href="GogDataset.html#GogDatasetClass" title="GogDatasetClass">GogDatasetClass</a>;
+                    <a class="link" href="GogDataset.html#GogDatasetElement" title="GogDatasetElement">GogDatasetElement</a>;
+<span class="returnvalue">void</span>                <a class="link" href="GogDataset.html#gog-dataset-dims" title="gog_dataset_dims ()">gog_dataset_dims</a>                    (<em class="parameter"><code><a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a> const *set</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *first</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *last</code></em>);
+<a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            <a class="link" href="GogDataset.html#gog-dataset-get-dim" title="gog_dataset_get_dim ()">gog_dataset_get_dim</a>                 (<em class="parameter"><code><a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a> const *set</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dim_i</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogDataset.html#gog-dataset-set-dim" title="gog_dataset_set_dim ()">gog_dataset_set_dim</a>                 (<em class="parameter"><code><a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a> *set</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dim_i</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *val</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogDataset.html#gog-dataset-finalize" title="gog_dataset_finalize ()">gog_dataset_finalize</a>                (<em class="parameter"><code><a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a> *set</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogDataset.html#gog-dataset-parent-changed" title="gog_dataset_parent_changed ()">gog_dataset_parent_changed</a>          (<em class="parameter"><code><a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a> *set</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> was_set</code></em>);
+<a class="link" href="GogDataset.html#GogDatasetElement" title="GogDatasetElement"><span class="returnvalue">GogDatasetElement</span></a> * <a class="link" href="GogDataset.html#gog-dataset-get-elem" title="gog_dataset_get_elem ()">gog_dataset_get_elem</a>                (<em class="parameter"><code><a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a> const *set</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dim_i</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogDataset.html#gog-dataset-set-dim-internal" title="gog_dataset_set_dim_internal ()">gog_dataset_set_dim_internal</a>        (<em class="parameter"><code><a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a> *set</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dim_i</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *val</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogDataset.html#gog-dataset-dup-to-simple" title="gog_dataset_dup_to_simple ()">gog_dataset_dup_to_simple</a>           (<em class="parameter"><code><a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a> const *src</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a> *dst</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GogDataset.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GInterface
+   +----GogDataset
+</pre>
+</div>
+<div class="refsect1" title="Known Implementations">
+<a name="GogDataset.implementations"></a><h2>Known Implementations</h2>
+<p>
+GogDataset is implemented by
+ <a class="link" href="GogAxis.html" title="GogAxis">GogAxis</a>,  <a class="link" href="GogAxisLine.html" title="GogAxisLine">GogAxisLine</a>,  <a class="link" href="GogLabel.html" title="GogLabel">GogLabel</a>,  <a class="link" href="GogRegCurve.html" title="GogRegCurve">GogRegCurve</a> and  <a class="link" href="GogSeries.html" title="GogSeries">GogSeries</a>.</p>
+</div>
+<div class="refsect1" title="Description">
+<a name="GogDataset.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GogDataset.details"></a><h2>Details</h2>
+<div class="refsect2" title="GogDataset">
+<a name="GogDataset-struct"></a><h3>GogDataset</h3>
+<pre class="programlisting">typedef struct _GogDataset GogDataset;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GogDatasetClass">
+<a name="GogDatasetClass"></a><h3>GogDatasetClass</h3>
+<pre class="programlisting">typedef struct {
+	GTypeInterface		   base;
+
+	GogDatasetElement *(*get_elem) (GogDataset const *set, int dim_i);
+	void (*set_dim)     (GogDataset *set, int dim_i,
+			     GOData *val, GError **err);
+	void (*dims)	    (GogDataset const *set, int *first, int *last);
+	void (*dim_changed) (GogDataset *set, int dim_i);
+} GogDatasetClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GogDatasetElement">
+<a name="GogDatasetElement"></a><h3>GogDatasetElement</h3>
+<pre class="programlisting">typedef struct {
+	GOData	   *data;
+	GogDataset *set;
+	int	    dim_i;
+	gulong	    handler;
+} GogDatasetElement;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gog_dataset_dims ()">
+<a name="gog-dataset-dims"></a><h3>gog_dataset_dims ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_dataset_dims                    (<em class="parameter"><code><a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a> const *set</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *first</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *last</code></em>);</pre>
+<p>
+FIXME ?? Fix what ??
+Stores the first and last valid indicises to get/set dim
+in <em class="parameter"><code>first</code></em> and <em class="parameter"><code>last</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>set</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>first</code></em> :</span></p></td>
+<td>inclusive
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>last</code></em> :</span></p></td>
+<td>_inclusive_
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_dataset_get_dim ()">
+<a name="gog-dataset-get-dim"></a><h3>gog_dataset_get_dim ()</h3>
+<pre class="programlisting"><a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            gog_dataset_get_dim                 (<em class="parameter"><code><a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a> const *set</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dim_i</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>set</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the GOData associated with dimension <em class="parameter"><code>dim_i</code></em>.  Does NOT add a
+	reference.  or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> on failure.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_dataset_set_dim ()">
+<a name="gog-dataset-set-dim"></a><h3>gog_dataset_set_dim ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_dataset_set_dim                 (<em class="parameter"><code><a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a> *set</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dim_i</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *val</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<p>
+Absorbs a ref to <em class="parameter"><code>val</code></em> if it is non NULL
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>set</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dim_i</code></em> :</span></p></td>
+<td>&lt; 0 gets the name
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_dataset_finalize ()">
+<a name="gog-dataset-finalize"></a><h3>gog_dataset_finalize ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_dataset_finalize                (<em class="parameter"><code><a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a> *set</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>set</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_dataset_parent_changed ()">
+<a name="gog-dataset-parent-changed"></a><h3>gog_dataset_parent_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_dataset_parent_changed          (<em class="parameter"><code><a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a> *set</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> was_set</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>set</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>was_set</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_dataset_get_elem ()">
+<a name="gog-dataset-get-elem"></a><h3>gog_dataset_get_elem ()</h3>
+<pre class="programlisting"><a class="link" href="GogDataset.html#GogDatasetElement" title="GogDatasetElement"><span class="returnvalue">GogDatasetElement</span></a> * gog_dataset_get_elem                (<em class="parameter"><code><a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a> const *set</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dim_i</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>set</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dim_i</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_dataset_set_dim_internal ()">
+<a name="gog-dataset-set-dim-internal"></a><h3>gog_dataset_set_dim_internal ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_dataset_set_dim_internal        (<em class="parameter"><code><a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a> *set</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dim_i</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *val</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a> *graph</code></em>);</pre>
+<p>
+an internal routine to handle signal setup and teardown
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>set</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dim_i</code></em> :</span></p></td>
+<td>the index
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>graph</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogGraph.html" title="GogGraph"><span class="type">GogGraph</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_dataset_dup_to_simple ()">
+<a name="gog-dataset-dup-to-simple"></a><h3>gog_dataset_dup_to_simple ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_dataset_dup_to_simple           (<em class="parameter"><code><a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a> const *src</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogDataset.html" title="GogDataset"><span class="type">GogDataset</span></a> *dst</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dst</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

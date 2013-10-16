@@ -1,0 +1,487 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>go-distribution</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch13.html" title="Mathematical functions">
+<link rel="prev" href="goffice-0.8-GOCSpline.html" title="GOCSpline">
+<link rel="next" href="goffice-0.8-GOFft.html" title="GOFft">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="goffice-0.8-GOCSpline.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch13.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="goffice-0.8-GOFft.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#goffice-0.8-go-distribution.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#goffice-0.8-go-distribution.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#goffice-0.8-go-distribution.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#goffice-0.8-go-distribution.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#goffice-0.8-go-distribution.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry" title="go-distribution">
+<a name="goffice-0.8-go-distribution"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="goffice-0.8-go-distribution.top_of_page"></a>go-distribution</span></h2>
+<p>go-distribution</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="goffice-0.8-go-distribution.synopsis"></a><h2>Synopsis</h2>
+<a name="GODistribution"></a><pre class="synopsis">enum                <a class="link" href="goffice-0.8-go-distribution.html#GODistributionType" title="enum GODistributionType">GODistributionType</a>;
+<span class="returnvalue">char</span> const *        <a class="link" href="goffice-0.8-go-distribution.html#go-distribution-type-to-string" title="go_distribution_type_to_string ()">go_distribution_type_to_string</a>      (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistributionType" title="enum GODistributionType"><span class="type">GODistributionType</span></a> type</code></em>);
+<a class="link" href="goffice-0.8-go-distribution.html#GODistributionType" title="enum GODistributionType"><span class="returnvalue">GODistributionType</span></a>  <a class="link" href="goffice-0.8-go-distribution.html#go-distribution-type-from-string" title="go_distribution_type_from_string ()">go_distribution_type_from_string</a>    (<em class="parameter"><code><span class="type">char</span> const *name</code></em>);
+                    <a class="link" href="goffice-0.8-go-distribution.html#GODistribution-struct" title="GODistribution">GODistribution</a>;
+<a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="returnvalue">GODistribution</span></a> *    <a class="link" href="goffice-0.8-go-distribution.html#go-distribution-new" title="go_distribution_new ()">go_distribution_new</a>                 (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistributionType" title="enum GODistributionType"><span class="type">GODistributionType</span></a> type</code></em>);
+<a class="link" href="goffice-0.8-go-distribution.html#GODistributionType" title="enum GODistributionType"><span class="returnvalue">GODistributionType</span></a>  <a class="link" href="goffice-0.8-go-distribution.html#go-distribution-get-distribution-type" title="go_distribution_get_distribution_type ()">go_distribution_get_distribution_type</a>
+                                                        (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="type">GODistribution</span></a> *dist</code></em>);
+<span class="returnvalue">char</span> const *        <a class="link" href="goffice-0.8-go-distribution.html#go-distribution-get-distribution-name" title="go_distribution_get_distribution_name ()">go_distribution_get_distribution_name</a>
+                                                        (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="type">GODistribution</span></a> *dist</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-go-distribution.html#go-distribution-get-density" title="go_distribution_get_density ()">go_distribution_get_density</a>         (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="type">GODistribution</span></a> *dist</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-go-distribution.html#go-distribution-get-cumulative" title="go_distribution_get_cumulative ()">go_distribution_get_cumulative</a>      (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="type">GODistribution</span></a> *dist</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-go-distribution.html#go-distribution-get-ppf" title="go_distribution_get_ppf ()">go_distribution_get_ppf</a>             (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="type">GODistribution</span></a> *dist</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-go-distribution.html#go-distribution-get-hazard" title="go_distribution_get_hazard ()">go_distribution_get_hazard</a>          (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="type">GODistribution</span></a> *dist</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-go-distribution.html#go-distribution-get-cumulative-hazard" title="go_distribution_get_cumulative_hazard ()">go_distribution_get_cumulative_hazard</a>
+                                                        (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="type">GODistribution</span></a> *dist</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-go-distribution.html#go-distribution-get-survival" title="go_distribution_get_survival ()">go_distribution_get_survival</a>        (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="type">GODistribution</span></a> *dist</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-go-distribution.html#go-distribution-get-inverse-survival" title="go_distribution_get_inverse_survival ()">go_distribution_get_inverse_survival</a>
+                                                        (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="type">GODistribution</span></a> *dist</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-go-distribution.html#go-distribution-scale" title="go_distribution_scale ()">go_distribution_scale</a>               (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="type">GODistribution</span></a> *dist</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> location</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> scale</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="goffice-0.8-go-distribution.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GODistribution
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="goffice-0.8-go-distribution.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GODistribution implements
+ <a class="link" href="GOPersist.html" title="GOPersist">GOPersist</a>.</p>
+</div>
+<div class="refsect1" title="Properties">
+<a name="goffice-0.8-go-distribution.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="goffice-0.8-go-distribution.html#GODistribution--location" title='The "location" property'>location</a>"                 <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write
+  "<a class="link" href="goffice-0.8-go-distribution.html#GODistribution--scale" title='The "scale" property'>scale</a>"                    <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="goffice-0.8-go-distribution.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="goffice-0.8-go-distribution.details"></a><h2>Details</h2>
+<div class="refsect2" title="enum GODistributionType">
+<a name="GODistributionType"></a><h3>enum GODistributionType</h3>
+<pre class="programlisting">typedef enum {
+	GO_DISTRIBUTION_INVALID = -1,
+	GO_DISTRIBUTION_NORMAL,
+	GO_DISTRIBUTION_UNIFORM,
+	GO_DISTRIBUTION_CAUCHY,
+	GO_DISTRIBUTION_WEIBULL,
+	GO_DISTRIBUTION_LOGNORMAL,
+	GO_DISTRIBUTION_MAX
+} GODistributionType;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_distribution_type_to_string ()">
+<a name="go-distribution-type-to-string"></a><h3>go_distribution_type_to_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const *        go_distribution_type_to_string      (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistributionType" title="enum GODistributionType"><span class="type">GODistributionType</span></a> type</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_distribution_type_from_string ()">
+<a name="go-distribution-type-from-string"></a><h3>go_distribution_type_from_string ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-go-distribution.html#GODistributionType" title="enum GODistributionType"><span class="returnvalue">GODistributionType</span></a>  go_distribution_type_from_string    (<em class="parameter"><code><span class="type">char</span> const *name</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GODistribution">
+<a name="GODistribution-struct"></a><h3>GODistribution</h3>
+<pre class="programlisting">typedef struct _GODistribution GODistribution;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_distribution_new ()">
+<a name="go-distribution-new"></a><h3>go_distribution_new ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="returnvalue">GODistribution</span></a> *    go_distribution_new                 (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistributionType" title="enum GODistributionType"><span class="type">GODistributionType</span></a> type</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_distribution_get_distribution_type ()">
+<a name="go-distribution-get-distribution-type"></a><h3>go_distribution_get_distribution_type ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-go-distribution.html#GODistributionType" title="enum GODistributionType"><span class="returnvalue">GODistributionType</span></a>  go_distribution_get_distribution_type
+                                                        (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="type">GODistribution</span></a> *dist</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_distribution_get_distribution_name ()">
+<a name="go-distribution-get-distribution-name"></a><h3>go_distribution_get_distribution_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> const *        go_distribution_get_distribution_name
+                                                        (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="type">GODistribution</span></a> *dist</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_distribution_get_density ()">
+<a name="go-distribution-get-density"></a><h3>go_distribution_get_density ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_distribution_get_density         (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="type">GODistribution</span></a> *dist</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_distribution_get_cumulative ()">
+<a name="go-distribution-get-cumulative"></a><h3>go_distribution_get_cumulative ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_distribution_get_cumulative      (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="type">GODistribution</span></a> *dist</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_distribution_get_ppf ()">
+<a name="go-distribution-get-ppf"></a><h3>go_distribution_get_ppf ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_distribution_get_ppf             (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="type">GODistribution</span></a> *dist</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_distribution_get_hazard ()">
+<a name="go-distribution-get-hazard"></a><h3>go_distribution_get_hazard ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_distribution_get_hazard          (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="type">GODistribution</span></a> *dist</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_distribution_get_cumulative_hazard ()">
+<a name="go-distribution-get-cumulative-hazard"></a><h3>go_distribution_get_cumulative_hazard ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_distribution_get_cumulative_hazard
+                                                        (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="type">GODistribution</span></a> *dist</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_distribution_get_survival ()">
+<a name="go-distribution-get-survival"></a><h3>go_distribution_get_survival ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_distribution_get_survival        (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="type">GODistribution</span></a> *dist</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_distribution_get_inverse_survival ()">
+<a name="go-distribution-get-inverse-survival"></a><h3>go_distribution_get_inverse_survival ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_distribution_get_inverse_survival
+                                                        (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="type">GODistribution</span></a> *dist</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_distribution_scale ()">
+<a name="go-distribution-scale"></a><h3>go_distribution_scale ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_distribution_scale               (<em class="parameter"><code><a class="link" href="goffice-0.8-go-distribution.html#GODistribution"><span class="type">GODistribution</span></a> *dist</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> location</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> scale</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>location</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>scale</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="goffice-0.8-go-distribution.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "location" property'>
+<a name="GODistribution--location"></a><h3>The <code class="literal">"location"</code> property</h3>
+<pre class="programlisting">  "location"                 <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write</pre>
+<p>Location.</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" title='The "scale" property'>
+<a name="GODistribution--scale"></a><h3>The <code class="literal">"scale"</code> property</h3>
+<pre class="programlisting">  "scale"                    <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write</pre>
+<p>Scale.</p>
+<p>Allowed values: &gt;= G_MINDOUBLE</p>
+<p>Default value: 1</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

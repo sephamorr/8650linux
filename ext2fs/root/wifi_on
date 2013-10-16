@@ -1,0 +1,11 @@
+#!/bin/sh
+if [ $# = 1 ]
+then
+sleep $1
+fi
+insmod /lib/modules/2.6.32.9-test/kernel/drivers/net/wireless/rt5370sta.ko
+gpio 1:6:d8110040:d8110080:d81100c0
+sleep 10
+gpio 0:6:d8110040:d8110080:d81100c0
+sleep 3
+gpio 1:6:d8110040:d8110080:d81100c0

@@ -1,0 +1,681 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GocCanvas</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch05.html" title="Base objects">
+<link rel="prev" href="ch05.html" title="Base objects">
+<link rel="next" href="GocItem.html" title="GocItem">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch05.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch05.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GocItem.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GocCanvas.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GocCanvas.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GocCanvas.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GocCanvas.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+</td></tr>
+</table>
+<div class="refentry" title="GocCanvas">
+<a name="GocCanvas"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GocCanvas.top_of_page"></a>GocCanvas</span></h2>
+<p>GocCanvas — The canvas widget</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GocCanvas.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">enum                <a class="link" href="GocCanvas.html#GocDirection" title="enum GocDirection">GocDirection</a>;
+                    <a class="link" href="GocCanvas.html#GocCanvas-struct" title="GocCanvas">GocCanvas</a>;
+typedef             <a class="link" href="GocCanvas.html#GocCanvasClass" title="GocCanvasClass">GocCanvasClass</a>;
+<a class="link" href="GocGroup.html" title="GocGroup"><span class="returnvalue">GocGroup</span></a> *          <a class="link" href="GocCanvas.html#goc-canvas-get-root" title="goc_canvas_get_root ()">goc_canvas_get_root</a>                 (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="GocCanvas.html#goc-canvas-get-width" title="goc_canvas_get_width ()">goc_canvas_get_width</a>                (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="GocCanvas.html#goc-canvas-get-height" title="goc_canvas_get_height ()">goc_canvas_get_height</a>               (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GocCanvas.html#goc-canvas-scroll-to" title="goc_canvas_scroll_to ()">goc_canvas_scroll_to</a>                (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GocCanvas.html#goc-canvas-get-scroll-position" title="goc_canvas_get_scroll_position ()">goc_canvas_get_scroll_position</a>      (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *y</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GocCanvas.html#goc-canvas-set-pixels-per-unit" title="goc_canvas_set_pixels_per_unit ()">goc_canvas_set_pixels_per_unit</a>      (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> pixels_per_unit</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="GocCanvas.html#goc-canvas-get-pixels-per-unit" title="goc_canvas_get_pixels_per_unit ()">goc_canvas_get_pixels_per_unit</a>      (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GocCanvas.html#goc-canvas-invalidate" title="goc_canvas_invalidate ()">goc_canvas_invalidate</a>               (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x0</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y0</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x1</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y1</code></em>);
+<a class="link" href="GocItem.html" title="GocItem"><span class="returnvalue">GocItem</span></a> *           <a class="link" href="GocCanvas.html#goc-canvas-get-item-at" title="goc_canvas_get_item_at ()">goc_canvas_get_item_at</a>              (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GocCanvas.html#goc-canvas-grab-item" title="goc_canvas_grab_item ()">goc_canvas_grab_item</a>                (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GocItem.html" title="GocItem"><span class="type">GocItem</span></a> *item</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GocCanvas.html#goc-canvas-ungrab-item" title="goc_canvas_ungrab_item ()">goc_canvas_ungrab_item</a>              (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>);
+<a class="link" href="GocItem.html" title="GocItem"><span class="returnvalue">GocItem</span></a> *           <a class="link" href="GocCanvas.html#goc-canvas-get-grabbed-item" title="goc_canvas_get_grabbed_item ()">goc_canvas_get_grabbed_item</a>         (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GocCanvas.html#goc-canvas-set-document" title="goc_canvas_set_document ()">goc_canvas_set_document</a>             (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *document</code></em>);
+<a class="link" href="GODoc.html" title="GODoc"><span class="returnvalue">GODoc</span></a> *             <a class="link" href="GocCanvas.html#goc-canvas-get-document" title="goc_canvas_get_document ()">goc_canvas_get_document</a>             (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>);
+<a href="http://library.gnome.org/devel/gdk/unstable/gdk-Event-Structures.html#GdkEvent"><span class="returnvalue">GdkEvent</span></a> *          <a class="link" href="GocCanvas.html#goc-canvas-get-cur-event" title="goc_canvas_get_cur_event ()">goc_canvas_get_cur_event</a>            (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GocCanvas.html#goc-canvas-set-direction" title="goc_canvas_set_direction ()">goc_canvas_set_direction</a>            (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GocCanvas.html#GocDirection" title="enum GocDirection"><span class="type">GocDirection</span></a> direction</code></em>);
+<a class="link" href="GocCanvas.html#GocDirection" title="enum GocDirection"><span class="returnvalue">GocDirection</span></a>        <a class="link" href="GocCanvas.html#goc-canvas-get-direction" title="goc_canvas_get_direction ()">goc_canvas_get_direction</a>            (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GocCanvas.html#goc-canvas-w2c" title="goc_canvas_w2c ()">goc_canvas_w2c</a>                      (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *x_</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *y_</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GocCanvas.html#goc-canvas-c2w" title="goc_canvas_c2w ()">goc_canvas_c2w</a>                      (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *x_</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *y_</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GocCanvas.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkObject.html">GtkObject</a>
+               +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html">GtkWidget</a>
+                     +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkContainer.html">GtkContainer</a>
+                           +----<a href="http://library.gnome.org/devel/gtk/unstable/GtkLayout.html">GtkLayout</a>
+                                 +----GocCanvas
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GocCanvas.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GocCanvas implements
+ AtkImplementorIface and  <a href="http://library.gnome.org/devel/gtk/unstable/GtkBuildable.html">GtkBuildable</a>.</p>
+</div>
+<div class="refsect1" title="Description">
+<a name="GocCanvas.description"></a><h2>Description</h2>
+<p>
+The canvas widget used in gnumeric.
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GocCanvas.details"></a><h2>Details</h2>
+<div class="refsect2" title="enum GocDirection">
+<a name="GocDirection"></a><h3>enum GocDirection</h3>
+<pre class="programlisting">typedef enum {
+	GOC_DIRECTION_LTR,
+	GOC_DIRECTION_RTL,
+	GOC_DIRECTION_MAX
+} GocDirection;
+</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="GOC-DIRECTION-LTR:CAPS"></a><span class="term"><code class="literal">GOC_DIRECTION_LTR</code></span></p></td>
+<td>Left to right direction
+</td>
+</tr>
+<tr>
+<td><p><a name="GOC-DIRECTION-RTL:CAPS"></a><span class="term"><code class="literal">GOC_DIRECTION_RTL</code></span></p></td>
+<td>Right to left direction
+</td>
+</tr>
+<tr>
+<td><p><a name="GOC-DIRECTION-MAX:CAPS"></a><span class="term"><code class="literal">GOC_DIRECTION_MAX</code></span></p></td>
+<td>First invalid value
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="GocCanvas">
+<a name="GocCanvas-struct"></a><h3>GocCanvas</h3>
+<pre class="programlisting">typedef struct _GocCanvas GocCanvas;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GocCanvasClass">
+<a name="GocCanvasClass"></a><h3>GocCanvasClass</h3>
+<pre class="programlisting">typedef GtkLayoutClass GocCanvasClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="goc_canvas_get_root ()">
+<a name="goc-canvas-get-root"></a><h3>goc_canvas_get_root ()</h3>
+<pre class="programlisting"><a class="link" href="GocGroup.html" title="GocGroup"><span class="returnvalue">GocGroup</span></a> *          goc_canvas_get_root                 (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>canvas</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the top level item of <em class="parameter"><code>canvas</code></em>, always a <a class="link" href="GocGroup.html" title="GocGroup"><span class="type">GocGroup</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_canvas_get_width ()">
+<a name="goc-canvas-get-width"></a><h3>goc_canvas_get_width ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 goc_canvas_get_width                (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>canvas</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the width of the widget visible region.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_canvas_get_height ()">
+<a name="goc-canvas-get-height"></a><h3>goc_canvas_get_height ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 goc_canvas_get_height               (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>canvas</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the height of the widget visible region.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_canvas_scroll_to ()">
+<a name="goc-canvas-scroll-to"></a><h3>goc_canvas_scroll_to ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                goc_canvas_scroll_to                (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>);</pre>
+<p>
+Scrolls the canvas so that the origin of the visible region is at (<em class="parameter"><code>x</code></em>,<em class="parameter"><code>y</code></em>).
+The origin position depends on the canvas direction (see <a class="link" href="GocCanvas.html#GocDirection" title="enum GocDirection"><span class="type">GocDirection</span></a>).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>canvas</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>the horizontal position
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>the vertical position
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_canvas_get_scroll_position ()">
+<a name="goc-canvas-get-scroll-position"></a><h3>goc_canvas_get_scroll_position ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                goc_canvas_get_scroll_position      (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *y</code></em>);</pre>
+<p>
+Retrieves the origin of the visible region of the canvas.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>canvas</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>where to store the horizontal position
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>where to store the vertical position
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_canvas_set_pixels_per_unit ()">
+<a name="goc-canvas-set-pixels-per-unit"></a><h3>goc_canvas_set_pixels_per_unit ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                goc_canvas_set_pixels_per_unit      (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> pixels_per_unit</code></em>);</pre>
+<p>
+Sets the scale as the number of pixels used for each unit when
+displaying the canvas.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>canvas</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pixels_per_unit</code></em> :</span></p></td>
+<td>the new scale
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_canvas_get_pixels_per_unit ()">
+<a name="goc-canvas-get-pixels-per-unit"></a><h3>goc_canvas_get_pixels_per_unit ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              goc_canvas_get_pixels_per_unit      (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>canvas</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> how many pixels are used for each unit when displaying the canvas.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_canvas_invalidate ()">
+<a name="goc-canvas-invalidate"></a><h3>goc_canvas_invalidate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                goc_canvas_invalidate               (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x0</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y0</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x1</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y1</code></em>);</pre>
+<p>
+Invalidates a region of the canvas. The canvas will be redrawn only if
+the invalidated region intersects the visible area.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>canvas</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x0</code></em> :</span></p></td>
+<td>minimum x coordinate of the invalidated region in canvas coordinates
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y0</code></em> :</span></p></td>
+<td>minimum y coordinate of the invalidated region in canvas coordinates
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x1</code></em> :</span></p></td>
+<td>maximum x coordinate of the invalidated region in canvas coordinates
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y1</code></em> :</span></p></td>
+<td>maximum y coordinate of the invalidated region in canvas coordinates
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_canvas_get_item_at ()">
+<a name="goc-canvas-get-item-at"></a><h3>goc_canvas_get_item_at ()</h3>
+<pre class="programlisting"><a class="link" href="GocItem.html" title="GocItem"><span class="returnvalue">GocItem</span></a> *           goc_canvas_get_item_at              (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>canvas</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>horizontal position
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>vertical position
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the <a class="link" href="GocItem.html" title="GocItem"><span class="type">GocItem</span></a> displayed at (<em class="parameter"><code>x</code></em>,<em class="parameter"><code>y</code></em>) if any.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_canvas_grab_item ()">
+<a name="goc-canvas-grab-item"></a><h3>goc_canvas_grab_item ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                goc_canvas_grab_item                (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GocItem.html" title="GocItem"><span class="type">GocItem</span></a> *item</code></em>);</pre>
+<p>
+Grabs <a class="link" href="GocItem.html" title="GocItem"><span class="type">GocItem</span></a>. All subsequent events will be passed to <a class="link" href="GocItem.html" title="GocItem"><span class="type">GocItem</span></a>. This
+function fails if an item is already grabbed.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>canvas</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocItem.html" title="GocItem"><span class="type">GocItem</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_canvas_ungrab_item ()">
+<a name="goc-canvas-ungrab-item"></a><h3>goc_canvas_ungrab_item ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                goc_canvas_ungrab_item              (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>);</pre>
+<p>
+Ungrabs the currently grabbed <a class="link" href="GocItem.html" title="GocItem"><span class="type">GocItem</span></a>. This function fails
+if no item is grabbed.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>canvas</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_canvas_get_grabbed_item ()">
+<a name="goc-canvas-get-grabbed-item"></a><h3>goc_canvas_get_grabbed_item ()</h3>
+<pre class="programlisting"><a class="link" href="GocItem.html" title="GocItem"><span class="returnvalue">GocItem</span></a> *           goc_canvas_get_grabbed_item         (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>canvas</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The currently grabbed <a class="link" href="GocItem.html" title="GocItem"><span class="type">GocItem</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_canvas_set_document ()">
+<a name="goc-canvas-set-document"></a><h3>goc_canvas_set_document ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                goc_canvas_set_document             (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> *document</code></em>);</pre>
+<p>
+Associates the <a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> with the <a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>. This is needed to use images
+when filling styled items (see <a class="link" href="GocStyledItem.html" title="GocStyledItem"><span class="type">GocStyledItem</span></a>).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>canvas</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>
+<a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_canvas_get_document ()">
+<a name="goc-canvas-get-document"></a><h3>goc_canvas_get_document ()</h3>
+<pre class="programlisting"><a class="link" href="GODoc.html" title="GODoc"><span class="returnvalue">GODoc</span></a> *             goc_canvas_get_document             (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>canvas</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The <a class="link" href="GODoc.html" title="GODoc"><span class="type">GODoc</span></a> associated with the <a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_canvas_get_cur_event ()">
+<a name="goc-canvas-get-cur-event"></a><h3>goc_canvas_get_cur_event ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gdk/unstable/gdk-Event-Structures.html#GdkEvent"><span class="returnvalue">GdkEvent</span></a> *          goc_canvas_get_cur_event            (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>canvas</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The <a href="http://library.gnome.org/devel/gdk/unstable/gdk-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> being processed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_canvas_set_direction ()">
+<a name="goc-canvas-set-direction"></a><h3>goc_canvas_set_direction ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                goc_canvas_set_direction            (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GocCanvas.html#GocDirection" title="enum GocDirection"><span class="type">GocDirection</span></a> direction</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>canvas</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>direction</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_canvas_get_direction ()">
+<a name="goc-canvas-get-direction"></a><h3>goc_canvas_get_direction ()</h3>
+<pre class="programlisting"><a class="link" href="GocCanvas.html#GocDirection" title="enum GocDirection"><span class="returnvalue">GocDirection</span></a>        goc_canvas_get_direction            (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>canvas</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the current canvas direction.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_canvas_w2c ()">
+<a name="goc-canvas-w2c"></a><h3>goc_canvas_w2c ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                goc_canvas_w2c                      (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *x_</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *y_</code></em>);</pre>
+<p>
+Retrieves the canvas coordinates given the position in the widget.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>canvas</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>the horizontal position as a widget coordinate.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>the vertical position as a widget coordinate.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x_</code></em> :</span></p></td>
+<td>where to store the horizontal position as a canvas coordinate.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y_</code></em> :</span></p></td>
+<td>where to store the vertical position as a canvas coordinate.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="goc_canvas_c2w ()">
+<a name="goc-canvas-c2w"></a><h3>goc_canvas_c2w ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                goc_canvas_c2w                      (<em class="parameter"><code><a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a> *canvas</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *x_</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *y_</code></em>);</pre>
+<p>
+Retrieves the position in the widget given the canvas coordinates.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>canvas</code></em> :</span></p></td>
+<td>
+<a class="link" href="GocCanvas.html" title="GocCanvas"><span class="type">GocCanvas</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>the horizontal position as a canvas coordinate.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>the vertical position as a canvas coordinate.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x_</code></em> :</span></p></td>
+<td>where to store the horizontal position as a widget coordinate.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y_</code></em> :</span></p></td>
+<td>where to store the vertical position as a widget coordinate.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

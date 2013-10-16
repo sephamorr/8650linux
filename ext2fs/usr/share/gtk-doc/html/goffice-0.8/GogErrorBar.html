@@ -1,0 +1,393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GogErrorBar</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch02.html" title="Objects">
+<link rel="prev" href="GogGridLine.html" title="GogGridLine">
+<link rel="next" href="GogLabel.html" title="GogLabel">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GogGridLine.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GogLabel.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GogErrorBar.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GogErrorBar.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GogErrorBar.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GogErrorBar.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+</td></tr>
+</table>
+<div class="refentry" title="GogErrorBar">
+<a name="GogErrorBar"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GogErrorBar.top_of_page"></a>GogErrorBar</span></h2>
+<p>GogErrorBar</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GogErrorBar.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="GogErrorBar.html#GogErrorBar-struct" title="GogErrorBar">GogErrorBar</a>;
+enum                <a class="link" href="GogErrorBar.html#GogErrorBarType" title="enum GogErrorBarType">GogErrorBarType</a>;
+enum                <a class="link" href="GogErrorBar.html#GogErrorBarDisplay" title="enum GogErrorBarDisplay">GogErrorBarDisplay</a>;
+enum                <a class="link" href="GogErrorBar.html#GogErrorBarDirection" title="enum GogErrorBarDirection">GogErrorBarDirection</a>;
+<a class="link" href="GogErrorBar.html" title="GogErrorBar"><span class="returnvalue">GogErrorBar</span></a> *       <a class="link" href="GogErrorBar.html#gog-error-bar-dup" title="gog_error_bar_dup ()">gog_error_bar_dup</a>                   (<em class="parameter"><code><a class="link" href="GogErrorBar.html" title="GogErrorBar"><span class="type">GogErrorBar</span></a> const *bar</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="GogErrorBar.html#gog-error-bar-prefs" title="gog_error_bar_prefs ()">gog_error_bar_prefs</a>                 (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> *series</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *property</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogErrorBar.html#GogErrorBarDirection" title="enum GogErrorBarDirection"><span class="type">GogErrorBarDirection</span></a> direction</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogDataAllocator.html" title="GogDataAllocator"><span class="type">GogDataAllocator</span></a> *dalloc</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="type">GOCmdContext</span></a> *cc</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogErrorBar.html#gog-error-bar-get-bounds" title="gog_error_bar_get_bounds ()">gog_error_bar_get_bounds</a>            (<em class="parameter"><code>const <a class="link" href="GogErrorBar.html" title="GogErrorBar"><span class="type">GogErrorBar</span></a> *bar</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> index</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *min</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *max</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogErrorBar.html#gog-error-bar-get-minmax" title="gog_error_bar_get_minmax ()">gog_error_bar_get_minmax</a>            (<em class="parameter"><code>const <a class="link" href="GogErrorBar.html" title="GogErrorBar"><span class="type">GogErrorBar</span></a> *bar</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *min</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *max</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogErrorBar.html#gog-error-bar-render" title="gog_error_bar_render ()">gog_error_bar_render</a>                (<em class="parameter"><code>const <a class="link" href="GogErrorBar.html" title="GogErrorBar"><span class="type">GogErrorBar</span></a> *bar</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GogChartMap.html#GogChartMap" title="GogChartMap"><span class="type">GogChartMap</span></a> *map</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> minus</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> plus</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogErrorBar.html#GogErrorBarDirection" title="enum GogErrorBarDirection"><span class="type">GogErrorBarDirection</span></a> direction</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogErrorBar.html#gog-error-bar-is-visible" title="gog_error_bar_is_visible ()">gog_error_bar_is_visible</a>            (<em class="parameter"><code><a class="link" href="GogErrorBar.html" title="GogErrorBar"><span class="type">GogErrorBar</span></a> *bar</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GogErrorBar.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GogErrorBar
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GogErrorBar.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GogErrorBar implements
+ <a class="link" href="GOPersist.html" title="GOPersist">GOPersist</a>.</p>
+</div>
+<div class="refsect1" title="Description">
+<a name="GogErrorBar.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GogErrorBar.details"></a><h2>Details</h2>
+<div class="refsect2" title="GogErrorBar">
+<a name="GogErrorBar-struct"></a><h3>GogErrorBar</h3>
+<pre class="programlisting">typedef struct _GogErrorBar GogErrorBar;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum GogErrorBarType">
+<a name="GogErrorBarType"></a><h3>enum GogErrorBarType</h3>
+<pre class="programlisting">typedef enum {
+	GOG_ERROR_BAR_TYPE_NONE,
+	GOG_ERROR_BAR_TYPE_ABSOLUTE,
+	GOG_ERROR_BAR_TYPE_RELATIVE,
+	GOG_ERROR_BAR_TYPE_PERCENT
+} GogErrorBarType;
+</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="GOG-ERROR-BAR-TYPE-NONE:CAPS"></a><span class="term"><code class="literal">GOG_ERROR_BAR_TYPE_NONE</code></span></p></td>
+<td>No error bars.
+</td>
+</tr>
+<tr>
+<td><p><a name="GOG-ERROR-BAR-TYPE-ABSOLUTE:CAPS"></a><span class="term"><code class="literal">GOG_ERROR_BAR_TYPE_ABSOLUTE</code></span></p></td>
+<td>Absolute errors.
+</td>
+</tr>
+<tr>
+<td><p><a name="GOG-ERROR-BAR-TYPE-RELATIVE:CAPS"></a><span class="term"><code class="literal">GOG_ERROR_BAR_TYPE_RELATIVE</code></span></p></td>
+<td>Relative errors.
+</td>
+</tr>
+<tr>
+<td><p><a name="GOG-ERROR-BAR-TYPE-PERCENT:CAPS"></a><span class="term"><code class="literal">GOG_ERROR_BAR_TYPE_PERCENT</code></span></p></td>
+<td>Relative errors as percent.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="enum GogErrorBarDisplay">
+<a name="GogErrorBarDisplay"></a><h3>enum GogErrorBarDisplay</h3>
+<pre class="programlisting">typedef enum {
+	GOG_ERROR_BAR_DISPLAY_NONE,
+	GOG_ERROR_BAR_DISPLAY_POSITIVE,
+	GOG_ERROR_BAR_DISPLAY_NEGATIVE,
+	GOG_ERROR_BAR_DISPLAY_BOTH
+} GogErrorBarDisplay;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum GogErrorBarDirection">
+<a name="GogErrorBarDirection"></a><h3>enum GogErrorBarDirection</h3>
+<pre class="programlisting">typedef enum {
+	GOG_ERROR_BAR_DIRECTION_HORIZONTAL,
+	GOG_ERROR_BAR_DIRECTION_VERTICAL,
+	GOG_ERROR_BAR_DIRECTION_ANGULAR,
+	GOG_ERROR_BAR_DIRECTION_RADIAL
+} GogErrorBarDirection;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gog_error_bar_dup ()">
+<a name="gog-error-bar-dup"></a><h3>gog_error_bar_dup ()</h3>
+<pre class="programlisting"><a class="link" href="GogErrorBar.html" title="GogErrorBar"><span class="returnvalue">GogErrorBar</span></a> *       gog_error_bar_dup                   (<em class="parameter"><code><a class="link" href="GogErrorBar.html" title="GogErrorBar"><span class="type">GogErrorBar</span></a> const *bar</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bar</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_error_bar_prefs ()">
+<a name="gog-error-bar-prefs"></a><h3>gog_error_bar_prefs ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            gog_error_bar_prefs                 (<em class="parameter"><code><a class="link" href="GogSeries.html" title="GogSeries"><span class="type">GogSeries</span></a> *series</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *property</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogErrorBar.html#GogErrorBarDirection" title="enum GogErrorBarDirection"><span class="type">GogErrorBarDirection</span></a> direction</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogDataAllocator.html" title="GogDataAllocator"><span class="type">GogDataAllocator</span></a> *dalloc</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOCmdContext.html" title="GOCmdContext"><span class="type">GOCmdContext</span></a> *cc</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>series</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>direction</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dalloc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_error_bar_get_bounds ()">
+<a name="gog-error-bar-get-bounds"></a><h3>gog_error_bar_get_bounds ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_error_bar_get_bounds            (<em class="parameter"><code>const <a class="link" href="GogErrorBar.html" title="GogErrorBar"><span class="type">GogErrorBar</span></a> *bar</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> index</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *min</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *max</code></em>);</pre>
+<p>
+If the value correponding to <em class="parameter"><code>index</code></em> is valid, fills min and max with the error values:
+-&gt; positive_error in <em class="parameter"><code>max</code></em>.
+-&gt; negative_error in <em class="parameter"><code>min</code></em>.
+If one of the errors is not valid or not defined, its value is set to -1.0.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bar</code></em> :</span></p></td>
+<td>A GogErrorBar
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>the index corresponding to the value which error limits are
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>min</code></em> :</span></p></td>
+<td>where the minimum value will be stored
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>max</code></em> :</span></p></td>
+<td>where the maximum value will be stored
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> if the <em class="parameter"><code>bar-&gt;type</code></em> is <a class="link" href="GogErrorBar.html#GOG-ERROR-BAR-TYPE-NONE:CAPS"><code class="literal">GOG_ERROR_BAR_TYPE_NONE</code></a> or if the value is not valid,
+	<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> otherwise.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_error_bar_get_minmax ()">
+<a name="gog-error-bar-get-minmax"></a><h3>gog_error_bar_get_minmax ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_error_bar_get_minmax            (<em class="parameter"><code>const <a class="link" href="GogErrorBar.html" title="GogErrorBar"><span class="type">GogErrorBar</span></a> *bar</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *min</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *max</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bar</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>min</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>max</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_error_bar_render ()">
+<a name="gog-error-bar-render"></a><h3>gog_error_bar_render ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_error_bar_render                (<em class="parameter"><code>const <a class="link" href="GogErrorBar.html" title="GogErrorBar"><span class="type">GogErrorBar</span></a> *bar</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogRenderer.html" title="GogRenderer"><span class="type">GogRenderer</span></a> *rend</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GogChartMap.html#GogChartMap" title="GogChartMap"><span class="type">GogChartMap</span></a> *map</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> minus</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> plus</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogErrorBar.html#GogErrorBarDirection" title="enum GogErrorBarDirection"><span class="type">GogErrorBarDirection</span></a> direction</code></em>);</pre>
+<p>
+Displays the error bar. If <em class="parameter"><code>plus</code></em> is negative, the positive side of the bar is not displayed,
+and if <em class="parameter"><code>minus</code></em> is negative, the negative side of the bar is not displayed.
+x_map and y_map are used to convert coordinates from data space to canvas coordinates.
+This function must not be called if <a class="link" href="GogErrorBar.html#gog-error-bar-get-bounds" title="gog_error_bar_get_bounds ()"><span class="type">gog_error_bar_get_bounds</span></a> returned FALSE.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bar</code></em> :</span></p></td>
+<td>A GogErrorBar
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rend</code></em> :</span></p></td>
+<td>A GogRenderer
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>map</code></em> :</span></p></td>
+<td>A GogChartMap for the chart
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>x coordinate of the origin of the bar
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>y coordinate of the origin of the bar
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minus</code></em> :</span></p></td>
+<td>distance from the origin to the negative end of the bar
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plus</code></em> :</span></p></td>
+<td>distance from the origin to the positive end of the bar
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>direction</code></em> :</span></p></td>
+<td>the <a class="link" href="GogErrorBar.html#GogErrorBarDirection" title="enum GogErrorBarDirection"><span class="type">GogErrorBarDirection</span></a> for the bar.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_error_bar_is_visible ()">
+<a name="gog-error-bar-is-visible"></a><h3>gog_error_bar_is_visible ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_error_bar_is_visible            (<em class="parameter"><code><a class="link" href="GogErrorBar.html" title="GogErrorBar"><span class="type">GogErrorBar</span></a> *bar</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bar</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

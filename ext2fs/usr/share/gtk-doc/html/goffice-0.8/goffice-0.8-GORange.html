@@ -1,0 +1,676 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GORange</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch13.html" title="Mathematical functions">
+<link rel="prev" href="goffice-0.8-GOFft.html" title="GOFft">
+<link rel="next" href="goffice-0.8-GORegression.html" title="GORegression">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="goffice-0.8-GOFft.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch13.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="goffice-0.8-GORegression.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#goffice-0.8-GORange.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#goffice-0.8-GORange.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="GORange">
+<a name="goffice-0.8-GORange"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="goffice-0.8-GORange.top_of_page"></a>GORange</span></h2>
+<p>GORange</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="goffice-0.8-GORange.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis"><span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GORange.html#go-range-sum" title="go_range_sum ()">go_range_sum</a>                        (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GORange.html#go-range-sumsq" title="go_range_sumsq ()">go_range_sumsq</a>                      (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GORange.html#go-range-average" title="go_range_average ()">go_range_average</a>                    (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GORange.html#go-range-min" title="go_range_min ()">go_range_min</a>                        (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GORange.html#go-range-max" title="go_range_max ()">go_range_max</a>                        (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GORange.html#go-range-maxabs" title="go_range_maxabs ()">go_range_maxabs</a>                     (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GORange.html#go-range-devsq" title="go_range_devsq ()">go_range_devsq</a>                      (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GORange.html#go-range-fractile-inter" title="go_range_fractile_inter ()">go_range_fractile_inter</a>             (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> f</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GORange.html#go-range-fractile-inter-nonconst" title="go_range_fractile_inter_nonconst ()">go_range_fractile_inter_nonconst</a>    (<em class="parameter"><code><span class="type">double</span> *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> f</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GORange.html#go-range-fractile-inter-sorted" title="go_range_fractile_inter_sorted ()">go_range_fractile_inter_sorted</a>      (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> f</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GORange.html#go-range-increasing" title="go_range_increasing ()">go_range_increasing</a>                 (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GORange.html#go-range-median-inter" title="go_range_median_inter ()">go_range_median_inter</a>               (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GORange.html#go-range-median-inter-nonconst" title="go_range_median_inter_nonconst ()">go_range_median_inter_nonconst</a>      (<em class="parameter"><code><span class="type">double</span> *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GORange.html#go-range-decreasing" title="go_range_decreasing ()">go_range_decreasing</a>                 (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GORange.html#go-range-median-inter-sorted" title="go_range_median_inter_sorted ()">go_range_median_inter_sorted</a>        (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);
+<span class="returnvalue">double</span> *            <a class="link" href="goffice-0.8-GORange.html#go-range-sort" title="go_range_sort ()">go_range_sort</a>                       (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GORange.html#go-range-vary-uniformly" title="go_range_vary_uniformly ()">go_range_vary_uniformly</a>             (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="goffice-0.8-GORange.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="goffice-0.8-GORange.details"></a><h2>Details</h2>
+<div class="refsect2" title="go_range_sum ()">
+<a name="go-range-sum"></a><h3>go_range_sum ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_range_sum                        (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_range_sumsq ()">
+<a name="go-range-sumsq"></a><h3>go_range_sumsq ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_range_sumsq                      (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_range_average ()">
+<a name="go-range-average"></a><h3>go_range_average ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_range_average                    (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_range_min ()">
+<a name="go-range-min"></a><h3>go_range_min ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_range_min                        (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_range_max ()">
+<a name="go-range-max"></a><h3>go_range_max ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_range_max                        (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_range_maxabs ()">
+<a name="go-range-maxabs"></a><h3>go_range_maxabs ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_range_maxabs                     (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_range_devsq ()">
+<a name="go-range-devsq"></a><h3>go_range_devsq ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_range_devsq                      (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_range_fractile_inter ()">
+<a name="go-range-fractile-inter"></a><h3>go_range_fractile_inter ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_range_fractile_inter             (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> f</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>f</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_range_fractile_inter_nonconst ()">
+<a name="go-range-fractile-inter-nonconst"></a><h3>go_range_fractile_inter_nonconst ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_range_fractile_inter_nonconst    (<em class="parameter"><code><span class="type">double</span> *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> f</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>f</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_range_fractile_inter_sorted ()">
+<a name="go-range-fractile-inter-sorted"></a><h3>go_range_fractile_inter_sorted ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_range_fractile_inter_sorted      (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> f</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>f</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_range_increasing ()">
+<a name="go-range-increasing"></a><h3>go_range_increasing ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_range_increasing                 (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_range_median_inter ()">
+<a name="go-range-median-inter"></a><h3>go_range_median_inter ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_range_median_inter               (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_range_median_inter_nonconst ()">
+<a name="go-range-median-inter-nonconst"></a><h3>go_range_median_inter_nonconst ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_range_median_inter_nonconst      (<em class="parameter"><code><span class="type">double</span> *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_range_decreasing ()">
+<a name="go-range-decreasing"></a><h3>go_range_decreasing ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_range_decreasing                 (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_range_median_inter_sorted ()">
+<a name="go-range-median-inter-sorted"></a><h3>go_range_median_inter_sorted ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_range_median_inter_sorted        (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *res</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_range_sort ()">
+<a name="go-range-sort"></a><h3>go_range_sort ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span> *            go_range_sort                       (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_range_vary_uniformly ()">
+<a name="go-range-vary-uniformly"></a><h3>go_range_vary_uniformly ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_range_vary_uniformly             (<em class="parameter"><code><span class="type">double</span> const *xs</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> n</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

@@ -1,0 +1,732 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOData</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch12.html" title="Data">
+<link rel="prev" href="ch12.html" title="Data">
+<link rel="next" href="GODataScalar.html" title="GODataScalar">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch12.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch12.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GODataScalar.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GOData.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GOData.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GOData.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GOData.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOData">
+<a name="GOData"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GOData.top_of_page"></a>GOData</span></h2>
+<p>GOData</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GOData.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="GOData.html#GOData-struct" title="GOData">GOData</a>;
+                    <a class="link" href="GOData.html#GODataClass" title="GODataClass">GODataClass</a>;
+
+<a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            <a class="link" href="GOData.html#go-data-dup" title="go_data_dup ()">go_data_dup</a>                         (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> const *src</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOData.html#go-data-eq" title="go_data_eq ()">go_data_eq</a>                          (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> const *a</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> const *b</code></em>);
+<a class="link" href="goffice-0.8-GOFormat.html#GOFormat" title="GOFormat"><span class="returnvalue">GOFormat</span></a> *          <a class="link" href="GOData.html#go-data-preferred-fmt" title="go_data_preferred_fmt ()">go_data_preferred_fmt</a>               (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> const *dat</code></em>);
+<span class="returnvalue">GODateConventions</span> const * <a class="link" href="GOData.html#go-data-date-conv" title="go_data_date_conv ()">go_data_date_conv</a>             (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> const *dat</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="GOData.html#go-data-serialize" title="go_data_serialize ()">go_data_serialize</a>                   (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> const *dat</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOData.html#go-data-unserialize" title="go_data_unserialize ()">go_data_unserialize</a>                 (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *dat</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *str</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOData.html#go-data-emit-changed" title="go_data_emit_changed ()">go_data_emit_changed</a>                (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *dat</code></em>);
+<span class="returnvalue">double</span> *            <a class="link" href="GOData.html#go-data-get-values" title="go_data_get_values ()">go_data_get_values</a>                  (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOData.html#go-data-get-bounds" title="go_data_get_bounds ()">go_data_get_bounds</a>                  (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *minimum</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *maximum</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOData.html#go-data-is-increasing" title="go_data_is_increasing ()">go_data_is_increasing</a>               (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOData.html#go-data-is-decreasing" title="go_data_is_decreasing ()">go_data_is_decreasing</a>               (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GOData.html#go-data-is-varying-uniformly" title="go_data_is_varying_uniformly ()">go_data_is_varying_uniformly</a>        (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>);
+unsigned <span class="returnvalue">int</span>        <a class="link" href="GOData.html#go-data-get-n-dimensions" title="go_data_get_n_dimensions ()">go_data_get_n_dimensions</a>            (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>);
+unsigned <span class="returnvalue">int</span>        <a class="link" href="GOData.html#go-data-get-n-values" title="go_data_get_n_values ()">go_data_get_n_values</a>                (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>);
+unsigned <span class="returnvalue">int</span>        <a class="link" href="GOData.html#go-data-get-vector-size" title="go_data_get_vector_size ()">go_data_get_vector_size</a>             (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GOData.html#go-data-get-matrix-size" title="go_data_get_matrix_size ()">go_data_get_matrix_size</a>             (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> *n_rows</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> *n_columns</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="GOData.html#go-data-get-scalar-value" title="go_data_get_scalar_value ()">go_data_get_scalar_value</a>            (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="GOData.html#go-data-get-vector-value" title="go_data_get_vector_value ()">go_data_get_vector_value</a>            (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> column</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="GOData.html#go-data-get-matrix-value" title="go_data_get_matrix_value ()">go_data_get_matrix_value</a>            (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> row</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> column</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="GOData.html#go-data-get-scalar-string" title="go_data_get_scalar_string ()">go_data_get_scalar_string</a>           (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="GOData.html#go-data-get-vector-string" title="go_data_get_vector_string ()">go_data_get_vector_string</a>           (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> column</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="GOData.html#go-data-get-matrix-string" title="go_data_get_matrix_string ()">go_data_get_matrix_string</a>           (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> row</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> column</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GOData.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GOData
+         +----<a class="link" href="GODataMatrix.html" title="GODataMatrix">GODataMatrix</a>
+         +----<a class="link" href="GODataScalar.html" title="GODataScalar">GODataScalar</a>
+         +----<a class="link" href="GODataVector.html" title="GODataVector">GODataVector</a>
+</pre>
+</div>
+<div class="refsect1" title="Signals">
+<a name="GOData.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GOData.html#GOData-changed" title='The "changed" signal'>changed</a>"                                        : Run Last
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GOData.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GOData.details"></a><h2>Details</h2>
+<div class="refsect2" title="GOData">
+<a name="GOData-struct"></a><h3>GOData</h3>
+<pre class="programlisting">typedef struct _GOData GOData;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="GODataClass">
+<a name="GODataClass"></a><h3>GODataClass</h3>
+<pre class="programlisting">typedef struct {
+	GObjectClass base;
+
+	GOData * (*dup)	    		(GOData const *src);
+	gboolean 	(*eq)	    		(GOData const *a, GOData const *b);
+	GOFormat * (*preferred_fmt) 	(GOData const *dat);
+	GODateConventions const *(*date_conv) 	(GOData const *dat);
+
+	char *		(*serialize)	    	(GOData const *dat, gpointer user);
+	gboolean   	(*unserialize)	    	(GOData *dat, char const *str, gpointer user);
+	void	   	(*emit_changed)  	(GOData *dat);
+
+	unsigned int (*get_n_dimensions) (GOData *data);
+	void		(*get_sizes)		(GOData *data, unsigned int *sizes);
+	double * (*get_values)		(GOData *data);
+	void		(*get_bounds)		(GOData *data, double *minimum, double *maximum);
+	double		(*get_value)		(GOData *data, unsigned int *coordinates);
+	char *		(*get_string)		(GOData *data, unsigned int *coordinates);
+
+	/* signals */
+	void (*changed) (GOData *dat);
+} GODataClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="go_data_dup ()">
+<a name="go-data-dup"></a><h3>go_data_dup ()</h3>
+<pre class="programlisting"><a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            go_data_dup                         (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> const *src</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A deep copy of <em class="parameter"><code>src</code></em>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_eq ()">
+<a name="go-data-eq"></a><h3>go_data_eq ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_data_eq                          (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> const *a</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> const *b</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if <em class="parameter"><code>a</code></em> and <em class="parameter"><code>b</code></em> are the same
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_preferred_fmt ()">
+<a name="go-data-preferred-fmt"></a><h3>go_data_preferred_fmt ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GOFormat.html#GOFormat" title="GOFormat"><span class="returnvalue">GOFormat</span></a> *          go_data_preferred_fmt               (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> const *dat</code></em>);</pre>
+<p>
+Caller is responsible for unrefing the result.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dat</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the fmt preferred by the the data
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_date_conv ()">
+<a name="go-data-date-conv"></a><h3>go_data_date_conv ()</h3>
+<pre class="programlisting"><span class="returnvalue">GODateConventions</span> const * go_data_date_conv             (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> const *dat</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dat</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the date conventions used by the data, or NULL if not determined.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_serialize ()">
+<a name="go-data-serialize"></a><h3>go_data_serialize ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              go_data_serialize                   (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> const *dat</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user</code></em>);</pre>
+<p>
+NOTE : This is the _source_ not the content.  (I.e., this refers to the
+expression, not its current value.)
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dat</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user</code></em> :</span></p></td>
+<td>a gpointer describing the context.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a string representation of the data source that the caller is
+	responsible for freeing
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_unserialize ()">
+<a name="go-data-unserialize"></a><h3>go_data_unserialize ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_data_unserialize                 (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *dat</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> const *str</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user</code></em>);</pre>
+<p>
+De-serializes the source information returned from go_data_serialize.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dat</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>string to parse
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user</code></em> :</span></p></td>
+<td>a gpointer describing the context.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> on error.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_emit_changed ()">
+<a name="go-data-emit-changed"></a><h3>go_data_emit_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_data_emit_changed                (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *dat</code></em>);</pre>
+<p>
+protected utility to emit a 'changed' signal
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>dat</code></em> :</span></p></td>
+<td>
+<a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_get_values ()">
+<a name="go-data-get-values"></a><h3>go_data_get_values ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span> *            go_data_get_values                  (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_get_bounds ()">
+<a name="go-data-get-bounds"></a><h3>go_data_get_bounds ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_data_get_bounds                  (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *minimum</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *maximum</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minimum</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>maximum</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_is_increasing ()">
+<a name="go-data-is-increasing"></a><h3>go_data_is_increasing ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_data_is_increasing               (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_is_decreasing ()">
+<a name="go-data-is-decreasing"></a><h3>go_data_is_decreasing ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_data_is_decreasing               (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_is_varying_uniformly ()">
+<a name="go-data-is-varying-uniformly"></a><h3>go_data_is_varying_uniformly ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            go_data_is_varying_uniformly        (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_get_n_dimensions ()">
+<a name="go-data-get-n-dimensions"></a><h3>go_data_get_n_dimensions ()</h3>
+<pre class="programlisting">unsigned <span class="returnvalue">int</span>        go_data_get_n_dimensions            (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_get_n_values ()">
+<a name="go-data-get-n-values"></a><h3>go_data_get_n_values ()</h3>
+<pre class="programlisting">unsigned <span class="returnvalue">int</span>        go_data_get_n_values                (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_get_vector_size ()">
+<a name="go-data-get-vector-size"></a><h3>go_data_get_vector_size ()</h3>
+<pre class="programlisting">unsigned <span class="returnvalue">int</span>        go_data_get_vector_size             (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_get_matrix_size ()">
+<a name="go-data-get-matrix-size"></a><h3>go_data_get_matrix_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_data_get_matrix_size             (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> *n_rows</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> *n_columns</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_rows</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_columns</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_get_scalar_value ()">
+<a name="go-data-get-scalar-value"></a><h3>go_data_get_scalar_value ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_data_get_scalar_value            (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_get_vector_value ()">
+<a name="go-data-get-vector-value"></a><h3>go_data_get_vector_value ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_data_get_vector_value            (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> column</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>column</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_get_matrix_value ()">
+<a name="go-data-get-matrix-value"></a><h3>go_data_get_matrix_value ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_data_get_matrix_value            (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> row</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> column</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>row</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>column</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_get_scalar_string ()">
+<a name="go-data-get-scalar-string"></a><h3>go_data_get_scalar_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              go_data_get_scalar_string           (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_get_vector_string ()">
+<a name="go-data-get-vector-string"></a><h3>go_data_get_vector_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              go_data_get_vector_string           (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> column</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>column</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_data_get_matrix_string ()">
+<a name="go-data-get-matrix-string"></a><h3>go_data_get_matrix_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              go_data_get_matrix_string           (<em class="parameter"><code><a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> *data</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> row</code></em>,
+                                                         <em class="parameter"><code>unsigned <span class="type">int</span> column</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>row</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>column</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="GOData.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "changed" signal'>
+<a name="GOData-changed"></a><h3>The <code class="literal">"changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a>  *godata,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data)      : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>godata</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

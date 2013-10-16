@@ -1,0 +1,852 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GogAxis</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch02.html" title="Objects">
+<link rel="prev" href="GogGrid.html" title="GogGrid">
+<link rel="next" href="GogAxisLine.html" title="GogAxisLine">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GogGrid.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="GogAxisLine.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GogAxis.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GogAxis.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GogAxis.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GogAxis.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#GogAxis.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry" title="GogAxis">
+<a name="GogAxis"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GogAxis.top_of_page"></a>GogAxis</span></h2>
+<p>GogAxis — An axis.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="GogAxis.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="GogAxis.html#GogAxis-struct" title="GogAxis">GogAxis</a>;
+enum                <a class="link" href="GogAxis.html#GogAxisSet" title="enum GogAxisSet">GogAxisSet</a>;
+enum                <a class="link" href="GogAxis.html#GogAxisType" title="enum GogAxisType">GogAxisType</a>;
+enum                <a class="link" href="GogAxis.html#GogAxisElemType" title="enum GogAxisElemType">GogAxisElemType</a>;
+<a class="link" href="GogAxis.html#GogAxisType" title="enum GogAxisType"><span class="returnvalue">GogAxisType</span></a>         <a class="link" href="GogAxis.html#gog-axis-get-atype" title="gog_axis_get_atype ()">gog_axis_get_atype</a>                  (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> const *axis</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogAxis.html#gog-axis-is-center-on-ticks" title="gog_axis_is_center_on_ticks ()">gog_axis_is_center_on_ticks</a>         (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> const *axis</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogAxis.html#gog-axis-is-discrete" title="gog_axis_is_discrete ()">gog_axis_is_discrete</a>                (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> const *axis</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogAxis.html#gog-axis-is-inverted" title="gog_axis_is_inverted ()">gog_axis_is_inverted</a>                (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> const *axis</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogAxis.html#gog-axis-get-bounds" title="gog_axis_get_bounds ()">gog_axis_get_bounds</a>                 (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> const *axis</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *minima</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *maxima</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogAxis.html#gog-axis-set-bounds" title="gog_axis_set_bounds ()">gog_axis_set_bounds</a>                 (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> minimum</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> maximum</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogAxis.html#gog-axis-set-extents" title="gog_axis_set_extents ()">gog_axis_set_extents</a>                (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> start</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> stop</code></em>);
+<a class="link" href="goffice-0.8-GOFormat.html#GOFormat" title="GOFormat"><span class="returnvalue">GOFormat</span></a> *          <a class="link" href="GogAxis.html#gog-axis-get-format" title="gog_axis_get_format ()">gog_axis_get_format</a>                 (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> const *axis</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GogAxis.html#gog-axis-set-format" title="gog_axis_set_format ()">gog_axis_set_format</a>                 (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOFormat.html#GOFormat" title="GOFormat"><span class="type">GOFormat</span></a> *fmt</code></em>);
+<span class="returnvalue">unsigned</span>            <a class="link" href="GogAxis.html#gog-axis-get-ticks" title="gog_axis_get_ticks ()">gog_axis_get_ticks</a>                  (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxisLine.html#GogAxisTick" title="GogAxisTick"><span class="type">GogAxisTick</span></a> **ticks</code></em>);
+<a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            <a class="link" href="GogAxis.html#gog-axis-get-labels" title="gog_axis_get_labels ()">gog_axis_get_labels</a>                 (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> const *axis</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> **plot_that_labeled_axis</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="GogAxis.html#gog-axis-get-entry" title="gog_axis_get_entry ()">gog_axis_get_entry</a>                  (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> const *axis</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html#GogAxisElemType" title="enum GogAxisElemType"><span class="type">GogAxisElemType</span></a> i</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *user_defined</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogAxis.html#gog-axis-add-contributor" title="gog_axis_add_contributor ()">gog_axis_add_contributor</a>            (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a> *contrib</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogAxis.html#gog-axis-del-contributor" title="gog_axis_del_contributor ()">gog_axis_del_contributor</a>            (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a> *contrib</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> const *      <a class="link" href="GogAxis.html#gog-axis-contributors" title="gog_axis_contributors ()">gog_axis_contributors</a>               (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogAxis.html#gog-axis-clear-contributors" title="gog_axis_clear_contributors ()">gog_axis_clear_contributors</a>         (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogAxis.html#gog-axis-bound-changed" title="gog_axis_bound_changed ()">gog_axis_bound_changed</a>              (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a> *contrib</code></em>);
+<a class="link" href="GogGridLine.html" title="GogGridLine"><span class="returnvalue">GogGridLine</span></a> *       <a class="link" href="GogAxis.html#gog-axis-get-grid-line" title="gog_axis_get_grid_line ()">gog_axis_get_grid_line</a>              (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> major</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="GogAxis.html#gog-axis-get-circular-rotation" title="gog_axis_get_circular_rotation ()">gog_axis_get_circular_rotation</a>      (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>);
+const <span class="returnvalue">GODateConventions</span> * <a class="link" href="GogAxis.html#gog-axis-get-date-conv" title="gog_axis_get_date_conv ()">gog_axis_get_date_conv</a>        (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> const *axis</code></em>);
+<a class="link" href="goffice-0.8-GOFormat.html#GOFormat" title="GOFormat"><span class="returnvalue">GOFormat</span></a> *          <a class="link" href="GogAxis.html#gog-axis-get-effective-format" title="gog_axis_get_effective_format ()">gog_axis_get_effective_format</a>       (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> const *axis</code></em>);
+
+enum                <a class="link" href="GogAxis.html#GogAxisPolarUnit" title="enum GogAxisPolarUnit">GogAxisPolarUnit</a>;
+<span class="returnvalue">double</span>              <a class="link" href="GogAxis.html#gog-axis-get-polar-perimeter" title="gog_axis_get_polar_perimeter ()">gog_axis_get_polar_perimeter</a>        (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GogAxis.html#gog-axis-set-polar-unit" title="gog_axis_set_polar_unit ()">gog_axis_set_polar_unit</a>             (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html#GogAxisPolarUnit" title="enum GogAxisPolarUnit"><span class="type">GogAxisPolarUnit</span></a> unit</code></em>);
+<a class="link" href="GogAxis.html#GogAxisPolarUnit" title="enum GogAxisPolarUnit"><span class="returnvalue">GogAxisPolarUnit</span></a>    <a class="link" href="GogAxis.html#gog-axis-get-polar-unit" title="gog_axis_get_polar_unit ()">gog_axis_get_polar_unit</a>             (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="GogAxis.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="GogObject.html" title="GogObject">GogObject</a>
+         +----<a class="link" href="GogStyledObject.html" title="GogStyledObject">GogStyledObject</a>
+               +----<a class="link" href="GogAxisLine.html#GogAxisBase">GogAxisBase</a>
+                     +----GogAxis
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="GogAxis.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GogAxis implements
+ <a class="link" href="GOStyledObject.html" title="GOStyledObject">GOStyledObject</a> and  <a class="link" href="GogDataset.html" title="GogDataset">GogDataset</a>.</p>
+</div>
+<div class="refsect1" title="Properties">
+<a name="GogAxis.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GogAxis.html#GogAxis--assigned-format-string-XL" title='The "assigned-format-string-XL" property'>assigned-format-string-XL</a>" <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
+  "<a class="link" href="GogAxis.html#GogAxis--circular-rotation" title='The "circular-rotation" property'>circular-rotation</a>"        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write
+  "<a class="link" href="GogAxis.html#GogAxis--invert-axis" title='The "invert-axis" property'>invert-axis</a>"              <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write
+  "<a class="link" href="GogAxis.html#GogAxis--map-name" title='The "map-name" property'>map-name</a>"                 <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
+  "<a class="link" href="GogAxis.html#GogAxis--polar-unit" title='The "polar-unit" property'>polar-unit</a>"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
+  "<a class="link" href="GogAxis.html#GogAxis--type" title='The "type" property'>type</a>"                     <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="GogAxis.description"></a><h2>Description</h2>
+<p>
+An axis of a <a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a>. The axis handles things like the bounds, ticks, and
+tick value formats.
+When used in plots with X/Y/Z axes, it can optionally have one
+<a class="link" href="GogLabel.html" title="GogLabel"><span class="type">GogLabel</span></a> objects in the role "Label".
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="GogAxis.details"></a><h2>Details</h2>
+<div class="refsect2" title="GogAxis">
+<a name="GogAxis-struct"></a><h3>GogAxis</h3>
+<pre class="programlisting">typedef struct _GogAxis GogAxis;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum GogAxisSet">
+<a name="GogAxisSet"></a><h3>enum GogAxisSet</h3>
+<pre class="programlisting">typedef enum {
+	GOG_AXIS_SET_UNKNOWN 	  = -1,
+	GOG_AXIS_SET_NONE   	  = 0,
+	GOG_AXIS_SET_X		  = (1 &lt;&lt; GOG_AXIS_X),
+	GOG_AXIS_SET_XY		  = (1 &lt;&lt; GOG_AXIS_X) | (1 &lt;&lt; GOG_AXIS_Y),
+	GOG_AXIS_SET_XY_pseudo_3d = (1 &lt;&lt; GOG_AXIS_X) | (1 &lt;&lt; GOG_AXIS_Y) | (1 &lt;&lt; GOG_AXIS_PSEUDO_3D),
+	GOG_AXIS_SET_XY_COLOR 	  = (1 &lt;&lt; GOG_AXIS_X) | (1 &lt;&lt; GOG_AXIS_Y) | (1 &lt;&lt; GOG_AXIS_COLOR),
+	GOG_AXIS_SET_XY_BUBBLE 	  = (1 &lt;&lt; GOG_AXIS_X) | (1 &lt;&lt; GOG_AXIS_Y) | (1 &lt;&lt; GOG_AXIS_BUBBLE),
+	GOG_AXIS_SET_XYZ	  = (1 &lt;&lt; GOG_AXIS_X) | (1 &lt;&lt; GOG_AXIS_Y) | (1 &lt;&lt; GOG_AXIS_Z),
+	GOG_AXIS_SET_RADAR        = (1 &lt;&lt; GOG_AXIS_CIRCULAR) | (1 &lt;&lt; GOG_AXIS_RADIAL),
+	GOG_AXIS_SET_FUNDAMENTAL  = ((1 &lt;&lt; GOG_AXIS_VIRTUAL) - 1),
+	GOG_AXIS_SET_ALL	  = ((1 &lt;&lt; GOG_AXIS_TYPES) -1)
+} GogAxisSet;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum GogAxisType">
+<a name="GogAxisType"></a><h3>enum GogAxisType</h3>
+<pre class="programlisting">typedef enum {
+	GOG_AXIS_UNKNOWN = -1,
+	GOG_AXIS_X	 = 0,
+	GOG_AXIS_Y,
+	GOG_AXIS_Z,
+	GOG_AXIS_CIRCULAR,
+	GOG_AXIS_RADIAL,
+	GOG_AXIS_VIRTUAL,
+	GOG_AXIS_PSEUDO_3D = GOG_AXIS_VIRTUAL,
+	GOG_AXIS_COLOR,
+	GOG_AXIS_BUBBLE,
+	GOG_AXIS_TYPES
+} GogAxisType;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum GogAxisElemType">
+<a name="GogAxisElemType"></a><h3>enum GogAxisElemType</h3>
+<pre class="programlisting">typedef enum {
+	GOG_AXIS_ELEM_MIN = 0,
+	GOG_AXIS_ELEM_MAX,
+	GOG_AXIS_ELEM_MAJOR_TICK,
+	GOG_AXIS_ELEM_MINOR_TICK,
+	GOG_AXIS_ELEM_CROSS_POINT,
+	GOG_AXIS_ELEM_MAX_ENTRY
+} GogAxisElemType;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_get_atype ()">
+<a name="gog-axis-get-atype"></a><h3>gog_axis_get_atype ()</h3>
+<pre class="programlisting"><a class="link" href="GogAxis.html#GogAxisType" title="enum GogAxisType"><span class="returnvalue">GogAxisType</span></a>         gog_axis_get_atype                  (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> const *axis</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_is_center_on_ticks ()">
+<a name="gog-axis-is-center-on-ticks"></a><h3>gog_axis_is_center_on_ticks ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_axis_is_center_on_ticks         (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> const *axis</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if labels are centered on ticks when <em class="parameter"><code>axis</code></em> is discrete
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_is_discrete ()">
+<a name="gog-axis-is-discrete"></a><h3>gog_axis_is_discrete ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_axis_is_discrete                (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> const *axis</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if <em class="parameter"><code>axis</code></em> enumerates a set of discrete items, rather than a
+	continuous value
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_is_inverted ()">
+<a name="gog-axis-is-inverted"></a><h3>gog_axis_is_inverted ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_axis_is_inverted                (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> const *axis</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if <em class="parameter"><code>axis</code></em> is inverted.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_get_bounds ()">
+<a name="gog-axis-get-bounds"></a><h3>gog_axis_get_bounds ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_axis_get_bounds                 (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> const *axis</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *minima</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> *maxima</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minima</code></em> :</span></p></td>
+<td>non-NULL storage for result
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>maxima</code></em> :</span></p></td>
+<td>non-NULL storage for result
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the bounds stored in <em class="parameter"><code>minima</code></em> and <em class="parameter"><code>maxima</code></em> are sane
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_set_bounds ()">
+<a name="gog-axis-set-bounds"></a><h3>gog_axis_set_bounds ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_axis_set_bounds                 (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> minimum</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> maximum</code></em>);</pre>
+<p>
+Sets axis bounds. If minimum or maximum are not finite values, corresponding
+bound remains unchanged.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minimum</code></em> :</span></p></td>
+<td>axis low bound
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>maximum</code></em> :</span></p></td>
+<td>axis high bound
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_set_extents ()">
+<a name="gog-axis-set-extents"></a><h3>gog_axis_set_extents ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_axis_set_extents                (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> start</code></em>,
+                                                         <em class="parameter"><code><span class="type">double</span> stop</code></em>);</pre>
+<p>
+Set axis exents. It's a convenience function that sets axis bounds taking
+into account invert flag.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>start</code></em> :</span></p></td>
+<td>axis start bound
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stop</code></em> :</span></p></td>
+<td>axis stop bound
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_get_format ()">
+<a name="gog-axis-get-format"></a><h3>gog_axis_get_format ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GOFormat.html#GOFormat" title="GOFormat"><span class="returnvalue">GOFormat</span></a> *          gog_axis_get_format                 (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> const *axis</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the format assigned to <em class="parameter"><code>axis</code></em> but does not add a reference.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_set_format ()">
+<a name="gog-axis-set-format"></a><h3>gog_axis_set_format ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gog_axis_set_format                 (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="goffice-0.8-GOFormat.html#GOFormat" title="GOFormat"><span class="type">GOFormat</span></a> *fmt</code></em>);</pre>
+<p>
+Absorbs a reference to <em class="parameter"><code>fmt</code></em>, and accepts NULL.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fmt</code></em> :</span></p></td>
+<td>
+<a class="link" href="goffice-0.8-GOFormat.html#GOFormat" title="GOFormat"><span class="type">GOFormat</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if things changed
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_get_ticks ()">
+<a name="gog-axis-get-ticks"></a><h3>gog_axis_get_ticks ()</h3>
+<pre class="programlisting"><span class="returnvalue">unsigned</span>            gog_axis_get_ticks                  (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxisLine.html#GogAxisTick" title="GogAxisTick"><span class="type">GogAxisTick</span></a> **ticks</code></em>);</pre>
+<p>
+An accessor to <em class="parameter"><code>axis-&gt;ticks</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ticks</code></em> :</span></p></td>
+<td>an array of <a class="link" href="GogAxisLine.html#GogAxisTick" title="GogAxisTick"><span class="type">GogAxisTick</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> number of ticks
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_get_labels ()">
+<a name="gog-axis-get-labels"></a><h3>gog_axis_get_labels ()</h3>
+<pre class="programlisting"><a class="link" href="GOData.html" title="GOData"><span class="returnvalue">GOData</span></a> *            gog_axis_get_labels                 (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> const *axis</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a> **plot_that_labeled_axis</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>a <a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plot_that_labeled_axis</code></em> :</span></p></td>
+<td>a <a class="link" href="GogPlot.html" title="GogPlot"><span class="type">GogPlot</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the possibly NULL <a class="link" href="GOData.html" title="GOData"><span class="type">GOData</span></a> used as a label for this axis
+along with the plot that it was associated with
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_get_entry ()">
+<a name="gog-axis-get-entry"></a><h3>gog_axis_get_entry ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              gog_axis_get_entry                  (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> const *axis</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html#GogAxisElemType" title="enum GogAxisElemType"><span class="type">GogAxisElemType</span></a> i</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *user_defined</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_defined</code></em> :</span></p></td>
+<td>an optionally NULL pointr to gboolean
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the value of axis element <em class="parameter"><code>i</code></em> and sets <em class="parameter"><code>user_defined</code></em> or
+	NaN on error
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_add_contributor ()">
+<a name="gog-axis-add-contributor"></a><h3>gog_axis_add_contributor ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_axis_add_contributor            (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a> *contrib</code></em>);</pre>
+<p>
+Register <em class="parameter"><code>contrib</code></em> as taking part in the negotiation of <em class="parameter"><code>axis</code></em>'s bounds.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>contrib</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a> (can we relax this to use an interface ?)
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_del_contributor ()">
+<a name="gog-axis-del-contributor"></a><h3>gog_axis_del_contributor ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_axis_del_contributor            (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a> *contrib</code></em>);</pre>
+<p>
+<em class="parameter"><code>contrib</code></em> no longer takes part in the negotiation of <em class="parameter"><code>axis</code></em>'s bounds.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>contrib</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a> (can we relax this to use an interface ?)
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_contributors ()">
+<a name="gog-axis-contributors"></a><h3>gog_axis_contributors ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> const *      gog_axis_contributors               (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_clear_contributors ()">
+<a name="gog-axis-clear-contributors"></a><h3>gog_axis_clear_contributors ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_axis_clear_contributors         (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_bound_changed ()">
+<a name="gog-axis-bound-changed"></a><h3>gog_axis_bound_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_axis_bound_changed              (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a> *contrib</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>contrib</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogObject.html" title="GogObject"><span class="type">GogObject</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_get_grid_line ()">
+<a name="gog-axis-get-grid-line"></a><h3>gog_axis_get_grid_line ()</h3>
+<pre class="programlisting"><a class="link" href="GogGridLine.html" title="GogGridLine"><span class="returnvalue">GogGridLine</span></a> *       gog_axis_get_grid_line              (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> major</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>major</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_get_circular_rotation ()">
+<a name="gog-axis-get-circular-rotation"></a><h3>gog_axis_get_circular_rotation ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              gog_axis_get_circular_rotation      (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>a <a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> rotation of a circular <a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_get_date_conv ()">
+<a name="gog-axis-get-date-conv"></a><h3>gog_axis_get_date_conv ()</h3>
+<pre class="programlisting">const <span class="returnvalue">GODateConventions</span> * gog_axis_get_date_conv        (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> const *axis</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_get_effective_format ()">
+<a name="gog-axis-get-effective-format"></a><h3>gog_axis_get_effective_format ()</h3>
+<pre class="programlisting"><a class="link" href="goffice-0.8-GOFormat.html#GOFormat" title="GOFormat"><span class="returnvalue">GOFormat</span></a> *          gog_axis_get_effective_format       (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> const *axis</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="enum GogAxisPolarUnit">
+<a name="GogAxisPolarUnit"></a><h3>enum GogAxisPolarUnit</h3>
+<pre class="programlisting">typedef enum {
+	GOG_AXIS_POLAR_UNIT_DEGREES,
+	GOG_AXIS_POLAR_UNIT_RADIANS,
+	GOG_AXIS_POLAR_UNIT_GRADS,
+	GOG_AXIS_POLAR_UNIT_MAX
+} GogAxisPolarUnit;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_get_polar_perimeter ()">
+<a name="gog-axis-get-polar-perimeter"></a><h3>gog_axis_get_polar_perimeter ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              gog_axis_get_polar_perimeter        (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_set_polar_unit ()">
+<a name="gog-axis-set-polar-unit"></a><h3>gog_axis_set_polar_unit ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gog_axis_set_polar_unit             (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GogAxis.html#GogAxisPolarUnit" title="enum GogAxisPolarUnit"><span class="type">GogAxisPolarUnit</span></a> unit</code></em>);</pre>
+<p>
+Sets unit of a circular axis. See <a class="link" href="GogAxis.html#GogAxisPolarUnit" title="enum GogAxisPolarUnit"><span class="type">GogAxisPolarUnit</span></a> for valid
+values.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>a <a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>unit</code></em> :</span></p></td>
+<td>
+<a class="link" href="GogAxis.html#GogAxisPolarUnit" title="enum GogAxisPolarUnit"><span class="type">GogAxisPolarUnit</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="gog_axis_get_polar_unit ()">
+<a name="gog-axis-get-polar-unit"></a><h3>gog_axis_get_polar_unit ()</h3>
+<pre class="programlisting"><a class="link" href="GogAxis.html#GogAxisPolarUnit" title="enum GogAxisPolarUnit"><span class="returnvalue">GogAxisPolarUnit</span></a>    gog_axis_get_polar_unit             (<em class="parameter"><code><a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a> *axis</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>axis</code></em> :</span></p></td>
+<td>a <a class="link" href="GogAxis.html" title="GogAxis"><span class="type">GogAxis</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> unit of <em class="parameter"><code>axis</code></em> if it's a circular axis of a polar
+	axis set, -1 otherwise.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="GogAxis.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "assigned-format-string-XL" property'>
+<a name="GogAxis--assigned-format-string-XL"></a><h3>The <code class="literal">"assigned-format-string-XL"</code> property</h3>
+<pre class="programlisting">  "assigned-format-string-XL" <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
+<p>The user assigned format to use for non-discrete axis labels (XL format).</p>
+<p>Default value: "General"</p>
+</div>
+<hr>
+<div class="refsect2" title='The "circular-rotation" property'>
+<a name="GogAxis--circular-rotation"></a><h3>The <code class="literal">"circular-rotation"</code> property</h3>
+<pre class="programlisting">  "circular-rotation"        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>               : Read / Write</pre>
+<p>Rotation of circular axis.</p>
+<p>Allowed values: [-180,180]</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2" title='The "invert-axis" property'>
+<a name="GogAxis--invert-axis"></a><h3>The <code class="literal">"invert-axis"</code> property</h3>
+<pre class="programlisting">  "invert-axis"              <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write</pre>
+<p>Scale from high to low rather than low to high.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "map-name" property'>
+<a name="GogAxis--map-name"></a><h3>The <code class="literal">"map-name"</code> property</h3>
+<pre class="programlisting">  "map-name"                 <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
+<p>The name of the map for scaling.</p>
+<p>Default value: "linear"</p>
+</div>
+<hr>
+<div class="refsect2" title='The "polar-unit" property'>
+<a name="GogAxis--polar-unit"></a><h3>The <code class="literal">"polar-unit"</code> property</h3>
+<pre class="programlisting">  "polar-unit"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
+<p>Polar axis set unit.</p>
+<p>Default value: "Degrees"</p>
+</div>
+<hr>
+<div class="refsect2" title='The "type" property'>
+<a name="GogAxis--type"></a><h3>The <code class="literal">"type"</code> property</h3>
+<pre class="programlisting">  "type"                     <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write</pre>
+<p>Numerical type of this axis.</p>
+<p>Allowed values: [-1,8]</p>
+<p>Default value: -1</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

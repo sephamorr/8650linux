@@ -1,0 +1,445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GOMath</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Goffice Reference Manual">
+<link rel="up" href="ch13.html" title="Mathematical functions">
+<link rel="prev" href="ch13.html" title="Mathematical functions">
+<link rel="next" href="goffice-0.8-GOComplex.html" title="GOComplex">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch13.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch13.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Goffice Reference Manual</th>
+<td><a accesskey="n" href="goffice-0.8-GOComplex.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#goffice-0.8-GOMath.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#goffice-0.8-GOMath.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="GOMath">
+<a name="goffice-0.8-GOMath"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="goffice-0.8-GOMath.top_of_page"></a>GOMath</span></h2>
+<p>GOMath</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="goffice-0.8-GOMath.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis"><span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOMath.html#go-continued-fraction" title="go_continued_fraction ()">go_continued_fraction</a>               (<em class="parameter"><code><span class="type">double</span> val</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> max_denom</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *res_num</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *res_denom</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="goffice-0.8-GOMath.html#go-stern-brocot" title="go_stern_brocot ()">go_stern_brocot</a>                     (<em class="parameter"><code><span class="type">double</span> val</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> max_denom</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *res_num</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *res_denom</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-GOMath.html#go-add-epsilon" title="go_add_epsilon ()">go_add_epsilon</a>                      (<em class="parameter"><code><span class="type">double</span> x</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-GOMath.html#go-sub-epsilon" title="go_sub_epsilon ()">go_sub_epsilon</a>                      (<em class="parameter"><code><span class="type">double</span> x</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-GOMath.html#go-fake-floor" title="go_fake_floor ()">go_fake_floor</a>                       (<em class="parameter"><code><span class="type">double</span> x</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-GOMath.html#go-fake-ceil" title="go_fake_ceil ()">go_fake_ceil</a>                        (<em class="parameter"><code><span class="type">double</span> x</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-GOMath.html#go-fake-round" title="go_fake_round ()">go_fake_round</a>                       (<em class="parameter"><code><span class="type">double</span> x</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-GOMath.html#go-fake-trunc" title="go_fake_trunc ()">go_fake_trunc</a>                       (<em class="parameter"><code><span class="type">double</span> x</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-GOMath.html#go-rint" title="go_rint ()">go_rint</a>                             (<em class="parameter"><code><span class="type">double</span> x</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GOMath.html#go-finite" title="go_finite ()">go_finite</a>                           (<em class="parameter"><code><span class="type">double</span> x</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="goffice-0.8-GOMath.html#go-finitel" title="go_finitel ()">go_finitel</a>                          (<em class="parameter"><code>long <span class="type">double</span> x</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-GOMath.html#go-pow2" title="go_pow2 ()">go_pow2</a>                             (<em class="parameter"><code><span class="type">int</span> n</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-GOMath.html#go-pow10" title="go_pow10 ()">go_pow10</a>                            (<em class="parameter"><code><span class="type">int</span> n</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-GOMath.html#go-ascii-strtod" title="go_ascii_strtod ()">go_ascii_strtod</a>                     (<em class="parameter"><code>const <span class="type">char</span> *s</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> **end</code></em>);
+<span class="returnvalue">double</span>              <a class="link" href="goffice-0.8-GOMath.html#go-strtod" title="go_strtod ()">go_strtod</a>                           (<em class="parameter"><code>const <span class="type">char</span> *s</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> **end</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="goffice-0.8-GOMath.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="goffice-0.8-GOMath.details"></a><h2>Details</h2>
+<div class="refsect2" title="go_continued_fraction ()">
+<a name="go-continued-fraction"></a><h3>go_continued_fraction ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_continued_fraction               (<em class="parameter"><code><span class="type">double</span> val</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> max_denom</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *res_num</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *res_denom</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>max_denom</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res_num</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res_denom</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_stern_brocot ()">
+<a name="go-stern-brocot"></a><h3>go_stern_brocot ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                go_stern_brocot                     (<em class="parameter"><code><span class="type">double</span> val</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> max_denom</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *res_num</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> *res_denom</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>max_denom</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res_num</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res_denom</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_add_epsilon ()">
+<a name="go-add-epsilon"></a><h3>go_add_epsilon ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_add_epsilon                      (<em class="parameter"><code><span class="type">double</span> x</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_sub_epsilon ()">
+<a name="go-sub-epsilon"></a><h3>go_sub_epsilon ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_sub_epsilon                      (<em class="parameter"><code><span class="type">double</span> x</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_fake_floor ()">
+<a name="go-fake-floor"></a><h3>go_fake_floor ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_fake_floor                       (<em class="parameter"><code><span class="type">double</span> x</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_fake_ceil ()">
+<a name="go-fake-ceil"></a><h3>go_fake_ceil ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_fake_ceil                        (<em class="parameter"><code><span class="type">double</span> x</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_fake_round ()">
+<a name="go-fake-round"></a><h3>go_fake_round ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_fake_round                       (<em class="parameter"><code><span class="type">double</span> x</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_fake_trunc ()">
+<a name="go-fake-trunc"></a><h3>go_fake_trunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_fake_trunc                       (<em class="parameter"><code><span class="type">double</span> x</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_rint ()">
+<a name="go-rint"></a><h3>go_rint ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_rint                             (<em class="parameter"><code><span class="type">double</span> x</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_finite ()">
+<a name="go-finite"></a><h3>go_finite ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_finite                           (<em class="parameter"><code><span class="type">double</span> x</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_finitel ()">
+<a name="go-finitel"></a><h3>go_finitel ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 go_finitel                          (<em class="parameter"><code>long <span class="type">double</span> x</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_pow2 ()">
+<a name="go-pow2"></a><h3>go_pow2 ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_pow2                             (<em class="parameter"><code><span class="type">int</span> n</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_pow10 ()">
+<a name="go-pow10"></a><h3>go_pow10 ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_pow10                            (<em class="parameter"><code><span class="type">int</span> n</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_ascii_strtod ()">
+<a name="go-ascii-strtod"></a><h3>go_ascii_strtod ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_ascii_strtod                     (<em class="parameter"><code>const <span class="type">char</span> *s</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> **end</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>s</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>end</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="go_strtod ()">
+<a name="go-strtod"></a><h3>go_strtod ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>              go_strtod                           (<em class="parameter"><code>const <span class="type">char</span> *s</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> **end</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>s</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>end</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>
