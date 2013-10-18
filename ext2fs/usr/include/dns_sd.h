@@ -1,1 +1,0 @@
-avahi-compat-libdns_sd/dns_sd.h
