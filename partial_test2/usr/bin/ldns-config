@@ -1,0 +1,31 @@
+#!/bin/sh
+
+prefix="/usr"
+exec_prefix="${prefix}"
+VERSION="1.6.13"
+CFLAGS="-Wwrite-strings -W -Wall -O2 -g -march=armv5te -O2 -pipe -fstack-protector --param=ssp-buffer-size=4 -D_FORTIFY_SOURCE=2 -D_GNU_SOURCE"
+CPPFLAGS="  "
+LDFLAGS="-Wl,-O1,--sort-common,--as-needed,-z,relro  "
+LIBS="  -lcrypto -ldl"
+LIBDIR="${exec_prefix}/lib"
+INCLUDEDIR="${prefix}/include"
+
+for arg in $@
+do
+    if [ $arg = "--cflags" ]
+    then
+        echo "-I${INCLUDEDIR}"
+    fi
+    if [ $arg = "--libs" ]
+    then
+        echo "${LDFLAGS} -L${LIBDIR} ${LIBS} -lldns"
+    fi
+    if [ $arg = "-h" ] || [ $arg = "--help" ]
+    then
+        echo "Usage: $0 [--cflags] [--libs] [--version]"
+    fi
+    if [ $arg = "--version" ]
+    then
+        echo "${VERSION}"
+    fi
+done

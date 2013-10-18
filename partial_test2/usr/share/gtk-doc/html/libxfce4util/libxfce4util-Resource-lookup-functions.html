@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Resource lookup functions</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="libxfce4util Reference Manual">
+<link rel="up" href="libxfce4util-utilities.html" title="Xfce Utilities">
+<link rel="prev" href="libxfce4util-utilities.html" title="Xfce Utilities">
+<link rel="next" href="libxfce4util-Resource-Config-File-Support.html" title="Resource Config File Support">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libxfce4util-utilities.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libxfce4util-utilities.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libxfce4util Reference Manual</th>
+<td><a accesskey="n" href="libxfce4util-Resource-Config-File-Support.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libxfce4util-Resource-lookup-functions.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libxfce4util-Resource-lookup-functions.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libxfce4util-Resource-lookup-functions"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libxfce4util-Resource-lookup-functions.top_of_page"></a>Resource lookup functions</span></h2>
+<p>Resource lookup functions</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libxfce4util-Resource-lookup-functions.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libxfce4util/libxfce4util.h&gt;
+
+enum                <a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceResourceType" title="enum XfceResourceType">XfceResourceType</a>;
+<span class="returnvalue">gboolean</span>            (<a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceMatchFunc" title="XfceMatchFunc ()">*XfceMatchFunc</a>)                    (<em class="parameter"><code>const <span class="type">gchar</span> *basedir</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *relpath</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gchar</span> **            <a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-dirs" title="xfce_resource_dirs ()">xfce_resource_dirs</a>                  (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceResourceType" title="enum XfceResourceType"><span class="type">XfceResourceType</span></a> type</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-lookup" title="xfce_resource_lookup ()">xfce_resource_lookup</a>                (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceResourceType" title="enum XfceResourceType"><span class="type">XfceResourceType</span></a> type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *filename</code></em>);
+<span class="returnvalue">gchar</span> **            <a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-lookup-all" title="xfce_resource_lookup_all ()">xfce_resource_lookup_all</a>            (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceResourceType" title="enum XfceResourceType"><span class="type">XfceResourceType</span></a> type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *filename</code></em>);
+<span class="returnvalue">gchar</span> **            <a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-match" title="xfce_resource_match ()">xfce_resource_match</a>                 (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceResourceType" title="enum XfceResourceType"><span class="type">XfceResourceType</span></a> type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *pattern</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> unique</code></em>);
+<span class="returnvalue">gchar</span> **            <a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-match-custom" title="xfce_resource_match_custom ()">xfce_resource_match_custom</a>          (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceResourceType" title="enum XfceResourceType"><span class="type">XfceResourceType</span></a> type</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> unique</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceMatchFunc" title="XfceMatchFunc ()"><span class="type">XfceMatchFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-push-path" title="xfce_resource_push_path ()">xfce_resource_push_path</a>             (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceResourceType" title="enum XfceResourceType"><span class="type">XfceResourceType</span></a> type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-pop-path" title="xfce_resource_pop_path ()">xfce_resource_pop_path</a>              (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceResourceType" title="enum XfceResourceType"><span class="type">XfceResourceType</span></a> type</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-save-location" title="xfce_resource_save_location ()">xfce_resource_save_location</a>         (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceResourceType" title="enum XfceResourceType"><span class="type">XfceResourceType</span></a> type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *relpath</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> create</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libxfce4util-Resource-lookup-functions.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libxfce4util-Resource-lookup-functions.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="XfceResourceType"></a><h3>enum XfceResourceType</h3>
+<pre class="programlisting">typedef enum {
+  XFCE_RESOURCE_DATA   = 0,
+  XFCE_RESOURCE_CONFIG = 1,
+  XFCE_RESOURCE_CACHE  = 2,
+  XFCE_RESOURCE_ICONS  = 3,
+  XFCE_RESOURCE_THEMES = 4,
+} XfceResourceType;
+</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><a name="XFCE-RESOURCE-DATA:CAPS"></a><span class="term"><code class="literal">XFCE_RESOURCE_DATA</code></span></p></td>
+<td>where applications store data.
+</td>
+</tr>
+<tr>
+<td><p><a name="XFCE-RESOURCE-CONFIG:CAPS"></a><span class="term"><code class="literal">XFCE_RESOURCE_CONFIG</code></span></p></td>
+<td>configuration files.
+</td>
+</tr>
+<tr>
+<td><p><a name="XFCE-RESOURCE-CACHE:CAPS"></a><span class="term"><code class="literal">XFCE_RESOURCE_CACHE</code></span></p></td>
+<td>cached information.
+</td>
+</tr>
+<tr>
+<td><p><a name="XFCE-RESOURCE-ICONS:CAPS"></a><span class="term"><code class="literal">XFCE_RESOURCE_ICONS</code></span></p></td>
+<td>icon search path.
+</td>
+</tr>
+<tr>
+<td><p><a name="XFCE-RESOURCE-THEMES:CAPS"></a><span class="term"><code class="literal">XFCE_RESOURCE_THEMES</code></span></p></td>
+<td>themes search path.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfceMatchFunc"></a><h3>XfceMatchFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            (*XfceMatchFunc)                    (<em class="parameter"><code>const <span class="type">gchar</span> *basedir</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *relpath</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+Return value :
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>additional user data passed to <a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-match-custom" title="xfce_resource_match_custom ()"><code class="function">xfce_resource_match_custom()</code></a>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-resource-dirs"></a><h3>xfce_resource_dirs ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> **            xfce_resource_dirs                  (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceResourceType" title="enum XfceResourceType"><span class="type">XfceResourceType</span></a> type</code></em>);</pre>
+<p>
+Queries the list of possible directories for the specified <em class="parameter"><code>type</code></em>. The
+first element of the list is always the save location for <em class="parameter"><code>type</code></em>. None
+of the directories returned in the list are garantied to exist.
+</p>
+<p>
+This function should be rarely used. You should consider using
+<a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-lookup" title="xfce_resource_lookup ()"><code class="function">xfce_resource_lookup()</code></a>, <code class="function">xfce_resource_lookup_dirs()</code> or
+<a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-match" title="xfce_resource_match ()"><code class="function">xfce_resource_match()</code></a> instead.
+</p>
+<p>
+The returned list must be freed using <code class="function">g_strfreev()</code>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>type of the resource.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>list of possible directories for <em class="parameter"><code>type</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 4.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-resource-lookup"></a><h3>xfce_resource_lookup ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             xfce_resource_lookup                (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceResourceType" title="enum XfceResourceType"><span class="type">XfceResourceType</span></a> type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *filename</code></em>);</pre>
+<p>
+Looks for a resource of the specified <em class="parameter"><code>type</code></em> whose relative path matches
+<em class="parameter"><code>filename</code></em>. <em class="parameter"><code>filename</code></em> can either reference a regular file, in which case
+it must not end with a slash character ('/'), or a directory, when
+<em class="parameter"><code>filename</code></em> contains a trailing slash character ('/').
+</p>
+<p>
+The caller is responsible to free the returned string using <code class="function">g_free()</code>
+when no longer needed.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>type of resource to lookup.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>relative filename of the resource, e.g. "xfwm4/xfwmrc".</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the absolute path to the first file or directory in the
+search path, that matches <em class="parameter"><code>filename</code></em> or <code class="literal">NULL</code> if no such
+file or directory could be found.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 4.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-resource-lookup-all"></a><h3>xfce_resource_lookup_all ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> **            xfce_resource_lookup_all            (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceResourceType" title="enum XfceResourceType"><span class="type">XfceResourceType</span></a> type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *filename</code></em>);</pre>
+<p>
+Similar to <a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-lookup" title="xfce_resource_lookup ()"><code class="function">xfce_resource_lookup()</code></a>, but returns all resource of the specified <em class="parameter"><code>type</code></em>,
+that whose name is <em class="parameter"><code>filename</code></em>.
+</p>
+<p>
+The caller is responsible to free the returned string array using <code class="function">g_strfreev()</code>
+when no longer needed.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>type of the resource to lookup.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>relative file path. If <em class="parameter"><code>filename</code></em> contains a trailing slash character
+it is taken to reference a directory, else it is taken to reference
+a file.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 4.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-resource-match"></a><h3>xfce_resource_match ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> **            xfce_resource_match                 (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceResourceType" title="enum XfceResourceType"><span class="type">XfceResourceType</span></a> type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *pattern</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> unique</code></em>);</pre>
+<p>
+Tries to find all resources with the specified <em class="parameter"><code>type</code></em>. The function will
+look into all specified directories and return all filenames in these
+directories. The returned filenames are given relative the base directories
+specified by <em class="parameter"><code>type</code></em>.
+</p>
+<p>
+If <em class="parameter"><code>pattern</code></em> contains a trailing slash, <a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-match" title="xfce_resource_match ()"><span class="type">xfce_resource_match</span></a> looks only for
+directories that match <em class="parameter"><code>pattern</code></em>, else it'll only look for regular files. In
+case you are looking for directories, the returned entries will contain a
+trailing slash as well, so you can easily use them with other resource
+functions like <a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-lookup" title="xfce_resource_lookup ()"><span class="type">xfce_resource_lookup</span></a> or <a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-save-location" title="xfce_resource_save_location ()"><span class="type">xfce_resource_save_location</span></a>.
+</p>
+<p>
+Example: xfce_resource_match (XFCE_RESOURCE_CONFIG, "foo/bar*") will probably
+return ("foo/bar", "foo/barbaz", ...).
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>type of the resource to locate directories for.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pattern</code></em> :</span></p></td>
+<td>only accept filenames that fit to the pattern. The pattern
+needs to be a valid GPattern.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>unique</code></em> :</span></p></td>
+<td>if <code class="literal">TRUE</code>, only return items which have unique suffixes.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>string array of all the relative paths whose names matches the
+given <em class="parameter"><code>pattern</code></em>. The return value has to be freed using
+<code class="function">g_strfreev()</code> when no longer needed.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 4.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-resource-match-custom"></a><h3>xfce_resource_match_custom ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> **            xfce_resource_match_custom          (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceResourceType" title="enum XfceResourceType"><span class="type">XfceResourceType</span></a> type</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> unique</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceMatchFunc" title="XfceMatchFunc ()"><span class="type">XfceMatchFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+Yet to be implemented!
+</p>
+<p>
+The caller is responsible to free the returned string array using <code class="function">g_strfreev()</code>
+when no longer needed.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>type of the resource to locate directories for.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>unique</code></em> :</span></p></td>
+<td>if <code class="literal">TRUE</code>, only return items which have unique suffixes.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 4.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-resource-push-path"></a><h3>xfce_resource_push_path ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                xfce_resource_push_path             (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceResourceType" title="enum XfceResourceType"><span class="type">XfceResourceType</span></a> type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>);</pre>
+<p>
+Appends <em class="parameter"><code>path</code></em> to the search path list for <em class="parameter"><code>type</code></em>. This function was
+written primary for use within modules in larger applications, for example
+MCS plugins.
+</p>
+<p>
+For example, if you need to add a specific path to the search path list
+in your MCS, you should call <a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-push-path" title="xfce_resource_push_path ()"><code class="function">xfce_resource_push_path()</code></a> prior to calling
+one of the resource search functions and call <a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-pop-path" title="xfce_resource_pop_path ()"><code class="function">xfce_resource_pop_path()</code></a>
+right afterwards.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>type of the resource which search list should be expanded.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>search path to add.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 4.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-resource-pop-path"></a><h3>xfce_resource_pop_path ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                xfce_resource_pop_path              (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceResourceType" title="enum XfceResourceType"><span class="type">XfceResourceType</span></a> type</code></em>);</pre>
+<p>
+Undoes the effect of the latest call to <a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-push-path" title="xfce_resource_push_path ()"><code class="function">xfce_resource_push_path()</code></a>. You
+should take special care to call <a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-pop-path" title="xfce_resource_pop_path ()"><code class="function">xfce_resource_pop_path()</code></a> exactly same
+times as <a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-push-path" title="xfce_resource_push_path ()"><code class="function">xfce_resource_push_path()</code></a>, everything else might result in
+unwanted and maybe even undefined behaviour. You have been warned!
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>type of the resource which search list should be shrinked.</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 4.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-resource-save-location"></a><h3>xfce_resource_save_location ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             xfce_resource_save_location         (<em class="parameter"><code><a class="link" href="libxfce4util-Resource-lookup-functions.html#XfceResourceType" title="enum XfceResourceType"><span class="type">XfceResourceType</span></a> type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *relpath</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> create</code></em>);</pre>
+<p>
+If <em class="parameter"><code>relpath</code></em> contains a trailing slash ('/') character, <a class="link" href="libxfce4util-Resource-lookup-functions.html#xfce-resource-save-location" title="xfce_resource_save_location ()"><code class="function">xfce_resource_save_location()</code></a>
+finds the directory to save files into for the given type in the user's
+home directory. All directories needed (including those given by
+<em class="parameter"><code>relpath</code></em>) will be created on demand if <em class="parameter"><code>create</code></em> if <code class="literal">TRUE</code>.
+</p>
+<p>
+If <em class="parameter"><code>relpath</code></em> does not end with a slash ('/') character, it is taken to be
+the name of a file to return the save location for. All the directories
+needed will be created on demand if <em class="parameter"><code>create</code></em> is <code class="literal">TRUE</code>.
+</p>
+<p>
+Specifying <code class="literal">NULL</code> or the empty string for <em class="parameter"><code>relpath</code></em> allows you to discover
+the base path for saving files of the specified <em class="parameter"><code>type</code></em>, though normally
+you should not need this.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>type of location to return.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>relpath</code></em> :</span></p></td>
+<td>relative path of the resource.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>create</code></em> :</span></p></td>
+<td>whether to create missing directory.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the path where resources of the specified <em class="parameter"><code>type</code></em> should be
+saved or <code class="literal">NULL</code> on error. The returned string should be freed
+when no longer needed.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 4.2</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

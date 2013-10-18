@@ -1,0 +1,14 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+ldflags= 
+libs= -L/usr/lib -lnetsnmp -lcrypto -lm -ldl -lv4l1   -lm -ltiff -ljpeg  -lgphoto2 -lgphoto2_port -lm -lexif     -lavahi-common -lavahi-client    -lusb  
+
+Name: SANE Backends
+Description: Backends for SANE, the universal scanner interface
+Version: 1.0.22
+Requires:
+Libs: -L${libdir} -lsane
+Libs.private: ${ldflags} ${libs}
+Cflags: -I${includedir}

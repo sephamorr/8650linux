@@ -1,0 +1,417 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ZeitgeistIndex</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="API Documentation for the Zeitgeist Client Library">
+<link rel="up" href="ch04.html" title="API for Zeitgeist Extensions">
+<link rel="prev" href="ch04.html" title="API for Zeitgeist Extensions">
+<link rel="next" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch04.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">API Documentation for the Zeitgeist Client Library</th>
+<td><a accesskey="n" href="ZeitgeistDataSource.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#ZeitgeistIndex.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#ZeitgeistIndex.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#ZeitgeistIndex.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="ZeitgeistIndex"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ZeitgeistIndex.top_of_page"></a>ZeitgeistIndex</span></h2>
+<p>ZeitgeistIndex — Query the Zeitgeist Full Text Search Extension</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="ZeitgeistIndex.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;zeitgeist.h&gt;
+
+                    <a class="link" href="ZeitgeistIndex.html#ZeitgeistIndex-struct" title="ZeitgeistIndex">ZeitgeistIndex</a>;
+struct              <a class="link" href="ZeitgeistIndex.html#ZeitgeistIndexClass" title="struct ZeitgeistIndexClass">ZeitgeistIndexClass</a>;
+<a class="link" href="ZeitgeistIndex.html" title="ZeitgeistIndex"><span class="returnvalue">ZeitgeistIndex</span></a> *    <a class="link" href="ZeitgeistIndex.html#zeitgeist-index-new" title="zeitgeist_index_new ()">zeitgeist_index_new</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistIndex.html#zeitgeist-index-search" title="zeitgeist_index_search ()">zeitgeist_index_search</a>              (<em class="parameter"><code><a class="link" href="ZeitgeistIndex.html" title="ZeitgeistIndex"><span class="type">ZeitgeistIndex</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *query</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> *time_range</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *event_templates</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> offset</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> num_events</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="zeitgeist-1.0-Enumerations.html#ZeitgeistResultType"><span class="type">ZeitgeistResultType</span></a> result_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a class="link" href="ZeitgeistResultSet.html" title="ZeitgeistResultSet"><span class="returnvalue">ZeitgeistResultSet</span></a> * <a class="link" href="ZeitgeistIndex.html#zeitgeist-index-search-finish" title="zeitgeist_index_search_finish ()">zeitgeist_index_search_finish</a>      (<em class="parameter"><code><a class="link" href="ZeitgeistIndex.html" title="ZeitgeistIndex"><span class="type">ZeitgeistIndex</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistIndex.html#zeitgeist-index-search-with-relevancies" title="zeitgeist_index_search_with_relevancies ()">zeitgeist_index_search_with_relevancies</a>
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistIndex.html" title="ZeitgeistIndex"><span class="type">ZeitgeistIndex</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *query</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> *time_range</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *event_templates</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="zeitgeist-1.0-Enumerations.html#ZeitgeistStorageState"><span class="type">ZeitgeistStorageState</span></a> storage_state</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> offset</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> num_events</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="zeitgeist-1.0-Enumerations.html#ZeitgeistResultType"><span class="type">ZeitgeistResultType</span></a> result_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a class="link" href="ZeitgeistResultSet.html" title="ZeitgeistResultSet"><span class="returnvalue">ZeitgeistResultSet</span></a>* <a class="link" href="ZeitgeistIndex.html#zeitgeist-index-search-with-relevancies-finish" title="zeitgeist_index_search_with_relevancies_finish ()">zeitgeist_index_search_with_relevancies_finish</a>
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistIndex.html" title="ZeitgeistIndex"><span class="type">ZeitgeistIndex</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> **relevancies</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *relevancies_size</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistIndex.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----ZeitgeistIndex
+</pre>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistIndex.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistIndex.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ZeitgeistIndex-struct"></a><h3>ZeitgeistIndex</h3>
+<pre class="programlisting">typedef struct _ZeitgeistIndex ZeitgeistIndex;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ZeitgeistIndexClass"></a><h3>struct ZeitgeistIndexClass</h3>
+<pre class="programlisting">struct ZeitgeistIndexClass {
+  GObjectClass parent_class;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-index-new"></a><h3>zeitgeist_index_new ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistIndex.html" title="ZeitgeistIndex"><span class="returnvalue">ZeitgeistIndex</span></a> *    zeitgeist_index_new                 (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Create a new <a class="link" href="ZeitgeistIndex.html" title="ZeitgeistIndex"><span class="type">ZeitgeistIndex</span></a> instance. The index will start to connect to
+Zeitgeist asynchronously. You can however start calling methods on the
+returned instance immediately, any method calls issued before the connection
+has been established will simply be queued and executed once the connection
+is up.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A reference to a newly allocated index. Free with <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-index-search"></a><h3>zeitgeist_index_search ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_index_search              (<em class="parameter"><code><a class="link" href="ZeitgeistIndex.html" title="ZeitgeistIndex"><span class="type">ZeitgeistIndex</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *query</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> *time_range</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *event_templates</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> offset</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> num_events</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="zeitgeist-1.0-Enumerations.html#ZeitgeistResultType"><span class="type">ZeitgeistResultType</span></a> result_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Perform a full text search possibly restricted to a <a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a>
+and/or set of event templates.
+</p>
+<p>
+The default boolean operator is <code class="literal">AND</code>. Thus the query
+<span class="emphasis"><em>foo bar</em></span> will be interpreted as
+<span class="emphasis"><em>foo AND bar</em></span>. To exclude a term from the result
+set prepend it with a minus sign - eg <span class="emphasis"><em>foo -bar</em></span>.
+Phrase queries can be done by double quoting the string 
+<span class="emphasis"><em>"foo is a bar"</em></span>. You can truncate terms by appending
+a *.
+</p>
+<p>
+There are a few keys you can prefix to a term or phrase to search within
+a specific set of metadata. They are used like
+<span class="emphasis"><em>key:value</em></span>. The keys <span class="emphasis"><em>name</em></span> and
+<span class="emphasis"><em>title</em></span> search strictly within the text field of the
+event subjects. The key <span class="emphasis"><em>app</em></span> searches within the
+application name or description that is found in the actor attribute of
+the events. Lastly you can use the <span class="emphasis"><em>site</em></span> key to search
+within the domain name of the subject URIs.
+</p>
+<p>
+You can also control the results with the boolean operators
+<span class="emphasis"><em>AND</em></span> and <span class="emphasis"><em>OR</em></span> and you may
+use brackets, ( and ), to control the operator precedence.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>The <a class="link" href="ZeitgeistIndex.html" title="ZeitgeistIndex"><span class="type">ZeitgeistIndex</span></a> you want to query</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>query</code></em> :</span></p></td>
+<td>The search string to send to Zeitgeist</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>time_range</code></em> :</span></p></td>
+<td>Restrict matched events to ones within this time range. If you
+are not interested in restricting the timerange pass
+<a class="link" href="ZeitgeistTimeRange.html#zeitgeist-time-range-new-anytime" title="zeitgeist_time_range_new_anytime ()"><code class="function">zeitgeist_time_range_new_anytime()</code></a> as Zeitgeist will detect this
+and optimize the query accordingly</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event_templates</code></em> :</span></p></td>
+<td>Restrict matches events to ones matching these
+templates</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>offset</code></em> :</span></p></td>
+<td>Offset into the result set to read events from</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>num_events</code></em> :</span></p></td>
+<td>Maximal number of events to retrieve</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result_type</code></em> :</span></p></td>
+<td>The <a class="link" href="zeitgeist-1.0-Enumerations.html#ZeitgeistResultType"><span class="type">ZeitgeistResultType</span></a> determining the sort order.
+You may pass <a class="link" href="zeitgeist-1.0-Enumerations.html#ZEITGEIST-RESULT-TYPE-RELEVANCY:CAPS"><span class="type">ZEITGEIST_RESULT_TYPE_RELEVANCY</span></a> to this method
+to have the results ordered by relevancy calculated in relation
+to <em class="parameter"><code>query</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>A <a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> used to cancel the call or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>A <a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> to invoke when the search results are ready</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>User data to pass back with <em class="parameter"><code>callback</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-index-search-finish"></a><h3>zeitgeist_index_search_finish ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistResultSet.html" title="ZeitgeistResultSet"><span class="returnvalue">ZeitgeistResultSet</span></a> * zeitgeist_index_search_finish      (<em class="parameter"><code><a class="link" href="ZeitgeistIndex.html" title="ZeitgeistIndex"><span class="type">ZeitgeistIndex</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Retrieve the result from an asynchronous query started with
+<a class="link" href="ZeitgeistIndex.html#zeitgeist-index-search" title="zeitgeist_index_search ()"><code class="function">zeitgeist_index_search()</code></a>.
+</p>
+<p>
+The total hit count of the query will be available via the returned
+result set by calling <a class="link" href="ZeitgeistResultSet.html#zeitgeist-result-set-estimated-matches" title="zeitgeist_result_set_estimated_matches ()"><code class="function">zeitgeist_result_set_estimated_matches()</code></a>. This will
+often be bigger than the actual number of events held in the result set,
+which is limited by the <em class="parameter"><code>num_events</code></em> parameter passed to
+<a class="link" href="ZeitgeistIndex.html#zeitgeist-index-search" title="zeitgeist_index_search ()"><code class="function">zeitgeist_index_search()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>The <a class="link" href="ZeitgeistIndex.html" title="ZeitgeistIndex"><span class="type">ZeitgeistIndex</span></a> to retrieve results from</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>The <a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> you received in the <a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> you passed
+to <a class="link" href="ZeitgeistIndex.html#zeitgeist-index-search" title="zeitgeist_index_search ()"><code class="function">zeitgeist_index_search()</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>A place to store a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> in case you want to ignore errors</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly allocated <a class="link" href="ZeitgeistResultSet.html" title="ZeitgeistResultSet"><span class="type">ZeitgeistResultSet</span></a> containing the
+<a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a>s matching the query. You must free the
+result set with <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>. The events held in the result set
+will automatically be unreffed when it is finalized.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-index-search-with-relevancies"></a><h3>zeitgeist_index_search_with_relevancies ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_index_search_with_relevancies
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistIndex.html" title="ZeitgeistIndex"><span class="type">ZeitgeistIndex</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *query</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> *time_range</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *event_templates</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="zeitgeist-1.0-Enumerations.html#ZeitgeistStorageState"><span class="type">ZeitgeistStorageState</span></a> storage_state</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> offset</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> num_events</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="zeitgeist-1.0-Enumerations.html#ZeitgeistResultType"><span class="type">ZeitgeistResultType</span></a> result_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Perform a full text search possibly restricted to a <a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a>
+and/or set of event templates. As opposed to <a class="link" href="ZeitgeistIndex.html#zeitgeist-index-search" title="zeitgeist_index_search ()"><code class="function">zeitgeist_index_search()</code></a>, this
+call will also return numeric relevancies of the events
+in the <a class="link" href="ZeitgeistResultSet.html" title="ZeitgeistResultSet"><span class="type">ZeitgeistResultSet</span></a>.
+</p>
+<p>
+See <a class="link" href="ZeitgeistIndex.html#zeitgeist-index-search" title="zeitgeist_index_search ()"><code class="function">zeitgeist_index_search()</code></a> for more details on how to create the query.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>The <a class="link" href="ZeitgeistIndex.html" title="ZeitgeistIndex"><span class="type">ZeitgeistIndex</span></a> you want to query</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>query</code></em> :</span></p></td>
+<td>The search string to send to Zeitgeist</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>time_range</code></em> :</span></p></td>
+<td>Restrict matched events to ones within this time range. If you
+are not interested in restricting the timerange pass
+<a class="link" href="ZeitgeistTimeRange.html#zeitgeist-time-range-new-anytime" title="zeitgeist_time_range_new_anytime ()"><code class="function">zeitgeist_time_range_new_anytime()</code></a> as Zeitgeist will detect this
+and optimize the query accordingly</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event_templates</code></em> :</span></p></td>
+<td>Restrict matched events to ones matching these
+templates</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>storage_state</code></em> :</span></p></td>
+<td>Filter the events by availability of the storage medium.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>offset</code></em> :</span></p></td>
+<td>Offset into the result set to read events from</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>num_events</code></em> :</span></p></td>
+<td>Maximal number of events to retrieve</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result_type</code></em> :</span></p></td>
+<td>The <a class="link" href="zeitgeist-1.0-Enumerations.html#ZeitgeistResultType"><span class="type">ZeitgeistResultType</span></a> determining the sort order.
+You may pass <a class="link" href="zeitgeist-1.0-Enumerations.html#ZEITGEIST-RESULT-TYPE-RELEVANCY:CAPS"><span class="type">ZEITGEIST_RESULT_TYPE_RELEVANCY</span></a> to this method
+to have the results ordered by relevancy calculated in relation
+to <em class="parameter"><code>query</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>A <a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> used to cancel the call or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>A <a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> to invoke when the search results are ready</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>User data to pass back with <em class="parameter"><code>callback</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-index-search-with-relevancies-finish"></a><h3>zeitgeist_index_search_with_relevancies_finish ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistResultSet.html" title="ZeitgeistResultSet"><span class="returnvalue">ZeitgeistResultSet</span></a>* zeitgeist_index_search_with_relevancies_finish
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistIndex.html" title="ZeitgeistIndex"><span class="type">ZeitgeistIndex</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> **relevancies</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *relevancies_size</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Retrieve the result from an asynchronous query started with
+<a class="link" href="ZeitgeistIndex.html#zeitgeist-index-search-with-relevancies" title="zeitgeist_index_search_with_relevancies ()"><code class="function">zeitgeist_index_search_with_relevancies()</code></a>.
+</p>
+<p>
+The total hit count of the query will be available via the returned
+result set by calling <a class="link" href="ZeitgeistResultSet.html#zeitgeist-result-set-estimated-matches" title="zeitgeist_result_set_estimated_matches ()"><code class="function">zeitgeist_result_set_estimated_matches()</code></a>. This will
+often be bigger than the actual number of events held in the result set,
+which is limited by the <em class="parameter"><code>num_events</code></em> parameter passed to
+<a class="link" href="ZeitgeistIndex.html#zeitgeist-index-search-with-relevancies" title="zeitgeist_index_search_with_relevancies ()"><code class="function">zeitgeist_index_search_with_relevancies()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>The <a class="link" href="ZeitgeistIndex.html" title="ZeitgeistIndex"><span class="type">ZeitgeistIndex</span></a> to retrieve results from</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>The <a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> you received in the <a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> you passed
+to <a class="link" href="ZeitgeistIndex.html#zeitgeist-index-search-with-relevancies" title="zeitgeist_index_search_with_relevancies ()"><code class="function">zeitgeist_index_search_with_relevancies()</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>relevancies</code></em> :</span></p></td>
+<td>Location for the newly allocated array
+with relevancies. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>relevancies_size</code></em> :</span></p></td>
+<td>Location for the size of the newly allocated array. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>A place to store a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> in case you want to ignore errors</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly allocated <a class="link" href="ZeitgeistResultSet.html" title="ZeitgeistResultSet"><span class="type">ZeitgeistResultSet</span></a> containing the
+<a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a>s matching the query. You must free the
+result set with <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>. The events held in the result set
+will automatically be unreffed when it is finalized.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

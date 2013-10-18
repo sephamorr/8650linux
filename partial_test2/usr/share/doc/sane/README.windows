@@ -1,0 +1,59 @@
+SANE on Cygwin/Win32
+
+Prerequisites
+=============
+
+To be able to compile sane-backends, you need to have Cygwin installed,
+with at least the following package(s):
+  - gcc
+
+You can get Cygwin at http://sources.redhat.com/cygwin/
+
+The scanner must be detected by Windows and not be disabled. Check
+with the hardware manager.
+
+
+Building
+========
+
+See general README for build basics. The autoconf script (configure) checks
+for C++ compilers and misdetects CC (=cc = gcc) a a c++ compiler because of
+the case-insensitive filesystem. If that happens, one work-around will be to
+install a real C++ compiler.
+
+
+Scanning
+========
+
+If you have more than one scanner, you should do the following:
+
+  - run sane-find-scanner to get the device name of the scanner. The
+    name is something like h0b0t6l0, meaning hba 0, bus 0, scsi id 6 and
+    lun 0.
+
+  - edit the config file for the backend
+    (/usr/local/etc/sane.d/xxxx.conf) and add the scanner device name on
+    an empty line.
+
+Run "scanimage > out.pnm" to get a scan.
+
+xscanimage and XSane also work. xscanimage compiles and runs out of
+the box. XSane 0.92 needs a couple build fixes.
+
+
+Notes
+=====
+
+- Only SCSI and USB (with libusb-win32) scanners may work. No
+  FireWire/Parallel. The Cygwin libusb port is at
+  http://sourceforge.net/projects/libusb-win32.
+
+- Tested on Windows 2000 only. Should work on Windows NT/XP too;
+  may or may not work on Windows 95/98/ME.
+
+- Some scanners' backend may not work because of requirement not
+  supported by Cygwin.
+
+
+2004/02/07
+Frank Zago.

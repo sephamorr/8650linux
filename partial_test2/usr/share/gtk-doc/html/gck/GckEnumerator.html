@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GckEnumerator</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Gck Library Reference Manual">
+<link rel="up" href="reference.html" title="PKCS#11 GObject Bindings">
+<link rel="prev" href="GckObjectCache.html" title="GckObjectCache">
+<link rel="next" href="gck-GckModule-lists.html" title="GckModule lists">
+<meta name="generator" content="GTK-Doc V1.19 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GckObjectCache.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="reference.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Gck Library Reference Manual</th>
+<td><a accesskey="n" href="gck-GckModule-lists.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#GckEnumerator.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#GckEnumerator.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#GckEnumerator.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#GckEnumerator.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="GckEnumerator"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GckEnumerator.top_of_page"></a>GckEnumerator</span></h2>
+<p>GckEnumerator — Enumerates through PKCS#11 objects.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GckEnumerator.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="GckEnumerator.html#GckEnumerator-struct" title="struct GckEnumerator">GckEnumerator</a>;
+<a class="link" href="GckObject.html" title="GckObject"><span class="returnvalue">GckObject</span></a> *         <a class="link" href="GckEnumerator.html#gck-enumerator-next" title="gck_enumerator_next ()">gck_enumerator_next</a>                 (<em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckEnumerator.html#gck-enumerator-next-async" title="gck_enumerator_next_async ()">gck_enumerator_next_async</a>           (<em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> max_objects</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="GckEnumerator.html#gck-enumerator-next-finish" title="gck_enumerator_next_finish ()">gck_enumerator_next_finish</a>          (<em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *result</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="GckEnumerator.html#gck-enumerator-next-n" title="gck_enumerator_next_n ()">gck_enumerator_next_n</a>               (<em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> max_objects</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="http://library.gnome.org/devel/gio/unstable/GTlsInteraction.html"><span class="returnvalue">GTlsInteraction</span></a> *   <a class="link" href="GckEnumerator.html#gck-enumerator-get-interaction" title="gck_enumerator_get_interaction ()">gck_enumerator_get_interaction</a>      (<em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckEnumerator.html#gck-enumerator-set-interaction" title="gck_enumerator_set_interaction ()">gck_enumerator_set_interaction</a>      (<em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GTlsInteraction.html"><span class="type">GTlsInteraction</span></a> *interaction</code></em>);
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GckEnumerator.html#gck-enumerator-get-object-type" title="gck_enumerator_get_object_type ()">gck_enumerator_get_object_type</a>      (<em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckEnumerator.html#gck-enumerator-set-object-type" title="gck_enumerator_set_object_type ()">gck_enumerator_set_object_type</a>      (<em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> object_type</code></em>);
+<a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="returnvalue">GckEnumerator</span></a> *     <a class="link" href="GckEnumerator.html#gck-enumerator-get-chained" title="gck_enumerator_get_chained ()">gck_enumerator_get_chained</a>          (<em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GckEnumerator.html#gck-enumerator-set-chained" title="gck_enumerator_set_chained ()">gck_enumerator_set_chained</a>          (<em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *chained</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="GckEnumerator.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GckEnumerator
+</pre>
+</div>
+<div class="refsect1">
+<a name="GckEnumerator.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="GckEnumerator.html#GckEnumerator--chained" title='The "chained" property'>chained</a>"                  <a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a>*        : Read / Write
+  "<a class="link" href="GckEnumerator.html#GckEnumerator--interaction" title='The "interaction" property'>interaction</a>"              <a href="http://library.gnome.org/devel/gio/unstable/GTlsInteraction.html"><span class="type">GTlsInteraction</span></a>*      : Read / Write
+  "<a class="link" href="GckEnumerator.html#GckEnumerator--object-type" title='The "object-type" property'>object-type</a>"              <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a>*                : Read / Write
+</pre>
+</div>
+<div class="refsect1">
+<a name="GckEnumerator.description"></a><h2>Description</h2>
+<p>
+A GckEnumerator can be used to enumerate through PKCS#11 objects. It will
+automatically create sessions as necessary.
+</p>
+<p>
+Use <a class="link" href="gck-GckModule-lists.html#gck-modules-enumerate-objects" title="gck_modules_enumerate_objects ()"><code class="function">gck_modules_enumerate_objects()</code></a> or <a class="link" href="gck-GckModule-lists.html#gck-modules-enumerate-uri" title="gck_modules_enumerate_uri ()"><code class="function">gck_modules_enumerate_uri()</code></a> to create
+an enumerator. To get the objects use <a class="link" href="GckEnumerator.html#gck-enumerator-next" title="gck_enumerator_next ()"><code class="function">gck_enumerator_next()</code></a> or
+<a class="link" href="GckEnumerator.html#gck-enumerator-next-async" title="gck_enumerator_next_async ()"><code class="function">gck_enumerator_next_async()</code></a> functions.
+</p>
+</div>
+<div class="refsect1">
+<a name="GckEnumerator.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GckEnumerator-struct"></a><h3>struct GckEnumerator</h3>
+<pre class="programlisting">struct GckEnumerator;</pre>
+<p>
+An object that allows enumerating of objects across modules, tokens.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-enumerator-next"></a><h3>gck_enumerator_next ()</h3>
+<pre class="programlisting"><a class="link" href="GckObject.html" title="GckObject"><span class="returnvalue">GckObject</span></a> *         gck_enumerator_next                 (<em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Get the next object in the enumerator, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there are no more objects.
+</p>
+<p>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is also returned if the function fails. Use the <em class="parameter"><code>error</code></em> to determine
+whether a failure occurred or not.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>The enumerator</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>A <a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>A location to store an error on failure</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The next object, which must be released
+using g_object_unref, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-enumerator-next-async"></a><h3>gck_enumerator_next_async ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_enumerator_next_async           (<em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> max_objects</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Get the next set of objects from the enumerator. This operation completes
+asynchronously.The maximum number of objects can be specified with
+<em class="parameter"><code>max_objects</code></em>. If -1 is specified, then all the remaining objects will be
+enumerated.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>An enumerator</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>max_objects</code></em> :</span></p></td>
+<td>The maximum number of objects to get</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>A <a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>Called when the result is ready</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>Data to pass to the callback</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-enumerator-next-finish"></a><h3>gck_enumerator_next_finish ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             gck_enumerator_next_finish          (<em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *result</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Complete an operation to enumerate next objects.
+</p>
+<p>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is also returned if the function fails. Use the <em class="parameter"><code>error</code></em> to determine
+whether a failure occurred or not.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>An enumerator</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>The result passed to the callback</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>A location to raise an error on failure.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The list of objects, which
+should be freed with <a class="link" href="gck-Miscellaneous-Functions.html#gck-list-unref-free" title="gck_list_unref_free ()"><code class="function">gck_list_unref_free()</code></a>. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> Gck.Module][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-enumerator-next-n"></a><h3>gck_enumerator_next_n ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             gck_enumerator_next_n               (<em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> max_objects</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Get the next set of objects from the enumerator. The maximum number of
+objects can be specified with <em class="parameter"><code>max_objects</code></em>. If -1 is specified, then all
+the remaining objects will be returned.
+</p>
+<p>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is also returned if the function fails. Use the <em class="parameter"><code>error</code></em> to determine
+whether a failure occurred or not.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>An enumerator</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>max_objects</code></em> :</span></p></td>
+<td>The maximum amount of objects to enumerate</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>A <a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>A location to store an error on failure</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A list of objects, which
+should be freed using <a class="link" href="gck-Miscellaneous-Functions.html#gck-list-unref-free" title="gck_list_unref_free ()"><code class="function">gck_list_unref_free()</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> Gck.Object]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-enumerator-get-interaction"></a><h3>gck_enumerator_get_interaction ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gio/unstable/GTlsInteraction.html"><span class="returnvalue">GTlsInteraction</span></a> *   gck_enumerator_get_interaction      (<em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *self</code></em>);</pre>
+<p>
+Get the interaction used when a pin is needed
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the enumerator</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the interaction or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-enumerator-set-interaction"></a><h3>gck_enumerator_set_interaction ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_enumerator_set_interaction      (<em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GTlsInteraction.html"><span class="type">GTlsInteraction</span></a> *interaction</code></em>);</pre>
+<p>
+Set the interaction used when a pin is needed
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the enumerator</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>interaction</code></em> :</span></p></td>
+<td>the interaction or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-enumerator-get-object-type"></a><h3>gck_enumerator_get_object_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               gck_enumerator_get_object_type      (<em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *self</code></em>);</pre>
+<p>
+Get the type of objects created by this enumerator. The type will always
+either be <a class="link" href="GckObject.html" title="GckObject"><span class="type">GckObject</span></a> or derived from it.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>an enumerator</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the type of objects created. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-enumerator-set-object-type"></a><h3>gck_enumerator_set_object_type ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_enumerator_set_object_type      (<em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> object_type</code></em>);</pre>
+<p>
+Set the type of objects to be created by this enumerator. The type must
+always be either <a class="link" href="GckObject.html" title="GckObject"><span class="type">GckObject</span></a> or derived from it.
+</p>
+<p>
+If the <a class="link" href="GckObjectCache.html" title="GckObjectCache"><span class="type">GckObjectCache</span></a> interface is implemented on the derived class
+and the attribute_types field is set, then the enumerator will retrieve
+attributes for each object.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>an enumerator</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object_type</code></em> :</span></p></td>
+<td>the type of objects to create</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-enumerator-get-chained"></a><h3>gck_enumerator_get_chained ()</h3>
+<pre class="programlisting"><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="returnvalue">GckEnumerator</span></a> *     gck_enumerator_get_chained          (<em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *self</code></em>);</pre>
+<p>
+Get the enumerator that will be run after all objects from this one
+are seen.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the enumerator</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the chained enumerator or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gck-enumerator-set-chained"></a><h3>gck_enumerator_set_chained ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gck_enumerator_set_chained          (<em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a> *chained</code></em>);</pre>
+<p>
+Set a chained enumerator that will be run after all objects from this one
+are seen.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the enumerator</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chained</code></em> :</span></p></td>
+<td>the chained enumerator or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="GckEnumerator.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="GckEnumerator--chained"></a><h3>The <code class="literal">"chained"</code> property</h3>
+<pre class="programlisting">  "chained"                  <a class="link" href="GckEnumerator.html" title="GckEnumerator"><span class="type">GckEnumerator</span></a>*        : Read / Write</pre>
+<p>
+Chained enumerator, which will be enumerated when this enumerator
+has enumerated all its objects.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GckEnumerator--interaction"></a><h3>The <code class="literal">"interaction"</code> property</h3>
+<pre class="programlisting">  "interaction"              <a href="http://library.gnome.org/devel/gio/unstable/GTlsInteraction.html"><span class="type">GTlsInteraction</span></a>*      : Read / Write</pre>
+<p>
+Interaction object used to ask the user for pins when opening
+sessions. Used if the session_options of the enumerator have
+<a class="link" href="GckSlot.html#GCK-SESSION-LOGIN-USER:CAPS"><code class="literal">GCK_SESSION_LOGIN_USER</code></a>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GckEnumerator--object-type"></a><h3>The <code class="literal">"object-type"</code> property</h3>
+<pre class="programlisting">  "object-type"              <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a>*                : Read / Write</pre>
+<p>
+The type of objects that are created by the enumerator. Must be
+GckObject or derived from it.
+</p>
+<p>Allowed values: GckObject</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.19</div>
+</body>
+</html>

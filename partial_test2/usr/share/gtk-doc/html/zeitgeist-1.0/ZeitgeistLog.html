@@ -1,0 +1,659 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ZeitgeistLog</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="API Documentation for the Zeitgeist Client Library">
+<link rel="up" href="ch01.html" title="Classes">
+<link rel="prev" href="ZeitgeistEvent.html" title="ZeitgeistEvent">
+<link rel="next" href="ZeitgeistMonitor.html" title="ZeitgeistMonitor">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ZeitgeistEvent.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">API Documentation for the Zeitgeist Client Library</th>
+<td><a accesskey="n" href="ZeitgeistMonitor.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#ZeitgeistLog.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#ZeitgeistLog.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#ZeitgeistLog.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#ZeitgeistLog.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="ZeitgeistLog"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ZeitgeistLog.top_of_page"></a>ZeitgeistLog</span></h2>
+<p>ZeitgeistLog — Primary access point for talking to the Zeitgeist daemon</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="ZeitgeistLog.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;zeitgeist.h&gt;
+
+                    <a class="link" href="ZeitgeistLog.html#ZeitgeistLog-struct" title="ZeitgeistLog">ZeitgeistLog</a>;
+struct              <a class="link" href="ZeitgeistLog.html#ZeitgeistLogClass" title="struct ZeitgeistLogClass">ZeitgeistLogClass</a>;
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistLog.html#zeitgeist-log-delete-events" title="zeitgeist_log_delete_events ()">zeitgeist_log_delete_events</a>         (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Arrays.html#GArray"><span class="type">GArray</span></a> *event_ids</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ZeitgeistLog.html#zeitgeist-log-delete-events-finish" title="zeitgeist_log_delete_events_finish ()">zeitgeist_log_delete_events_finish</a>  (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistLog.html#zeitgeist-log-delete-log" title="zeitgeist_log_delete_log ()">zeitgeist_log_delete_log</a>            (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ZeitgeistLog.html#zeitgeist-log-delete-log-finish" title="zeitgeist_log_delete_log_finish ()">zeitgeist_log_delete_log_finish</a>     (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistLog.html#zeitgeist-log-find-event-ids" title="zeitgeist_log_find_event_ids ()">zeitgeist_log_find_event_ids</a>        (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> *time_range</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *event_templates</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="zeitgeist-1.0-Enumerations.html#ZeitgeistStorageState"><span class="type">ZeitgeistStorageState</span></a> storage_state</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> num_events</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="zeitgeist-1.0-Enumerations.html#ZeitgeistResultType"><span class="type">ZeitgeistResultType</span></a> result_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Arrays.html#GArray"><span class="returnvalue">GArray</span></a> *            <a class="link" href="ZeitgeistLog.html#zeitgeist-log-find-event-ids-finish" title="zeitgeist_log_find_event_ids_finish ()">zeitgeist_log_find_event_ids_finish</a> (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistLog.html#zeitgeist-log-find-events" title="zeitgeist_log_find_events ()">zeitgeist_log_find_events</a>           (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> *time_range</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *event_templates</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="zeitgeist-1.0-Enumerations.html#ZeitgeistStorageState"><span class="type">ZeitgeistStorageState</span></a> storage_state</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> num_events</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="zeitgeist-1.0-Enumerations.html#ZeitgeistResultType"><span class="type">ZeitgeistResultType</span></a> result_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a class="link" href="ZeitgeistResultSet.html" title="ZeitgeistResultSet"><span class="returnvalue">ZeitgeistResultSet</span></a> * <a class="link" href="ZeitgeistLog.html#zeitgeist-log-find-events-finish" title="zeitgeist_log_find_events_finish ()">zeitgeist_log_find_events_finish</a>   (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistLog.html#zeitgeist-log-find-related-uris" title="zeitgeist_log_find_related_uris ()">zeitgeist_log_find_related_uris</a>     (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> *time_range</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *event_templates</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *result_event_templates</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="zeitgeist-1.0-Enumerations.html#ZeitgeistStorageState"><span class="type">ZeitgeistStorageState</span></a> storage_state</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> num_events</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="zeitgeist-1.0-Enumerations.html#ZeitgeistResultType"><span class="type">ZeitgeistResultType</span></a> result_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **            <a class="link" href="ZeitgeistLog.html#zeitgeist-log-find-related-uris-finish" title="zeitgeist_log_find_related_uris_finish ()">zeitgeist_log_find_related_uris_finish</a>
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="returnvalue">ZeitgeistLog</span></a> *      <a class="link" href="ZeitgeistLog.html#zeitgeist-log-get-default" title="zeitgeist_log_get_default ()">zeitgeist_log_get_default</a>           (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistLog.html#zeitgeist-log-get-events" title="zeitgeist_log_get_events ()">zeitgeist_log_get_events</a>            (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Arrays.html#GArray"><span class="type">GArray</span></a> *event_ids</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a class="link" href="ZeitgeistResultSet.html" title="ZeitgeistResultSet"><span class="returnvalue">ZeitgeistResultSet</span></a> * <a class="link" href="ZeitgeistLog.html#zeitgeist-log-get-events-finish" title="zeitgeist_log_get_events_finish ()">zeitgeist_log_get_events_finish</a>    (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistLog.html#zeitgeist-log-get-version" title="zeitgeist_log_get_version ()">zeitgeist_log_get_version</a>           (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *major</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *minor</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *micro</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistLog.html#zeitgeist-log-insert-events" title="zeitgeist_log_insert_events ()">zeitgeist_log_insert_events</a>         (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Arrays.html#GArray"><span class="returnvalue">GArray</span></a> *            <a class="link" href="ZeitgeistLog.html#zeitgeist-log-insert-events-finish" title="zeitgeist_log_insert_events_finish ()">zeitgeist_log_insert_events_finish</a>  (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistLog.html#zeitgeist-log-insert-events-from-ptrarray" title="zeitgeist_log_insert_events_from_ptrarray ()">zeitgeist_log_insert_events_from_ptrarray</a>
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *events</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistLog.html#zeitgeist-log-insert-events-no-reply" title="zeitgeist_log_insert_events_no_reply ()">zeitgeist_log_insert_events_no_reply</a>
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistLog.html#zeitgeist-log-insert-events-valist" title="zeitgeist_log_insert_events_valist ()">zeitgeist_log_insert_events_valist</a>  (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><span class="type">va_list</span> events</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistLog.html#zeitgeist-log-install-monitor" title="zeitgeist_log_install_monitor ()">zeitgeist_log_install_monitor</a>       (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ZeitgeistMonitor.html" title="ZeitgeistMonitor"><span class="type">ZeitgeistMonitor</span></a> *monitor</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ZeitgeistLog.html#zeitgeist-log-is-connected" title="zeitgeist_log_is_connected ()">zeitgeist_log_is_connected</a>          (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>);
+<a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="returnvalue">ZeitgeistLog</span></a> *      <a class="link" href="ZeitgeistLog.html#zeitgeist-log-new" title="zeitgeist_log_new ()">zeitgeist_log_new</a>                   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistLog.html#zeitgeist-log-quit" title="zeitgeist_log_quit ()">zeitgeist_log_quit</a>                  (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ZeitgeistLog.html#zeitgeist-log-quit-finish" title="zeitgeist_log_quit_finish ()">zeitgeist_log_quit_finish</a>           (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistLog.html#zeitgeist-log-remove-monitor" title="zeitgeist_log_remove_monitor ()">zeitgeist_log_remove_monitor</a>        (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ZeitgeistMonitor.html" title="ZeitgeistMonitor"><span class="type">ZeitgeistMonitor</span></a> *monitor</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistLog.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----ZeitgeistLog
+</pre>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistLog.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="ZeitgeistLog.html#ZeitgeistLog--connected" title='The "connected" property'>connected</a>"                <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read
+</pre>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistLog.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> encapsulates the low level access to the Zeitgeist daemon.
+You can use it to manage the log by inserting and deleting entries as well
+as do queries on the logged data.
+</p>
+<p>
+It's important to realize that the <a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> class does not expose
+any API that does synchronous communications with the message bus - 
+everything is asynchronous. To ease development some of the methods have
+variants that are "fire and forget" ignoring the normal return value, so
+that callbacks does not have to be set up.
+</p>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistLog.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ZeitgeistLog-struct"></a><h3>ZeitgeistLog</h3>
+<pre class="programlisting">typedef struct _ZeitgeistLog ZeitgeistLog;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ZeitgeistLogClass"></a><h3>struct ZeitgeistLogClass</h3>
+<pre class="programlisting">struct ZeitgeistLogClass {
+  GObjectClass parent_class;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-delete-events"></a><h3>zeitgeist_log_delete_events ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_log_delete_events         (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Arrays.html#GArray"><span class="type">GArray</span></a> *event_ids</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-delete-events-finish"></a><h3>zeitgeist_log_delete_events_finish ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            zeitgeist_log_delete_events_finish  (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-delete-log"></a><h3>zeitgeist_log_delete_log ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_log_delete_log            (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-delete-log-finish"></a><h3>zeitgeist_log_delete_log_finish ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            zeitgeist_log_delete_log_finish     (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-find-event-ids"></a><h3>zeitgeist_log_find_event_ids ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_log_find_event_ids        (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> *time_range</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *event_templates</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="zeitgeist-1.0-Enumerations.html#ZeitgeistStorageState"><span class="type">ZeitgeistStorageState</span></a> storage_state</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> num_events</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="zeitgeist-1.0-Enumerations.html#ZeitgeistResultType"><span class="type">ZeitgeistResultType</span></a> result_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-find-event-ids-finish"></a><h3>zeitgeist_log_find_event_ids_finish ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Arrays.html#GArray"><span class="returnvalue">GArray</span></a> *            zeitgeist_log_find_event_ids_finish (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-find-events"></a><h3>zeitgeist_log_find_events ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_log_find_events           (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> *time_range</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *event_templates</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="zeitgeist-1.0-Enumerations.html#ZeitgeistStorageState"><span class="type">ZeitgeistStorageState</span></a> storage_state</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> num_events</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="zeitgeist-1.0-Enumerations.html#ZeitgeistResultType"><span class="type">ZeitgeistResultType</span></a> result_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-find-events-finish"></a><h3>zeitgeist_log_find_events_finish ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistResultSet.html" title="ZeitgeistResultSet"><span class="returnvalue">ZeitgeistResultSet</span></a> * zeitgeist_log_find_events_finish   (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Retrieve the result from an asynchronous query started with
+<a class="link" href="ZeitgeistLog.html#zeitgeist-log-find-events" title="zeitgeist_log_find_events ()"><code class="function">zeitgeist_log_find_events()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly allocated <a class="link" href="ZeitgeistResultSet.html" title="ZeitgeistResultSet"><span class="type">ZeitgeistResultSet</span></a> containing
+the <a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a>s
+matching the query. You must free the result set with
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>. The events held in the result set will
+automatically be unreffed when the result set is finalized. <span class="annotation">[transfer-full]</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-find-related-uris"></a><h3>zeitgeist_log_find_related_uris ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_log_find_related_uris     (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> *time_range</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *event_templates</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *result_event_templates</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="zeitgeist-1.0-Enumerations.html#ZeitgeistStorageState"><span class="type">ZeitgeistStorageState</span></a> storage_state</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> num_events</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="zeitgeist-1.0-Enumerations.html#ZeitgeistResultType"><span class="type">ZeitgeistResultType</span></a> result_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-find-related-uris-finish"></a><h3>zeitgeist_log_find_related_uris_finish ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **            zeitgeist_log_find_related_uris_finish
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-get-default"></a><h3>zeitgeist_log_get_default ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="returnvalue">ZeitgeistLog</span></a> *      zeitgeist_log_get_default           (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+See <a class="link" href="ZeitgeistLog.html#zeitgeist-log-new" title="zeitgeist_log_new ()"><code class="function">zeitgeist_log_new()</code></a> for more information.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A unique <a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a>. Do not ref or unref it. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 0.3.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-get-events"></a><h3>zeitgeist_log_get_events ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_log_get_events            (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Arrays.html#GArray"><span class="type">GArray</span></a> *event_ids</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-get-events-finish"></a><h3>zeitgeist_log_get_events_finish ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistResultSet.html" title="ZeitgeistResultSet"><span class="returnvalue">ZeitgeistResultSet</span></a> * zeitgeist_log_get_events_finish    (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-get-version"></a><h3>zeitgeist_log_get_version ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_log_get_version           (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *major</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *minor</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *micro</code></em>);</pre>
+<p>
+Gets version of currently running Zeitgeist daemon.
+</p>
+<p>
+This method will return the version of Zeitgeist daemon this instance is
+connected to. If you call this method right after <a class="link" href="ZeitgeistLog.html#zeitgeist-log-new" title="zeitgeist_log_new ()"><code class="function">zeitgeist_log_new()</code></a>,
+only zeros will be returned, a valid version number will only be returned
+once this instance successfully connected to the Zeitgeist daemon - ie
+the value of the "connected" property must be TRUE (you can connect
+to the "notify::connected" signal otherwise).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>A <a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> instance</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>major</code></em> :</span></p></td>
+<td>Location for the major version. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minor</code></em> :</span></p></td>
+<td>Location for the minor version. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>micro</code></em> :</span></p></td>
+<td>Location for the micro version. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-insert-events"></a><h3>zeitgeist_log_insert_events ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_log_insert_events         (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+Asynchronously send a set of events to the Zeitgeist daemon, requesting they
+be inserted into the log.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>The log logging the events</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>To cancel the operation or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> to invoke once the logging operation has
+completed. Set to <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore the result. In this callback
+you can invoke <a class="link" href="ZeitgeistLog.html#zeitgeist-log-insert-events-finish" title="zeitgeist_log_insert_events_finish ()"><code class="function">zeitgeist_log_insert_events_finish()</code></a> to collect
+the event ids of the inserted events</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>Any user data to pass back to <em class="parameter"><code>callback</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-insert-events-finish"></a><h3>zeitgeist_log_insert_events_finish ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Arrays.html#GArray"><span class="returnvalue">GArray</span></a> *            zeitgeist_log_insert_events_finish  (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-insert-events-from-ptrarray"></a><h3>zeitgeist_log_insert_events_from_ptrarray ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_log_insert_events_from_ptrarray
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *events</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Asynchronously send a set of events to the Zeitgeist daemon, requesting they
+be inserted into the log.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>The log logging the events</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>events</code></em> :</span></p></td>
+<td>A <a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> of <a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a>s to insert. This method
+steals the reference to <em class="parameter"><code>events</code></em> and consumes all floating refs
+on the event members. It is assumed that the free_func on <em class="parameter"><code>events</code></em>
+is set to <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>To cancel the operation or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> to invoke once the logging operation has
+completed. Set to <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore the result. In this callback
+you can invoke <a class="link" href="ZeitgeistLog.html#zeitgeist-log-insert-events-finish" title="zeitgeist_log_insert_events_finish ()"><code class="function">zeitgeist_log_insert_events_finish()</code></a> to collect
+the event ids of the inserted events</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>Any user data to pass back to <em class="parameter"><code>callback</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-insert-events-no-reply"></a><h3>zeitgeist_log_insert_events_no_reply ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_log_insert_events_no_reply
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+Asynchronously send a set of events to the Zeitgeist daemon, requesting they
+be inserted into the log. This method is "fire and forget" and the
+caller will never know whether the events was successfully inserted or not.
+</p>
+<p>
+This method is exactly equivalent to calling <a class="link" href="ZeitgeistLog.html#zeitgeist-log-insert-events" title="zeitgeist_log_insert_events ()"><code class="function">zeitgeist_log_insert_events()</code></a>
+with <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> set as <em class="parameter"><code>cancellable</code></em>, <em class="parameter"><code>callback</code></em>, and <em class="parameter"><code>user_data</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>The log logging the events</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-insert-events-valist"></a><h3>zeitgeist_log_insert_events_valist ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_log_insert_events_valist  (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><span class="type">va_list</span> events</code></em>);</pre>
+<p>
+This method is intended for language bindings. If calling this function
+from C code it's generally more handy to use <a class="link" href="ZeitgeistLog.html#zeitgeist-log-insert-events" title="zeitgeist_log_insert_events ()"><code class="function">zeitgeist_log_insert_events()</code></a>
+or <a class="link" href="ZeitgeistLog.html#zeitgeist-log-insert-events-from-ptrarray" title="zeitgeist_log_insert_events_from_ptrarray ()"><code class="function">zeitgeist_log_insert_events_from_ptrarray()</code></a>.
+</p>
+<p>
+Asynchronously send a set of events to the Zeitgeist daemon, requesting they
+be inserted into the log.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>The log logging the events</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>To cancel the operation or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> to invoke once the logging operation has
+completed. Set to <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore the result. In this callback
+you can invoke <a class="link" href="ZeitgeistLog.html#zeitgeist-log-insert-events-finish" title="zeitgeist_log_insert_events_finish ()"><code class="function">zeitgeist_log_insert_events_finish()</code></a> to collect
+the event ids of the inserted events</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>Any user data to pass back to <em class="parameter"><code>callback</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>events</code></em> :</span></p></td>
+<td>A <a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> of <a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a>s to insert. This method
+steals the reference to <em class="parameter"><code>events</code></em> and consumes all floating refs
+on the event members.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-install-monitor"></a><h3>zeitgeist_log_install_monitor ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_log_install_monitor       (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ZeitgeistMonitor.html" title="ZeitgeistMonitor"><span class="type">ZeitgeistMonitor</span></a> *monitor</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-is-connected"></a><h3>zeitgeist_log_is_connected ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            zeitgeist_log_is_connected          (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-new"></a><h3>zeitgeist_log_new ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="returnvalue">ZeitgeistLog</span></a> *      zeitgeist_log_new                   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+The <a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> object will asynchronously start to connect to the
+Zeitgeist daemon. Any request you send to via this log object will be queued
+until the connection is ready - at which point you will get a notify signal
+on the <a class="link" href="ZeitgeistLog.html#ZeitgeistLog--connected" title='The "connected" property'><span class="type">"connected"</span></a> property.
+</p>
+<p>
+It isn't recommended to call this function more than once. If you need to
+access <a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> from different parts of your codebase, consider using
+<a class="link" href="ZeitgeistLog.html#zeitgeist-log-get-default" title="zeitgeist_log_get_default ()"><code class="function">zeitgeist_log_get_default()</code></a> instead.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A reference to a newly allocated log.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-quit"></a><h3>zeitgeist_log_quit ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_log_quit                  (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-quit-finish"></a><h3>zeitgeist_log_quit_finish ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            zeitgeist_log_quit_finish           (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-log-remove-monitor"></a><h3>zeitgeist_log_remove_monitor ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_log_remove_monitor        (<em class="parameter"><code><a class="link" href="ZeitgeistLog.html" title="ZeitgeistLog"><span class="type">ZeitgeistLog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ZeitgeistMonitor.html" title="ZeitgeistMonitor"><span class="type">ZeitgeistMonitor</span></a> *monitor</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistLog.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="ZeitgeistLog--connected"></a><h3>The <code class="literal">"connected"</code> property</h3>
+<pre class="programlisting">  "connected"                <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read</pre>
+<p>
+Determines if this Log instance is currently connected to Zeitgeist
+daemon.
+</p>
+<p>Default value: FALSE</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

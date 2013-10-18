@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ZeitgeistTimeRange</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="API Documentation for the Zeitgeist Client Library">
+<link rel="up" href="ch01.html" title="Classes">
+<link rel="prev" href="ZeitgeistSubject.html" title="ZeitgeistSubject">
+<link rel="next" href="ch02.html" title="Utility Functions">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ZeitgeistSubject.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">API Documentation for the Zeitgeist Client Library</th>
+<td><a accesskey="n" href="ch02.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#ZeitgeistTimeRange.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#ZeitgeistTimeRange.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#ZeitgeistTimeRange.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="ZeitgeistTimeRange"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ZeitgeistTimeRange.top_of_page"></a>ZeitgeistTimeRange</span></h2>
+<p>ZeitgeistTimeRange — Immutable representation of an interval in time, marked by a beginning and an end</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="ZeitgeistTimeRange.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;zeitgeist.h&gt;
+
+                    <a class="link" href="ZeitgeistTimeRange.html#ZeitgeistTimeRange-struct" title="ZeitgeistTimeRange">ZeitgeistTimeRange</a>;
+struct              <a class="link" href="ZeitgeistTimeRange.html#ZeitgeistTimeRangeClass" title="struct ZeitgeistTimeRangeClass">ZeitgeistTimeRangeClass</a>;
+<span class="returnvalue">gint64</span>              <a class="link" href="ZeitgeistTimeRange.html#zeitgeist-time-range-get-end" title="zeitgeist_time_range_get_end ()">zeitgeist_time_range_get_end</a>        (<em class="parameter"><code><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> *time_range</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="ZeitgeistTimeRange.html#zeitgeist-time-range-get-end-iso8601" title="zeitgeist_time_range_get_end_iso8601 ()">zeitgeist_time_range_get_end_iso8601</a>
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> *time_range</code></em>);
+<span class="returnvalue">gint64</span>              <a class="link" href="ZeitgeistTimeRange.html#zeitgeist-time-range-get-start" title="zeitgeist_time_range_get_start ()">zeitgeist_time_range_get_start</a>      (<em class="parameter"><code><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> *time_range</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="ZeitgeistTimeRange.html#zeitgeist-time-range-get-start-iso8601" title="zeitgeist_time_range_get_start_iso8601 ()">zeitgeist_time_range_get_start_iso8601</a>
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> *time_range</code></em>);
+<a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="returnvalue">ZeitgeistTimeRange</span></a> * <a class="link" href="ZeitgeistTimeRange.html#zeitgeist-time-range-new" title="zeitgeist_time_range_new ()">zeitgeist_time_range_new</a>           (<em class="parameter"><code><span class="type">gint64</span> start_msec</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint64</span> end_msec</code></em>);
+<a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="returnvalue">ZeitgeistTimeRange</span></a> * <a class="link" href="ZeitgeistTimeRange.html#zeitgeist-time-range-new-anytime" title="zeitgeist_time_range_new_anytime ()">zeitgeist_time_range_new_anytime</a>   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="returnvalue">ZeitgeistTimeRange</span></a> * <a class="link" href="ZeitgeistTimeRange.html#zeitgeist-time-range-new-from-now" title="zeitgeist_time_range_new_from_now ()">zeitgeist_time_range_new_from_now</a>  (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="returnvalue">ZeitgeistTimeRange</span></a>* <a class="link" href="ZeitgeistTimeRange.html#zeitgeist-time-range-new-from-variant" title="zeitgeist_time_range_new_from_variant ()">zeitgeist_time_range_new_from_variant</a>
+                                                        (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *time_range</code></em>);
+<a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="returnvalue">ZeitgeistTimeRange</span></a> * <a class="link" href="ZeitgeistTimeRange.html#zeitgeist-time-range-new-to-now" title="zeitgeist_time_range_new_to_now ()">zeitgeist_time_range_new_to_now</a>    (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          <a class="link" href="ZeitgeistTimeRange.html#zeitgeist-time-range-to-variant" title="zeitgeist_time_range_to_variant ()">zeitgeist_time_range_to_variant</a>     (<em class="parameter"><code><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> *time_range</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistTimeRange.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----ZeitgeistTimeRange
+</pre>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistTimeRange.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> is a light, immutable, encapsulation of an interval
+in time, marked by a beginning and an end.
+</p>
+<p>
+Time ranges are sub classes of <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned"><span class="type">GInitiallyUnowned</span></a> which means that
+you may pass them directly to methods provided by the Zeitgeist library
+and forget about them. The callee will own the floating reference.
+</p>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistTimeRange.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ZeitgeistTimeRange-struct"></a><h3>ZeitgeistTimeRange</h3>
+<pre class="programlisting">typedef struct _ZeitgeistTimeRange ZeitgeistTimeRange;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ZeitgeistTimeRangeClass"></a><h3>struct ZeitgeistTimeRangeClass</h3>
+<pre class="programlisting">struct ZeitgeistTimeRangeClass {
+  GInitiallyUnownedClass parent_class;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-time-range-get-end"></a><h3>zeitgeist_time_range_get_end ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint64</span>              zeitgeist_time_range_get_end        (<em class="parameter"><code><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> *time_range</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>time_range</code></em> :</span></p></td>
+<td>The time range to inspect</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The ending timestamp of the time range in miiliseconds since the
+Unix Epoch</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-time-range-get-end-iso8601"></a><h3>zeitgeist_time_range_get_end_iso8601 ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             zeitgeist_time_range_get_end_iso8601
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> *time_range</code></em>);</pre>
+<p>
+Converts the a timestamp to a human readable format. Eg. 1970-01-01T00:00:00Z
+or 2010-04-09T07:24:08.082000Z. Note that the timezone of the formatted
+string will always be UTC disregarding locale.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>time_range</code></em> :</span></p></td>
+<td>The time range to extract the end timestamp from</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly allocated string containing the timestamp formatted
+according to ISO-8601. Free with <a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-time-range-get-start"></a><h3>zeitgeist_time_range_get_start ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint64</span>              zeitgeist_time_range_get_start      (<em class="parameter"><code><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> *time_range</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>time_range</code></em> :</span></p></td>
+<td>The time range to inspect</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The starting timestamp of the time range in miiliseconds since the
+Unix Epoch</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-time-range-get-start-iso8601"></a><h3>zeitgeist_time_range_get_start_iso8601 ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             zeitgeist_time_range_get_start_iso8601
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> *time_range</code></em>);</pre>
+<p>
+Converts the a timestamp to a human readable format. Eg. 1970-01-01T00:00:00Z
+or 2010-04-09T07:24:08.082000Z. Note that the timezone of the formatted
+string will always be UTC disregarding locale.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>time_range</code></em> :</span></p></td>
+<td>The time range to extract the start timestamp from</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly allocated string containing the timestamp formatted
+according to ISO-8601. Free with <a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-time-range-new"></a><h3>zeitgeist_time_range_new ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="returnvalue">ZeitgeistTimeRange</span></a> * zeitgeist_time_range_new           (<em class="parameter"><code><span class="type">gint64</span> start_msec</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint64</span> end_msec</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>start_msec</code></em> :</span></p></td>
+<td>Starting timestamp in number of milliseconds since the Unix Epoch</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>end_msec</code></em> :</span></p></td>
+<td>Ending timestamp in number of milliseconds since the Unix Epoch</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly allocated <a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a>. Free with <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-time-range-new-anytime"></a><h3>zeitgeist_time_range_new_anytime ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="returnvalue">ZeitgeistTimeRange</span></a> * zeitgeist_time_range_new_anytime   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A new time range starting from the beginning of the Unix Epoch
+stretching to the end of time</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-time-range-new-from-now"></a><h3>zeitgeist_time_range_new_from_now ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="returnvalue">ZeitgeistTimeRange</span></a> * zeitgeist_time_range_new_from_now  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A new time range starting from the moment of invocation to the end
+of time</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-time-range-new-from-variant"></a><h3>zeitgeist_time_range_new_from_variant ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="returnvalue">ZeitgeistTimeRange</span></a>* zeitgeist_time_range_new_from_variant
+                                                        (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *time_range</code></em>);</pre>
+<p>
+Create a <a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> from a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>time_range</code></em> :</span></p></td>
+<td>A <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> with signature
+<a href="/usr/share/gtk-doc/html/zeitgeist-1.0/ZeitgeistTimeRange.html#ZEITGEIST-TIME-RANGE-VARIANT-SIGNATURE:CAPS"><span class="type">ZEITGEIST_TIME_RANGE_VARIANT_SIGNATURE</span></a>. If <em class="parameter"><code>time_range</code></em> is
+a floating reference this method will assume ownership of it</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A floating reference to a newly created <a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-time-range-new-to-now"></a><h3>zeitgeist_time_range_new_to_now ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="returnvalue">ZeitgeistTimeRange</span></a> * zeitgeist_time_range_new_to_now    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A new time range starting from the beginning of the Unix Epoch
+ending at the moment of invocation</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-time-range-to-variant"></a><h3>zeitgeist_time_range_to_variant ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          zeitgeist_time_range_to_variant     (<em class="parameter"><code><a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a> *time_range</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>time_range</code></em> :</span></p></td>
+<td>A <a class="link" href="ZeitgeistTimeRange.html" title="ZeitgeistTimeRange"><span class="type">ZeitgeistTimeRange</span></a>. If the reference is floating this method
+will assume ownership of it</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A floating reference to a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> with signature
+<a href="/usr/share/gtk-doc/html/zeitgeist-1.0/ZeitgeistTimeRange.html#ZEITGEIST-TIME-RANGE-VARIANT-SIGNATURE:CAPS"><span class="type">ZEITGEIST_TIME_RANGE_VARIANT_SIGNATURE</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

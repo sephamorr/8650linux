@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ZeitgeistDataSource</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="API Documentation for the Zeitgeist Client Library">
+<link rel="up" href="ch04.html" title="API for Zeitgeist Extensions">
+<link rel="prev" href="ZeitgeistIndex.html" title="ZeitgeistIndex">
+<link rel="next" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ZeitgeistIndex.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">API Documentation for the Zeitgeist Client Library</th>
+<td><a accesskey="n" href="ZeitgeistDataSourceRegistry.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#ZeitgeistDataSource.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#ZeitgeistDataSource.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#ZeitgeistDataSource.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="ZeitgeistDataSource"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ZeitgeistDataSource.top_of_page"></a>ZeitgeistDataSource</span></h2>
+<p>ZeitgeistDataSource — Abstracts data sources used by
+                    the <a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="type">ZeitgeistDataSourceRegistry</span></a> extension</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="ZeitgeistDataSource.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;zeitgeist.h&gt;
+
+                    <a class="link" href="ZeitgeistDataSource.html#ZeitgeistDataSource-struct" title="ZeitgeistDataSource">ZeitgeistDataSource</a>;
+struct              <a class="link" href="ZeitgeistDataSource.html#ZeitgeistDataSourceClass" title="struct ZeitgeistDataSourceClass">ZeitgeistDataSourceClass</a>;
+const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-get-description" title="zeitgeist_data_source_get_description ()">zeitgeist_data_source_get_description</a>
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="returnvalue">GPtrArray</span></a> *         <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-get-event-templates" title="zeitgeist_data_source_get_event_templates ()">zeitgeist_data_source_get_event_templates</a>
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>);
+const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-get-name" title="zeitgeist_data_source_get_name ()">zeitgeist_data_source_get_name</a>      (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>);
+<span class="returnvalue">gint64</span>              <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-get-timestamp" title="zeitgeist_data_source_get_timestamp ()">zeitgeist_data_source_get_timestamp</a> (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>);
+const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-get-unique-id" title="zeitgeist_data_source_get_unique_id ()">zeitgeist_data_source_get_unique_id</a> (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-is-enabled" title="zeitgeist_data_source_is_enabled ()">zeitgeist_data_source_is_enabled</a>    (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-is-running" title="zeitgeist_data_source_is_running ()">zeitgeist_data_source_is_running</a>    (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>);
+<a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="returnvalue">ZeitgeistDataSource</span></a> * <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-new" title="zeitgeist_data_source_new ()">zeitgeist_data_source_new</a>         (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="returnvalue">ZeitgeistDataSource</span></a> * <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-new-from-variant" title="zeitgeist_data_source_new_from_variant ()">zeitgeist_data_source_new_from_variant</a>
+                                                        (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *src</code></em>);
+<a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="returnvalue">ZeitgeistDataSource</span></a> * <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-new-full" title="zeitgeist_data_source_new_full ()">zeitgeist_data_source_new_full</a>    (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *id</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *desc</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *event_templates</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-set-description" title="zeitgeist_data_source_set_description ()">zeitgeist_data_source_set_description</a>
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *description</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-set-enabled" title="zeitgeist_data_source_set_enabled ()">zeitgeist_data_source_set_enabled</a>   (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> enabled</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-set-event-templates" title="zeitgeist_data_source_set_event_templates ()">zeitgeist_data_source_set_event_templates</a>
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *event_templates</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-set-name" title="zeitgeist_data_source_set_name ()">zeitgeist_data_source_set_name</a>      (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-set-running" title="zeitgeist_data_source_set_running ()">zeitgeist_data_source_set_running</a>   (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> running</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-set-timestamp" title="zeitgeist_data_source_set_timestamp ()">zeitgeist_data_source_set_timestamp</a> (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint64</span> timestamp</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-set-unique-id" title="zeitgeist_data_source_set_unique_id ()">zeitgeist_data_source_set_unique_id</a> (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *unique_id</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-to-variant" title="zeitgeist_data_source_to_variant ()">zeitgeist_data_source_to_variant</a>    (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-to-variant-full" title="zeitgeist_data_source_to_variant_full ()">zeitgeist_data_source_to_variant_full</a>
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="returnvalue">GPtrArray</span></a> *         <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-sources-from-variant" title="zeitgeist_data_sources_from_variant ()">zeitgeist_data_sources_from_variant</a> (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *sources</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-sources-to-variant" title="zeitgeist_data_sources_to_variant ()">zeitgeist_data_sources_to_variant</a>   (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *sources</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistDataSource.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----ZeitgeistDataSource
+</pre>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistDataSource.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> represents a data source used to insert events into
+Zeitgeist. The data sources are identified using the unique_id property,
+and when querying the data source registry you get other interesting
+information like timestamp of the last action of the data source, flag
+whether it is currently running etc.
+</p>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistDataSource.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ZeitgeistDataSource-struct"></a><h3>ZeitgeistDataSource</h3>
+<pre class="programlisting">typedef struct _ZeitgeistDataSource ZeitgeistDataSource;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ZeitgeistDataSourceClass"></a><h3>struct ZeitgeistDataSourceClass</h3>
+<pre class="programlisting">struct ZeitgeistDataSourceClass {
+  GInitiallyUnownedClass parent_class;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-get-description"></a><h3>zeitgeist_data_source_get_description ()</h3>
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       zeitgeist_data_source_get_description
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-get-event-templates"></a><h3>zeitgeist_data_source_get_event_templates ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="returnvalue">GPtrArray</span></a> *         zeitgeist_data_source_get_event_templates
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-get-name"></a><h3>zeitgeist_data_source_get_name ()</h3>
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       zeitgeist_data_source_get_name      (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-get-timestamp"></a><h3>zeitgeist_data_source_get_timestamp ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint64</span>              zeitgeist_data_source_get_timestamp (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-get-unique-id"></a><h3>zeitgeist_data_source_get_unique_id ()</h3>
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       zeitgeist_data_source_get_unique_id (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-is-enabled"></a><h3>zeitgeist_data_source_is_enabled ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            zeitgeist_data_source_is_enabled    (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-is-running"></a><h3>zeitgeist_data_source_is_running ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            zeitgeist_data_source_is_running    (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-new"></a><h3>zeitgeist_data_source_new ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="returnvalue">ZeitgeistDataSource</span></a> * zeitgeist_data_source_new         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Create a new empty data source structure.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A new instance of <a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a>. The returned source will
+have a floating reference which will be consumed if you pass the
+data source to any of the methods provided by this library (like
+registering the data source). If you do not do that then you
+must free the data source yourself with <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-new-from-variant"></a><h3>zeitgeist_data_source_new_from_variant ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="returnvalue">ZeitgeistDataSource</span></a> * zeitgeist_data_source_new_from_variant
+                                                        (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *src</code></em>);</pre>
+<p>
+Parse the data in a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> and build a <a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> from it.
+The reverse operation of this is <a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-to-variant-full" title="zeitgeist_data_source_to_variant_full ()"><code class="function">zeitgeist_data_source_to_variant_full()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly allocated <a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> filled with the metadata and
+event templates described by <em class="parameter"><code>src</code></em>. The returned data source will
+have a floating reference which will be consumed if you pass the
+data source to any of the methods provided by this library. If you
+do not do that then you must free the data source yourself with
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-new-full"></a><h3>zeitgeist_data_source_new_full ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="returnvalue">ZeitgeistDataSource</span></a> * zeitgeist_data_source_new_full    (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *id</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *desc</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *event_templates</code></em>);</pre>
+<p>
+Creates a new instance of DataSource with the given ID, name and
+description.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>Unique ID for the data source.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>Name of the data source (may be translated).</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>desc</code></em> :</span></p></td>
+<td>Data source description.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event_templates</code></em> :</span></p></td>
+<td>A <a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> of <a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a>s. This parameter
+is optional and purely informational to let data-source
+management applications and other data-sources know what
+sort of information the data source logs.
+The data source will assume ownership of the events and
+the pointer array.
+If you want to keep a reference for yourself you must do a
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#g-ptr-array-ref"><code class="function">g_ptr_array_ref()</code></a> on <em class="parameter"><code>event_templates</code></em> as well as reffing
+the events held by it before calling this method.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>New instance of <a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> with floating reference,
+if you do not pass the instance to method like
+<a class="link" href="ZeitgeistDataSourceRegistry.html#zeitgeist-data-source-registry-register-data-source" title="zeitgeist_data_source_registry_register_data_source ()"><code class="function">zeitgeist_data_source_registry_register_data_source()</code></a>, then you
+have to free the data source yourself using <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-set-description"></a><h3>zeitgeist_data_source_set_description ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_data_source_set_description
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *description</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-set-enabled"></a><h3>zeitgeist_data_source_set_enabled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_data_source_set_enabled   (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> enabled</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-set-event-templates"></a><h3>zeitgeist_data_source_set_event_templates ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_data_source_set_event_templates
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *event_templates</code></em>);</pre>
+<p>
+Sets event templates which are logged by this <a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a>
+instance.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td>Instance of <a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event_templates</code></em> :</span></p></td>
+<td>A <a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> which contains elements of type
+<a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a>.
+The data source will assume ownership of the events and
+the pointer array.
+If you want to keep a reference for yourself you must do a
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#g-ptr-array-ref"><code class="function">g_ptr_array_ref()</code></a> on <em class="parameter"><code>templates</code></em> as well as reffing
+the events held by it before calling this method.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-set-name"></a><h3>zeitgeist_data_source_set_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_data_source_set_name      (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-set-running"></a><h3>zeitgeist_data_source_set_running ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_data_source_set_running   (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> running</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-set-timestamp"></a><h3>zeitgeist_data_source_set_timestamp ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_data_source_set_timestamp (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint64</span> timestamp</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-set-unique-id"></a><h3>zeitgeist_data_source_set_unique_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_data_source_set_unique_id (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *unique_id</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-to-variant"></a><h3>zeitgeist_data_source_to_variant ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          zeitgeist_data_source_to_variant    (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>);</pre>
+<p>
+Convert a <a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> to a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> with signature
+<a href="/usr/share/gtk-doc/html/zeitgeist-1.0/ZeitgeistDataSource.html#ZEITGEIST-DATA-SOURCE-VARIANT-SIGNATURE:CAPS"><span class="type">ZEITGEIST_DATA_SOURCE_VARIANT_SIGNATURE</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A floating reference to a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> as described above. Unless the
+floating reference is consumed somewhere you must free it with
+<a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#g-variant-unref"><code class="function">g_variant_unref()</code></a>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-to-variant-full"></a><h3>zeitgeist_data_source_to_variant_full ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          zeitgeist_data_source_to_variant_full
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *src</code></em>);</pre>
+<p>
+Convert a <a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> to a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> with signature
+<span class="type">ZEITGEIST_DATA_SOURCE_WITH_INFO_VARIANT_SIGNATURE</span>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A floating reference to a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> as described above. Unless the
+floating reference is consumed somewhere you must free it with
+<a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#g-variant-unref"><code class="function">g_variant_unref()</code></a>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-sources-from-variant"></a><h3>zeitgeist_data_sources_from_variant ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="returnvalue">GPtrArray</span></a> *         zeitgeist_data_sources_from_variant (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *sources</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sources</code></em> :</span></p></td>
+<td>A <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a>  with signature as an array of
+<span class="type">ZEITGEIST_DATA_SOURCE_WITH_INFO_VARIANT_SIGNATURE</span>.
+If <em class="parameter"><code>sources</code></em> is floating this method will consume
+the floating reference.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A reference to a <a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> of <a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a>s.
+All the events will be floating references, and the
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a>'s <em class="parameter"><code>free_func</code></em> will be set to <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-sources-to-variant"></a><h3>zeitgeist_data_sources_to_variant ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          zeitgeist_data_sources_to_variant   (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *sources</code></em>);</pre>
+<p>
+Convert a set of <a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a>&lt;-- --&gt;s to a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> with signature
+as an array of <a href="/usr/share/gtk-doc/html/zeitgeist-1.0/ZeitgeistDataSource.html#ZEITGEIST-DATA-SOURCE-VARIANT-SIGNATURE:CAPS"><span class="type">ZEITGEIST_DATA_SOURCE_VARIANT_SIGNATURE</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A floating reference to a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> as described above. Unless the
+floating reference is consumed somewhere you must free it with
+<a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#g-variant-unref"><code class="function">g_variant_unref()</code></a>.</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

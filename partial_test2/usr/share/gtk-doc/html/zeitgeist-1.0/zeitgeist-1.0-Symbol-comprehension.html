@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Symbol comprehension</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="API Documentation for the Zeitgeist Client Library">
+<link rel="up" href="ch02.html" title="Utility Functions">
+<link rel="prev" href="zeitgeist-1.0-Timestamp-handling.html" title="Timestamp handling">
+<link rel="next" href="ch03.html" title="Enumerations and Macros">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="zeitgeist-1.0-Timestamp-handling.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">API Documentation for the Zeitgeist Client Library</th>
+<td><a accesskey="n" href="ch03.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#zeitgeist-1.0-Symbol-comprehension.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#zeitgeist-1.0-Symbol-comprehension.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="zeitgeist-1.0-Symbol-comprehension"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="zeitgeist-1.0-Symbol-comprehension.top_of_page"></a>Symbol comprehension</span></h2>
+<p>Symbol comprehension — Used to get information about Interpretation and/or
+                    Manifestation symbols</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="zeitgeist-1.0-Symbol-comprehension.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;zeitgeist.h&gt;
+
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="zeitgeist-1.0-Symbol-comprehension.html#zeitgeist-symbol-get-all-children" title="zeitgeist_symbol_get_all_children ()">zeitgeist_symbol_get_all_children</a>   (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *symbol</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="zeitgeist-1.0-Symbol-comprehension.html#zeitgeist-symbol-get-children" title="zeitgeist_symbol_get_children ()">zeitgeist_symbol_get_children</a>       (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *symbol</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="zeitgeist-1.0-Symbol-comprehension.html#zeitgeist-symbol-get-parents" title="zeitgeist_symbol_get_parents ()">zeitgeist_symbol_get_parents</a>        (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *symbol</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="zeitgeist-1.0-Symbol-comprehension.html#zeitgeist-symbol-is-a" title="zeitgeist_symbol_is_a ()">zeitgeist_symbol_is_a</a>               (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *symbol</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *parent</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="zeitgeist-1.0-Symbol-comprehension.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="zeitgeist-1.0-Symbol-comprehension.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="zeitgeist-symbol-get-all-children"></a><h3>zeitgeist_symbol_get_all_children ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             zeitgeist_symbol_get_all_children   (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *symbol</code></em>);</pre>
+<p>
+Gets list of all children of the specified symbol.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>symbol</code></em> :</span></p></td>
+<td>A symbol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly allocated list of all children of this symbol (includes
+also children of children recursively).
+The data elements of the list contain strings which you
+do not own, use <a href="http://library.gnome.org/devel/glib/unstable/glib-String-Utility-Functions.html#g-strdup"><code class="function">g_strdup()</code></a> if you intend to work with them.
+Free the list with a call to <a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-symbol-get-children"></a><h3>zeitgeist_symbol_get_children ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             zeitgeist_symbol_get_children       (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *symbol</code></em>);</pre>
+<p>
+Gets list of immediate children of the specified symbol.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>symbol</code></em> :</span></p></td>
+<td>A symbol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly allocated list of immediate children of this symbol.
+The data elements of the list contain strings which you
+do not own, use <a href="http://library.gnome.org/devel/glib/unstable/glib-String-Utility-Functions.html#g-strdup"><code class="function">g_strdup()</code></a> if you intend to work with them.
+Free the list with a call to <a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-symbol-get-parents"></a><h3>zeitgeist_symbol_get_parents ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             zeitgeist_symbol_get_parents        (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *symbol</code></em>);</pre>
+<p>
+Gets list of immediate parents of the specified symbol.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>symbol</code></em> :</span></p></td>
+<td>A symbol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly allocated list of immediate parents of this symbol.
+The data elements of the list contain strings which you
+do not own, use <a href="http://library.gnome.org/devel/glib/unstable/glib-String-Utility-Functions.html#g-strdup"><code class="function">g_strdup()</code></a> if you intend to work with them.
+Free the list with a call to <a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-symbol-is-a"></a><h3>zeitgeist_symbol_is_a ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            zeitgeist_symbol_is_a               (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *symbol</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *parent</code></em>);</pre>
+<p>
+Determines if <em class="parameter"><code>symbol</code></em> is child of <em class="parameter"><code>parent</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>symbol</code></em> :</span></p></td>
+<td>A symbol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
+<td>Parent symbol.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>True if <em class="parameter"><code>symbol</code></em> is child of <em class="parameter"><code>parent</code></em> (or equal to <em class="parameter"><code>parent</code></em>),
+FALSE otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

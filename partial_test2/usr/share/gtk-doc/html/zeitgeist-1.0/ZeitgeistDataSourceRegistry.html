@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ZeitgeistDataSourceRegistry</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="API Documentation for the Zeitgeist Client Library">
+<link rel="up" href="ch04.html" title="API for Zeitgeist Extensions">
+<link rel="prev" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource">
+<link rel="next" href="object-tree.html" title="Object Hierarchy">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ZeitgeistDataSource.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch04.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">API Documentation for the Zeitgeist Client Library</th>
+<td><a accesskey="n" href="object-tree.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#ZeitgeistDataSourceRegistry.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#ZeitgeistDataSourceRegistry.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#ZeitgeistDataSourceRegistry.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#ZeitgeistDataSourceRegistry.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="ZeitgeistDataSourceRegistry"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ZeitgeistDataSourceRegistry.top_of_page"></a>ZeitgeistDataSourceRegistry</span></h2>
+<p>ZeitgeistDataSourceRegistry — Query the Zeitgeist Data Source Registry extension</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="ZeitgeistDataSourceRegistry.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;zeitgeist.h&gt;
+
+                    <a class="link" href="ZeitgeistDataSourceRegistry.html#ZeitgeistDataSourceRegistry-struct" title="ZeitgeistDataSourceRegistry">ZeitgeistDataSourceRegistry</a>;
+struct              <a class="link" href="ZeitgeistDataSourceRegistry.html#ZeitgeistDataSourceRegistryClass" title="struct ZeitgeistDataSourceRegistryClass">ZeitgeistDataSourceRegistryClass</a>;
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistDataSourceRegistry.html#zeitgeist-data-source-registry-get-data-sources" title="zeitgeist_data_source_registry_get_data_sources ()">zeitgeist_data_source_registry_get_data_sources</a>
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="type">ZeitgeistDataSourceRegistry</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="returnvalue">GPtrArray</span></a> *         <a class="link" href="ZeitgeistDataSourceRegistry.html#zeitgeist-data-source-registry-get-data-sources-finish" title="zeitgeist_data_source_registry_get_data_sources_finish ()">zeitgeist_data_source_registry_get_data_sources_finish</a>
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="type">ZeitgeistDataSourceRegistry</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="returnvalue">ZeitgeistDataSourceRegistry</span></a> * <a class="link" href="ZeitgeistDataSourceRegistry.html#zeitgeist-data-source-registry-new" title="zeitgeist_data_source_registry_new ()">zeitgeist_data_source_registry_new</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistDataSourceRegistry.html#zeitgeist-data-source-registry-register-data-source" title="zeitgeist_data_source_registry_register_data_source ()">zeitgeist_data_source_registry_register_data_source</a>
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="type">ZeitgeistDataSourceRegistry</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ZeitgeistDataSourceRegistry.html#zeitgeist-data-source-registry-register-data-source-finish" title="zeitgeist_data_source_registry_register_data_source_finish ()">zeitgeist_data_source_registry_register_data_source_finish</a>
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="type">ZeitgeistDataSourceRegistry</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistDataSourceRegistry.html#zeitgeist-data-source-registry-set-data-source-enabled" title="zeitgeist_data_source_registry_set_data_source_enabled ()">zeitgeist_data_source_registry_set_data_source_enabled</a>
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="type">ZeitgeistDataSourceRegistry</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *unique_id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> enabled</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ZeitgeistDataSourceRegistry.html#zeitgeist-data-source-registry-set-data-source-enabled-finish" title="zeitgeist_data_source_registry_set_data_source_enabled_finish ()">zeitgeist_data_source_registry_set_data_source_enabled_finish</a>
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="type">ZeitgeistDataSourceRegistry</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistDataSourceRegistry.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----ZeitgeistDataSourceRegistry
+</pre>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistDataSourceRegistry.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="ZeitgeistDataSourceRegistry.html#ZeitgeistDataSourceRegistry-source-disconnected" title='The "source-disconnected" signal'>source-disconnected</a>"                            : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a>
+  "<a class="link" href="ZeitgeistDataSourceRegistry.html#ZeitgeistDataSourceRegistry-source-enabled" title='The "source-enabled" signal'>source-enabled</a>"                                 : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a>
+  "<a class="link" href="ZeitgeistDataSourceRegistry.html#ZeitgeistDataSourceRegistry-source-registered" title='The "source-registered" signal'>source-registered</a>"                              : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistDataSourceRegistry.description"></a><h2>Description</h2>
+<p>
+The Zeitgeist engine maintains a publicly available list of recognized
+data-sources (components inserting information into Zeitgeist).
+<a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="type">ZeitgeistDataSourceRegistry</span></a> is used to register new data sources,
+get information about them and gives the ability to enable or disable
+the data sources.
+</p>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistDataSourceRegistry.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ZeitgeistDataSourceRegistry-struct"></a><h3>ZeitgeistDataSourceRegistry</h3>
+<pre class="programlisting">typedef struct _ZeitgeistDataSourceRegistry ZeitgeistDataSourceRegistry;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ZeitgeistDataSourceRegistryClass"></a><h3>struct ZeitgeistDataSourceRegistryClass</h3>
+<pre class="programlisting">struct ZeitgeistDataSourceRegistryClass {
+  GObjectClass parent_class;
+
+  void (*source_registered)   (ZeitgeistDataSourceRegistry *registry,
+                               ZeitgeistDataSource *source);
+  void (*source_disconnected) (ZeitgeistDataSourceRegistry *registry,
+                               ZeitgeistDataSource *source);
+  void (*source_enabled)      (ZeitgeistDataSourceRegistry *registry,
+                               gchar *unique_id,
+                               gboolean enabled);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-registry-get-data-sources"></a><h3>zeitgeist_data_source_registry_get_data_sources ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_data_source_registry_get_data_sources
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="type">ZeitgeistDataSourceRegistry</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-registry-get-data-sources-finish"></a><h3>zeitgeist_data_source_registry_get_data_sources_finish ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="returnvalue">GPtrArray</span></a> *         zeitgeist_data_source_registry_get_data_sources_finish
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="type">ZeitgeistDataSourceRegistry</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>Instance of <a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="type">ZeitgeistDataSourceRegistry</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>a <a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><span class="type">NULL</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Newly created <a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> containing <a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a>(s)
+registered in Zeitgeist. Free using <a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#g-ptr-array-unref"><code class="function">g_ptr_array_unref()</code></a> once
+you're done using it.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-registry-new"></a><h3>zeitgeist_data_source_registry_new ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="returnvalue">ZeitgeistDataSourceRegistry</span></a> * zeitgeist_data_source_registry_new
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Create a new data source registry instance.
+</p>
+<p>
+DataSourceRegistry instances are not overly expensive for neither 
+client or the Zeitgeist daemon so there's no need to go to lengths
+to keep singleton instances around.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A reference to a newly allocated registry.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-registry-register-data-source"></a><h3>zeitgeist_data_source_registry_register_data_source ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_data_source_registry_register_data_source
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="type">ZeitgeistDataSourceRegistry</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Registers new data source in the registry, the <em class="parameter"><code>source</code></em> parameter needs to
+have unique-id, name, description and optionally event_templates set,
+therefore it is useful to pass <a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a> instance created using
+<a class="link" href="ZeitgeistDataSource.html#zeitgeist-data-source-new-full" title="zeitgeist_data_source_new_full ()"><code class="function">zeitgeist_data_source_new_full()</code></a>. The registry will assume its ownership.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>Instance of <a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="type">ZeitgeistDataSourceRegistry</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>Data source to register. If this is a
+floating reference it will be consumed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>a <a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><span class="type">NULL</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>a GAsyncReadyCallback to call when the request is finished.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>the data to pass to callback function.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-registry-register-data-source-finish"></a><h3>zeitgeist_data_source_registry_register_data_source_finish ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            zeitgeist_data_source_registry_register_data_source_finish
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="type">ZeitgeistDataSourceRegistry</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>Instance of <a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="type">ZeitgeistDataSourceRegistry</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>Result of the asynchronous operation.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> or NULL.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>If error is unset, returns whether this data source is enabled.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-registry-set-data-source-enabled"></a><h3>zeitgeist_data_source_registry_set_data_source_enabled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_data_source_registry_set_data_source_enabled
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="type">ZeitgeistDataSourceRegistry</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *unique_id</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> enabled</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-data-source-registry-set-data-source-enabled-finish"></a><h3>zeitgeist_data_source_registry_set_data_source_enabled_finish ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            zeitgeist_data_source_registry_set_data_source_enabled_finish
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="type">ZeitgeistDataSourceRegistry</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistDataSourceRegistry.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="ZeitgeistDataSourceRegistry-source-disconnected"></a><h3>The <code class="literal">"source-disconnected"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="type">ZeitgeistDataSourceRegistry</span></a> *zeitgeistdatasourceregistry,
+                                                        <a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a>         *arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>                     user_data)                        : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>zeitgeistdatasourceregistry</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ZeitgeistDataSourceRegistry-source-enabled"></a><h3>The <code class="literal">"source-enabled"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="type">ZeitgeistDataSourceRegistry</span></a> *zeitgeistdatasourceregistry,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>                       *arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>                     arg2,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>                     user_data)                        : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>zeitgeistdatasourceregistry</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ZeitgeistDataSourceRegistry-source-registered"></a><h3>The <code class="literal">"source-registered"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ZeitgeistDataSourceRegistry.html" title="ZeitgeistDataSourceRegistry"><span class="type">ZeitgeistDataSourceRegistry</span></a> *zeitgeistdatasourceregistry,
+                                                        <a class="link" href="ZeitgeistDataSource.html" title="ZeitgeistDataSource"><span class="type">ZeitgeistDataSource</span></a>         *arg1,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>                     user_data)                        : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>zeitgeistdatasourceregistry</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

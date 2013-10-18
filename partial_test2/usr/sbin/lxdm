@@ -1,0 +1,23 @@
+#!/bin/sh
+
+if [ -r /etc/profile.d/locale.sh ]; then
+	. /etc/profile.d/locale.sh
+fi
+
+if [ -n "$LANG" ]; then
+	export LANG
+fi
+
+if [ -n "$DEFAULT_WM" ]; then
+	PREFERRED=$DEFAULT_WM
+fi
+
+if [ -n "$DESKTOP" ]; then
+	export DESKTOP
+fi
+
+if [ -n "$PREFERRED" ]; then
+	export PREFERRED
+fi
+
+exec /usr/sbin/lxdm-binary $*

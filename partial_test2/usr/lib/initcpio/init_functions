@@ -1,0 +1,247 @@
+# This file contains common functions used in init and in hooks
+
+msg () {
+    [ "${quiet}" != "y" ] && echo $@
+}
+err () {
+    echo "ERROR: $@"
+}
+
+poll_device() {
+    local device=$1 seconds=${2//[!0-9]}
+
+    [ -z "$seconds" ] && seconds=5
+
+    [ -b "$device" ] && return 0
+
+    if [ "$udevd_running" -eq 1 ]; then
+        msg "Waiting $seconds seconds for device $device ..." >&2
+        while [ ! -b "$device" -a "$seconds" -gt 0 ]; do
+            sleep 1
+            seconds=$(( $seconds - 1 ))
+        done
+    fi
+
+    [ -b "$device" ]
+}
+
+launch_interactive_shell() {
+    export PS1='[rootfs \W]\$ '
+    [ "$1" = "--exec" ] && exec sh -i
+    sh -i
+}
+
+major_minor_to_device() {
+    local dev
+
+    [ -e "/sys/dev/block/$1:$2" ] || return 1
+
+    if dev=$(readlink -f "/sys/dev/block/$1:$2" 2>/dev/null); then
+        echo "/dev/${dev##*/}"
+        return 0
+    fi
+
+    return 1
+}
+
+run_hookfunctions() {
+    local hook fn=$1 desc=$2
+
+    shift 2
+    for hook in "$@"; do
+        [ -x "/hooks/$hook" ] || continue
+
+        unset "$fn"
+        . "/hooks/$hook"
+        type "$fn" >/dev/null || continue
+
+        msg ":: running $desc [$hook]"
+        "$fn"
+    done
+}
+
+parse_cmdline() {
+    local w in_quotes lhs rhs
+    in_quotes=0
+    for w in $(cat /proc/cmdline); do
+        if [ "$in_quotes" = 0 ]; then
+            case "$w" in
+                # ignore everything after a # in the commandline
+                \#*) break ;;
+                # special cases
+                rw|ro) rwopt=$w ;;
+                fsck.mode=*)
+                    case ${w#*=} in
+                        force) forcefsck=y ;;
+                        skip) fastboot=y ;;
+                    esac
+                    ;;
+                # abide by shell variable naming rules
+                [[:alpha:]_]*=*)
+                    rhs=${w#*=}
+                    lhs=${w%%=*}
+                    lhs=${lhs//[-.]/_}
+                    if [ '"' = "${rhs:0:1}" ]; then
+                        if [ '"' = "${rhs:$((${#rhs}-1))}" ]; then
+                            rhs="${rhs:1:$((${#rhs}-2))}"
+                        else
+                            rhs=${rhs:1}
+                            in_quotes=1
+                            continue
+                        fi
+                    fi
+                    eval $lhs=\$rhs
+                    ;;
+                [[:alpha:]_]*)
+                    lhs=${w//[-.]/_}
+                    eval $lhs=y
+                    ;;
+            esac
+        else
+            if [ '"' = "${w:$((${#w}-1))}" ]; then
+                rhs="$rhs ${w%\"}"
+                in_quotes=0
+                eval $lhs=\$rhs
+            else
+                rhs="$rhs $w"
+            fi
+        fi
+    done
+}
+
+fsck_device() {
+    [ -x /sbin/fsck ] || return 255
+
+    if [ ! -b "$1" ]; then
+        err "device '$1' not found. Skipping fsck."
+        return 255
+    fi
+
+    if [ -n "$fastboot" ]; then
+        msg ":: skipping fsck on '$1'"
+        return
+    fi
+
+    msg ":: performing fsck on '$1'"
+    fsck -Ta -C"$FSCK_FD" "$1" -- ${forcefsck+-f}
+}
+
+fsck_root() {
+    fsck_device "$root"
+    fsckret=$?
+
+    fsck_ret() {
+        [ -z "$fsckret" ] && return 1
+        [ "$fsckret" -eq "$1" ] && return 0
+        [ "$(( $fsckret & $1 ))" -eq "$1" ]
+    }
+
+    if [ "$fsckret" -ne 255 ]; then
+        if [ "$fsckret" = '0' ] || fsck_ret 1; then
+            echo "$fsckret" > /run/initramfs/root-fsck
+        elif fsck_ret 4; then
+            err "Bailing out. Run 'fsck $root' manually"
+            printf '%s\n' \
+                "********** FILESYSTEM CHECK FAILED **********" \
+                "*                                           *" \
+                "*  Please run fsck manually. After leaving  *" \
+                "*  this maintenance shell, the system will  *" \
+                "*  reboot automatically.                    *" \
+                "*                                           *" \
+                "*********************************************"
+            launch_interactive_shell
+            echo ":: Automatic reboot in progress"
+            sleep 2
+            reboot -f
+        elif fsck_ret 2; then
+            printf '%s\n' \
+                "************** REBOOT REQUIRED **************" \
+                "*                                           *" \
+                "*   automatically restarting in 10 seconds  *" \
+                "*                                           *" \
+                "*********************************************"
+            sleep 10
+            reboot -f
+        elif fsck_ret 8; then
+            err "fsck failed on '$root'"
+        elif fsck_ret 16; then
+            err "Failed to invoke fsck: usage or syntax error"
+        elif fsck_ret 32; then
+            echo ":: fsck cancelled on user request"
+        elif fsck_ret 128; then
+            err "fatal error invoking fsck"
+        fi
+    fi
+}
+
+resolve_device() {
+    local major minor dev tag tagval device=$1
+
+    # attempt to resolve devices immediately. if this fails
+    # and udev is running, fall back on lazy resolution using
+    # /dev/disk/by-* symlinks. this is flexible enough to support
+    # usage of tags without udev and "slow" devices like root on
+    # USB, which might not immediately show up.
+    case $device in
+        UUID=*|LABEL=*|PARTUUID=*)
+            dev=$(blkid -lt "$device" -o device)
+            if [ -z "$dev" -a "$udevd_running" -eq 1 ]; then
+                tag=$(awk -v t="${device%%=*}" 'BEGIN { print tolower(t) }')
+                tagval=${device#*=}
+                dev=/dev/disk/by-$tag/$tagval
+            fi
+    esac
+
+    [ -n "$dev" ] && device=$dev
+
+    case $device in
+        # path to kernel named block device
+        /dev/*)
+            if poll_device "$device" "$rootdelay"; then
+                echo "$device"
+                return 0
+            fi
+            ;;
+        # hex encoded major/minor, such as from LILO
+        [0-9a-fA-F][0-9a-fA-F][0-9a-fA-F]|[0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F])
+            major=$(( 0x0$device >> 8 ))
+            minor=$(( 0x0$device & 0xff ))
+            ;;
+        0x[0-9a-fA-F][0-9a-fA-F]*)
+            major=$(( $device >> 8 ))
+            minor=$(( $device & 0xff ))
+            ;;
+    esac
+
+    if [ -n "$major" -a -n "$minor" ]; then
+        device=$(major_minor_to_device "$major" "$minor" || echo '/dev/root')
+
+        if [ ! -b "$device" ]; then
+            msg "Creating device node with major $major and minor $minor." >&2
+            mknod "$device" b "$major" "$minor"
+        fi
+        echo "$device"
+        return 0
+    fi
+
+    return 1
+}
+
+default_mount_handler() {
+    if [ ! -b "$root" ]; then
+        err "Unable to find root device '$root'."
+        echo "You are being dropped to a recovery shell"
+        echo "    Type 'exit' to try and continue booting"
+        launch_interactive_shell
+        msg "Trying to continue (this will most likely fail) ..."
+    fi
+
+    msg ":: mounting '$root' on real root"
+    if ! mount ${fstype:+-t $fstype} -o ${rwopt:-ro}${rootflags:+,$rootflags} "$root" "$1"; then
+        echo "You are now being dropped into an emergency shell."
+        launch_interactive_shell
+        msg "Trying to continue (this will most likely fail) ..."
+    fi
+}
+
+# vim: set ft=sh ts=4 sw=4 et:

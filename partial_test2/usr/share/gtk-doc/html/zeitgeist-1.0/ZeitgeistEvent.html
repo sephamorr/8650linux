@@ -1,0 +1,819 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ZeitgeistEvent</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="API Documentation for the Zeitgeist Client Library">
+<link rel="up" href="ch01.html" title="Classes">
+<link rel="prev" href="ch01.html" title="Classes">
+<link rel="next" href="ZeitgeistLog.html" title="ZeitgeistLog">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch01.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">API Documentation for the Zeitgeist Client Library</th>
+<td><a accesskey="n" href="ZeitgeistLog.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#ZeitgeistEvent.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#ZeitgeistEvent.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#ZeitgeistEvent.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="ZeitgeistEvent"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ZeitgeistEvent.top_of_page"></a>ZeitgeistEvent</span></h2>
+<p>ZeitgeistEvent — <a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> objects abstract events returned from Zeitgeist queries</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="ZeitgeistEvent.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;zeitgeist.h&gt;
+
+                    <a class="link" href="ZeitgeistEvent.html#ZeitgeistEvent-struct" title="ZeitgeistEvent">ZeitgeistEvent</a>;
+struct              <a class="link" href="ZeitgeistEvent.html#ZeitgeistEventClass" title="struct ZeitgeistEventClass">ZeitgeistEventClass</a>;
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-add-subject" title="zeitgeist_event_add_subject ()">zeitgeist_event_add_subject</a>         (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ZeitgeistSubject.html" title="ZeitgeistSubject"><span class="type">ZeitgeistSubject</span></a> *subject</code></em>);
+const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-get-actor" title="zeitgeist_event_get_actor ()">zeitgeist_event_get_actor</a>           (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>);
+<span class="returnvalue">guint32</span>             <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-get-id" title="zeitgeist_event_get_id ()">zeitgeist_event_get_id</a>              (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>);
+const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-get-interpretation" title="zeitgeist_event_get_interpretation ()">zeitgeist_event_get_interpretation</a>  (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>);
+const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-get-manifestation" title="zeitgeist_event_get_manifestation ()">zeitgeist_event_get_manifestation</a>   (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>);
+const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-get-origin" title="zeitgeist_event_get_origin ()">zeitgeist_event_get_origin</a>          (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Byte-Arrays.html#GByteArray"><span class="returnvalue">GByteArray</span></a> *        <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-get-payload" title="zeitgeist_event_get_payload ()">zeitgeist_event_get_payload</a>         (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>);
+<a class="link" href="ZeitgeistSubject.html" title="ZeitgeistSubject"><span class="returnvalue">ZeitgeistSubject</span></a> *  <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-get-subject" title="zeitgeist_event_get_subject ()">zeitgeist_event_get_subject</a>         (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> index</code></em>);
+<span class="returnvalue">gint64</span>              <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-get-timestamp" title="zeitgeist_event_get_timestamp ()">zeitgeist_event_get_timestamp</a>       (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>);
+<a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="returnvalue">ZeitgeistEvent</span></a> *    <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-new" title="zeitgeist_event_new ()">zeitgeist_event_new</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="returnvalue">ZeitgeistEvent</span></a> *    <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-new-from-variant" title="zeitgeist_event_new_from_variant ()">zeitgeist_event_new_from_variant</a>    (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *event</code></em>);
+<a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="returnvalue">ZeitgeistEvent</span></a> *    <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-new-full" title="zeitgeist_event_new_full ()">zeitgeist_event_new_full</a>            (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *interpretation</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *manifestation</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *actor</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="returnvalue">ZeitgeistEvent</span></a> *    <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-new-full-valist" title="zeitgeist_event_new_full_valist ()">zeitgeist_event_new_full_valist</a>     (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *interpretation</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *manifestation</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *actor</code></em>,
+                                                         <em class="parameter"><code><span class="type">va_list</span> args</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-num-subjects" title="zeitgeist_event_num_subjects ()">zeitgeist_event_num_subjects</a>        (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-set-actor" title="zeitgeist_event_set_actor ()">zeitgeist_event_set_actor</a>           (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *actor</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-set-actor-from-app-info" title="zeitgeist_event_set_actor_from_app_info ()">zeitgeist_event_set_actor_from_app_info</a>
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAppInfo.html"><span class="type">GAppInfo</span></a> *appinfo</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-set-id" title="zeitgeist_event_set_id ()">zeitgeist_event_set_id</a>              (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> id</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-set-interpretation" title="zeitgeist_event_set_interpretation ()">zeitgeist_event_set_interpretation</a>  (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *interpretation</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-set-manifestation" title="zeitgeist_event_set_manifestation ()">zeitgeist_event_set_manifestation</a>   (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *manifestation</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-set-origin" title="zeitgeist_event_set_origin ()">zeitgeist_event_set_origin</a>          (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *origin</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-set-payload" title="zeitgeist_event_set_payload ()">zeitgeist_event_set_payload</a>         (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Byte-Arrays.html#GByteArray"><span class="type">GByteArray</span></a> *payload</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-set-timestamp" title="zeitgeist_event_set_timestamp ()">zeitgeist_event_set_timestamp</a>       (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint64</span> timestamp</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-to-variant" title="zeitgeist_event_to_variant ()">zeitgeist_event_to_variant</a>          (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="returnvalue">GPtrArray</span></a> *         <a class="link" href="ZeitgeistEvent.html#zeitgeist-events-from-valist" title="zeitgeist_events_from_valist ()">zeitgeist_events_from_valist</a>        (<em class="parameter"><code><span class="type">va_list</span> events</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="returnvalue">GPtrArray</span></a> *         <a class="link" href="ZeitgeistEvent.html#zeitgeist-events-from-variant" title="zeitgeist_events_from_variant ()">zeitgeist_events_from_variant</a>       (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *events</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          <a class="link" href="ZeitgeistEvent.html#zeitgeist-events-to-variant" title="zeitgeist_events_to_variant ()">zeitgeist_events_to_variant</a>         (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *events</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistEvent.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----ZeitgeistEvent
+</pre>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistEvent.description"></a><h2>Description</h2>
+<p>
+The <a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> class is one of the primary elements for communicating
+with the Zeitgeist daemon. <a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a>s serve two purposes.
+Unsurprisingly they represent events that have happened, but they also
+can act as <span class="emphasis"><em>templates</em></span>. See also <a class="link" href="ZeitgeistSubject.html" title="ZeitgeistSubject"><span class="type">ZeitgeistSubject</span></a>.
+</p>
+<p>
+An event in the Zeitgeist world is characterized by two main properties.
+"What happened" also called the <span class="emphasis"><em>interpretation</em></span>,
+and "How did it happen" also called the
+<span class="emphasis"><em>manifestation</em></span>. Besides these properties and event
+also has an <span class="emphasis"><em>actor</em></span> which identifies the party responsible
+for triggering the event which in most cases will be an application.
+Lastly there is an event <span class="emphasis"><em>timestamp</em></span> and 
+<span class="emphasis"><em>event id</em></span>. The timestamp is calculated as the number
+of milliseconds since the Unix epoch and the event id is a serial number
+assigned to the event by the Zeitgeist engine when it's logged. These
+five properties are collectively known as the
+<span class="emphasis"><em>event metadata</em></span>.
+</p>
+<p>
+An event must also describe what it happened to. This is called the event
+<span class="emphasis"><em>subjects</em></span>. Most events have one subject, but they are
+allowed to have zero or many too. The metadata of the subjects are 
+recorded at the time of logging, and are encapsulated by the
+<a class="link" href="ZeitgeistSubject.html" title="ZeitgeistSubject"><span class="type">ZeitgeistSubject</span></a> class. It's important to understand that it's just the
+subject metadata at the time of logging, not necessarily the subject metadata
+as it exists right now.
+</p>
+<p>
+In addition to the listed properties events may also carry a free form binary
+<span class="emphasis"><em>payload</em></span>. The usage of this is is application specific
+and is generally useless unless you have some contextual information to
+figure out what's in it.
+</p>
+<p>
+A large part of the Zeitgeist query and monitoring API revolves around a
+concept of template matching. A query is simply a list of event templates
+that you want to look for in the log.
+An unset property on an event template indicates that anything is allowed
+in that field. If the property is set it indicates that the property
+must be an exact match.
+</p>
+</div>
+<div class="refsect1">
+<a name="ZeitgeistEvent.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ZeitgeistEvent-struct"></a><h3>ZeitgeistEvent</h3>
+<pre class="programlisting">typedef struct _ZeitgeistEvent ZeitgeistEvent;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ZeitgeistEventClass"></a><h3>struct ZeitgeistEventClass</h3>
+<pre class="programlisting">struct ZeitgeistEventClass {
+  GInitiallyUnownedClass parent_class;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-add-subject"></a><h3>zeitgeist_event_add_subject ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_event_add_subject         (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ZeitgeistSubject.html" title="ZeitgeistSubject"><span class="type">ZeitgeistSubject</span></a> *subject</code></em>);</pre>
+<p>
+Append a <a class="link" href="ZeitgeistSubject.html" title="ZeitgeistSubject"><span class="type">ZeitgeistSubject</span></a> to the list of subjects for <em class="parameter"><code>event</code></em>. The
+event will consume the floating reference on <em class="parameter"><code>subject</code></em> when you call this
+method.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>The event to add a subject to</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>subject</code></em> :</span></p></td>
+<td>The subject to add</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-get-actor"></a><h3>zeitgeist_event_get_actor ()</h3>
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       zeitgeist_event_get_actor           (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>);</pre>
+<p>
+Get the event actor. The actor represents the party responsible for
+triggering the event. When the actor is an application
+(which it almost always is) the actor is encoded in the
+<span class="emphasis"><em>application://</em></span> URI scheme with the base name of the .desktop
+file for the application appended. Eg. <span class="emphasis"><em>application://firefox.desktop</em></span>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>The event to set the actor for</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A URI designating the actor of the event</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-get-id"></a><h3>zeitgeist_event_get_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint32</span>             zeitgeist_event_get_id              (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>);</pre>
+<p>
+Get the event id as assigned by the Zeitgeist engine.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>The event to get the event id for</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The event id or 0 if it's unset. An event retrieved from the
+Zeitgeist engine will always have an event id.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-get-interpretation"></a><h3>zeitgeist_event_get_interpretation ()</h3>
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       zeitgeist_event_get_interpretation  (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>);</pre>
+<p>
+The event interpretation represents "what happened". It is encoded
+as URI defined by the Zeitgeist Event Ontology.
+Examples could be "something was opened" or
+"something was modified".
+</p>
+<p>
+FIXME: Needs link to ontology and some defines to help coding
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>The event to get the interpretation of</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The event interpretation as a URI or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if unset</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-get-manifestation"></a><h3>zeitgeist_event_get_manifestation ()</h3>
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       zeitgeist_event_get_manifestation   (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>);</pre>
+<p>
+The event manifestation represents "how did it happen".
+It is encoded as URI defined by the Zeitgeist Event Ontology. Examples
+could be "the user did it" or
+"the system send a notification".
+</p>
+<p>
+FIXME: Needs link to ontology and some defines to help coding
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>The event to get the manifestation of</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The event interpretation as a URI or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if unset</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-get-origin"></a><h3>zeitgeist_event_get_origin ()</h3>
+<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       zeitgeist_event_get_origin          (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>);</pre>
+<p>
+Get the origin of an event.
+This differs from a subject's origin, as it describes where the event comes
+from, not where it resides.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>The event to get the origin from</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The origin of <em class="parameter"><code>event</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 0.3.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-get-payload"></a><h3>zeitgeist_event_get_payload ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Byte-Arrays.html#GByteArray"><span class="returnvalue">GByteArray</span></a> *        zeitgeist_event_get_payload         (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>);</pre>
+<p>
+Look up the free form binary payload of <em class="parameter"><code>event</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>The event to get the payload for</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The event payload or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if unset. Do not free. If you want to
+keep the subject around you need to <a href="http://library.gnome.org/devel/glib/unstable/glib-Byte-Arrays.html#g-byte-array-ref"><code class="function">g_byte_array_ref()</code></a> it.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-get-subject"></a><h3>zeitgeist_event_get_subject ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistSubject.html" title="ZeitgeistSubject"><span class="returnvalue">ZeitgeistSubject</span></a> *  zeitgeist_event_get_subject         (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> index</code></em>);</pre>
+<p>
+Get the n'th subject of this event. You can find the number of subjects
+by calling <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-num-subjects" title="zeitgeist_event_num_subjects ()"><code class="function">zeitgeist_event_num_subjects()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>The event to get a subject for</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>The 0-based offset of the subject</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The subject at position <em class="parameter"><code>index</code></em>. Do not free. If you want to
+keep the subject around you need to <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-ref"><code class="function">g_object_ref()</code></a> it.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-get-timestamp"></a><h3>zeitgeist_event_get_timestamp ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint64</span>              zeitgeist_event_get_timestamp       (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>);</pre>
+<p>
+Get the event timestamp. The timestamp is in milliseconds since the
+Unix epoch. There are a few helpers available for converting to and
+from other time representations such a <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GTimeVal"><span class="type">GTimeVal</span></a>. See for example
+<a class="link" href="zeitgeist-1.0-Timestamp-handling.html#zeitgeist-timestamp-to-timeval" title="zeitgeist_timestamp_to_timeval ()"><code class="function">zeitgeist_timestamp_to_timeval()</code></a> and <a class="link" href="zeitgeist-1.0-Timestamp-handling.html#zeitgeist-timestamp-from-timeval" title="zeitgeist_timestamp_from_timeval ()"><code class="function">zeitgeist_timestamp_from_timeval()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>The event to get the timestamp for</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The event timestamp. Note that 0 is ambiguous as it denotes both
+an unset timestamp and the time of the Unix Epoch.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-new"></a><h3>zeitgeist_event_new ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="returnvalue">ZeitgeistEvent</span></a> *    zeitgeist_event_new                 (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Create a new empty event structure
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly create <a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> instance. The returned event will
+have a floating reference which will be consumed if you pass the
+event to any of the methods provided by this library. If you
+do not do that then you must free the event youself with
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-new-from-variant"></a><h3>zeitgeist_event_new_from_variant ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="returnvalue">ZeitgeistEvent</span></a> *    zeitgeist_event_new_from_variant    (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *event</code></em>);</pre>
+<p>
+Parse the data in a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> and build a <a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> from it.
+The reverse operation of this is <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-to-variant" title="zeitgeist_event_to_variant ()"><code class="function">zeitgeist_event_to_variant()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>A <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> with signature defined in
+<a href="/usr/share/gtk-doc/html/zeitgeist-1.0/ZeitgeistEvent.html#ZEITGEIST-EVENT-VARIANT-SIGNATURE:CAPS"><span class="type">ZEITGEIST_EVENT_VARIANT_SIGNATURE</span></a>. If <em class="parameter"><code>event</code></em> is a floating
+reference the floating reference will be consumed.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly allocated <a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> filled with the metadata,
+subjects, and payload described by <em class="parameter"><code>event</code></em>. The returned event will
+have a floating reference which will be consumed if you pass the
+event to any of the methods provided by this library. If you
+do not do that then you must free the event yourself with
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-new-full"></a><h3>zeitgeist_event_new_full ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="returnvalue">ZeitgeistEvent</span></a> *    zeitgeist_event_new_full            (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *interpretation</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *manifestation</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *actor</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+Create a new event structure with predefined data
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>interpretation</code></em> :</span></p></td>
+<td>The interpretation type of the event.
+See <a class="link" href="zeitgeist-1.0-Interpretation-Ontology.html#ZEITGEIST-ZG-EVENT-INTERPRETATION:CAPS" title="ZEITGEIST_ZG_EVENT_INTERPRETATION"><span class="type">ZEITGEIST_ZG_EVENT_INTERPRETATION</span></a> for a list of
+event interpretation types</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>manifestation</code></em> :</span></p></td>
+<td>The manifestation type of the event.
+See <a class="link" href="zeitgeist-1.0-Manifestation-Ontology.html#ZEITGEIST-ZG-EVENT-MANIFESTATION:CAPS" title="ZEITGEIST_ZG_EVENT_MANIFESTATION"><span class="type">ZEITGEIST_ZG_EVENT_MANIFESTATION</span></a> for a list of
+event manifestation types</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>actor</code></em> :</span></p></td>
+<td>The actor triggering the event. See <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-set-actor" title="zeitgeist_event_set_actor ()"><code class="function">zeitgeist_event_set_actor()</code></a>
+for details on how to encode this.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly create <a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> instance. The returned event will
+have a floating reference which will be consumed if you pass the
+event to any of the methods provided by this library. If you
+do not do that then you must free the event yourself with
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-new-full-valist"></a><h3>zeitgeist_event_new_full_valist ()</h3>
+<pre class="programlisting"><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="returnvalue">ZeitgeistEvent</span></a> *    zeitgeist_event_new_full_valist     (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *interpretation</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *manifestation</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *actor</code></em>,
+                                                         <em class="parameter"><code><span class="type">va_list</span> args</code></em>);</pre>
+<p>
+As <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-new-full" title="zeitgeist_event_new_full ()"><code class="function">zeitgeist_event_new_full()</code></a> but intended for language bindings
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>manifestation</code></em> :</span></p></td>
+<td>The manifestation type of the event.
+See <a class="link" href="zeitgeist-1.0-Manifestation-Ontology.html#ZEITGEIST-ZG-EVENT-MANIFESTATION:CAPS" title="ZEITGEIST_ZG_EVENT_MANIFESTATION"><span class="type">ZEITGEIST_ZG_EVENT_MANIFESTATION</span></a> for a list of
+event manifestation types</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>actor</code></em> :</span></p></td>
+<td>The actor triggering the event. See <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-set-actor" title="zeitgeist_event_set_actor ()"><code class="function">zeitgeist_event_set_actor()</code></a>
+for details on how to encode this.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>args</code></em> :</span></p></td>
+<td>A <code class="literal">va_list</code> of <a class="link" href="ZeitgeistSubject.html" title="ZeitgeistSubject"><span class="type">ZeitgeistSubject</span></a>s terminated by <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-num-subjects"></a><h3>zeitgeist_event_num_subjects ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                zeitgeist_event_num_subjects        (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>);</pre>
+<p>
+Get the number of subjects for an event. This is a constant time operation.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>The event to get the number of subjects for</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The number of subjects for this event.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-set-actor"></a><h3>zeitgeist_event_set_actor ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_event_set_actor           (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *actor</code></em>);</pre>
+<p>
+Get the event actor. The actor represents the party responsible for
+triggering the event. When the actor is an application
+(which it almost always is) the actor is encoded in the
+<span class="emphasis"><em>application://</em></span> URI scheme with the base name of the .desktop
+file for the application appended. Eg. <span class="emphasis"><em>application://firefox.desktop</em></span>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>The event to set the actor for</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>actor</code></em> :</span></p></td>
+<td>URI designating the actor triggering the event.
+Fx. <span class="emphasis"><em>application://firefox.desktop</em></span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-set-actor-from-app-info"></a><h3>zeitgeist_event_set_actor_from_app_info ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_event_set_actor_from_app_info
+                                                        (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GAppInfo.html"><span class="type">GAppInfo</span></a> *appinfo</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-set-id"></a><h3>zeitgeist_event_set_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_event_set_id              (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> id</code></em>);</pre>
+<p>
+Set the event id of an event. Note that it is an error to send an event
+with a pre set event id to <a class="link" href="ZeitgeistLog.html#zeitgeist-log-insert-events" title="zeitgeist_log_insert_events ()"><code class="function">zeitgeist_log_insert_events()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>The event to get the event id for</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-set-interpretation"></a><h3>zeitgeist_event_set_interpretation ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_event_set_interpretation  (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *interpretation</code></em>);</pre>
+<p>
+The event interpretation represents "what happened". It is encoded
+as URI defined by the Zeitgeist Event Ontology.
+</p>
+<p>
+FIXME: Needs link to ontology and some defines to help coding
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>The event to set the interpretation of</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>interpretation</code></em> :</span></p></td>
+<td>URI designating the interpretation type of the event</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-set-manifestation"></a><h3>zeitgeist_event_set_manifestation ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_event_set_manifestation   (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *manifestation</code></em>);</pre>
+<p>
+The event manifestation represents "how did it happen".
+It is encoded as URI defined by the Zeitgeist Event Ontology.
+</p>
+<p>
+FIXME: Needs link to ontology and some defines to help coding
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>The event to set the manifestation of</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-set-origin"></a><h3>zeitgeist_event_set_origin ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_event_set_origin          (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *origin</code></em>);</pre>
+<p>
+Set the origin of an event.
+This differs from a subject's origin, as it describes where the event comes
+from, not where it resides.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>The event to set the origin of</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>origin</code></em> :</span></p></td>
+<td>The origin to set</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 0.3.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-set-payload"></a><h3>zeitgeist_event_set_payload ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_event_set_payload         (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Byte-Arrays.html#GByteArray"><span class="type">GByteArray</span></a> *payload</code></em>);</pre>
+<p>
+Attach a a free form binary payload to <em class="parameter"><code>event</code></em>. Payloads are application
+specific and can not be assumed to have any particular format unless
+you have other contextual information about the event.
+</p>
+<p>
+The event will assume ownership of <em class="parameter"><code>payload</code></em>. You should never call
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Byte-Arrays.html#g-byte-array-free"><code class="function">g_byte_array_free()</code></a> on <em class="parameter"><code>payload</code></em> and only call <a href="http://library.gnome.org/devel/glib/unstable/glib-Byte-Arrays.html#g-byte-array-unref"><code class="function">g_byte_array_unref()</code></a> on it if
+you have added an extra reference to it.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>Event to add the payload to</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>payload</code></em> :</span></p></td>
+<td>The payload to add to <em class="parameter"><code>event</code></em>. <span class="annotation">[transfer-full]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-set-timestamp"></a><h3>zeitgeist_event_set_timestamp ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_event_set_timestamp       (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint64</span> timestamp</code></em>);</pre>
+<p>
+Set the event timestamp. The timestamp is in milliseconds since the
+Unix epoch. There are a few helpers available for converting to and
+from other time representations such a <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GTimeVal"><span class="type">GTimeVal</span></a>. See for example
+<a class="link" href="zeitgeist-1.0-Timestamp-handling.html#zeitgeist-timestamp-to-timeval" title="zeitgeist_timestamp_to_timeval ()"><code class="function">zeitgeist_timestamp_to_timeval()</code></a> and <a class="link" href="zeitgeist-1.0-Timestamp-handling.html#zeitgeist-timestamp-from-timeval" title="zeitgeist_timestamp_from_timeval ()"><code class="function">zeitgeist_timestamp_from_timeval()</code></a>.
+</p>
+<p>
+Note that the if you insert events into the Zeitgeist log without a
+timestamp set the Zeiteist daemon will automatically assign the timestamp
+of the logging time to the event.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>The event to set the timestamp for</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-event-to-variant"></a><h3>zeitgeist_event_to_variant ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          zeitgeist_event_to_variant          (<em class="parameter"><code><a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> *event</code></em>);</pre>
+<p>
+Serialize a <a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> to a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a>. The reverse operation
+is <a class="link" href="ZeitgeistEvent.html#zeitgeist-event-new-from-variant" title="zeitgeist_event_new_from_variant ()"><code class="function">zeitgeist_event_new_from_variant()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>The <a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> to serialize to a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A floating reference to a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> with signature
+<a href="/usr/share/gtk-doc/html/zeitgeist-1.0/ZeitgeistEvent.html#ZEITGEIST-EVENT-VARIANT-SIGNATURE:CAPS"><span class="type">ZEITGEIST_EVENT_VARIANT_SIGNATURE</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-events-from-valist"></a><h3>zeitgeist_events_from_valist ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="returnvalue">GPtrArray</span></a> *         zeitgeist_events_from_valist        (<em class="parameter"><code><span class="type">va_list</span> events</code></em>);</pre>
+<p>
+Utility function to convert a <span class="type">va_list</span> of <a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a> into a
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> containing these events.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>events</code></em> :</span></p></td>
+<td>a <span class="type">va_list</span> of <a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a>s.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> of <a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a>s. The events are not further
+reffed and will still be floating if they where so when you called
+this method. The pointer array will have its <em class="parameter"><code>free_func</code></em> set to
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-events-from-variant"></a><h3>zeitgeist_events_from_variant ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="returnvalue">GPtrArray</span></a> *         zeitgeist_events_from_variant       (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *events</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>events</code></em> :</span></p></td>
+<td>A <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a>  with signature as an array of
+<a href="/usr/share/gtk-doc/html/zeitgeist-1.0/ZeitgeistEvent.html#ZEITGEIST-EVENT-VARIANT-SIGNATURE:CAPS"><span class="type">ZEITGEIST_EVENT_VARIANT_SIGNATURE</span></a>. If <em class="parameter"><code>event</code></em> is floating this
+method will consume the floating reference.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A reference to a <a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> of <a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a>s.
+All the events will be floating references, and the
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a>'s <em class="parameter"><code>free_func</code></em> will be set to <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-events-to-variant"></a><h3>zeitgeist_events_to_variant ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          zeitgeist_events_to_variant         (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *events</code></em>);</pre>
+<p>
+Convert a set of <a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a>&lt;-- --&gt;s to a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> with signature
+as an array of <a href="/usr/share/gtk-doc/html/zeitgeist-1.0/ZeitgeistEvent.html#ZEITGEIST-EVENT-VARIANT-SIGNATURE:CAPS"><span class="type">ZEITGEIST_EVENT_VARIANT_SIGNATURE</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>events</code></em> :</span></p></td>
+<td>A <a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> of <a class="link" href="ZeitgeistEvent.html" title="ZeitgeistEvent"><span class="type">ZeitgeistEvent</span></a>s. If the events has
+floating references they will be consumed. Furthermore the
+reference on the <a href="http://library.gnome.org/devel/glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> itself will also be stolen and its
+<em class="parameter"><code>free_func</code></em> set to <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A floating reference to a <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> as described above. Unless the
+floating reference is consumed somewhere you must free it with
+<a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#g-variant-unref"><code class="function">g_variant_unref()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

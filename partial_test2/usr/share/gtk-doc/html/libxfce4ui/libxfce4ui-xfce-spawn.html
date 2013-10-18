@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Xfce Spawn</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Libxfce4ui Reference Manual">
+<link rel="up" href="libxfce4ui-fundamentals.html" title="Part II. Xfce Fundamentals">
+<link rel="prev" href="libxfce4ui-libxfce4ui-config.html" title="Version Information">
+<link rel="next" href="libxfce4ui-extensions.html" title="Part III. Xfce UI Extensions">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libxfce4ui-libxfce4ui-config.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libxfce4ui-fundamentals.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Libxfce4ui Reference Manual</th>
+<td><a accesskey="n" href="libxfce4ui-extensions.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libxfce4ui-xfce-spawn.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libxfce4ui-xfce-spawn.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libxfce4ui-xfce-spawn"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libxfce4ui-xfce-spawn.top_of_page"></a>Xfce Spawn</span></h2>
+<p>Xfce Spawn — Functions to spawn a command with startup notification support.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libxfce4ui-xfce-spawn.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libxfce4ui/libxfce4ui.h&gt;
+
+<span class="returnvalue">gboolean</span>            <a class="link" href="libxfce4ui-xfce-spawn.html#xfce-spawn-on-screen-with-child-watch" title="xfce_spawn_on_screen_with_child_watch ()">xfce_spawn_on_screen_with_child_watch</a>
+                                                        (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/gdk/GdkScreen.html"><span class="type">GdkScreen</span></a> *screen</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *working_directory</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **argv</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **envp</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSpawnFlags</span> flags</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> startup_notify</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> startup_timestamp</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *startup_icon_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">GClosure</span> *child_watch_closure</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="libxfce4ui-xfce-spawn.html#xfce-spawn-on-screen" title="xfce_spawn_on_screen ()">xfce_spawn_on_screen</a>                (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/gdk/GdkScreen.html"><span class="type">GdkScreen</span></a> *screen</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *working_directory</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **argv</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **envp</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSpawnFlags</span> flags</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> startup_notify</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> startup_timestamp</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *startup_icon_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="libxfce4ui-xfce-spawn.html#xfce-spawn-command-line-on-screen" title="xfce_spawn_command_line_on_screen ()">xfce_spawn_command_line_on_screen</a>   (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/gdk/GdkScreen.html"><span class="type">GdkScreen</span></a> *screen</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *command_line</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> in_terminal</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> startup_notify</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libxfce4ui-xfce-spawn.description"></a><h2>Description</h2>
+<p>
+On a desktop it is important that applications are execute with
+startup notification and they show up on the correct screen and workspace.
+</p>
+</div>
+<div class="refsect1">
+<a name="libxfce4ui-xfce-spawn.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="xfce-spawn-on-screen-with-child-watch"></a><h3>xfce_spawn_on_screen_with_child_watch ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            xfce_spawn_on_screen_with_child_watch
+                                                        (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/gdk/GdkScreen.html"><span class="type">GdkScreen</span></a> *screen</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *working_directory</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **argv</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **envp</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSpawnFlags</span> flags</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> startup_notify</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> startup_timestamp</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *startup_icon_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">GClosure</span> *child_watch_closure</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-spawn-on-screen"></a><h3>xfce_spawn_on_screen ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            xfce_spawn_on_screen                (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/gdk/GdkScreen.html"><span class="type">GdkScreen</span></a> *screen</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *working_directory</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **argv</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **envp</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSpawnFlags</span> flags</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> startup_notify</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> startup_timestamp</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *startup_icon_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Like <a href="/usr/share/gtk-doc/html/gdk/GdkScreen.html#gdk-spawn-on-screen"><code class="function">gdk_spawn_on_screen()</code></a>, but also supports startup notification
+(if Libxfce4ui was built with startup notification support).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
+<td>a <a href="/usr/share/gtk-doc/html/gdk/GdkScreen.html"><span class="type">GdkScreen</span></a> or <code class="literal">NULL</code> to use the active screen,
+see <a class="link" href="libxfce4ui-xfce-gdk-extensions.html#xfce-gdk-screen-get-active" title="xfce_gdk_screen_get_active ()"><code class="function">xfce_gdk_screen_get_active()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>working_directory</code></em> :</span></p></td>
+<td>child's current working directory or <code class="literal">NULL</code> to
+inherit parent's.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>argv</code></em> :</span></p></td>
+<td>child's argument vector.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>envp</code></em> :</span></p></td>
+<td>child's environment vector or <code class="literal">NULL</code> to inherit
+parent's.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>flags from <span class="type">GSpawnFlags</span>. <span class="type">G_SPAWN_DO_NOT_REAP_CHILD</span>
+is not allowed, use <a class="link" href="libxfce4ui-xfce-spawn.html#xfce-spawn-on-screen-with-child-watch" title="xfce_spawn_on_screen_with_child_watch ()"><code class="function">xfce_spawn_on_screen_with_child_watch()</code></a>
+if you want a child watch.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>startup_notify</code></em> :</span></p></td>
+<td>whether to use startup notification.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>startup_timestamp</code></em> :</span></p></td>
+<td>the timestamp to pass to startup notification, use
+the event time here if possible to make focus
+stealing prevention work property. If you don't
+have direct access to the event time you could use
+<a href="/usr/share/gtk-doc/html/gtk/gtk-General.html#gtk-get-current-event-time"><code class="function">gtk_get_current_event_time()</code></a> or if nothing is
+available 0 is valid too.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>startup_icon_name</code></em> :</span></p></td>
+<td>application icon or <code class="literal">NULL</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for errors or <code class="literal">NULL</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> if <em class="parameter"><code>error</code></em> is set.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfce-spawn-command-line-on-screen"></a><h3>xfce_spawn_command_line_on_screen ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            xfce_spawn_command_line_on_screen   (<em class="parameter"><code><a href="/usr/share/gtk-doc/html/gdk/GdkScreen.html"><span class="type">GdkScreen</span></a> *screen</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *command_line</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> in_terminal</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> startup_notify</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Executes the given <em class="parameter"><code>command_line</code></em> and returns <code class="literal">TRUE</code> if the
+command terminated successfully. Else, the <em class="parameter"><code>error</code></em> is set
+to the standard error output.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
+<td>a <a href="/usr/share/gtk-doc/html/gdk/GdkScreen.html"><span class="type">GdkScreen</span></a> or <code class="literal">NULL</code> to use the active screen, see <a class="link" href="libxfce4ui-xfce-gdk-extensions.html#xfce-gdk-screen-get-active" title="xfce_gdk_screen_get_active ()"><code class="function">xfce_gdk_screen_get_active()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>command_line</code></em> :</span></p></td>
+<td>command line to run.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>in_terminal</code></em> :</span></p></td>
+<td>whether to run <em class="parameter"><code>command_line</code></em> in a terminal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>startup_notify</code></em> :</span></p></td>
+<td>whether to use startup notification.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>location for a <span class="type">GError</span> or <code class="literal">NULL</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if the <em class="parameter"><code>command_line</code></em> was executed
+successfully, <code class="literal">FALSE</code> if <em class="parameter"><code>error</code></em> is set.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

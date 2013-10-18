@@ -1,0 +1,600 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>XfconfBackend</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.77.0">
+<link rel="home" href="index.html" title="Xfconf Reference Manual">
+<link rel="up" href="ch02.html" title="Xfconf Daemon">
+<link rel="prev" href="ch02.html" title="Xfconf Daemon">
+<link rel="next" href="ch03.html" title="Xfconf Client Library">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch02.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Xfconf Reference Manual</th>
+<td><a accesskey="n" href="ch03.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#xfconf-xfconf-backend.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#xfconf-xfconf-backend.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#xfconf-xfconf-backend.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#xfconf-xfconf-backend.prerequisites" class="shortcut">Prerequisites</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="xfconf-xfconf-backend"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="xfconf-xfconf-backend.top_of_page"></a>XfconfBackend</span></h2>
+<p>XfconfBackend — Interface for configuration store backends</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="xfconf-xfconf-backend.synopsis"></a><h2>Synopsis</h2>
+<a name="XfconfBackend"></a><pre class="synopsis">struct              <a class="link" href="xfconf-xfconf-backend.html#XfconfBackendInterface" title="struct XfconfBackendInterface">XfconfBackendInterface</a>;
+                    <a class="link" href="xfconf-xfconf-backend.html#XfconfBackend-struct" title="XfconfBackend">XfconfBackend</a>;
+<span class="returnvalue">gboolean</span>            <a class="link" href="xfconf-xfconf-backend.html#xfconf-backend-initialize" title="xfconf_backend_initialize ()">xfconf_backend_initialize</a>           (<em class="parameter"><code><a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="xfconf-xfconf-backend.html#xfconf-backend-set" title="xfconf_backend_set ()">xfconf_backend_set</a>                  (<em class="parameter"><code><a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *channel</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GValue</span> *value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="xfconf-xfconf-backend.html#xfconf-backend-get" title="xfconf_backend_get ()">xfconf_backend_get</a>                  (<em class="parameter"><code><a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *channel</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                                                         <em class="parameter"><code><span class="type">GValue</span> *value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="xfconf-xfconf-backend.html#xfconf-backend-get-all" title="xfconf_backend_get_all ()">xfconf_backend_get_all</a>              (<em class="parameter"><code><a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *channel</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_base</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *properties</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="xfconf-xfconf-backend.html#xfconf-backend-exists" title="xfconf_backend_exists ()">xfconf_backend_exists</a>               (<em class="parameter"><code><a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *channel</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> *exists</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="xfconf-xfconf-backend.html#xfconf-backend-reset" title="xfconf_backend_reset ()">xfconf_backend_reset</a>                (<em class="parameter"><code><a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *channel</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> recursive</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="xfconf-xfconf-backend.html#xfconf-backend-flush" title="xfconf_backend_flush ()">xfconf_backend_flush</a>                (<em class="parameter"><code><a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="xfconf-xfconf-backend.html#xfconf-backend-register-property-changed-func" title="xfconf_backend_register_property_changed_func ()">xfconf_backend_register_property_changed_func</a>
+                                                        (<em class="parameter"><code><a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code><span class="type">XfconfPropertyChangedFunc</span> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="xfconf-xfconf-backend.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GInterface
+   +----XfconfBackend
+</pre>
+</div>
+<div class="refsect1">
+<a name="xfconf-xfconf-backend.prerequisites"></a><h2>Prerequisites</h2>
+<p>
+XfconfBackend requires
+ GObject.</p>
+</div>
+<div class="refsect1">
+<a name="xfconf-xfconf-backend.description"></a><h2>Description</h2>
+<p>
+XfconfBackend is an abstract interface that allows the Xfconf Daemon
+to use different backends for storing configuration data.  These backends
+can be flat text or binary files, a database, or just about anything
+one could think of to store data.
+</p>
+</div>
+<div class="refsect1">
+<a name="xfconf-xfconf-backend.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="XfconfBackendInterface"></a><h3>struct XfconfBackendInterface</h3>
+<pre class="programlisting">struct XfconfBackendInterface {
+    GTypeInterface parent;
+    
+    gboolean (*initialize)(XfconfBackend *backend,
+                           GError **error);
+    
+    gboolean (*set)(XfconfBackend *backend,
+                    const gchar *channel,
+                    const gchar *property,
+                    const GValue *value,
+                    GError **error);
+    
+    gboolean (*get)(XfconfBackend *backend,
+                    const gchar *channel,
+                    const gchar *property,
+                    GValue *value,
+                    GError **error);
+    
+    gboolean (*get_all)(XfconfBackend *backend,
+                        const gchar *channel,
+                        const gchar *property_base,
+                        GHashTable *properties,
+                        GError **error);
+    
+    gboolean (*exists)(XfconfBackend *backend,
+                       const gchar *channel,
+                       const gchar *property,
+                       gboolean *exists,
+                       GError **error);
+    
+    gboolean (*reset)(XfconfBackend *backend,
+                      const gchar *channel,
+                      const gchar *property,
+                      gboolean recursive,
+                      GError **error);
+
+    gboolean (*list_channels)(XfconfBackend *backend,
+                              GSList **channels,
+                              GError **error);
+
+    gboolean (*is_property_locked)(XfconfBackend *backend,
+                                   const gchar *channel,
+                                   const gchar *property,
+                                   gboolean *locked,
+                                   GError **error);
+    
+    gboolean (*flush)(XfconfBackend *backend,
+                      GError **error);
+
+    void (*register_property_changed_func)(XfconfBackend *backend,
+                                           XfconfPropertyChangedFunc func,
+                                           gpointer user_data);
+    
+    /*&lt; reserved for future expansion &gt;*/
+    void (*_xb_reserved0)();
+    void (*_xb_reserved1)();
+    void (*_xb_reserved2)();
+    void (*_xb_reserved3)();
+};
+</pre>
+<p>
+An interface for implementing pluggable configuration store backends
+into the Xfconf Daemon.
+</p>
+<p>
+See the <a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a> function documentation for a description of what
+each virtual function in <a class="link" href="xfconf-xfconf-backend.html#XfconfBackendInterface" title="struct XfconfBackendInterface"><span class="type">XfconfBackendInterface</span></a> should do.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><span class="type">GTypeInterface</span> <em class="structfield"><code><a name="XfconfBackendInterface.parent"></a>parent</code></em>;</span></p></td>
+<td>GObject interface parent.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="XfconfBackendInterface.initialize"></a>initialize</code></em> ()</span></p></td>
+<td>See <a class="link" href="xfconf-xfconf-backend.html#xfconf-backend-initialize" title="xfconf_backend_initialize ()"><code class="function">xfconf_backend_initialize()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="XfconfBackendInterface.set"></a>set</code></em> ()</span></p></td>
+<td>See <a class="link" href="xfconf-xfconf-backend.html#xfconf-backend-set" title="xfconf_backend_set ()"><code class="function">xfconf_backend_set()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="XfconfBackendInterface.get"></a>get</code></em> ()</span></p></td>
+<td>See <a class="link" href="xfconf-xfconf-backend.html#xfconf-backend-get" title="xfconf_backend_get ()"><code class="function">xfconf_backend_get()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="XfconfBackendInterface.get-all"></a>get_all</code></em> ()</span></p></td>
+<td>See <a class="link" href="xfconf-xfconf-backend.html#xfconf-backend-get-all" title="xfconf_backend_get_all ()"><code class="function">xfconf_backend_get_all()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="XfconfBackendInterface.exists"></a>exists</code></em> ()</span></p></td>
+<td>See <a class="link" href="xfconf-xfconf-backend.html#xfconf-backend-exists" title="xfconf_backend_exists ()"><code class="function">xfconf_backend_exists()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="XfconfBackendInterface.reset"></a>reset</code></em> ()</span></p></td>
+<td>See <a class="link" href="xfconf-xfconf-backend.html#xfconf-backend-reset" title="xfconf_backend_reset ()"><code class="function">xfconf_backend_reset()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="XfconfBackendInterface.list-channels"></a>list_channels</code></em> ()</span></p></td>
+<td>See <code class="function">xfconf_backend_list_channels()</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="XfconfBackendInterface.is-property-locked"></a>is_property_locked</code></em> ()</span></p></td>
+<td>See <code class="function">xfconf_backend_is_property_locked()</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="XfconfBackendInterface.flush"></a>flush</code></em> ()</span></p></td>
+<td>See <a class="link" href="xfconf-xfconf-backend.html#xfconf-backend-flush" title="xfconf_backend_flush ()"><code class="function">xfconf_backend_flush()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="XfconfBackendInterface.register-property-changed-func"></a>register_property_changed_func</code></em> ()</span></p></td>
+<td>See <a class="link" href="xfconf-xfconf-backend.html#xfconf-backend-register-property-changed-func" title="xfconf_backend_register_property_changed_func ()"><code class="function">xfconf_backend_register_property_changed_func()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="XfconfBackendInterface.-xb-reserved0"></a>_xb_reserved0</code></em> ()</span></p></td>
+<td>Reserved for future expansion.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="XfconfBackendInterface.-xb-reserved1"></a>_xb_reserved1</code></em> ()</span></p></td>
+<td>Reserved for future expansion.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="XfconfBackendInterface.-xb-reserved2"></a>_xb_reserved2</code></em> ()</span></p></td>
+<td>Reserved for future expansion.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="XfconfBackendInterface.-xb-reserved3"></a>_xb_reserved3</code></em> ()</span></p></td>
+<td>Reserved for future expansion.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="XfconfBackend-struct"></a><h3>XfconfBackend</h3>
+<pre class="programlisting">typedef struct _XfconfBackend XfconfBackend;</pre>
+<p>
+An instance of a class implementing a <a class="link" href="xfconf-xfconf-backend.html#XfconfBackendInterface" title="struct XfconfBackendInterface"><span class="type">XfconfBackendInterface</span></a>.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-backend-initialize"></a><h3>xfconf_backend_initialize ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            xfconf_backend_initialize           (<em class="parameter"><code><a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Does any pre-initialization that the backend needs to function.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
+<td>The <a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>An error return.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The backend should return <code class="literal">TRUE</code> if initialization
+was successful, or <code class="literal">FALSE</code> otherwise.  On <code class="literal">FALSE</code>,
+<em class="parameter"><code>error</code></em> should be set to a description of the failure.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-backend-set"></a><h3>xfconf_backend_set ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            xfconf_backend_set                  (<em class="parameter"><code><a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *channel</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GValue</span> *value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Sets the variant <em class="parameter"><code>value</code></em> for <em class="parameter"><code>property</code></em> on <em class="parameter"><code>channel</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
+<td>The <a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>channel</code></em> :</span></p></td>
+<td>A channel name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property</code></em> :</span></p></td>
+<td>A property name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>A value.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>An error return.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The backend should return <code class="literal">TRUE</code> if the operation
+was successful, or <code class="literal">FALSE</code> otherwise.  On <code class="literal">FALSE</code>,
+<em class="parameter"><code>error</code></em> should be set to a description of the failure.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-backend-get"></a><h3>xfconf_backend_get ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            xfconf_backend_get                  (<em class="parameter"><code><a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *channel</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                                                         <em class="parameter"><code><span class="type">GValue</span> *value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Gets the value of <em class="parameter"><code>property</code></em> on <em class="parameter"><code>channel</code></em> and stores it in <em class="parameter"><code>value</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
+<td>The <a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>channel</code></em> :</span></p></td>
+<td>A channel name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property</code></em> :</span></p></td>
+<td>A property name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>A <span class="type">GValue</span> return.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>An error return.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The backend should return <code class="literal">TRUE</code> if the operation
+was successful, or <code class="literal">FALSE</code> otherwise.  On <code class="literal">FALSE</code>,
+<em class="parameter"><code>error</code></em> should be set to a description of the failure.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-backend-get-all"></a><h3>xfconf_backend_get_all ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            xfconf_backend_get_all              (<em class="parameter"><code><a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *channel</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_base</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *properties</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Gets multiple properties and values on <em class="parameter"><code>channel</code></em> and stores them in
+<em class="parameter"><code>properties</code></em>, which is already initialized to hold <span class="type">gchar</span>* keys and
+<span class="type">GValue</span>* values.  The <em class="parameter"><code>property_base</code></em> parameter can be
+used to limit the retrieval to a sub-tree of the property tree.
+</p>
+<p>
+A value of the empty string ("") or forward slash ("/") for
+<em class="parameter"><code>property_base</code></em> indicates the entire channel.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
+<td>The <a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>channel</code></em> :</span></p></td>
+<td>A channel name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_base</code></em> :</span></p></td>
+<td>The base of properties to return.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>properties</code></em> :</span></p></td>
+<td>A <span class="type">GHashTable</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>An error return.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The backend should return <code class="literal">TRUE</code> if the operation
+was successful, or <code class="literal">FALSE</code> otherwise.  On <code class="literal">FALSE</code>,
+<em class="parameter"><code>error</code></em> should be set to a description of the failure.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-backend-exists"></a><h3>xfconf_backend_exists ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            xfconf_backend_exists               (<em class="parameter"><code><a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *channel</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> *exists</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Checks to see if <em class="parameter"><code>property</code></em> exists on <em class="parameter"><code>channel</code></em>, and stores <code class="literal">TRUE</code> or
+<code class="literal">FALSE</code> in <em class="parameter"><code>exists</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
+<td>The <a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>channel</code></em> :</span></p></td>
+<td>A channel name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property</code></em> :</span></p></td>
+<td>A property name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>exists</code></em> :</span></p></td>
+<td>A boolean return.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>An error return.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The backend should return <code class="literal">TRUE</code> if the operation
+was successful, or <code class="literal">FALSE</code> otherwise.  On <code class="literal">FALSE</code>,
+<em class="parameter"><code>error</code></em> should be set to a description of the failure.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-backend-reset"></a><h3>xfconf_backend_reset ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            xfconf_backend_reset                (<em class="parameter"><code><a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *channel</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> recursive</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Resets the property identified by <em class="parameter"><code>property</code></em> from <em class="parameter"><code>channel</code></em>.
+If <em class="parameter"><code>recursive</code></em> is <code class="literal">TRUE</code>, all sub-properties of <em class="parameter"><code>property</code></em> will be
+reset as well.  If the empty string ("") or a forward slash ("/")
+is specified for <em class="parameter"><code>property</code></em>, the entire channel will be reset.
+</p>
+<p>
+If none of the properties specified are locked or have root-owned
+system-wide defaults set, this effectively removes the properties
+from the configuration store entirely.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
+<td>The <a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>channel</code></em> :</span></p></td>
+<td>A channel name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property</code></em> :</span></p></td>
+<td>A property name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>recursive</code></em> :</span></p></td>
+<td>Whether or not the reset is recursive.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>An error return.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The backend should return <code class="literal">TRUE</code> if the operation
+was successful, or <code class="literal">FALSE</code> otherwise.  On <code class="literal">FALSE</code>,
+<em class="parameter"><code>error</code></em> should be set to a description of the failure.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-backend-flush"></a><h3>xfconf_backend_flush ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            xfconf_backend_flush                (<em class="parameter"><code><a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+For backends that support persistent storage, ensures that all
+configuration data stored in memory is saved to persistent storage.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
+<td>The <a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>An error return.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The backend should return <code class="literal">TRUE</code> if the operation
+was successful, or <code class="literal">FALSE</code> otherwise.  On <code class="literal">FALSE</code>,
+<em class="parameter"><code>error</code></em> should be set to a description of the failure.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="xfconf-backend-register-property-changed-func"></a><h3>xfconf_backend_register_property_changed_func ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                xfconf_backend_register_property_changed_func
+                                                        (<em class="parameter"><code><a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code><span class="type">XfconfPropertyChangedFunc</span> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+Registers a function to be called when a property changes.  The
+backend implementation should keep a pointer to <em class="parameter"><code>func</code></em> and <em class="parameter"><code>user_data</code></em>
+and call <em class="parameter"><code>func</code></em> when a property in the configuration store changes.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
+<td>The <a class="link" href="xfconf-xfconf-backend.html#XfconfBackend"><span class="type">XfconfBackend</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td>A function of type <span class="type">XfconfPropertyChangeFunc</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>Arbitrary caller-supplied data.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

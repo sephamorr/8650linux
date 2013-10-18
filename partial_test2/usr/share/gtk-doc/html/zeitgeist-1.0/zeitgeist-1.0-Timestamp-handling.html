@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Timestamp handling</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="API Documentation for the Zeitgeist Client Library">
+<link rel="up" href="ch02.html" title="Utility Functions">
+<link rel="prev" href="zeitgeist-1.0-Mimetype-mapping-and-URI-comprehension.html" title="Mimetype mapping and URI comprehension">
+<link rel="next" href="zeitgeist-1.0-Symbol-comprehension.html" title="Symbol comprehension">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="zeitgeist-1.0-Mimetype-mapping-and-URI-comprehension.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">API Documentation for the Zeitgeist Client Library</th>
+<td><a accesskey="n" href="zeitgeist-1.0-Symbol-comprehension.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#zeitgeist-1.0-Timestamp-handling.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#zeitgeist-1.0-Timestamp-handling.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="zeitgeist-1.0-Timestamp-handling"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="zeitgeist-1.0-Timestamp-handling.top_of_page"></a>Timestamp handling</span></h2>
+<p>Timestamp handling — Convenience functions for dealing with timestamps and dates</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="zeitgeist-1.0-Timestamp-handling.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;zeitgeist.h&gt;
+
+#define             <a class="link" href="zeitgeist-1.0-Timestamp-handling.html#ZEITGEIST-TIMESTAMP-SECOND:CAPS" title="ZEITGEIST_TIMESTAMP_SECOND">ZEITGEIST_TIMESTAMP_SECOND</a>
+#define             <a class="link" href="zeitgeist-1.0-Timestamp-handling.html#ZEITGEIST-TIMESTAMP-MINUTE:CAPS" title="ZEITGEIST_TIMESTAMP_MINUTE">ZEITGEIST_TIMESTAMP_MINUTE</a>
+#define             <a class="link" href="zeitgeist-1.0-Timestamp-handling.html#ZEITGEIST-TIMESTAMP-HOUR:CAPS" title="ZEITGEIST_TIMESTAMP_HOUR">ZEITGEIST_TIMESTAMP_HOUR</a>
+#define             <a class="link" href="zeitgeist-1.0-Timestamp-handling.html#ZEITGEIST-TIMESTAMP-DAY:CAPS" title="ZEITGEIST_TIMESTAMP_DAY">ZEITGEIST_TIMESTAMP_DAY</a>
+#define             <a class="link" href="zeitgeist-1.0-Timestamp-handling.html#ZEITGEIST-TIMESTAMP-WEEK:CAPS" title="ZEITGEIST_TIMESTAMP_WEEK">ZEITGEIST_TIMESTAMP_WEEK</a>
+#define             <a class="link" href="zeitgeist-1.0-Timestamp-handling.html#ZEITGEIST-TIMESTAMP-YEAR:CAPS" title="ZEITGEIST_TIMESTAMP_YEAR">ZEITGEIST_TIMESTAMP_YEAR</a>
+<span class="returnvalue">gint64</span>              <a class="link" href="zeitgeist-1.0-Timestamp-handling.html#zeitgeist-timestamp-for-now" title="zeitgeist_timestamp_for_now ()">zeitgeist_timestamp_for_now</a>         (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gint64</span>              <a class="link" href="zeitgeist-1.0-Timestamp-handling.html#zeitgeist-timestamp-from-date" title="zeitgeist_timestamp_from_date ()">zeitgeist_timestamp_from_date</a>       (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDate"><span class="type">GDate</span></a> *date</code></em>);
+<span class="returnvalue">gint64</span>              <a class="link" href="zeitgeist-1.0-Timestamp-handling.html#zeitgeist-timestamp-from-dmy" title="zeitgeist_timestamp_from_dmy ()">zeitgeist_timestamp_from_dmy</a>        (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDateDay"><span class="type">GDateDay</span></a> day</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDateMonth"><span class="type">GDateMonth</span></a> month</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDateYear"><span class="type">GDateYear</span></a> year</code></em>);
+<span class="returnvalue">gint64</span>              <a class="link" href="zeitgeist-1.0-Timestamp-handling.html#zeitgeist-timestamp-from-iso8601" title="zeitgeist_timestamp_from_iso8601 ()">zeitgeist_timestamp_from_iso8601</a>    (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *datetime</code></em>);
+<span class="returnvalue">gint64</span>              <a class="link" href="zeitgeist-1.0-Timestamp-handling.html#zeitgeist-timestamp-from-timeval" title="zeitgeist_timestamp_from_timeval ()">zeitgeist_timestamp_from_timeval</a>    (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GTimeVal"><span class="type">GTimeVal</span></a> *tv</code></em>);
+<span class="returnvalue">gint64</span>              <a class="link" href="zeitgeist-1.0-Timestamp-handling.html#zeitgeist-timestamp-next-midnight" title="zeitgeist_timestamp_next_midnight ()">zeitgeist_timestamp_next_midnight</a>   (<em class="parameter"><code><span class="type">gint64</span> timestamp</code></em>);
+<span class="returnvalue">gint64</span>              <a class="link" href="zeitgeist-1.0-Timestamp-handling.html#zeitgeist-timestamp-prev-midnight" title="zeitgeist_timestamp_prev_midnight ()">zeitgeist_timestamp_prev_midnight</a>   (<em class="parameter"><code><span class="type">gint64</span> timestamp</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="zeitgeist-1.0-Timestamp-handling.html#zeitgeist-timestamp-to-date" title="zeitgeist_timestamp_to_date ()">zeitgeist_timestamp_to_date</a>         (<em class="parameter"><code><span class="type">gint64</span> timestamp</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDate"><span class="type">GDate</span></a> *date</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="zeitgeist-1.0-Timestamp-handling.html#zeitgeist-timestamp-to-iso8601" title="zeitgeist_timestamp_to_iso8601 ()">zeitgeist_timestamp_to_iso8601</a>      (<em class="parameter"><code><span class="type">gint64</span> timestamp</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="zeitgeist-1.0-Timestamp-handling.html#zeitgeist-timestamp-to-timeval" title="zeitgeist_timestamp_to_timeval ()">zeitgeist_timestamp_to_timeval</a>      (<em class="parameter"><code><span class="type">gint64</span> timestamp</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GTimeVal"><span class="type">GTimeVal</span></a> *tv</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="zeitgeist-1.0-Timestamp-handling.description"></a><h2>Description</h2>
+<p>
+A suite of convenience functions for dealing with timestamps and dates.
+</p>
+<p>
+Zeitgeist timestamps are represented as <span class="type">gint64</span>s with the number
+of milliseconds since the Unix Epoch.
+</p>
+</div>
+<div class="refsect1">
+<a name="zeitgeist-1.0-Timestamp-handling.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ZEITGEIST-TIMESTAMP-SECOND:CAPS"></a><h3>ZEITGEIST_TIMESTAMP_SECOND</h3>
+<pre class="programlisting">#define ZEITGEIST_TIMESTAMP_SECOND G_GINT64_CONSTANT (1000)
+</pre>
+<p>
+A second represented as a Zeitgeist timestamp (ie. 1000ms)
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ZEITGEIST-TIMESTAMP-MINUTE:CAPS"></a><h3>ZEITGEIST_TIMESTAMP_MINUTE</h3>
+<pre class="programlisting">#define ZEITGEIST_TIMESTAMP_MINUTE G_GINT64_CONSTANT (60000)
+</pre>
+<p>
+A minute represented as a Zeitgeist timestamp (ie. 60000ms)
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ZEITGEIST-TIMESTAMP-HOUR:CAPS"></a><h3>ZEITGEIST_TIMESTAMP_HOUR</h3>
+<pre class="programlisting">#define ZEITGEIST_TIMESTAMP_HOUR G_GINT64_CONSTANT (3600000)
+</pre>
+<p>
+An hour represented as a Zeitgeist timestamp (ie. 3600000ms)
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ZEITGEIST-TIMESTAMP-DAY:CAPS"></a><h3>ZEITGEIST_TIMESTAMP_DAY</h3>
+<pre class="programlisting">#define ZEITGEIST_TIMESTAMP_DAY G_GINT64_CONSTANT (86400000)
+</pre>
+<p>
+A day represented as a Zeitgeist timestamp (ie. 86400000ms)
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ZEITGEIST-TIMESTAMP-WEEK:CAPS"></a><h3>ZEITGEIST_TIMESTAMP_WEEK</h3>
+<pre class="programlisting">#define ZEITGEIST_TIMESTAMP_WEEK G_GINT64_CONSTANT (604800000)
+</pre>
+<p>
+A week represented as a Zeitgeist timestamp (ie. 604800000ms)
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ZEITGEIST-TIMESTAMP-YEAR:CAPS"></a><h3>ZEITGEIST_TIMESTAMP_YEAR</h3>
+<pre class="programlisting">#define ZEITGEIST_TIMESTAMP_YEAR G_GINT64_CONSTANT (31556952000)
+</pre>
+<p>
+A year represented as a Zeitgeist timestamp (ie. 31556952000ms).
+Be warned that a year is not 365 days, but in fact 365.2425 days to
+account for leap years.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-timestamp-for-now"></a><h3>zeitgeist_timestamp_for_now ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint64</span>              zeitgeist_timestamp_for_now         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Get the timestamp for the current system time
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The timestamp for the current system time. Ie. the number of
+milliseconds since the Unix Epoch</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-timestamp-from-date"></a><h3>zeitgeist_timestamp_from_date ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint64</span>              zeitgeist_timestamp_from_date       (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDate"><span class="type">GDate</span></a> *date</code></em>);</pre>
+<p>
+Convert a <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDate"><span class="type">GDate</span></a> to a Zeitgeist timestamp.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>date</code></em> :</span></p></td>
+<td>A <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDate"><span class="type">GDate</span></a> to convert</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<em class="parameter"><code>date</code></em> as a timestamp in milliseconds since the Epoch. The timestamp
+is guaranteed to be rounded off to the midnight of the given date.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-timestamp-from-dmy"></a><h3>zeitgeist_timestamp_from_dmy ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint64</span>              zeitgeist_timestamp_from_dmy        (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDateDay"><span class="type">GDateDay</span></a> day</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDateMonth"><span class="type">GDateMonth</span></a> month</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDateYear"><span class="type">GDateYear</span></a> year</code></em>);</pre>
+<p>
+Convert a day, month, year tuple into a Zeitgeist timestamp
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>day</code></em> :</span></p></td>
+<td>The day of the month represented as a <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDateDay"><span class="type">GDateDay</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>month</code></em> :</span></p></td>
+<td>The month of the year represented as a <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDateMonth"><span class="type">GDateMonth</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>year</code></em> :</span></p></td>
+<td>The year represented as a <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDateYear"><span class="type">GDateYear</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Input data as a timestamp in milliseconds since the Epoch or
+-1 in case the provided data does not constitute a valid date.
+If the date is valid the returned timestamp is guaranteed to be
+rounded off to the midnight of the given date</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-timestamp-from-iso8601"></a><h3>zeitgeist_timestamp_from_iso8601 ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint64</span>              zeitgeist_timestamp_from_iso8601    (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *datetime</code></em>);</pre>
+<p>
+Parse a timestamp from a ISO8601 encoded string.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
+<td>A string containing an iso8601 conforming datetime specification</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The timestamp represented by <em class="parameter"><code>datetime</code></em>, or -1 on failure to parse
+<em class="parameter"><code>datetime</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-timestamp-from-timeval"></a><h3>zeitgeist_timestamp_from_timeval ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint64</span>              zeitgeist_timestamp_from_timeval    (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GTimeVal"><span class="type">GTimeVal</span></a> *tv</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tv</code></em> :</span></p></td>
+<td>A <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GTimeVal"><span class="type">GTimeVal</span></a> instance</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <span class="type">gint64</span> with the total number of milliseconds since the Unix Epoch</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-timestamp-next-midnight"></a><h3>zeitgeist_timestamp_next_midnight ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint64</span>              zeitgeist_timestamp_next_midnight   (<em class="parameter"><code><span class="type">gint64</span> timestamp</code></em>);</pre>
+<p>
+Calculate the timestamp for the next midnight after <em class="parameter"><code>timestamp</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>timestamp</code></em> :</span></p></td>
+<td>The Zeitgeist timestamp to find the next midnight for</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Returns the timestamp for the first midnight after <em class="parameter"><code>timestamp</code></em>.
+If <em class="parameter"><code>timestamp</code></em> is already midnight (down to the millisecond) this
+method will return the value for the next midnight. In other words
+you can call this method recursively in order to iterate, forwards
+in time, over midnights.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-timestamp-prev-midnight"></a><h3>zeitgeist_timestamp_prev_midnight ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint64</span>              zeitgeist_timestamp_prev_midnight   (<em class="parameter"><code><span class="type">gint64</span> timestamp</code></em>);</pre>
+<p>
+Calculate the timestamp for the midnight just before <em class="parameter"><code>timestamp</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>timestamp</code></em> :</span></p></td>
+<td>The Zeitgeist timestamp to find the previous midnight for</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Returns the timestamp for the first midnight just before <em class="parameter"><code>timestamp</code></em>.
+If <em class="parameter"><code>timestamp</code></em> is already midnight (down to the millisecond) this
+method will return the value for the midnight before. In other words
+you can call this method recursively in order to iterate, backwards
+in time, over midnights.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-timestamp-to-date"></a><h3>zeitgeist_timestamp_to_date ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_timestamp_to_date         (<em class="parameter"><code><span class="type">gint64</span> timestamp</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDate"><span class="type">GDate</span></a> *date</code></em>);</pre>
+<p>
+Write a timestamp to a <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDate"><span class="type">GDate</span></a> structure
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>timestamp</code></em> :</span></p></td>
+<td>The Zeitgeist timestamp to convert to a <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GDate"><span class="type">GDate</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>date</code></em> :</span></p></td>
+<td>The place to store the result in. Must be non-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-timestamp-to-iso8601"></a><h3>zeitgeist_timestamp_to_iso8601 ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             zeitgeist_timestamp_to_iso8601      (<em class="parameter"><code><span class="type">gint64</span> timestamp</code></em>);</pre>
+<p>
+Convert a timestamp to a human readable ISO8601 format
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>timestamp</code></em> :</span></p></td>
+<td>A Zeitgeist timestamp in ms since the Epoch</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly allocated string containing the ISO8601 format of
+<em class="parameter"><code>timestamp</code></em>. Free with <a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="zeitgeist-timestamp-to-timeval"></a><h3>zeitgeist_timestamp_to_timeval ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                zeitgeist_timestamp_to_timeval      (<em class="parameter"><code><span class="type">gint64</span> timestamp</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GTimeVal"><span class="type">GTimeVal</span></a> *tv</code></em>);</pre>
+<p>
+Write a Zeitgeist timestamp to a <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GTimeVal"><span class="type">GTimeVal</span></a> instance. Note that Zeitgeist
+uses only a millisecond resolution for where <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GTimeVal"><span class="type">GTimeVal</span></a> uses a microsecond
+resolution, meaning that the lower three digits of <em class="parameter"><code>tv.tv_usec</code></em> will
+be 0.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>timestamp</code></em> :</span></p></td>
+<td>A <span class="type">gint64</span> with a number of milliseconds since the Unix Epoch</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tv</code></em> :</span></p></td>
+<td>A <a href="http://library.gnome.org/devel/glib/unstable/glib-Date-and-Time-Functions.html#GTimeVal"><span class="type">GTimeVal</span></a> instance to store the result in</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>
