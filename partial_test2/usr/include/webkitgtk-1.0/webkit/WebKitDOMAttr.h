@@ -21,11 +21,10 @@
 #ifndef WebKitDOMAttr_h
 #define WebKitDOMAttr_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMNode.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMNode.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_ATTR            (webkit_dom_attr_get_type())
@@ -86,7 +85,7 @@ webkit_dom_attr_get_value(WebKitDOMAttr* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_attr_set_value(WebKitDOMAttr* self, const gchar* value, GError **error);
+webkit_dom_attr_set_value(WebKitDOMAttr* self, const gchar* value, GError** error);
 
 /**
  * webkit_dom_attr_get_owner_element:

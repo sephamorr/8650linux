@@ -3,25 +3,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AtkText</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="ATK - Accessibility Toolkit">
 <link rel="up" href="atk.html" title="ATK Library">
 <link rel="prev" href="AtkTable.html" title="AtkTable">
 <link rel="next" href="AtkUtil.html" title="AtkUtil">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="AtkTable.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="atk.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">ATK - Accessibility Toolkit</th>
-<td><a accesskey="n" href="AtkUtil.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#AtkText.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#AtkText.description" class="shortcut">Description</a>
                    | 
@@ -30,21 +23,28 @@
                   <a href="#AtkText.implementations" class="shortcut">Known Implementations</a>
                    | 
                   <a href="#AtkText.signals" class="shortcut">Signals</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="atk.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="AtkTable.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="AtkUtil.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="AtkText"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="AtkText.top_of_page"></a>AtkText</span></h2>
-<p>AtkText — The ATK interface implemented by components with text content.</p>
+<p>AtkText — The ATK interface implemented by components
+ with text content.</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsynopsisdiv">
 <a name="AtkText.synopsis"></a><h2>Synopsis</h2>
 <pre class="synopsis">                    <a class="link" href="AtkText.html#AtkText-struct" title="AtkText">AtkText</a>;
+struct              <a class="link" href="AtkText.html#AtkTextIface" title="struct AtkTextIface">AtkTextIface</a>;
 enum                <a class="link" href="AtkText.html#AtkTextBoundary" title="enum AtkTextBoundary">AtkTextBoundary</a>;
+enum                <a class="link" href="AtkText.html#AtkTextGranularity" title="enum AtkTextGranularity">AtkTextGranularity</a>;
 enum                <a class="link" href="AtkText.html#AtkTextClipType" title="enum AtkTextClipType">AtkTextClipType</a>;
 struct              <a class="link" href="AtkText.html#AtkTextRange" title="struct AtkTextRange">AtkTextRange</a>;
 struct              <a class="link" href="AtkText.html#AtkTextRectangle" title="struct AtkTextRectangle">AtkTextRectangle</a>;
@@ -69,6 +69,11 @@ enum                <a class="link" href="AtkText.html#AtkTextAttribute" title="
 <span class="returnvalue">gchar</span> *             <a class="link" href="AtkText.html#atk-text-get-text-before-offset" title="atk_text_get_text_before_offset ()">atk_text_get_text_before_offset</a>     (<em class="parameter"><code><a class="link" href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a> *text</code></em>,
                                                          <em class="parameter"><code><span class="type">gint</span> offset</code></em>,
                                                          <em class="parameter"><code><a class="link" href="AtkText.html#AtkTextBoundary" title="enum AtkTextBoundary"><span class="type">AtkTextBoundary</span></a> boundary_type</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *start_offset</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *end_offset</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="AtkText.html#atk-text-get-string-at-offset" title="atk_text_get_string_at_offset ()">atk_text_get_string_at_offset</a>       (<em class="parameter"><code><a class="link" href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a> *text</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> offset</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="AtkText.html#AtkTextGranularity" title="enum AtkTextGranularity"><span class="type">AtkTextGranularity</span></a> granularity</code></em>,
                                                          <em class="parameter"><code><span class="type">gint</span> *start_offset</code></em>,
                                                          <em class="parameter"><code><span class="type">gint</span> *end_offset</code></em>);
 <span class="returnvalue">gint</span>                <a class="link" href="AtkText.html#atk-text-get-caret-offset" title="atk_text_get_caret_offset ()">atk_text_get_caret_offset</a>           (<em class="parameter"><code><a class="link" href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a> *text</code></em>);
@@ -146,30 +151,31 @@ AtkText is implemented by
   "<a class="link" href="AtkText.html#AtkText-text-insert" title='The "text-insert" signal'>text-insert</a>"                                    : <code class="literal">Has Details</code>
   "<a class="link" href="AtkText.html#AtkText-text-remove" title='The "text-remove" signal'>text-remove</a>"                                    : <code class="literal">Has Details</code>
   "<a class="link" href="AtkText.html#AtkText-text-selection-changed" title='The "text-selection-changed" signal'>text-selection-changed</a>"                         : <code class="literal">Run Last</code>
-  "<a class="link" href="AtkText.html#AtkText-text-update" title='The "text-update" signal'>text-update</a>"                                    : <code class="literal">Has Details</code>
 </pre>
 </div>
 <div class="refsect1">
 <a name="AtkText.description"></a><h2>Description</h2>
 <p>
-<a class="link" href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a> should be implemented by <a href="AtkObject.html"><span class="type">AtkObjects</span></a> on behalf of widgets that
-have text content which is either attributed or otherwise non-trivial.
-<a href="AtkObject.html"><span class="type">AtkObjects</span></a> whose text content is simple, unattributed, and very brief
-may expose that content via <a class="link" href="AtkObject.html#atk-object-get-name" title="atk_object_get_name ()"><span class="type">atk_object_get_name</span></a> instead; however if the
-text is editable, multi-line, typically longer than three or four words,
-attributed, selectable, or if the object already uses the 'name' ATK
-property for other information, the <a class="link" href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a> interface should be used
-to expose the text content.  In the case of editable text content,
+<a class="link" href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a> should be implemented by <a href="AtkObject.html"><span class="type">AtkObjects</span></a> on behalf of widgets
+that have text content which is either attributed or otherwise
+non-trivial.  <a href="AtkObject.html"><span class="type">AtkObjects</span></a> whose text content is simple,
+unattributed, and very brief may expose that content via
+<a class="link" href="AtkObject.html#atk-object-get-name" title="atk_object_get_name ()"><span class="type">atk_object_get_name</span></a> instead; however if the text is editable,
+multi-line, typically longer than three or four words, attributed,
+selectable, or if the object already uses the 'name' ATK property
+for other information, the <a class="link" href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a> interface should be used to
+expose the text content.  In the case of editable text content,
 <a class="link" href="AtkEditableText.html" title="AtkEditableText"><span class="type">AtkEditableText</span></a> (a subtype of the <a class="link" href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a> interface) should be
 implemented instead.
 </p>
 <p>
-<a class="link" href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a> provides not only traversal facilities and change notification
-for text content, but also caret tracking and glyph bounding box
-calculations.  Note that the text strings are exposed as UTF-8, and are
-therefore potentially multi-byte, and caret-to-byte offset mapping makes
-no assumptions about the character length; also bounding box
-glyph-to-offset mapping may be complex for languages which use ligatures.
+ <a class="link" href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a> provides not only traversal facilities and change
+notification for text content, but also caret tracking and glyph
+bounding box calculations.  Note that the text strings are exposed
+as UTF-8, and are therefore potentially multi-byte, and
+caret-to-byte offset mapping makes no assumptions about the
+character length; also bounding box glyph-to-offset mapping may be
+complex for languages which use ligatures.
 </p>
 </div>
 <div class="refsect1">
@@ -178,8 +184,214 @@ glyph-to-offset mapping may be complex for languages which use ligatures.
 <a name="AtkText-struct"></a><h3>AtkText</h3>
 <pre class="programlisting">typedef struct _AtkText AtkText;</pre>
 <p>
-The AtkText structure does not contain any fields.
 </p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AtkTextIface"></a><h3>struct AtkTextIface</h3>
+<pre class="programlisting">struct AtkTextIface {
+  GTypeInterface parent;
+
+  gchar*         (* get_text)                     (AtkText          *text,
+                                                   gint             start_offset,
+                                                   gint             end_offset);
+  gchar*         (* get_text_after_offset)        (AtkText          *text,
+                                                   gint             offset,
+                                                   AtkTextBoundary  boundary_type,
+						   gint             *start_offset,
+						   gint             *end_offset);
+  gchar*         (* get_text_at_offset)           (AtkText          *text,
+                                                   gint             offset,
+                                                   AtkTextBoundary  boundary_type,
+						   gint             *start_offset,
+						   gint             *end_offset);
+  gunichar       (* get_character_at_offset)      (AtkText          *text,
+                                                   gint             offset);
+  gchar*         (* get_text_before_offset)       (AtkText          *text,
+                                                   gint             offset,
+                                                   AtkTextBoundary  boundary_type,
+ 						   gint             *start_offset,
+						   gint             *end_offset);
+  gint           (* get_caret_offset)             (AtkText          *text);
+  AtkAttributeSet* (* get_run_attributes)         (AtkText	    *text,
+						   gint	  	    offset,
+						   gint             *start_offset,
+						   gint	 	    *end_offset);
+  AtkAttributeSet* (* get_default_attributes)     (AtkText	    *text);
+  void           (* get_character_extents)        (AtkText          *text,
+                                                   gint             offset,
+                                                   gint             *x,
+                                                   gint             *y,
+                                                   gint             *width,
+                                                   gint             *height,
+                                                   AtkCoordType	    coords);
+  gint           (* get_character_count)          (AtkText          *text);
+  gint           (* get_offset_at_point)          (AtkText          *text,
+                                                   gint             x,
+                                                   gint             y,
+                                                   AtkCoordType	    coords);
+  gint		 (* get_n_selections)		  (AtkText          *text);
+  gchar*         (* get_selection)	          (AtkText          *text,
+						   gint		    selection_num,
+						   gint		    *start_offset,
+						   gint		    *end_offset);
+  gboolean       (* add_selection)		  (AtkText          *text,
+						   gint		    start_offset,
+						   gint		    end_offset);
+  gboolean       (* remove_selection)		  (AtkText          *text,
+						   gint             selection_num);
+  gboolean       (* set_selection)		  (AtkText          *text,
+						   gint		    selection_num,
+						   gint		    start_offset,
+						   gint		    end_offset);
+  gboolean       (* set_caret_offset)             (AtkText          *text,
+                                                   gint             offset);
+
+  /*
+   * signal handlers
+   */
+  void		 (* text_changed)                 (AtkText          *text,
+                                                   gint             position,
+                                                   gint             length);
+  void           (* text_caret_moved)             (AtkText          *text,
+                                                   gint             location);
+  void           (* text_selection_changed)       (AtkText          *text);
+
+  void           (* text_attributes_changed)      (AtkText          *text);
+
+
+  void           (* get_range_extents)            (AtkText          *text,
+                                                   gint             start_offset,
+                                                   gint             end_offset,
+                                                   AtkCoordType     coord_type,
+                                                   AtkTextRectangle *rect);
+
+  AtkTextRange** (* get_bounded_ranges)           (AtkText          *text,
+                                                   AtkTextRectangle *rect,
+                                                   AtkCoordType     coord_type,
+                                                   AtkTextClipType  x_clip_type,
+                                                   AtkTextClipType  y_clip_type);
+
+  gchar*         (* get_string_at_offset)         (AtkText            *text,
+                                                   gint               offset,
+                                                   AtkTextGranularity granularity,
+                                                   gint               *start_offset,
+                                                   gint               *end_offset);
+};
+</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><span class="type">GTypeInterface</span> <em class="structfield"><code><a name="AtkTextIface.parent"></a>parent</code></em>;</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.get-text"></a>get_text</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.get-text-after-offset"></a>get_text_after_offset</code></em> ()</span></p></td>
+<td>Gets specified text. This virtual function
+is deprecated and it should not be overridden.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.get-text-at-offset"></a>get_text_at_offset</code></em> ()</span></p></td>
+<td>Gets specified text. This virtual function
+is deprecated and it should not be overridden.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.get-character-at-offset"></a>get_character_at_offset</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.get-text-before-offset"></a>get_text_before_offset</code></em> ()</span></p></td>
+<td>Gets specified text. This virtual function
+is deprecated and it should not be overridden.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.get-caret-offset"></a>get_caret_offset</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.get-run-attributes"></a>get_run_attributes</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.get-default-attributes"></a>get_default_attributes</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.get-character-extents"></a>get_character_extents</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.get-character-count"></a>get_character_count</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.get-offset-at-point"></a>get_offset_at_point</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.get-n-selections"></a>get_n_selections</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.get-selection"></a>get_selection</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.add-selection"></a>add_selection</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.remove-selection"></a>remove_selection</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.set-selection"></a>set_selection</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.set-caret-offset"></a>set_caret_offset</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.text-changed"></a>text_changed</code></em> ()</span></p></td>
+<td>the signal handler which is executed when there is a
+text change. This virtual function is deprecated sice 2.9.4 and
+it should not be overriden.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.text-caret-moved"></a>text_caret_moved</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.text-selection-changed"></a>text_selection_changed</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.text-attributes-changed"></a>text_attributes_changed</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.get-range-extents"></a>get_range_extents</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.get-bounded-ranges"></a>get_bounded_ranges</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkTextIface.get-string-at-offset"></a>get_string_at_offset</code></em> ()</span></p></td>
+<td>Gets a portion of the text exposed through
+an AtkText according to a given offset and a specific
+granularity, along with the start and end offsets defining the
+boundaries of such a portion of text.</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
@@ -195,25 +407,28 @@ The AtkText structure does not contain any fields.
 } AtkTextBoundary;
 </pre>
 <p>
-Text boundary types used for specifying boundaries for regions of text
+Text boundary types used for specifying boundaries for regions of text.
+This enumerationis deprecated since 2.9.4 and should not be used. Use
+AtkTextGranularity with <a class="link" href="AtkText.html#atk-text-get-string-at-offset" title="atk_text_get_string_at_offset ()"><span class="type">atk_text_get_string_at_offset</span></a> instead.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><a name="ATK-TEXT-BOUNDARY-CHAR:CAPS"></a><span class="term"><code class="literal">ATK_TEXT_BOUNDARY_CHAR</code></span></p></td>
-<td>Boundary is the boundary between characters 
+<td>Boundary is the boundary between characters
 (including non-printing characters)
 </td>
 </tr>
 <tr>
 <td><p><a name="ATK-TEXT-BOUNDARY-WORD-START:CAPS"></a><span class="term"><code class="literal">ATK_TEXT_BOUNDARY_WORD_START</code></span></p></td>
-<td>Boundary is the start (i.e. first character) of a word. 
+<td>Boundary is the start (i.e. first character) of a word.
 </td>
 </tr>
 <tr>
 <td><p><a name="ATK-TEXT-BOUNDARY-WORD-END:CAPS"></a><span class="term"><code class="literal">ATK_TEXT_BOUNDARY_WORD_END</code></span></p></td>
-<td>Boundary is the end (i.e. last character) of a word.
+<td>Boundary is the end (i.e. last
+character) of a word.
 </td>
 </tr>
 <tr>
@@ -223,20 +438,77 @@ Text boundary types used for specifying boundaries for regions of text
 </tr>
 <tr>
 <td><p><a name="ATK-TEXT-BOUNDARY-SENTENCE-END:CAPS"></a><span class="term"><code class="literal">ATK_TEXT_BOUNDARY_SENTENCE_END</code></span></p></td>
-<td>Boundary is the last (terminal) character in a sentence; 
-in languages which use "sentence stop" punctuation such as English, the boundary is thus the
-'.', '?', or similar terminal punctuation character.
+<td>Boundary is the last (terminal)
+character in a sentence; in languages which use "sentence stop"
+punctuation such as English, the boundary is thus the '.', '?', or
+similar terminal punctuation character.
 </td>
 </tr>
 <tr>
 <td><p><a name="ATK-TEXT-BOUNDARY-LINE-START:CAPS"></a><span class="term"><code class="literal">ATK_TEXT_BOUNDARY_LINE_START</code></span></p></td>
-<td>Boundary is the initial character of the content or a 
+<td>Boundary is the initial character of the content or a
 character immediately following a newline, linefeed, or return character.
 </td>
 </tr>
 <tr>
 <td><p><a name="ATK-TEXT-BOUNDARY-LINE-END:CAPS"></a><span class="term"><code class="literal">ATK_TEXT_BOUNDARY_LINE_END</code></span></p></td>
-<td>Boundary is the linefeed, or return character.
+<td>Boundary is the linefeed, or return
+character.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AtkTextGranularity"></a><h3>enum AtkTextGranularity</h3>
+<pre class="programlisting">typedef enum {
+  ATK_TEXT_GRANULARITY_CHAR,
+  ATK_TEXT_GRANULARITY_WORD,
+  ATK_TEXT_GRANULARITY_SENTENCE,
+  ATK_TEXT_GRANULARITY_LINE,
+  ATK_TEXT_GRANULARITY_PARAGRAPH
+} AtkTextGranularity;
+</pre>
+<p>
+Text granularity types used for specifying the granularity of the region of
+text we are interested in.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="ATK-TEXT-GRANULARITY-CHAR:CAPS"></a><span class="term"><code class="literal">ATK_TEXT_GRANULARITY_CHAR</code></span></p></td>
+<td>Granularity is defined by the boundaries between characters
+(including non-printing characters)
+</td>
+</tr>
+<tr>
+<td><p><a name="ATK-TEXT-GRANULARITY-WORD:CAPS"></a><span class="term"><code class="literal">ATK_TEXT_GRANULARITY_WORD</code></span></p></td>
+<td>Granularity is defined by the boundaries of a word,
+starting at the beginning of the current word and finishing at the beginning of
+the following one, if present.
+</td>
+</tr>
+<tr>
+<td><p><a name="ATK-TEXT-GRANULARITY-SENTENCE:CAPS"></a><span class="term"><code class="literal">ATK_TEXT_GRANULARITY_SENTENCE</code></span></p></td>
+<td>Granularity is defined by the boundaries of a sentence,
+starting at the beginning of the current sentence and finishing at the beginning of
+the following one, if present.
+</td>
+</tr>
+<tr>
+<td><p><a name="ATK-TEXT-GRANULARITY-LINE:CAPS"></a><span class="term"><code class="literal">ATK_TEXT_GRANULARITY_LINE</code></span></p></td>
+<td>Granularity is defined by the boundaries of a line,
+starting at the beginning of the current line and finishing at the beginning of
+the following one, if present.
+</td>
+</tr>
+<tr>
+<td><p><a name="ATK-TEXT-GRANULARITY-PARAGRAPH:CAPS"></a><span class="term"><code class="literal">ATK_TEXT_GRANULARITY_PARAGRAPH</code></span></p></td>
+<td>Granularity is defined by the boundaries of a paragraph,
+starting at the beginning of the current paragraph and finishing at the beginning of
+the following one, if present.
 </td>
 </tr>
 </tbody>
@@ -648,55 +920,13 @@ Gets the specified text.
                                                          <em class="parameter"><code><a class="link" href="AtkText.html#AtkTextBoundary" title="enum AtkTextBoundary"><span class="type">AtkTextBoundary</span></a> boundary_type</code></em>,
                                                          <em class="parameter"><code><span class="type">gint</span> *start_offset</code></em>,
                                                          <em class="parameter"><code><span class="type">gint</span> *end_offset</code></em>);</pre>
+<div class="warning">
+<h3 class="title">Warning</h3>
+<p><code class="literal">atk_text_get_text_after_offset</code> is deprecated and should not be used in newly-written code. This method is deprecated since ATK version
+2.9.3. Please use <a class="link" href="AtkText.html#atk-text-get-string-at-offset" title="atk_text_get_string_at_offset ()"><code class="function">atk_text_get_string_at_offset()</code></a> instead.</p>
+</div>
 <p>
 Gets the specified text.
-</p>
-<p>
-If the boundary_type if ATK_TEXT_BOUNDARY_CHAR the character after the 
-offset is returned.
-</p>
-<p>
-If the boundary_type is ATK_TEXT_BOUNDARY_WORD_START the returned string
-is from the word start after the offset to the next word start.
-</p>
-<p>
-The returned string will contain the word after the offset if the offset 
-is inside a word or if the offset is not inside a word.
-</p>
-<p>
-If the boundary_type is ATK_TEXT_BOUNDARY_WORD_END the returned string
-is from the word end at or after the offset to the next work end.
-</p>
-<p>
-The returned string will contain the word after the offset if the offset
-is inside a word and will contain the word after the word after the offset
-if the offset is not inside a word.
-</p>
-<p>
-If the boundary type is ATK_TEXT_BOUNDARY_SENTENCE_START the returned
-string is from the sentence start after the offset to the next sentence
-start.
-</p>
-<p>
-The returned string will contain the sentence after the offset if the offset
-is inside a sentence or if the offset is not inside a sentence.
-</p>
-<p>
-If the boundary_type is ATK_TEXT_BOUNDARY_SENTENCE_END the returned string
-is from the sentence end at or after the offset to the next sentence end.
-</p>
-<p>
-The returned string will contain the sentence after the offset if the offset
-is inside a sentence and will contain the sentence after the sentence
-after the offset if the offset is not inside a sentence.
-</p>
-<p>
-If the boundary type is ATK_TEXT_BOUNDARY_LINE_START the returned
-string is from the line start after the offset to the next line start.
-</p>
-<p>
-If the boundary_type is ATK_TEXT_BOUNDARY_LINE_END the returned string
-is from the line end at or after the offset to the next line end.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -717,12 +947,14 @@ is from the line end at or after the offset to the next line end.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>start_offset</code></em> :</span></p></td>
-<td>the start offset of the returned string</td>
+<td>the start offset of the returned string. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>end_offset</code></em> :</span></p></td>
 <td>the offset of the first character after the
-returned substring</td>
+returned substring. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -740,6 +972,11 @@ by the specified <em class="parameter"><code>boundary_type</code></em>. Use <cod
                                                          <em class="parameter"><code><a class="link" href="AtkText.html#AtkTextBoundary" title="enum AtkTextBoundary"><span class="type">AtkTextBoundary</span></a> boundary_type</code></em>,
                                                          <em class="parameter"><code><span class="type">gint</span> *start_offset</code></em>,
                                                          <em class="parameter"><code><span class="type">gint</span> *end_offset</code></em>);</pre>
+<div class="warning">
+<h3 class="title">Warning</h3>
+<p><code class="literal">atk_text_get_text_at_offset</code> is deprecated and should not be used in newly-written code. This method is deprecated since ATK version
+2.9.4. Please use <a class="link" href="AtkText.html#atk-text-get-string-at-offset" title="atk_text_get_string_at_offset ()"><code class="function">atk_text_get_string_at_offset()</code></a> instead.</p>
+</div>
 <p>
 Gets the specified text.
 </p>
@@ -749,22 +986,12 @@ offset is returned.
 </p>
 <p>
 If the boundary_type is ATK_TEXT_BOUNDARY_WORD_START the returned string
-is from the word start at or before the offset to the word start after 
+is from the word start at or before the offset to the word start after
 the offset.
 </p>
 <p>
 The returned string will contain the word at the offset if the offset
-is inside a word and will contain the word before the offset if the 
-offset is not inside a word.
-</p>
-<p>
-If the boundary_type is ATK_TEXT_BOUNDARY_WORD_END the returned string
-is from the word end before the offset to the word end at or after the
-offset.
-</p>
-<p>
-The returned string will contain the word at the offset if the offset
-is inside a word and will contain the word after to the offset if the 
+is inside a word and will contain the word before the offset if the
 offset is not inside a word.
 </p>
 <p>
@@ -774,28 +1001,13 @@ start after the offset.
 </p>
 <p>
 The returned string will contain the sentence at the offset if the offset
-is inside a sentence and will contain the sentence before the offset 
-if the offset is not inside a sentence.
-</p>
-<p>
-If the boundary_type is ATK_TEXT_BOUNDARY_SENTENCE_END the returned string
-is from the sentence end before the offset to the sentence end at or
-after the offset.
-</p>
-<p>
-The returned string will contain the sentence at the offset if the offset
-is inside a sentence and will contain the sentence after the offset 
+is inside a sentence and will contain the sentence before the offset
 if the offset is not inside a sentence.
 </p>
 <p>
 If the boundary type is ATK_TEXT_BOUNDARY_LINE_START the returned
 string is from the line start at or before the offset to the line
 start after the offset.
-</p>
-<p>
-If the boundary_type is ATK_TEXT_BOUNDARY_LINE_END the returned string
-is from the line end before the offset to the line end at or after
-the offset.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -816,12 +1028,14 @@ the offset.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>start_offset</code></em> :</span></p></td>
-<td>the start offset of the returned string</td>
+<td>the start offset of the returned string. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>end_offset</code></em> :</span></p></td>
 <td>the offset of the first character after the
-returned substring</td>
+returned substring. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -839,60 +1053,13 @@ the specified <em class="parameter"><code>boundary_type</code></em>. Use <code c
                                                          <em class="parameter"><code><a class="link" href="AtkText.html#AtkTextBoundary" title="enum AtkTextBoundary"><span class="type">AtkTextBoundary</span></a> boundary_type</code></em>,
                                                          <em class="parameter"><code><span class="type">gint</span> *start_offset</code></em>,
                                                          <em class="parameter"><code><span class="type">gint</span> *end_offset</code></em>);</pre>
+<div class="warning">
+<h3 class="title">Warning</h3>
+<p><code class="literal">atk_text_get_text_before_offset</code> is deprecated and should not be used in newly-written code. This method is deprecated since ATK version
+2.9.3. Please use <a class="link" href="AtkText.html#atk-text-get-string-at-offset" title="atk_text_get_string_at_offset ()"><code class="function">atk_text_get_string_at_offset()</code></a> instead.</p>
+</div>
 <p>
 Gets the specified text.
-</p>
-<p>
-If the boundary_type if ATK_TEXT_BOUNDARY_CHAR the character before the
-offset is returned.
-</p>
-<p>
-If the boundary_type is ATK_TEXT_BOUNDARY_WORD_START the returned string
-is from the word start before the word start before or at the offset to 
-the word start before or at the offset.
-</p>
-<p>
-The returned string will contain the word before the offset if the offset
-is inside a word and will contain the word before the word before the 
-offset if the offset is not inside a word.
-</p>
-<p>
-If the boundary_type is ATK_TEXT_BOUNDARY_WORD_END the returned string
-is from the word end before the word end before the offset to the word
-end before the offset.
-</p>
-<p>
-The returned string will contain the word before the offset if the offset
-is inside a word or if the offset is not inside a word.
-</p>
-<p>
-If the boundary type is ATK_TEXT_BOUNDARY_SENTENCE_START the returned
-string is from the sentence start before the sentence start before 
-the offset to the sentence start before the offset.
-</p>
-<p>
-The returned string will contain the sentence before the offset if the 
-offset is inside a sentence and will contain the sentence before the 
-sentence before the offset if the offset is not inside a sentence.
-</p>
-<p>
-If the boundary_type is ATK_TEXT_BOUNDARY_SENTENCE_END the returned string
-is from the sentence end before the sentence end at or before the offset to 
-the sentence end at or before the offset.
-</p>
-<p>
-The returned string will contain the sentence before the offset if the 
-offset is inside a sentence or if the offset is not inside a sentence.
-</p>
-<p>
-If the boundary type is ATK_TEXT_BOUNDARY_LINE_START the returned
-string is from the line start before the line start ar or before the offset 
-to the line start ar or before the offset.
-</p>
-<p>
-If the boundary_type is ATK_TEXT_BOUNDARY_LINE_END the returned string
-is from the line end before the line end before the offset to the 
-line end before the offset.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -913,12 +1080,14 @@ line end before the offset.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>start_offset</code></em> :</span></p></td>
-<td>the start offset of the returned string</td>
+<td>the start offset of the returned string. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>end_offset</code></em> :</span></p></td>
 <td>the offset of the first character after the
-returned substring</td>
+returned substring. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -927,6 +1096,92 @@ by the specified <em class="parameter"><code>boundary_type</code></em>. Use <cod
 </tr>
 </tbody>
 </table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="atk-text-get-string-at-offset"></a><h3>atk_text_get_string_at_offset ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             atk_text_get_string_at_offset       (<em class="parameter"><code><a class="link" href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a> *text</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> offset</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="AtkText.html#AtkTextGranularity" title="enum AtkTextGranularity"><span class="type">AtkTextGranularity</span></a> granularity</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *start_offset</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *end_offset</code></em>);</pre>
+<p>
+Gets a portion of the text exposed through an <a class="link" href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a> according to a given <em class="parameter"><code>offset</code></em>
+and a specific <em class="parameter"><code>granularity</code></em>, along with the start and end offsets defining the
+boundaries of such a portion of text.
+</p>
+<p>
+If <em class="parameter"><code>granularity</code></em> is ATK_TEXT_GRANULARITY_CHAR the character at the
+offset is returned.
+</p>
+<p>
+If <em class="parameter"><code>granularity</code></em> is ATK_TEXT_GRANULARITY_WORD the returned string
+is from the word start at or before the offset to the word start after
+the offset.
+</p>
+<p>
+The returned string will contain the word at the offset if the offset
+is inside a word and will contain the word before the offset if the
+offset is not inside a word.
+</p>
+<p>
+If <em class="parameter"><code>granularity</code></em> is ATK_TEXT_GRANULARITY_SENTENCE the returned string
+is from the sentence start at or before the offset to the sentence
+start after the offset.
+</p>
+<p>
+The returned string will contain the sentence at the offset if the offset
+is inside a sentence and will contain the sentence before the offset
+if the offset is not inside a sentence.
+</p>
+<p>
+If <em class="parameter"><code>granularity</code></em> is ATK_TEXT_GRANULARITY_LINE the returned string
+is from the line start at or before the offset to the line
+start after the offset.
+</p>
+<p>
+If <em class="parameter"><code>granularity</code></em> is ATK_TEXT_GRANULARITY_PARAGRAPH the returned string
+is from the start of the paragraph at or before the offset to the start
+of the following paragraph after the offset.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td>an <a class="link" href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>offset</code></em> :</span></p></td>
+<td>position</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>granularity</code></em> :</span></p></td>
+<td>An <a class="link" href="AtkText.html#AtkTextGranularity" title="enum AtkTextGranularity"><span class="type">AtkTextGranularity</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>start_offset</code></em> :</span></p></td>
+<td>the start offset of the returned string, or -1
+if an error has occurred (e.g. invalid offset, not implemented). <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>end_offset</code></em> :</span></p></td>
+<td>the offset of the first character after the returned string,
+or -1 if an error has occurred (e.g. invalid offset, not implemented). <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a newly allocated string containing the text at the <em class="parameter"><code>offset</code></em> bounded
+by the specified <em class="parameter"><code>granularity</code></em>. Use <code class="function">g_free()</code> to free the returned string.
+Returns <code class="literal">NULL</code> if the offset is invalid or no implementation is available.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.9.4</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1030,11 +1285,13 @@ the character to be inserted at the caret location.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>start_offset</code></em> :</span></p></td>
-<td>the address to put the start offset of the range</td>
+<td>the address to put the start offset of the range. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>end_offset</code></em> :</span></p></td>
-<td>the address to put the end offset of the range</td>
+<td>the address to put the end offset of the range. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1175,7 +1432,8 @@ Get the ranges of text in the specified bounding box.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>Array of AtkTextRange. The last
-element of the array returned by this function will be NULL. <span class="annotation">[<a href="http://foldoc.org/array"><span class="acronym">array</span></a> zero-terminated=1]</span>
+element of the array returned by this function will be NULL.
+Virtual: get_bounded_ranges. <span class="annotation">[<a href="http://foldoc.org/array"><span class="acronym">array</span></a> zero-terminated=1]</span>
 </td>
 </tr>
 </tbody>
@@ -1236,7 +1494,9 @@ and is NULL terminated.
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>ranges</code></em> :</span></p></td>
-<td>A pointer to an array of  <a class="link" href="AtkText.html#AtkTextRange" title="struct AtkTextRange"><span class="type">AtkTextRange</span></a> which is to be freed.</td>
+<td>A pointer to an array of <a class="link" href="AtkText.html#AtkTextRange" title="struct AtkTextRange"><span class="type">AtkTextRange</span></a> which is
+to be freed. <span class="annotation">[<a href="http://foldoc.org/array"><span class="acronym">array</span></a>]</span>
+</td>
 </tr></tbody>
 </table></div>
 <p class="since">Since 1.3</p>
@@ -1292,12 +1552,14 @@ moving or deleting a selected region can change the numbering.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>start_offset</code></em> :</span></p></td>
-<td>passes back the start position of the selected region</td>
+<td>passes back the start position of the selected region. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>end_offset</code></em> :</span></p></td>
 <td>passes back the end position of (e.g. offset immediately past)
-the selected region</td>
+the selected region. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1560,8 +1822,9 @@ NULL is returned if there are no values maintained for the attr value.</td>
 <pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a> *atktext,
                                                         <span class="type">gpointer</span> user_data)      : <code class="literal">Run Last</code></pre>
 <p>
-The "text-attributes-changed" signal is emitted when the text attributes of
-the text of an object which implements AtkText changes.
+The "text-attributes-changed" signal is emitted when the text
+attributes of the text of an object which implements AtkText
+changes.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1584,8 +1847,9 @@ the text of an object which implements AtkText changes.
                                                         <span class="type">gint</span>     arg1,
                                                         <span class="type">gpointer</span> user_data)      : <code class="literal">Run Last</code></pre>
 <p>
-The "text-caret-moved" signal is emitted when the caret position of
-the text of an object which implements AtkText changes.
+The "text-caret-moved" signal is emitted when the caret
+position of the text of an object which implements AtkText
+changes.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1612,11 +1876,17 @@ the text of an object which implements AtkText changes.
                                                         <span class="type">gint</span>     arg1,
                                                         <span class="type">gint</span>     arg2,
                                                         <span class="type">gpointer</span> user_data)      : <code class="literal">Has Details</code></pre>
+<div class="warning">
+<h3 class="title">Warning</h3>
+<p><code class="literal">AtkText::text-changed</code> is deprecated and should not be used in newly-written code. Since 2.9.4. Use <span class="type">"text-insert"</span> or
+<span class="type">"text-remove"</span> instead.</p>
+</div>
 <p>
-The "text-changed" signal is emitted when the text of the object which
-implements the AtkText interface changes, This signal will have a detail
-which is either "insert" or "delete" which identifies whether the text
-change was an insertion or a deletion
+The "text-changed" signal is emitted when the text of the
+object which implements the AtkText interface changes, This
+signal will have a detail which is either "insert" or
+"delete" which identifies whether the text change was an
+insertion or a deletion.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1649,6 +1919,8 @@ change was an insertion or a deletion
                                                         <span class="type">gchar</span>   *arg3,
                                                         <span class="type">gpointer</span> user_data)      : <code class="literal">Has Details</code></pre>
 <p>
+The "text-insert" signal is emitted when a new text is
+inserted.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1656,6 +1928,18 @@ change was an insertion or a deletion
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atktext</code></em> :</span></p></td>
 <td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>The position (character offset) of the insertion.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg2</code></em> :</span></p></td>
+<td>The length (in characters) of text inserted.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg3</code></em> :</span></p></td>
+<td>The new text inserted</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
@@ -1673,6 +1957,8 @@ change was an insertion or a deletion
                                                         <span class="type">gchar</span>   *arg3,
                                                         <span class="type">gpointer</span> user_data)      : <code class="literal">Has Details</code></pre>
 <p>
+The "text-remove" signal is emitted when a new text is
+removed.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1680,6 +1966,18 @@ change was an insertion or a deletion
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atktext</code></em> :</span></p></td>
 <td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>The position (character offset) of the removal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg2</code></em> :</span></p></td>
+<td>The length (in characters) of text removed.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg3</code></em> :</span></p></td>
+<td>The old text removed</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
@@ -1694,33 +1992,8 @@ change was an insertion or a deletion
 <pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a> *atktext,
                                                         <span class="type">gpointer</span> user_data)      : <code class="literal">Run Last</code></pre>
 <p>
-The "text-selection-changed" signal is emitted when the selected text of
-an object which implements AtkText changes.
-</p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>atktext</code></em> :</span></p></td>
-<td>the object which received the signal.</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
-<td>user data set when the signal handler was connected.</td>
-</tr>
-</tbody>
-</table></div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="AtkText-text-update"></a><h3>The <code class="literal">"text-update"</code> signal</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a> *atktext,
-                                                        <span class="type">gint</span>     arg1,
-                                                        <span class="type">gint</span>     arg2,
-                                                        <span class="type">gint</span>     arg3,
-                                                        <span class="type">gchar</span>   *arg4,
-                                                        <span class="type">gpointer</span> user_data)      : <code class="literal">Has Details</code></pre>
-<p>
+The "text-selection-changed" signal is emitted when the
+selected text of an object which implements AtkText changes.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1740,6 +2013,6 @@ an object which implements AtkText changes.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

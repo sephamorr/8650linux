@@ -16,12 +16,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GDK_TEST_UTILS_H__
+#define __GDK_TEST_UTILS_H__
+
 #if !defined (__GDK_H_INSIDE__) && !defined (GDK_COMPILATION)
 #error "Only <gdk/gdk.h> can be included directly."
 #endif
-
-#ifndef __GDK_TEST_UTILS_H__
-#define __GDK_TEST_UTILS_H__
 
 #include <gdk/gdkwindow.h>
 
@@ -29,7 +29,7 @@ G_BEGIN_DECLS
 
 
 /**
- * SECTION:gdktesting
+ * SECTION:gdktestutils
  * @Short_description: Test utilities
  * @Title: Testing
  *
@@ -39,13 +39,16 @@ G_BEGIN_DECLS
 
 
 /* --- Gdk Test Utility API --- */
+GDK_AVAILABLE_IN_ALL
 void            gdk_test_render_sync            (GdkWindow      *window);
+GDK_AVAILABLE_IN_ALL
 gboolean        gdk_test_simulate_key           (GdkWindow      *window,
                                                  gint            x,
                                                  gint            y,
                                                  guint           keyval,
                                                  GdkModifierType modifiers,
                                                  GdkEventType    key_pressrelease);
+GDK_AVAILABLE_IN_ALL
 gboolean        gdk_test_simulate_button        (GdkWindow      *window,
                                                  gint            x,
                                                  gint            y,

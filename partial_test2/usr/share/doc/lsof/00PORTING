@@ -1334,6 +1334,10 @@ possibilities
     HASVXFS_VX_INODE    indicates that <sys/fs/vx_inode.h> contains
 			a vx_inode structure.
 
+    HASWCTYPE_H		indicates the FreeBSD version has wide-character
+			support and the <wctype.h> header file.  Note:
+			the HASWIDECHAR #define will also be set.
+
     HASWIDECHAR         indicates the dialect has the wide-character
 			support functions iswprint(), mblen() and mbtowc().
 
@@ -1409,6 +1413,9 @@ possibilities
 
     NEEDS_BOOLEAN_T	indicates the FreeBSD 9 and above system needs a
 			boolean_t definition for <sys/conf.h>.
+
+    NEEDS_MACH_PORT_T	is defined for Darwin versions that need the inclusion
+			of the header file <device/device_types.h>.
 
     NEVER_HASDCACHE	keeps the Customize script from offering to
 			change HASDCACHE by its presence anywhere
@@ -1828,4 +1835,4 @@ keep in mind the private, one-man nature of current lsof support.
 
 
 Vic Abell <abe@purdue.edu>
-April 10, 2012
+January 2, 2013

@@ -6,7 +6,6 @@ and/or use gtk-doc annotations.  -->
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
-  <include name="GLib" version="2.0"/>
   <include name="GObject" version="2.0"/>
   <package name="gconf-2.0"/>
   <c:include name="gconf/gconf.h"/>
@@ -30,8 +29,11 @@ and/or use gtk-doc annotations.  -->
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="cs" transfer-ownership="none">
+            <type name="ChangeSet" c:type="GConfChangeSet*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value_retloc" transfer-ownership="none">
             <type name="Value" c:type="GConfValue**"/>
@@ -42,6 +44,11 @@ and/or use gtk-doc annotations.  -->
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="cs" transfer-ownership="none">
+            <type name="ChangeSet" c:type="GConfChangeSet*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="foreach" c:identifier="gconf_change_set_foreach">
         <doc xml:whitespace="preserve">Iterates over a #GConfChangeSet by calling a
@@ -53,6 +60,10 @@ confuse the internal data structures and cause memory corruption.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="cs" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GConfChangeSet.</doc>
+            <type name="ChangeSet" c:type="GConfChangeSet*"/>
+          </instance-parameter>
           <parameter name="func"
                      transfer-ownership="none"
                      scope="call"
@@ -75,19 +86,33 @@ confuse the internal data structures and cause memory corruption.</doc>
           <doc xml:whitespace="preserve">a pointer to the user_data.</doc>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="cs" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GConfChangeSet.</doc>
+            <type name="ChangeSet" c:type="GConfChangeSet*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="ref" c:identifier="gconf_change_set_ref">
         <return-value transfer-ownership="full">
           <type name="ChangeSet" c:type="GConfChangeSet*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="cs" transfer-ownership="none">
+            <type name="ChangeSet" c:type="GConfChangeSet*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="remove" c:identifier="gconf_change_set_remove">
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="cs" transfer-ownership="none">
+            <type name="ChangeSet" c:type="GConfChangeSet*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -96,8 +121,11 @@ confuse the internal data structures and cause memory corruption.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="cs" transfer-ownership="none">
+            <type name="ChangeSet" c:type="GConfChangeSet*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <type name="Value" c:type="GConfValue*"/>
@@ -109,8 +137,11 @@ confuse the internal data structures and cause memory corruption.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="cs" transfer-ownership="none">
+            <type name="ChangeSet" c:type="GConfChangeSet*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="val" transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
@@ -122,8 +153,11 @@ confuse the internal data structures and cause memory corruption.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="cs" transfer-ownership="none">
+            <type name="ChangeSet" c:type="GConfChangeSet*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="val" transfer-ownership="none">
             <type name="gdouble" c:type="gdouble"/>
@@ -135,8 +169,11 @@ confuse the internal data structures and cause memory corruption.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="cs" transfer-ownership="none">
+            <type name="ChangeSet" c:type="GConfChangeSet*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="val" transfer-ownership="none">
             <type name="gint" c:type="gint"/>
@@ -150,8 +187,11 @@ confuse the internal data structures and cause memory corruption.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="cs" transfer-ownership="none">
+            <type name="ChangeSet" c:type="GConfChangeSet*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="list_type" transfer-ownership="none">
             <type name="ValueType" c:type="GConfValueType"/>
@@ -168,8 +208,11 @@ confuse the internal data structures and cause memory corruption.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="cs" transfer-ownership="none">
+            <type name="ChangeSet" c:type="GConfChangeSet*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <type name="Value" c:type="GConfValue*"/>
@@ -181,8 +224,11 @@ confuse the internal data structures and cause memory corruption.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="cs" transfer-ownership="none">
+            <type name="ChangeSet" c:type="GConfChangeSet*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="car_type" transfer-ownership="none">
             <type name="ValueType" c:type="GConfValueType"/>
@@ -205,8 +251,11 @@ confuse the internal data structures and cause memory corruption.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="cs" transfer-ownership="none">
+            <type name="ChangeSet" c:type="GConfChangeSet*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="val" transfer-ownership="none">
             <type name="Schema" c:type="GConfSchema*"/>
@@ -218,11 +267,14 @@ confuse the internal data structures and cause memory corruption.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="cs" transfer-ownership="none">
+            <type name="ChangeSet" c:type="GConfChangeSet*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="val" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -235,6 +287,10 @@ confuse the internal data structures and cause memory corruption.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="cs" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GConfChangeSet.</doc>
+            <type name="ChangeSet" c:type="GConfChangeSet*"/>
+          </instance-parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:whitespace="preserve">a #gpointer.</doc>
             <type name="gpointer" c:type="gpointer"/>
@@ -249,19 +305,32 @@ confuse the internal data structures and cause memory corruption.</doc>
         <return-value transfer-ownership="none">
           <type name="guint" c:type="guint"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="cs" transfer-ownership="none">
+            <type name="ChangeSet" c:type="GConfChangeSet*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="unref" c:identifier="gconf_change_set_unref">
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="cs" transfer-ownership="none">
+            <type name="ChangeSet" c:type="GConfChangeSet*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="unset" c:identifier="gconf_change_set_unset">
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="cs" transfer-ownership="none">
+            <type name="ChangeSet" c:type="GConfChangeSet*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -275,7 +344,7 @@ confuse the internal data structures and cause memory corruption.</doc>
           <type name="ChangeSet" c:type="GConfChangeSet*"/>
         </parameter>
         <parameter name="key" transfer-ownership="none">
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="value" transfer-ownership="none">
           <type name="Value" c:type="GConfValue*"/>
@@ -344,6 +413,9 @@ for all #GConfClient internal errors.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="error" transfer-ownership="none">
             <type name="GLib.Error" c:type="GError*"/>
           </parameter>
@@ -354,6 +426,9 @@ for all #GConfClient internal errors.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="error" transfer-ownership="none">
             <type name="GLib.Error" c:type="GError*"/>
           </parameter>
@@ -364,8 +439,11 @@ for all #GConfClient internal errors.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <type name="Value" c:type="GConfValue*"/>
@@ -377,8 +455,11 @@ for all #GConfClient internal errors.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="dir" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="preload" transfer-ownership="none">
             <type name="ClientPreloadType" c:type="GConfClientPreloadType"/>
@@ -398,9 +479,13 @@ but uses #GConfClient caching and error-handling features.</doc>
           </type>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GConfClient.</doc>
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="dir" transfer-ownership="none">
             <doc xml:whitespace="preserve">directory to get subdirectories from.</doc>
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -421,9 +506,13 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
           </type>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GConfClient.</doc>
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="dir" transfer-ownership="none">
             <doc xml:whitespace="preserve">directory to list.</doc>
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -434,13 +523,16 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
           <type name="ChangeSet" c:type="GConfChangeSet*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="err" transfer-ownership="none">
             <type name="GLib.Error" c:type="GError**"/>
           </parameter>
           <parameter name="first_key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
-          <parameter transfer-ownership="none">
+          <parameter name="arg3" transfer-ownership="none">
             <varargs>
             </varargs>
           </parameter>
@@ -453,8 +545,11 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
           <type name="ChangeSet" c:type="GConfChangeSet*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="keys" transfer-ownership="none">
-            <type name="utf8" c:type="gchar**"/>
+            <type name="utf8" c:type="const gchar**"/>
           </parameter>
         </parameters>
       </method>
@@ -462,6 +557,11 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="commit_change_set"
               c:identifier="gconf_client_commit_change_set"
@@ -470,6 +570,9 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="cs" transfer-ownership="none">
             <type name="ChangeSet" c:type="GConfChangeSet*"/>
           </parameter>
@@ -485,8 +588,11 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="dir" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -495,6 +601,9 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="error" transfer-ownership="none">
             <type name="GLib.Error" c:type="GError*"/>
           </parameter>
@@ -505,8 +614,11 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -515,8 +627,11 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -527,8 +642,11 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -539,11 +657,14 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
           <type name="Entry" c:type="GConfEntry*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="locale" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="use_schema_default" transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
@@ -557,8 +678,11 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -567,8 +691,11 @@ Just like gconf_engine_all_entries (), but uses #GConfClient caching and error-h
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -594,38 +721,38 @@ with type %GCONF_VALUE_LIST normally stores a list of more #GConfValue
 objects. gconf_client_get_list() automatically converts to primitive C
 types. Thus, the list-&amp;gt;data fields in the returned list
 contain:
-
+ 
 &lt;informaltable pgwide="1" frame="none"&gt;
 &lt;tgroup cols="2"&gt;&lt;colspec colwidth="2*"/&gt;&lt;colspec colwidth="8*"/&gt;
 &lt;tbody&gt;
-
+ 
 &lt;row&gt;
 &lt;entry&gt;%GCONF_VALUE_INT&lt;/entry&gt;
 &lt;entry&gt;The integer itself, converted with GINT_TO_POINTER()&lt;/entry&gt;
 &lt;/row&gt;
-
+ 
 &lt;row&gt;
 &lt;entry&gt;%GCONF_VALUE_BOOL&lt;/entry&gt;
 &lt;entry&gt;The bool itself, converted with GINT_TO_POINTER()&lt;/entry&gt;
 &lt;/row&gt;
-
+ 
 &lt;row&gt;
 &lt;entry&gt;%GCONF_VALUE_FLOAT&lt;/entry&gt;
 &lt;entry&gt;A pointer to #gdouble, which should be freed with g_free()&lt;/entry&gt;
 &lt;/row&gt;
-
+ 
 &lt;row&gt;
 &lt;entry&gt;%GCONF_VALUE_STRING&lt;/entry&gt;
 &lt;entry&gt;A pointer to #gchar, which should be freed with g_free()&lt;/entry&gt;
 &lt;/row&gt;
-
+ 
 &lt;row&gt;
 &lt;entry&gt;%GCONF_VALUE_SCHEMA&lt;/entry&gt;
 &lt;entry&gt;A pointer to #GConfSchema, which should be freed with gconf_schema_free()&lt;/entry&gt;
 &lt;/row&gt;
-
+ 
 &lt;/tbody&gt;&lt;/tgroup&gt;&lt;/informaltable&gt;
-
+ 
 In the %GCONF_VALUE_FLOAT and %GCONF_VALUE_STRING cases, you must
 g_free() each list element. In the %GCONF_VALUE_SCHEMA case you must
 gconf_schema_free() each element. In all cases you must free the
@@ -639,9 +766,13 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           </type>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GConfClient.</doc>
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:whitespace="preserve">key you want the value of.</doc>
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="list_type" transfer-ownership="none">
             <doc xml:whitespace="preserve">type of each list element.</doc>
@@ -654,8 +785,11 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="car_type" transfer-ownership="none">
             <type name="ValueType" c:type="GConfValueType"/>
@@ -679,8 +813,11 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="Schema" c:type="GConfSchema*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -691,8 +828,11 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -703,8 +843,11 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -715,8 +858,11 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -725,8 +871,11 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="char*"/>
+            <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </method>
@@ -737,8 +886,12 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <doc xml:whitespace="preserve">@namespace_section</doc>
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="namespace_section" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="func"
                      transfer-ownership="none"
@@ -762,6 +915,9 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="cnxn" transfer-ownership="none">
             <type name="guint" c:type="guint"/>
           </parameter>
@@ -772,8 +928,11 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="dirname" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="type" transfer-ownership="none">
             <type name="ClientPreloadType" c:type="GConfClientPreloadType"/>
@@ -787,8 +946,11 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="char*"/>
+            <type name="utf8" c:type="const char*"/>
           </parameter>
           <parameter name="flags" transfer-ownership="none">
             <type name="UnsetFlags" c:type="GConfUnsetFlags"/>
@@ -802,8 +964,11 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="dir" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -814,6 +979,9 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="ChangeSet" c:type="GConfChangeSet*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="cs" transfer-ownership="none">
             <type name="ChangeSet" c:type="GConfChangeSet*"/>
           </parameter>
@@ -824,11 +992,14 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="val" transfer-ownership="none">
-            <type name="Value" c:type="GConfValue*"/>
+            <type name="Value" c:type="const GConfValue*"/>
           </parameter>
         </parameters>
       </method>
@@ -837,8 +1008,11 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="val" transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
@@ -851,6 +1025,9 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="mode" transfer-ownership="none">
             <type name="ClientErrorHandlingMode"
                   c:type="GConfClientErrorHandlingMode"/>
@@ -864,8 +1041,11 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="val" transfer-ownership="none">
             <type name="gdouble" c:type="gdouble"/>
@@ -877,8 +1057,11 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="val" transfer-ownership="none">
             <type name="gint" c:type="gint"/>
@@ -893,8 +1076,11 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="list_type" transfer-ownership="none">
             <type name="ValueType" c:type="GConfValueType"/>
@@ -911,8 +1097,11 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="car_type" transfer-ownership="none">
             <type name="ValueType" c:type="GConfValueType"/>
@@ -936,11 +1125,14 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="val" transfer-ownership="none">
-            <type name="Schema" c:type="GConfSchema*"/>
+            <type name="Schema" c:type="const GConfSchema*"/>
           </parameter>
         </parameters>
       </method>
@@ -951,11 +1143,14 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="val" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -965,6 +1160,11 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="unreturned_error"
               c:identifier="gconf_client_unreturned_error">
@@ -972,6 +1172,9 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="error" transfer-ownership="none">
             <type name="GLib.Error" c:type="GError*"/>
           </parameter>
@@ -982,8 +1185,11 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -992,8 +1198,11 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="GConfClient*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
             <type name="Value" c:type="GConfValue*"/>
@@ -1050,34 +1259,34 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
       </field>
       <glib:signal name="error" when="last">
         <return-value transfer-ownership="none">
-          <type name="none"/>
+          <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <parameter name="object" transfer-ownership="none">
-            <type name="gpointer"/>
+            <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
       </glib:signal>
       <glib:signal name="unreturned-error" when="last">
         <return-value transfer-ownership="none">
-          <type name="none"/>
+          <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <parameter name="object" transfer-ownership="none">
-            <type name="gpointer"/>
+            <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
       </glib:signal>
       <glib:signal name="value-changed" when="last">
         <return-value transfer-ownership="none">
-          <type name="none"/>
+          <type name="none" c:type="void"/>
         </return-value>
         <parameters>
           <parameter name="object" transfer-ownership="none">
-            <type name="utf8"/>
+            <type name="utf8" c:type="gchar*"/>
           </parameter>
           <parameter name="p0" transfer-ownership="none">
-            <type name="gpointer"/>
+            <type name="gpointer" c:type="gpointer"/>
           </parameter>
         </parameters>
       </glib:signal>
@@ -1098,7 +1307,7 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
               <type name="Client" c:type="GConfClient*"/>
             </parameter>
             <parameter name="key" transfer-ownership="none">
-              <type name="utf8" c:type="gchar*"/>
+              <type name="utf8" c:type="const gchar*"/>
             </parameter>
             <parameter name="value" transfer-ownership="none">
               <type name="Value" c:type="GConfValue*"/>
@@ -1167,15 +1376,18 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
       <member name="handle_none"
               value="0"
               c:identifier="GCONF_CLIENT_HANDLE_NONE"
-              glib:nick="handle-none"/>
+              glib:nick="handle-none">
+      </member>
       <member name="handle_unreturned"
               value="1"
               c:identifier="GCONF_CLIENT_HANDLE_UNRETURNED"
-              glib:nick="handle-unreturned"/>
+              glib:nick="handle-unreturned">
+      </member>
       <member name="handle_all"
               value="2"
               c:identifier="GCONF_CLIENT_HANDLE_ALL"
-              glib:nick="handle-all"/>
+              glib:nick="handle-all">
+      </member>
     </enumeration>
     <callback name="ClientNotifyFunc" c:type="GConfClientNotifyFunc">
       <return-value transfer-ownership="none">
@@ -1203,15 +1415,18 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
       <member name="preload_none"
               value="0"
               c:identifier="GCONF_CLIENT_PRELOAD_NONE"
-              glib:nick="preload-none"/>
+              glib:nick="preload-none">
+      </member>
       <member name="preload_onelevel"
               value="1"
               c:identifier="GCONF_CLIENT_PRELOAD_ONELEVEL"
-              glib:nick="preload-onelevel"/>
+              glib:nick="preload-onelevel">
+      </member>
       <member name="preload_recursive"
               value="2"
               c:identifier="GCONF_CLIENT_PRELOAD_RECURSIVE"
-              glib:nick="preload-recursive"/>
+              glib:nick="preload-recursive">
+      </member>
     </enumeration>
     <record name="Engine"
             c:type="GConfEngine"
@@ -1222,17 +1437,22 @@ Just like gconf_engine_get_list (), but uses #GConfClient caching and error-hand
         <doc xml:whitespace="preserve">Lists the subdirectories in @dir. The returned list contains
 allocated strings. Each string is the absolute path of a
 subdirectory. You should g_free() each string in the list, then
-g_slist_free() the list itself.</doc>
-        <return-value transfer-ownership="full">
-          <doc xml:whitespace="preserve">List of allocated subdirectory names.</doc>
+g_slist_free() the list itself.
+
+Returns value: (element-type utf8) (transfer full): List of allocated subdirectory names.</doc>
+        <return-value>
           <type name="GLib.SList" c:type="GSList*">
-            <type name="utf8"/>
+            <type name="gpointer" c:type="gpointer"/>
           </type>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GConfEngine.</doc>
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="dir" transfer-ownership="none">
             <doc xml:whitespace="preserve">Directory to get subdirectories from.</doc>
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -1244,17 +1464,22 @@ that use gconf_engine_all_dirs(). The returned list contains #GConfEntry
 objects. A #GConfEntry contains an &lt;emphasis&gt;absolute&lt;/emphasis&gt; key
 and a value. The list is not recursive, it contains only the immediate
 children of @dir.  To free the returned list, gconf_entry_free()
-each list element, then g_slist_free() the list itself.</doc>
-        <return-value transfer-ownership="full">
-          <doc xml:whitespace="preserve">List of #GConfEntry.</doc>
+each list element, then g_slist_free() the list itself.
+
+Returns value: (element-type GConfEntry) (transfer full): List of #GConfEntry.</doc>
+        <return-value>
           <type name="GLib.SList" c:type="GSList*">
-            <type name="Entry"/>
+            <type name="gpointer" c:type="gpointer"/>
           </type>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GConfEngine.</doc>
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="dir" transfer-ownership="none">
             <doc xml:whitespace="preserve">Directory to list.</doc>
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -1265,11 +1490,14 @@ each list element, then g_slist_free() the list itself.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="schema_key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -1279,13 +1507,16 @@ each list element, then g_slist_free() the list itself.</doc>
           <type name="ChangeSet" c:type="GConfChangeSet*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="err" transfer-ownership="none">
             <type name="GLib.Error" c:type="GError**"/>
           </parameter>
           <parameter name="first_key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
-          <parameter transfer-ownership="none">
+          <parameter name="arg3" transfer-ownership="none">
             <varargs>
             </varargs>
           </parameter>
@@ -1298,8 +1529,11 @@ each list element, then g_slist_free() the list itself.</doc>
           <type name="ChangeSet" c:type="GConfChangeSet*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="keys" transfer-ownership="none">
-            <type name="utf8" c:type="gchar**"/>
+            <type name="utf8" c:type="const gchar**"/>
           </parameter>
         </parameters>
       </method>
@@ -1310,6 +1544,9 @@ each list element, then g_slist_free() the list itself.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="cs" transfer-ownership="none">
             <type name="ChangeSet" c:type="GConfChangeSet*"/>
           </parameter>
@@ -1325,8 +1562,11 @@ each list element, then g_slist_free() the list itself.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="dir" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -1335,8 +1575,11 @@ each list element, then g_slist_free() the list itself.</doc>
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -1345,8 +1588,11 @@ each list element, then g_slist_free() the list itself.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -1357,8 +1603,11 @@ each list element, then g_slist_free() the list itself.</doc>
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -1369,11 +1618,14 @@ each list element, then g_slist_free() the list itself.</doc>
           <type name="Entry" c:type="GConfEntry*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="locale" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="use_schema_default" transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
@@ -1387,8 +1639,11 @@ each list element, then g_slist_free() the list itself.</doc>
           <type name="gdouble" c:type="gdouble"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -1397,11 +1652,14 @@ each list element, then g_slist_free() the list itself.</doc>
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="locale" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="use_schema_default" transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
@@ -1419,8 +1677,11 @@ each list element, then g_slist_free() the list itself.</doc>
           <type name="gint" c:type="gint"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -1446,38 +1707,38 @@ with type %GCONF_VALUE_LIST normally stores a list of more #GConfValue
 objects. gconf_engine_get_list() automatically converts to primitive C
 types. Thus, the list-&amp;gt;data fields in the returned list
 contain:
-
+ 
 &lt;informaltable pgwide="1" frame="none"&gt;
 &lt;tgroup cols="2"&gt;&lt;colspec colwidth="2*"/&gt;&lt;colspec colwidth="8*"/&gt;
 &lt;tbody&gt;
-
+ 
 &lt;row&gt;
 &lt;entry&gt;%GCONF_VALUE_INT&lt;/entry&gt;
 &lt;entry&gt;The integer itself, converted with GINT_TO_POINTER()&lt;/entry&gt;
 &lt;/row&gt;
-
+ 
 &lt;row&gt;
 &lt;entry&gt;%GCONF_VALUE_BOOL&lt;/entry&gt;
 &lt;entry&gt;The bool itself, converted with GINT_TO_POINTER()&lt;/entry&gt;
 &lt;/row&gt;
-
+ 
 &lt;row&gt;
 &lt;entry&gt;%GCONF_VALUE_FLOAT&lt;/entry&gt;
 &lt;entry&gt;A pointer to #gdouble, which should be freed with g_free()&lt;/entry&gt;
 &lt;/row&gt;
-
+ 
 &lt;row&gt;
 &lt;entry&gt;%GCONF_VALUE_STRING&lt;/entry&gt;
 &lt;entry&gt;A pointer to #gchar, which should be freed with g_free()&lt;/entry&gt;
 &lt;/row&gt;
-
+ 
 &lt;row&gt;
 &lt;entry&gt;%GCONF_VALUE_SCHEMA&lt;/entry&gt;
 &lt;entry&gt;A pointer to #GConfSchema, which should be freed with gconf_schema_free()&lt;/entry&gt;
 &lt;/row&gt;
-
+ 
 &lt;/tbody&gt;&lt;/tgroup&gt;&lt;/informaltable&gt;
-
+ 
 In the %GCONF_VALUE_FLOAT and %GCONF_VALUE_STRING cases, you must
 g_free() each list element. In the %GCONF_VALUE_SCHEMA case you must
 gconf_schema_free() each element. In all cases you must free the
@@ -1489,9 +1750,13 @@ list itself with g_slist_free().</doc>
           </type>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GConfEngine.</doc>
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:whitespace="preserve">key you want the value of.</doc>
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="list_type" transfer-ownership="none">
             <doc xml:whitespace="preserve">type of each list element.</doc>
@@ -1504,8 +1769,11 @@ list itself with g_slist_free().</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="car_type" transfer-ownership="none">
             <type name="ValueType" c:type="GConfValueType"/>
@@ -1534,9 +1802,13 @@ Automatically performs type-checking, so if a non-schema is stored at
           <type name="Schema" c:type="GConfSchema*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GConfEngine.</doc>
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
             <doc xml:whitespace="preserve">key you want the value of.</doc>
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -1547,8 +1819,11 @@ Automatically performs type-checking, so if a non-schema is stored at
           <type name="utf8" c:type="gchar*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -1556,6 +1831,11 @@ Automatically performs type-checking, so if a non-schema is stored at
         <return-value>
           <type name="gpointer" c:type="gpointer"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_with_locale"
               c:identifier="gconf_engine_get_with_locale"
@@ -1564,11 +1844,14 @@ Automatically performs type-checking, so if a non-schema is stored at
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="locale" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -1579,8 +1862,11 @@ Automatically performs type-checking, so if a non-schema is stored at
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -1591,8 +1877,11 @@ Automatically performs type-checking, so if a non-schema is stored at
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -1609,15 +1898,21 @@ if you're using the #GObject wrapper library, because
 gconf_client_notify_add() does not require a client-server conversation for
 every callback. gconf_engine_notify_add() requests a different server notification for
 every callback. The function returns an ID you can use to remove the
-notification request; 0 is an invalid ID, and is returned if an error occurs.</doc>
+notification request; 0 is an invalid ID, and is returned if an error occurs.
+
+Returns value: an ID for the notification request, or 0 on error.</doc>
         <return-value transfer-ownership="none">
           <doc xml:whitespace="preserve">an ID for the notification request, or 0 on error.</doc>
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GConfEngine to monitor for changes.</doc>
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="namespace_section" transfer-ownership="none">
             <doc xml:whitespace="preserve">the directory or key to watch; you will be notified of changes at or below this point.</doc>
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="func" transfer-ownership="none" closure="2">
             <doc xml:whitespace="preserve">the callback to invoke when a notification is received from the server.</doc>
@@ -1634,6 +1929,9 @@ notification request; 0 is an invalid ID, and is returned if an error occurs.</d
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="cnxn" transfer-ownership="none">
             <type name="guint" c:type="guint"/>
           </parameter>
@@ -1643,6 +1941,11 @@ notification request; 0 is an invalid ID, and is returned if an error occurs.</d
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="remove_dir"
               c:identifier="gconf_engine_remove_dir"
@@ -1651,8 +1954,11 @@ notification request; 0 is an invalid ID, and is returned if an error occurs.</d
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="dir" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -1663,6 +1969,9 @@ notification request; 0 is an invalid ID, and is returned if an error occurs.</d
           <type name="ChangeSet" c:type="GConfChangeSet*"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="cs" transfer-ownership="none">
             <type name="ChangeSet" c:type="GConfChangeSet*"/>
           </parameter>
@@ -1673,11 +1982,14 @@ notification request; 0 is an invalid ID, and is returned if an error occurs.</d
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="value" transfer-ownership="none">
-            <type name="Value" c:type="GConfValue*"/>
+            <type name="Value" c:type="const GConfValue*"/>
           </parameter>
         </parameters>
       </method>
@@ -1686,8 +1998,11 @@ notification request; 0 is an invalid ID, and is returned if an error occurs.</d
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="val" transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
@@ -1701,8 +2016,11 @@ notification request; 0 is an invalid ID, and is returned if an error occurs.</d
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="val" transfer-ownership="none">
             <type name="gdouble" c:type="gdouble"/>
@@ -1714,8 +2032,11 @@ notification request; 0 is an invalid ID, and is returned if an error occurs.</d
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="val" transfer-ownership="none">
             <type name="gint" c:type="gint"/>
@@ -1727,8 +2048,11 @@ notification request; 0 is an invalid ID, and is returned if an error occurs.</d
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="list_type" transfer-ownership="none">
             <type name="ValueType" c:type="GConfValueType"/>
@@ -1745,8 +2069,11 @@ notification request; 0 is an invalid ID, and is returned if an error occurs.</d
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="car_type" transfer-ownership="none">
             <type name="ValueType" c:type="GConfValueType"/>
@@ -1770,11 +2097,14 @@ notification request; 0 is an invalid ID, and is returned if an error occurs.</d
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="val" transfer-ownership="none">
-            <type name="Schema" c:type="GConfSchema*"/>
+            <type name="Schema" c:type="const GConfSchema*"/>
           </parameter>
         </parameters>
       </method>
@@ -1785,11 +2115,14 @@ notification request; 0 is an invalid ID, and is returned if an error occurs.</d
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="val" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -1798,6 +2131,9 @@ notification request; 0 is an invalid ID, and is returned if an error occurs.</d
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="engine" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="data" transfer-ownership="none">
             <type name="gpointer" c:type="gpointer"/>
           </parameter>
@@ -1812,19 +2148,32 @@ notification request; 0 is an invalid ID, and is returned if an error occurs.</d
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="unref" c:identifier="gconf_engine_unref">
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="unset" c:identifier="gconf_engine_unset" throws="1">
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="conf" transfer-ownership="none">
+            <type name="Engine" c:type="GConfEngine*"/>
+          </instance-parameter>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -1852,7 +2201,7 @@ before exiting your application.</doc>
         </return-value>
         <parameters>
           <parameter name="address" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </function>
@@ -1880,7 +2229,7 @@ before exiting your application.</doc>
         </return-value>
         <parameters>
           <parameter name="address" transfer-ownership="none">
-            <type name="utf8" c:type="char*"/>
+            <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
       </function>
@@ -1917,10 +2266,10 @@ before exiting your application.</doc>
         </return-value>
         <parameters>
           <parameter name="key" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="val" transfer-ownership="none">
-            <type name="Value" c:type="GConfValue*"/>
+            <type name="Value" c:type="const GConfValue*"/>
           </parameter>
         </parameters>
       </constructor>
@@ -1941,14 +2290,22 @@ before exiting your application.</doc>
         <return-value transfer-ownership="full">
           <type name="Entry" c:type="GConfEntry*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="src" transfer-ownership="none">
+            <type name="Entry" c:type="const GConfEntry*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="equal" c:identifier="gconf_entry_equal">
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="a" transfer-ownership="none">
+            <type name="Entry" c:type="const GConfEntry*"/>
+          </instance-parameter>
           <parameter name="b" transfer-ownership="none">
-            <type name="Entry" c:type="GConfEntry*"/>
+            <type name="Entry" c:type="const GConfEntry*"/>
           </parameter>
         </parameters>
       </method>
@@ -1956,44 +2313,82 @@ before exiting your application.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <type name="Entry" c:type="GConfEntry*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_is_default" c:identifier="gconf_entry_get_is_default">
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <type name="Entry" c:type="const GConfEntry*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_is_writable"
               c:identifier="gconf_entry_get_is_writable">
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <type name="Entry" c:type="const GConfEntry*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_key" c:identifier="gconf_entry_get_key">
         <return-value transfer-ownership="none">
-          <type name="utf8" c:type="char*"/>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <type name="Entry" c:type="const GConfEntry*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_schema_name"
               c:identifier="gconf_entry_get_schema_name">
         <return-value transfer-ownership="none">
-          <type name="utf8" c:type="char*"/>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <type name="Entry" c:type="const GConfEntry*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_value" c:identifier="gconf_entry_get_value">
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <type name="Entry" c:type="const GConfEntry*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="ref" c:identifier="gconf_entry_ref">
         <return-value transfer-ownership="full">
           <type name="Entry" c:type="GConfEntry*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <type name="Entry" c:type="GConfEntry*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="set_is_default" c:identifier="gconf_entry_set_is_default">
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <type name="Entry" c:type="GConfEntry*"/>
+          </instance-parameter>
           <parameter name="is_default" transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -2005,6 +2400,9 @@ before exiting your application.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <type name="Entry" c:type="GConfEntry*"/>
+          </instance-parameter>
           <parameter name="is_writable" transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -2016,8 +2414,11 @@ before exiting your application.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <type name="Entry" c:type="GConfEntry*"/>
+          </instance-parameter>
           <parameter name="name" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -2026,8 +2427,11 @@ before exiting your application.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <type name="Entry" c:type="GConfEntry*"/>
+          </instance-parameter>
           <parameter name="val" transfer-ownership="none">
-            <type name="Value" c:type="GConfValue*"/>
+            <type name="Value" c:type="const GConfValue*"/>
           </parameter>
         </parameters>
       </method>
@@ -2037,6 +2441,9 @@ before exiting your application.</doc>
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <type name="Entry" c:type="GConfEntry*"/>
+          </instance-parameter>
           <parameter name="val" transfer-ownership="none">
             <type name="Value" c:type="GConfValue*"/>
           </parameter>
@@ -2046,11 +2453,21 @@ before exiting your application.</doc>
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <type name="Entry" c:type="GConfEntry*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="unref" c:identifier="gconf_entry_unref">
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="entry" transfer-ownership="none">
+            <type name="Entry" c:type="GConfEntry*"/>
+          </instance-parameter>
+        </parameters>
       </method>
     </record>
     <record name="EnumStringPair" c:type="GConfEnumStringPair">
@@ -2058,81 +2475,99 @@ before exiting your application.</doc>
         <type name="gint" c:type="gint"/>
       </field>
       <field name="str" writable="1">
-        <type name="utf8" c:type="gchar*"/>
+        <type name="utf8" c:type="const gchar*"/>
       </field>
     </record>
     <enumeration name="Error"
                  glib:type-name="GConfError"
                  glib:get-type="gconf_error_get_type"
-                 c:type="GConfError">
+                 c:type="GConfError"
+                 glib:error-domain="gconf-error-quark">
       <member name="success"
               value="0"
               c:identifier="GCONF_ERROR_SUCCESS"
-              glib:nick="success"/>
+              glib:nick="success">
+      </member>
       <member name="failed"
               value="1"
               c:identifier="GCONF_ERROR_FAILED"
-              glib:nick="failed"/>
+              glib:nick="failed">
+      </member>
       <member name="no_server"
               value="2"
               c:identifier="GCONF_ERROR_NO_SERVER"
-              glib:nick="no-server"/>
+              glib:nick="no-server">
+      </member>
       <member name="no_permission"
               value="3"
               c:identifier="GCONF_ERROR_NO_PERMISSION"
-              glib:nick="no-permission"/>
+              glib:nick="no-permission">
+      </member>
       <member name="bad_address"
               value="4"
               c:identifier="GCONF_ERROR_BAD_ADDRESS"
-              glib:nick="bad-address"/>
+              glib:nick="bad-address">
+      </member>
       <member name="bad_key"
               value="5"
               c:identifier="GCONF_ERROR_BAD_KEY"
-              glib:nick="bad-key"/>
+              glib:nick="bad-key">
+      </member>
       <member name="parse_error"
               value="6"
               c:identifier="GCONF_ERROR_PARSE_ERROR"
-              glib:nick="parse-error"/>
+              glib:nick="parse-error">
+      </member>
       <member name="corrupt"
               value="7"
               c:identifier="GCONF_ERROR_CORRUPT"
-              glib:nick="corrupt"/>
+              glib:nick="corrupt">
+      </member>
       <member name="type_mismatch"
               value="8"
               c:identifier="GCONF_ERROR_TYPE_MISMATCH"
-              glib:nick="type-mismatch"/>
+              glib:nick="type-mismatch">
+      </member>
       <member name="is_dir"
               value="9"
               c:identifier="GCONF_ERROR_IS_DIR"
-              glib:nick="is-dir"/>
+              glib:nick="is-dir">
+      </member>
       <member name="is_key"
               value="10"
               c:identifier="GCONF_ERROR_IS_KEY"
-              glib:nick="is-key"/>
+              glib:nick="is-key">
+      </member>
       <member name="overridden"
               value="11"
               c:identifier="GCONF_ERROR_OVERRIDDEN"
-              glib:nick="overridden"/>
+              glib:nick="overridden">
+      </member>
       <member name="oaf_error"
               value="12"
               c:identifier="GCONF_ERROR_OAF_ERROR"
-              glib:nick="oaf-error"/>
+              glib:nick="oaf-error">
+      </member>
       <member name="local_engine"
               value="13"
               c:identifier="GCONF_ERROR_LOCAL_ENGINE"
-              glib:nick="local-engine"/>
+              glib:nick="local-engine">
+      </member>
       <member name="lock_failed"
               value="14"
               c:identifier="GCONF_ERROR_LOCK_FAILED"
-              glib:nick="lock-failed"/>
+              glib:nick="lock-failed">
+      </member>
       <member name="no_writable_database"
               value="15"
               c:identifier="GCONF_ERROR_NO_WRITABLE_DATABASE"
-              glib:nick="no-writable-database"/>
+              glib:nick="no-writable-database">
+      </member>
       <member name="in_shutdown"
               value="16"
               c:identifier="GCONF_ERROR_IN_SHUTDOWN"
-              glib:nick="in-shutdown"/>
+              glib:nick="in-shutdown">
+      </member>
       <function name="quark" c:identifier="gconf_error_quark">
         <return-value transfer-ownership="none">
           <type name="GLib.Quark" c:type="GQuark"/>
@@ -2153,8 +2588,11 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
           <type name="guint" c:type="guint"/>
         </return-value>
         <parameters>
+          <instance-parameter name="listeners" transfer-ownership="none">
+            <type name="Listeners" c:type="GConfListeners*"/>
+          </instance-parameter>
           <parameter name="listen_point" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="listener_data" transfer-ownership="none">
             <type name="gpointer" c:type="gpointer"/>
@@ -2168,12 +2606,20 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         <return-value transfer-ownership="none">
           <type name="guint" c:type="guint"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="listeners" transfer-ownership="none">
+            <type name="Listeners" c:type="GConfListeners*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="foreach" c:identifier="gconf_listeners_foreach">
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="listeners" transfer-ownership="none">
+            <type name="Listeners" c:type="GConfListeners*"/>
+          </instance-parameter>
           <parameter name="callback" transfer-ownership="none" closure="1">
             <type name="ListenersForeach" c:type="GConfListenersForeach"/>
           </parameter>
@@ -2186,12 +2632,20 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="listeners" transfer-ownership="none">
+            <type name="Listeners" c:type="GConfListeners*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_data" c:identifier="gconf_listeners_get_data">
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
+          <instance-parameter name="listeners" transfer-ownership="none">
+            <type name="Listeners" c:type="GConfListeners*"/>
+          </instance-parameter>
           <parameter name="cnxn_id" transfer-ownership="none">
             <type name="guint" c:type="guint"/>
           </parameter>
@@ -2199,7 +2653,7 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
             <type name="gpointer" c:type="gpointer*"/>
           </parameter>
           <parameter name="location_p" transfer-ownership="none">
-            <type name="utf8" c:type="gchar**"/>
+            <type name="utf8" c:type="const gchar**"/>
           </parameter>
         </parameters>
       </method>
@@ -2210,8 +2664,11 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="listeners" transfer-ownership="none">
+            <type name="Listeners" c:type="GConfListeners*"/>
+          </instance-parameter>
           <parameter name="all_above" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
           <parameter name="callback" transfer-ownership="none" closure="2">
             <type name="ListenersCallback" c:type="GConfListenersCallback"/>
@@ -2226,6 +2683,9 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="listeners" transfer-ownership="none">
+            <type name="Listeners" c:type="GConfListeners*"/>
+          </instance-parameter>
           <parameter name="cnxn_id" transfer-ownership="none">
             <type name="guint" c:type="guint"/>
           </parameter>
@@ -2236,6 +2696,9 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="listeners" transfer-ownership="none">
+            <type name="Listeners" c:type="GConfListeners*"/>
+          </instance-parameter>
           <parameter name="predicate" transfer-ownership="none" closure="1">
             <type name="ListenersPredicate" c:type="GConfListenersPredicate"/>
           </parameter>
@@ -2263,7 +2726,7 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
           <type name="Listeners" c:type="GConfListeners*"/>
         </parameter>
         <parameter name="all_above_key" transfer-ownership="none">
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="cnxn_id" transfer-ownership="none">
           <type name="guint" c:type="guint"/>
@@ -2282,7 +2745,7 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
       </return-value>
       <parameters>
         <parameter name="location" transfer-ownership="none">
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="cnxn_id" transfer-ownership="none">
           <type name="guint" c:type="guint"/>
@@ -2301,7 +2764,7 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
       </return-value>
       <parameters>
         <parameter name="location" transfer-ownership="none">
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="cnxn_id" transfer-ownership="none">
           <type name="guint" c:type="guint"/>
@@ -2328,27 +2791,50 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="gcmi" transfer-ownership="none">
+            <type name="MetaInfo" c:type="GConfMetaInfo*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_mod_user" c:identifier="gconf_meta_info_get_mod_user">
         <return-value transfer-ownership="none">
-          <type name="utf8" c:type="char*"/>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="gcmi" transfer-ownership="none">
+            <type name="MetaInfo" c:type="GConfMetaInfo*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_schema" c:identifier="gconf_meta_info_get_schema">
         <return-value transfer-ownership="none">
-          <type name="utf8" c:type="char*"/>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="gcmi" transfer-ownership="none">
+            <type name="MetaInfo" c:type="GConfMetaInfo*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="mod_time" c:identifier="gconf_meta_info_mod_time">
         <return-value transfer-ownership="none">
           <type name="GLib.Time" c:type="GTime"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="gcmi" transfer-ownership="none">
+            <type name="MetaInfo" c:type="GConfMetaInfo*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="set_mod_time" c:identifier="gconf_meta_info_set_mod_time">
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="gcmi" transfer-ownership="none">
+            <type name="MetaInfo" c:type="GConfMetaInfo*"/>
+          </instance-parameter>
           <parameter name="mod_time" transfer-ownership="none">
             <type name="GLib.Time" c:type="GTime"/>
           </parameter>
@@ -2359,8 +2845,11 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="gcmi" transfer-ownership="none">
+            <type name="MetaInfo" c:type="GConfMetaInfo*"/>
+          </instance-parameter>
           <parameter name="mod_user" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -2369,8 +2858,11 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="gcmi" transfer-ownership="none">
+            <type name="MetaInfo" c:type="GConfMetaInfo*"/>
+          </instance-parameter>
           <parameter name="schema_name" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -2410,69 +2902,132 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         <return-value>
           <type name="Schema" c:type="GConfSchema*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="sc" transfer-ownership="none">
+            <type name="Schema" c:type="const GConfSchema*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="free" c:identifier="gconf_schema_free">
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="sc" transfer-ownership="none">
+            <type name="Schema" c:type="GConfSchema*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_car_type" c:identifier="gconf_schema_get_car_type">
         <return-value transfer-ownership="none">
           <type name="ValueType" c:type="GConfValueType"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="schema" transfer-ownership="none">
+            <type name="Schema" c:type="const GConfSchema*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_cdr_type" c:identifier="gconf_schema_get_cdr_type">
         <return-value transfer-ownership="none">
           <type name="ValueType" c:type="GConfValueType"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="schema" transfer-ownership="none">
+            <type name="Schema" c:type="const GConfSchema*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_default_value"
               c:identifier="gconf_schema_get_default_value">
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="schema" transfer-ownership="none">
+            <type name="Schema" c:type="const GConfSchema*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_gettext_domain"
               c:identifier="gconf_schema_get_gettext_domain">
         <return-value transfer-ownership="none">
-          <type name="utf8" c:type="char*"/>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="schema" transfer-ownership="none">
+            <type name="Schema" c:type="const GConfSchema*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_list_type" c:identifier="gconf_schema_get_list_type">
         <return-value transfer-ownership="none">
           <type name="ValueType" c:type="GConfValueType"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="schema" transfer-ownership="none">
+            <type name="Schema" c:type="const GConfSchema*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_locale" c:identifier="gconf_schema_get_locale">
         <return-value transfer-ownership="none">
-          <type name="utf8" c:type="char*"/>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="schema" transfer-ownership="none">
+            <type name="Schema" c:type="const GConfSchema*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_long_desc" c:identifier="gconf_schema_get_long_desc">
         <return-value transfer-ownership="none">
-          <type name="utf8" c:type="char*"/>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="schema" transfer-ownership="none">
+            <type name="Schema" c:type="const GConfSchema*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_owner" c:identifier="gconf_schema_get_owner">
         <return-value transfer-ownership="none">
-          <type name="utf8" c:type="char*"/>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="schema" transfer-ownership="none">
+            <type name="Schema" c:type="const GConfSchema*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_short_desc" c:identifier="gconf_schema_get_short_desc">
         <return-value transfer-ownership="none">
-          <type name="utf8" c:type="char*"/>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="schema" transfer-ownership="none">
+            <type name="Schema" c:type="const GConfSchema*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_type" c:identifier="gconf_schema_get_type">
         <return-value transfer-ownership="none">
           <type name="ValueType" c:type="GConfValueType"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="schema" transfer-ownership="none">
+            <type name="Schema" c:type="const GConfSchema*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="set_car_type" c:identifier="gconf_schema_set_car_type">
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="sc" transfer-ownership="none">
+            <type name="Schema" c:type="GConfSchema*"/>
+          </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <type name="ValueType" c:type="GConfValueType"/>
           </parameter>
@@ -2483,6 +3038,9 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="sc" transfer-ownership="none">
+            <type name="Schema" c:type="GConfSchema*"/>
+          </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <type name="ValueType" c:type="GConfValueType"/>
           </parameter>
@@ -2494,8 +3052,11 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="sc" transfer-ownership="none">
+            <type name="Schema" c:type="GConfSchema*"/>
+          </instance-parameter>
           <parameter name="val" transfer-ownership="none">
-            <type name="Value" c:type="GConfValue*"/>
+            <type name="Value" c:type="const GConfValue*"/>
           </parameter>
         </parameters>
       </method>
@@ -2505,6 +3066,9 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="sc" transfer-ownership="none">
+            <type name="Schema" c:type="GConfSchema*"/>
+          </instance-parameter>
           <parameter name="val" transfer-ownership="none">
             <type name="Value" c:type="GConfValue*"/>
           </parameter>
@@ -2516,8 +3080,11 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="sc" transfer-ownership="none">
+            <type name="Schema" c:type="GConfSchema*"/>
+          </instance-parameter>
           <parameter name="domain" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -2526,6 +3093,9 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="sc" transfer-ownership="none">
+            <type name="Schema" c:type="GConfSchema*"/>
+          </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <type name="ValueType" c:type="GConfValueType"/>
           </parameter>
@@ -2536,8 +3106,11 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="sc" transfer-ownership="none">
+            <type name="Schema" c:type="GConfSchema*"/>
+          </instance-parameter>
           <parameter name="locale" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -2546,8 +3119,11 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="sc" transfer-ownership="none">
+            <type name="Schema" c:type="GConfSchema*"/>
+          </instance-parameter>
           <parameter name="desc" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -2556,8 +3132,11 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="sc" transfer-ownership="none">
+            <type name="Schema" c:type="GConfSchema*"/>
+          </instance-parameter>
           <parameter name="owner" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -2566,8 +3145,11 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="sc" transfer-ownership="none">
+            <type name="Schema" c:type="GConfSchema*"/>
+          </instance-parameter>
           <parameter name="desc" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -2576,6 +3158,9 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="sc" transfer-ownership="none">
+            <type name="Schema" c:type="GConfSchema*"/>
+          </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <type name="ValueType" c:type="GConfValueType"/>
           </parameter>
@@ -2594,7 +3179,8 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
       <member name="names"
               value="1"
               c:identifier="GCONF_UNSET_INCLUDING_SCHEMA_NAMES"
-              glib:nick="names"/>
+              glib:nick="names">
+      </member>
     </bitfield>
     <record name="Value"
             c:type="GConfValue"
@@ -2625,7 +3211,7 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
             <type name="ValueType" c:type="GConfValueType"/>
           </parameter>
           <parameter name="str" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </constructor>
@@ -2634,8 +3220,11 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
           <type name="gint" c:type="int"/>
         </return-value>
         <parameters>
+          <instance-parameter name="value_a" transfer-ownership="none">
+            <type name="Value" c:type="const GConfValue*"/>
+          </instance-parameter>
           <parameter name="value_b" transfer-ownership="none">
-            <type name="Value" c:type="GConfValue*"/>
+            <type name="Value" c:type="const GConfValue*"/>
           </parameter>
         </parameters>
       </method>
@@ -2643,41 +3232,81 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="src" transfer-ownership="none">
+            <type name="Value" c:type="const GConfValue*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="encode" c:identifier="gconf_value_encode">
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="val" transfer-ownership="none">
+            <type name="Value" c:type="GConfValue*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="free" c:identifier="gconf_value_free">
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="GConfValue*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_bool" c:identifier="gconf_value_get_bool">
         <return-value transfer-ownership="none">
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="const GConfValue*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_car" c:identifier="gconf_value_get_car">
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="const GConfValue*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_cdr" c:identifier="gconf_value_get_cdr">
         <return-value transfer-ownership="full">
           <type name="Value" c:type="GConfValue*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="const GConfValue*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_float" c:identifier="gconf_value_get_float">
         <return-value transfer-ownership="none">
           <type name="gdouble" c:type="double"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="const GConfValue*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_int" c:identifier="gconf_value_get_int">
         <return-value transfer-ownership="none">
           <type name="gint" c:type="int"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="const GConfValue*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_list" c:identifier="gconf_value_get_list">
         <doc xml:whitespace="preserve">Returns a #GSList containing #GConfValue objects. Each #GConfValue in
@@ -2691,11 +3320,22 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
             <type name="Value"/>
           </type>
         </return-value>
+        <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <doc xml:whitespace="preserve">a #GConfValue.</doc>
+            <type name="Value" c:type="const GConfValue*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_list_type" c:identifier="gconf_value_get_list_type">
         <return-value transfer-ownership="none">
           <type name="ValueType" c:type="GConfValueType"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="const GConfValue*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_schema"
               c:identifier="gconf_value_get_schema"
@@ -2703,17 +3343,30 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
         <return-value>
           <type name="Schema" c:type="GConfSchema*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="const GConfValue*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="get_string" c:identifier="gconf_value_get_string">
         <return-value transfer-ownership="none">
-          <type name="utf8" c:type="char*"/>
+          <type name="utf8" c:type="const char*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="const GConfValue*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <method name="set_bool" c:identifier="gconf_value_set_bool">
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="GConfValue*"/>
+          </instance-parameter>
           <parameter name="the_bool" transfer-ownership="none">
             <type name="gboolean" c:type="gboolean"/>
           </parameter>
@@ -2724,8 +3377,11 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <parameter name="car" transfer-ownership="none">
+          <instance-parameter name="value" transfer-ownership="none">
             <type name="Value" c:type="GConfValue*"/>
+          </instance-parameter>
+          <parameter name="car" transfer-ownership="none">
+            <type name="Value" c:type="const GConfValue*"/>
           </parameter>
         </parameters>
       </method>
@@ -2734,6 +3390,9 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="GConfValue*"/>
+          </instance-parameter>
           <parameter name="car" transfer-ownership="none">
             <type name="Value" c:type="GConfValue*"/>
           </parameter>
@@ -2744,8 +3403,11 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
-          <parameter name="cdr" transfer-ownership="none">
+          <instance-parameter name="value" transfer-ownership="none">
             <type name="Value" c:type="GConfValue*"/>
+          </instance-parameter>
+          <parameter name="cdr" transfer-ownership="none">
+            <type name="Value" c:type="const GConfValue*"/>
           </parameter>
         </parameters>
       </method>
@@ -2754,6 +3416,9 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="GConfValue*"/>
+          </instance-parameter>
           <parameter name="cdr" transfer-ownership="none">
             <type name="Value" c:type="GConfValue*"/>
           </parameter>
@@ -2764,6 +3429,9 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="GConfValue*"/>
+          </instance-parameter>
           <parameter name="the_float" transfer-ownership="none">
             <type name="gdouble" c:type="gdouble"/>
           </parameter>
@@ -2774,6 +3442,9 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="GConfValue*"/>
+          </instance-parameter>
           <parameter name="the_int" transfer-ownership="none">
             <type name="gint" c:type="gint"/>
           </parameter>
@@ -2786,6 +3457,9 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="GConfValue*"/>
+          </instance-parameter>
           <parameter name="list" transfer-ownership="none">
             <type name="GLib.SList" c:type="GSList*">
               <type name="gpointer" c:type="gpointer"/>
@@ -2800,6 +3474,9 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="GConfValue*"/>
+          </instance-parameter>
           <parameter name="list" transfer-ownership="none">
             <type name="GLib.SList" c:type="GSList*">
               <type name="gpointer" c:type="gpointer"/>
@@ -2812,6 +3489,9 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="GConfValue*"/>
+          </instance-parameter>
           <parameter name="type" transfer-ownership="none">
             <type name="ValueType" c:type="GConfValueType"/>
           </parameter>
@@ -2824,8 +3504,11 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="GConfValue*"/>
+          </instance-parameter>
           <parameter name="sc" transfer-ownership="none">
-            <type name="Schema" c:type="GConfSchema*"/>
+            <type name="Schema" c:type="const GConfSchema*"/>
           </parameter>
         </parameters>
       </method>
@@ -2836,6 +3519,9 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="GConfValue*"/>
+          </instance-parameter>
           <parameter name="sc" transfer-ownership="none">
             <type name="Schema" c:type="GConfSchema*"/>
           </parameter>
@@ -2846,8 +3532,11 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
           <type name="none" c:type="void"/>
         </return-value>
         <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="GConfValue*"/>
+          </instance-parameter>
           <parameter name="the_str" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </method>
@@ -2855,6 +3544,11 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
         <return-value transfer-ownership="full">
           <type name="utf8" c:type="gchar*"/>
         </return-value>
+        <parameters>
+          <instance-parameter name="value" transfer-ownership="none">
+            <type name="Value" c:type="const GConfValue*"/>
+          </instance-parameter>
+        </parameters>
       </method>
       <function name="decode" c:identifier="gconf_value_decode">
         <return-value transfer-ownership="full">
@@ -2862,7 +3556,7 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
         </return-value>
         <parameters>
           <parameter name="encoded" transfer-ownership="none">
-            <type name="utf8" c:type="gchar*"/>
+            <type name="utf8" c:type="const gchar*"/>
           </parameter>
         </parameters>
       </function>
@@ -2874,35 +3568,43 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
       <member name="invalid"
               value="0"
               c:identifier="GCONF_VALUE_INVALID"
-              glib:nick="invalid"/>
+              glib:nick="invalid">
+      </member>
       <member name="string"
               value="1"
               c:identifier="GCONF_VALUE_STRING"
-              glib:nick="string"/>
+              glib:nick="string">
+      </member>
       <member name="int"
               value="2"
               c:identifier="GCONF_VALUE_INT"
-              glib:nick="int"/>
+              glib:nick="int">
+      </member>
       <member name="float"
               value="3"
               c:identifier="GCONF_VALUE_FLOAT"
-              glib:nick="float"/>
+              glib:nick="float">
+      </member>
       <member name="bool"
               value="4"
               c:identifier="GCONF_VALUE_BOOL"
-              glib:nick="bool"/>
+              glib:nick="bool">
+      </member>
       <member name="schema"
               value="5"
               c:identifier="GCONF_VALUE_SCHEMA"
-              glib:nick="schema"/>
+              glib:nick="schema">
+      </member>
       <member name="list"
               value="6"
               c:identifier="GCONF_VALUE_LIST"
-              glib:nick="list"/>
+              glib:nick="list">
+      </member>
       <member name="pair"
               value="7"
               c:identifier="GCONF_VALUE_PAIR"
-              glib:nick="pair"/>
+              glib:nick="pair">
+      </member>
     </enumeration>
     <function name="clear_cache"
               c:identifier="gconf_clear_cache"
@@ -2924,10 +3626,10 @@ gconf_value_get_list_type(). Remember that the empty #GSList is equal to
       </return-value>
       <parameters>
         <parameter name="dir" transfer-ownership="none">
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="key" transfer-ownership="none">
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
     </function>
@@ -2964,7 +3666,7 @@ before exiting your application.</doc>
       </return-value>
       <parameters>
         <parameter name="address" transfer-ownership="none">
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
     </function>
@@ -2994,7 +3696,7 @@ before exiting your application.</doc>
       </return-value>
       <parameters>
         <parameter name="address" transfer-ownership="none">
-          <type name="utf8" c:type="char*"/>
+          <type name="utf8" c:type="const char*"/>
         </parameter>
       </parameters>
     </function>
@@ -3016,7 +3718,7 @@ before exiting your application.</doc>
     </function>
     <function name="enum_to_string" c:identifier="gconf_enum_to_string">
       <return-value transfer-ownership="none">
-        <type name="utf8" c:type="gchar*"/>
+        <type name="utf8" c:type="const gchar*"/>
       </return-value>
       <parameters>
         <parameter name="lookup_table" transfer-ownership="none">
@@ -3047,7 +3749,7 @@ result in a valid key.</doc>
       <parameters>
         <parameter name="arbitrary_text" transfer-ownership="none">
           <doc xml:whitespace="preserve">some text in any encoding or format</doc>
-          <type name="utf8" c:type="char*"/>
+          <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="len" transfer-ownership="none">
           <doc xml:whitespace="preserve">length of @arbitrary_text in bytes, or -1 if @arbitrary_text is nul-terminated</doc>
@@ -3079,10 +3781,10 @@ result in a valid key.</doc>
       </return-value>
       <parameters>
         <parameter name="above" transfer-ownership="none">
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="below" transfer-ownership="none">
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
     </function>
@@ -3145,7 +3847,7 @@ result in a valid key.</doc>
           <type name="EnumStringPair" c:type="GConfEnumStringPair"/>
         </parameter>
         <parameter name="str" transfer-ownership="none">
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="enum_value_retloc" transfer-ownership="none">
           <type name="gint" c:type="gint*"/>
@@ -3175,7 +3877,7 @@ form.</doc>
       <parameters>
         <parameter name="escaped_key" transfer-ownership="none">
           <doc xml:whitespace="preserve">a key created with gconf_escape_key()</doc>
-          <type name="utf8" c:type="char*"/>
+          <type name="utf8" c:type="const char*"/>
         </parameter>
         <parameter name="len" transfer-ownership="none">
           <doc xml:whitespace="preserve">length of @escaped_key in bytes, or -1 if @escaped_key is nul-terminated</doc>
@@ -3194,7 +3896,7 @@ form.</doc>
       </return-value>
       <parameters>
         <parameter name="key" transfer-ownership="none">
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="why_invalid" transfer-ownership="none">
           <type name="utf8" c:type="gchar**"/>
@@ -3209,7 +3911,7 @@ form.</doc>
       </return-value>
       <parameters>
         <parameter name="encoded" transfer-ownership="none">
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
     </function>

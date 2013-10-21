@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GError</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.0">
 <link rel="home" href="index.html" title="GConf Reference Manual">
 <link rel="up" href="ch01.html" title="Using the GConf library">
 <link rel="prev" href="gconf-gconf-engine.html" title="GConfEngine">
 <link rel="next" href="gconf-gconf-internals.html" title="gconf-internals">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -38,28 +38,28 @@
 <div class="refsynopsisdiv">
 <a name="gconf-gconf-error.synopsis"></a><h2>Synopsis</h2>
 <pre class="synopsis">enum                <a class="link" href="gconf-gconf-error.html#GConfError" title="enum GConfError">GConfError</a>;
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="returnvalue">GError</span></a> *            <a class="link" href="gconf-gconf-error.html#gconf-error-new" title="gconf_error_new ()">gconf_error_new</a>                     (<em class="parameter"><code><a class="link" href="gconf-gconf-error.html#GConfError" title="enum GConfError"><span class="type">GConfError</span></a> en</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *format</code></em>,
+<span class="returnvalue">GError</span> *            <a class="link" href="gconf-gconf-error.html#gconf-error-new" title="gconf_error_new ()">gconf_error_new</a>                     (<em class="parameter"><code><a class="link" href="gconf-gconf-error.html#GConfError" title="enum GConfError"><span class="type">GConfError</span></a> en</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *format</code></em>,
                                                          <em class="parameter"><code>...</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="gconf-gconf-error.html#gconf-error-quark" title="gconf_error_quark ()">gconf_error_quark</a>                   (<em class="parameter"><code><span class="type">void</span></code></em>);
-<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-error.html#gconf-set-error" title="gconf_set_error ()">gconf_set_error</a>                     (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>,
+<span class="returnvalue">GQuark</span>              <a class="link" href="gconf-gconf-error.html#gconf-error-quark" title="gconf_error_quark ()">gconf_error_quark</a>                   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-error.html#gconf-set-error" title="gconf_set_error ()">gconf_set_error</a>                     (<em class="parameter"><code><span class="type">GError</span> **err</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-error.html#GConfError" title="enum GConfError"><span class="type">GConfError</span></a> en</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *format</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *format</code></em>,
                                                          <em class="parameter"><code>...</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="returnvalue">GError</span></a> *            <a class="link" href="gconf-gconf-error.html#gconf-compose-errors" title="gconf_compose_errors ()">gconf_compose_errors</a>                (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> *err1</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> *err2</code></em>);
+<span class="returnvalue">GError</span> *            <a class="link" href="gconf-gconf-error.html#gconf-compose-errors" title="gconf_compose_errors ()">gconf_compose_errors</a>                (<em class="parameter"><code><span class="type">GError</span> *err1</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> *err2</code></em>);
 </pre>
 </div>
 <div class="refsect1">
 <a name="gconf-gconf-error.description"></a><h2>Description</h2>
 <p>
-The <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> object is used to report errors that occur in GConf
+The <span class="type">GError</span> object is used to report errors that occur in GConf
 library routines. All functions that report errors work the same way:
 </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem"><p>
-The last argument to the function is a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>**, a pointer to a
-location where a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>* can be placed.
+The last argument to the function is a <span class="type">GError</span>**, a pointer to a
+location where a <span class="type">GError</span>* can be placed.
 </p></li>
 <li class="listitem"><p>
 This last argument may be <span class="symbol">NULL</span>, in which case no
@@ -67,13 +67,13 @@ error will be returned.
 </p></li>
 <li class="listitem"><p>
 If non-<span class="symbol">NULL</span>, the argument should be the address of a
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>* variable, which should be initialized to
+<span class="type">GError</span>* variable, which should be initialized to
 <span class="symbol">NULL</span>.
 </p></li>
 <li class="listitem"><p>
-If an error occurs, a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> will be allocated and placed in the
-return location; the caller must free the <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> with
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#g-error-free"><code class="function">g_error_free()</code></a>. If no error occurs, the return location will be
+If an error occurs, a <span class="type">GError</span> will be allocated and placed in the
+return location; the caller must free the <span class="type">GError</span> with
+<code class="function">g_error_free()</code>. If no error occurs, the return location will be
 left untouched. That is, the test <code class="literal">error != NULL</code>
 should always be a reliable indicator of whether the operation failed.
 </p></li>
@@ -86,13 +86,13 @@ or not an error occurred. Typically, <span class="symbol">TRUE</span> is returne
 on success. In some cases, a <span class="symbol">NULL</span> return value
 indicates failure. Either way, if the return value indicates failure
 and you passed a non-<span class="symbol">NULL</span> value for the last argument
-to the function, a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> will be returned. If the return value
-indicates success, then a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> will never be returned.  These
+to the function, a <span class="type">GError</span> will be returned. If the return value
+indicates success, then a <span class="type">GError</span> will never be returned.  These
 relationships are guaranteed; that is, you can reliably use the return
-value to decide whether a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> was placed in the return
+value to decide whether a <span class="type">GError</span> was placed in the return
 location. If a function does <span class="emphasis"><em>not</em></span> indicate
 success/failure by return value, you must check whether the
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> is <span class="symbol">NULL</span> to detect errors.
+<span class="type">GError</span> is <span class="symbol">NULL</span> to detect errors.
 </p>
 <p>
 Here's a short error handling example:
@@ -141,12 +141,15 @@ The <a class="link" href="gconf-gconf-error.html#GConfError" title="enum GConfEr
 differentiate between different kinds of error. You may wish to take
 specific actions depending on the error type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="GCONF-ERROR-SUCCESS:CAPS"></a><span class="term"><code class="literal">GCONF_ERROR_SUCCESS</code></span></p></td>
-<td>indicates that no error occurred, won't be returned in a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>.
+<td>indicates that no error occurred, won't be returned in a <span class="type">GError</span>.
 </td>
 </tr>
 <tr>
@@ -235,8 +238,8 @@ specific actions depending on the error type.
 <hr>
 <div class="refsect2">
 <a name="gconf-error-new"></a><h3>gconf_error_new ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="returnvalue">GError</span></a> *            gconf_error_new                     (<em class="parameter"><code><a class="link" href="gconf-gconf-error.html#GConfError" title="enum GConfError"><span class="type">GConfError</span></a> en</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *format</code></em>,
+<pre class="programlisting"><span class="returnvalue">GError</span> *            gconf_error_new                     (<em class="parameter"><code><a class="link" href="gconf-gconf-error.html#GConfError" title="enum GConfError"><span class="type">GConfError</span></a> en</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *format</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
 Creates a new error. Normally the GConf library does this, but you
@@ -244,8 +247,11 @@ might find a reason to do it as well. <em class="parameter"><code>en</code></em>
 is a <code class="function">printf()</code>-style format for the error message, and the variable
 argument list is the same as in <code class="function">printf()</code>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>en</code></em> :</span></p></td>
@@ -256,8 +262,12 @@ argument list is the same as in <code class="function">printf()</code>.
 <td>printf()-style format for error description.</td>
 </tr>
 <tr>
+<td><p><span class="term"><em class="parameter"><code>Varargs</code></em> :</span></p></td>
+<td>arguments required by the <em class="parameter"><code>format</code></em>.</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>newly-allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>.</td>
+<td>newly-allocated <span class="type">GError</span>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -265,24 +275,27 @@ argument list is the same as in <code class="function">printf()</code>.
 <hr>
 <div class="refsect2">
 <a name="gconf-error-quark"></a><h3>gconf_error_quark ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              gconf_error_quark                   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">GQuark</span>              gconf_error_quark                   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>
-Converts the string 'gconf-error-quark' to a <a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> and returns the value.
+Converts the string 'gconf-error-quark' to a <span class="type">GQuark</span> and returns the value.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the <a href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> representing the string.</td>
+<td>the <span class="type">GQuark</span> representing the string.</td>
 </tr></tbody>
 </table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gconf-set-error"></a><h3>gconf_set_error ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gconf_set_error                     (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>,
+<pre class="programlisting"><span class="returnvalue">void</span>                gconf_set_error                     (<em class="parameter"><code><span class="type">GError</span> **err</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-error.html#GConfError" title="enum GConfError"><span class="type">GConfError</span></a> en</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *format</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *format</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
 Internal function.
@@ -291,8 +304,8 @@ Internal function.
 <hr>
 <div class="refsect2">
 <a name="gconf-compose-errors"></a><h3>gconf_compose_errors ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="returnvalue">GError</span></a> *            gconf_compose_errors                (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> *err1</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> *err2</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">GError</span> *            gconf_compose_errors                (<em class="parameter"><code><span class="type">GError</span> *err1</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> *err2</code></em>);</pre>
 <p>
 Internal function.
 </p>
@@ -301,6 +314,6 @@ Internal function.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

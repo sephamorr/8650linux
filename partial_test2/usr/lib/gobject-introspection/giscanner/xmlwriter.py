@@ -44,8 +44,7 @@ def _calc_attrs_length(attributes, indent, self_indent):
     return attr_length + indent + self_indent
 
 
-def collect_attributes(tag_name, attributes, self_indent,
-                       self_indent_char, indent=-1):
+def collect_attributes(tag_name, attributes, self_indent, self_indent_char, indent=-1):
     if not attributes:
         return ''
     if _calc_attrs_length(attributes, indent, self_indent) > 79:
@@ -67,6 +66,25 @@ def collect_attributes(tag_name, attributes, self_indent,
         if first:
             first = False
     return attr_value
+
+
+def build_xml_tag(tag_name, attributes=None, data=None, self_indent=0,
+                  self_indent_char=' '):
+    if attributes is None:
+        attributes = []
+    prefix = u'<%s' % (tag_name, )
+    if data is not None:
+        if isinstance(data, str):
+            data = data.decode('UTF-8')
+        suffix = u'>%s</%s>' % (escape(data), tag_name)
+    else:
+        suffix = u'/>'
+    attrs = collect_attributes(
+        tag_name, attributes,
+        self_indent,
+        self_indent_char,
+        len(prefix) + len(suffix))
+    return prefix + attrs + suffix
 
 
 with LibtoolImporter(None, None):
@@ -91,10 +109,8 @@ class XMLWriter(object):
     def _open_tag(self, tag_name, attributes=None):
         if attributes is None:
             attributes = []
-        attrs = collect_attributes(
-            tag_name, attributes, self._indent,
-            self._indent_char,
-            len(tag_name) + 2)
+        attrs = collect_attributes(tag_name, attributes,
+                                   self._indent, self._indent_char, len(tag_name) + 2)
         self.write_line(u'<%s%s>' % (tag_name, attrs))
 
     def _close_tag(self, tag_name):
@@ -118,12 +134,11 @@ class XMLWriter(object):
             line = line.decode('utf-8')
         assert isinstance(line, unicode)
         if do_escape:
-            line = escape(line.encode('utf-8')).decode('utf-8')
+            line = escape(line)
         if indent:
-            self._data.write('%s%s%s' % (
-                    self._indent_char * self._indent,
-                    line.encode('utf-8'),
-                    self._newline_char))
+            self._data.write('%s%s%s' % (self._indent_char * self._indent,
+                                         line.encode('utf-8'),
+                                         self._newline_char))
         else:
             self._data.write('%s%s' % (line.encode('utf-8'), self._newline_char))
 
@@ -131,21 +146,8 @@ class XMLWriter(object):
         self.write_line('<!-- %s -->' % (text, ))
 
     def write_tag(self, tag_name, attributes, data=None):
-        if attributes is None:
-            attributes = []
-        prefix = u'<%s' % (tag_name, )
-        if data is not None:
-            if isinstance(data, str):
-                data = data.decode('UTF-8')
-            suffix = u'>%s</%s>' % (escape(data), tag_name)
-        else:
-            suffix = u'/>'
-        attrs = collect_attributes(
-            tag_name, attributes,
-            self._indent,
-            self._indent_char,
-            len(prefix) + len(suffix))
-        self.write_line(prefix + attrs + suffix)
+        self.write_line(build_xml_tag(tag_name, attributes, data,
+                                      self._indent, self._indent_char))
 
     def push_tag(self, tag_name, attributes=None):
         if attributes is None:

@@ -1,6 +1,8 @@
 package utf8;
 use strict;
 use warnings;
+use re "/aa";  # So we won't even try to look at above Latin1, potentially
+               # resulting in a recursive call
 
 sub DEBUG () { 0 }
 $|=1 if DEBUG;
@@ -244,7 +246,7 @@ sub _loose_name ($) {
                                                     # minus
 
                             # Remove underscores between digits.
-                            $part =~ s/( ?<= [0-9] ) _ (?= [0-9] ) //xg;
+                            $part =~ s/(?<= [0-9] ) _ (?= [0-9] ) //xg;
 
                             # No leading zeros (but don't make a single '0'
                             # into a null string)
@@ -533,10 +535,10 @@ sub _loose_name ($) {
         if ($list && ! $list_is_from_mktables) {
             my $taint = substr($list,0,0); # maintain taint
 
-            # Separate the extras from the code point list, and for
-            # user-defined properties, make sure the latter are well-behaved
-            # for downstream code.
-            if ($user_defined) {
+            # Separate the extras from the code point list, and make sure
+            # user-defined properties and tr/// are well-behaved for
+            # downstream code.
+            if ($user_defined || $none) {
                 my @tmp = split(/^/m, $list);
                 my %seen;
                 no warnings;

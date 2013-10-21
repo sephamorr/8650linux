@@ -21,11 +21,10 @@
 #ifndef WebKitDOMDocumentType_h
 #define WebKitDOMDocumentType_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMNode.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMNode.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_DOCUMENT_TYPE            (webkit_dom_document_type_get_type())

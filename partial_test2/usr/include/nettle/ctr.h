@@ -6,7 +6,7 @@
 
 /* nettle, low-level cryptographics library
  *
- * Copyright (C) 2005 Niels Möller
+ * Copyright (C) 2005 Niels MÃ¶ller
  *  
  * The nettle library is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -20,8 +20,8 @@
  * 
  * You should have received a copy of the GNU Lesser General Public License
  * along with the nettle library; see the file COPYING.LIB.  If not, write to
- * the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
- * MA 02111-1307, USA.
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02111-1301, USA.
  */
 
 #ifndef NETTLE_CTR_H_INCLUDED
@@ -37,7 +37,7 @@ extern "C" {
 #define ctr_crypt nettle_ctr_crypt
 
 void
-ctr_crypt(void *ctx, nettle_crypt_func f,
+ctr_crypt(void *ctx, nettle_crypt_func *f,
 	  unsigned block_size, uint8_t *ctr,
 	  unsigned length, uint8_t *dst,
 	  const uint8_t *src);
@@ -51,7 +51,7 @@ memcpy((ctx)->ctr, (data), sizeof((ctx)->ctr))
 #define CTR_CRYPT(self, f, length, dst, src)		\
 (0 ? ((f)(&(self)->ctx, 0, NULL, NULL))			\
    : ctr_crypt((void *) &(self)->ctx,			\
-               (nettle_crypt_func) (f),			\
+               (nettle_crypt_func *) (f),		\
 	       sizeof((self)->ctr), (self)->ctr,	\
                (length), (dst), (src)))
 

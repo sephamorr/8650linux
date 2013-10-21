@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>input-selector</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GStreamer Core Plugins 0.10 Plugins Reference Manual">
 <link rel="up" href="ch01.html" title="gstreamer Elements">
 <link rel="prev" href="gstreamer-plugins-identity.html" title="identity">
@@ -82,7 +82,7 @@ properties, which users may find useful, namely:
 </p>
 <p>
 </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
 "running-time": Running time of stream on pad (<span class="type">gint64</span>)
 </li>
@@ -102,9 +102,12 @@ properties, which users may find useful, namely:
 <div class="refsynopsisdiv">
 <h2>Synopsis</h2>
 <div class="refsect2">
-<a name="idp5021728"></a><h3>Element Information</h3>
-<div class="variablelist"><table border="0">
+<a name="idp3609936"></a><h3>Element Information</h3>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">plugin</span></p></td>
@@ -125,9 +128,12 @@ properties, which users may find useful, namely:
 </div>
 <hr>
 <div class="refsect2">
-<a name="idp5025584"></a><h3>Element Pads</h3>
-<div class="variablelist"><table border="0">
+<a name="idp3613792"></a><h3>Element Pads</h3>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">name</span></p></td>
@@ -147,8 +153,11 @@ properties, which users may find useful, namely:
 </tr>
 </tbody>
 </table></div>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">name</span></p></td>
@@ -209,9 +218,12 @@ properties, which users may find useful, namely:
 <pre class="programlisting">  "sync-streams"             <span class="type">gboolean</span>              : Read / Write</pre>
 <p>
 If set to <code class="literal">TRUE</code> all inactive streams will be synced to the
-running time of the active stream. This makes sure that no
-buffers are dropped by input-selector that might be needed
-when switching the active pad.
+running time of the active stream or to the current clock.
+</p>
+<p>
+To make sure no buffers are dropped by input-selector
+that might be needed when switching the active pad,
+sync-mode should be set to "clock" and cache-buffers to TRUE.
 </p>
 <p>Default value: FALSE</p>
 <p class="since">Since 0.10.36</p>
@@ -228,8 +240,11 @@ Block all sink pads in preparation for a switch. Returns the stop time of
 the current switch segment, as a running time, or 0 if there is no current
 active pad or the current active pad never received data.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>inputselector</code></em> :</span></p></td>
@@ -298,8 +313,11 @@ the signal changed from accepting the pad name to the pad object.
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>inputselector</code></em> :</span></p></td>

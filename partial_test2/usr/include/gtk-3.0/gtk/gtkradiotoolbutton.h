@@ -18,12 +18,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GTK_RADIO_TOOL_BUTTON_H__
+#define __GTK_RADIO_TOOL_BUTTON_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_RADIO_TOOL_BUTTON_H__
-#define __GTK_RADIO_TOOL_BUTTON_H__
 
 #include <gtk/gtktoggletoolbutton.h>
 
@@ -55,15 +55,22 @@ struct _GtkRadioToolButtonClass
   void (* _gtk_reserved4) (void);
 };
 
+GDK_AVAILABLE_IN_ALL
 GType        gtk_radio_tool_button_get_type       (void) G_GNUC_CONST;
 
+GDK_AVAILABLE_IN_ALL
 GtkToolItem *gtk_radio_tool_button_new                        (GSList             *group);
+GDK_DEPRECATED_IN_3_10_FOR(gtk_radio_tool_button_new)
 GtkToolItem *gtk_radio_tool_button_new_from_stock             (GSList             *group,
 							       const gchar        *stock_id);
+GDK_AVAILABLE_IN_ALL
 GtkToolItem *gtk_radio_tool_button_new_from_widget            (GtkRadioToolButton *group);
+GDK_DEPRECATED_IN_3_10_FOR(gtk_radio_tool_button_new_from_widget)
 GtkToolItem *gtk_radio_tool_button_new_with_stock_from_widget (GtkRadioToolButton *group,
 							       const gchar        *stock_id);
+GDK_AVAILABLE_IN_ALL
 GSList *     gtk_radio_tool_button_get_group                  (GtkRadioToolButton *button);
+GDK_AVAILABLE_IN_ALL
 void         gtk_radio_tool_button_set_group                  (GtkRadioToolButton *button,
 							       GSList             *group);
 

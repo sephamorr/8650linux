@@ -15,12 +15,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GTK_ACCESSIBLE_H__
+#define __GTK_ACCESSIBLE_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_ACCESSIBLE_H__
-#define __GTK_ACCESSIBLE_H__
 
 #include <atk/atk.h>
 #include <gtk/gtkwidget.h>
@@ -59,10 +59,13 @@ struct _GtkAccessibleClass
   void (*_gtk_reserved4) (void);
 };
 
+GDK_AVAILABLE_IN_ALL
 GType      gtk_accessible_get_type                 (void) G_GNUC_CONST;
 
+GDK_AVAILABLE_IN_ALL
 void       gtk_accessible_set_widget               (GtkAccessible *accessible,
                                                     GtkWidget     *widget);
+GDK_AVAILABLE_IN_ALL
 GtkWidget *gtk_accessible_get_widget               (GtkAccessible *accessible);
 
 GDK_DEPRECATED_IN_3_4_FOR(gtk_accessible_set_widget)

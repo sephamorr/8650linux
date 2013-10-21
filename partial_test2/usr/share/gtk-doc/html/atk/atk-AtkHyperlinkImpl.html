@@ -2,63 +2,76 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>AtkHyperlinkImpl</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<title>AtkHyperlinImpl</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="ATK - Accessibility Toolkit">
 <link rel="up" href="atk.html" title="ATK Library">
 <link rel="prev" href="AtkHyperlink.html" title="AtkHyperlink">
 <link rel="next" href="AtkHypertext.html" title="AtkHypertext">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="AtkHyperlink.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="atk.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">ATK - Accessibility Toolkit</th>
-<td><a accesskey="n" href="AtkHypertext.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#atk-AtkHyperlinkImpl.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#atk-AtkHyperlinkImpl.description" class="shortcut">Description</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="atk.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="AtkHyperlink.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="AtkHypertext.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="atk-AtkHyperlinkImpl"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
-<h2><span class="refentrytitle"><a name="atk-AtkHyperlinkImpl.top_of_page"></a>AtkHyperlinkImpl</span></h2>
-<p>AtkHyperlinkImpl — An interface from which the AtkHyperlink associated with an
-AtkObject may be obtained.</p>
+<h2><span class="refentrytitle"><a name="atk-AtkHyperlinkImpl.top_of_page"></a>AtkHyperlinImpl</span></h2>
+<p>AtkHyperlinImpl — An interface from which the AtkHyperlink
+ associated with an AtkObject may be obtained.</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsynopsisdiv">
 <a name="atk-AtkHyperlinkImpl.synopsis"></a><h2>Synopsis</h2>
 <pre class="synopsis">                    <a class="link" href="atk-AtkHyperlinkImpl.html#AtkHyperlinkImpl" title="AtkHyperlinkImpl">AtkHyperlinkImpl</a>;
-<a class="link" href="AtkHyperlink.html" title="AtkHyperlink"><span class="returnvalue">AtkHyperlink</span></a> *      <a class="link" href="atk-AtkHyperlinkImpl.html#atk-hyperlink-impl-get-hyperlink" title="atk_hyperlink_impl_get_hyperlink ()">atk_hyperlink_impl_get_hyperlink</a>    (<em class="parameter"><code><a class="link" href="atk-AtkHyperlinkImpl.html#AtkHyperlinkImpl" title="AtkHyperlinkImpl"><span class="type">AtkHyperlinkImpl</span></a> *obj</code></em>);
+<a class="link" href="AtkHyperlink.html" title="AtkHyperlink"><span class="returnvalue">AtkHyperlink</span></a> *      <a class="link" href="atk-AtkHyperlinkImpl.html#atk-hyperlink-impl-get-hyperlink" title="atk_hyperlink_impl_get_hyperlink ()">atk_hyperlink_impl_get_hyperlink</a>    (<em class="parameter"><code><a class="link" href="atk-AtkHyperlinkImpl.html#AtkHyperlinkImpl" title="AtkHyperlinkImpl"><span class="type">AtkHyperlinkImpl</span></a> *impl</code></em>);
 </pre>
 </div>
 <div class="refsect1">
 <a name="atk-AtkHyperlinkImpl.description"></a><h2>Description</h2>
 <p>
-AtkHyperlinkImpl allows AtkObjects to
-refer to their associated AtkHyperlink instance, if one
-exists.  AtkHyperlinkImpl differs from AtkHyperlink in that
-AtkHyperlinkImpl is an interface, whereas AtkHyperlink is
-a object type.  The AtkHyperlinkImpl interface allows
-a client to query an AtkObject for the availability of
-an associated AtkHyperlink instance, and obtain that
-instance.  It is thus particularly useful in cases where
-embedded content or inline content within a text object
-is present, since the embedding text object implements
-AtkHypertext and the inline/embedded objects are
-exposed as children which implement AtkHyperlinkImpl,
-in addition to their being obtainable via AtkHypertext:getLink
-followed by AtkHyperlink:getObject.
+AtkHyperlinkImpl allows AtkObjects to refer to their associated
+AtkHyperlink instance, if one exists.  AtkHyperlinkImpl differs
+from AtkHyperlink in that AtkHyperlinkImpl is an interface, whereas
+AtkHyperlink is a object type.  The AtkHyperlinkImpl interface
+allows a client to query an AtkObject for the availability of an
+associated AtkHyperlink instance, and obtain that instance.  It is
+thus particularly useful in cases where embedded content or inline
+content within a text object is present, since the embedding text
+object implements AtkHypertext and the inline/embedded objects are
+exposed as children which implement AtkHyperlinkImpl, in addition
+to their being obtainable via AtkHypertext:getLink followed by
+AtkHyperlink:getObject.
+</p>
+<p>
+The AtkHyperlinkImpl interface should be supported by objects
+exposed within the hierarchy as children of an AtkHypertext
+container which correspond to "links" or embedded content within
+the text.  HTML anchors are not, for instance, normally exposed
+this way, but embedded images and components which appear inline in
+the content of a text object are. The AtkHyperlinkIface interface
+allows a means of determining which children are hyperlinks in this
+sense of the word, and for obtaining their corresponding
+AtkHyperlink object, from which the embedding range, URI, etc. can
+be obtained.
+</p>
+<p>
+To some extent this interface exists because, for historical
+reasons, AtkHyperlink was defined as an object type, not an
+interface.  Thus, in order to interact with AtkObjects via
+AtkHyperlink semantics, a new interface was required.
 </p>
 </div>
 <div class="refsect1">
@@ -67,17 +80,17 @@ followed by AtkHyperlink:getObject.
 <a name="AtkHyperlinkImpl"></a><h3>AtkHyperlinkImpl</h3>
 <pre class="programlisting">typedef struct _AtkHyperlinkImpl AtkHyperlinkImpl;</pre>
 <p>
-A queryable interface which allows AtkHyperlink instances associated with an
-AtkObject to be obtained.  AtkHyperlinkImpl corresponds to AT-SPI's
-Hyperlink interface, and differs from AtkHyperlink in that AtkHyperlink
-is an object type, rather than an interface, and thus cannot be directly
-queried.
+A queryable interface which allows AtkHyperlink instances
+associated with an AtkObject to be obtained.  AtkHyperlinkImpl
+corresponds to AT-SPI's Hyperlink interface, and differs from
+AtkHyperlink in that AtkHyperlink is an object type, rather than an
+interface, and thus cannot be directly queried. FTW
 </p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="atk-hyperlink-impl-get-hyperlink"></a><h3>atk_hyperlink_impl_get_hyperlink ()</h3>
-<pre class="programlisting"><a class="link" href="AtkHyperlink.html" title="AtkHyperlink"><span class="returnvalue">AtkHyperlink</span></a> *      atk_hyperlink_impl_get_hyperlink    (<em class="parameter"><code><a class="link" href="atk-AtkHyperlinkImpl.html#AtkHyperlinkImpl" title="AtkHyperlinkImpl"><span class="type">AtkHyperlinkImpl</span></a> *obj</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="AtkHyperlink.html" title="AtkHyperlink"><span class="returnvalue">AtkHyperlink</span></a> *      atk_hyperlink_impl_get_hyperlink    (<em class="parameter"><code><a class="link" href="atk-AtkHyperlinkImpl.html#AtkHyperlinkImpl" title="AtkHyperlinkImpl"><span class="type">AtkHyperlinkImpl</span></a> *impl</code></em>);</pre>
 <p>
 Gets the hyperlink associated with this object.
 </p>
@@ -85,8 +98,8 @@ Gets the hyperlink associated with this object.
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
-<td>a GObject instance that implements AtkHyperlinkImplIface</td>
+<td><p><span class="term"><em class="parameter"><code>impl</code></em> :</span></p></td>
+<td>a <span class="type">GObject</span> instance that implements AtkHyperlinkImplIface</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -102,6 +115,6 @@ implementing AtkObject. <span class="annotation">[<a href="http://foldoc.org/tra
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

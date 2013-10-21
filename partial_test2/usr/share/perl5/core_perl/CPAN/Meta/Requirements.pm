@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 package CPAN::Meta::Requirements;
-our $VERSION = '2.120630'; # VERSION
+our $VERSION = '2.122'; # VERSION
 # ABSTRACT: a set of version requirements for a CPAN dist
 
 
@@ -117,6 +117,14 @@ sub clear_requirement {
 }
 
 
+sub requirements_for_module {
+  my ($self, $module) = @_;
+  my $entry = $self->__entry_for($module);
+  return unless $entry;
+  return $entry->as_string;
+}
+
+
 sub required_modules { keys %{ $_[0]{requirements} } }
 
 
@@ -187,7 +195,12 @@ my %methods_for_op = (
 sub add_string_requirement {
   my ($self, $module, $req) = @_;
 
+  Carp::confess("No requirement string provided for $module")
+    unless defined $req && length $req;
+
   my @parts = split qr{\s*,\s*}, $req;
+
+
   for my $part (@parts) {
     my ($op, $ver) = $part =~ m{\A\s*(==|>=|>|<=|<|!=)\s*(.*)\z};
 
@@ -209,7 +222,12 @@ sub from_string_hash {
   my $self = $class->new;
 
   for my $module (keys %$hash) {
-    $self->add_string_requirement($module, $hash->{ $module });
+    my $req = $hash->{$module};
+    unless ( defined $req && length $req ) {
+      $req = 0;
+      Carp::carp("Undefined requirement for $module treated as '0'");
+    }
+    $self->add_string_requirement($module, $req);
   }
 
   return $self;
@@ -412,6 +430,7 @@ sub from_string_hash {
 }
 
 1;
+# vim: ts=2 sts=2 sw=2 et:
 
 __END__
 =pod
@@ -422,7 +441,7 @@ CPAN::Meta::Requirements - a set of version requirements for a CPAN dist
 
 =head1 VERSION
 
-version 2.120630
+version 2.122
 
 =head1 SYNOPSIS
 
@@ -553,6 +572,16 @@ This removes the requirement for a given module from the object.
 
 This method returns the requirements object.
 
+=head2 requirements_for_module
+
+  $req->requirements_for_module( $module );
+
+This returns a string containing the version requirements for a given module in
+the format described in L<CPAN::Meta::Spec> or undef if the given module has no
+requirements. This should only be used for informational purposes such as error
+messages and should not be interpreted or used for comparison (see
+L</accepts_module> instead.)
+
 =head2 required_modules
 
 This method returns a list of all the modules for which requirements have been
@@ -634,13 +663,13 @@ L<CPAN::Meta::Spec/Version Ranges>. For example:
 
 =item == 1.3
 
-=item ! 1.3
+=item != 1.3
 
 =item > 1.3
 
 =item < 1.3
 
-=item >= 1.3, ! 1.5, <= 2.0
+=item >= 1.3, != 1.5, <= 2.0
 
 A version number without an operator is equivalent to specifying a minimum
 (C<E<gt>=>).  Extra whitespace is allowed.
@@ -654,6 +683,25 @@ A version number without an operator is equivalent to specifying a minimum
 This is an alternate constructor for a CPAN::Meta::Requirements object.  It takes
 a hash of module names and version requirement strings and returns a new
 CPAN::Meta::Requirements object.
+
+=for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders metacpan
+
+=head1 SUPPORT
+
+=head2 Bugs / Feature Requests
+
+Please report any bugs or feature requests through the issue tracker
+at L<http://rt.cpan.org/Public/Dist/Display.html?Name=CPAN-Meta-Requirements>.
+You will be notified automatically of any progress on your issue.
+
+=head2 Source Code
+
+This is open source software.  The code repository is available for
+public review and contribution under the terms of the license.
+
+L<https://github.com/dagolden/cpan-meta-requirements>
+
+  git clone https://github.com/dagolden/cpan-meta-requirements.git
 
 =head1 AUTHORS
 

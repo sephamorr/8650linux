@@ -22,12 +22,12 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
+#ifndef __GTK_HPANED_H__
+#define __GTK_HPANED_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_HPANED_H__
-#define __GTK_HPANED_H__
 
 #include <gtk/gtkpaned.h>
 
@@ -55,6 +55,7 @@ struct _GtkHPanedClass
 };
 
 
+GDK_DEPRECATED_IN_3_2
 GType       gtk_hpaned_get_type (void) G_GNUC_CONST;
 GDK_DEPRECATED_IN_3_2_FOR(gtk_paned_new)
 GtkWidget * gtk_hpaned_new      (void);

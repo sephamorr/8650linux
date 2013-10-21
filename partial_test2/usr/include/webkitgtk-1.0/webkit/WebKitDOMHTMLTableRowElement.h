@@ -21,11 +21,10 @@
 #ifndef WebKitDOMHTMLTableRowElement_h
 #define WebKitDOMHTMLTableRowElement_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMHTMLElement.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMHTMLElement.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_HTML_TABLE_ROW_ELEMENT            (webkit_dom_html_table_row_element_get_type())
@@ -56,7 +55,7 @@ webkit_dom_html_table_row_element_get_type (void);
  *
 **/
 WEBKIT_API WebKitDOMHTMLElement*
-webkit_dom_html_table_row_element_insert_cell(WebKitDOMHTMLTableRowElement* self, glong index, GError **error);
+webkit_dom_html_table_row_element_insert_cell(WebKitDOMHTMLTableRowElement* self, glong index, GError** error);
 
 /**
  * webkit_dom_html_table_row_element_delete_cell:
@@ -68,7 +67,7 @@ webkit_dom_html_table_row_element_insert_cell(WebKitDOMHTMLTableRowElement* self
  *
 **/
 WEBKIT_API void
-webkit_dom_html_table_row_element_delete_cell(WebKitDOMHTMLTableRowElement* self, glong index, GError **error);
+webkit_dom_html_table_row_element_delete_cell(WebKitDOMHTMLTableRowElement* self, glong index, GError** error);
 
 /**
  * webkit_dom_html_table_row_element_get_row_index:

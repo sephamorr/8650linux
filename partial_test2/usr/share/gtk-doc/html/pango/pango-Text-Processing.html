@@ -2,32 +2,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Rendering</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>Pango Reference Manual: Rendering</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="Pango Reference Manual">
 <link rel="up" href="pango.html" title="Basic Pango Interfaces">
 <link rel="prev" href="pango.html" title="Basic Pango Interfaces">
 <link rel="next" href="pango-Glyph-Storage.html" title="Glyph Storage">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="pango.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="pango.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">Pango Reference Manual</th>
-<td><a accesskey="n" href="pango-Glyph-Storage.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#pango-Text-Processing.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#pango-Text-Processing.description" class="shortcut">Description</a>
                    | 
                   <a href="#pango-Text-Processing.object-hierarchy" class="shortcut">Object Hierarchy</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="pango.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="pango.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="pango-Glyph-Storage.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="pango-Text-Processing"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -67,6 +64,8 @@ struct              <a class="link" href="pango-Text-Processing.html#PangoAnalys
 <a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="pango-Text-Processing.html#pango-reorder-items" title="pango_reorder_items ()">pango_reorder_items</a>                 (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *logical_items</code></em>);
 
 <a class="link" href="pango-Text-Processing.html#PangoContext"><span class="returnvalue">PangoContext</span></a> *      <a class="link" href="pango-Text-Processing.html#pango-context-new" title="pango_context_new ()">pango_context_new</a>                   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="pango-Text-Processing.html#pango-context-changed" title="pango_context_changed ()">pango_context_changed</a>               (<em class="parameter"><code><a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a> *context</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="pango-Text-Processing.html#pango-context-get-serial" title="pango_context_get_serial ()">pango_context_get_serial</a>            (<em class="parameter"><code><a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a> *context</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="pango-Text-Processing.html#pango-context-set-font-map" title="pango_context_set_font_map ()">pango_context_set_font_map</a>          (<em class="parameter"><code><a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a> *context</code></em>,
                                                          <em class="parameter"><code><a class="link" href="pango-Fonts.html#PangoFontMap"><span class="type">PangoFontMap</span></a> *font_map</code></em>);
 <a class="link" href="pango-Fonts.html#PangoFontMap"><span class="returnvalue">PangoFontMap</span></a> *      <a class="link" href="pango-Text-Processing.html#pango-context-get-font-map" title="pango_context_get_font_map ()">pango_context_get_font_map</a>          (<em class="parameter"><code><a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a> *context</code></em>);
@@ -127,6 +126,12 @@ const <a class="link" href="pango-Glyph-Storage.html#PangoMatrix"><span class="r
 
 <span class="returnvalue">void</span>                <a class="link" href="pango-Text-Processing.html#pango-shape" title="pango_shape ()">pango_shape</a>                         (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>,
                                                          <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> length</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="pango-Text-Processing.html#PangoAnalysis" title="struct PangoAnalysis"><span class="type">PangoAnalysis</span></a> *analysis</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="pango-Glyph-Storage.html#PangoGlyphString"><span class="type">PangoGlyphString</span></a> *glyphs</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="pango-Text-Processing.html#pango-shape-full" title="pango_shape_full ()">pango_shape_full</a>                    (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *item_text</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> item_length</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *paragraph_text</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> paragraph_length</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="pango-Text-Processing.html#PangoAnalysis" title="struct PangoAnalysis"><span class="type">PangoAnalysis</span></a> *analysis</code></em>,
                                                          <em class="parameter"><code><a class="link" href="pango-Glyph-Storage.html#PangoGlyphString"><span class="type">PangoGlyphString</span></a> *glyphs</code></em>);
 </pre>
@@ -199,8 +204,11 @@ The <a class="link" href="pango-Text-Processing.html#PangoAnalysis" title="struc
 the properties of a segment of text. It has the following
 fields:
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="PangoEngineShape.html" title="PangoEngineShape"><span class="type">PangoEngineShape</span></a> *<em class="structfield"><code><a name="PangoAnalysis.shape-engine"></a>shape_engine</code></em>;</span></p></td>
@@ -255,7 +263,7 @@ Since: 1.16
 <hr>
 <div class="refsect2">
 <a name="PANGO-TYPE-DIRECTION:CAPS"></a><h3>PANGO_TYPE_DIRECTION</h3>
-<pre class="programlisting">#define PANGO_TYPE_DIRECTION (pango_direction_get_type())
+<pre class="programlisting">#define PANGO_TYPE_DIRECTION (pango_direction_get_type ())
 </pre>
 <p>
 The <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> type for <a class="link" href="pango-Bidirectional-Text.html#PangoDirection"><span class="type">PangoDirection</span></a>.
@@ -283,8 +291,11 @@ range before or containing <em class="parameter"><code>start_index</code></em>; 
 the range covering the position just after <em class="parameter"><code>start_index</code></em> + <em class="parameter"><code>length</code></em>.
 (i.e. if itemizing in a loop, just keep passing in the same <em class="parameter"><code>cached_iter</code></em>).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -340,8 +351,11 @@ Like <a class="link" href="pango-Text-Processing.html#pango-itemize" title="pang
 computing bidirectional levels (see <a class="link" href="pango-Text-Processing.html#pango-context-set-base-dir" title="pango_context_set_base_dir ()"><code class="function">pango_context_set_base_dir()</code></a>),
 is specified explicitly rather than gotten from the <a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -393,8 +407,11 @@ after <em class="parameter"><code>start_index</code></em>. This must be &gt;= 0.
 <p>
 Free a <a class="link" href="pango-Text-Processing.html#PangoItem"><span class="type">PangoItem</span></a> and all associated memory.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
 <td>a <a class="link" href="pango-Text-Processing.html#PangoItem"><span class="type">PangoItem</span></a>, may be <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
@@ -409,8 +426,11 @@ Free a <a class="link" href="pango-Text-Processing.html#PangoItem"><span class="
 <p>
 Copy an existing <a class="link" href="pango-Text-Processing.html#PangoItem"><span class="type">PangoItem</span></a> structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>item</code></em> :</span></p></td>
@@ -433,8 +453,11 @@ be freed with <a class="link" href="pango-Text-Processing.html#pango-item-free" 
 <p>
 Creates a new <a class="link" href="pango-Text-Processing.html#PangoItem"><span class="type">PangoItem</span></a> structure initialized to default values.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the newly allocated <a class="link" href="pango-Text-Processing.html#PangoItem"><span class="type">PangoItem</span></a>, which should
@@ -460,8 +483,11 @@ chars, and must be provided because the text used to generate the
 item isn't available, so <a class="link" href="pango-Text-Processing.html#pango-item-split" title="pango_item_split ()"><code class="function">pango_item_split()</code></a> can't count the char
 length of the split items itself.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>orig</code></em> :</span></p></td>
@@ -494,8 +520,11 @@ From a list of items in logical order and the associated
 directional levels, produce a list in visual order.
 The original list is unmodified.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>logical_items</code></em> :</span></p></td>
@@ -531,17 +560,83 @@ together and hence users are recommended to use that.
 If you are using Pango as part of a higher-level system,
 that system may have it's own way of create a <a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a>.
 For instance, the GTK+ toolkit has, among others,
-<a href="http://library.gnome.org/devel/gdk3/gdk-Pango-Interaction.html#gdk-pango-context-get-for-screen"><code class="function">gdk_pango_context_get_for_screen()</code></a>, and
-<a href="http://library.gnome.org/devel/gtk3/GtkWidget.html#gtk-widget-get-pango-context"><code class="function">gtk_widget_get_pango_context()</code></a>.  Use those instead.
+<a href="http://library.gnome.org/devel/gdk3/gdk2-Pango-Interaction.html#gdk-pango-context-get-for-screen"><code class="function">gdk_pango_context_get_for_screen()</code></a>, and
+<a href="http://developer.gnome.org/gtk2/GtkWidget.html#gtk-widget-get-pango-context"><code class="function">gtk_widget_get_pango_context()</code></a>.  Use those instead.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the newly allocated <a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a>, which should
 be freed with <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</td>
 </tr></tbody>
 </table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="pango-context-changed"></a><h3>pango_context_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                pango_context_changed               (<em class="parameter"><code><a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a> *context</code></em>);</pre>
+<p>
+Forces a change in the context, which will cause any <a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a>
+using this context to re-layout.
+</p>
+<p>
+This function is only useful when implementing a new backend
+for Pango, something applications won't do. Backends should
+call this function if they have attached extra data to the context
+and such data is changed.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>a <a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 1.32.4</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="pango-context-get-serial"></a><h3>pango_context_get_serial ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               pango_context_get_serial            (<em class="parameter"><code><a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a> *context</code></em>);</pre>
+<p>
+Returns the current serial number of <em class="parameter"><code>context</code></em>.  The serial number is
+initialized to an small number larger than zero when a new context
+is created and is increased whenever the context is changed using any
+of the setter functions, or the <a class="link" href="pango-Fonts.html#PangoFontMap"><span class="type">PangoFontMap</span></a> it uses to find fonts has
+changed. The serial may wrap, but will never have the value 0. Since it
+can wrap, never compare it with "less than", always use "not equals".
+</p>
+<p>
+This can be used to automatically detect changes to a <a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a>, and
+is only useful when implementing objects that need update when their
+<a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a> changes, like <a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td>a <a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The current serial number of <em class="parameter"><code>context</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.32.4</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -553,8 +648,11 @@ Sets the font map to be searched when fonts are looked-up in this context.
 This is only for internal use by Pango backends, a <a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a> obtained
 via one of the recommended methods should already have a suitable font map.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -575,8 +673,11 @@ via one of the recommended methods should already have a suitable font map.
 <p>
 Gets the <span class="type">PangoFontmap</span> used to look up fonts for this context.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -601,8 +702,11 @@ This value is owned by Pango and should not be unreferenced. <span class="annota
 <p>
 Retrieve the default font description for the context.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -626,8 +730,11 @@ description. This value must not be modified or freed. <span class="annotation">
 <p>
 Set the default font description for the context
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -648,8 +755,11 @@ Set the default font description for the context
 <p>
 Retrieves the global language tag for the context.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -673,8 +783,11 @@ Sets the global language tag for the context.  The default language
 for the locale of the running process can be found using
 <a class="link" href="pango-Scripts-and-Languages.html#pango-language-get-default" title="pango_language_get_default ()"><code class="function">pango_language_get_default()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -696,8 +809,11 @@ for the locale of the running process can be found using
 Retrieves the base direction for the context. See
 <a class="link" href="pango-Text-Processing.html#pango-context-set-base-dir" title="pango_context_set_base_dir ()"><code class="function">pango_context_set_base_dir()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -727,8 +843,11 @@ direction in the Unicode bidirectional algorithm.  A value of
 <a class="link" href="pango-Bidirectional-Text.html#PANGO-DIRECTION-WEAK-LTR:CAPS"><code class="literal">PANGO_DIRECTION_WEAK_LTR</code></a> or <a class="link" href="pango-Bidirectional-Text.html#PANGO-DIRECTION-WEAK-RTL:CAPS"><code class="literal">PANGO_DIRECTION_WEAK_RTL</code></a> is used only
 for paragraphs that do not contain any strong characters themselves.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -750,8 +869,11 @@ for paragraphs that do not contain any strong characters themselves.
 Retrieves the base gravity for the context. See
 <a class="link" href="pango-Text-Processing.html#pango-context-set-base-gravity" title="pango_context_set_base_gravity ()"><code class="function">pango_context_set_base_gravity()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -777,8 +899,11 @@ Sets the base gravity for the context.
 <p>
 The base gravity is used in laying vertical text out.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -803,8 +928,11 @@ Retrieves the gravity for the context. This is similar to
 is <a class="link" href="pango-Vertical-Text.html#PANGO-GRAVITY-AUTO:CAPS"><code class="literal">PANGO_GRAVITY_AUTO</code></a> for which <a class="link" href="pango-Vertical-Text.html#pango-gravity-get-for-matrix" title="pango_gravity_get_for_matrix ()"><code class="function">pango_gravity_get_for_matrix()</code></a> is used
 to return the gravity from the current context matrix.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -827,8 +955,11 @@ to return the gravity from the current context matrix.
 Retrieves the gravity hint for the context. See
 <a class="link" href="pango-Text-Processing.html#pango-context-set-gravity-hint" title="pango_context_set_gravity_hint ()"><code class="function">pango_context_set_gravity_hint()</code></a> for details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -856,8 +987,11 @@ The gravity hint is used in laying vertical text out, and is only relevant
 if gravity of the context as returned by <a class="link" href="pango-Text-Processing.html#pango-context-get-gravity" title="pango_context_get_gravity ()"><code class="function">pango_context_get_gravity()</code></a>
 is set <a class="link" href="pango-Vertical-Text.html#PANGO-GRAVITY-EAST:CAPS"><code class="literal">PANGO_GRAVITY_EAST</code></a> or <a class="link" href="pango-Vertical-Text.html#PANGO-GRAVITY-WEST:CAPS"><code class="literal">PANGO_GRAVITY_WEST</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -880,8 +1014,11 @@ is set <a class="link" href="pango-Vertical-Text.html#PANGO-GRAVITY-EAST:CAPS"><
 Gets the transformation matrix that will be applied when
 rendering with this context. See <a class="link" href="pango-Text-Processing.html#pango-context-set-matrix" title="pango_context_set_matrix ()"><code class="function">pango_context_set_matrix()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -912,8 +1049,11 @@ coordinates after the application of the matrix. So, they don't scale
 with the matrix, though they may change slightly for different
 matrices, depending on how the text is fit to the pixel grid.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -939,8 +1079,11 @@ matrix. (No matrix set is the same as setting the identity matrix.). <span class
 Loads the font in one of the fontmaps in the context
 that is the closest match for <em class="parameter"><code>desc</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -970,8 +1113,11 @@ was loaded, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standa
 Load a set of fonts in the context that can be used to render
 a font matching <em class="parameter"><code>desc</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -1016,8 +1162,11 @@ would be used to render the string, then the returned fonts would
 be a composite of the metrics for the fonts loaded for the
 individual families.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -1056,8 +1205,11 @@ when finished using the object.</td>
 <p>
 List all families for a context.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -1068,7 +1220,7 @@ List all families for a context.
 <td><p><span class="term"><em class="parameter"><code>families</code></em> :</span></p></td>
 <td>location to store a pointer to
 an array of <a class="link" href="pango-Fonts.html#PangoFontFamily"><span class="type">PangoFontFamily</span></a> *. This array should be freed
-with <a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_families]</span>
+with <a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_families][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -1092,8 +1244,11 @@ Determines possible line, word, and character breaks
 for a string of Unicode text with a single analysis.  For most
 purposes you may want to use <a class="link" href="pango-Text-Processing.html#pango-get-log-attrs" title="pango_get_log_attrs ()"><code class="function">pango_get_log_attrs()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
@@ -1111,7 +1266,9 @@ purposes you may want to use <a class="link" href="pango-Text-Processing.html#pa
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
-<td>an array to store character information in</td>
+<td>an array to store character
+information in. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=attrs_len]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>attrs_len</code></em> :</span></p></td>
@@ -1139,8 +1296,11 @@ paragraph; logical attributes can't be computed without context
 (for example you need to see spaces on either side of a word to know
 the word is a word).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
@@ -1161,7 +1321,9 @@ the word is a word).
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>log_attrs</code></em> :</span></p></td>
-<td>array with one <a class="link" href="pango-Text-Processing.html#PangoLogAttr" title="PangoLogAttr"><span class="type">PangoLogAttr</span></a> per character in <em class="parameter"><code>text</code></em>, plus one extra, to be filled in</td>
+<td>array with one <a class="link" href="pango-Text-Processing.html#PangoLogAttr" title="PangoLogAttr"><span class="type">PangoLogAttr</span></a>
+per character in <em class="parameter"><code>text</code></em>, plus one extra, to be filled in. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=attrs_len]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>attrs_len</code></em> :</span></p></td>
@@ -1190,8 +1352,11 @@ If no delimiters are found, both <em class="parameter"><code>paragraph_delimiter
 <em class="parameter"><code>next_paragraph_start</code></em> are filled with the length of <em class="parameter"><code>text</code></em> (an index one
 off the end).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
@@ -1203,11 +1368,15 @@ off the end).
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>paragraph_delimiter_index</code></em> :</span></p></td>
-<td>return location for index of delimiter</td>
+<td>return location for index of
+delimiter. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>next_paragraph_start</code></em> :</span></p></td>
-<td>return location for start of next paragraph</td>
+<td>return location for start of next
+paragraph. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -1229,8 +1398,11 @@ you're doing. If you need an analysis to pass to <a class="link" href="pango-Tex
 you need to <a class="link" href="pango-Text-Processing.html#pango-itemize" title="pango_itemize ()"><code class="function">pango_itemize()</code></a>.  In most cases however you should
 simply use <a class="link" href="pango-Text-Processing.html#pango-get-log-attrs" title="pango_get_log_attrs ()"><code class="function">pango_get_log_attrs()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
@@ -1312,8 +1484,11 @@ simply use <a class="link" href="pango-Text-Processing.html#pango-get-log-attrs"
 The <a class="link" href="pango-Text-Processing.html#PangoLogAttr" title="PangoLogAttr"><span class="type">PangoLogAttr</span></a> structure stores information
 about the attributes of a single character.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="PangoLogAttr.is-line-break"></a>is_line_break</code></em> : 1;</span></p></td>
@@ -1420,8 +1595,16 @@ Given a segment of text and the corresponding
 convert the characters into glyphs. You may also pass
 in only a substring of the item from <a class="link" href="pango-Text-Processing.html#pango-itemize" title="pango_itemize ()"><code class="function">pango_itemize()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<p>
+It is recommended that you use <a class="link" href="pango-Text-Processing.html#pango-shape-full" title="pango_shape_full ()"><code class="function">pango_shape_full()</code></a> instead, since
+that API allows for shaping interaction happening across text item
+boundaries.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
@@ -1445,10 +1628,67 @@ in only a substring of the item from <a class="link" href="pango-Text-Processing
 </tbody>
 </table></div>
 </div>
+<hr>
+<div class="refsect2">
+<a name="pango-shape-full"></a><h3>pango_shape_full ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                pango_shape_full                    (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *item_text</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> item_length</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *paragraph_text</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> paragraph_length</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="pango-Text-Processing.html#PangoAnalysis" title="struct PangoAnalysis"><span class="type">PangoAnalysis</span></a> *analysis</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="pango-Glyph-Storage.html#PangoGlyphString"><span class="type">PangoGlyphString</span></a> *glyphs</code></em>);</pre>
+<p>
+Given a segment of text and the corresponding
+<a class="link" href="pango-Text-Processing.html#PangoAnalysis" title="struct PangoAnalysis"><span class="type">PangoAnalysis</span></a> structure returned from <a class="link" href="pango-Text-Processing.html#pango-itemize" title="pango_itemize ()"><code class="function">pango_itemize()</code></a>,
+convert the characters into glyphs. You may also pass
+in only a substring of the item from <a class="link" href="pango-Text-Processing.html#pango-itemize" title="pango_itemize ()"><code class="function">pango_itemize()</code></a>.
+</p>
+<p>
+This is similar to <a class="link" href="pango-Text-Processing.html#pango-shape" title="pango_shape ()"><code class="function">pango_shape()</code></a>, except it also can optionally take
+the full paragraph text as input, which will then be used to perform
+certain cross-item shaping interactions.  If you have access to the broader
+text of which <em class="parameter"><code>item_text</code></em> is part of, provide the broader text as
+<em class="parameter"><code>paragraph_text</code></em>.  If <em class="parameter"><code>paragraph_text</code></em> is <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, item text is used instead.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item_text</code></em> :</span></p></td>
+<td>valid UTF-8 text to shape.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>item_length</code></em> :</span></p></td>
+<td>the length (in bytes) of <em class="parameter"><code>item_text</code></em>. -1 means nul-terminated text.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>paragraph_text</code></em> :</span></p></td>
+<td>(allow-none)  text of the paragraph (see details).  May be <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>paragraph_length</code></em> :</span></p></td>
+<td>the length (in bytes) of <em class="parameter"><code>paragraph_text</code></em>. -1 means nul-terminated text.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>analysis</code></em> :</span></p></td>
+<td>
+<a class="link" href="pango-Text-Processing.html#PangoAnalysis" title="struct PangoAnalysis"><span class="type">PangoAnalysis</span></a> structure from <a class="link" href="pango-Text-Processing.html#pango-itemize" title="pango_itemize ()"><code class="function">pango_itemize()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>glyphs</code></em> :</span></p></td>
+<td>glyph string in which to store results.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.32</p>
+</div>
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

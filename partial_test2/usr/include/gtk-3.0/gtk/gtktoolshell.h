@@ -18,13 +18,13 @@
  *   Mathias Hasselmann
  */
 
-#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
-#error "Only <gtk/gtk.h> can be included directly."
-#endif
-
 #ifndef __GTK_TOOL_SHELL_H__
 #define __GTK_TOOL_SHELL_H__
 
+
+#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
+#error "Only <gtk/gtk.h> can be included directly."
+#endif
 
 #include <gtk/gtkenums.h>
 #include <pango/pango.h>
@@ -72,16 +72,26 @@ struct _GtkToolShellIface
   GtkSizeGroup *     (*get_text_size_group)  (GtkToolShell *shell);
 };
 
+GDK_AVAILABLE_IN_ALL
 GType              gtk_tool_shell_get_type             (void) G_GNUC_CONST;
 
+GDK_AVAILABLE_IN_ALL
 GtkIconSize        gtk_tool_shell_get_icon_size        (GtkToolShell *shell);
+GDK_AVAILABLE_IN_ALL
 GtkOrientation     gtk_tool_shell_get_orientation      (GtkToolShell *shell);
+GDK_AVAILABLE_IN_ALL
 GtkToolbarStyle    gtk_tool_shell_get_style            (GtkToolShell *shell);
+GDK_AVAILABLE_IN_ALL
 GtkReliefStyle     gtk_tool_shell_get_relief_style     (GtkToolShell *shell);
+GDK_AVAILABLE_IN_ALL
 void               gtk_tool_shell_rebuild_menu         (GtkToolShell *shell);
+GDK_AVAILABLE_IN_ALL
 GtkOrientation     gtk_tool_shell_get_text_orientation (GtkToolShell *shell);
+GDK_AVAILABLE_IN_ALL
 gfloat             gtk_tool_shell_get_text_alignment   (GtkToolShell *shell);
+GDK_AVAILABLE_IN_ALL
 PangoEllipsizeMode gtk_tool_shell_get_ellipsize_mode   (GtkToolShell *shell);
+GDK_AVAILABLE_IN_ALL
 GtkSizeGroup *     gtk_tool_shell_get_text_size_group  (GtkToolShell *shell);
 
 G_END_DECLS

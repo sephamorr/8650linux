@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*-
  *
- * Copyright (C) 2010-2012 Richard Hughes <richard@hughsie.com>
+ * Copyright (C) 2010-2013 Richard Hughes <richard@hughsie.com>
  *
  * Licensed under the GNU Lesser General Public License Version 2.1
  *
@@ -77,6 +77,11 @@ typedef enum {
 
 /**
  * CdRenderingIntent:
+ * @CD_RENDERING_INTENT_UNKNOWN:		Unknown rendering intent
+ * @CD_RENDERING_INTENT_PERCEPTUAL:		Used for photos as it maintains contrast
+ * @CD_RENDERING_INTENT_RELATIVE_COLORIMETRIC:	Used for graphic design and named colors
+ * @CD_RENDERING_INTENT_SATURATION:		Used for business charts as it maintains saturation without dithering
+ * @CD_RENDERING_INTENT_ABSOLUTE_COLORIMETRIC:	Used when a specific color is required
  *
  * The rendering intent.
  **/
@@ -88,6 +93,20 @@ typedef enum {
 	CD_RENDERING_INTENT_ABSOLUTE_COLORIMETRIC,
 	CD_RENDERING_INTENT_LAST
 } CdRenderingIntent;
+
+/**
+ * CdPixelFormat:
+ *
+ * The pixel format of an image.
+ * NOTE: these values are the same as the lcms2 AOTTTTTUYFPXSEEECCCCBBB type.
+ **/
+typedef guint32 CdPixelFormat;
+
+#define	CD_PIXEL_FORMAT_UNKNOWN		0x00000000
+#define	CD_PIXEL_FORMAT_ARGB32		0x00044099
+#define	CD_PIXEL_FORMAT_RGB24		0x00040019
+#define	CD_PIXEL_FORMAT_CMYK32		0x00060021
+#define	CD_PIXEL_FORMAT_BGRA32		0x00044499
 
 /**
  * CdColorspace:
@@ -130,7 +149,7 @@ typedef enum {
 	CD_DEVICE_RELATION_UNKNOWN,
 	CD_DEVICE_RELATION_SOFT,
 	CD_DEVICE_RELATION_HARD,
-	CD_DEVICE_RELATION_LAST,
+	CD_DEVICE_RELATION_LAST
 } CdDeviceRelation;
 
 /**
@@ -142,8 +161,8 @@ typedef enum {
 	CD_SENSOR_KIND_UNKNOWN,
 	CD_SENSOR_KIND_DUMMY,
 	CD_SENSOR_KIND_HUEY,
-	CD_SENSOR_KIND_COLOR_MUNKI,
-	CD_SENSOR_KIND_SPYDER,		/* not used since 0.1.16 */
+	CD_SENSOR_KIND_COLOR_MUNKI_PHOTO,
+	CD_SENSOR_KIND_SPYDER,			/* not used since 0.1.16 */
 	CD_SENSOR_KIND_DTP20,
 	CD_SENSOR_KIND_DTP22,
 	CD_SENSOR_KIND_DTP41,
@@ -152,10 +171,17 @@ typedef enum {
 	CD_SENSOR_KIND_SPECTRO_SCAN,
 	CD_SENSOR_KIND_I1_PRO,
 	CD_SENSOR_KIND_COLORIMTRE_HCFR,
-	CD_SENSOR_KIND_I1_DISPLAY3,	/* Since: 0.1.14 */
-	CD_SENSOR_KIND_COLORHUG,	/* Since: 0.1.15 */
-	CD_SENSOR_KIND_SPYDER2,		/* Since: 0.1.16 */
-	CD_SENSOR_KIND_SPYDER3,		/* Since: 0.1.16 */
+	CD_SENSOR_KIND_I1_DISPLAY3,		/* Since: 0.1.14 */
+	CD_SENSOR_KIND_COLORHUG,		/* Since: 0.1.15 */
+	CD_SENSOR_KIND_SPYDER2,			/* Since: 0.1.16 */
+	CD_SENSOR_KIND_SPYDER3,			/* Since: 0.1.16 */
+	CD_SENSOR_KIND_COLORHUG_SPECTRO,	/* Since: 0.1.24 */
+	CD_SENSOR_KIND_I1_DISPLAY1,		/* Since: 0.1.25 */
+	CD_SENSOR_KIND_I1_DISPLAY2,		/* Since: 0.1.25 */
+	CD_SENSOR_KIND_DTP92,			/* Since: 0.1.25 */
+	CD_SENSOR_KIND_I1_MONITOR,		/* Since: 0.1.25 */
+	CD_SENSOR_KIND_SPYDER4,			/* Since: 0.1.26 */
+	CD_SENSOR_KIND_COLOR_MUNKI_SMILE,	/* Since: 0.1.27 */
 	CD_SENSOR_KIND_LAST
 } CdSensorKind;
 
@@ -173,7 +199,13 @@ typedef enum {
 	CD_SENSOR_CAP_PROJECTOR,
 	CD_SENSOR_CAP_AMBIENT,
 	CD_SENSOR_CAP_CALIBRATION,
-	CD_SENSOR_CAP_LED,		/* Since: 0.1.17 */
+	CD_SENSOR_CAP_LED,			/* Since: 0.1.17 */
+	CD_SENSOR_CAP_PLASMA,			/* Since: 0.1.29 */
+	CD_SENSOR_CAP_LCD_CCFL,			/* Since: 0.1.31 */
+	CD_SENSOR_CAP_LCD_RGB_LED,		/* Since: 0.1.31 */
+	CD_SENSOR_CAP_LCD_WHITE_LED,		/* Since: 0.1.31 */
+	CD_SENSOR_CAP_WIDE_GAMUT_LCD_CCFL,	/* Since: 0.1.31 */
+	CD_SENSOR_CAP_WIDE_GAMUT_LCD_RGB_LED,	/* Since: 0.1.31 */
 	CD_SENSOR_CAP_LAST
 } CdSensorCap;
 
@@ -204,8 +236,167 @@ typedef enum {
 	CD_STANDARD_SPACE_LAST
 } CdStandardSpace;
 
+/**
+ * CdProfileWarning:
+ * @CD_PROFILE_WARNING_NONE: No error is found
+ * @CD_PROFILE_WARNING_DESCRIPTION_MISSING: The description is missing or of zero length
+ * @CD_PROFILE_WARNING_COPYRIGHT_MISSING: The copyright is missing or of zero length
+ * @CD_PROFILE_WARNING_VCGT_NON_MONOTONIC: The video card gamma table is not monotonic
+ * @CD_PROFILE_WARNING_SCUM_DOT: Lab 100, 0, 0 does not map to RGB 255,255,255
+ * @CD_PROFILE_WARNING_GRAY_AXIS_INVALID: There is significant a/b for gray
+ * @CD_PROFILE_WARNING_GRAY_AXIS_NON_MONOTONIC: The gray ramp is not monotonic
+ * @CD_PROFILE_WARNING_PRIMARIES_INVALID: One or more of the primaries are invalid
+ * @CD_PROFILE_WARNING_PRIMARIES_NON_ADDITIVE: The primaries to not add to give D50 white
+ * @CD_PROFILE_WARNING_PRIMARIES_UNLIKELY: One or more of the primaries are outside of ROMM RGB
+ * @CD_PROFILE_WARNING_WHITEPOINT_INVALID: RGB 255,255,255 does not return D50
+ * @CD_PROFILE_WARNING_WHITEPOINT_UNLIKELY: Whitepoint is outside of usual range
+ *
+ * The warning about the profile. Profiles with warnings can still be
+ * used, but may be of limited use.
+ **/
+typedef enum {
+	/* FIXME: next API break, add CD_PROFILE_WARNING_UNKNOWN */
+	CD_PROFILE_WARNING_NONE,			/* Since: 0.1.25 */
+	CD_PROFILE_WARNING_DESCRIPTION_MISSING,		/* Since: 0.1.25 */
+	CD_PROFILE_WARNING_COPYRIGHT_MISSING,		/* Since: 0.1.25 */
+	CD_PROFILE_WARNING_VCGT_NON_MONOTONIC,		/* Since: 0.1.25 */
+	CD_PROFILE_WARNING_SCUM_DOT,			/* Since: 0.1.25 */
+	CD_PROFILE_WARNING_GRAY_AXIS_INVALID,		/* Since: 0.1.25 */
+	CD_PROFILE_WARNING_GRAY_AXIS_NON_MONOTONIC,	/* Since: 0.1.25 */
+	CD_PROFILE_WARNING_PRIMARIES_INVALID,		/* Since: 0.1.25 */
+	CD_PROFILE_WARNING_PRIMARIES_NON_ADDITIVE,	/* Since: 0.1.25 */
+	CD_PROFILE_WARNING_PRIMARIES_UNLIKELY,		/* Since: 0.1.25 */
+	CD_PROFILE_WARNING_WHITEPOINT_INVALID,		/* Since: 0.1.25 */
+	CD_PROFILE_WARNING_WHITEPOINT_UNLIKELY,		/* Since: 0.1.34 */
+	/*< private >*/
+	CD_PROFILE_WARNING_LAST
+} CdProfileWarning;
+
+/**
+ * CdProfileQuality:
+ * @CD_PROFILE_QUALITY_LOW: Low quality profile, fast
+ * @CD_PROFILE_QUALITY_MEDIUM: Medium quality profile
+ * @CD_PROFILE_QUALITY_HIGH: High quality profile, slow
+ *
+ * The quality of the profile produced through calibration.
+ **/
+typedef enum {
+	/* FIXME: next API break, add CD_PROFILE_QUALITY_UNKNOWN */
+	CD_PROFILE_QUALITY_LOW,
+	CD_PROFILE_QUALITY_MEDIUM,
+	CD_PROFILE_QUALITY_HIGH,
+	/*< private >*/
+	CD_PROFILE_QUALITY_LAST
+} CdProfileQuality;
+
+/**
+ * CdSensorError:
+ * @CD_SENSOR_ERROR_NO_SUPPORT:		This action is unsupported on this hardware
+ * @CD_SENSOR_ERROR_NO_DATA:		The sensor provided no data
+ * @CD_SENSOR_ERROR_INTERNAL:		An internal error occurred
+ * @CD_SENSOR_ERROR_ALREADY_LOCKED:	The sensor is already locked
+ * @CD_SENSOR_ERROR_NOT_LOCKED:		The sensor is not locked
+ * @CD_SENSOR_ERROR_IN_USE:		The sensor is already in use
+ * @CD_SENSOR_ERROR_FAILED_TO_AUTHENTICATE:	Authentication failed
+ * @CD_SENSOR_ERROR_REQUIRED_POSITION_CALIBRATE:	The sensor needs to be in the calibrate position
+ * @CD_SENSOR_ERROR_REQUIRED_POSITION_SURFACE:		The sensor needs to be in the surface position
+ *
+ * The sensor error code.
+ *
+ * Since: 0.1.26
+ **/
+typedef enum {
+	CD_SENSOR_ERROR_NO_SUPPORT,
+	CD_SENSOR_ERROR_NO_DATA,
+	CD_SENSOR_ERROR_INTERNAL,
+	CD_SENSOR_ERROR_ALREADY_LOCKED,
+	CD_SENSOR_ERROR_NOT_LOCKED,
+	CD_SENSOR_ERROR_IN_USE,
+	CD_SENSOR_ERROR_FAILED_TO_AUTHENTICATE,
+	CD_SENSOR_ERROR_REQUIRED_POSITION_CALIBRATE,
+	CD_SENSOR_ERROR_REQUIRED_POSITION_SURFACE,
+	CD_SENSOR_ERROR_LAST
+} CdSensorError;
+
+/**
+ * CdProfileError:
+ * @CD_PROFILE_ERROR_INTERNAL: 		An internal error occurred
+ * @CD_PROFILE_ERROR_ALREADY_INSTALLED: The profile is already installed
+ * @CD_PROFILE_ERROR_FAILED_TO_WRITE: 	The profile could not be written
+ * @CD_PROFILE_ERROR_FAILED_TO_PARSE: 	The profile could not be parsed
+ * @CD_PROFILE_ERROR_FAILED_TO_READ: 	The profile could not be read
+ * @CD_PROFILE_ERROR_FAILED_TO_AUTHENTICATE:	Authentication failed
+ * @CD_PROFILE_ERROR_PROPERTY_INVALID:	One or more of the properties was invalid
+ *
+ * Errors that can be thrown
+ */
+typedef enum
+{
+	CD_PROFILE_ERROR_INTERNAL,
+	CD_PROFILE_ERROR_ALREADY_INSTALLED,
+	CD_PROFILE_ERROR_FAILED_TO_WRITE,
+	CD_PROFILE_ERROR_FAILED_TO_PARSE,
+	CD_PROFILE_ERROR_FAILED_TO_READ,
+	CD_PROFILE_ERROR_FAILED_TO_AUTHENTICATE,
+	CD_PROFILE_ERROR_PROPERTY_INVALID,
+	CD_PROFILE_ERROR_LAST
+} CdProfileError;
+
+/**
+ * CdDeviceError:
+ * @CD_DEVICE_ERROR_INTERNAL:		An internal error occurred
+ * @CD_DEVICE_ERROR_PROFILE_DOES_NOT_EXIST:	The profile does not exist
+ * @CD_DEVICE_ERROR_PROFILE_ALREADY_ADDED:	The profile has already been added
+ * @CD_DEVICE_ERROR_PROFILING:		The device is being profiled
+ * @CD_DEVICE_ERROR_NOTHING_MATCHED:	Nothing matched the search term
+ * @CD_DEVICE_ERROR_FAILED_TO_INHIBIT:	Cound not inhibit device
+ * @CD_DEVICE_ERROR_FAILED_TO_UNINHIBIT:	Cound not uninhibit device
+ * @CD_DEVICE_ERROR_FAILED_TO_AUTHENTICATE:	Authentication failed
+ * @CD_DEVICE_ERROR_NOT_ENABLED:	The device has been disabled
+ *
+ * Errors that can be thrown
+ */
+typedef enum
+{
+	CD_DEVICE_ERROR_INTERNAL,
+	CD_DEVICE_ERROR_PROFILE_DOES_NOT_EXIST,
+	CD_DEVICE_ERROR_PROFILE_ALREADY_ADDED,
+	CD_DEVICE_ERROR_PROFILING,
+	CD_DEVICE_ERROR_NOTHING_MATCHED,
+	CD_DEVICE_ERROR_FAILED_TO_INHIBIT,
+	CD_DEVICE_ERROR_FAILED_TO_UNINHIBIT,
+	CD_DEVICE_ERROR_FAILED_TO_AUTHENTICATE,
+	CD_DEVICE_ERROR_NOT_ENABLED,
+	CD_DEVICE_ERROR_LAST
+} CdDeviceError;
+
+/**
+ * CdClientError:
+ * @CD_CLIENT_ERROR_INTERNAL:		An internal error occurred
+ * @CD_CLIENT_ERROR_ALREADY_EXISTS:	The profile already exists
+ * @CD_CLIENT_ERROR_FAILED_TO_AUTHENTICATE:	Authentication failed
+ * @CD_CLIENT_ERROR_NOT_SUPPORTED:	Feature not supported
+ * @CD_CLIENT_ERROR_NOT_FOUND:		Profile or device not found
+ * @CD_CLIENT_ERROR_INPUT_INVALID:	One or more of the parameters is invalid
+ * @CD_CLIENT_ERROR_FILE_INVALID:	The file if invalid
+ *
+ * Errors that can be thrown
+ */
+typedef enum {
+	CD_CLIENT_ERROR_INTERNAL,
+	CD_CLIENT_ERROR_ALREADY_EXISTS,
+	CD_CLIENT_ERROR_FAILED_TO_AUTHENTICATE,
+	CD_CLIENT_ERROR_NOT_SUPPORTED,
+	CD_CLIENT_ERROR_NOT_FOUND,
+	CD_CLIENT_ERROR_INPUT_INVALID,
+	CD_CLIENT_ERROR_FILE_INVALID,
+	CD_CLIENT_ERROR_LAST
+} CdClientError;
+
 /* defined in org.freedesktop.ColorManager.xml */
-#define CD_CLIENT_PROPERTY_DAEMON_VERSION	"DaemonVersion"
+#define CD_CLIENT_PROPERTY_DAEMON_VERSION	"DaemonVersion"		/* Since: 0.1.0 */
+#define CD_CLIENT_PROPERTY_SYSTEM_VENDOR	"SystemVendor"		/* Since: 1.0.2 */
+#define CD_CLIENT_PROPERTY_SYSTEM_MODEL		"SystemModel"		/* Since: 1.0.2 */
 
 /* defined in metadata-spec.txt */
 #define CD_PROFILE_METADATA_STANDARD_SPACE	"STANDARD_space"
@@ -240,6 +431,11 @@ typedef enum {
 #define CD_PROFILE_METADATA_CONNECTION_TYPE_DVI		"dvi"		/* Since: 0.1.16 */
 #define CD_PROFILE_METADATA_CONNECTION_TYPE_HDMI	"hdmi"		/* Since: 0.1.16 */
 #define CD_PROFILE_METADATA_CONNECTION_TYPE_DISPLAYPORT	"displayport"	/* Since: 0.1.16 */
+#define CD_PROFILE_METADATA_LICENSE		"License"		/* Since: 0.1.25 */
+#define CD_PROFILE_METADATA_QUALITY		"Quality"		/* Since: 0.1.27 */
+#define CD_PROFILE_METADATA_QUALITY_LOW		"low"			/* Since: 0.1.27 */
+#define CD_PROFILE_METADATA_QUALITY_MEDIUM	"medium"		/* Since: 0.1.27 */
+#define CD_PROFILE_METADATA_QUALITY_HIGH	"high"			/* Since: 0.1.27 */
 
 /* defined in org.freedesktop.ColorManager.Profile.xml */
 #define CD_PROFILE_PROPERTY_FILENAME		"Filename"
@@ -255,9 +451,15 @@ typedef enum {
 #define CD_PROFILE_PROPERTY_ID			"ProfileId"
 #define CD_PROFILE_PROPERTY_SCOPE		"Scope"
 #define CD_PROFILE_PROPERTY_OWNER		"Owner"
+#define CD_PROFILE_PROPERTY_WARNINGS		"Warnings"		/* Since: 0.1.25 */
 
 /* defined in metadata-spec.txt */
 #define CD_DEVICE_METADATA_XRANDR_NAME		"XRANDR_name"
+#define CD_DEVICE_METADATA_OUTPUT_EDID_MD5	"OutputEdidMd5"
+#define CD_DEVICE_METADATA_OUTPUT_PRIORITY	"OutputPriority"
+#define CD_DEVICE_METADATA_OUTPUT_PRIORITY_PRIMARY	"primary"
+#define CD_DEVICE_METADATA_OUTPUT_PRIORITY_SECONDARY	"secondary"
+#define CD_DEVICE_METADATA_OWNER_CMDLINE	"OwnerCmdline"
 
 /* defined in org.freedesktop.ColorManager.Device.xml */
 #define CD_DEVICE_PROPERTY_MODEL		"Model"
@@ -274,14 +476,46 @@ typedef enum {
 #define CD_DEVICE_PROPERTY_ID			"DeviceId"
 #define CD_DEVICE_PROPERTY_SCOPE		"Scope"
 #define CD_DEVICE_PROPERTY_OWNER		"Owner"
+#define CD_DEVICE_PROPERTY_SEAT			"Seat"
 #define CD_DEVICE_PROPERTY_PROFILING_INHIBITORS	"ProfilingInhibitors"
+#define CD_DEVICE_PROPERTY_ENABLED		"Enabled"
+#define CD_DEVICE_PROPERTY_EMBEDDED		"Embedded"
 
+/* defined in org.freedesktop.ColorManager.Sensor.xml */
+#define CD_SENSOR_PROPERTY_ID			"SensorId"
+#define CD_SENSOR_PROPERTY_KIND			"Kind"
+#define CD_SENSOR_PROPERTY_STATE		"State"
+#define CD_SENSOR_PROPERTY_MODE			"Mode"
+#define CD_SENSOR_PROPERTY_SERIAL		"Serial"
+#define CD_SENSOR_PROPERTY_MODEL		"Model"
+#define CD_SENSOR_PROPERTY_VENDOR		"Vendor"
+#define CD_SENSOR_PROPERTY_NATIVE		"Native"
+#define CD_SENSOR_PROPERTY_LOCKED		"Locked"
+#define CD_SENSOR_PROPERTY_CAPABILITIES		"Capabilities"
+#define CD_SENSOR_PROPERTY_OPTIONS		"Options"
+#define CD_SENSOR_PROPERTY_EMBEDDED		"Embedded"
+#define CD_SENSOR_PROPERTY_METADATA		"Metadata"
+
+/* defined in metadata-spec.txt */
+#define CD_SENSOR_METADATA_IMAGE_ATTACH		"ImageAttach"
+#define CD_SENSOR_METADATA_IMAGE_CALIBRATE	"ImageCalibrate"
+#define CD_SENSOR_METADATA_IMAGE_SCREEN		"ImageScreen"
+
+/* convenience functions as it's easy to forget the bitwise operators */
+#define cd_bitfield_add(bitfield,tmp)		do { ((bitfield) |= (cd_bitfield_value(tmp))); } while (0)
+#define cd_bitfield_remove(bitfield,tmp)	do { ((bitfield) &= ~(cd_bitfield_value(tmp))); } while (0)
+#define cd_bitfield_contain(bitfield,tmp)	(((bitfield) & (cd_bitfield_value(tmp))) > 0)
+#define cd_bitfield_value(tmp)			((guint64) 1 << (tmp))
+
+guint64		 cd_bitfield_from_enums			(gint			 value, ...);
 const gchar	*cd_device_kind_to_string		(CdDeviceKind		 kind_enum);
 CdDeviceKind	 cd_device_kind_from_string		(const gchar		*kind);
 const gchar	*cd_profile_kind_to_string		(CdProfileKind		 profile_kind);
 CdProfileKind	 cd_profile_kind_from_string		(const gchar		*profile_kind);
 CdRenderingIntent cd_rendering_intent_from_string	(const gchar		*rendering_intent);
 const gchar	*cd_rendering_intent_to_string		(CdRenderingIntent	 rendering_intent);
+CdPixelFormat	 cd_pixel_format_from_string		(const gchar		*pixel_format);
+const gchar	*cd_pixel_format_to_string		(CdPixelFormat		 pixel_format);
 const gchar	*cd_colorspace_to_string		(CdColorspace		 colorspace);
 CdColorspace	 cd_colorspace_from_string		(const gchar		*colorspace);
 const gchar	*cd_device_mode_to_string		(CdDeviceMode		 device_mode);
@@ -298,7 +532,20 @@ const gchar	*cd_sensor_cap_to_string		(CdSensorCap		 sensor_cap);
 CdSensorCap	 cd_sensor_cap_from_string		(const gchar		*sensor_cap);
 const gchar	*cd_standard_space_to_string		(CdStandardSpace	 standard_space);
 CdStandardSpace	 cd_standard_space_from_string		(const gchar		*standard_space);
+const gchar	*cd_profile_warning_to_string		(CdProfileWarning	 kind_enum);
+CdProfileWarning cd_profile_warning_from_string		(const gchar		*type);
+const gchar	*cd_profile_quality_to_string		(CdProfileQuality	 quality_enum);
+CdProfileQuality cd_profile_quality_from_string		(const gchar		*quality);
 CdProfileKind	 cd_device_kind_to_profile_kind		(CdDeviceKind		 device_kind);
+
+const gchar	*cd_sensor_error_to_string		(CdSensorError		 error_enum);
+CdSensorError	 cd_sensor_error_from_string		(const gchar		*error_desc);
+const gchar	*cd_profile_error_to_string		(CdProfileError		 error_enum);
+CdProfileError	 cd_profile_error_from_string		(const gchar		*error_desc);
+const gchar	*cd_device_error_to_string		(CdDeviceError		 error_enum);
+CdDeviceError	 cd_device_error_from_string		(const gchar		*error_desc);
+const gchar	*cd_client_error_to_string		(CdClientError		 error_enum);
+CdClientError	 cd_client_error_from_string		(const gchar		*error_desc);
 
 G_END_DECLS
 

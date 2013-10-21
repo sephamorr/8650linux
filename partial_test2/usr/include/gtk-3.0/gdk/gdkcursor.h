@@ -22,12 +22,12 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
+#ifndef __GDK_CURSOR_H__
+#define __GDK_CURSOR_H__
+
 #if !defined (__GDK_H_INSIDE__) && !defined (GDK_COMPILATION)
 #error "Only <gdk/gdk.h> can be included directly."
 #endif
-
-#ifndef __GDK_CURSOR_H__
-#define __GDK_CURSOR_H__
 
 #include <gdk/gdkversionmacros.h>
 #include <gdk/gdktypes.h>
@@ -213,25 +213,42 @@ typedef enum
 /* Cursors
  */
 
+GDK_AVAILABLE_IN_ALL
 GType      gdk_cursor_get_type           (void) G_GNUC_CONST;
 
+GDK_AVAILABLE_IN_ALL
 GdkCursor* gdk_cursor_new_for_display	 (GdkDisplay      *display,
 					  GdkCursorType    cursor_type);
 #ifndef GDK_MULTIHEAD_SAFE
+GDK_AVAILABLE_IN_ALL
 GdkCursor* gdk_cursor_new		 (GdkCursorType	   cursor_type);
 #endif
+GDK_AVAILABLE_IN_ALL
 GdkCursor* gdk_cursor_new_from_pixbuf	 (GdkDisplay      *display,
 					  GdkPixbuf       *pixbuf,
 					  gint             x,
 					  gint             y);
+GDK_AVAILABLE_IN_3_10
+GdkCursor* gdk_cursor_new_from_surface	 (GdkDisplay      *display,
+					  cairo_surface_t *surface,
+					  gdouble          x,
+					  gdouble          y);
+GDK_AVAILABLE_IN_ALL
 GdkCursor*  gdk_cursor_new_from_name	 (GdkDisplay      *display,
 					  const gchar     *name);
+GDK_AVAILABLE_IN_ALL
 GdkDisplay* gdk_cursor_get_display	 (GdkCursor	  *cursor);
 GDK_DEPRECATED_IN_3_0_FOR(g_object_ref)
 GdkCursor * gdk_cursor_ref               (GdkCursor       *cursor);
 GDK_DEPRECATED_IN_3_0_FOR(g_object_unref)
 void        gdk_cursor_unref             (GdkCursor       *cursor);
+GDK_AVAILABLE_IN_ALL
 GdkPixbuf*  gdk_cursor_get_image         (GdkCursor       *cursor);
+GDK_AVAILABLE_IN_3_10
+cairo_surface_t *gdk_cursor_get_surface  (GdkCursor       *cursor,
+					  gdouble         *x_hot,
+					  gdouble         *y_hot);
+GDK_AVAILABLE_IN_ALL
 GdkCursorType gdk_cursor_get_cursor_type (GdkCursor       *cursor);
 
 

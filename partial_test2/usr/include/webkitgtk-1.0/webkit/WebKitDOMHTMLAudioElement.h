@@ -21,11 +21,10 @@
 #ifndef WebKitDOMHTMLAudioElement_h
 #define WebKitDOMHTMLAudioElement_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMHTMLMediaElement.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMHTMLMediaElement.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_HTML_AUDIO_ELEMENT            (webkit_dom_html_audio_element_get_type())

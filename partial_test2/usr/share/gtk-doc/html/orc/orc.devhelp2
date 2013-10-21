@@ -13,6 +13,7 @@
       <sub name="OrcProgram" link="orc-OrcProgram.html"/>
       <sub name="OrcCompiler" link="orc-OrcCompiler.html"/>
       <sub name="OrcExecutor" link="orc-OrcExecutor.html"/>
+      <sub name="Orc Program Syntax" link="orc-program.html"/>
       <sub name="Orc Opcodes" link="orc-opcodes.html"/>
     </sub>
     <sub name="Extension API" link="ch03.html">
@@ -34,7 +35,7 @@
   </chapters>
   <functions>
     <keyword type="function" name="orc_init ()" link="orc-Orc.html#orc-init"/>
-    <keyword type="struct" name="struct OrcProgram" link="orc-OrcProgram.html#OrcProgram"/>
+    <keyword type="struct" name="OrcProgram" link="orc-OrcProgram.html#OrcProgram"/>
     <keyword type="macro" name="ORC_N_CONSTANTS" link="orc-OrcProgram.html#ORC-N-CONSTANTS:CAPS"/>
     <keyword type="macro" name="ORC_N_RULE_SETS" link="orc-OrcProgram.html#ORC-N-RULE-SETS:CAPS"/>
     <keyword type="macro" name="ORC_N_TARGETS" link="orc-OrcProgram.html#ORC-N-TARGETS:CAPS"/>
@@ -65,8 +66,8 @@
     <keyword type="function" name="orc_program_allocate_register ()" link="orc-OrcProgram.html#orc-program-allocate-register"/>
     <keyword type="function" name="orc_program_dup_temporary ()" link="orc-OrcProgram.html#orc-program-dup-temporary"/>
     <keyword type="enum" name="enum OrcCompileResult" link="orc-OrcCompiler.html#OrcCompileResult"/>
-    <keyword type="struct" name="struct OrcCompiler" link="orc-OrcCompiler.html#OrcCompiler"/>
-    <keyword type="struct" name="struct OrcConstant" link="orc-OrcCompiler.html#OrcConstant"/>
+    <keyword type="struct" name="OrcCompiler" link="orc-OrcCompiler.html#OrcCompiler"/>
+    <keyword type="struct" name="OrcConstant" link="orc-OrcCompiler.html#OrcConstant"/>
     <keyword type="macro" name="ORC_COMPILER_ERROR()" link="orc-OrcCompiler.html#ORC-COMPILER-ERROR:CAPS"/>
     <keyword type="macro" name="ORC_COMPILE_RESULT_IS_FATAL()" link="orc-OrcCompiler.html#ORC-COMPILE-RESULT-IS-FATAL:CAPS"/>
     <keyword type="macro" name="ORC_COMPILE_RESULT_IS_SUCCESSFUL()" link="orc-OrcCompiler.html#ORC-COMPILE-RESULT-IS-SUCCESSFUL:CAPS"/>
@@ -87,6 +88,15 @@
     <keyword type="function" name="orc_executor_set_param ()" link="orc-OrcExecutor.html#orc-executor-set-param"/>
     <keyword type="function" name="orc_executor_set_param_str ()" link="orc-OrcExecutor.html#orc-executor-set-param-str"/>
     <keyword type="function" name="orc_executor_set_program ()" link="orc-OrcExecutor.html#orc-executor-set-program"/>
+    <keyword type="" name=".init" link="orc-program.html#idp9410144"/>
+    <keyword type="" name=".function" link="orc-program.html#idp7684464"/>
+    <keyword type="" name=".flags" link="orc-program.html#idp6471072"/>
+    <keyword type="" name=".source" link="orc-program.html#idp7689696"/>
+    <keyword type="" name=".dest" link="orc-program.html#idp9686304"/>
+    <keyword type="" name=".accumulator" link="orc-program.html#idp8430080"/>
+    <keyword type="" name=".param" link="orc-program.html#idp7108960"/>
+    <keyword type="" name=".const" link="orc-program.html#idp10587648"/>
+    <keyword type="" name=".temp" link="orc-program.html#idp6970912"/>
     <keyword type="enum" name="enum OrcDebugLevel" link="orc-OrcDebug.html#OrcDebugLevel"/>
     <keyword type="function" name="OrcDebugPrintFunc ()" link="orc-OrcDebug.html#OrcDebugPrintFunc"/>
     <keyword type="macro" name="ORC_DEBUG_PRINT()" link="orc-OrcDebug.html#ORC-DEBUG-PRINT:CAPS"/>
@@ -105,7 +115,7 @@
     <keyword type="struct" name="struct OrcOpcodeSet" link="orc-OrcOpcode.html#OrcOpcodeSet"/>
     <keyword type="struct" name="struct OrcRuleSet" link="orc-OrcOpcode.html#OrcRuleSet"/>
     <keyword type="struct" name="struct OrcStaticOpcode" link="orc-OrcOpcode.html#OrcStaticOpcode"/>
-    <keyword type="struct" name="struct OrcTarget" link="orc-OrcOpcode.html#OrcTarget"/>
+    <keyword type="struct" name="OrcTarget" link="orc-OrcOpcode.html#OrcTarget"/>
     <keyword type="macro" name="ORC_OPCODE_N_ARGS" link="orc-OrcOpcode.html#ORC-OPCODE-N-ARGS:CAPS"/>
     <keyword type="macro" name="ORC_STATIC_OPCODE_ACCUMULATOR" link="orc-OrcOpcode.html#ORC-STATIC-OPCODE-ACCUMULATOR:CAPS"/>
     <keyword type="macro" name="ORC_STATIC_OPCODE_N_DEST" link="orc-OrcOpcode.html#ORC-STATIC-OPCODE-N-DEST:CAPS"/>
@@ -123,18 +133,7 @@
     <keyword type="function" name="orc_target_get_name ()" link="orc-OrcOpcode.html#orc-target-get-name"/>
     <keyword type="function" name="orc_target_get_rule ()" link="orc-OrcOpcode.html#orc-target-get-rule"/>
     <keyword type="function" name="orc_target_register ()" link="orc-OrcOpcode.html#orc-target-register"/>
-    <keyword type="typedef" name="orc_bool" link="orc-Utility-functions.html#orc-bool"/>
     <keyword type="macro" name="ORC_ASSERT()" link="orc-Utility-functions.html#ORC-ASSERT:CAPS"/>
-    <keyword type="macro" name="ORC_BEGIN_DECLS" link="orc-Utility-functions.html#ORC-BEGIN-DECLS:CAPS"/>
-    <keyword type="macro" name="ORC_CLAMP()" link="orc-Utility-functions.html#ORC-CLAMP:CAPS"/>
-    <keyword type="macro" name="ORC_END_DECLS" link="orc-Utility-functions.html#ORC-END-DECLS:CAPS"/>
-    <keyword type="macro" name="ORC_EXPORT" link="orc-Utility-functions.html#ORC-EXPORT:CAPS"/>
-    <keyword type="macro" name="ORC_GNUC_PREREQ()" link="orc-Utility-functions.html#ORC-GNUC-PREREQ:CAPS"/>
-    <keyword type="macro" name="ORC_GNU_PRINTF()" link="orc-Utility-functions.html#ORC-GNU-PRINTF:CAPS"/>
-    <keyword type="macro" name="ORC_INTERNAL" link="orc-Utility-functions.html#ORC-INTERNAL:CAPS"/>
-    <keyword type="macro" name="ORC_PTR_TO_INT()" link="orc-Utility-functions.html#ORC-PTR-TO-INT:CAPS"/>
-    <keyword type="macro" name="ORC_READ_UINT32_LE()" link="orc-Utility-functions.html#ORC-READ-UINT32-LE:CAPS"/>
-    <keyword type="macro" name="ORC_WRITE_UINT32_LE()" link="orc-Utility-functions.html#ORC-WRITE-UINT32-LE:CAPS"/>
     <keyword type="function" name="orc_rule_register ()" link="orc-OrcRule.html#orc-rule-register"/>
     <keyword type="enum" name="enum OrcArmCond" link="orc-ARM.html#OrcArmCond"/>
     <keyword type="enum" name="enum OrcArmDP" link="orc-ARM.html#OrcArmDP"/>
@@ -248,7 +247,7 @@
     <keyword type="function" name="orc_x86_get_regnum ()" link="orc-x86.html#orc-x86-get-regnum"/>
     <keyword type="function" name="orc_x86_do_fixups ()" link="orc-x86.html#orc-x86-do-fixups"/>
     <keyword type="struct" name="struct OrcVariable" link="orc-misc.html#OrcVariable"/>
-    <keyword type="struct" name="struct OrcInstruction" link="orc-misc.html#OrcInstruction"/>
+    <keyword type="struct" name="OrcInstruction" link="orc-misc.html#OrcInstruction"/>
     <keyword type="struct" name="struct OrcRule" link="orc-misc.html#OrcRule"/>
     <keyword type="struct" name="struct OrcFixup" link="orc-misc.html#OrcFixup"/>
     <keyword type="function" name="OrcRuleEmitFunc ()" link="orc-misc.html#OrcRuleEmitFunc"/>
@@ -260,20 +259,11 @@
     <keyword type="macro" name="ORC_N_LABELS" link="orc-misc.html#ORC-N-LABELS:CAPS"/>
     <keyword type="macro" name="ORC_GP_REG_BASE" link="orc-misc.html#ORC-GP-REG-BASE:CAPS"/>
     <keyword type="macro" name="ORC_VEC_REG_BASE" link="orc-misc.html#ORC-VEC-REG-BASE:CAPS"/>
-    <keyword type="macro" name="ORC_STRUCT_OFFSET()" link="orc-misc.html#ORC-STRUCT-OFFSET:CAPS"/>
     <keyword type="enum" name="enum OrcVarType" link="orc-misc.html#OrcVarType"/>
     <keyword type="function" name="orc_powerpc_init ()" link="orc-misc.html#orc-powerpc-init"/>
     <keyword type="function" name="orc_arm_init ()" link="orc-misc.html#orc-arm-init"/>
     <keyword type="function" name="orc_c_init ()" link="orc-misc.html#orc-c-init"/>
     <keyword type="function" name="orc_parse ()" link="orc-misc.html#orc-parse"/>
-    <keyword type="macro" name="ARRAY_SIZE()" link="orc-misc.html#ARRAY-SIZE:CAPS"/>
-    <keyword type="macro" name="MAX()" link="orc-misc.html#MAX:CAPS"/>
-    <keyword type="macro" name="MIN()" link="orc-misc.html#MIN:CAPS"/>
-    <keyword type="function" name="get_cpuinfo_line ()" link="orc-misc.html#get-cpuinfo-line"/>
-    <keyword type="function" name="get_file ()" link="orc-misc.html#get-file"/>
-    <keyword type="function" name="get_file_int ()" link="orc-misc.html#get-file-int"/>
-    <keyword type="function" name="get_tag_value ()" link="orc-misc.html#get-tag-value"/>
-    <keyword type="function" name="strsplit ()" link="orc-misc.html#strsplit"/>
     <keyword type="constant" name="ORC_DEBUG_NONE" link="orc-OrcDebug.html#ORC-DEBUG-NONE:CAPS"/>
     <keyword type="constant" name="ORC_DEBUG_ERROR" link="orc-OrcDebug.html#ORC-DEBUG-ERROR:CAPS"/>
     <keyword type="constant" name="ORC_DEBUG_WARNING" link="orc-OrcDebug.html#ORC-DEBUG-WARNING:CAPS"/>

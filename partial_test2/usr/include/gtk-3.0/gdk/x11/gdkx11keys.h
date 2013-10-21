@@ -15,12 +15,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GDK_X11_KEYS_H__
+#define __GDK_X11_KEYS_H__
+
 #if !defined (__GDKX_H_INSIDE__) && !defined (GDK_COMPILATION)
 #error "Only <gdk/gdkx.h> can be included directly."
 #endif
-
-#ifndef __GDK_X11_KEYS_H__
-#define __GDK_X11_KEYS_H__
 
 #include <gdk/gdk.h>
 
@@ -40,8 +40,16 @@ typedef struct _GdkX11KeymapClass GdkX11KeymapClass;
 #define GDK_IS_X11_KEYMAP_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), GDK_TYPE_X11_KEYMAP))
 #define GDK_X11_KEYMAP_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), GDK_TYPE_X11_KEYMAP, GdkX11KeymapClass))
 
+GDK_AVAILABLE_IN_ALL
 GType gdk_x11_keymap_get_type (void);
 
+GDK_AVAILABLE_IN_3_6
+gint gdk_x11_keymap_get_group_for_state (GdkKeymap *keymap,
+                                         guint      state);
+
+GDK_AVAILABLE_IN_3_6
+gboolean gdk_x11_keymap_key_is_modifier (GdkKeymap *keymap,
+                                         guint      keycode);
 G_END_DECLS
 
 #endif /* __GDK_X11_KEYMAP_H__ */

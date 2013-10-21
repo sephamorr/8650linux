@@ -21,11 +21,10 @@
 #ifndef WebKitDOMNamedNodeMap_h
 #define WebKitDOMNamedNodeMap_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_NAMED_NODE_MAP            (webkit_dom_named_node_map_get_type())
@@ -67,7 +66,7 @@ webkit_dom_named_node_map_get_named_item(WebKitDOMNamedNodeMap* self, const gcha
  *
 **/
 WEBKIT_API WebKitDOMNode*
-webkit_dom_named_node_map_set_named_item(WebKitDOMNamedNodeMap* self, WebKitDOMNode* node, GError **error);
+webkit_dom_named_node_map_set_named_item(WebKitDOMNamedNodeMap* self, WebKitDOMNode* node, GError** error);
 
 /**
  * webkit_dom_named_node_map_remove_named_item:
@@ -79,7 +78,7 @@ webkit_dom_named_node_map_set_named_item(WebKitDOMNamedNodeMap* self, WebKitDOMN
  *
 **/
 WEBKIT_API WebKitDOMNode*
-webkit_dom_named_node_map_remove_named_item(WebKitDOMNamedNodeMap* self, const gchar* name, GError **error);
+webkit_dom_named_node_map_remove_named_item(WebKitDOMNamedNodeMap* self, const gchar* name, GError** error);
 
 /**
  * webkit_dom_named_node_map_item:
@@ -95,14 +94,14 @@ webkit_dom_named_node_map_item(WebKitDOMNamedNodeMap* self, gulong index);
 /**
  * webkit_dom_named_node_map_get_named_item_ns:
  * @self: A #WebKitDOMNamedNodeMap
- * @namespace_uri: A #gchar
- * @local_name: A #gchar
+ * @namespaceURI: A #gchar
+ * @localName: A #gchar
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMNode*
-webkit_dom_named_node_map_get_named_item_ns(WebKitDOMNamedNodeMap* self, const gchar* namespace_uri, const gchar* local_name);
+webkit_dom_named_node_map_get_named_item_ns(WebKitDOMNamedNodeMap* self, const gchar* namespaceURI, const gchar* localName);
 
 /**
  * webkit_dom_named_node_map_set_named_item_ns:
@@ -114,20 +113,20 @@ webkit_dom_named_node_map_get_named_item_ns(WebKitDOMNamedNodeMap* self, const g
  *
 **/
 WEBKIT_API WebKitDOMNode*
-webkit_dom_named_node_map_set_named_item_ns(WebKitDOMNamedNodeMap* self, WebKitDOMNode* node, GError **error);
+webkit_dom_named_node_map_set_named_item_ns(WebKitDOMNamedNodeMap* self, WebKitDOMNode* node, GError** error);
 
 /**
  * webkit_dom_named_node_map_remove_named_item_ns:
  * @self: A #WebKitDOMNamedNodeMap
- * @namespace_uri: A #gchar
- * @local_name: A #gchar
+ * @namespaceURI: A #gchar
+ * @localName: A #gchar
  * @error: #GError
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMNode*
-webkit_dom_named_node_map_remove_named_item_ns(WebKitDOMNamedNodeMap* self, const gchar* namespace_uri, const gchar* local_name, GError **error);
+webkit_dom_named_node_map_remove_named_item_ns(WebKitDOMNamedNodeMap* self, const gchar* namespaceURI, const gchar* localName, GError** error);
 
 /**
  * webkit_dom_named_node_map_get_length:

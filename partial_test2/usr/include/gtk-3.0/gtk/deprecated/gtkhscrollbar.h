@@ -22,12 +22,12 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
+#ifndef __GTK_HSCROLLBAR_H__
+#define __GTK_HSCROLLBAR_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_HSCROLLBAR_H__
-#define __GTK_HSCROLLBAR_H__
 
 #include <gtk/gtkscrollbar.h>
 
@@ -55,6 +55,7 @@ struct _GtkHScrollbarClass
 };
 
 
+GDK_DEPRECATED_IN_3_2
 GType      gtk_hscrollbar_get_type (void) G_GNUC_CONST;
 GDK_DEPRECATED_IN_3_2_FOR(gtk_scrollbar_new)
 GtkWidget* gtk_hscrollbar_new      (GtkAdjustment *adjustment);

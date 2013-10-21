@@ -15,13 +15,14 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GTK_LIST_STORE_H__
+#define __GTK_LIST_STORE_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
 
-#ifndef __GTK_LIST_STORE_H__
-#define __GTK_LIST_STORE_H__
-
+#include <gdk/gdk.h>
 #include <gtk/gtktreemodel.h>
 #include <gtk/gtktreesortable.h>
 
@@ -60,68 +61,90 @@ struct _GtkListStoreClass
 };
 
 
+GDK_AVAILABLE_IN_ALL
 GType         gtk_list_store_get_type         (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkListStore *gtk_list_store_new              (gint          n_columns,
 					       ...);
+GDK_AVAILABLE_IN_ALL
 GtkListStore *gtk_list_store_newv             (gint          n_columns,
 					       GType        *types);
+GDK_AVAILABLE_IN_ALL
 void          gtk_list_store_set_column_types (GtkListStore *list_store,
 					       gint          n_columns,
 					       GType        *types);
 
 /* NOTE: use gtk_tree_model_get to get values from a GtkListStore */
 
+GDK_AVAILABLE_IN_ALL
 void          gtk_list_store_set_value        (GtkListStore *list_store,
 					       GtkTreeIter  *iter,
 					       gint          column,
 					       GValue       *value);
+GDK_AVAILABLE_IN_ALL
 void          gtk_list_store_set              (GtkListStore *list_store,
 					       GtkTreeIter  *iter,
 					       ...);
+GDK_AVAILABLE_IN_ALL
 void          gtk_list_store_set_valuesv      (GtkListStore *list_store,
 					       GtkTreeIter  *iter,
 					       gint         *columns,
 					       GValue       *values,
 					       gint          n_values);
+GDK_AVAILABLE_IN_ALL
 void          gtk_list_store_set_valist       (GtkListStore *list_store,
 					       GtkTreeIter  *iter,
 					       va_list       var_args);
+GDK_AVAILABLE_IN_ALL
 gboolean      gtk_list_store_remove           (GtkListStore *list_store,
 					       GtkTreeIter  *iter);
+GDK_AVAILABLE_IN_ALL
 void          gtk_list_store_insert           (GtkListStore *list_store,
 					       GtkTreeIter  *iter,
 					       gint          position);
+GDK_AVAILABLE_IN_ALL
 void          gtk_list_store_insert_before    (GtkListStore *list_store,
 					       GtkTreeIter  *iter,
 					       GtkTreeIter  *sibling);
+GDK_AVAILABLE_IN_ALL
 void          gtk_list_store_insert_after     (GtkListStore *list_store,
 					       GtkTreeIter  *iter,
 					       GtkTreeIter  *sibling);
+GDK_AVAILABLE_IN_ALL
 void          gtk_list_store_insert_with_values  (GtkListStore *list_store,
 						  GtkTreeIter  *iter,
 						  gint          position,
 						  ...);
+GDK_AVAILABLE_IN_ALL
 void          gtk_list_store_insert_with_valuesv (GtkListStore *list_store,
 						  GtkTreeIter  *iter,
 						  gint          position,
 						  gint         *columns,
 						  GValue       *values,
 						  gint          n_values);
+GDK_AVAILABLE_IN_ALL
 void          gtk_list_store_prepend          (GtkListStore *list_store,
 					       GtkTreeIter  *iter);
+GDK_AVAILABLE_IN_ALL
 void          gtk_list_store_append           (GtkListStore *list_store,
 					       GtkTreeIter  *iter);
+GDK_AVAILABLE_IN_ALL
 void          gtk_list_store_clear            (GtkListStore *list_store);
+GDK_AVAILABLE_IN_ALL
 gboolean      gtk_list_store_iter_is_valid    (GtkListStore *list_store,
                                                GtkTreeIter  *iter);
+GDK_AVAILABLE_IN_ALL
 void          gtk_list_store_reorder          (GtkListStore *store,
                                                gint         *new_order);
+GDK_AVAILABLE_IN_ALL
 void          gtk_list_store_swap             (GtkListStore *store,
                                                GtkTreeIter  *a,
                                                GtkTreeIter  *b);
+GDK_AVAILABLE_IN_ALL
 void          gtk_list_store_move_after       (GtkListStore *store,
                                                GtkTreeIter  *iter,
                                                GtkTreeIter  *position);
+GDK_AVAILABLE_IN_ALL
 void          gtk_list_store_move_before      (GtkListStore *store,
                                                GtkTreeIter  *iter,
                                                GtkTreeIter  *position);

@@ -34,6 +34,7 @@
 #include <pthread.h>
 #include <ctype.h>
 #include <sys/types.h>
+#include <limits.h>
 
 #define HAVE___U32 1
 #ifdef HAVE___U32
@@ -78,26 +79,17 @@ typedef struct filldir		filldir_t;
 #endif
 
 /* long and pointer must be either 32 bit or 64 bit */
-#define HAVE_32BIT_LONG 1
-/* #undef HAVE_64BIT_LONG */
-#define HAVE_32BIT_PTR 1
-/* #undef HAVE_64BIT_PTR */
-
-#if defined(HAVE_32BIT_LONG)
-# define BITS_PER_LONG	32
-#elif defined(HAVE_64BIT_LONG)
-# define BITS_PER_LONG	64
-#else
-# error Unknown long size
-#endif
+#define SIZEOF_LONG 4
+#define SIZEOF_CHAR_P 4
+#define BITS_PER_LONG (SIZEOF_LONG * CHAR_BIT)
 
 /* Check if __psint_t is set to something meaningful */
 /* #undef HAVE___PSINT_T */
 #ifndef HAVE___PSINT_T
-# ifdef HAVE_32BIT_PTR
+# if (SIZEOF_CHAR_P * CHAR_BIT) == 32
 typedef int __psint_t;
-# elif defined HAVE_64BIT_PTR
-#  ifdef HAVE_64BIT_LONG
+# elif (SIZEOF_CHAR_P * CHAR_BIT) == 64
+#  if BITS_PER_LONG == 64
 typedef long __psint_t;
 #  else
 /* This is a very strange architecture, which has 64 bit pointers but */
@@ -112,10 +104,10 @@ typedef long long __psint_t;
 /* Check if __psunsigned_t is set to something meaningful */
 /* #undef HAVE___PSUNSIGNED_T */
 #ifndef HAVE___PSUNSIGNED_T
-# ifdef HAVE_32BIT_PTR
+# if (SIZEOF_CHAR_P * CHAR_BIT) == 32
 typedef unsigned int __psunsigned_t;
-# elif defined HAVE_64BIT_PTR
-#  ifdef HAVE_64BIT_LONG
+# elif (SIZEOF_CHAR_P * CHAR_BIT) == 64
+#  if BITS_PER_LONG == 64
 typedef long __psunsigned_t;
 #  else
 /* This is a very strange architecture, which has 64 bit pointers but */

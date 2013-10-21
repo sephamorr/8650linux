@@ -21,11 +21,10 @@
 #ifndef WebKitDOMNode_h
 #define WebKitDOMNode_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_NODE            (webkit_dom_node_get_type())
@@ -49,52 +48,52 @@ webkit_dom_node_get_type (void);
 /**
  * webkit_dom_node_insert_before:
  * @self: A #WebKitDOMNode
- * @new_child: A #WebKitDOMNode
- * @ref_child: A #WebKitDOMNode
+ * @newChild: A #WebKitDOMNode
+ * @refChild: A #WebKitDOMNode
  * @error: #GError
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMNode*
-webkit_dom_node_insert_before(WebKitDOMNode* self, WebKitDOMNode* new_child, WebKitDOMNode* ref_child, GError **error);
+webkit_dom_node_insert_before(WebKitDOMNode* self, WebKitDOMNode* newChild, WebKitDOMNode* refChild, GError** error);
 
 /**
  * webkit_dom_node_replace_child:
  * @self: A #WebKitDOMNode
- * @new_child: A #WebKitDOMNode
- * @old_child: A #WebKitDOMNode
+ * @newChild: A #WebKitDOMNode
+ * @oldChild: A #WebKitDOMNode
  * @error: #GError
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMNode*
-webkit_dom_node_replace_child(WebKitDOMNode* self, WebKitDOMNode* new_child, WebKitDOMNode* old_child, GError **error);
+webkit_dom_node_replace_child(WebKitDOMNode* self, WebKitDOMNode* newChild, WebKitDOMNode* oldChild, GError** error);
 
 /**
  * webkit_dom_node_remove_child:
  * @self: A #WebKitDOMNode
- * @old_child: A #WebKitDOMNode
+ * @oldChild: A #WebKitDOMNode
  * @error: #GError
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMNode*
-webkit_dom_node_remove_child(WebKitDOMNode* self, WebKitDOMNode* old_child, GError **error);
+webkit_dom_node_remove_child(WebKitDOMNode* self, WebKitDOMNode* oldChild, GError** error);
 
 /**
  * webkit_dom_node_append_child:
  * @self: A #WebKitDOMNode
- * @new_child: A #WebKitDOMNode
+ * @newChild: A #WebKitDOMNode
  * @error: #GError
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMNode*
-webkit_dom_node_append_child(WebKitDOMNode* self, WebKitDOMNode* new_child, GError **error);
+webkit_dom_node_append_child(WebKitDOMNode* self, WebKitDOMNode* newChild, GError** error);
 
 /**
  * webkit_dom_node_has_child_nodes:
@@ -174,24 +173,24 @@ webkit_dom_node_is_equal_node(WebKitDOMNode* self, WebKitDOMNode* other);
 /**
  * webkit_dom_node_lookup_prefix:
  * @self: A #WebKitDOMNode
- * @namespace_uri: A #gchar
+ * @namespaceURI: A #gchar
  *
  * Returns:
  *
 **/
 WEBKIT_API gchar*
-webkit_dom_node_lookup_prefix(WebKitDOMNode* self, const gchar* namespace_uri);
+webkit_dom_node_lookup_prefix(WebKitDOMNode* self, const gchar* namespaceURI);
 
 /**
  * webkit_dom_node_is_default_namespace:
  * @self: A #WebKitDOMNode
- * @namespace_uri: A #gchar
+ * @namespaceURI: A #gchar
  *
  * Returns:
  *
 **/
 WEBKIT_API gboolean
-webkit_dom_node_is_default_namespace(WebKitDOMNode* self, const gchar* namespace_uri);
+webkit_dom_node_is_default_namespace(WebKitDOMNode* self, const gchar* namespaceURI);
 
 /**
  * webkit_dom_node_lookup_namespace_uri:
@@ -236,7 +235,7 @@ webkit_dom_node_contains(WebKitDOMNode* self, WebKitDOMNode* other);
  *
 **/
 WEBKIT_API gboolean
-webkit_dom_node_dispatch_event(WebKitDOMNode* self, WebKitDOMEvent* event, GError **error);
+webkit_dom_node_dispatch_event(WebKitDOMNode* self, WebKitDOMEvent* event, GError** error);
 
 /**
  * webkit_dom_node_get_node_name:
@@ -268,7 +267,7 @@ webkit_dom_node_get_node_value(WebKitDOMNode* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_node_set_node_value(WebKitDOMNode* self, const gchar* value, GError **error);
+webkit_dom_node_set_node_value(WebKitDOMNode* self, const gchar* value, GError** error);
 
 /**
  * webkit_dom_node_get_node_type:
@@ -390,7 +389,7 @@ webkit_dom_node_get_prefix(WebKitDOMNode* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_node_set_prefix(WebKitDOMNode* self, const gchar* value, GError **error);
+webkit_dom_node_set_prefix(WebKitDOMNode* self, const gchar* value, GError** error);
 
 /**
  * webkit_dom_node_get_local_name:
@@ -432,7 +431,7 @@ webkit_dom_node_get_text_content(WebKitDOMNode* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_node_set_text_content(WebKitDOMNode* self, const gchar* value, GError **error);
+webkit_dom_node_set_text_content(WebKitDOMNode* self, const gchar* value, GError** error);
 
 /**
  * webkit_dom_node_get_parent_element:

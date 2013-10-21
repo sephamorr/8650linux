@@ -26,6 +26,7 @@
 
 #include <glib-object.h>
 #include <webkit2/WebKitDefines.h>
+#include <webkit2/WebKitURIRequest.h>
 #include <webkit2/WebKitURIResponse.h>
 
 G_BEGIN_DECLS
@@ -50,38 +51,37 @@ struct _WebKitDownload {
 struct _WebKitDownloadClass {
     GObjectClass parent_class;
 
-    gboolean (* received_data)       (WebKitDownload *download,
-                                      guint64         data_length);
-    gboolean (* finished)            (WebKitDownload *download);
-    gboolean (* failed)              (WebKitDownload *download,
-                                      GError         *error);
     gboolean (* decide_destination)  (WebKitDownload *download,
                                       const gchar    *suggested_filename);
-    gboolean (* created_destination) (WebKitDownload *download,
-                                      const gchar    *destination);
 };
 
 WEBKIT_API GType
-webkit_download_get_type               (void);
+webkit_download_get_type                 (void);
+
+WEBKIT_API WebKitURIRequest *
+webkit_download_get_request              (WebKitDownload *download);
 
 WEBKIT_API const gchar *
-webkit_download_get_destination        (WebKitDownload *download);
+webkit_download_get_destination          (WebKitDownload *download);
 
 WEBKIT_API void
-webkit_download_set_destination        (WebKitDownload *download,
-                                        const gchar    *uri);
+webkit_download_set_destination          (WebKitDownload *download,
+                                          const gchar    *uri);
 
 WEBKIT_API WebKitURIResponse*
-webkit_download_get_response           (WebKitDownload *download);
+webkit_download_get_response             (WebKitDownload *download);
 
 WEBKIT_API void
-webkit_download_cancel                 (WebKitDownload *download);
+webkit_download_cancel                   (WebKitDownload *download);
 
 WEBKIT_API gdouble
-webkit_download_get_estimated_progress (WebKitDownload *download);
+webkit_download_get_estimated_progress   (WebKitDownload *download);
 
 WEBKIT_API gdouble
-webkit_download_get_elapsed_time       (WebKitDownload *download);
+webkit_download_get_elapsed_time         (WebKitDownload *download);
+
+WEBKIT_API guint64
+webkit_download_get_received_data_length (WebKitDownload* download);
 
 G_END_DECLS
 

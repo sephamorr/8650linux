@@ -18,12 +18,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GTK_TOGGLE_TOOL_BUTTON_H__
+#define __GTK_TOGGLE_TOOL_BUTTON_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_TOGGLE_TOOL_BUTTON_H__
-#define __GTK_TOGGLE_TOOL_BUTTON_H__
 
 #include <gtk/gtktoolbutton.h>
 
@@ -62,12 +62,17 @@ struct _GtkToggleToolButtonClass
   void (* _gtk_reserved4) (void);
 };
 
+GDK_AVAILABLE_IN_ALL
 GType        gtk_toggle_tool_button_get_type       (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkToolItem *gtk_toggle_tool_button_new            (void);
+GDK_DEPRECATED_IN_3_10_FOR(gtk_toggle_tool_button_new)
 GtkToolItem *gtk_toggle_tool_button_new_from_stock (const gchar *stock_id);
 
+GDK_AVAILABLE_IN_ALL
 void         gtk_toggle_tool_button_set_active     (GtkToggleToolButton *button,
 						    gboolean             is_active);
+GDK_AVAILABLE_IN_ALL
 gboolean     gtk_toggle_tool_button_get_active     (GtkToggleToolButton *button);
 
 G_END_DECLS

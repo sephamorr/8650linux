@@ -109,6 +109,9 @@
         <doc:description>
           <doc:para>
             The profile paths associated with this device.
+            Profiles are returned even if the device is disabled or
+            is profiling, and clients should not assume that the first
+            profile in this array should be applied.
           </doc:para>
         </doc:description>
       </doc:doc>
@@ -176,7 +179,50 @@
     </property>
 
     <!--***********************************************************-->
+    <property name='Enabled' type='b' access='read'>
+      <doc:doc>
+        <doc:description>
+          <doc:para>
+            If the device is enabled. Devices are enabled by default
+            until <doc:tt>Device.SetEnabled(False)</doc:tt> is called.
+            If the enabled state is changed then this is reflected for
+            all users and persistent across reboots.
+          </doc:para>
+          <doc:para>
+            If a device is not enabled then no profiles can be added or
+            removed and the default cannot be changed.
+          </doc:para>
+        </doc:description>
+      </doc:doc>
+    </property>
+
+    <!--***********************************************************-->
+    <property name='Seat' type='s' access='read'>
+      <doc:doc>
+        <doc:description>
+          <doc:para>
+            The seat that the device belongs to, or an empty string for
+            none or unknown.
+          </doc:para>
+        </doc:description>
+      </doc:doc>
+    </property>
+
+    <!--***********************************************************-->
+    <property name='Embedded' type='b' access='read'>
+      <doc:doc>
+        <doc:description>
+          <doc:para>
+            If the device is embedded into the hardware itself, for
+            example the internal webcam or laptop screen.
+          </doc:para>
+        </doc:description>
+      </doc:doc>
+    </property>
+
+    <!--***********************************************************-->
     <property name='Metadata' type='a{ss}' access='read'>
+      <annotation name="org.qtproject.QtDBus.QtTypeName" value="CdStringMap"/>
       <doc:doc>
         <doc:description>
           <doc:para>
@@ -301,6 +347,14 @@
             a persistent datadase, so that if the device and profile
             happen to both exist in the future, the profiles are
             no longer auto-added to the device.
+          </doc:para>
+          <doc:para>
+            If the profile was automatically added due to metadata in
+            the profile (e.g. the profile was created for the device)
+            then manually removing the profile will cause this metadata
+            add to be supressed.
+            This allows the user to remove old or obsolete profiles
+            from any color control panel without having to delete them.
           </doc:para>
         </doc:description>
       </doc:doc>
@@ -434,6 +488,26 @@
           </doc:para>
         </doc:description>
       </doc:doc>
+    </method>
+
+    <!--***********************************************************-->
+    <method name='SetEnabled'>
+      <doc:doc>
+        <doc:description>
+          <doc:para>
+            Sets the device enable state.
+          </doc:para>
+        </doc:description>
+      </doc:doc>
+      <arg type='b' name='enabled' direction='in'>
+        <doc:doc>
+          <doc:summary>
+            <doc:para>
+              If the device is enabled.
+            </doc:para>
+          </doc:summary>
+        </doc:doc>
+      </arg>
     </method>
 
   </interface>

@@ -21,11 +21,10 @@
 #ifndef WebKitDOMDOMTokenList_h
 #define WebKitDOMDOMTokenList_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_DOM_TOKEN_LIST            (webkit_dom_dom_token_list_get_type())
@@ -67,7 +66,7 @@ webkit_dom_dom_token_list_item(WebKitDOMDOMTokenList* self, gulong index);
  *
 **/
 WEBKIT_API gboolean
-webkit_dom_dom_token_list_contains(WebKitDOMDOMTokenList* self, const gchar* token, GError **error);
+webkit_dom_dom_token_list_contains(WebKitDOMDOMTokenList* self, const gchar* token, GError** error);
 
 /**
  * webkit_dom_dom_token_list_add:
@@ -79,7 +78,7 @@ webkit_dom_dom_token_list_contains(WebKitDOMDOMTokenList* self, const gchar* tok
  *
 **/
 WEBKIT_API void
-webkit_dom_dom_token_list_add(WebKitDOMDOMTokenList* self, const gchar* token, GError **error);
+webkit_dom_dom_token_list_add(WebKitDOMDOMTokenList* self, const gchar* token, GError** error);
 
 /**
  * webkit_dom_dom_token_list_remove:
@@ -91,7 +90,7 @@ webkit_dom_dom_token_list_add(WebKitDOMDOMTokenList* self, const gchar* token, G
  *
 **/
 WEBKIT_API void
-webkit_dom_dom_token_list_remove(WebKitDOMDOMTokenList* self, const gchar* token, GError **error);
+webkit_dom_dom_token_list_remove(WebKitDOMDOMTokenList* self, const gchar* token, GError** error);
 
 /**
  * webkit_dom_dom_token_list_toggle:
@@ -103,7 +102,7 @@ webkit_dom_dom_token_list_remove(WebKitDOMDOMTokenList* self, const gchar* token
  *
 **/
 WEBKIT_API gboolean
-webkit_dom_dom_token_list_toggle(WebKitDOMDOMTokenList* self, const gchar* token, GError **error);
+webkit_dom_dom_token_list_toggle(WebKitDOMDOMTokenList* self, const gchar* token, GError** error);
 
 /**
  * webkit_dom_dom_token_list_get_length:

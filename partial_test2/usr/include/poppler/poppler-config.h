@@ -17,7 +17,7 @@
 
 /* Defines the poppler version. */
 #ifndef POPPLER_VERSION
-#define POPPLER_VERSION "0.20.0"
+#define POPPLER_VERSION "0.24.2"
 #endif
 
 /* Enable multithreading support. */
@@ -43,16 +43,6 @@
 /* Enable word list support. */
 #ifndef TEXTOUT_WORD_LIST
 #define TEXTOUT_WORD_LIST 1
-#endif
-
-/* Use fontconfig font configuration backend */
-#ifndef WITH_FONTCONFIGURATION_FONTCONFIG
-#define WITH_FONTCONFIGURATION_FONTCONFIG 1
-#endif
-
-/* Use win32 font configuration backend */
-#ifndef WITH_FONTCONFIGURATION_WIN32
-/* #undef WITH_FONTCONFIGURATION_WIN32 */
 #endif
 
 /* Support for curl is compiled in. */
@@ -128,7 +118,7 @@
 //------------------------------------------------------------------------
 
 // copyright notice
-#define popplerCopyright "Copyright 2005-2012 The Poppler Developers - http://poppler.freedesktop.org"
+#define popplerCopyright "Copyright 2005-2013 The Poppler Developers - http://poppler.freedesktop.org"
 #define xpdfCopyright "Copyright 1996-2011 Glyph & Cog, LLC"
 
 //------------------------------------------------------------------------
@@ -159,7 +149,7 @@
 #if defined(_WIN32)
 #ifdef _MSC_VER
 #define strtok_r strtok_s
-#elif __MINGW32__
+#elif __MINGW32__ && !defined(__WINPTHREADS_VERSION)
 char * strtok_r (char *s, const char *delim, char **save_ptr);
 #endif
 #endif
@@ -169,8 +159,13 @@ char * strtok_r (char *s, const char *delim, char **save_ptr);
 //------------------------------------------------------------------------
 
 #if __GNUC__ > 2 || (__GNUC__ == 2 && __GNUC_MINOR__ > 4)
+#ifdef __MINGW_PRINTF_FORMAT
+#define GCC_PRINTF_FORMAT(fmt_index, va_index) \
+	__attribute__((__format__(__MINGW_PRINTF_FORMAT, fmt_index, va_index)))
+#else
 #define GCC_PRINTF_FORMAT(fmt_index, va_index) \
 	__attribute__((__format__(__printf__, fmt_index, va_index)))
+#endif
 #else
 #define GCC_PRINTF_FORMAT(fmt_index, va_index)
 #endif

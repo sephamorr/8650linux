@@ -22,12 +22,12 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
+#ifndef __GTK_TEXT_TAG_TABLE_H__
+#define __GTK_TEXT_TAG_TABLE_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_TEXT_TAG_TABLE_H__
-#define __GTK_TEXT_TAG_TABLE_H__
 
 #include <gtk/gtktexttag.h>
 
@@ -67,18 +67,25 @@ struct _GtkTextTagTableClass
   void (*_gtk_reserved4) (void);
 };
 
+GDK_AVAILABLE_IN_ALL
 GType          gtk_text_tag_table_get_type (void) G_GNUC_CONST;
 
+GDK_AVAILABLE_IN_ALL
 GtkTextTagTable *gtk_text_tag_table_new      (void);
+GDK_AVAILABLE_IN_ALL
 void             gtk_text_tag_table_add      (GtkTextTagTable        *table,
                                               GtkTextTag             *tag);
+GDK_AVAILABLE_IN_ALL
 void             gtk_text_tag_table_remove   (GtkTextTagTable        *table,
                                               GtkTextTag             *tag);
+GDK_AVAILABLE_IN_ALL
 GtkTextTag      *gtk_text_tag_table_lookup   (GtkTextTagTable        *table,
                                               const gchar            *name);
+GDK_AVAILABLE_IN_ALL
 void             gtk_text_tag_table_foreach  (GtkTextTagTable        *table,
                                               GtkTextTagTableForeach  func,
                                               gpointer                data);
+GDK_AVAILABLE_IN_ALL
 gint             gtk_text_tag_table_get_size (GtkTextTagTable        *table);
 
 

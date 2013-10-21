@@ -31,7 +31,7 @@
 G_BEGIN_DECLS
 
 /**
- *AtkTextAttribute
+ *AtkTextAttribute:
  *@ATK_TEXT_ATTR_INVALID: Invalid attribute
  *@ATK_TEXT_ATTR_LEFT_MARGIN: The pixel width of the left margin
  *@ATK_TEXT_ATTR_RIGHT_MARGIN: The pixel width of the right margin
@@ -111,21 +111,27 @@ typedef struct _AtkText AtkText;
 #endif
 typedef struct _AtkTextIface AtkTextIface;
 
+
 /**
  *AtkTextBoundary:
- *@ATK_TEXT_BOUNDARY_CHAR: Boundary is the boundary between characters 
+ *@ATK_TEXT_BOUNDARY_CHAR: Boundary is the boundary between characters
  * (including non-printing characters)
- *@ATK_TEXT_BOUNDARY_WORD_START: Boundary is the start (i.e. first character) of a word. 
- *@ATK_TEXT_BOUNDARY_WORD_END: Boundary is the end (i.e. last character) of a word.
+ *@ATK_TEXT_BOUNDARY_WORD_START: Boundary is the start (i.e. first character) of a word.
+ *@ATK_TEXT_BOUNDARY_WORD_END: Boundary is the end (i.e. last
+ * character) of a word.
  *@ATK_TEXT_BOUNDARY_SENTENCE_START: Boundary is the first character in a sentence.
- *@ATK_TEXT_BOUNDARY_SENTENCE_END: Boundary is the last (terminal) character in a sentence; 
- * in languages which use "sentence stop" punctuation such as English, the boundary is thus the
- * '.', '?', or similar terminal punctuation character.
- *@ATK_TEXT_BOUNDARY_LINE_START: Boundary is the initial character of the content or a 
+ *@ATK_TEXT_BOUNDARY_SENTENCE_END: Boundary is the last (terminal)
+ * character in a sentence; in languages which use "sentence stop"
+ * punctuation such as English, the boundary is thus the '.', '?', or
+ * similar terminal punctuation character.
+ *@ATK_TEXT_BOUNDARY_LINE_START: Boundary is the initial character of the content or a
  * character immediately following a newline, linefeed, or return character.
- *@ATK_TEXT_BOUNDARY_LINE_END: Boundary is the linefeed, or return character.
+ *@ATK_TEXT_BOUNDARY_LINE_END: Boundary is the linefeed, or return
+ * character.
  *
- *Text boundary types used for specifying boundaries for regions of text
+ * Text boundary types used for specifying boundaries for regions of text.
+ * This enumerationis deprecated since 2.9.4 and should not be used. Use
+ * AtkTextGranularity with #atk_text_get_string_at_offset instead.
  **/
 typedef enum {
   ATK_TEXT_BOUNDARY_CHAR,
@@ -136,6 +142,34 @@ typedef enum {
   ATK_TEXT_BOUNDARY_LINE_START,
   ATK_TEXT_BOUNDARY_LINE_END
 } AtkTextBoundary;
+
+/**
+ *AtkTextGranularity:
+ *@ATK_TEXT_GRANULARITY_CHAR: Granularity is defined by the boundaries between characters
+ * (including non-printing characters)
+ *@ATK_TEXT_GRANULARITY_WORD: Granularity is defined by the boundaries of a word,
+ * starting at the beginning of the current word and finishing at the beginning of
+ * the following one, if present.
+ *@ATK_TEXT_GRANULARITY_SENTENCE: Granularity is defined by the boundaries of a sentence,
+ * starting at the beginning of the current sentence and finishing at the beginning of
+ * the following one, if present.
+ *@ATK_TEXT_GRANULARITY_LINE: Granularity is defined by the boundaries of a line,
+ * starting at the beginning of the current line and finishing at the beginning of
+ * the following one, if present.
+ *@ATK_TEXT_GRANULARITY_PARAGRAPH: Granularity is defined by the boundaries of a paragraph,
+ * starting at the beginning of the current paragraph and finishing at the beginning of
+ * the following one, if present.
+ *
+ * Text granularity types used for specifying the granularity of the region of
+ * text we are interested in.
+ **/
+typedef enum {
+  ATK_TEXT_GRANULARITY_CHAR,
+  ATK_TEXT_GRANULARITY_WORD,
+  ATK_TEXT_GRANULARITY_SENTENCE,
+  ATK_TEXT_GRANULARITY_LINE,
+  ATK_TEXT_GRANULARITY_PARAGRAPH
+} AtkTextGranularity;
 
 /**
  * AtkTextRectangle:
@@ -177,7 +211,7 @@ struct _AtkTextRange {
 GType atk_text_range_get_type (void);
 
 /**
- *AtkTextClipType
+ *AtkTextClipType:
  *@ATK_TEXT_CLIP_NONE: No clipping to be done
  *@ATK_TEXT_CLIP_MIN: Text clipped by min coordinate is omitted
  *@ATK_TEXT_CLIP_MAX: Text clipped by max coordinate is omitted
@@ -192,6 +226,22 @@ typedef enum {
     ATK_TEXT_CLIP_BOTH
 } AtkTextClipType;
 
+/**
+ * AtkTextIface:
+ * @get_text_after_offset: Gets specified text. This virtual function
+ *   is deprecated and it should not be overridden.
+ * @get_text_at_offset: Gets specified text. This virtual function
+ *   is deprecated and it should not be overridden.
+ * @get_text_before_offset: Gets specified text. This virtual function
+ *   is deprecated and it should not be overridden.
+ * @get_string_at_offset: Gets a portion of the text exposed through
+ *   an AtkText according to a given offset and a specific
+ *   granularity, along with the start and end offsets defining the
+ *   boundaries of such a portion of text.
+ * @text_changed: the signal handler which is executed when there is a
+ *   text change. This virtual function is deprecated sice 2.9.4 and
+ *   it should not be overriden.
+ */
 struct _AtkTextIface
 {
   GTypeInterface parent;
@@ -275,9 +325,12 @@ struct _AtkTextIface
                                                    AtkCoordType     coord_type,
                                                    AtkTextClipType  x_clip_type,
                                                    AtkTextClipType  y_clip_type);
- 
 
-  AtkFunction    pad4;
+  gchar*         (* get_string_at_offset)         (AtkText            *text,
+                                                   gint               offset,
+                                                   AtkTextGranularity granularity,
+                                                   gint               *start_offset,
+                                                   gint               *end_offset);
 };
 
 GType            atk_text_get_type (void);
@@ -295,21 +348,29 @@ gchar*        atk_text_get_text                           (AtkText          *tex
                                                            gint             end_offset);
 gunichar      atk_text_get_character_at_offset            (AtkText          *text,
                                                            gint             offset);
+G_DEPRECATED_FOR(atk_text_get_string_at_offset)
 gchar*        atk_text_get_text_after_offset              (AtkText          *text,
                                                            gint             offset,
                                                            AtkTextBoundary  boundary_type,
 							   gint             *start_offset,
 							   gint	            *end_offset);
+G_DEPRECATED_FOR(atk_text_get_string_at_offset)
 gchar*        atk_text_get_text_at_offset                 (AtkText          *text,
                                                            gint             offset,
                                                            AtkTextBoundary  boundary_type,
 							   gint             *start_offset,
 							   gint             *end_offset);
+G_DEPRECATED_FOR(atk_text_get_string_at_offset)
 gchar*        atk_text_get_text_before_offset             (AtkText          *text,
                                                            gint             offset,
                                                            AtkTextBoundary  boundary_type,
 							   gint             *start_offset,
 							   gint	            *end_offset);
+gchar*        atk_text_get_string_at_offset               (AtkText            *text,
+                                                           gint               offset,
+                                                           AtkTextGranularity granularity,
+                                                           gint               *start_offset,
+                                                           gint               *end_offset);
 gint          atk_text_get_caret_offset                   (AtkText          *text);
 void          atk_text_get_character_extents              (AtkText          *text,
                                                            gint             offset,

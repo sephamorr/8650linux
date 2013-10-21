@@ -16,6 +16,8 @@
       <sub name="Visuals" link="gdk3-Visuals.html"/>
       <sub name="Cursors" link="gdk3-Cursors.html"/>
       <sub name="Windows" link="gdk3-Windows.html"/>
+      <sub name="Frame clock" link="gdk3-GdkFrameClock.html"/>
+      <sub name="Frame timings" link="gdk3-GdkFrameTimings.html"/>
       <sub name="Events" link="gdk3-Events.html"/>
       <sub name="Event Structures" link="gdk3-Event-Structures.html"/>
       <sub name="Key Values" link="gdk3-Keyboard-Handling.html"/>
@@ -26,13 +28,18 @@
       <sub name="Pango Interaction" link="gdk3-Pango-Interaction.html"/>
       <sub name="Cairo Interaction" link="gdk3-Cairo-Interaction.html"/>
       <sub name="X Window System Interaction" link="gdk3-X-Window-System-Interaction.html"/>
+      <sub name="Wayland Interaction" link="gdk3-Wayland-Interaction.html"/>
       <sub name="Application launching" link="gdk3-Application-launching.html"/>
+      <sub name="Testing" link="gdk3-Testing.html"/>
     </sub>
     <sub name="Index of all symbols" link="api-index-full.html"/>
     <sub name="Index of deprecated symbols" link="api-index-deprecated.html"/>
     <sub name="Index of new symbols in 3.0" link="api-index-3-0.html"/>
     <sub name="Index of new symbols in 3.2" link="api-index-3-2.html"/>
     <sub name="Index of new symbols in 3.4" link="api-index-3-4.html"/>
+    <sub name="Index of new symbols in 3.6" link="api-index-3-6.html"/>
+    <sub name="Index of new symbols in 3.8" link="api-index-3-8.html"/>
+    <sub name="Index of new symbols in 3.10" link="api-index-3-10.html"/>
     <sub name="Annotation Glossary" link="annotation-glossary.html"/>
   </chapters>
   <functions>
@@ -42,9 +49,10 @@
     <keyword type="function" name="gdk_get_display_arg_name ()" link="gdk3-General.html#gdk-get-display-arg-name" since="2.2"/>
     <keyword type="function" name="gdk_notify_startup_complete ()" link="gdk3-General.html#gdk-notify-startup-complete" since="2.2"/>
     <keyword type="function" name="gdk_notify_startup_complete_with_id ()" link="gdk3-General.html#gdk-notify-startup-complete-with-id" since="2.12"/>
+    <keyword type="function" name="gdk_set_allowed_backends ()" link="gdk3-General.html#gdk-set-allowed-backends" since="3.10"/>
     <keyword type="function" name="gdk_get_program_class ()" link="gdk3-General.html#gdk-get-program-class"/>
     <keyword type="function" name="gdk_set_program_class ()" link="gdk3-General.html#gdk-set-program-class"/>
-    <keyword type="function" name="gdk_get_display ()" link="gdk3-General.html#gdk-get-display"/>
+    <keyword type="function" name="gdk_get_display ()" link="gdk3-General.html#gdk-get-display" deprecated=""/>
     <keyword type="function" name="gdk_flush ()" link="gdk3-General.html#gdk-flush"/>
     <keyword type="function" name="gdk_screen_width ()" link="gdk3-General.html#gdk-screen-width"/>
     <keyword type="function" name="gdk_screen_height ()" link="gdk3-General.html#gdk-screen-height"/>
@@ -63,6 +71,7 @@
     <keyword type="function" name="gdk_error_trap_pop_ignored ()" link="gdk3-General.html#gdk-error-trap-pop-ignored" since="3.0"/>
     <keyword type="macro" name="GDK_WINDOWING_X11" link="gdk3-General.html#GDK-WINDOWING-X11:CAPS"/>
     <keyword type="macro" name="GDK_WINDOWING_WIN32" link="gdk3-General.html#GDK-WINDOWING-WIN32:CAPS"/>
+    <keyword type="macro" name="GDK_WINDOWING_WAYLAND" link="gdk3-General.html#GDK-WINDOWING-WAYLAND:CAPS"/>
     <keyword type="macro" name="GDK_VERSION_3_0" link="gdk3-General.html#GDK-VERSION-3-0:CAPS" since="3.4"/>
     <keyword type="macro" name="GDK_VERSION_3_2" link="gdk3-General.html#GDK-VERSION-3-2:CAPS" since="3.4"/>
     <keyword type="macro" name="GDK_VERSION_3_4" link="gdk3-General.html#GDK-VERSION-3-4:CAPS" since="3.4"/>
@@ -80,7 +89,7 @@
     <keyword type="function" name="gdk_display_open ()" link="GdkDisplay.html#gdk-display-open" since="2.2"/>
     <keyword type="function" name="gdk_display_get_default ()" link="GdkDisplay.html#gdk-display-get-default" since="2.2"/>
     <keyword type="function" name="gdk_display_get_name ()" link="GdkDisplay.html#gdk-display-get-name" since="2.2"/>
-    <keyword type="function" name="gdk_display_get_n_screens ()" link="GdkDisplay.html#gdk-display-get-n-screens" since="2.2"/>
+    <keyword type="function" name="gdk_display_get_n_screens ()" link="GdkDisplay.html#gdk-display-get-n-screens" deprecated="3.10: The number of screens is always 1." since="2.2"/>
     <keyword type="function" name="gdk_display_get_screen ()" link="GdkDisplay.html#gdk-display-get-screen" since="2.2"/>
     <keyword type="function" name="gdk_display_get_default_screen ()" link="GdkDisplay.html#gdk-display-get-default-screen" since="2.2"/>
     <keyword type="function" name="gdk_display_get_device_manager ()" link="GdkDisplay.html#gdk-display-get-device-manager" since="3.0"/>
@@ -143,6 +152,7 @@
     <keyword type="function" name="gdk_screen_get_monitor_height_mm ()" link="GdkScreen.html#gdk-screen-get-monitor-height-mm" since="2.14"/>
     <keyword type="function" name="gdk_screen_get_monitor_width_mm ()" link="GdkScreen.html#gdk-screen-get-monitor-width-mm" since="2.14"/>
     <keyword type="function" name="gdk_screen_get_monitor_plug_name ()" link="GdkScreen.html#gdk-screen-get-monitor-plug-name" since="2.14"/>
+    <keyword type="function" name="gdk_screen_get_monitor_scale_factor ()" link="GdkScreen.html#gdk-screen-get-monitor-scale-factor" since="3.10"/>
     <keyword type="function" name="gdk_screen_get_setting ()" link="GdkScreen.html#gdk-screen-get-setting" since="2.2"/>
     <keyword type="function" name="gdk_screen_get_font_options ()" link="GdkScreen.html#gdk-screen-get-font-options" since="2.10"/>
     <keyword type="function" name="gdk_screen_set_font_options ()" link="GdkScreen.html#gdk-screen-set-font-options" since="2.10"/>
@@ -190,7 +200,9 @@
     <keyword type="function" name="gdk_device_ungrab ()" link="GdkDevice.html#gdk-device-ungrab" since="3.0"/>
     <keyword type="function" name="gdk_device_get_state ()" link="GdkDevice.html#gdk-device-get-state"/>
     <keyword type="function" name="gdk_device_get_position ()" link="GdkDevice.html#gdk-device-get-position" since="3.0"/>
+    <keyword type="function" name="gdk_device_get_position_double ()" link="GdkDevice.html#gdk-device-get-position-double" since="3.10"/>
     <keyword type="function" name="gdk_device_get_window_at_position ()" link="GdkDevice.html#gdk-device-get-window-at-position" since="3.0"/>
+    <keyword type="function" name="gdk_device_get_window_at_position_double ()" link="GdkDevice.html#gdk-device-get-window-at-position-double" since="3.0"/>
     <keyword type="function" name="gdk_device_get_history ()" link="GdkDevice.html#gdk-device-get-history"/>
     <keyword type="function" name="gdk_device_free_history ()" link="GdkDevice.html#gdk-device-free-history"/>
     <keyword type="struct" name="struct GdkTimeCoord" link="GdkDevice.html#GdkTimeCoord"/>
@@ -253,10 +265,12 @@
     <keyword type="enum" name="enum GdkCursorType" link="gdk3-Cursors.html#GdkCursorType"/>
     <keyword type="function" name="gdk_cursor_new ()" link="gdk3-Cursors.html#gdk-cursor-new"/>
     <keyword type="function" name="gdk_cursor_new_from_pixbuf ()" link="gdk3-Cursors.html#gdk-cursor-new-from-pixbuf" since="2.4"/>
+    <keyword type="function" name="gdk_cursor_new_from_surface ()" link="gdk3-Cursors.html#gdk-cursor-new-from-surface" since="3.10"/>
     <keyword type="function" name="gdk_cursor_new_from_name ()" link="gdk3-Cursors.html#gdk-cursor-new-from-name" since="2.8"/>
     <keyword type="function" name="gdk_cursor_new_for_display ()" link="gdk3-Cursors.html#gdk-cursor-new-for-display" since="2.2"/>
     <keyword type="function" name="gdk_cursor_get_display ()" link="gdk3-Cursors.html#gdk-cursor-get-display" since="2.2"/>
     <keyword type="function" name="gdk_cursor_get_image ()" link="gdk3-Cursors.html#gdk-cursor-get-image" since="2.8"/>
+    <keyword type="function" name="gdk_cursor_get_surface ()" link="gdk3-Cursors.html#gdk-cursor-get-surface" since="3.10"/>
     <keyword type="function" name="gdk_cursor_get_cursor_type ()" link="gdk3-Cursors.html#gdk-cursor-get-cursor-type" since="2.22"/>
     <keyword type="function" name="gdk_cursor_ref ()" link="gdk3-Cursors.html#gdk-cursor-ref" deprecated="3.0: Use g_object_ref() instead"/>
     <keyword type="function" name="gdk_cursor_unref ()" link="gdk3-Cursors.html#gdk-cursor-unref" deprecated="3.0: Use g_object_unref() instead"/>
@@ -299,6 +313,9 @@
     <keyword type="function" name="gdk_window_unmaximize ()" link="gdk3-Windows.html#gdk-window-unmaximize"/>
     <keyword type="function" name="gdk_window_fullscreen ()" link="gdk3-Windows.html#gdk-window-fullscreen" since="2.2"/>
     <keyword type="function" name="gdk_window_unfullscreen ()" link="gdk3-Windows.html#gdk-window-unfullscreen" since="2.2"/>
+    <keyword type="enum" name="enum GdkFullscreenMode" link="gdk3-Windows.html#GdkFullscreenMode" since="3.8"/>
+    <keyword type="function" name="gdk_window_get_fullscreen_mode ()" link="gdk3-Windows.html#gdk-window-get-fullscreen-mode" since="3.8"/>
+    <keyword type="function" name="gdk_window_set_fullscreen_mode ()" link="gdk3-Windows.html#gdk-window-set-fullscreen-mode" since="3.8"/>
     <keyword type="function" name="gdk_window_set_keep_above ()" link="gdk3-Windows.html#gdk-window-set-keep-above" since="2.4"/>
     <keyword type="function" name="gdk_window_set_keep_below ()" link="gdk3-Windows.html#gdk-window-set-keep-below" since="2.4"/>
     <keyword type="function" name="gdk_window_set_opacity ()" link="gdk3-Windows.html#gdk-window-set-opacity" since="2.12"/>
@@ -324,11 +341,15 @@
     <keyword type="function" name="gdk_window_begin_move_drag_for_device ()" link="gdk3-Windows.html#gdk-window-begin-move-drag-for-device" since="3.4"/>
     <keyword type="function" name="gdk_window_constrain_size ()" link="gdk3-Windows.html#gdk-window-constrain-size"/>
     <keyword type="function" name="gdk_window_beep ()" link="gdk3-Windows.html#gdk-window-beep" since="2.12"/>
+    <keyword type="function" name="gdk_window_get_scale_factor ()" link="gdk3-Windows.html#gdk-window-get-scale-factor" since="3.10"/>
+    <keyword type="function" name="gdk_window_set_opaque_region ()" link="gdk3-Windows.html#gdk-window-set-opaque-region" since="3.10"/>
     <keyword type="function" name="gdk_window_get_clip_region ()" link="gdk3-Windows.html#gdk-window-get-clip-region"/>
     <keyword type="function" name="gdk_window_begin_paint_rect ()" link="gdk3-Windows.html#gdk-window-begin-paint-rect"/>
     <keyword type="function" name="gdk_window_begin_paint_region ()" link="gdk3-Windows.html#gdk-window-begin-paint-region"/>
     <keyword type="function" name="gdk_window_end_paint ()" link="gdk3-Windows.html#gdk-window-end-paint"/>
     <keyword type="function" name="gdk_window_get_visible_region ()" link="gdk3-Windows.html#gdk-window-get-visible-region"/>
+    <keyword type="function" name="GdkWindowInvalidateHandlerFunc ()" link="gdk3-Windows.html#GdkWindowInvalidateHandlerFunc" since="3.10"/>
+    <keyword type="function" name="gdk_window_set_invalidate_handler ()" link="gdk3-Windows.html#gdk-window-set-invalidate-handler" since="3.10"/>
     <keyword type="function" name="gdk_window_invalidate_rect ()" link="gdk3-Windows.html#gdk-window-invalidate-rect"/>
     <keyword type="function" name="gdk_window_invalidate_region ()" link="gdk3-Windows.html#gdk-window-invalidate-region"/>
     <keyword type="function" name="GdkWindowChildFunc ()" link="gdk3-Windows.html#GdkWindowChildFunc"/>
@@ -339,8 +360,9 @@
     <keyword type="function" name="gdk_window_process_all_updates ()" link="gdk3-Windows.html#gdk-window-process-all-updates"/>
     <keyword type="function" name="gdk_window_process_updates ()" link="gdk3-Windows.html#gdk-window-process-updates"/>
     <keyword type="function" name="gdk_window_set_debug_updates ()" link="gdk3-Windows.html#gdk-window-set-debug-updates"/>
-    <keyword type="function" name="gdk_window_enable_synchronized_configure ()" link="gdk3-Windows.html#gdk-window-enable-synchronized-configure" since="2.6"/>
-    <keyword type="function" name="gdk_window_configure_finished ()" link="gdk3-Windows.html#gdk-window-configure-finished" since="2.6"/>
+    <keyword type="function" name="gdk_window_enable_synchronized_configure ()" link="gdk3-Windows.html#gdk-window-enable-synchronized-configure" deprecated="3.8: this function is no longer needed" since="2.6"/>
+    <keyword type="function" name="gdk_window_configure_finished ()" link="gdk3-Windows.html#gdk-window-configure-finished" deprecated="3.8: this function is no longer needed" since="2.6"/>
+    <keyword type="function" name="gdk_window_get_frame_clock ()" link="gdk3-Windows.html#gdk-window-get-frame-clock" since="3.8"/>
     <keyword type="function" name="gdk_window_set_user_data ()" link="gdk3-Windows.html#gdk-window-set-user-data"/>
     <keyword type="function" name="gdk_window_set_override_redirect ()" link="gdk3-Windows.html#gdk-window-set-override-redirect"/>
     <keyword type="function" name="gdk_window_set_accept_focus ()" link="gdk3-Windows.html#gdk-window-set-accept-focus" since="2.4"/>
@@ -387,10 +409,12 @@
     <keyword type="function" name="gdk_window_get_root_coords ()" link="gdk3-Windows.html#gdk-window-get-root-coords" since="2.18"/>
     <keyword type="function" name="gdk_window_get_pointer ()" link="gdk3-Windows.html#gdk-window-get-pointer" deprecated="3.0: Use gdk_window_get_device_position() instead."/>
     <keyword type="function" name="gdk_window_get_device_position ()" link="gdk3-Windows.html#gdk-window-get-device-position" since="3.0"/>
+    <keyword type="function" name="gdk_window_get_device_position_double ()" link="gdk3-Windows.html#gdk-window-get-device-position-double" since="3.10"/>
     <keyword type="enum" name="enum GdkModifierType" link="gdk3-Windows.html#GdkModifierType"/>
     <keyword type="function" name="gdk_window_get_parent ()" link="gdk3-Windows.html#gdk-window-get-parent"/>
     <keyword type="function" name="gdk_window_get_toplevel ()" link="gdk3-Windows.html#gdk-window-get-toplevel"/>
     <keyword type="function" name="gdk_window_get_children ()" link="gdk3-Windows.html#gdk-window-get-children"/>
+    <keyword type="function" name="gdk_window_get_children_with_user_data ()" link="gdk3-Windows.html#gdk-window-get-children-with-user-data" since="3.10"/>
     <keyword type="function" name="gdk_window_peek_children ()" link="gdk3-Windows.html#gdk-window-peek-children"/>
     <keyword type="function" name="gdk_window_get_events ()" link="gdk3-Windows.html#gdk-window-get-events"/>
     <keyword type="function" name="gdk_window_set_events ()" link="gdk3-Windows.html#gdk-window-set-events"/>
@@ -427,6 +451,26 @@
     <keyword type="signal" name="The &quot;from-embedder&quot; signal" link="gdk3-Windows.html#GdkWindow-from-embedder"/>
     <keyword type="signal" name="The &quot;pick-embedded-child&quot; signal" link="gdk3-Windows.html#GdkWindow-pick-embedded-child"/>
     <keyword type="signal" name="The &quot;to-embedder&quot; signal" link="gdk3-Windows.html#GdkWindow-to-embedder"/>
+    <keyword type="struct" name="GdkFrameClock" link="gdk3-GdkFrameClock.html#GdkFrameClock"/>
+    <keyword type="function" name="gdk_frame_clock_get_frame_time ()" link="gdk3-GdkFrameClock.html#gdk-frame-clock-get-frame-time" since="3.8"/>
+    <keyword type="enum" name="enum GdkFrameClockPhase" link="gdk3-GdkFrameClock.html#GdkFrameClockPhase" since="3.8"/>
+    <keyword type="function" name="gdk_frame_clock_request_phase ()" link="gdk3-GdkFrameClock.html#gdk-frame-clock-request-phase" since="3.8"/>
+    <keyword type="function" name="gdk_frame_clock_begin_updating ()" link="gdk3-GdkFrameClock.html#gdk-frame-clock-begin-updating" since="3.8"/>
+    <keyword type="function" name="gdk_frame_clock_end_updating ()" link="gdk3-GdkFrameClock.html#gdk-frame-clock-end-updating" since="3.8"/>
+    <keyword type="function" name="gdk_frame_clock_get_frame_counter ()" link="gdk3-GdkFrameClock.html#gdk-frame-clock-get-frame-counter" since="3.8"/>
+    <keyword type="function" name="gdk_frame_clock_get_history_start ()" link="gdk3-GdkFrameClock.html#gdk-frame-clock-get-history-start" since="3.8"/>
+    <keyword type="function" name="gdk_frame_clock_get_timings ()" link="gdk3-GdkFrameClock.html#gdk-frame-clock-get-timings" since="3.8"/>
+    <keyword type="function" name="gdk_frame_clock_get_current_timings ()" link="gdk3-GdkFrameClock.html#gdk-frame-clock-get-current-timings" since="3.8"/>
+    <keyword type="function" name="gdk_frame_clock_get_refresh_info ()" link="gdk3-GdkFrameClock.html#gdk-frame-clock-get-refresh-info" since="3.8"/>
+    <keyword type="struct" name="GdkFrameTimings" link="gdk3-GdkFrameTimings.html#GdkFrameTimings"/>
+    <keyword type="function" name="gdk_frame_timings_ref ()" link="gdk3-GdkFrameTimings.html#gdk-frame-timings-ref" since="3.8"/>
+    <keyword type="function" name="gdk_frame_timings_unref ()" link="gdk3-GdkFrameTimings.html#gdk-frame-timings-unref" since="3.8"/>
+    <keyword type="function" name="gdk_frame_timings_get_frame_counter ()" link="gdk3-GdkFrameTimings.html#gdk-frame-timings-get-frame-counter" since="3.8"/>
+    <keyword type="function" name="gdk_frame_timings_get_complete ()" link="gdk3-GdkFrameTimings.html#gdk-frame-timings-get-complete" since="3.8"/>
+    <keyword type="function" name="gdk_frame_timings_get_frame_time ()" link="gdk3-GdkFrameTimings.html#gdk-frame-timings-get-frame-time"/>
+    <keyword type="function" name="gdk_frame_timings_get_presentation_time ()" link="gdk3-GdkFrameTimings.html#gdk-frame-timings-get-presentation-time" since="3.8"/>
+    <keyword type="function" name="gdk_frame_timings_get_refresh_interval ()" link="gdk3-GdkFrameTimings.html#gdk-frame-timings-get-refresh-interval" since="3.8"/>
+    <keyword type="function" name="gdk_frame_timings_get_predicted_presentation_time ()" link="gdk3-GdkFrameTimings.html#gdk-frame-timings-get-predicted-presentation-time" since="3.8"/>
     <keyword type="enum" name="enum GdkEventType" link="gdk3-Events.html#GdkEventType"/>
     <keyword type="enum" name="enum GdkEventMask" link="gdk3-Events.html#GdkEventMask"/>
     <keyword type="macro" name="GDK_CURRENT_TIME" link="gdk3-Events.html#GDK-CURRENT-TIME:CAPS"/>
@@ -455,6 +499,8 @@
     <keyword type="function" name="gdk_event_get_scroll_deltas ()" link="gdk3-Events.html#gdk-event-get-scroll-deltas" since="3.4"/>
     <keyword type="function" name="gdk_event_get_state ()" link="gdk3-Events.html#gdk-event-get-state"/>
     <keyword type="function" name="gdk_event_get_time ()" link="gdk3-Events.html#gdk-event-get-time"/>
+    <keyword type="function" name="gdk_event_get_window ()" link="gdk3-Events.html#gdk-event-get-window" since="3.10"/>
+    <keyword type="function" name="gdk_event_get_event_type ()" link="gdk3-Events.html#gdk-event-get-event-type" since="3.10"/>
     <keyword type="struct" name="GdkEventSequence" link="gdk3-Events.html#GdkEventSequence"/>
     <keyword type="function" name="gdk_event_get_event_sequence ()" link="gdk3-Events.html#gdk-event-get-event-sequence" since="3.4"/>
     <keyword type="function" name="gdk_event_request_motions ()" link="gdk3-Events.html#gdk-event-request-motions" since="2.12"/>
@@ -590,12 +636,12 @@
     <keyword type="function" name="gdk_property_change ()" link="gdk3-Properties-and-Atoms.html#gdk-property-change"/>
     <keyword type="enum" name="enum GdkPropMode" link="gdk3-Properties-and-Atoms.html#GdkPropMode"/>
     <keyword type="function" name="gdk_property_delete ()" link="gdk3-Properties-and-Atoms.html#gdk-property-delete"/>
-    <keyword type="macro" name="GDK_THREADS_ENTER" link="gdk3-Threads.html#GDK-THREADS-ENTER:CAPS"/>
-    <keyword type="macro" name="GDK_THREADS_LEAVE" link="gdk3-Threads.html#GDK-THREADS-LEAVE:CAPS"/>
-    <keyword type="function" name="gdk_threads_init ()" link="gdk3-Threads.html#gdk-threads-init"/>
-    <keyword type="function" name="gdk_threads_enter ()" link="gdk3-Threads.html#gdk-threads-enter"/>
-    <keyword type="function" name="gdk_threads_leave ()" link="gdk3-Threads.html#gdk-threads-leave"/>
-    <keyword type="function" name="gdk_threads_set_lock_functions ()" link="gdk3-Threads.html#gdk-threads-set-lock-functions" since="2.4"/>
+    <keyword type="macro" name="GDK_THREADS_ENTER" link="gdk3-Threads.html#GDK-THREADS-ENTER:CAPS" deprecated=""/>
+    <keyword type="macro" name="GDK_THREADS_LEAVE" link="gdk3-Threads.html#GDK-THREADS-LEAVE:CAPS" deprecated="3.6: Deprecated in 3.6."/>
+    <keyword type="function" name="gdk_threads_init ()" link="gdk3-Threads.html#gdk-threads-init" deprecated=""/>
+    <keyword type="function" name="gdk_threads_enter ()" link="gdk3-Threads.html#gdk-threads-enter" deprecated=""/>
+    <keyword type="function" name="gdk_threads_leave ()" link="gdk3-Threads.html#gdk-threads-leave" deprecated=""/>
+    <keyword type="function" name="gdk_threads_set_lock_functions ()" link="gdk3-Threads.html#gdk-threads-set-lock-functions" deprecated="" since="2.4"/>
     <keyword type="function" name="gdk_threads_add_idle ()" link="gdk3-Threads.html#gdk-threads-add-idle" since="2.12"/>
     <keyword type="function" name="gdk_threads_add_idle_full ()" link="gdk3-Threads.html#gdk-threads-add-idle-full" since="2.12"/>
     <keyword type="function" name="gdk_threads_add_timeout ()" link="gdk3-Threads.html#gdk-threads-add-timeout" since="2.12"/>
@@ -607,6 +653,7 @@
     <keyword type="function" name="gdk_pango_context_get ()" link="gdk3-Pango-Interaction.html#gdk-pango-context-get"/>
     <keyword type="function" name="gdk_pango_context_get_for_screen ()" link="gdk3-Pango-Interaction.html#gdk-pango-context-get-for-screen" since="2.2"/>
     <keyword type="function" name="gdk_window_create_similar_surface ()" link="gdk3-Cairo-Interaction.html#gdk-window-create-similar-surface" since="2.22"/>
+    <keyword type="function" name="gdk_window_create_similar_image_surface ()" link="gdk3-Cairo-Interaction.html#gdk-window-create-similar-image-surface" since="3.10"/>
     <keyword type="function" name="gdk_cairo_create ()" link="gdk3-Cairo-Interaction.html#gdk-cairo-create" since="2.8"/>
     <keyword type="function" name="gdk_cairo_get_clip_rectangle ()" link="gdk3-Cairo-Interaction.html#gdk-cairo-get-clip-rectangle"/>
     <keyword type="function" name="gdk_cairo_set_source_color ()" link="gdk3-Cairo-Interaction.html#gdk-cairo-set-source-color" deprecated="3.4: Use gdk_cairo_set_source_rgba() instead" since="2.8"/>
@@ -616,6 +663,7 @@
     <keyword type="function" name="gdk_cairo_rectangle ()" link="gdk3-Cairo-Interaction.html#gdk-cairo-rectangle" since="2.8"/>
     <keyword type="function" name="gdk_cairo_region ()" link="gdk3-Cairo-Interaction.html#gdk-cairo-region" since="2.8"/>
     <keyword type="function" name="gdk_cairo_region_create_from_surface ()" link="gdk3-Cairo-Interaction.html#gdk-cairo-region-create-from-surface"/>
+    <keyword type="function" name="gdk_cairo_surface_create_from_pixbuf ()" link="gdk3-Cairo-Interaction.html#gdk-cairo-surface-create-from-pixbuf" since="3.10"/>
     <keyword type="macro" name="GDK_ROOT_WINDOW" link="gdk3-X-Window-System-Interaction.html#GDK-ROOT-WINDOW:CAPS"/>
     <keyword type="macro" name="GDK_WINDOW_XID()" link="gdk3-X-Window-System-Interaction.html#GDK-WINDOW-XID:CAPS"/>
     <keyword type="macro" name="GDK_DISPLAY_XDISPLAY()" link="gdk3-X-Window-System-Interaction.html#GDK-DISPLAY-XDISPLAY:CAPS"/>
@@ -641,6 +689,7 @@
     <keyword type="function" name="gdk_x11_display_error_trap_pop ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-display-error-trap-pop" since="3.0"/>
     <keyword type="function" name="gdk_x11_display_error_trap_pop_ignored ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-display-error-trap-pop-ignored" since="3.0"/>
     <keyword type="function" name="gdk_x11_display_set_cursor_theme ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-display-set-cursor-theme" since="2.8"/>
+    <keyword type="function" name="gdk_x11_display_set_window_scale ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-display-set-window-scale" since="3.10"/>
     <keyword type="function" name="gdk_x11_register_standard_event_type ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-register-standard-event-type" since="2.4"/>
     <keyword type="function" name="gdk_x11_screen_get_screen_number ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-screen-get-screen-number" since="2.2"/>
     <keyword type="function" name="gdk_x11_screen_get_xscreen ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-screen-get-xscreen" since="2.2"/>
@@ -648,6 +697,8 @@
     <keyword type="function" name="gdk_x11_screen_get_monitor_output ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-screen-get-monitor-output" since="2.14"/>
     <keyword type="function" name="gdk_x11_screen_lookup_visual ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-screen-lookup-visual" since="2.2"/>
     <keyword type="function" name="gdk_x11_screen_supports_net_wm_hint ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-screen-supports-net-wm-hint" since="2.2"/>
+    <keyword type="function" name="gdk_x11_screen_get_number_of_desktops ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-screen-get-number-of-desktops" since="3.10"/>
+    <keyword type="function" name="gdk_x11_screen_get_current_desktop ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-screen-get-current-desktop" since="3.10"/>
     <keyword type="function" name="gdk_x11_window_foreign_new_for_display ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-window-foreign-new-for-display" since="2.24"/>
     <keyword type="function" name="gdk_x11_window_lookup_for_display ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-window-lookup-for-display" since="2.24"/>
     <keyword type="function" name="gdk_x11_window_get_xid ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-window-get-xid"/>
@@ -655,6 +706,11 @@
     <keyword type="function" name="gdk_x11_window_set_theme_variant ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-window-set-theme-variant" since="3.2"/>
     <keyword type="function" name="gdk_x11_window_set_user_time ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-window-set-user-time" since="2.6"/>
     <keyword type="function" name="gdk_x11_window_move_to_current_desktop ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-window-move-to-current-desktop" since="2.8"/>
+    <keyword type="function" name="gdk_x11_window_move_to_desktop ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-window-move-to-desktop" since="3.10"/>
+    <keyword type="function" name="gdk_x11_window_get_desktop ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-window-get-desktop" since="3.10"/>
+    <keyword type="function" name="gdk_x11_window_set_utf8_property ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-window-set-utf8-property" since="3.4"/>
+    <keyword type="function" name="gdk_x11_window_set_frame_extents ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-window-set-frame-extents" since="3.10"/>
+    <keyword type="function" name="gdk_x11_window_set_frame_sync_enabled ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-window-set-frame-sync-enabled" since="3.8"/>
     <keyword type="function" name="gdk_x11_get_default_root_xwindow ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-get-default-root-xwindow"/>
     <keyword type="function" name="gdk_x11_get_default_screen ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-get-default-screen"/>
     <keyword type="function" name="gdk_x11_get_default_xdisplay ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-get-default-xdisplay"/>
@@ -662,6 +718,8 @@
     <keyword type="function" name="gdk_x11_ungrab_server ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-ungrab-server"/>
     <keyword type="function" name="gdk_x11_cursor_get_xcursor ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-cursor-get-xcursor"/>
     <keyword type="function" name="gdk_x11_cursor_get_xdisplay ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-cursor-get-xdisplay"/>
+    <keyword type="function" name="gdk_x11_keymap_get_group_for_state ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-keymap-get-group-for-state" since="3.6"/>
+    <keyword type="function" name="gdk_x11_keymap_key_is_modifier ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-keymap-key-is-modifier" since="3.6"/>
     <keyword type="function" name="gdk_x11_visual_get_xvisual ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-visual-get-xvisual"/>
     <keyword type="function" name="gdk_x11_atom_to_xatom ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-atom-to-xatom"/>
     <keyword type="function" name="gdk_x11_atom_to_xatom_for_display ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-atom-to-xatom-for-display" since="2.2"/>
@@ -677,6 +735,15 @@
     <keyword type="function" name="gdk_x11_display_string_to_compound_text ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-display-string-to-compound-text" since="2.24"/>
     <keyword type="function" name="gdk_x11_display_utf8_to_compound_text ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-display-utf8-to-compound-text" since="2.24"/>
     <keyword type="function" name="gdk_x11_free_compound_text ()" link="gdk3-X-Window-System-Interaction.html#gdk-x11-free-compound-text" since="2.24"/>
+    <keyword type="function" name="gdk_wayland_device_get_wl_keyboard ()" link="gdk3-Wayland-Interaction.html#gdk-wayland-device-get-wl-keyboard" since="3.10"/>
+    <keyword type="function" name="gdk_wayland_device_get_wl_pointer ()" link="gdk3-Wayland-Interaction.html#gdk-wayland-device-get-wl-pointer" since="3.10"/>
+    <keyword type="function" name="gdk_wayland_device_get_wl_seat ()" link="gdk3-Wayland-Interaction.html#gdk-wayland-device-get-wl-seat" since="3.10"/>
+    <keyword type="function" name="gdk_wayland_display_get_wl_compositor ()" link="gdk3-Wayland-Interaction.html#gdk-wayland-display-get-wl-compositor" since="3.8"/>
+    <keyword type="function" name="gdk_wayland_display_get_wl_display ()" link="gdk3-Wayland-Interaction.html#gdk-wayland-display-get-wl-display" since="3.8"/>
+    <keyword type="function" name="gdk_wayland_display_get_wl_shell ()" link="gdk3-Wayland-Interaction.html#gdk-wayland-display-get-wl-shell" since="3.8"/>
+    <keyword type="function" name="gdk_wayland_window_get_wl_shell_surface ()" link="gdk3-Wayland-Interaction.html#gdk-wayland-window-get-wl-shell-surface" since="3.8"/>
+    <keyword type="function" name="gdk_wayland_window_get_wl_surface ()" link="gdk3-Wayland-Interaction.html#gdk-wayland-window-get-wl-surface" since="3.8"/>
+    <keyword type="function" name="gdk_wayland_window_set_use_custom_surface ()" link="gdk3-Wayland-Interaction.html#gdk-wayland-window-set-use-custom-surface" since="3.10"/>
     <keyword type="struct" name="GdkAppLaunchContext" link="gdk3-Application-launching.html#GdkAppLaunchContext-struct"/>
     <keyword type="function" name="gdk_app_launch_context_new ()" link="gdk3-Application-launching.html#gdk-app-launch-context-new" deprecated="3.0: Use gdk_display_get_app_launch_context() instead" since="2.14"/>
     <keyword type="function" name="gdk_app_launch_context_set_display ()" link="gdk3-Application-launching.html#gdk-app-launch-context-set-display" deprecated="3.0: Use gdk_display_get_app_launch_context() instead" since="2.14"/>
@@ -686,6 +753,9 @@
     <keyword type="function" name="gdk_app_launch_context_set_icon ()" link="gdk3-Application-launching.html#gdk-app-launch-context-set-icon" since="2.14"/>
     <keyword type="function" name="gdk_app_launch_context_set_icon_name ()" link="gdk3-Application-launching.html#gdk-app-launch-context-set-icon-name" since="2.14"/>
     <keyword type="property" name="The &quot;display&quot; property" link="gdk3-Application-launching.html#GdkAppLaunchContext--display"/>
+    <keyword type="function" name="gdk_test_render_sync ()" link="gdk3-Testing.html#gdk-test-render-sync" since="2.14"/>
+    <keyword type="function" name="gdk_test_simulate_button ()" link="gdk3-Testing.html#gdk-test-simulate-button" since="2.14"/>
+    <keyword type="function" name="gdk_test_simulate_key ()" link="gdk3-Testing.html#gdk-test-simulate-key" since="2.14"/>
     <keyword type="constant" name="GDK_GRAB_SUCCESS" link="gdk3-General.html#GDK-GRAB-SUCCESS:CAPS"/>
     <keyword type="constant" name="GDK_GRAB_ALREADY_GRABBED" link="gdk3-General.html#GDK-GRAB-ALREADY-GRABBED:CAPS"/>
     <keyword type="constant" name="GDK_GRAB_INVALID_TIME" link="gdk3-General.html#GDK-GRAB-INVALID-TIME:CAPS"/>
@@ -860,6 +930,8 @@
     <keyword type="constant" name="GDK_WA_WMCLASS" link="gdk3-Windows.html#GDK-WA-WMCLASS:CAPS"/>
     <keyword type="constant" name="GDK_WA_NOREDIR" link="gdk3-Windows.html#GDK-WA-NOREDIR:CAPS"/>
     <keyword type="constant" name="GDK_WA_TYPE_HINT" link="gdk3-Windows.html#GDK-WA-TYPE-HINT:CAPS"/>
+    <keyword type="constant" name="GDK_FULLSCREEN_ON_CURRENT_MONITOR" link="gdk3-Windows.html#GDK-FULLSCREEN-ON-CURRENT-MONITOR:CAPS"/>
+    <keyword type="constant" name="GDK_FULLSCREEN_ON_ALL_MONITORS" link="gdk3-Windows.html#GDK-FULLSCREEN-ON-ALL-MONITORS:CAPS"/>
     <keyword type="constant" name="GDK_FILTER_CONTINUE" link="gdk3-Windows.html#GDK-FILTER-CONTINUE:CAPS"/>
     <keyword type="constant" name="GDK_FILTER_TRANSLATE" link="gdk3-Windows.html#GDK-FILTER-TRANSLATE:CAPS"/>
     <keyword type="constant" name="GDK_FILTER_REMOVE" link="gdk3-Windows.html#GDK-FILTER-REMOVE:CAPS"/>
@@ -908,6 +980,14 @@
     <keyword type="constant" name="GDK_FUNC_MINIMIZE" link="gdk3-Windows.html#GDK-FUNC-MINIMIZE:CAPS"/>
     <keyword type="constant" name="GDK_FUNC_MAXIMIZE" link="gdk3-Windows.html#GDK-FUNC-MAXIMIZE:CAPS"/>
     <keyword type="constant" name="GDK_FUNC_CLOSE" link="gdk3-Windows.html#GDK-FUNC-CLOSE:CAPS"/>
+    <keyword type="constant" name="GDK_FRAME_CLOCK_PHASE_NONE" link="gdk3-GdkFrameClock.html#GDK-FRAME-CLOCK-PHASE-NONE:CAPS"/>
+    <keyword type="constant" name="GDK_FRAME_CLOCK_PHASE_FLUSH_EVENTS" link="gdk3-GdkFrameClock.html#GDK-FRAME-CLOCK-PHASE-FLUSH-EVENTS:CAPS"/>
+    <keyword type="constant" name="GDK_FRAME_CLOCK_PHASE_BEFORE_PAINT" link="gdk3-GdkFrameClock.html#GDK-FRAME-CLOCK-PHASE-BEFORE-PAINT:CAPS"/>
+    <keyword type="constant" name="GDK_FRAME_CLOCK_PHASE_UPDATE" link="gdk3-GdkFrameClock.html#GDK-FRAME-CLOCK-PHASE-UPDATE:CAPS"/>
+    <keyword type="constant" name="GDK_FRAME_CLOCK_PHASE_LAYOUT" link="gdk3-GdkFrameClock.html#GDK-FRAME-CLOCK-PHASE-LAYOUT:CAPS"/>
+    <keyword type="constant" name="GDK_FRAME_CLOCK_PHASE_PAINT" link="gdk3-GdkFrameClock.html#GDK-FRAME-CLOCK-PHASE-PAINT:CAPS"/>
+    <keyword type="constant" name="GDK_FRAME_CLOCK_PHASE_RESUME_EVENTS" link="gdk3-GdkFrameClock.html#GDK-FRAME-CLOCK-PHASE-RESUME-EVENTS:CAPS"/>
+    <keyword type="constant" name="GDK_FRAME_CLOCK_PHASE_AFTER_PAINT" link="gdk3-GdkFrameClock.html#GDK-FRAME-CLOCK-PHASE-AFTER-PAINT:CAPS"/>
     <keyword type="constant" name="GDK_NOTHING" link="gdk3-Events.html#GDK-NOTHING:CAPS"/>
     <keyword type="constant" name="GDK_DELETE" link="gdk3-Events.html#GDK-DELETE:CAPS"/>
     <keyword type="constant" name="GDK_DESTROY" link="gdk3-Events.html#GDK-DESTROY:CAPS"/>
@@ -915,7 +995,9 @@
     <keyword type="constant" name="GDK_MOTION_NOTIFY" link="gdk3-Events.html#GDK-MOTION-NOTIFY:CAPS"/>
     <keyword type="constant" name="GDK_BUTTON_PRESS" link="gdk3-Events.html#GDK-BUTTON-PRESS:CAPS"/>
     <keyword type="constant" name="GDK_2BUTTON_PRESS" link="gdk3-Events.html#GDK-2BUTTON-PRESS:CAPS"/>
+    <keyword type="constant" name="GDK_DOUBLE_BUTTON_PRESS" link="gdk3-Events.html#GDK-DOUBLE-BUTTON-PRESS:CAPS"/>
     <keyword type="constant" name="GDK_3BUTTON_PRESS" link="gdk3-Events.html#GDK-3BUTTON-PRESS:CAPS"/>
+    <keyword type="constant" name="GDK_TRIPLE_BUTTON_PRESS" link="gdk3-Events.html#GDK-TRIPLE-BUTTON-PRESS:CAPS"/>
     <keyword type="constant" name="GDK_BUTTON_RELEASE" link="gdk3-Events.html#GDK-BUTTON-RELEASE:CAPS"/>
     <keyword type="constant" name="GDK_KEY_PRESS" link="gdk3-Events.html#GDK-KEY-PRESS:CAPS"/>
     <keyword type="constant" name="GDK_KEY_RELEASE" link="gdk3-Events.html#GDK-KEY-RELEASE:CAPS"/>
@@ -1007,6 +1089,7 @@
     <keyword type="constant" name="GDK_WINDOW_STATE_ABOVE" link="gdk3-Event-Structures.html#GDK-WINDOW-STATE-ABOVE:CAPS"/>
     <keyword type="constant" name="GDK_WINDOW_STATE_BELOW" link="gdk3-Event-Structures.html#GDK-WINDOW-STATE-BELOW:CAPS"/>
     <keyword type="constant" name="GDK_WINDOW_STATE_FOCUSED" link="gdk3-Event-Structures.html#GDK-WINDOW-STATE-FOCUSED:CAPS"/>
+    <keyword type="constant" name="GDK_WINDOW_STATE_TILED" link="gdk3-Event-Structures.html#GDK-WINDOW-STATE-TILED:CAPS"/>
     <keyword type="constant" name="GDK_SETTING_ACTION_NEW" link="gdk3-Event-Structures.html#GDK-SETTING-ACTION-NEW:CAPS"/>
     <keyword type="constant" name="GDK_SETTING_ACTION_CHANGED" link="gdk3-Event-Structures.html#GDK-SETTING-ACTION-CHANGED:CAPS"/>
     <keyword type="constant" name="GDK_SETTING_ACTION_DELETED" link="gdk3-Event-Structures.html#GDK-SETTING-ACTION-DELETED:CAPS"/>

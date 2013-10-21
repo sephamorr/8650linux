@@ -21,11 +21,10 @@
 #ifndef WebKitDOMHTMLOptGroupElement_h
 #define WebKitDOMHTMLOptGroupElement_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMHTMLElement.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMHTMLElement.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_HTML_OPT_GROUP_ELEMENT            (webkit_dom_html_opt_group_element_get_type())

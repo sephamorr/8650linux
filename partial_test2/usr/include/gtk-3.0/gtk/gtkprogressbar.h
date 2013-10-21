@@ -22,12 +22,12 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
+#ifndef __GTK_PROGRESS_BAR_H__
+#define __GTK_PROGRESS_BAR_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_PROGRESS_BAR_H__
-#define __GTK_PROGRESS_BAR_H__
 
 #include <gtk/gtkwidget.h>
 
@@ -65,31 +65,46 @@ struct _GtkProgressBarClass
 };
 
 
+GDK_AVAILABLE_IN_ALL
 GType      gtk_progress_bar_get_type             (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkWidget* gtk_progress_bar_new                  (void);
 
+GDK_AVAILABLE_IN_ALL
 void       gtk_progress_bar_pulse                (GtkProgressBar *pbar);
+GDK_AVAILABLE_IN_ALL
 void       gtk_progress_bar_set_text             (GtkProgressBar *pbar,
                                                   const gchar    *text);
+GDK_AVAILABLE_IN_ALL
 void       gtk_progress_bar_set_fraction         (GtkProgressBar *pbar,
                                                   gdouble         fraction);
 
+GDK_AVAILABLE_IN_ALL
 void       gtk_progress_bar_set_pulse_step       (GtkProgressBar *pbar,
                                                   gdouble         fraction);
+GDK_AVAILABLE_IN_ALL
 void       gtk_progress_bar_set_inverted         (GtkProgressBar *pbar,
                                                   gboolean        inverted);
 
+GDK_AVAILABLE_IN_ALL
 const gchar *      gtk_progress_bar_get_text       (GtkProgressBar *pbar);
+GDK_AVAILABLE_IN_ALL
 gdouble            gtk_progress_bar_get_fraction   (GtkProgressBar *pbar);
+GDK_AVAILABLE_IN_ALL
 gdouble            gtk_progress_bar_get_pulse_step (GtkProgressBar *pbar);
 
+GDK_AVAILABLE_IN_ALL
 gboolean           gtk_progress_bar_get_inverted    (GtkProgressBar *pbar);
+GDK_AVAILABLE_IN_ALL
 void               gtk_progress_bar_set_ellipsize (GtkProgressBar     *pbar,
                                                    PangoEllipsizeMode  mode);
+GDK_AVAILABLE_IN_ALL
 PangoEllipsizeMode gtk_progress_bar_get_ellipsize (GtkProgressBar     *pbar);
 
+GDK_AVAILABLE_IN_ALL
 void               gtk_progress_bar_set_show_text (GtkProgressBar     *pbar,
                                                    gboolean            show_text);
+GDK_AVAILABLE_IN_ALL
 gboolean           gtk_progress_bar_get_show_text (GtkProgressBar     *pbar);
 
 G_END_DECLS

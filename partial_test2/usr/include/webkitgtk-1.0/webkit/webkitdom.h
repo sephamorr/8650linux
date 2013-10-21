@@ -39,6 +39,7 @@
 #include <webkit/WebKitDOMDOMMimeTypeArray.h>
 #include <webkit/WebKitDOMDOMPlugin.h>
 #include <webkit/WebKitDOMDOMPluginArray.h>
+#include <webkit/WebKitDOMDOMSecurityPolicy.h>
 #include <webkit/WebKitDOMDOMSelection.h>
 #include <webkit/WebKitDOMDOMSettableTokenList.h>
 #include <webkit/WebKitDOMDOMStringList.h>
@@ -55,6 +56,8 @@
 #include <webkit/WebKitDOMEventTarget.h>
 #include <webkit/WebKitDOMFile.h>
 #include <webkit/WebKitDOMFileList.h>
+#include <webkit/WebKitDOMGamepad.h>
+#include <webkit/WebKitDOMGamepadList.h>
 #include <webkit/WebKitDOMGeolocation.h>
 #include <webkit/WebKitDOMHTMLAnchorElement.h>
 #include <webkit/WebKitDOMHTMLAppletElement.h>
@@ -138,6 +141,7 @@
 #include <webkit/WebKitDOMRange.h>
 #include <webkit/WebKitDOMScreen.h>
 #include <webkit/WebKitDOMStorage.h>
+#include <webkit/WebKitDOMStorageInfo.h>
 #include <webkit/WebKitDOMStyleMedia.h>
 #include <webkit/WebKitDOMStyleSheet.h>
 #include <webkit/WebKitDOMStyleSheetList.h>

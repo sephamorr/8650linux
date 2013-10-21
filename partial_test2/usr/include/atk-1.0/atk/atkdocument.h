@@ -46,6 +46,11 @@ typedef struct _AtkDocument AtkDocument;
 #endif
 typedef struct _AtkDocumentIface AtkDocumentIface;
 
+/**
+ * AtkDocumentIface:
+ * @get_document_locale: gets locale. This virtual function is
+ * deprecated since 2.7.90 and it should not be overriden.
+ */
 struct _AtkDocumentIface
 {
   GTypeInterface parent;
@@ -59,18 +64,16 @@ struct _AtkDocumentIface
   gboolean              ( *set_document_attribute) (AtkDocument         *document,
                                                     const gchar         *attribute_name,
                                                     const gchar         *attribute_value);
-  
-  AtkFunction pad1;
-  AtkFunction pad2;
-  AtkFunction pad3;
-  AtkFunction pad4;
 };
 
 GType  atk_document_get_type             (void);
 
 const gchar*          atk_document_get_document_type (AtkDocument   *document);
 gpointer atk_document_get_document (AtkDocument   *document);
+
+G_DEPRECATED
 const gchar*          atk_document_get_locale (AtkDocument *document);
+
 AtkAttributeSet*      atk_document_get_attributes (AtkDocument *document);
 const gchar*          atk_document_get_attribute_value (AtkDocument *document,
                                                         const gchar *attribute_name);

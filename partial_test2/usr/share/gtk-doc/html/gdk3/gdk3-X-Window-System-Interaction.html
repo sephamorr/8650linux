@@ -2,30 +2,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>X Window System Interaction</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>GDK 3 Reference Manual: X Window System Interaction</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GDK 3 Reference Manual">
 <link rel="up" href="reference.html" title="API Reference">
 <link rel="prev" href="gdk3-Cairo-Interaction.html" title="Cairo Interaction">
-<link rel="next" href="gdk3-Application-launching.html" title="Application launching">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="next" href="gdk3-Wayland-Interaction.html" title="Wayland Interaction">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="gdk3-Cairo-Interaction.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="reference.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GDK 3 Reference Manual</th>
-<td><a accesskey="n" href="gdk3-Application-launching.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#gdk3-X-Window-System-Interaction.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#gdk3-X-Window-System-Interaction.description" class="shortcut">Description</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="reference.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="gdk3-Cairo-Interaction.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="gdk3-Wayland-Interaction.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="gdk3-X-Window-System-Interaction"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -51,44 +48,49 @@
 #define             <a class="link" href="gdk3-X-Window-System-Interaction.html#GDK-POINTER-TO-XID:CAPS" title="GDK_POINTER_TO_XID()">GDK_POINTER_TO_XID</a>                  (pointer)
 #define             <a class="link" href="gdk3-X-Window-System-Interaction.html#GDK-XID-TO-POINTER:CAPS" title="GDK_XID_TO_POINTER()">GDK_XID_TO_POINTER</a>                  (pointer)
 <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="returnvalue">GdkDisplay</span></a> *        <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-lookup-xdisplay" title="gdk_x11_lookup_xdisplay ()">gdk_x11_lookup_xdisplay</a>             (<em class="parameter"><code><span class="type">Display</span> *xdisplay</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-get-server-time" title="gdk_x11_get_server_time ()">gdk_x11_get_server_time</a>             (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-device-get-id" title="gdk_x11_device_get_id ()">gdk_x11_device_get_id</a>               (<em class="parameter"><code><a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a> *device</code></em>);
+<a href="../glib/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-get-server-time" title="gdk_x11_get_server_time ()">gdk_x11_get_server_time</a>             (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>);
+<a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-device-get-id" title="gdk_x11_device_get_id ()">gdk_x11_device_get_id</a>               (<em class="parameter"><code><a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a> *device</code></em>);
 <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="returnvalue">GdkDevice</span></a> *         <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-device-manager-lookup" title="gdk_x11_device_manager_lookup ()">gdk_x11_device_manager_lookup</a>       (<em class="parameter"><code><a class="link" href="GdkDeviceManager.html" title="GdkDeviceManager"><span class="type">GdkDeviceManager</span></a> *device_manager</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> device_id</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-get-user-time" title="gdk_x11_display_get_user_time ()">gdk_x11_display_get_user_time</a>       (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> device_id</code></em>);
+<a href="../glib/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-get-user-time" title="gdk_x11_display_get_user_time ()">gdk_x11_display_get_user_time</a>       (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-broadcast-startup-message" title="gdk_x11_display_broadcast_startup_message ()">gdk_x11_display_broadcast_startup_message</a>
                                                         (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
                                                          <em class="parameter"><code>const <span class="type">char</span> *message_type</code></em>,
                                                          <em class="parameter"><code>...</code></em>);
-const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-get-startup-notification-id" title="gdk_x11_display_get_startup_notification_id ()">gdk_x11_display_get_startup_notification_id</a>
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-get-startup-notification-id" title="gdk_x11_display_get_startup_notification_id ()">gdk_x11_display_get_startup_notification_id</a>
                                                         (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-set-startup-notification-id" title="gdk_x11_display_set_startup_notification_id ()">gdk_x11_display_set_startup_notification_id</a>
                                                         (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *startup_id</code></em>);
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *startup_id</code></em>);
 <span class="returnvalue">Display</span> *           <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-get-xdisplay" title="gdk_x11_display_get_xdisplay ()">gdk_x11_display_get_xdisplay</a>        (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-grab" title="gdk_x11_display_grab ()">gdk_x11_display_grab</a>                (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-ungrab" title="gdk_x11_display_ungrab ()">gdk_x11_display_ungrab</a>              (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-error-trap-push" title="gdk_x11_display_error_trap_push ()">gdk_x11_display_error_trap_push</a>     (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-error-trap-pop" title="gdk_x11_display_error_trap_pop ()">gdk_x11_display_error_trap_pop</a>      (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>);
+<a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-error-trap-pop" title="gdk_x11_display_error_trap_pop ()">gdk_x11_display_error_trap_pop</a>      (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-error-trap-pop-ignored" title="gdk_x11_display_error_trap_pop_ignored ()">gdk_x11_display_error_trap_pop_ignored</a>
                                                         (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-set-cursor-theme" title="gdk_x11_display_set_cursor_theme ()">gdk_x11_display_set_cursor_theme</a>    (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *theme</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> size</code></em>);
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *theme</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> size</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-set-window-scale" title="gdk_x11_display_set_window_scale ()">gdk_x11_display_set_window_scale</a>    (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> scale</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-register-standard-event-type" title="gdk_x11_register_standard_event_type ()">gdk_x11_register_standard_event_type</a>
                                                         (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> event_base</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_events</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> event_base</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_events</code></em>);
 <span class="returnvalue">int</span>                 <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-screen-get-screen-number" title="gdk_x11_screen_get_screen_number ()">gdk_x11_screen_get_screen_number</a>    (<em class="parameter"><code><a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>);
 <span class="returnvalue">Screen</span> *            <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-screen-get-xscreen" title="gdk_x11_screen_get_xscreen ()">gdk_x11_screen_get_xscreen</a>          (<em class="parameter"><code><a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>);
 const <span class="returnvalue">char</span> *        <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-screen-get-window-manager-name" title="gdk_x11_screen_get_window_manager_name ()">gdk_x11_screen_get_window_manager_name</a>
                                                         (<em class="parameter"><code><a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>);
 <span class="returnvalue">XID</span>                 <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-screen-get-monitor-output" title="gdk_x11_screen_get_monitor_output ()">gdk_x11_screen_get_monitor_output</a>   (<em class="parameter"><code><a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> monitor_num</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> monitor_num</code></em>);
 <a class="link" href="gdk3-Visuals.html#GdkVisual"><span class="returnvalue">GdkVisual</span></a> *         <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-screen-lookup-visual" title="gdk_x11_screen_lookup_visual ()">gdk_x11_screen_lookup_visual</a>        (<em class="parameter"><code><a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>,
                                                          <em class="parameter"><code><span class="type">VisualID</span> xvisualid</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-screen-supports-net-wm-hint" title="gdk_x11_screen_supports_net_wm_hint ()">gdk_x11_screen_supports_net_wm_hint</a> (<em class="parameter"><code><a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>,
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-screen-supports-net-wm-hint" title="gdk_x11_screen_supports_net_wm_hint ()">gdk_x11_screen_supports_net_wm_hint</a> (<em class="parameter"><code><a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a> property</code></em>);
+<a href="../glib/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-screen-get-number-of-desktops" title="gdk_x11_screen_get_number_of_desktops ()">gdk_x11_screen_get_number_of_desktops</a>
+                                                        (<em class="parameter"><code><a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>);
+<a href="../glib/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-screen-get-current-desktop" title="gdk_x11_screen_get_current_desktop ()">gdk_x11_screen_get_current_desktop</a>  (<em class="parameter"><code><a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>);
 <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="returnvalue">GdkWindow</span></a> *         <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-window-foreign-new-for-display" title="gdk_x11_window_foreign_new_for_display ()">gdk_x11_window_foreign_new_for_display</a>
                                                         (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
                                                          <em class="parameter"><code><span class="type">Window</span> window</code></em>);
@@ -97,20 +99,38 @@ const <span class="returnvalue">char</span> *        <a class="link" href="gdk3-
 <span class="returnvalue">Window</span>              <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-window-get-xid" title="gdk_x11_window_get_xid ()">gdk_x11_window_get_xid</a>              (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-window-set-hide-titlebar-when-maximized" title="gdk_x11_window_set_hide_titlebar_when_maximized ()">gdk_x11_window_set_hide_titlebar_when_maximized</a>
                                                         (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> hide_titlebar_when_maximized</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> hide_titlebar_when_maximized</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-window-set-theme-variant" title="gdk_x11_window_set_theme_variant ()">gdk_x11_window_set_theme_variant</a>    (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>,
                                                          <em class="parameter"><code><span class="type">char</span> *variant</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-window-set-user-time" title="gdk_x11_window_set_user_time ()">gdk_x11_window_set_user_time</a>        (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> timestamp</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> timestamp</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-window-move-to-current-desktop" title="gdk_x11_window_move_to_current_desktop ()">gdk_x11_window_move_to_current_desktop</a>
                                                         (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-window-move-to-desktop" title="gdk_x11_window_move_to_desktop ()">gdk_x11_window_move_to_desktop</a>      (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> desktop</code></em>);
+<a href="../glib/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-window-get-desktop" title="gdk_x11_window_get_desktop ()">gdk_x11_window_get_desktop</a>          (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-window-set-utf8-property" title="gdk_x11_window_set_utf8_property ()">gdk_x11_window_set_utf8_property</a>    (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-window-set-frame-extents" title="gdk_x11_window_set_frame_extents ()">gdk_x11_window_set_frame_extents</a>    (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> left</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> right</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> top</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> bottom</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-window-set-frame-sync-enabled" title="gdk_x11_window_set_frame_sync_enabled ()">gdk_x11_window_set_frame_sync_enabled</a>
+                                                        (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> frame_sync_enabled</code></em>);
 <span class="returnvalue">Window</span>              <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-get-default-root-xwindow" title="gdk_x11_get_default_root_xwindow ()">gdk_x11_get_default_root_xwindow</a>    (<em class="parameter"><code><span class="type">void</span></code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-get-default-screen" title="gdk_x11_get_default_screen ()">gdk_x11_get_default_screen</a>          (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-get-default-screen" title="gdk_x11_get_default_screen ()">gdk_x11_get_default_screen</a>          (<em class="parameter"><code><span class="type">void</span></code></em>);
 <span class="returnvalue">Display</span> *           <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-get-default-xdisplay" title="gdk_x11_get_default_xdisplay ()">gdk_x11_get_default_xdisplay</a>        (<em class="parameter"><code><span class="type">void</span></code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-grab-server" title="gdk_x11_grab_server ()">gdk_x11_grab_server</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-ungrab-server" title="gdk_x11_ungrab_server ()">gdk_x11_ungrab_server</a>               (<em class="parameter"><code><span class="type">void</span></code></em>);
 <span class="returnvalue">Cursor</span>              <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-cursor-get-xcursor" title="gdk_x11_cursor_get_xcursor ()">gdk_x11_cursor_get_xcursor</a>          (<em class="parameter"><code><a class="link" href="gdk3-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a> *cursor</code></em>);
 <span class="returnvalue">Display</span> *           <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-cursor-get-xdisplay" title="gdk_x11_cursor_get_xdisplay ()">gdk_x11_cursor_get_xdisplay</a>         (<em class="parameter"><code><a class="link" href="gdk3-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a> *cursor</code></em>);
+<a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-keymap-get-group-for-state" title="gdk_x11_keymap_get_group_for_state ()">gdk_x11_keymap_get_group_for_state</a>  (<em class="parameter"><code><a class="link" href="gdk3-Keyboard-Handling.html#GdkKeymap"><span class="type">GdkKeymap</span></a> *keymap</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> state</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-keymap-key-is-modifier" title="gdk_x11_keymap_key_is_modifier ()">gdk_x11_keymap_key_is_modifier</a>      (<em class="parameter"><code><a class="link" href="gdk3-Keyboard-Handling.html#GdkKeymap"><span class="type">GdkKeymap</span></a> *keymap</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> keycode</code></em>);
 <span class="returnvalue">Visual</span> *            <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-visual-get-xvisual" title="gdk_x11_visual_get_xvisual ()">gdk_x11_visual_get_xvisual</a>          (<em class="parameter"><code><a class="link" href="gdk3-Visuals.html#GdkVisual"><span class="type">GdkVisual</span></a> *visual</code></em>);
 <span class="returnvalue">Atom</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-atom-to-xatom" title="gdk_x11_atom_to_xatom ()">gdk_x11_atom_to_xatom</a>               (<em class="parameter"><code><a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a> atom</code></em>);
 <span class="returnvalue">Atom</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-atom-to-xatom-for-display" title="gdk_x11_atom_to_xatom_for_display ()">gdk_x11_atom_to_xatom_for_display</a>   (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
@@ -118,37 +138,37 @@ const <span class="returnvalue">char</span> *        <a class="link" href="gdk3-
 <a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="returnvalue">GdkAtom</span></a>             <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-xatom-to-atom" title="gdk_x11_xatom_to_atom ()">gdk_x11_xatom_to_atom</a>               (<em class="parameter"><code><span class="type">Atom</span> xatom</code></em>);
 <a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="returnvalue">GdkAtom</span></a>             <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-xatom-to-atom-for-display" title="gdk_x11_xatom_to_atom_for_display ()">gdk_x11_xatom_to_atom_for_display</a>   (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
                                                          <em class="parameter"><code><span class="type">Atom</span> xatom</code></em>);
-<span class="returnvalue">Atom</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-get-xatom-by-name" title="gdk_x11_get_xatom_by_name ()">gdk_x11_get_xatom_by_name</a>           (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *atom_name</code></em>);
+<span class="returnvalue">Atom</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-get-xatom-by-name" title="gdk_x11_get_xatom_by_name ()">gdk_x11_get_xatom_by_name</a>           (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *atom_name</code></em>);
 <span class="returnvalue">Atom</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-get-xatom-by-name-for-display" title="gdk_x11_get_xatom_by_name_for_display ()">gdk_x11_get_xatom_by_name_for_display</a>
                                                         (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *atom_name</code></em>);
-const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-get-xatom-name" title="gdk_x11_get_xatom_name ()">gdk_x11_get_xatom_name</a>              (<em class="parameter"><code><span class="type">Atom</span> xatom</code></em>);
-const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-get-xatom-name-for-display" title="gdk_x11_get_xatom_name_for_display ()">gdk_x11_get_xatom_name_for_display</a>  (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *atom_name</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-get-xatom-name" title="gdk_x11_get_xatom_name ()">gdk_x11_get_xatom_name</a>              (<em class="parameter"><code><span class="type">Atom</span> xatom</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-get-xatom-name-for-display" title="gdk_x11_get_xatom_name_for_display ()">gdk_x11_get_xatom_name_for_display</a>  (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
                                                          <em class="parameter"><code><span class="type">Atom</span> xatom</code></em>);
-<span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-set-sm-client-id" title="gdk_x11_set_sm_client_id ()">gdk_x11_set_sm_client_id</a>            (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *sm_client_id</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-text-property-to-text-list" title="gdk_x11_display_text_property_to_text_list ()">gdk_x11_display_text_property_to_text_list</a>
+<span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-set-sm-client-id" title="gdk_x11_set_sm_client_id ()">gdk_x11_set_sm_client_id</a>            (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *sm_client_id</code></em>);
+<a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-text-property-to-text-list" title="gdk_x11_display_text_property_to_text_list ()">gdk_x11_display_text_property_to_text_list</a>
                                                         (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a> encoding</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> format</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *text</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> length</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> ***list</code></em>);
-<span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-free-text-list" title="gdk_x11_free_text_list ()">gdk_x11_free_text_list</a>              (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **list</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-string-to-compound-text" title="gdk_x11_display_string_to_compound_text ()">gdk_x11_display_string_to_compound_text</a>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> format</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *text</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> length</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> ***list</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-free-text-list" title="gdk_x11_free_text_list ()">gdk_x11_free_text_list</a>              (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **list</code></em>);
+<a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-string-to-compound-text" title="gdk_x11_display_string_to_compound_text ()">gdk_x11_display_string_to_compound_text</a>
                                                         (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *str</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *str</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a> *encoding</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *format</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> **ctext</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *length</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-utf8-to-compound-text" title="gdk_x11_display_utf8_to_compound_text ()">gdk_x11_display_utf8_to_compound_text</a>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *format</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> **ctext</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *length</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-utf8-to-compound-text" title="gdk_x11_display_utf8_to_compound_text ()">gdk_x11_display_utf8_to_compound_text</a>
                                                         (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *str</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *str</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a> *encoding</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *format</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> **ctext</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *length</code></em>);
-<span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-free-compound-text" title="gdk_x11_free_compound_text ()">gdk_x11_free_compound_text</a>          (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *ctext</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *format</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> **ctext</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *length</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-free-compound-text" title="gdk_x11_free_compound_text ()">gdk_x11_free_compound_text</a>          (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *ctext</code></em>);
 </pre>
 </div>
 <div class="refsect1">
@@ -225,8 +245,11 @@ Obtains the Xlib window id of the root window of the current screen.
 <p>
 Returns the X window belonging to a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>win</code></em> :</span></p></td>
@@ -251,8 +274,11 @@ Returns the X window belonging to a <a class="link" href="gdk3-Windows.html#GdkW
 <p>
 Returns the display of a X11 <a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
@@ -275,8 +301,11 @@ Returns the display of a X11 <a class="link" href="GdkScreen.html" title="GdkScr
 <p>
 Returns the index of a X11 <a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
@@ -298,8 +327,11 @@ Returns the index of a X11 <a class="link" href="GdkScreen.html" title="GdkScree
 <p>
 Returns the screen of a X11 <a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
@@ -322,8 +354,11 @@ Returns the screen of a X11 <a class="link" href="GdkScreen.html" title="GdkScre
 <p>
 Returns the X cursor belonging to a <a class="link" href="gdk3-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cursor</code></em> :</span></p></td>
@@ -344,8 +379,11 @@ Returns the X cursor belonging to a <a class="link" href="gdk3-Cursors.html#GdkC
 <p>
 Returns the display of a <a class="link" href="gdk3-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cursor</code></em> :</span></p></td>
@@ -375,7 +413,7 @@ using <a class="link" href="gdk3-X-Window-System-Interaction.html#GDK-XID-TO-POI
 </pre>
 <p>
 Converts an XID into a <em class="parameter"><code>gpointer</code></em>. This is useful with data structures
-that use pointer arguments such as <a href="http://library.gnome.org/devel/glib/unstable/glib-Hash-Tables.html#GHashTable"><span class="type">GHashTable</span></a>. Use <a class="link" href="gdk3-X-Window-System-Interaction.html#GDK-POINTER-TO-XID:CAPS" title="GDK_POINTER_TO_XID()"><code class="function">GDK_POINTER_TO_XID()</code></a>
+that use pointer arguments such as <a href="../glib/glib-Hash-Tables.html#GHashTable"><span class="type">GHashTable</span></a>. Use <a class="link" href="gdk3-X-Window-System-Interaction.html#GDK-POINTER-TO-XID:CAPS" title="GDK_POINTER_TO_XID()"><code class="function">GDK_POINTER_TO_XID()</code></a>
 to convert the argument back to an XID.
 </p>
 </div>
@@ -386,8 +424,11 @@ to convert the argument back to an XID.
 <p>
 Find the <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> corresponding to <em class="parameter"><code>display</code></em>, if any exists.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>xdisplay</code></em> :</span></p></td>
@@ -395,7 +436,7 @@ Find the <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a>, if found, otherwise <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+<td>the <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a>, if found, otherwise <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -405,12 +446,15 @@ Find the <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="
 <hr>
 <div class="refsect2">
 <a name="gdk-x11-get-server-time"></a><h3>gdk_x11_get_server_time ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             gdk_x11_get_server_time             (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             gdk_x11_get_server_time             (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>);</pre>
 <p>
 Routine to get the current X server time stamp.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
@@ -430,13 +474,13 @@ result. <span class="annotation">[<acronym title="Override the parsed C type wit
 <hr>
 <div class="refsect2">
 <a name="gdk-x11-device-get-id"></a><h3>gdk_x11_device_get_id ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gdk_x11_device_get_id               (<em class="parameter"><code><a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a> *device</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gdk_x11_device_get_id               (<em class="parameter"><code><a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a> *device</code></em>);</pre>
 <p>
 Returns the device ID as seen by XInput2.
 </p>
 <p>
 </p>
-<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="note">
 <h3 class="title">Note</h3>
   If <a class="link" href="GdkDeviceManager.html#gdk-disable-multidevice" title="gdk_disable_multidevice ()"><code class="function">gdk_disable_multidevice()</code></a> has been called, this function
   will respectively return 2/3 for the core pointer and keyboard,
@@ -446,8 +490,11 @@ Returns the device ID as seen by XInput2.
 </div>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>device</code></em> :</span></p></td>
@@ -466,12 +513,15 @@ Returns the device ID as seen by XInput2.
 <div class="refsect2">
 <a name="gdk-x11-device-manager-lookup"></a><h3>gdk_x11_device_manager_lookup ()</h3>
 <pre class="programlisting"><a class="link" href="GdkDevice.html" title="GdkDevice"><span class="returnvalue">GdkDevice</span></a> *         gdk_x11_device_manager_lookup       (<em class="parameter"><code><a class="link" href="GdkDeviceManager.html" title="GdkDeviceManager"><span class="type">GdkDeviceManager</span></a> *device_manager</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> device_id</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> device_id</code></em>);</pre>
 <p>
 Returns the <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a> that wraps the given device ID.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>device_manager</code></em> :</span></p></td>
@@ -485,7 +535,7 @@ Returns the <a class="link" href="GdkDevice.html" title="GdkDevice"><span class=
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>(allow-none): The <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a> wrapping the device ID,
-or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the given ID doesn't currently represent a device. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the given ID doesn't currently represent a device. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -495,15 +545,18 @@ or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.ht
 <hr>
 <div class="refsect2">
 <a name="gdk-x11-display-get-user-time"></a><h3>gdk_x11_display_get_user_time ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             gdk_x11_display_get_user_time       (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             gdk_x11_display_get_user_time       (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>);</pre>
 <p>
 Returns the timestamp of the last user interaction on 
 <em class="parameter"><code>display</code></em>. The timestamp is taken from events caused
 by user interaction such as key presses or pointer 
 movements. See <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-window-set-user-time" title="gdk_x11_window_set_user_time ()"><code class="function">gdk_x11_window_set_user_time()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -536,8 +589,11 @@ not normally need to call it directly. See the <a class="ulink" href="http://sta
 Notification Protocol specification</a> for
 definitions of the message types and keys that can be used.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -552,7 +608,7 @@ or "remove")</td>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
 <td>a list of key/value pairs (as strings), terminated by a
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> key. (A <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> value for a key will cause that key to be
+<a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> key. (A <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> value for a key will cause that key to be
 skipped in the output.)</td>
 </tr>
 </tbody>
@@ -562,13 +618,16 @@ skipped in the output.)</td>
 <hr>
 <div class="refsect2">
 <a name="gdk-x11-display-get-startup-notification-id"></a><h3>gdk_x11_display_get_startup_notification_id ()</h3>
-<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       gdk_x11_display_get_startup_notification_id
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       gdk_x11_display_get_startup_notification_id
                                                         (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>);</pre>
 <p>
 Gets the startup notification ID for a display.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -589,7 +648,7 @@ Gets the startup notification ID for a display.
 <a name="gdk-x11-display-set-startup-notification-id"></a><h3>gdk_x11_display_set_startup_notification_id ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gdk_x11_display_set_startup_notification_id
                                                         (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *startup_id</code></em>);</pre>
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *startup_id</code></em>);</pre>
 <p>
 Sets the startup notification ID for a display.
 </p>
@@ -609,8 +668,11 @@ The startup ID is also what is used to signal that the startup is
 complete (for example, when opening a window or when calling
 <a class="link" href="gdk3-General.html#gdk-notify-startup-complete" title="gdk_notify_startup_complete ()"><code class="function">gdk_notify_startup_complete()</code></a>).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -632,8 +694,11 @@ complete (for example, when opening a window or when calling
 <p>
 Returns the X display of a <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -660,8 +725,11 @@ To ungrab the display again, use <a class="link" href="gdk3-X-Window-System-Inte
 <p>
 <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-grab" title="gdk_x11_display_grab ()"><code class="function">gdk_x11_display_grab()</code></a>/<a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-ungrab" title="gdk_x11_display_ungrab ()"><code class="function">gdk_x11_display_ungrab()</code></a> calls can be nested.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
 <td>a <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkX11Display]</span>
@@ -678,8 +746,11 @@ To ungrab the display again, use <a class="link" href="gdk3-X-Window-System-Inte
 Ungrab <em class="parameter"><code>display</code></em> after it has been grabbed with 
 <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-grab" title="gdk_x11_display_grab ()"><code class="function">gdk_x11_display_grab()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
 <td>a <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkX11Display]</span>
@@ -702,8 +773,11 @@ with this function.
 <p>
 See also <a class="link" href="gdk3-General.html#gdk-error-trap-push" title="gdk_error_trap_push ()"><code class="function">gdk_error_trap_push()</code></a> to push a trap on all displays.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
 <td>a <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkX11Display]</span>
@@ -715,7 +789,7 @@ See also <a class="link" href="gdk3-General.html#gdk-error-trap-push" title="gdk
 <hr>
 <div class="refsect2">
 <a name="gdk-x11-display-error-trap-pop"></a><h3>gdk_x11_display_error_trap_pop ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gdk_x11_display_error_trap_pop      (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gdk_x11_display_error_trap_pop      (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>);</pre>
 <p>
 Pops the error trap pushed by <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-error-trap-push" title="gdk_x11_display_error_trap_push ()"><code class="function">gdk_x11_display_error_trap_push()</code></a>.
 Will <code class="function">XSync()</code> if necessary and will always block until
@@ -730,8 +804,11 @@ If you don't need to use the return value,
 See <a class="link" href="gdk3-General.html#gdk-error-trap-pop" title="gdk_error_trap_pop ()"><code class="function">gdk_error_trap_pop()</code></a> for the all-displays-at-once
 equivalent.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -761,8 +838,11 @@ if they arrive asynchronously.
 See <a class="link" href="gdk3-General.html#gdk-error-trap-pop-ignored" title="gdk_error_trap_pop_ignored ()"><code class="function">gdk_error_trap_pop_ignored()</code></a> for the all-displays-at-once
 equivalent.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
 <td>the display. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkX11Display]</span>
@@ -775,8 +855,8 @@ equivalent.
 <div class="refsect2">
 <a name="gdk-x11-display-set-cursor-theme"></a><h3>gdk_x11_display_set_cursor_theme ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gdk_x11_display_set_cursor_theme    (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *theme</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> size</code></em>);</pre>
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *theme</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> size</code></em>);</pre>
 <p>
 Sets the cursor theme from which the images for cursor
 should be taken.
@@ -791,8 +871,11 @@ by the application (GTK+ applications can learn about
 cursor theme changes by listening for change notification
 for the corresponding <span class="type">GtkSetting</span>).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -801,7 +884,7 @@ for the corresponding <span class="type">GtkSetting</span>).
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>theme</code></em> :</span></p></td>
-<td>the name of the cursor theme to use, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to unset
+<td>the name of the cursor theme to use, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to unset
 a previously set value</td>
 </tr>
 <tr>
@@ -814,11 +897,45 @@ a previously set value</td>
 </div>
 <hr>
 <div class="refsect2">
+<a name="gdk-x11-display-set-window-scale"></a><h3>gdk_x11_display_set_window_scale ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gdk_x11_display_set_window_scale    (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> scale</code></em>);</pre>
+<p>
+Forces a specific window scale for all windows on this display,
+instead of using the default or user configured scale. This
+is can be used to disable scaling support by setting <em class="parameter"><code>scale</code></em> to
+1, or to programmatically set the window scale.
+</p>
+<p>
+Once the scale is set by this call it will not change in response
+to later user configuration changes.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
+<td>the display. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkX11Display]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>scale</code></em> :</span></p></td>
+<td>The new scale value</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.10</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="gdk-x11-register-standard-event-type"></a><h3>gdk_x11_register_standard_event_type ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gdk_x11_register_standard_event_type
                                                         (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> event_base</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_events</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> event_base</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_events</code></em>);</pre>
 <p>
 Registers interest in receiving extension events with type codes
 between <em class="parameter"><code>event_base</code></em> and <code class="literal">event_base + n_events - 1</code>.
@@ -835,8 +952,11 @@ GDK may register the events of some X extensions on its own.
 This function should only be needed in unusual circumstances, e.g.
 when filtering XInput extension events on the root window.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -862,8 +982,11 @@ when filtering XInput extension events on the root window.
 <p>
 Returns the index of a <a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
@@ -886,8 +1009,11 @@ of its display</td>
 <p>
 Returns the screen of a <a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
@@ -911,8 +1037,11 @@ Returns the screen of a <a class="link" href="GdkScreen.html" title="GdkScreen">
 <p>
 Returns the name of the window manager for <em class="parameter"><code>screen</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
@@ -933,14 +1062,17 @@ and should not be freed.</td>
 <div class="refsect2">
 <a name="gdk-x11-screen-get-monitor-output"></a><h3>gdk_x11_screen_get_monitor_output ()</h3>
 <pre class="programlisting"><span class="returnvalue">XID</span>                 gdk_x11_screen_get_monitor_output   (<em class="parameter"><code><a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> monitor_num</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> monitor_num</code></em>);</pre>
 <p>
 Gets the XID of the specified output/monitor.
 If the X server does not support version 1.2 of the RANDR
 extension, 0 is returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
@@ -967,8 +1099,11 @@ extension, 0 is returned.
 <p>
 Looks up the <a class="link" href="gdk3-Visuals.html#GdkVisual"><span class="type">GdkVisual</span></a> for a particular screen and X Visual ID.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
@@ -982,7 +1117,7 @@ Looks up the <a class="link" href="gdk3-Visuals.html#GdkVisual"><span class="typ
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the <a class="link" href="gdk3-Visuals.html#GdkVisual"><span class="type">GdkVisual</span></a> (owned by the screen
-object), or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the visual ID wasn't found. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+object), or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the visual ID wasn't found. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -992,7 +1127,7 @@ object), or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-
 <hr>
 <div class="refsect2">
 <a name="gdk-x11-screen-supports-net-wm-hint"></a><h3>gdk_x11_screen_supports_net_wm_hint ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_x11_screen_supports_net_wm_hint (<em class="parameter"><code><a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>,
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_x11_screen_supports_net_wm_hint (<em class="parameter"><code><a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a> property</code></em>);</pre>
 <p>
 This function is specific to the X11 backend of GDK, and indicates
@@ -1007,12 +1142,15 @@ can change over time; so you shouldn't use this function in
 a way that impacts persistent application state. A common bug
 is that your application can start up before the window manager
 does when the user logs in, and before the window manager starts
-<a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-screen-supports-net-wm-hint" title="gdk_x11_screen_supports_net_wm_hint ()"><code class="function">gdk_x11_screen_supports_net_wm_hint()</code></a> will return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> for every property.
+<a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-screen-supports-net-wm-hint" title="gdk_x11_screen_supports_net_wm_hint ()"><code class="function">gdk_x11_screen_supports_net_wm_hint()</code></a> will return <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> for every property.
 You can monitor the window_manager_changed signal on <a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a> to detect
 a window manager change.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
@@ -1026,12 +1164,71 @@ a window manager change.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the window manager supports <em class="parameter"><code>property</code></em>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the window manager supports <em class="parameter"><code>property</code></em>
 </td>
 </tr>
 </tbody>
 </table></div>
 <p class="since">Since 2.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-x11-screen-get-number-of-desktops"></a><h3>gdk_x11_screen_get_number_of_desktops ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             gdk_x11_screen_get_number_of_desktops
+                                                        (<em class="parameter"><code><a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
+<p>
+Returns the number of workspaces for <em class="parameter"><code>screen</code></em> when running under a
+window manager that supports multiple workspaces, as described
+in the <a class="ulink" href="http://www.freedesktop.org/Standards/wm-spec" target="_top">Extended 
+Window Manager Hints</a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
+<td>a <a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the number of workspaces, or 0 if workspaces are not supported</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.10</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-x11-screen-get-current-desktop"></a><h3>gdk_x11_screen_get_current_desktop ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             gdk_x11_screen_get_current_desktop  (<em class="parameter"><code><a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
+<p>
+Returns the current workspace for <em class="parameter"><code>screen</code></em> when running under a
+window manager that supports multiple workspaces, as described
+in the <a class="ulink" href="http://www.freedesktop.org/Standards/wm-spec" target="_top">Extended 
+Window Manager Hints</a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
+<td>a <a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the current workspace, or 0 if workspaces are not supported</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.10</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1049,8 +1246,11 @@ This may fail if the window has been destroyed. If the window
 was already known to GDK, a new reference to the existing
 <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> is returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -1064,7 +1264,7 @@ was already known to GDK, a new reference to the existing
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> wrapper for the native
-window, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the window has been destroyed. The wrapper
+window, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the window has been destroyed. The wrapper
 will be newly created, if one doesn't exist already. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
 </td>
 </tr>
@@ -1080,8 +1280,11 @@ will be newly created, if one doesn't exist already. <span class="annotation">[<
 <p>
 Looks up the <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> that wraps the given native window handle.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -1097,7 +1300,7 @@ window handle. <span class="annotation">[<acronym title="Override the parsed C t
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> wrapper for the native
-window, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there is none. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+window, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there is none. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1111,8 +1314,11 @@ window, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-M
 <p>
 Returns the X resource (window) belonging to a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
@@ -1131,7 +1337,7 @@ Returns the X resource (window) belonging to a <a class="link" href="gdk3-Window
 <a name="gdk-x11-window-set-hide-titlebar-when-maximized"></a><h3>gdk_x11_window_set_hide_titlebar_when_maximized ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gdk_x11_window_set_hide_titlebar_when_maximized
                                                         (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> hide_titlebar_when_maximized</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> hide_titlebar_when_maximized</code></em>);</pre>
 <p>
 Set a hint for the window manager, requesting that the titlebar
 should be hidden when the window is maximized.
@@ -1141,8 +1347,11 @@ Note that this property is automatically updated by GTK+, so this
 function should only be used by applications which do not use GTK+
 to create toplevel windows.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
@@ -1175,8 +1384,11 @@ Note that this property is automatically updated by GTK+, so this
 function should only be used by applications which do not use GTK+
 to create toplevel windows.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
@@ -1195,7 +1407,7 @@ to create toplevel windows.
 <div class="refsect2">
 <a name="gdk-x11-window-set-user-time"></a><h3>gdk_x11_window_set_user_time ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gdk_x11_window_set_user_time        (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> timestamp</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> timestamp</code></em>);</pre>
 <p>
 The application can use this call to update the _NET_WM_USER_TIME
 property on a toplevel window.  This property stores an Xserver
@@ -1211,8 +1423,11 @@ Note that this property is automatically updated by GDK, so this
 function should only be used by applications which handle input
 events bypassing GDK.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
@@ -1239,8 +1454,11 @@ in the <a class="ulink" href="http://www.freedesktop.org/Standards/wm-spec" targ
 Window Manager Hints</a>.  Will not do anything if the
 window is already on all workspaces.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
 <td>a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkX11Window]</span>
@@ -1251,14 +1469,193 @@ window is already on all workspaces.
 </div>
 <hr>
 <div class="refsect2">
+<a name="gdk-x11-window-move-to-desktop"></a><h3>gdk_x11_window_move_to_desktop ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gdk_x11_window_move_to_desktop      (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> desktop</code></em>);</pre>
+<p>
+Moves the window to the given workspace when running unde a
+window manager that supports multiple workspaces, as described
+in the <a class="ulink" href="http://www.freedesktop.org/Standards/wm-spec" target="_top">Extended 
+Window Manager Hints</a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
+<td>a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>desktop</code></em> :</span></p></td>
+<td>the number of the workspace to move the window to</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.10</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-x11-window-get-desktop"></a><h3>gdk_x11_window_get_desktop ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             gdk_x11_window_get_desktop          (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>);</pre>
+<p>
+Gets the number of the workspace <em class="parameter"><code>window</code></em> is on.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
+<td>a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the current workspace of <em class="parameter"><code>window</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.10</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-x11-window-set-utf8-property"></a><h3>gdk_x11_window_set_utf8_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gdk_x11_window_set_utf8_property    (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *value</code></em>);</pre>
+<p>
+This function modifies or removes an arbitrary X11 window
+property of type UTF8_STRING.  If the given <em class="parameter"><code>window</code></em> is
+not a toplevel window, it is ignored.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
+<td>a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkX11Window]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>Property name, will be interned as an X atom</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>Property value, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to delete. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.4</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-x11-window-set-frame-extents"></a><h3>gdk_x11_window_set_frame_extents ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gdk_x11_window_set_frame_extents    (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> left</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> right</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> top</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> bottom</code></em>);</pre>
+<p>
+Newer GTK+ windows using client-side decorations use extra geometry
+around their frames for effects like shadows and invisible borders.
+Window managers that want to maximize windows or snap to edges need
+to know where the extents of the actual frame lie, so that users
+don't feel like windows are snapping against random invisible edges.
+</p>
+<p>
+Note that this property is automatically updated by GTK+, so this
+function should only be used by applications which do not use GTK+
+to create toplevel windows.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
+<td>a <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkX11Window]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>left</code></em> :</span></p></td>
+<td>The left extent</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>right</code></em> :</span></p></td>
+<td>The right extent</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>top</code></em> :</span></p></td>
+<td>The top extent</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bottom</code></em> :</span></p></td>
+<td>The bottom extent</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.10</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-x11-window-set-frame-sync-enabled"></a><h3>gdk_x11_window_set_frame_sync_enabled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gdk_x11_window_set_frame_sync_enabled
+                                                        (<em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> *window</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> frame_sync_enabled</code></em>);</pre>
+<p>
+This function can be used to disable frame synchronization for a window.
+Normally frame synchronziation will be enabled or disabled based on whether
+the system has a compositor that supports frame synchronization, but if
+the window is not directly managed by the window manager, then frame
+synchronziation may need to be disabled. This is the case for a window
+embedded via the XEMBED protocol.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
+<td>a native <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> GdkX11Window]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame_sync_enabled</code></em> :</span></p></td>
+<td>whether frame-synchronization should be enabled</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.8</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="gdk-x11-get-default-root-xwindow"></a><h3>gdk_x11_get_default_root_xwindow ()</h3>
 <pre class="programlisting"><span class="returnvalue">Window</span>              gdk_x11_get_default_root_xwindow    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>
 Gets the root window of the default screen 
 (see <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-get-default-screen" title="gdk_x11_get_default_screen ()"><code class="function">gdk_x11_get_default_screen()</code></a>).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>an Xlib <span class="type">Window</span>.</td>
@@ -1268,12 +1665,15 @@ Gets the root window of the default screen
 <hr>
 <div class="refsect2">
 <a name="gdk-x11-get-default-screen"></a><h3>gdk_x11_get_default_screen ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gdk_x11_get_default_screen          (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gdk_x11_get_default_screen          (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>
 Gets the default GTK+ screen number.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>returns the screen number specified by
@@ -1289,8 +1689,11 @@ variable when <a class="link" href="gdk3-General.html#gdk-init" title="gdk_init 
 <p>
 Gets the default GTK+ display.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the Xlib <span class="type">Display*</span> for
@@ -1328,8 +1731,11 @@ Ungrab the default display after it has been grabbed with
 <p>
 Returns the X cursor belonging to a <a class="link" href="gdk3-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cursor</code></em> :</span></p></td>
@@ -1350,8 +1756,11 @@ Returns the X cursor belonging to a <a class="link" href="gdk3-Cursors.html#GdkC
 <p>
 Returns the display of a <a class="link" href="gdk3-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cursor</code></em> :</span></p></td>
@@ -1368,13 +1777,86 @@ Returns the display of a <a class="link" href="gdk3-Cursors.html#GdkCursor"><spa
 </div>
 <hr>
 <div class="refsect2">
+<a name="gdk-x11-keymap-get-group-for-state"></a><h3>gdk_x11_keymap_get_group_for_state ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gdk_x11_keymap_get_group_for_state  (<em class="parameter"><code><a class="link" href="gdk3-Keyboard-Handling.html#GdkKeymap"><span class="type">GdkKeymap</span></a> *keymap</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> state</code></em>);</pre>
+<p>
+Extracts the group from the state field sent in an X Key event.
+This is only needed for code processing raw X events, since <a class="link" href="gdk3-Event-Structures.html#GdkEventKey" title="struct GdkEventKey"><span class="type">GdkEventKey</span></a>
+directly includes an is_modifier field.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>keymap</code></em> :</span></p></td>
+<td>a <span class="type">GdkX11Keymap</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>state</code></em> :</span></p></td>
+<td>raw state returned from X</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the index of the active keyboard group for the event</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-x11-keymap-key-is-modifier"></a><h3>gdk_x11_keymap_key_is_modifier ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_x11_keymap_key_is_modifier      (<em class="parameter"><code><a class="link" href="gdk3-Keyboard-Handling.html#GdkKeymap"><span class="type">GdkKeymap</span></a> *keymap</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> keycode</code></em>);</pre>
+<p>
+Determines whether a particular key code represents a key that
+is a modifier. That is, it's a key that normally just affects
+the keyboard state and the behavior of other keys rather than
+producing a direct effect itself. This is only needed for code
+processing raw X events, since <a class="link" href="gdk3-Event-Structures.html#GdkEventKey" title="struct GdkEventKey"><span class="type">GdkEventKey</span></a> directly includes
+an is_modifier field.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>keymap</code></em> :</span></p></td>
+<td>a <span class="type">GdkX11Keymap</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>keycode</code></em> :</span></p></td>
+<td>the hardware keycode from a key event</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the hardware keycode is a modifier key</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="gdk-x11-visual-get-xvisual"></a><h3>gdk_x11_visual_get_xvisual ()</h3>
 <pre class="programlisting"><span class="returnvalue">Visual</span> *            gdk_x11_visual_get_xvisual          (<em class="parameter"><code><a class="link" href="gdk3-Visuals.html#GdkVisual"><span class="type">GdkVisual</span></a> *visual</code></em>);</pre>
 <p>
 Returns the X visual belonging to a <a class="link" href="gdk3-Visuals.html#GdkVisual"><span class="type">GdkVisual</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>visual</code></em> :</span></p></td>
@@ -1396,8 +1878,11 @@ Returns the X visual belonging to a <a class="link" href="gdk3-Visuals.html#GdkV
 Converts from a <a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a> to the X atom for the default GDK display
 with the same string value.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atom</code></em> :</span></p></td>
@@ -1421,8 +1906,11 @@ Converts from a <a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" ti
 with the same string value. The special value <a class="link" href="gdk3-Properties-and-Atoms.html#GDK-NONE:CAPS" title="GDK_NONE"><code class="literal">GDK_NONE</code></a>
 is converted to <code class="literal">None</code>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -1451,8 +1939,11 @@ is converted to <code class="literal">None</code>.
 Convert from an X atom for the default display to the corresponding
 <a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>xatom</code></em> :</span></p></td>
@@ -1475,8 +1966,11 @@ Convert from an X atom for the default display to the corresponding
 Convert from an X atom for a <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> to the corresponding
 <a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -1499,14 +1993,17 @@ Convert from an X atom for a <a class="link" href="GdkDisplay.html" title="GdkDi
 <hr>
 <div class="refsect2">
 <a name="gdk-x11-get-xatom-by-name"></a><h3>gdk_x11_get_xatom_by_name ()</h3>
-<pre class="programlisting"><span class="returnvalue">Atom</span>                gdk_x11_get_xatom_by_name           (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *atom_name</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">Atom</span>                gdk_x11_get_xatom_by_name           (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *atom_name</code></em>);</pre>
 <p>
 Returns the X atom for GDK's default display corresponding to <em class="parameter"><code>atom_name</code></em>.
 This function caches the result, so if called repeatedly it is much
 faster than <code class="function">XInternAtom()</code>, which is a round trip to the server each time.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atom_name</code></em> :</span></p></td>
@@ -1524,14 +2021,17 @@ faster than <code class="function">XInternAtom()</code>, which is a round trip t
 <a name="gdk-x11-get-xatom-by-name-for-display"></a><h3>gdk_x11_get_xatom_by_name_for_display ()</h3>
 <pre class="programlisting"><span class="returnvalue">Atom</span>                gdk_x11_get_xatom_by_name_for_display
                                                         (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *atom_name</code></em>);</pre>
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *atom_name</code></em>);</pre>
 <p>
 Returns the X atom for a <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> corresponding to <em class="parameter"><code>atom_name</code></em>.
 This function caches the result, so if called repeatedly it is much
 faster than <code class="function">XInternAtom()</code>, which is a round trip to the server each time.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -1554,16 +2054,19 @@ faster than <code class="function">XInternAtom()</code>, which is a round trip t
 <hr>
 <div class="refsect2">
 <a name="gdk-x11-get-xatom-name"></a><h3>gdk_x11_get_xatom_name ()</h3>
-<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       gdk_x11_get_xatom_name              (<em class="parameter"><code><span class="type">Atom</span> xatom</code></em>);</pre>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       gdk_x11_get_xatom_name              (<em class="parameter"><code><span class="type">Atom</span> xatom</code></em>);</pre>
 <p>
 Returns the name of an X atom for GDK's default display. This
 function is meant mainly for debugging, so for convenience, unlike
 <code class="function"><code class="function">XAtomName()</code></code> and <a class="link" href="gdk3-Properties-and-Atoms.html#gdk-atom-name" title="gdk_atom_name ()"><code class="function">gdk_atom_name()</code></a>, the result 
-doesn't need to be freed. Also, this function will never return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, 
+doesn't need to be freed. Also, this function will never return <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, 
 even if <em class="parameter"><code>xatom</code></em> is invalid.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>xatom</code></em> :</span></p></td>
@@ -1580,7 +2083,7 @@ so it shouldn't be modifed or freed.</td>
 <hr>
 <div class="refsect2">
 <a name="gdk-x11-get-xatom-name-for-display"></a><h3>gdk_x11_get_xatom_name_for_display ()</h3>
-<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       gdk_x11_get_xatom_name_for_display  (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       gdk_x11_get_xatom_name_for_display  (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
                                                          <em class="parameter"><code><span class="type">Atom</span> xatom</code></em>);</pre>
 <p>
 Returns the name of an X atom for its display. This
@@ -1588,8 +2091,11 @@ function is meant mainly for debugging, so for convenience, unlike
 <code class="function">XAtomName()</code> and <a class="link" href="gdk3-Properties-and-Atoms.html#gdk-atom-name" title="gdk_atom_name ()"><code class="function">gdk_atom_name()</code></a>, the result doesn't need to
 be freed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -1611,7 +2117,7 @@ so it shouldn't be modifed or freed.</td>
 <hr>
 <div class="refsect2">
 <a name="gdk-x11-set-sm-client-id"></a><h3>gdk_x11_set_sm_client_id ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gdk_x11_set_sm_client_id            (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *sm_client_id</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                gdk_x11_set_sm_client_id            (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *sm_client_id</code></em>);</pre>
 <p>
 Sets the <code class="literal">SM_CLIENT_ID</code> property on the application's leader window so that
 the window manager can save the application's state using the X11R6 ICCCM
@@ -1621,12 +2127,15 @@ session management protocol.
 See the X Session Management Library documentation for more information on
 session management and the Inter-Client Communication Conventions Manual
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>sm_client_id</code></em> :</span></p></td>
 <td>the client id assigned by the session manager when the
-connection was opened, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to remove the property.</td>
+connection was opened, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to remove the property.</td>
 </tr></tbody>
 </table></div>
 <p class="since">Since 2.24</p>
@@ -1634,21 +2143,24 @@ connection was opened, or <a href="http://library.gnome.org/devel/glib/unstable/
 <hr>
 <div class="refsect2">
 <a name="gdk-x11-display-text-property-to-text-list"></a><h3>gdk_x11_display_text_property_to_text_list ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gdk_x11_display_text_property_to_text_list
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gdk_x11_display_text_property_to_text_list
                                                         (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a> encoding</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> format</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *text</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> length</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> ***list</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> format</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *text</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> length</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> ***list</code></em>);</pre>
 <p>
 Convert a text string from the encoding as it is stored
 in a property into an array of strings in the encoding of
 the current locale. (The elements of the array represent the
 nul-separated elements of the original text string.)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -1677,7 +2189,7 @@ This is value used as the type for the property</td>
 <td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
 <td>location to store an  array of strings in
 the encoding of the current locale. This array should be
-freed using <a href="http://library.gnome.org/devel/gdk3/gdk-Properties-and-Atoms.html#gdk-free-text-list"><code class="function">gdk_free_text_list()</code></a>.</td>
+freed using <code class="function">gdk_free_text_list()</code>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1691,13 +2203,16 @@ if the conversion failed</td>
 <hr>
 <div class="refsect2">
 <a name="gdk-x11-free-text-list"></a><h3>gdk_x11_free_text_list ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gdk_x11_free_text_list              (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **list</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                gdk_x11_free_text_list              (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **list</code></em>);</pre>
 <p>
 Frees the array of strings created by
 <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-text-property-to-text-list" title="gdk_x11_display_text_property_to_text_list ()"><code class="function">gdk_x11_display_text_property_to_text_list()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
 <td>the value stored in the <em class="parameter"><code>list</code></em> parameter by
@@ -1709,19 +2224,22 @@ a call to <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-di
 <hr>
 <div class="refsect2">
 <a name="gdk-x11-display-string-to-compound-text"></a><h3>gdk_x11_display_string_to_compound_text ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gdk_x11_display_string_to_compound_text
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gdk_x11_display_string_to_compound_text
                                                         (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *str</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *str</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a> *encoding</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *format</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> **ctext</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *length</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *format</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> **ctext</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *length</code></em>);</pre>
 <p>
 Convert a string from the encoding of the current
 locale into a form suitable for storing in a window property.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -1764,18 +2282,21 @@ allocated data for the property. <span class="annotation">[<acronym title="Param
 <hr>
 <div class="refsect2">
 <a name="gdk-x11-display-utf8-to-compound-text"></a><h3>gdk_x11_display_utf8_to_compound_text ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_x11_display_utf8_to_compound_text
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_x11_display_utf8_to_compound_text
                                                         (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *str</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *str</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gdk3-Properties-and-Atoms.html#GdkAtom" title="GdkAtom"><span class="type">GdkAtom</span></a> *encoding</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *format</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> **ctext</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *length</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *format</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> **ctext</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *length</code></em>);</pre>
 <p>
 Converts from UTF-8 to compound text.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -1810,8 +2331,8 @@ stored in <em class="parameter"><code>ctext</code></em>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the conversion succeeded,
-otherwise <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the conversion succeeded,
+otherwise <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>
 </td>
 </tr>
 </tbody>
@@ -1821,12 +2342,15 @@ otherwise <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Ma
 <hr>
 <div class="refsect2">
 <a name="gdk-x11-free-compound-text"></a><h3>gdk_x11_free_compound_text ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gdk_x11_free_compound_text          (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *ctext</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                gdk_x11_free_compound_text          (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *ctext</code></em>);</pre>
 <p>
 Frees the data returned from <a class="link" href="gdk3-X-Window-System-Interaction.html#gdk-x11-display-string-to-compound-text" title="gdk_x11_display_string_to_compound_text ()"><code class="function">gdk_x11_display_string_to_compound_text()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>ctext</code></em> :</span></p></td>
 <td>The pointer stored in <em class="parameter"><code>ctext</code></em> from a call to
@@ -1839,6 +2363,6 @@ Frees the data returned from <a class="link" href="gdk3-X-Window-System-Interact
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

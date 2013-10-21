@@ -16,12 +16,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GTK_RECENT_CHOOSER_DIALOG_H__
+#define __GTK_RECENT_CHOOSER_DIALOG_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_RECENT_CHOOSER_DIALOG_H__
-#define __GTK_RECENT_CHOOSER_DIALOG_H__
 
 #include <gtk/gtkdialog.h>
 #include <gtk/gtkrecentchooser.h>
@@ -61,12 +61,15 @@ struct _GtkRecentChooserDialogClass
 };
 
 
+GDK_AVAILABLE_IN_ALL
 GType      gtk_recent_chooser_dialog_get_type        (void) G_GNUC_CONST;
 
+GDK_AVAILABLE_IN_ALL
 GtkWidget *gtk_recent_chooser_dialog_new             (const gchar      *title,
 					              GtkWindow        *parent,
 					              const gchar      *first_button_text,
 					              ...) G_GNUC_NULL_TERMINATED;
+GDK_AVAILABLE_IN_ALL
 GtkWidget *gtk_recent_chooser_dialog_new_for_manager (const gchar      *title,
 						      GtkWindow        *parent,
 						      GtkRecentManager *manager,

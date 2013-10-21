@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>OrcCompiler</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="Orc Reference Manual">
 <link rel="up" href="ch02.html" title="Application API">
 <link rel="prev" href="orc-OrcProgram.html" title="OrcProgram">
 <link rel="next" href="orc-OrcExecutor.html" title="OrcExecutor">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -38,8 +38,8 @@
 <div class="refsynopsisdiv">
 <a name="orc-OrcCompiler.synopsis"></a><h2>Synopsis</h2>
 <pre class="synopsis">enum                <a class="link" href="orc-OrcCompiler.html#OrcCompileResult" title="enum OrcCompileResult">OrcCompileResult</a>;
-struct              <a class="link" href="orc-OrcCompiler.html#OrcCompiler" title="struct OrcCompiler">OrcCompiler</a>;
-struct              <a class="link" href="orc-OrcCompiler.html#OrcConstant" title="struct OrcConstant">OrcConstant</a>;
+                    <a class="link" href="orc-OrcCompiler.html#OrcCompiler" title="OrcCompiler">OrcCompiler</a>;
+                    <a class="link" href="orc-OrcCompiler.html#OrcConstant" title="OrcConstant">OrcConstant</a>;
 #define             <a class="link" href="orc-OrcCompiler.html#ORC-COMPILER-ERROR:CAPS" title="ORC_COMPILER_ERROR()">ORC_COMPILER_ERROR</a>                  (compiler,
                                                          ...)
 #define             <a class="link" href="orc-OrcCompiler.html#ORC-COMPILE-RESULT-IS-FATAL:CAPS" title="ORC_COMPILE_RESULT_IS_FATAL()">ORC_COMPILE_RESULT_IS_FATAL</a>         (x)
@@ -47,9 +47,9 @@ struct              <a class="link" href="orc-OrcCompiler.html#OrcConstant" titl
 #define             <a class="link" href="orc-OrcCompiler.html#ORC-ASM-CODE:CAPS" title="ORC_ASM_CODE()">ORC_ASM_CODE</a>                        (compiler,
                                                          ...)
 #define             <a class="link" href="orc-OrcCompiler.html#ORC-ENABLE-ASM-CODE:CAPS" title="ORC_ENABLE_ASM_CODE">ORC_ENABLE_ASM_CODE</a>
-<span class="returnvalue">void</span>                <a class="link" href="orc-OrcCompiler.html#orc-compiler-append-code" title="orc_compiler_append_code ()">orc_compiler_append_code</a>            (<em class="parameter"><code><a class="link" href="orc-OrcCompiler.html#OrcCompiler" title="struct OrcCompiler"><span class="type">OrcCompiler</span></a> *p</code></em>,
+<span class="returnvalue">void</span>                <a class="link" href="orc-OrcCompiler.html#orc-compiler-append-code" title="orc_compiler_append_code ()">orc_compiler_append_code</a>            (<em class="parameter"><code><a class="link" href="orc-OrcCompiler.html#OrcCompiler" title="OrcCompiler"><span class="type">OrcCompiler</span></a> *p</code></em>,
                                                          <em class="parameter"><code>const <span class="type">char</span> *fmt</code></em>);
-<span class="returnvalue">int</span>                 <a class="link" href="orc-OrcCompiler.html#orc-compiler-label-new" title="orc_compiler_label_new ()">orc_compiler_label_new</a>              (<em class="parameter"><code><a class="link" href="orc-OrcCompiler.html#OrcCompiler" title="struct OrcCompiler"><span class="type">OrcCompiler</span></a> *compiler</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="orc-OrcCompiler.html#orc-compiler-label-new" title="orc_compiler_label_new ()">orc_compiler_label_new</a>              (<em class="parameter"><code><a class="link" href="orc-OrcCompiler.html#OrcCompiler" title="OrcCompiler"><span class="type">OrcCompiler</span></a> *compiler</code></em>);
 </pre>
 </div>
 <div class="refsect1">
@@ -84,7 +84,6 @@ or functions that use <a class="link" href="orc-OrcCompiler.html#ORC-ASM-CODE:CA
   ORC_COMPILE_RESULT_UNKNOWN_PARSE = 0x200,
   ORC_COMPILE_RESULT_PARSE = 0x201,
   ORC_COMPILE_RESULT_VARIABLE = 0x202
-
 } OrcCompileResult;
 </pre>
 <p>
@@ -92,9 +91,9 @@ or functions that use <a class="link" href="orc-OrcCompiler.html#ORC-ASM-CODE:CA
 </div>
 <hr>
 <div class="refsect2">
-<a name="OrcCompiler"></a><h3>struct OrcCompiler</h3>
-<pre class="programlisting">struct OrcCompiler {
-};
+<a name="OrcCompiler"></a><h3>OrcCompiler</h3>
+<pre class="programlisting">typedef struct {
+} OrcCompiler;
 </pre>
 <p>
 The OrcCompiler structure has no public members
@@ -102,9 +101,9 @@ The OrcCompiler structure has no public members
 </div>
 <hr>
 <div class="refsect2">
-<a name="OrcConstant"></a><h3>struct OrcConstant</h3>
-<pre class="programlisting">struct OrcConstant {
-};
+<a name="OrcConstant"></a><h3>OrcConstant</h3>
+<pre class="programlisting">typedef struct {
+} OrcConstant;
 </pre>
 <p>
 The OrcConstant structure has no public members
@@ -152,7 +151,7 @@ The OrcConstant structure has no public members
 <hr>
 <div class="refsect2">
 <a name="orc-compiler-append-code"></a><h3>orc_compiler_append_code ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                orc_compiler_append_code            (<em class="parameter"><code><a class="link" href="orc-OrcCompiler.html#OrcCompiler" title="struct OrcCompiler"><span class="type">OrcCompiler</span></a> *p</code></em>,
+<pre class="programlisting"><span class="returnvalue">void</span>                orc_compiler_append_code            (<em class="parameter"><code><a class="link" href="orc-OrcCompiler.html#OrcCompiler" title="OrcCompiler"><span class="type">OrcCompiler</span></a> *p</code></em>,
                                                          <em class="parameter"><code>const <span class="type">char</span> *fmt</code></em>);</pre>
 <p>
 Generates a string using <code class="function">sprintf()</code> on the given format and
@@ -183,7 +182,7 @@ or implementing a target.
 <hr>
 <div class="refsect2">
 <a name="orc-compiler-label-new"></a><h3>orc_compiler_label_new ()</h3>
-<pre class="programlisting"><span class="returnvalue">int</span>                 orc_compiler_label_new              (<em class="parameter"><code><a class="link" href="orc-OrcCompiler.html#OrcCompiler" title="struct OrcCompiler"><span class="type">OrcCompiler</span></a> *compiler</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">int</span>                 orc_compiler_label_new              (<em class="parameter"><code><a class="link" href="orc-OrcCompiler.html#OrcCompiler" title="OrcCompiler"><span class="type">OrcCompiler</span></a> *compiler</code></em>);</pre>
 <p>
 </p>
 </div>
@@ -191,6 +190,6 @@ or implementing a target.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

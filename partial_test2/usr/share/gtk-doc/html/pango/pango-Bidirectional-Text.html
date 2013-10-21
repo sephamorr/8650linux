@@ -2,32 +2,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Bidirectional Text</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>Pango Reference Manual: Bidirectional Text</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="Pango Reference Manual">
 <link rel="up" href="pango.html" title="Basic Pango Interfaces">
 <link rel="prev" href="pango-Scripts-and-Languages.html" title="Scripts and Languages">
 <link rel="next" href="pango-Vertical-Text.html" title="Vertical Text">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="pango-Scripts-and-Languages.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="pango.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">Pango Reference Manual</th>
-<td><a accesskey="n" href="pango-Vertical-Text.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#pango-Bidirectional-Text.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#pango-Bidirectional-Text.description" class="shortcut">Description</a>
                    | 
                   <a href="#pango-Bidirectional-Text.object-hierarchy" class="shortcut">Object Hierarchy</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="pango.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="pango-Scripts-and-Languages.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="pango-Vertical-Text.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="pango-Bidirectional-Text"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -107,8 +104,11 @@ enumeration as the writing direction of a block of
 text and are no longer used; See <a class="link" href="pango-Vertical-Text.html#PangoGravity"><span class="type">PangoGravity</span></a> for how
 vertical text is handled in Pango.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="PANGO-DIRECTION-LTR:CAPS"></a><span class="term"><code class="literal">PANGO_DIRECTION_LTR</code></span></p></td>
@@ -165,8 +165,11 @@ letters, right-to-left letters, and everything else.  If full
 Unicode bidirectional type of a character is needed,
 <code class="function">pango_bidi_type_for_gunichar()</code> can be used instead.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ch</code></em> :</span></p></td>
@@ -188,8 +191,11 @@ Unicode bidirectional type of a character is needed,
 Searches a string the first character that has a strong
 direction, according to the Unicode bidirectional algorithm.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
@@ -213,7 +219,7 @@ If no such character is found, then <a class="link" href="pango-Bidirectional-Te
 <a name="pango-get-mirror-char"></a><h3>pango_get_mirror_char ()</h3>
 <pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            pango_get_mirror_char               (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Unicode-Manipulation.html#gunichar"><span class="type">gunichar</span></a> ch</code></em>,
                                                          <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Unicode-Manipulation.html#gunichar"><span class="type">gunichar</span></a> *mirrored_ch</code></em>);</pre>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="warning">
 <h3 class="title">Warning</h3>
 <p><code class="literal">pango_get_mirror_char</code> is deprecated and should not be used in newly-written code.</p>
 </div>
@@ -226,8 +232,11 @@ glyph, puts that character in the address pointed to by <em class="parameter"><c
 Use <a href="http://library.gnome.org/devel/glib/unstable/glib-Unicode-Manipulation.html#g-unichar-get-mirror-char"><code class="function">g_unichar_get_mirror_char()</code></a> instead; the docs for that function
 provide full details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ch</code></em> :</span></p></td>
@@ -281,8 +290,11 @@ The <a class="link" href="pango-Bidirectional-Text.html#PangoBidiType"><span cla
 type of a Unicode character as specified by the
 <a class="ulink" href="http://www.unicode.org/reports/tr9/" target="_top">Unicode bidirectional algorithm</a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="PANGO-BIDI-TYPE-L:CAPS"></a><span class="term"><code class="literal">PANGO_BIDI_TYPE_L</code></span></p></td>
@@ -395,8 +407,11 @@ character, as specified in the Unicode Character Database.
 A simplified version of this function is available as
 <code class="function">pango_unichar_get_direction()</code>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ch</code></em> :</span></p></td>
@@ -423,6 +438,6 @@ Unicode bidirectional algorithm.</td>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

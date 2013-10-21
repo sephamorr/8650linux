@@ -21,11 +21,10 @@
 #ifndef WebKitDOMRange_h
 #define WebKitDOMRange_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_RANGE            (webkit_dom_range_get_type())
@@ -49,7 +48,7 @@ webkit_dom_range_get_type (void);
 /**
  * webkit_dom_range_set_start:
  * @self: A #WebKitDOMRange
- * @ref_node: A #WebKitDOMNode
+ * @refNode: A #WebKitDOMNode
  * @offset: A #glong
  * @error: #GError
  *
@@ -57,12 +56,12 @@ webkit_dom_range_get_type (void);
  *
 **/
 WEBKIT_API void
-webkit_dom_range_set_start(WebKitDOMRange* self, WebKitDOMNode* ref_node, glong offset, GError **error);
+webkit_dom_range_set_start(WebKitDOMRange* self, WebKitDOMNode* refNode, glong offset, GError** error);
 
 /**
  * webkit_dom_range_set_end:
  * @self: A #WebKitDOMRange
- * @ref_node: A #WebKitDOMNode
+ * @refNode: A #WebKitDOMNode
  * @offset: A #glong
  * @error: #GError
  *
@@ -70,104 +69,104 @@ webkit_dom_range_set_start(WebKitDOMRange* self, WebKitDOMNode* ref_node, glong 
  *
 **/
 WEBKIT_API void
-webkit_dom_range_set_end(WebKitDOMRange* self, WebKitDOMNode* ref_node, glong offset, GError **error);
+webkit_dom_range_set_end(WebKitDOMRange* self, WebKitDOMNode* refNode, glong offset, GError** error);
 
 /**
  * webkit_dom_range_set_start_before:
  * @self: A #WebKitDOMRange
- * @ref_node: A #WebKitDOMNode
+ * @refNode: A #WebKitDOMNode
  * @error: #GError
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_range_set_start_before(WebKitDOMRange* self, WebKitDOMNode* ref_node, GError **error);
+webkit_dom_range_set_start_before(WebKitDOMRange* self, WebKitDOMNode* refNode, GError** error);
 
 /**
  * webkit_dom_range_set_start_after:
  * @self: A #WebKitDOMRange
- * @ref_node: A #WebKitDOMNode
+ * @refNode: A #WebKitDOMNode
  * @error: #GError
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_range_set_start_after(WebKitDOMRange* self, WebKitDOMNode* ref_node, GError **error);
+webkit_dom_range_set_start_after(WebKitDOMRange* self, WebKitDOMNode* refNode, GError** error);
 
 /**
  * webkit_dom_range_set_end_before:
  * @self: A #WebKitDOMRange
- * @ref_node: A #WebKitDOMNode
+ * @refNode: A #WebKitDOMNode
  * @error: #GError
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_range_set_end_before(WebKitDOMRange* self, WebKitDOMNode* ref_node, GError **error);
+webkit_dom_range_set_end_before(WebKitDOMRange* self, WebKitDOMNode* refNode, GError** error);
 
 /**
  * webkit_dom_range_set_end_after:
  * @self: A #WebKitDOMRange
- * @ref_node: A #WebKitDOMNode
+ * @refNode: A #WebKitDOMNode
  * @error: #GError
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_range_set_end_after(WebKitDOMRange* self, WebKitDOMNode* ref_node, GError **error);
+webkit_dom_range_set_end_after(WebKitDOMRange* self, WebKitDOMNode* refNode, GError** error);
 
 /**
  * webkit_dom_range_collapse:
  * @self: A #WebKitDOMRange
- * @to_start: A #gboolean
+ * @toStart: A #gboolean
  * @error: #GError
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_range_collapse(WebKitDOMRange* self, gboolean to_start, GError **error);
+webkit_dom_range_collapse(WebKitDOMRange* self, gboolean toStart, GError** error);
 
 /**
  * webkit_dom_range_select_node:
  * @self: A #WebKitDOMRange
- * @ref_node: A #WebKitDOMNode
+ * @refNode: A #WebKitDOMNode
  * @error: #GError
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_range_select_node(WebKitDOMRange* self, WebKitDOMNode* ref_node, GError **error);
+webkit_dom_range_select_node(WebKitDOMRange* self, WebKitDOMNode* refNode, GError** error);
 
 /**
  * webkit_dom_range_select_node_contents:
  * @self: A #WebKitDOMRange
- * @ref_node: A #WebKitDOMNode
+ * @refNode: A #WebKitDOMNode
  * @error: #GError
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_range_select_node_contents(WebKitDOMRange* self, WebKitDOMNode* ref_node, GError **error);
+webkit_dom_range_select_node_contents(WebKitDOMRange* self, WebKitDOMNode* refNode, GError** error);
 
 /**
  * webkit_dom_range_compare_boundary_points:
  * @self: A #WebKitDOMRange
  * @how: A #gushort
- * @source_range: A #WebKitDOMRange
+ * @sourceRange: A #WebKitDOMRange
  * @error: #GError
  *
  * Returns:
  *
 **/
 WEBKIT_API gshort
-webkit_dom_range_compare_boundary_points(WebKitDOMRange* self, gushort how, WebKitDOMRange* source_range, GError **error);
+webkit_dom_range_compare_boundary_points(WebKitDOMRange* self, gushort how, WebKitDOMRange* sourceRange, GError** error);
 
 /**
  * webkit_dom_range_delete_contents:
@@ -178,7 +177,7 @@ webkit_dom_range_compare_boundary_points(WebKitDOMRange* self, gushort how, WebK
  *
 **/
 WEBKIT_API void
-webkit_dom_range_delete_contents(WebKitDOMRange* self, GError **error);
+webkit_dom_range_delete_contents(WebKitDOMRange* self, GError** error);
 
 /**
  * webkit_dom_range_extract_contents:
@@ -189,7 +188,7 @@ webkit_dom_range_delete_contents(WebKitDOMRange* self, GError **error);
  *
 **/
 WEBKIT_API WebKitDOMDocumentFragment*
-webkit_dom_range_extract_contents(WebKitDOMRange* self, GError **error);
+webkit_dom_range_extract_contents(WebKitDOMRange* self, GError** error);
 
 /**
  * webkit_dom_range_clone_contents:
@@ -200,31 +199,31 @@ webkit_dom_range_extract_contents(WebKitDOMRange* self, GError **error);
  *
 **/
 WEBKIT_API WebKitDOMDocumentFragment*
-webkit_dom_range_clone_contents(WebKitDOMRange* self, GError **error);
+webkit_dom_range_clone_contents(WebKitDOMRange* self, GError** error);
 
 /**
  * webkit_dom_range_insert_node:
  * @self: A #WebKitDOMRange
- * @new_node: A #WebKitDOMNode
+ * @newNode: A #WebKitDOMNode
  * @error: #GError
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_range_insert_node(WebKitDOMRange* self, WebKitDOMNode* new_node, GError **error);
+webkit_dom_range_insert_node(WebKitDOMRange* self, WebKitDOMNode* newNode, GError** error);
 
 /**
  * webkit_dom_range_surround_contents:
  * @self: A #WebKitDOMRange
- * @new_parent: A #WebKitDOMNode
+ * @newParent: A #WebKitDOMNode
  * @error: #GError
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_range_surround_contents(WebKitDOMRange* self, WebKitDOMNode* new_parent, GError **error);
+webkit_dom_range_surround_contents(WebKitDOMRange* self, WebKitDOMNode* newParent, GError** error);
 
 /**
  * webkit_dom_range_clone_range:
@@ -235,7 +234,7 @@ webkit_dom_range_surround_contents(WebKitDOMRange* self, WebKitDOMNode* new_pare
  *
 **/
 WEBKIT_API WebKitDOMRange*
-webkit_dom_range_clone_range(WebKitDOMRange* self, GError **error);
+webkit_dom_range_clone_range(WebKitDOMRange* self, GError** error);
 
 /**
  * webkit_dom_range_to_string:
@@ -246,7 +245,7 @@ webkit_dom_range_clone_range(WebKitDOMRange* self, GError **error);
  *
 **/
 WEBKIT_API gchar*
-webkit_dom_range_to_string(WebKitDOMRange* self, GError **error);
+webkit_dom_range_to_string(WebKitDOMRange* self, GError** error);
 
 /**
  * webkit_dom_range_detach:
@@ -257,7 +256,7 @@ webkit_dom_range_to_string(WebKitDOMRange* self, GError **error);
  *
 **/
 WEBKIT_API void
-webkit_dom_range_detach(WebKitDOMRange* self, GError **error);
+webkit_dom_range_detach(WebKitDOMRange* self, GError** error);
 
 /**
  * webkit_dom_range_create_contextual_fragment:
@@ -269,36 +268,36 @@ webkit_dom_range_detach(WebKitDOMRange* self, GError **error);
  *
 **/
 WEBKIT_API WebKitDOMDocumentFragment*
-webkit_dom_range_create_contextual_fragment(WebKitDOMRange* self, const gchar* html, GError **error);
+webkit_dom_range_create_contextual_fragment(WebKitDOMRange* self, const gchar* html, GError** error);
 
 /**
  * webkit_dom_range_intersects_node:
  * @self: A #WebKitDOMRange
- * @ref_node: A #WebKitDOMNode
+ * @refNode: A #WebKitDOMNode
  * @error: #GError
  *
  * Returns:
  *
 **/
 WEBKIT_API gboolean
-webkit_dom_range_intersects_node(WebKitDOMRange* self, WebKitDOMNode* ref_node, GError **error);
+webkit_dom_range_intersects_node(WebKitDOMRange* self, WebKitDOMNode* refNode, GError** error);
 
 /**
  * webkit_dom_range_compare_node:
  * @self: A #WebKitDOMRange
- * @ref_node: A #WebKitDOMNode
+ * @refNode: A #WebKitDOMNode
  * @error: #GError
  *
  * Returns:
  *
 **/
 WEBKIT_API gshort
-webkit_dom_range_compare_node(WebKitDOMRange* self, WebKitDOMNode* ref_node, GError **error);
+webkit_dom_range_compare_node(WebKitDOMRange* self, WebKitDOMNode* refNode, GError** error);
 
 /**
  * webkit_dom_range_compare_point:
  * @self: A #WebKitDOMRange
- * @ref_node: A #WebKitDOMNode
+ * @refNode: A #WebKitDOMNode
  * @offset: A #glong
  * @error: #GError
  *
@@ -306,12 +305,12 @@ webkit_dom_range_compare_node(WebKitDOMRange* self, WebKitDOMNode* ref_node, GEr
  *
 **/
 WEBKIT_API gshort
-webkit_dom_range_compare_point(WebKitDOMRange* self, WebKitDOMNode* ref_node, glong offset, GError **error);
+webkit_dom_range_compare_point(WebKitDOMRange* self, WebKitDOMNode* refNode, glong offset, GError** error);
 
 /**
  * webkit_dom_range_is_point_in_range:
  * @self: A #WebKitDOMRange
- * @ref_node: A #WebKitDOMNode
+ * @refNode: A #WebKitDOMNode
  * @offset: A #glong
  * @error: #GError
  *
@@ -319,7 +318,7 @@ webkit_dom_range_compare_point(WebKitDOMRange* self, WebKitDOMNode* ref_node, gl
  *
 **/
 WEBKIT_API gboolean
-webkit_dom_range_is_point_in_range(WebKitDOMRange* self, WebKitDOMNode* ref_node, glong offset, GError **error);
+webkit_dom_range_is_point_in_range(WebKitDOMRange* self, WebKitDOMNode* refNode, glong offset, GError** error);
 
 /**
  * webkit_dom_range_expand:
@@ -331,7 +330,7 @@ webkit_dom_range_is_point_in_range(WebKitDOMRange* self, WebKitDOMNode* ref_node
  *
 **/
 WEBKIT_API void
-webkit_dom_range_expand(WebKitDOMRange* self, const gchar* unit, GError **error);
+webkit_dom_range_expand(WebKitDOMRange* self, const gchar* unit, GError** error);
 
 /**
  * webkit_dom_range_get_start_container:
@@ -342,7 +341,7 @@ webkit_dom_range_expand(WebKitDOMRange* self, const gchar* unit, GError **error)
  *
 **/
 WEBKIT_API WebKitDOMNode*
-webkit_dom_range_get_start_container(WebKitDOMRange* self, GError **error);
+webkit_dom_range_get_start_container(WebKitDOMRange* self, GError** error);
 
 /**
  * webkit_dom_range_get_start_offset:
@@ -353,7 +352,7 @@ webkit_dom_range_get_start_container(WebKitDOMRange* self, GError **error);
  *
 **/
 WEBKIT_API glong
-webkit_dom_range_get_start_offset(WebKitDOMRange* self, GError **error);
+webkit_dom_range_get_start_offset(WebKitDOMRange* self, GError** error);
 
 /**
  * webkit_dom_range_get_end_container:
@@ -364,7 +363,7 @@ webkit_dom_range_get_start_offset(WebKitDOMRange* self, GError **error);
  *
 **/
 WEBKIT_API WebKitDOMNode*
-webkit_dom_range_get_end_container(WebKitDOMRange* self, GError **error);
+webkit_dom_range_get_end_container(WebKitDOMRange* self, GError** error);
 
 /**
  * webkit_dom_range_get_end_offset:
@@ -375,7 +374,7 @@ webkit_dom_range_get_end_container(WebKitDOMRange* self, GError **error);
  *
 **/
 WEBKIT_API glong
-webkit_dom_range_get_end_offset(WebKitDOMRange* self, GError **error);
+webkit_dom_range_get_end_offset(WebKitDOMRange* self, GError** error);
 
 /**
  * webkit_dom_range_get_collapsed:
@@ -386,7 +385,7 @@ webkit_dom_range_get_end_offset(WebKitDOMRange* self, GError **error);
  *
 **/
 WEBKIT_API gboolean
-webkit_dom_range_get_collapsed(WebKitDOMRange* self, GError **error);
+webkit_dom_range_get_collapsed(WebKitDOMRange* self, GError** error);
 
 /**
  * webkit_dom_range_get_common_ancestor_container:
@@ -397,7 +396,7 @@ webkit_dom_range_get_collapsed(WebKitDOMRange* self, GError **error);
  *
 **/
 WEBKIT_API WebKitDOMNode*
-webkit_dom_range_get_common_ancestor_container(WebKitDOMRange* self, GError **error);
+webkit_dom_range_get_common_ancestor_container(WebKitDOMRange* self, GError** error);
 
 /**
  * webkit_dom_range_get_text:

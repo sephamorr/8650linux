@@ -21,11 +21,10 @@
 #ifndef WebKitDOMComment_h
 #define WebKitDOMComment_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMCharacterData.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMCharacterData.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_COMMENT            (webkit_dom_comment_get_type())

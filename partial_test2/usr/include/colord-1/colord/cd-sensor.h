@@ -67,18 +67,6 @@ typedef struct
 	void (*_cd_sensor_reserved8) (void);
 } CdSensorClass;
 
-/**
- * CdSensorError:
- * @CD_SENSOR_ERROR_FAILED: the transaction failed for an unknown reason
- *
- * Errors that can be thrown
- */
-typedef enum
-{
-	CD_SENSOR_ERROR_FAILED,
-	CD_SENSOR_ERROR_LAST
-} CdSensorError;
-
 GType		 cd_sensor_get_type			(void);
 GQuark		 cd_sensor_error_quark			(void);
 CdSensor	*cd_sensor_new				(void);
@@ -91,21 +79,24 @@ void		 cd_sensor_connect			(CdSensor	*sensor,
 							 gpointer	 user_data);
 gboolean	 cd_sensor_connect_finish		(CdSensor	*sensor,
 							 GAsyncResult	*res,
-							 GError		**error);
+							 GError		**error)
+							 G_GNUC_WARN_UNUSED_RESULT;
 void	 	 cd_sensor_lock				(CdSensor	*sensor,
 							 GCancellable	*cancellable,
 							 GAsyncReadyCallback callback,
 							 gpointer	 user_data);
 gboolean 	 cd_sensor_lock_finish			(CdSensor	*sensor,
 							 GAsyncResult	*res,
-							 GError		**error);
+							 GError		**error)
+							 G_GNUC_WARN_UNUSED_RESULT;
 void		 cd_sensor_unlock			(CdSensor	*sensor,
 							 GCancellable	*cancellable,
 							 GAsyncReadyCallback callback,
 							 gpointer	 user_data);
 gboolean	 cd_sensor_unlock_finish		(CdSensor	*sensor,
 							 GAsyncResult	*res,
-							 GError		**error);
+							 GError		**error)
+							 G_GNUC_WARN_UNUSED_RESULT;
 void		 cd_sensor_set_options			(CdSensor	*sensor,
 							 GHashTable	*values,
 							 GCancellable	*cancellable,
@@ -113,7 +104,8 @@ void		 cd_sensor_set_options			(CdSensor	*sensor,
 							 gpointer	 user_data);
 gboolean	 cd_sensor_set_options_finish		(CdSensor	*sensor,
 							 GAsyncResult	*res,
-							 GError		**error);
+							 GError		**error)
+							 G_GNUC_WARN_UNUSED_RESULT;
 void		 cd_sensor_get_sample			(CdSensor	*sensor,
 							 CdSensorCap	 cap,
 							 GCancellable	*cancellable,
@@ -121,10 +113,12 @@ void		 cd_sensor_get_sample			(CdSensor	*sensor,
 							 gpointer	 user_data);
 CdColorXYZ	*cd_sensor_get_sample_finish		(CdSensor	*sensor,
 							 GAsyncResult	*res,
-							 GError		**error);
+							 GError		**error)
+							 G_GNUC_WARN_UNUSED_RESULT;
 
 /* getters */
 const gchar	*cd_sensor_get_object_path		(CdSensor	*sensor);
+const gchar	*cd_sensor_get_id			(CdSensor	*sensor);
 gboolean	 cd_sensor_get_connected		(CdSensor	*sensor);
 CdSensorKind	 cd_sensor_get_kind			(CdSensor	*sensor);
 CdSensorState	 cd_sensor_get_state			(CdSensor	*sensor);
@@ -133,12 +127,16 @@ const gchar	*cd_sensor_get_serial			(CdSensor	*sensor);
 const gchar	*cd_sensor_get_model			(CdSensor	*sensor);
 const gchar	*cd_sensor_get_vendor			(CdSensor	*sensor);
 gboolean	 cd_sensor_get_native			(CdSensor	*sensor);
+gboolean	 cd_sensor_get_embedded			(CdSensor	*sensor);
 gboolean	 cd_sensor_get_locked			(CdSensor	*sensor);
-guint		 cd_sensor_get_caps			(CdSensor	*sensor);
+guint64		 cd_sensor_get_caps			(CdSensor	*sensor);
 gboolean	 cd_sensor_has_cap			(CdSensor	*sensor,
 							 CdSensorCap	 cap);
 GHashTable	*cd_sensor_get_options			(CdSensor	*sensor);
 const gchar	*cd_sensor_get_option			(CdSensor	*sensor,
+							 const gchar	*key);
+GHashTable	*cd_sensor_get_metadata			(CdSensor	*sensor);
+const gchar	*cd_sensor_get_metadata_item		(CdSensor	*sensor,
 							 const gchar	*key);
 
 /* utilities */
@@ -146,7 +144,8 @@ void		 cd_sensor_set_object_path		(CdSensor	*sensor,
 							 const gchar	*object_path);
 gboolean	 cd_sensor_equal			(CdSensor	*sensor1,
 							 CdSensor	*sensor2);
-gchar		*cd_sensor_to_string			(CdSensor	*sensor);
+gchar		*cd_sensor_to_string			(CdSensor	*sensor)
+							 G_GNUC_WARN_UNUSED_RESULT;
 
 G_END_DECLS
 

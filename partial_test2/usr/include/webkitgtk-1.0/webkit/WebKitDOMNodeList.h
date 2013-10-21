@@ -21,11 +21,10 @@
 #ifndef WebKitDOMNodeList_h
 #define WebKitDOMNodeList_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_NODE_LIST            (webkit_dom_node_list_get_type())

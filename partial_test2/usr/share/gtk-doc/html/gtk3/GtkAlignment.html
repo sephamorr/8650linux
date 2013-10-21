@@ -2,26 +2,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>GtkAlignment</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>GTK+ 3 Reference Manual: GtkAlignment</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GTK+ 3 Reference Manual">
 <link rel="up" href="LayoutContainers.html" title="Layout Containers">
-<link rel="prev" href="GtkGrid.html" title="GtkGrid">
-<link rel="next" href="GtkAspectFrame.html" title="GtkAspectFrame">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="prev" href="GtkOverlay.html" title="GtkOverlay">
+<link rel="next" href="GtkButtonBox.html" title="GtkButtonBox">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="GtkGrid.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="LayoutContainers.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GTK+ 3 Reference Manual</th>
-<td><a accesskey="n" href="GtkAspectFrame.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#GtkAlignment.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#GtkAlignment.description" class="shortcut">Description</a>
                    | 
@@ -30,8 +23,12 @@
                   <a href="#GtkAlignment.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
                    | 
                   <a href="#GtkAlignment.properties" class="shortcut">Properties</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="LayoutContainers.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="GtkOverlay.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="GtkButtonBox.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="GtkAlignment"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -47,32 +44,32 @@
 #include &lt;gtk/gtk.h&gt;
 
 struct              <a class="link" href="GtkAlignment.html#GtkAlignment-struct" title="struct GtkAlignment">GtkAlignment</a>;
-<a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GtkAlignment.html#gtk-alignment-new" title="gtk_alignment_new ()">gtk_alignment_new</a>                   (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xalign</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yalign</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xscale</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yscale</code></em>);
+<a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GtkAlignment.html#gtk-alignment-new" title="gtk_alignment_new ()">gtk_alignment_new</a>                   (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xalign</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yalign</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xscale</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yscale</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkAlignment.html#gtk-alignment-set" title="gtk_alignment_set ()">gtk_alignment_set</a>                   (<em class="parameter"><code><a class="link" href="GtkAlignment.html" title="GtkAlignment"><span class="type">GtkAlignment</span></a> *alignment</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xalign</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yalign</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xscale</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yscale</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xalign</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yalign</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xscale</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yscale</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkAlignment.html#gtk-alignment-get-padding" title="gtk_alignment_get_padding ()">gtk_alignment_get_padding</a>           (<em class="parameter"><code><a class="link" href="GtkAlignment.html" title="GtkAlignment"><span class="type">GtkAlignment</span></a> *alignment</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_top</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_bottom</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_left</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_right</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_top</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_bottom</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_left</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_right</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkAlignment.html#gtk-alignment-set-padding" title="gtk_alignment_set_padding ()">gtk_alignment_set_padding</a>           (<em class="parameter"><code><a class="link" href="GtkAlignment.html" title="GtkAlignment"><span class="type">GtkAlignment</span></a> *alignment</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_top</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_bottom</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_left</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_right</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_top</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_bottom</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_left</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_right</code></em>);
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkAlignment.object-hierarchy"></a><h2>Object Hierarchy</h2>
 <pre class="synopsis">
-  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
-   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="../gobject/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
          +----<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
                +----<a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
                      +----<a class="link" href="GtkBin.html" title="GtkBin">GtkBin</a>
@@ -88,14 +85,14 @@ GtkAlignment implements
 <div class="refsect1">
 <a name="GtkAlignment.properties"></a><h2>Properties</h2>
 <pre class="synopsis">
-  "<a class="link" href="GtkAlignment.html#GtkAlignment--bottom-padding" title='The "bottom-padding" property'>bottom-padding</a>"           <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write
-  "<a class="link" href="GtkAlignment.html#GtkAlignment--left-padding" title='The "left-padding" property'>left-padding</a>"             <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write
-  "<a class="link" href="GtkAlignment.html#GtkAlignment--right-padding" title='The "right-padding" property'>right-padding</a>"            <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write
-  "<a class="link" href="GtkAlignment.html#GtkAlignment--top-padding" title='The "top-padding" property'>top-padding</a>"              <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write
-  "<a class="link" href="GtkAlignment.html#GtkAlignment--xalign" title='The "xalign" property'>xalign</a>"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write
-  "<a class="link" href="GtkAlignment.html#GtkAlignment--xscale" title='The "xscale" property'>xscale</a>"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write
-  "<a class="link" href="GtkAlignment.html#GtkAlignment--yalign" title='The "yalign" property'>yalign</a>"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write
-  "<a class="link" href="GtkAlignment.html#GtkAlignment--yscale" title='The "yscale" property'>yscale</a>"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write
+  "<a class="link" href="GtkAlignment.html#GtkAlignment--bottom-padding" title='The "bottom-padding" property'>bottom-padding</a>"           <a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write
+  "<a class="link" href="GtkAlignment.html#GtkAlignment--left-padding" title='The "left-padding" property'>left-padding</a>"             <a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write
+  "<a class="link" href="GtkAlignment.html#GtkAlignment--right-padding" title='The "right-padding" property'>right-padding</a>"            <a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write
+  "<a class="link" href="GtkAlignment.html#GtkAlignment--top-padding" title='The "top-padding" property'>top-padding</a>"              <a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write
+  "<a class="link" href="GtkAlignment.html#GtkAlignment--xalign" title='The "xalign" property'>xalign</a>"                   <a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write
+  "<a class="link" href="GtkAlignment.html#GtkAlignment--xscale" title='The "xscale" property'>xscale</a>"                   <a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write
+  "<a class="link" href="GtkAlignment.html#GtkAlignment--yalign" title='The "yalign" property'>yalign</a>"                   <a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write
+  "<a class="link" href="GtkAlignment.html#GtkAlignment--yscale" title='The "yscale" property'>yscale</a>"                   <a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write
 </pre>
 </div>
 <div class="refsect1">
@@ -118,7 +115,7 @@ have no effect.
 </p>
 <p>
 </p>
-<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="note">
 <h3 class="title">Note</h3>
 <p>
 Note that the desired effect can in most cases be achieved by using the
@@ -138,15 +135,18 @@ on the child widget, so <a class="link" href="GtkAlignment.html" title="GtkAlign
 <hr>
 <div class="refsect2">
 <a name="gtk-alignment-new"></a><h3>gtk_alignment_new ()</h3>
-<pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_alignment_new                   (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xalign</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yalign</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xscale</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yscale</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_alignment_new                   (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xalign</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yalign</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xscale</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yscale</code></em>);</pre>
 <p>
 Creates a new <a class="link" href="GtkAlignment.html" title="GtkAlignment"><span class="type">GtkAlignment</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>xalign</code></em> :</span></p></td>
@@ -182,15 +182,18 @@ unused space, from 0 to 1. The values are similar to <em class="parameter"><code
 <div class="refsect2">
 <a name="gtk-alignment-set"></a><h3>gtk_alignment_set ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_alignment_set                   (<em class="parameter"><code><a class="link" href="GtkAlignment.html" title="GtkAlignment"><span class="type">GtkAlignment</span></a> *alignment</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xalign</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yalign</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xscale</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yscale</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xalign</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yalign</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xscale</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yscale</code></em>);</pre>
 <p>
 Sets the <a class="link" href="GtkAlignment.html" title="GtkAlignment"><span class="type">GtkAlignment</span></a> values.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>alignment</code></em> :</span></p></td>
@@ -226,16 +229,19 @@ unused space, from 0 to 1. The values are similar to <em class="parameter"><code
 <div class="refsect2">
 <a name="gtk-alignment-get-padding"></a><h3>gtk_alignment_get_padding ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_alignment_get_padding           (<em class="parameter"><code><a class="link" href="GtkAlignment.html" title="GtkAlignment"><span class="type">GtkAlignment</span></a> *alignment</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_top</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_bottom</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_left</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_right</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_top</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_bottom</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_left</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_right</code></em>);</pre>
 <p>
 Gets the padding on the different sides of the widget.
 See <a class="link" href="GtkAlignment.html#gtk-alignment-set-padding" title="gtk_alignment_set_padding ()"><code class="function">gtk_alignment_set_padding()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>alignment</code></em> :</span></p></td>
@@ -245,25 +251,25 @@ See <a class="link" href="GtkAlignment.html#gtk-alignment-set-padding" title="gt
 <tr>
 <td><p><span class="term"><em class="parameter"><code>padding_top</code></em> :</span></p></td>
 <td>location to store the padding for
-the top of the widget, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+the top of the widget, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>padding_bottom</code></em> :</span></p></td>
 <td>location to store the padding
-for the bottom of the widget, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+for the bottom of the widget, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>padding_left</code></em> :</span></p></td>
 <td>location to store the padding
-for the left of the widget, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+for the left of the widget, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>padding_right</code></em> :</span></p></td>
 <td>location to store the padding
-for the right of the widget, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+for the right of the widget, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -274,18 +280,21 @@ for the right of the widget, or <a href="http://library.gnome.org/devel/glib/uns
 <div class="refsect2">
 <a name="gtk-alignment-set-padding"></a><h3>gtk_alignment_set_padding ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_alignment_set_padding           (<em class="parameter"><code><a class="link" href="GtkAlignment.html" title="GtkAlignment"><span class="type">GtkAlignment</span></a> *alignment</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_top</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_bottom</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_left</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_right</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_top</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_bottom</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_left</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_right</code></em>);</pre>
 <p>
 Sets the padding on the different sides of the widget.
 The padding adds blank space to the sides of the widget. For instance,
 this can be used to indent the child widget towards the right by adding
 padding on the left.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>alignment</code></em> :</span></p></td>
@@ -317,7 +326,7 @@ padding on the left.
 <a name="GtkAlignment.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GtkAlignment--bottom-padding"></a><h3>The <code class="literal">"bottom-padding"</code> property</h3>
-<pre class="programlisting">  "bottom-padding"           <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write</pre>
+<pre class="programlisting">  "bottom-padding"           <a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write</pre>
 <p>
 The padding to insert at the bottom of the widget.
 </p>
@@ -328,7 +337,7 @@ The padding to insert at the bottom of the widget.
 <hr>
 <div class="refsect2">
 <a name="GtkAlignment--left-padding"></a><h3>The <code class="literal">"left-padding"</code> property</h3>
-<pre class="programlisting">  "left-padding"             <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write</pre>
+<pre class="programlisting">  "left-padding"             <a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write</pre>
 <p>
 The padding to insert at the left of the widget.
 </p>
@@ -339,7 +348,7 @@ The padding to insert at the left of the widget.
 <hr>
 <div class="refsect2">
 <a name="GtkAlignment--right-padding"></a><h3>The <code class="literal">"right-padding"</code> property</h3>
-<pre class="programlisting">  "right-padding"            <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write</pre>
+<pre class="programlisting">  "right-padding"            <a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write</pre>
 <p>
 The padding to insert at the right of the widget.
 </p>
@@ -350,7 +359,7 @@ The padding to insert at the right of the widget.
 <hr>
 <div class="refsect2">
 <a name="GtkAlignment--top-padding"></a><h3>The <code class="literal">"top-padding"</code> property</h3>
-<pre class="programlisting">  "top-padding"              <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write</pre>
+<pre class="programlisting">  "top-padding"              <a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write</pre>
 <p>
 The padding to insert at the top of the widget.
 </p>
@@ -361,7 +370,7 @@ The padding to insert at the top of the widget.
 <hr>
 <div class="refsect2">
 <a name="GtkAlignment--xalign"></a><h3>The <code class="literal">"xalign"</code> property</h3>
-<pre class="programlisting">  "xalign"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write</pre>
+<pre class="programlisting">  "xalign"                   <a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write</pre>
 <p>Horizontal position of child in available space. 0.0 is left aligned, 1.0 is right aligned.</p>
 <p>Allowed values: [0,1]</p>
 <p>Default value: 0.5</p>
@@ -369,7 +378,7 @@ The padding to insert at the top of the widget.
 <hr>
 <div class="refsect2">
 <a name="GtkAlignment--xscale"></a><h3>The <code class="literal">"xscale"</code> property</h3>
-<pre class="programlisting">  "xscale"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write</pre>
+<pre class="programlisting">  "xscale"                   <a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write</pre>
 <p>If available horizontal space is bigger than needed for the child, how much of it to use for the child. 0.0 means none, 1.0 means all.</p>
 <p>Allowed values: [0,1]</p>
 <p>Default value: 1</p>
@@ -377,7 +386,7 @@ The padding to insert at the top of the widget.
 <hr>
 <div class="refsect2">
 <a name="GtkAlignment--yalign"></a><h3>The <code class="literal">"yalign"</code> property</h3>
-<pre class="programlisting">  "yalign"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write</pre>
+<pre class="programlisting">  "yalign"                   <a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write</pre>
 <p>Vertical position of child in available space. 0.0 is top aligned, 1.0 is bottom aligned.</p>
 <p>Allowed values: [0,1]</p>
 <p>Default value: 0.5</p>
@@ -385,7 +394,7 @@ The padding to insert at the top of the widget.
 <hr>
 <div class="refsect2">
 <a name="GtkAlignment--yscale"></a><h3>The <code class="literal">"yscale"</code> property</h3>
-<pre class="programlisting">  "yscale"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write</pre>
+<pre class="programlisting">  "yscale"                   <a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a>                : Read / Write</pre>
 <p>If available vertical space is bigger than needed for the child, how much of it to use for the child. 0.0 means none, 1.0 means all.</p>
 <p>Allowed values: [0,1]</p>
 <p>Default value: 1</p>
@@ -394,6 +403,6 @@ The padding to insert at the top of the widget.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 #define SG_LIB_H
 
 /*
- * Copyright (c) 2004-2011 Douglas Gilbert.
+ * Copyright (c) 2004-2013 Douglas Gilbert.
  * All rights reserved.
  * Use of this source code is governed by a BSD-style
  * license that can be found in the BSD_LICENSE file.
@@ -90,7 +90,7 @@ extern "C" {
 #define SPC_SK_MISCOMPARE 0xe
 #define SPC_SK_COMPLETED 0xf
 
-/* Transport protocol identifiers */
+/* Transport protocol identifiers or just Protocol identifiers */
 #define TPROTO_FCP 0
 #define TPROTO_SPI 1
 #define TPROTO_SSA 2
@@ -100,6 +100,8 @@ extern "C" {
 #define TPROTO_SAS 6
 #define TPROTO_ADT 7
 #define TPROTO_ATA 8
+#define TPROTO_UAS 9
+#define TPROTO_SOP 0xa
 #define TPROTO_NONE 0xf
 
 
@@ -194,7 +196,7 @@ extern int sg_get_sense_filemark_eom_ili(const unsigned char * sensep,
 extern int sg_get_sense_progress_fld(const unsigned char * sensep,
                                      int sb_len, int * progress_outp);
 
-/* Closely related to sg_print_sense(). Puts decode sense data in 'buff'.
+/* Closely related to sg_print_sense(). Puts decoded sense data in 'buff'.
  * Usually multiline with multiple '\n' including one trailing. If
  * 'raw_sinfo' set appends sense buffer in hex. */
 extern void sg_get_sense_str(const char * leadin,

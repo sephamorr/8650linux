@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>gconf-listeners</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.0">
 <link rel="home" href="index.html" title="GConf Reference Manual">
 <link rel="up" href="ch01.html" title="Using the GConf library">
 <link rel="prev" href="gconf-gconf-internals.html" title="gconf-internals">
 <link rel="next" href="gconf-gconf-schema.html" title="GConfSchema">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -39,33 +39,33 @@
 <a name="gconf-gconf-listeners.synopsis"></a><h2>Synopsis</h2>
 <pre class="synopsis">                    <a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners">GConfListeners</a>;
 <span class="returnvalue">void</span>                (<a class="link" href="gconf-gconf-listeners.html#GConfListenersCallback" title="GConfListenersCallback ()">*GConfListenersCallback</a>)           (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *all_above_key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> cnxn_id</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> listener_data</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *all_above_key</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> cnxn_id</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> listener_data</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
 <a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="returnvalue">GConfListeners</span></a> *    <a class="link" href="gconf-gconf-listeners.html#gconf-listeners-new" title="gconf_listeners_new ()">gconf_listeners_new</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-listeners.html#gconf-listeners-free" title="gconf_listeners_free ()">gconf_listeners_free</a>                (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="gconf-gconf-listeners.html#gconf-listeners-add" title="gconf_listeners_add ()">gconf_listeners_add</a>                 (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *listen_point</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> listener_data</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Miscellaneous-Utility-Functions.html#GFreeFunc"><span class="type">GFreeFunc</span></a> destroy_notify</code></em>);
+<span class="returnvalue">guint</span>               <a class="link" href="gconf-gconf-listeners.html#gconf-listeners-add" title="gconf_listeners_add ()">gconf_listeners_add</a>                 (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *listen_point</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> listener_data</code></em>,
+                                                         <em class="parameter"><code><span class="type">GFreeFunc</span> destroy_notify</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-listeners.html#gconf-listeners-remove" title="gconf_listeners_remove ()">gconf_listeners_remove</a>              (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> cnxn_id</code></em>);
+                                                         <em class="parameter"><code><span class="type">guint</span> cnxn_id</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-listeners.html#gconf-listeners-notify" title="gconf_listeners_notify ()">gconf_listeners_notify</a>              (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *all_above</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *all_above</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListenersCallback" title="GConfListenersCallback ()"><span class="type">GConfListenersCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="gconf-gconf-listeners.html#gconf-listeners-count" title="gconf_listeners_count ()">gconf_listeners_count</a>               (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>);
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">guint</span>               <a class="link" href="gconf-gconf-listeners.html#gconf-listeners-count" title="gconf_listeners_count ()">gconf_listeners_count</a>               (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-listeners.html#gconf-listeners-foreach" title="gconf_listeners_foreach ()">gconf_listeners_foreach</a>             (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>,
                                                          <em class="parameter"><code><span class="type">GConfListenersForeach</span> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gconf-gconf-listeners.html#gconf-listeners-get-data" title="gconf_listeners_get_data ()">gconf_listeners_get_data</a>            (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> cnxn_id</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> *listener_data_p</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **location_p</code></em>);
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gconf-gconf-listeners.html#gconf-listeners-get-data" title="gconf_listeners_get_data ()">gconf_listeners_get_data</a>            (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> cnxn_id</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> *listener_data_p</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> **location_p</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-listeners.html#gconf-listeners-remove-if" title="gconf_listeners_remove_if ()">gconf_listeners_remove_if</a>           (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>,
                                                          <em class="parameter"><code><span class="type">GConfListenersPredicate</span> predicate</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
 </pre>
 </div>
 <div class="refsect1">
@@ -93,16 +93,19 @@ to be recycled. There is also a Listener structure maintaining data pertaining t
 <div class="refsect2">
 <a name="GConfListenersCallback"></a><h3>GConfListenersCallback ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                (*GConfListenersCallback)           (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *all_above_key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> cnxn_id</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> listener_data</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *all_above_key</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> cnxn_id</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> listener_data</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
 <p>
 This is the signature of a user function added with <a class="link" href="gconf-gconf-listeners.html#gconf-listeners-notify" title="gconf_listeners_notify ()"><code class="function">gconf_listeners_notify()</code></a>. This function
 is called whenever the value of a key changes.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>listeners</code></em> :</span></p></td>
@@ -134,8 +137,11 @@ is called whenever the value of a key changes.
 <p>
 Creates a new listener table and typecasts it to a <a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the newly allocated <a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a>.</td>
@@ -149,8 +155,11 @@ Creates a new listener table and typecasts it to a <a class="link" href="gconf-g
 <p>
 Destroys the listener table.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>listeners</code></em> :</span></p></td>
 <td>a <a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a>.</td>
@@ -160,17 +169,20 @@ Destroys the listener table.
 <hr>
 <div class="refsect2">
 <a name="gconf-listeners-add"></a><h3>gconf_listeners_add ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gconf_listeners_add                 (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *listen_point</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> listener_data</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Miscellaneous-Utility-Functions.html#GFreeFunc"><span class="type">GFreeFunc</span></a> destroy_notify</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">guint</span>               gconf_listeners_add                 (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *listen_point</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> listener_data</code></em>,
+                                                         <em class="parameter"><code><span class="type">GFreeFunc</span> destroy_notify</code></em>);</pre>
 <p>
 Creates a new Listener with the next available connection id and inserts it into the listener table.
 The newly created listener listens for changes below and including the <em class="parameter"><code>listen_point.Returns</code></em> the newly
 assigned connection id.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>listeners</code></em> :</span></p></td>
@@ -190,7 +202,7 @@ assigned connection id.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the newly assigned connection id, a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> value.</td>
+<td>the newly assigned connection id, a <span class="type">guint</span> value.</td>
 </tr>
 </tbody>
 </table></div>
@@ -199,12 +211,15 @@ assigned connection id.
 <div class="refsect2">
 <a name="gconf-listeners-remove"></a><h3>gconf_listeners_remove ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gconf_listeners_remove              (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> cnxn_id</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">guint</span> cnxn_id</code></em>);</pre>
 <p>
 Removes the listener from the listener table.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>listeners</code></em> :</span></p></td>
@@ -221,14 +236,17 @@ Removes the listener from the listener table.
 <div class="refsect2">
 <a name="gconf-listeners-notify"></a><h3>gconf_listeners_notify ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gconf_listeners_notify              (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *all_above</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *all_above</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListenersCallback" title="GConfListenersCallback ()"><span class="type">GConfListenersCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
 <p>
 Notifies all the associated listeners that a key has changed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>listeners</code></em> :</span></p></td>
@@ -252,12 +270,15 @@ Notifies all the associated listeners that a key has changed.
 <hr>
 <div class="refsect2">
 <a name="gconf-listeners-count"></a><h3>gconf_listeners_count ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gconf_listeners_count               (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">guint</span>               gconf_listeners_count               (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>);</pre>
 <p>
 Returns the number of alive listeners in the listener table.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>listeners</code></em> :</span></p></td>
@@ -276,12 +297,15 @@ Returns the number of alive listeners in the listener table.
 <a name="gconf-listeners-foreach"></a><h3>gconf_listeners_foreach ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gconf_listeners_foreach             (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>,
                                                          <em class="parameter"><code><span class="type">GConfListenersForeach</span> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
 <p>
 Execute a function for each of the <a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>listeners</code></em> :</span></p></td>
@@ -301,15 +325,18 @@ Execute a function for each of the <a class="link" href="gconf-gconf-listeners.h
 <hr>
 <div class="refsect2">
 <a name="gconf-listeners-get-data"></a><h3>gconf_listeners_get_data ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gconf_listeners_get_data            (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> cnxn_id</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> *listener_data_p</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **location_p</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gconf_listeners_get_data            (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> cnxn_id</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> *listener_data_p</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> **location_p</code></em>);</pre>
 <p>
 Obtains the data particular to a <span class="type">GConfListener</span>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>listeners</code></em> :</span></p></td>
@@ -341,12 +368,15 @@ if an error occurs while retrieving the data.</td>
 <a name="gconf-listeners-remove-if"></a><h3>gconf_listeners_remove_if ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gconf_listeners_remove_if           (<em class="parameter"><code><a class="link" href="gconf-gconf-listeners.html#GConfListeners" title="GConfListeners"><span class="type">GConfListeners</span></a> *listeners</code></em>,
                                                          <em class="parameter"><code><span class="type">GConfListenersPredicate</span> predicate</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
 <p>
 Remove the listener if a predicate is satisfied.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>listeners</code></em> :</span></p></td>
@@ -358,7 +388,7 @@ Remove the listener if a predicate is satisfied.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>.</td>
+<td>a <span class="type">gpointer</span>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -367,6 +397,6 @@ Remove the listener if a predicate is satisfied.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

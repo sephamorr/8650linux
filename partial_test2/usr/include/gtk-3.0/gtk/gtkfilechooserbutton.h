@@ -16,12 +16,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GTK_FILE_CHOOSER_BUTTON_H__
+#define __GTK_FILE_CHOOSER_BUTTON_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_FILE_CHOOSER_BUTTON_H__
-#define __GTK_FILE_CHOOSER_BUTTON_H__
 
 #include <gtk/gtkbox.h>
 #include <gtk/gtkfilechooser.h>
@@ -62,17 +62,26 @@ struct _GtkFileChooserButtonClass
 };
 
 
+GDK_AVAILABLE_IN_ALL
 GType                 gtk_file_chooser_button_get_type         (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkWidget *           gtk_file_chooser_button_new              (const gchar          *title,
 								GtkFileChooserAction  action);
+GDK_AVAILABLE_IN_ALL
 GtkWidget *           gtk_file_chooser_button_new_with_dialog  (GtkWidget            *dialog);
+GDK_AVAILABLE_IN_ALL
 const gchar *         gtk_file_chooser_button_get_title        (GtkFileChooserButton *button);
+GDK_AVAILABLE_IN_ALL
 void                  gtk_file_chooser_button_set_title        (GtkFileChooserButton *button,
 								const gchar          *title);
+GDK_AVAILABLE_IN_ALL
 gint                  gtk_file_chooser_button_get_width_chars  (GtkFileChooserButton *button);
+GDK_AVAILABLE_IN_ALL
 void                  gtk_file_chooser_button_set_width_chars  (GtkFileChooserButton *button,
 								gint                  n_chars);
+GDK_AVAILABLE_IN_ALL
 gboolean              gtk_file_chooser_button_get_focus_on_click (GtkFileChooserButton *button);
+GDK_AVAILABLE_IN_ALL
 void                  gtk_file_chooser_button_set_focus_on_click (GtkFileChooserButton *button,
                                                                   gboolean              focus_on_click);
 

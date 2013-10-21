@@ -24,7 +24,8 @@ from . import message
 from .annotationparser import (TAG_VFUNC, TAG_SINCE, TAG_DEPRECATED, TAG_RETURNS,
                                TAG_ATTRIBUTES, TAG_RENAME_TO, TAG_TYPE,
                                TAG_UNREF_FUNC, TAG_REF_FUNC, TAG_SET_VALUE_FUNC,
-                               TAG_GET_VALUE_FUNC, TAG_VALUE)
+                               TAG_GET_VALUE_FUNC, TAG_VALUE, TAG_TRANSFER,
+                               TAG_STABILITY)
 from .annotationparser import (OPT_ALLOW_NONE, OPT_ARRAY, OPT_ATTRIBUTE,
                                OPT_ELEMENT_TYPE, OPT_IN, OPT_INOUT,
                                OPT_INOUT_ALT, OPT_OUT, OPT_SCOPE,
@@ -34,9 +35,8 @@ from .annotationparser import (OPT_ALLOW_NONE, OPT_ARRAY, OPT_ATTRIBUTE,
                                OPT_ARRAY_LENGTH, OPT_ARRAY_ZERO_TERMINATED,
                                OPT_CONSTRUCTOR, OPT_METHOD,
                                OPT_TRANSFER_NONE, OPT_TRANSFER_FLOATING)
-from .annotationparser import AnnotationParser
-from .transformer import TransformerException
-from .utils import to_underscores, to_underscores_noprefix
+from .utils import to_underscores_noprefix
+
 
 class MainTransformer(object):
 
@@ -49,12 +49,10 @@ class MainTransformer(object):
     # Public API
 
     def transform(self):
-        contents = list(self._namespace.itervalues())
-        if len(contents) == 0:
-            message.fatal("""Namespace is empty; likely causes are:
-* Not including .h files to be scanned
-* Broken --identifier-prefix
-""")
+        if not self._namespace.names:
+            message.fatal('Namespace is empty; likely causes are:\n'
+                          '* Not including .h files to be scanned\n'
+                          '* Broken --identifier-prefix')
 
         # Some initial namespace surgery
         self._namespace.walk(self._pass_fixup_hidden_fields)
@@ -108,23 +106,20 @@ class MainTransformer(object):
 
     def _pass_fixup_hidden_fields(self, node, chain):
         """Hide all callbacks starting with _; the typical
-usage is void (*_gtk_reserved1)(void);"""
-        if not isinstance(node, (ast.Class, ast.Interface,
-                                 ast.Record, ast.Union)):
-            return True
-        for field in node.fields:
-            if field is None:
-                continue
-            if (field.name.startswith('_')
+        usage is void (*_gtk_reserved1)(void);"""
+        if isinstance(node, (ast.Class, ast.Interface, ast.Record, ast.Union)):
+            for field in node.fields:
+                if (field
+                and field.name.startswith('_')
                 and field.anonymous_node is not None
                 and isinstance(field.anonymous_node, ast.Callback)):
-                field.introspectable = False
+                    field.introspectable = False
         return True
 
     def _get_validate_parameter_name(self, parent, param_name, origin):
         try:
             param = parent.get_parameter(param_name)
-        except ValueError, e:
+        except ValueError:
             param = None
         if param is None:
             if isinstance(origin, ast.Parameter):
@@ -141,7 +136,7 @@ usage is void (*_gtk_reserved1)(void);"""
     def _apply_annotation_rename_to(self, node, chain, block):
         if not block:
             return
-        rename_to = block.get(TAG_RENAME_TO)
+        rename_to = block.tags.get(TAG_RENAME_TO)
         if not rename_to:
             return
         rename_to = rename_to.value
@@ -191,7 +186,7 @@ usage is void (*_gtk_reserved1)(void);"""
     def _get_annotation_name(self, node):
         if isinstance(node, (ast.Class, ast.Interface, ast.Record,
                              ast.Union, ast.Enum, ast.Bitfield,
-                             ast.Callback, ast.Alias)):
+                             ast.Callback, ast.Alias, ast.Constant)):
             if node.ctype is not None:
                 return node.ctype
             elif isinstance(node, ast.Registered) and node.gtype_name is not None:
@@ -210,10 +205,12 @@ usage is void (*_gtk_reserved1)(void);"""
         if isinstance(node, ast.Function):
             self._apply_annotations_function(node, chain)
         if isinstance(node, ast.Callback):
-            self._apply_annotations_callable(node, chain, block = self._get_block(node))
+            self._apply_annotations_callable(node, chain, block=self._get_block(node))
         if isinstance(node, (ast.Class, ast.Interface, ast.Union, ast.Enum,
                              ast.Bitfield, ast.Callback)):
             self._apply_annotations_annotated(node, self._get_block(node))
+        if isinstance(node, (ast.Enum, ast.Bitfield)):
+            self._apply_annotations_enum_members(node, self._get_block(node))
         if isinstance(node, (ast.Class, ast.Interface, ast.Record, ast.Union)):
             block = self._get_block(node)
             for field in node.fields:
@@ -222,7 +219,7 @@ usage is void (*_gtk_reserved1)(void);"""
             section_name = 'SECTION:' + name.lower()
             block = self._blocks.get(section_name)
             if block:
-                node.doc = block.comment
+                node.doc = block.comment if block.comment else ''
         if isinstance(node, (ast.Class, ast.Interface)):
             for prop in node.properties:
                 self._apply_annotations_property(node, prop)
@@ -231,13 +228,13 @@ usage is void (*_gtk_reserved1)(void);"""
         if isinstance(node, ast.Class):
             block = self._get_block(node)
             if block:
-                tag = block.get(TAG_UNREF_FUNC)
+                tag = block.tags.get(TAG_UNREF_FUNC)
                 node.unref_func = tag.value if tag else None
-                tag = block.get(TAG_REF_FUNC)
+                tag = block.tags.get(TAG_REF_FUNC)
                 node.ref_func = tag.value if tag else None
-                tag = block.get(TAG_SET_VALUE_FUNC)
+                tag = block.tags.get(TAG_SET_VALUE_FUNC)
                 node.set_value_func = tag.value if tag else None
-                tag = block.get(TAG_GET_VALUE_FUNC)
+                tag = block.tags.get(TAG_GET_VALUE_FUNC)
                 node.get_value_func = tag.value if tag else None
         if isinstance(node, ast.Constant):
             self._apply_annotations_constant(node)
@@ -261,7 +258,7 @@ usage is void (*_gtk_reserved1)(void);"""
             Use resolver() on each identifier, and combiner() on the parts of
             each complete type. (top_combiner is used on the top-most type.)"""
             bits = re.split(r'([,<>()])', type_str, 1)
-            first, sep, rest = [bits[0], '', ''] if (len(bits)==1) else bits
+            first, sep, rest = [bits[0], '', ''] if (len(bits) == 1) else bits
             args = [resolver(first)]
             if sep == '<' or sep == '(':
                 lastsep = '>' if (sep == '<') else ')'
@@ -272,9 +269,11 @@ usage is void (*_gtk_reserved1)(void);"""
             else:
                 rest = sep + rest
             return top_combiner(*args), rest
+
         def resolver(ident):
             res = self._transformer.create_type_from_user_string(ident)
             return res
+
         def combiner(base, *rest):
             if not rest:
                 return base
@@ -285,6 +284,7 @@ usage is void (*_gtk_reserved1)(void);"""
             message.warn(
                 "Too many parameters in type specification %r" % (type_str, ))
             return base
+
         def top_combiner(base, *rest):
             if type_node is not None and isinstance(type_node, ast.Type):
                 base.is_const = type_node.is_const
@@ -303,7 +303,7 @@ usage is void (*_gtk_reserved1)(void);"""
             else:
                 text = type_str
             message.warn_node(parent, "%s: Unknown type: %r" %
-                              (text, result.ctype), positions=position)
+                              (text, type_str), positions=position)
         return result
 
     def _resolve_toplevel(self, type_str, type_node=None, node=None, parent=None):
@@ -319,7 +319,7 @@ usage is void (*_gtk_reserved1)(void);"""
         block = self._blocks.get(func.symbol)
         if block:
             if isinstance(param, ast.Parameter):
-                tag = block.tags.get(param.argname)
+                tag = block.params.get(param.argname)
             elif isinstance(param, ast.Return):
                 tag = block.tags.get(TAG_RETURNS)
             else:
@@ -331,24 +331,23 @@ usage is void (*_gtk_reserved1)(void);"""
         return block.position
 
     def _check_array_element_type(self, array, options):
+        array_type = array.array_type
+        element_type = array.element_type
+
         # GPtrArrays are allowed to contain non basic types
         # (except enums and flags) or basic types that are
         # as big as a gpointer
-        if array.array_type == ast.Array.GLIB_PTRARRAY and \
-           ((array.element_type in ast.BASIC_GIR_TYPES
-             and not array.element_type in ast.POINTER_TYPES) or
-            isinstance(array.element_type, ast.Enum) or
-            isinstance(array.element_type, ast.Bitfield)):
-            message.warn("invalid (element-type) for a GPtrArray, "
-                        "must be a pointer", options.position)
+        if array_type == ast.Array.GLIB_PTRARRAY:
+            if ((element_type in ast.BASIC_GIR_TYPES and not element_type in ast.POINTER_TYPES)
+            or isinstance(element_type, (ast.Enum, ast.Bitfield))):
+                message.warn("invalid (element-type) for a GPtrArray, "
+                             "must be a pointer", options.position)
 
         # GByteArrays have (element-type) guint8 by default
-        if array.array_type == ast.Array.GLIB_BYTEARRAY:
-            if array.element_type == ast.TYPE_ANY:
+        if array_type == ast.Array.GLIB_BYTEARRAY:
+            if element_type == ast.TYPE_ANY:
                 array.element_type = ast.TYPE_UINT8
-            elif not array.element_type in [ast.TYPE_UINT8,
-                                            ast.TYPE_INT8,
-                                            ast.TYPE_CHAR]:
+            elif not element_type in [ast.TYPE_UINT8, ast.TYPE_INT8, ast.TYPE_CHAR]:
                 message.warn("invalid (element-type) for a GByteArray, "
                              "must be one of guint8, gint8 or gchar",
                              options.position)
@@ -458,8 +457,8 @@ usage is void (*_gtk_reserved1)(void);"""
 
     def _get_transfer_default_returntype_basic(self, typeval):
         if (typeval.is_equiv(ast.BASIC_GIR_TYPES)
-            or typeval.is_const
-            or typeval.is_equiv(ast.TYPE_NONE)):
+        or typeval.is_const
+        or typeval.is_equiv(ast.TYPE_NONE)):
             return ast.PARAM_TRANSFER_NONE
         elif typeval.is_equiv(ast.TYPE_STRING):
             # Non-const strings default to FULL
@@ -476,8 +475,8 @@ usage is void (*_gtk_reserved1)(void);"""
         assert supercls
         if cls is supercls:
             return True
-        if cls.parent and cls.parent.target_giname != 'GObject.Object':
-            return self._is_gi_subclass(cls.parent, supercls_type)
+        if cls.parent_type and cls.parent_type.target_giname != 'GObject.Object':
+            return self._is_gi_subclass(cls.parent_type, supercls_type)
         return False
 
     def _get_transfer_default_return(self, parent, node):
@@ -539,8 +538,7 @@ usage is void (*_gtk_reserved1)(void);"""
 
         caller_allocates = False
         annotated_direction = None
-        if (OPT_INOUT in options or
-            OPT_INOUT_ALT in options):
+        if (OPT_INOUT in options or OPT_INOUT_ALT in options):
             annotated_direction = ast.PARAM_DIRECTION_INOUT
         elif OPT_OUT in options:
             subtype = options[OPT_OUT]
@@ -578,9 +576,9 @@ usage is void (*_gtk_reserved1)(void);"""
 
         self._adjust_container_type(parent, node, options)
 
-        if (OPT_ALLOW_NONE in options or
-            node.type.target_giname == 'Gio.AsyncReadyCallback' or
-            node.type.target_giname == 'Gio.Cancellable'):
+        if (OPT_ALLOW_NONE in options
+        or node.type.target_giname == 'Gio.AsyncReadyCallback'
+        or node.type.target_giname == 'Gio.Cancellable'):
             node.allow_none = True
 
         if tag is not None and tag.comment is not None:
@@ -597,17 +595,19 @@ usage is void (*_gtk_reserved1)(void);"""
         if block is None:
             return
 
-        node.doc = block.comment
+        node.doc = block.comment if block.comment else ''
 
-        since_tag = block.get(TAG_SINCE)
+        since_tag = block.tags.get(TAG_SINCE)
         if since_tag is not None:
             node.version = since_tag.value
 
-        deprecated_tag = block.get(TAG_DEPRECATED)
+        deprecated_tag = block.tags.get(TAG_DEPRECATED)
         if deprecated_tag is not None:
             value = deprecated_tag.value
             if ': ' in value:
-                version, desc = value.split(': ')
+                colon = value.find(': ')
+                version = value[:colon]
+                desc = value[colon + 2:]
             else:
                 desc = value
                 version = None
@@ -615,10 +615,18 @@ usage is void (*_gtk_reserved1)(void);"""
             if version is not None:
                 node.deprecated_version = version
 
-        annos_tag = block.get(TAG_ATTRIBUTES)
+        stability_tag = block.tags.get(TAG_STABILITY)
+        if stability_tag is not None:
+            stability = stability_tag.value.capitalize()
+            if stability in ["Stable", "Unstable", "Private", "Internal"]:
+                node.stability = stability
+            else:
+                message.warn('unknown value "%s" for Stability tag' % (
+                    stability_tag.value), stability_tag.position)
+
+        annos_tag = block.tags.get(TAG_ATTRIBUTES)
         if annos_tag is not None:
-            options = AnnotationParser.parse_options(annos_tag, annos_tag.value)
-            for key, value in options.iteritems():
+            for key, value in annos_tag.options.items():
                 if value:
                     node.attributes.append((key, value.one()))
 
@@ -678,7 +686,7 @@ usage is void (*_gtk_reserved1)(void);"""
 
     def _apply_annotations_return(self, parent, return_, block):
         if block:
-            tag = block.get(TAG_RETURNS)
+            tag = block.tags.get(TAG_RETURNS)
         else:
             tag = None
         self._apply_annotations_param_ret_common(parent, return_, tag)
@@ -689,7 +697,7 @@ usage is void (*_gtk_reserved1)(void);"""
             declparams.add(parent.instance_parameter.argname)
         for param in params:
             if block:
-                tag = block.get(param.argname)
+                tag = block.params.get(param.argname)
             else:
                 tag = None
             self._apply_annotations_param(parent, param, tag)
@@ -712,10 +720,9 @@ usage is void (*_gtk_reserved1)(void);"""
                 (param, ) = unused
                 text = ', should be %r' % (param, )
             else:
-                text = ', should be one of %s' % (
-                ', '.join(repr(p) for p in unused), )
+                text = ', should be one of %s' % (', '.join(repr(p) for p in unused), )
 
-            tag = block.get(doc_name)
+            tag = block.params.get(doc_name)
             message.warn(
                 '%s: unknown parameter %r in documentation comment%s' % (
                 block.name, doc_name, text),
@@ -743,7 +750,7 @@ usage is void (*_gtk_reserved1)(void);"""
     def _apply_annotations_field(self, parent, block, field):
         if not block:
             return
-        tag = block.get(field.name)
+        tag = block.params.get(field.name)
         if not tag:
             return
         t = tag.options.get(OPT_TYPE)
@@ -761,7 +768,7 @@ usage is void (*_gtk_reserved1)(void);"""
         self._apply_annotations_annotated(prop, block)
         if not block:
             return
-        transfer_tag = block.get(OPT_TRANSFER)
+        transfer_tag = block.tags.get(TAG_TRANSFER)
         if transfer_tag is not None:
             transfer = transfer_tag.value
             if transfer == OPT_TRANSFER_FLOATING:
@@ -769,28 +776,36 @@ usage is void (*_gtk_reserved1)(void);"""
             prop.transfer = transfer
         else:
             prop.transfer = self._get_transfer_default(parent, prop)
-        type_tag = block.get(TAG_TYPE)
+        type_tag = block.tags.get(TAG_TYPE)
         if type_tag:
             prop.type = self._resolve_toplevel(type_tag.value, prop.type, prop, parent)
 
     def _apply_annotations_signal(self, parent, signal):
+        names = []
         prefix = self._get_annotation_name(parent)
         block = self._blocks.get('%s::%s' % (prefix, signal.name))
-        self._apply_annotations_annotated(signal, block)
-        # We're only attempting to name the signal parameters if
-        # the number of parameter tags (@foo) is the same or greater
-        # than the number of signal parameters
-        if block and len(block.tags) > len(signal.parameters):
-            names = block.tags.items()
-            # Resolve real parameter names early, so that in later
-            # phase we can refer to them while resolving annotations.
-            for i, param in enumerate(signal.parameters):
-                param.argname, tag = names[i+1]
-        else:
-            names = []
+
+        if block:
+            self._apply_annotations_annotated(signal, block)
+
+            # We're only attempting to name the signal parameters if
+            # the number of parameters (@foo) is the same or greater
+            # than the number of signal parameters
+            if len(block.params) > len(signal.parameters):
+                names = block.params.items()
+                # Resolve real parameter names early, so that in later
+                # phase we can refer to them while resolving annotations.
+                for i, param in enumerate(signal.parameters):
+                    param.argname, tag = names[i + 1]
+            elif len(signal.parameters) != 0:
+                # Only warn about missing params if there are actually parameters
+                # besides implicit self.
+                message.warn("incorrect number of parameters in comment block, "
+                             "parameter annotations will be ignored.", block.position)
+
         for i, param in enumerate(signal.parameters):
             if names:
-                name, tag = names[i+1]
+                name, tag = names[i + 1]
                 options = getattr(tag, 'options', {})
                 param_type = options.get(OPT_TYPE)
                 if param_type:
@@ -802,42 +817,50 @@ usage is void (*_gtk_reserved1)(void);"""
         self._apply_annotations_return(signal, signal.retval, block)
 
     def _apply_annotations_constant(self, node):
-        block = self._blocks.get(node.ctype)
-        if not block:
+        block = self._get_block(node)
+        if block is None:
             return
-        tag = block.get(TAG_VALUE)
+
+        self._apply_annotations_annotated(node, block)
+
+        tag = block.tags.get(TAG_VALUE)
         if tag:
             node.value = tag.value
 
+    def _apply_annotations_enum_members(self, node, block):
+        if block is None:
+            return
+
+        for m in node.members:
+            tag = block.params.get(m.symbol, None)
+            if tag is not None:
+                m.doc = tag.comment
+
     def _pass_read_annotations2(self, node, chain):
         if isinstance(node, ast.Function):
-            self._apply_annotations2_function(node, chain)
+            block = self._blocks.get(node.symbol)
+
+            self._apply_annotation_rename_to(node, chain, block)
+
+            # Handle virtual invokers
+            parent = chain[-1] if chain else None
+            if (block and parent):
+                virtual_annotation = block.tags.get(TAG_VFUNC)
+                if virtual_annotation:
+                    invoker_name = virtual_annotation.value
+                    matched = False
+                    for vfunc in parent.virtual_methods:
+                        if vfunc.name == invoker_name:
+                            matched = True
+                            vfunc.invoker = node.name
+                            # Also merge in annotations
+                            self._apply_annotations_callable(vfunc, [parent], block)
+                            break
+                    if not matched:
+                        message.warn_node(node,
+                            "Virtual slot %r not found for %r annotation" % (invoker_name,
+                                                                             TAG_VFUNC))
         return True
-
-    def _apply_annotations2_function(self, node, chain):
-        block = self._blocks.get(node.symbol)
-
-        self._apply_annotation_rename_to(node, chain, block)
-
-        # Handle virtual invokers
-        parent = chain[-1] if chain else None
-        if not (block and parent):
-            return
-        virtual = block.get(TAG_VFUNC)
-        if not virtual:
-            return
-        invoker_name = virtual.value
-        matched = False
-        for vfunc in parent.virtual_methods:
-            if vfunc.name == invoker_name:
-                matched = True
-                vfunc.invoker = node.name
-                # Also merge in annotations
-                self._apply_annotations_callable(vfunc, [parent], block)
-                break
-        if not matched:
-            message.warn_node(node,
-                "Virtual slot %r not found for %r annotation" % (invoker_name, TAG_VFUNC))
 
     def _resolve_and_filter_type_list(self, typelist):
         """Given a list of Type instances, return a new list of types with
@@ -866,19 +889,18 @@ the ones that failed to resolve removed."""
                 else:
                     self._transformer.resolve_type(field.type)
         if isinstance(node, (ast.Class, ast.Interface)):
-            resolved_parent = None
             for parent in node.parent_chain:
                 try:
                     self._transformer.resolve_type(parent)
-                except ValueError, e:
+                except ValueError:
                     continue
                 target = self._transformer.lookup_typenode(parent)
                 if target:
-                    node.parent = parent
+                    node.parent_type = parent
                     break
             else:
                 if isinstance(node, ast.Interface):
-                    node.parent = ast.Type(target_giname='GObject.Object')
+                    node.parent_type = ast.Type(target_giname='GObject.Object')
             for prop in node.properties:
                 self._transformer.resolve_type(prop.type)
             for sig in node.signals:
@@ -899,25 +921,17 @@ the ones that failed to resolve removed."""
         for enum in self._namespace.itervalues():
             if not isinstance(enum, ast.Enum):
                 continue
-            type_name = enum.ctype
-            uscored = to_underscores(type_name).lower()
-
+            uscored = to_underscores_noprefix(enum.name).lower()
             uscore_enums[uscored] = enum
-
-            try:
-                no_uscore_prefixed = self._transformer.strip_identifier(type_name)
-            except TransformerException, e:
-                message.warn(e)
-                no_uscore_prefixed = None
-
-            if no_uscore_prefixed not in uscore_enums:
-                uscore_enums[no_uscore_prefixed] = enum
+            uscore_enums[enum.name] = enum
 
         for node in self._namespace.itervalues():
             if not isinstance(node, ast.ErrorQuarkFunction):
                 continue
-            short = node.symbol[:-len('_quark')]
-            if short == "g_io_error":
+            full = node.symbol[:-len('_quark')]
+            ns, short = self._transformer.split_csymbol(node.symbol)
+            short = short[:-len('_quark')]
+            if full == "g_io_error":
                 # Special case; GIOError was already taken forcing GIOErrorEnum
                 assert self._namespace.name == 'Gio'
                 enum = self._namespace.get('IOErrorEnum')
@@ -997,6 +1011,12 @@ method or constructor of some type."""
                 message.warn_node(func,
                     '%s: Methods must belong to the same namespace as the '
                     'class they belong to' % (func.symbol, ))
+            return False
+        if first.direction == ast.PARAM_DIRECTION_OUT:
+            if func.is_method:
+                message.warn_node(func,
+                    '%s: The first argument of methods cannot be an '
+                    'out-argument' % (func.symbol, ))
             return False
 
         # A quick hack here...in the future we should catch C signature/GI signature
@@ -1146,9 +1166,10 @@ method or constructor of some type."""
 
         origin_node = self._get_constructor_class(func, subsymbol)
         if origin_node is None:
-            message.warn_node(func,
-                "Can't find matching type for constructor; symbol=%r" \
-                % (func.symbol, ))
+            if func.is_constructor:
+                message.warn_node(
+                    func,
+                    "Can't find matching type for constructor; symbol=%r" % (func.symbol, ))
             return False
 
         # Some sanity checks; only objects and boxeds can have ctors
@@ -1174,8 +1195,8 @@ method or constructor of some type."""
             while parent and (not parent.gi_name == 'GObject.Object'):
                 if parent == target:
                     break
-                if parent.parent:
-                    parent = self._transformer.lookup_typenode(parent.parent)
+                if parent.parent_type:
+                    parent = self._transformer.lookup_typenode(parent.parent_type)
                 else:
                     parent = None
                 if parent is None:
@@ -1272,7 +1293,7 @@ method or constructor of some type."""
         params = node.parameters
 
         # First, do defaults for well-known callback types
-        for i, param in enumerate(params):
+        for param in params:
             argnode = self._transformer.lookup_typenode(param.type)
             if isinstance(argnode, ast.Callback):
                 if param.type.target_giname in ('Gio.AsyncReadyCallback',
@@ -1281,7 +1302,7 @@ method or constructor of some type."""
                     param.transfer = ast.PARAM_TRANSFER_NONE
 
         callback_param = None
-        for i, param in enumerate(params):
+        for param in params:
             argnode = self._transformer.lookup_typenode(param.type)
             is_destroynotify = False
             if isinstance(argnode, ast.Callback):

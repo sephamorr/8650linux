@@ -22,6 +22,13 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
+#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
+#error "Only <gtk/gtk.h> can be included directly."
+#endif
+
+#ifndef __GTK_VERSION_H__
+#define __GTK_VERSION_H__
+
 /**
  * SECTION:gtkfeatures
  * @Short_description: Variables and functions to check the GTK+ version
@@ -31,13 +38,6 @@
  * for builds that have a configure script. Applications will not typically
  * use the features described here.
  */
-
-#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
-#error "Only <gtk/gtk.h> can be included directly."
-#endif
-
-#ifndef __GTK_VERSION_H__
-#define __GTK_VERSION_H__
 
 /**
  * GTK_MAJOR_VERSION:
@@ -55,7 +55,7 @@
  * application compile time, rather than from the library linked
  * against at application run time.
  */
-#define GTK_MINOR_VERSION (4)
+#define GTK_MINOR_VERSION (10)
 
 /**
  * GTK_MICRO_VERSION:
@@ -64,7 +64,7 @@
  * application compile time, rather than from the library linked
  * against at application run time.
  */
-#define GTK_MICRO_VERSION (3)
+#define GTK_MICRO_VERSION (2)
 
 /**
  * GTK_BINARY_AGE:
@@ -73,7 +73,7 @@
  * application compile time, rather than from the library linked
  * against at application run time.
  */
-#define GTK_BINARY_AGE    (403)
+#define GTK_BINARY_AGE    (1002)
 
 /**
  * GTK_INTERFACE_AGE:
@@ -82,7 +82,7 @@
  * application compile time, rather than from the library linked
  * against at application run time.
  */
-#define GTK_INTERFACE_AGE (3)
+#define GTK_INTERFACE_AGE (2)
 
 /**
  * GTK_CHECK_VERSION:

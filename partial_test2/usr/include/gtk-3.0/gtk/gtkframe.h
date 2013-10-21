@@ -22,13 +22,13 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
-#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
-#error "Only <gtk/gtk.h> can be included directly."
-#endif
-
 #ifndef __GTK_FRAME_H__
 #define __GTK_FRAME_H__
 
+
+#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
+#error "Only <gtk/gtk.h> can be included directly."
+#endif
 
 #include <gtk/gtkbin.h>
 
@@ -69,24 +69,34 @@ struct _GtkFrameClass
 };
 
 
+GDK_AVAILABLE_IN_ALL
 GType      gtk_frame_get_type         (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkWidget* gtk_frame_new              (const gchar   *label);
 
+GDK_AVAILABLE_IN_ALL
 void          gtk_frame_set_label (GtkFrame    *frame,
                                    const gchar *label);
+GDK_AVAILABLE_IN_ALL
 const gchar * gtk_frame_get_label (GtkFrame    *frame);
 
+GDK_AVAILABLE_IN_ALL
 void       gtk_frame_set_label_widget (GtkFrame      *frame,
 				       GtkWidget     *label_widget);
+GDK_AVAILABLE_IN_ALL
 GtkWidget *gtk_frame_get_label_widget (GtkFrame      *frame);
+GDK_AVAILABLE_IN_ALL
 void       gtk_frame_set_label_align  (GtkFrame      *frame,
 				       gfloat         xalign,
 				       gfloat         yalign);
+GDK_AVAILABLE_IN_ALL
 void       gtk_frame_get_label_align  (GtkFrame      *frame,
 				       gfloat        *xalign,
 				       gfloat        *yalign);
+GDK_AVAILABLE_IN_ALL
 void       gtk_frame_set_shadow_type  (GtkFrame      *frame,
 				       GtkShadowType  type);
+GDK_AVAILABLE_IN_ALL
 GtkShadowType gtk_frame_get_shadow_type (GtkFrame    *frame);
 
 

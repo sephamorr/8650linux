@@ -32,7 +32,11 @@
 
 #include <glib.h>
 
-typedef struct _WebKitPrintOperation WebKitPrintOperation;
+typedef struct _WebKitPrintOperation  WebKitPrintOperation;
+typedef struct _WebKitFindController  WebKitFindController;
+typedef struct _WebKitWebView         WebKitWebView;
+typedef struct _WebKitContextMenu     WebKitContextMenu;
+typedef struct _WebKitContextMenuItem WebKitContextMenuItem;
 
 #ifdef G_OS_WIN32
 #    ifdef BUILDING_WEBKIT
@@ -45,8 +49,5 @@ typedef struct _WebKitPrintOperation WebKitPrintOperation;
 #    define WEBKIT_API __attribute__((visibility("default")))
 #    define WEBKIT_OBSOLETE_API WEBKIT_API __attribute__((deprecated))
 #endif
-
-typedef struct _WebKitFindController WebKitFindController;
-typedef struct _WebKitWebView        WebKitWebView;
 
 #endif // WebKitDefines_h

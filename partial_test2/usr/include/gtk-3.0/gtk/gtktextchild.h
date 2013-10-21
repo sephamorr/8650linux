@@ -22,12 +22,12 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
+#ifndef __GTK_TEXT_CHILD_H__
+#define __GTK_TEXT_CHILD_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_TEXT_CHILD_H__
-#define __GTK_TEXT_CHILD_H__
 
 #include <gdk/gdk.h>
 #include <glib-object.h>
@@ -71,11 +71,15 @@ struct _GtkTextChildAnchorClass
   void (*_gtk_reserved4) (void);
 };
 
+GDK_AVAILABLE_IN_ALL
 GType               gtk_text_child_anchor_get_type    (void) G_GNUC_CONST;
 
+GDK_AVAILABLE_IN_ALL
 GtkTextChildAnchor* gtk_text_child_anchor_new         (void);
 
+GDK_AVAILABLE_IN_ALL
 GList*              gtk_text_child_anchor_get_widgets (GtkTextChildAnchor *anchor);
+GDK_AVAILABLE_IN_ALL
 gboolean            gtk_text_child_anchor_get_deleted (GtkTextChildAnchor *anchor);
 
 G_END_DECLS

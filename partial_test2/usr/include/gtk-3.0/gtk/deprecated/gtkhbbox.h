@@ -22,12 +22,12 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
+#ifndef __GTK_HBUTTON_BOX_H__
+#define __GTK_HBUTTON_BOX_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_HBUTTON_BOX_H__
-#define __GTK_HBUTTON_BOX_H__
 
 #include <gtk/gtkbbox.h>
 
@@ -56,6 +56,7 @@ struct _GtkHButtonBoxClass
 };
 
 
+GDK_DEPRECATED_IN_3_2
 GType      gtk_hbutton_box_get_type (void) G_GNUC_CONST;
 GDK_DEPRECATED_IN_3_2_FOR(gtk_button_box_new)
 GtkWidget* gtk_hbutton_box_new      (void);

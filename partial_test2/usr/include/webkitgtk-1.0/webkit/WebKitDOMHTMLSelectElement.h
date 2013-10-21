@@ -21,11 +21,10 @@
 #ifndef WebKitDOMHTMLSelectElement_h
 #define WebKitDOMHTMLSelectElement_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMHTMLElement.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMHTMLElement.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_HTML_SELECT_ELEMENT            (webkit_dom_html_select_element_get_type())
@@ -45,51 +44,6 @@ struct _WebKitDOMHTMLSelectElementClass {
 
 WEBKIT_API GType
 webkit_dom_html_select_element_get_type (void);
-
-/**
- * webkit_dom_html_select_element_check_validity:
- * @self: A #WebKitDOMHTMLSelectElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gboolean
-webkit_dom_html_select_element_check_validity(WebKitDOMHTMLSelectElement* self);
-
-/**
- * webkit_dom_html_select_element_set_custom_validity:
- * @self: A #WebKitDOMHTMLSelectElement
- * @error: A #gchar
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_select_element_set_custom_validity(WebKitDOMHTMLSelectElement* self, const gchar* error);
-
-/**
- * webkit_dom_html_select_element_add:
- * @self: A #WebKitDOMHTMLSelectElement
- * @element: A #WebKitDOMHTMLElement
- * @before: A #WebKitDOMHTMLElement
- * @error: #GError
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_select_element_add(WebKitDOMHTMLSelectElement* self, WebKitDOMHTMLElement* element, WebKitDOMHTMLElement* before, GError **error);
-
-/**
- * webkit_dom_html_select_element_remove:
- * @self: A #WebKitDOMHTMLSelectElement
- * @index: A #glong
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_select_element_remove(WebKitDOMHTMLSelectElement* self, glong index);
 
 /**
  * webkit_dom_html_select_element_item:
@@ -114,118 +68,70 @@ WEBKIT_API WebKitDOMNode*
 webkit_dom_html_select_element_named_item(WebKitDOMHTMLSelectElement* self, const gchar* name);
 
 /**
- * webkit_dom_html_select_element_get_selected_index:
+ * webkit_dom_html_select_element_add:
  * @self: A #WebKitDOMHTMLSelectElement
- *
- * Returns:
- *
-**/
-WEBKIT_API glong
-webkit_dom_html_select_element_get_selected_index(WebKitDOMHTMLSelectElement* self);
-
-/**
- * webkit_dom_html_select_element_set_selected_index:
- * @self: A #WebKitDOMHTMLSelectElement
- * @value: A #glong
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_select_element_set_selected_index(WebKitDOMHTMLSelectElement* self, glong value);
-
-/**
- * webkit_dom_html_select_element_get_value:
- * @self: A #WebKitDOMHTMLSelectElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gchar*
-webkit_dom_html_select_element_get_value(WebKitDOMHTMLSelectElement* self);
-
-/**
- * webkit_dom_html_select_element_set_value:
- * @self: A #WebKitDOMHTMLSelectElement
- * @value: A #gchar
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_select_element_set_value(WebKitDOMHTMLSelectElement* self, const gchar* value);
-
-/**
- * webkit_dom_html_select_element_get_length:
- * @self: A #WebKitDOMHTMLSelectElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gulong
-webkit_dom_html_select_element_get_length(WebKitDOMHTMLSelectElement* self);
-
-/**
- * webkit_dom_html_select_element_set_length:
- * @self: A #WebKitDOMHTMLSelectElement
- * @value: A #gulong
+ * @element: A #WebKitDOMHTMLElement
+ * @before: A #WebKitDOMHTMLElement
  * @error: #GError
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_html_select_element_set_length(WebKitDOMHTMLSelectElement* self, gulong value, GError **error);
+webkit_dom_html_select_element_add(WebKitDOMHTMLSelectElement* self, WebKitDOMHTMLElement* element, WebKitDOMHTMLElement* before, GError** error);
 
 /**
- * webkit_dom_html_select_element_get_form:
+ * webkit_dom_html_select_element_remove:
  * @self: A #WebKitDOMHTMLSelectElement
+ * @index: A #glong
  *
- * Returns: (transfer none):
+ * Returns:
  *
 **/
-WEBKIT_API WebKitDOMHTMLFormElement*
-webkit_dom_html_select_element_get_form(WebKitDOMHTMLSelectElement* self);
+WEBKIT_API void
+webkit_dom_html_select_element_remove(WebKitDOMHTMLSelectElement* self, glong index);
 
 /**
- * webkit_dom_html_select_element_get_validity:
- * @self: A #WebKitDOMHTMLSelectElement
- *
- * Returns: (transfer none):
- *
-**/
-WEBKIT_API WebKitDOMValidityState*
-webkit_dom_html_select_element_get_validity(WebKitDOMHTMLSelectElement* self);
-
-/**
- * webkit_dom_html_select_element_get_will_validate:
+ * webkit_dom_html_select_element_check_validity:
  * @self: A #WebKitDOMHTMLSelectElement
  *
  * Returns:
  *
 **/
 WEBKIT_API gboolean
-webkit_dom_html_select_element_get_will_validate(WebKitDOMHTMLSelectElement* self);
+webkit_dom_html_select_element_check_validity(WebKitDOMHTMLSelectElement* self);
 
 /**
- * webkit_dom_html_select_element_get_validation_message:
+ * webkit_dom_html_select_element_set_custom_validity:
+ * @self: A #WebKitDOMHTMLSelectElement
+ * @error: A #gchar
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_select_element_set_custom_validity(WebKitDOMHTMLSelectElement* self, const gchar* error);
+
+/**
+ * webkit_dom_html_select_element_get_autofocus:
  * @self: A #WebKitDOMHTMLSelectElement
  *
  * Returns:
  *
 **/
-WEBKIT_API gchar*
-webkit_dom_html_select_element_get_validation_message(WebKitDOMHTMLSelectElement* self);
+WEBKIT_API gboolean
+webkit_dom_html_select_element_get_autofocus(WebKitDOMHTMLSelectElement* self);
 
 /**
- * webkit_dom_html_select_element_get_options:
+ * webkit_dom_html_select_element_set_autofocus:
  * @self: A #WebKitDOMHTMLSelectElement
+ * @value: A #gboolean
  *
- * Returns: (transfer none):
+ * Returns:
  *
 **/
-WEBKIT_API WebKitDOMHTMLOptionsCollection*
-webkit_dom_html_select_element_get_options(WebKitDOMHTMLSelectElement* self);
+WEBKIT_API void
+webkit_dom_html_select_element_set_autofocus(WebKitDOMHTMLSelectElement* self, gboolean value);
 
 /**
  * webkit_dom_html_select_element_get_disabled:
@@ -249,25 +155,14 @@ WEBKIT_API void
 webkit_dom_html_select_element_set_disabled(WebKitDOMHTMLSelectElement* self, gboolean value);
 
 /**
- * webkit_dom_html_select_element_get_autofocus:
+ * webkit_dom_html_select_element_get_form:
  * @self: A #WebKitDOMHTMLSelectElement
  *
- * Returns:
+ * Returns: (transfer none):
  *
 **/
-WEBKIT_API gboolean
-webkit_dom_html_select_element_get_autofocus(WebKitDOMHTMLSelectElement* self);
-
-/**
- * webkit_dom_html_select_element_set_autofocus:
- * @self: A #WebKitDOMHTMLSelectElement
- * @value: A #gboolean
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_select_element_set_autofocus(WebKitDOMHTMLSelectElement* self, gboolean value);
+WEBKIT_API WebKitDOMHTMLFormElement*
+webkit_dom_html_select_element_get_form(WebKitDOMHTMLSelectElement* self);
 
 /**
  * webkit_dom_html_select_element_get_multiple:
@@ -352,6 +247,120 @@ webkit_dom_html_select_element_get_size(WebKitDOMHTMLSelectElement* self);
 **/
 WEBKIT_API void
 webkit_dom_html_select_element_set_size(WebKitDOMHTMLSelectElement* self, glong value);
+
+/**
+ * webkit_dom_html_select_element_get_options:
+ * @self: A #WebKitDOMHTMLSelectElement
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMHTMLOptionsCollection*
+webkit_dom_html_select_element_get_options(WebKitDOMHTMLSelectElement* self);
+
+/**
+ * webkit_dom_html_select_element_get_length:
+ * @self: A #WebKitDOMHTMLSelectElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gulong
+webkit_dom_html_select_element_get_length(WebKitDOMHTMLSelectElement* self);
+
+/**
+ * webkit_dom_html_select_element_set_length:
+ * @self: A #WebKitDOMHTMLSelectElement
+ * @value: A #gulong
+ * @error: #GError
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_select_element_set_length(WebKitDOMHTMLSelectElement* self, gulong value, GError** error);
+
+/**
+ * webkit_dom_html_select_element_get_selected_options:
+ * @self: A #WebKitDOMHTMLSelectElement
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMHTMLCollection*
+webkit_dom_html_select_element_get_selected_options(WebKitDOMHTMLSelectElement* self);
+
+/**
+ * webkit_dom_html_select_element_get_selected_index:
+ * @self: A #WebKitDOMHTMLSelectElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API glong
+webkit_dom_html_select_element_get_selected_index(WebKitDOMHTMLSelectElement* self);
+
+/**
+ * webkit_dom_html_select_element_set_selected_index:
+ * @self: A #WebKitDOMHTMLSelectElement
+ * @value: A #glong
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_select_element_set_selected_index(WebKitDOMHTMLSelectElement* self, glong value);
+
+/**
+ * webkit_dom_html_select_element_get_value:
+ * @self: A #WebKitDOMHTMLSelectElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_html_select_element_get_value(WebKitDOMHTMLSelectElement* self);
+
+/**
+ * webkit_dom_html_select_element_set_value:
+ * @self: A #WebKitDOMHTMLSelectElement
+ * @value: A #gchar
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_select_element_set_value(WebKitDOMHTMLSelectElement* self, const gchar* value);
+
+/**
+ * webkit_dom_html_select_element_get_will_validate:
+ * @self: A #WebKitDOMHTMLSelectElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gboolean
+webkit_dom_html_select_element_get_will_validate(WebKitDOMHTMLSelectElement* self);
+
+/**
+ * webkit_dom_html_select_element_get_validity:
+ * @self: A #WebKitDOMHTMLSelectElement
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMValidityState*
+webkit_dom_html_select_element_get_validity(WebKitDOMHTMLSelectElement* self);
+
+/**
+ * webkit_dom_html_select_element_get_validation_message:
+ * @self: A #WebKitDOMHTMLSelectElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_html_select_element_get_validation_message(WebKitDOMHTMLSelectElement* self);
 
 /**
  * webkit_dom_html_select_element_get_labels:

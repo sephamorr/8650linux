@@ -22,12 +22,12 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/. 
  */
 
+#ifndef __GDK_X11_SELECTION_H__
+#define __GDK_X11_SELECTION_H__
+
 #if !defined (__GDKX_H_INSIDE__) && !defined (GDK_COMPILATION)
 #error "Only <gdk/gdkx.h> can be included directly."
 #endif
-
-#ifndef __GDK_X11_SELECTION_H__
-#define __GDK_X11_SELECTION_H__
 
 #include <gdk/gdk.h>
 
@@ -36,25 +36,30 @@
 
 G_BEGIN_DECLS
 
+GDK_AVAILABLE_IN_ALL
 gint     gdk_x11_display_text_property_to_text_list (GdkDisplay   *display,
                                                      GdkAtom       encoding,
                                                      gint          format,
                                                      const guchar *text,
                                                      gint          length,
                                                      gchar      ***list);
+GDK_AVAILABLE_IN_ALL
 void     gdk_x11_free_text_list                     (gchar       **list);
+GDK_AVAILABLE_IN_ALL
 gint     gdk_x11_display_string_to_compound_text    (GdkDisplay   *display,
                                                      const gchar  *str,
                                                      GdkAtom      *encoding,
                                                      gint         *format,
                                                      guchar      **ctext,
                                                      gint         *length);
+GDK_AVAILABLE_IN_ALL
 gboolean gdk_x11_display_utf8_to_compound_text      (GdkDisplay   *display,
                                                      const gchar  *str,
                                                      GdkAtom      *encoding,
                                                      gint         *format,
                                                      guchar      **ctext,
                                                      gint         *length);
+GDK_AVAILABLE_IN_ALL
 void     gdk_x11_free_compound_text                 (guchar       *ctext);
 
 G_END_DECLS

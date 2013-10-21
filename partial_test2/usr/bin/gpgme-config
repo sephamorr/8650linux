@@ -32,10 +32,6 @@ gpg_error_libs="-lgpg-error"
 # Configure thread packages.
 thread_modules=""
 
-thread_modules="$thread_modules pth"
-libs_pth="-L/usr/lib -lpth -ldl -lnsl"
-cflags_pth="-I/usr/include"
-
 thread_modules="$thread_modules pthread"
 libs_pthread="-lpthread"
 cflags_pthread=""
@@ -97,7 +93,7 @@ while test $# -gt 0; do
 	    with_glib=yes
 	    ;;
         --version)
-            echo "1.3.1"
+            echo "1.4.3"
 	    exit 0
 	    ;;
         --api-version)
@@ -105,7 +101,7 @@ while test $# -gt 0; do
 	    exit 0
 	    ;;
         --host)
-	    echo "armv5tel-unknown-linux-gnu"
+	    echo "armv5tel-unknown-linux-gnueabi"
 	    exit 0
 	    ;;
         --cflags)
@@ -114,7 +110,6 @@ while test $# -gt 0; do
             tmp_g=
 	    case "$thread_module" in
 	        pthread) tmp_c="$cflags_pthread" ;;
-	        pth)     tmp_c="$cflags_pth"     ;;
 	    esac
 	    test "x$with_glib" = "xyes" && tmp_g="$cflags_glib"
             for i in $cflags $tmp_c $assuan_cflags $gpg_error_cflags $tmp_g ; do
@@ -143,7 +138,6 @@ while test $# -gt 0; do
             tmp_x=
 	    case "$thread_module" in
 	        pthread) tmp_l="-lgpgme-pthread"; tmp_x="$libs_pthread" ;;
-	        pth)     tmp_l="-lgpgme-pth";     tmp_x="$libs_pth"  ;;
 		*)
 		    if test "x$with_glib" = "xyes" ; then
 		         tmp_l="-lgpgme-glib"
@@ -185,7 +179,7 @@ while test $# -gt 0; do
 	    fi
 	    ;;
         --get-gpg)
-            output="$output /usr/bin/gpg"
+            output="$output /usr/bin/gpg2"
             ;;
         --get-gpgsm)
             output="$output /usr/bin/gpgsm"

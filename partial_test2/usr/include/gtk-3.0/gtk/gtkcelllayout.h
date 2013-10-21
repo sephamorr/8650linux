@@ -15,12 +15,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GTK_CELL_LAYOUT_H__
+#define __GTK_CELL_LAYOUT_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_CELL_LAYOUT_H__
-#define __GTK_CELL_LAYOUT_H__
 
 #include <gtk/gtkcellrenderer.h>
 #include <gtk/gtkcellarea.h>
@@ -86,32 +86,43 @@ struct _GtkCellLayoutIface
   GtkCellArea *(* get_area)   (GtkCellLayout         *cell_layout);
 };
 
+GDK_AVAILABLE_IN_ALL
 GType gtk_cell_layout_get_type           (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 void  gtk_cell_layout_pack_start         (GtkCellLayout         *cell_layout,
                                           GtkCellRenderer       *cell,
                                           gboolean               expand);
+GDK_AVAILABLE_IN_ALL
 void  gtk_cell_layout_pack_end           (GtkCellLayout         *cell_layout,
                                           GtkCellRenderer       *cell,
                                           gboolean               expand);
+GDK_AVAILABLE_IN_ALL
 GList *gtk_cell_layout_get_cells         (GtkCellLayout         *cell_layout);
+GDK_AVAILABLE_IN_ALL
 void  gtk_cell_layout_clear              (GtkCellLayout         *cell_layout);
+GDK_AVAILABLE_IN_ALL
 void  gtk_cell_layout_set_attributes     (GtkCellLayout         *cell_layout,
                                           GtkCellRenderer       *cell,
                                           ...) G_GNUC_NULL_TERMINATED;
+GDK_AVAILABLE_IN_ALL
 void  gtk_cell_layout_add_attribute      (GtkCellLayout         *cell_layout,
                                           GtkCellRenderer       *cell,
                                           const gchar           *attribute,
                                           gint                   column);
+GDK_AVAILABLE_IN_ALL
 void  gtk_cell_layout_set_cell_data_func (GtkCellLayout         *cell_layout,
                                           GtkCellRenderer       *cell,
                                           GtkCellLayoutDataFunc  func,
                                           gpointer               func_data,
                                           GDestroyNotify         destroy);
+GDK_AVAILABLE_IN_ALL
 void  gtk_cell_layout_clear_attributes   (GtkCellLayout         *cell_layout,
                                           GtkCellRenderer       *cell);
+GDK_AVAILABLE_IN_ALL
 void  gtk_cell_layout_reorder            (GtkCellLayout         *cell_layout,
                                           GtkCellRenderer       *cell,
                                           gint                   position);
+GDK_AVAILABLE_IN_ALL
 GtkCellArea *gtk_cell_layout_get_area    (GtkCellLayout         *cell_layout);
 
 gboolean _gtk_cell_layout_buildable_custom_tag_start (GtkBuildable  *buildable,

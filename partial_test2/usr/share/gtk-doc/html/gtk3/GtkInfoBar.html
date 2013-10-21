@@ -2,26 +2,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>GtkInfoBar</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>GTK+ 3 Reference Manual: GtkInfoBar</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GTK+ 3 Reference Manual">
 <link rel="up" href="DisplayWidgets.html" title="Display Widgets">
-<link rel="prev" href="GtkStatusbar.html" title="GtkStatusbar">
-<link rel="next" href="GtkStatusIcon.html" title="GtkStatusIcon">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="prev" href="GtkSpinner.html" title="GtkSpinner">
+<link rel="next" href="GtkProgressBar.html" title="GtkProgressBar">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="GtkStatusbar.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="DisplayWidgets.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GTK+ 3 Reference Manual</th>
-<td><a accesskey="n" href="GtkStatusIcon.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#GtkInfoBar.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#GtkInfoBar.description" class="shortcut">Description</a>
                    | 
@@ -34,8 +27,12 @@
                   <a href="#GtkInfoBar.style-properties" class="shortcut">Style Properties</a>
                    | 
                   <a href="#GtkInfoBar.signals" class="shortcut">Signals</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="DisplayWidgets.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="GtkSpinner.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="GtkProgressBar.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="GtkInfoBar"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -43,7 +40,7 @@
 <h2><span class="refentrytitle"><a name="GtkInfoBar.top_of_page"></a>GtkInfoBar</span></h2>
 <p>GtkInfoBar — Report important messages to the user</p>
 </td>
-<td valign="top" align="right"></td>
+<td valign="top" align="right"><img src="info-bar.png"></td>
 </tr></table></div>
 <div class="refsynopsisdiv">
 <a name="GtkInfoBar.synopsis"></a><h2>Synopsis</h2>
@@ -52,36 +49,39 @@
 
 struct              <a class="link" href="GtkInfoBar.html#GtkInfoBar-struct" title="struct GtkInfoBar">GtkInfoBar</a>;
 <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GtkInfoBar.html#gtk-info-bar-new" title="gtk_info_bar_new ()">gtk_info_bar_new</a>                    (<em class="parameter"><code><span class="type">void</span></code></em>);
-<a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GtkInfoBar.html#gtk-info-bar-new-with-buttons" title="gtk_info_bar_new_with_buttons ()">gtk_info_bar_new_with_buttons</a>       (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_button_text</code></em>,
+<a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GtkInfoBar.html#gtk-info-bar-new-with-buttons" title="gtk_info_bar_new_with_buttons ()">gtk_info_bar_new_with_buttons</a>       (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_button_text</code></em>,
                                                          <em class="parameter"><code>...</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkInfoBar.html#gtk-info-bar-add-action-widget" title="gtk_info_bar_add_action_widget ()">gtk_info_bar_add_action_widget</a>      (<em class="parameter"><code><a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);
 <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GtkInfoBar.html#gtk-info-bar-add-button" title="gtk_info_bar_add_button ()">gtk_info_bar_add_button</a>             (<em class="parameter"><code><a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *button_text</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *button_text</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkInfoBar.html#gtk-info-bar-add-buttons" title="gtk_info_bar_add_buttons ()">gtk_info_bar_add_buttons</a>            (<em class="parameter"><code><a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_button_text</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_button_text</code></em>,
                                                          <em class="parameter"><code>...</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkInfoBar.html#gtk-info-bar-set-response-sensitive" title="gtk_info_bar_set_response_sensitive ()">gtk_info_bar_set_response_sensitive</a> (<em class="parameter"><code><a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkInfoBar.html#gtk-info-bar-set-default-response" title="gtk_info_bar_set_default_response ()">gtk_info_bar_set_default_response</a>   (<em class="parameter"><code><a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkInfoBar.html#gtk-info-bar-response" title="gtk_info_bar_response ()">gtk_info_bar_response</a>               (<em class="parameter"><code><a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkInfoBar.html#gtk-info-bar-set-message-type" title="gtk_info_bar_set_message_type ()">gtk_info_bar_set_message_type</a>       (<em class="parameter"><code><a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkMessageDialog.html#GtkMessageType" title="enum GtkMessageType"><span class="type">GtkMessageType</span></a> message_type</code></em>);
 <a class="link" href="GtkMessageDialog.html#GtkMessageType" title="enum GtkMessageType"><span class="returnvalue">GtkMessageType</span></a>      <a class="link" href="GtkInfoBar.html#gtk-info-bar-get-message-type" title="gtk_info_bar_get_message_type ()">gtk_info_bar_get_message_type</a>       (<em class="parameter"><code><a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar</code></em>);
 <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GtkInfoBar.html#gtk-info-bar-get-action-area" title="gtk_info_bar_get_action_area ()">gtk_info_bar_get_action_area</a>        (<em class="parameter"><code><a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar</code></em>);
 <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GtkInfoBar.html#gtk-info-bar-get-content-area" title="gtk_info_bar_get_content_area ()">gtk_info_bar_get_content_area</a>       (<em class="parameter"><code><a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GtkInfoBar.html#gtk-info-bar-get-show-close-button" title="gtk_info_bar_get_show_close_button ()">gtk_info_bar_get_show_close_button</a>  (<em class="parameter"><code><a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GtkInfoBar.html#gtk-info-bar-set-show-close-button" title="gtk_info_bar_set_show_close_button ()">gtk_info_bar_set_show_close_button</a>  (<em class="parameter"><code><a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkInfoBar.object-hierarchy"></a><h2>Object Hierarchy</h2>
 <pre class="synopsis">
-  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
-   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="../gobject/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
          +----<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
                +----<a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
                      +----<a class="link" href="GtkBox.html" title="GtkBox">GtkBox</a>
@@ -98,22 +98,23 @@ GtkInfoBar implements
 <a name="GtkInfoBar.properties"></a><h2>Properties</h2>
 <pre class="synopsis">
   "<a class="link" href="GtkInfoBar.html#GtkInfoBar--message-type" title='The "message-type" property'>message-type</a>"             <a class="link" href="GtkMessageDialog.html#GtkMessageType" title="enum GtkMessageType"><span class="type">GtkMessageType</span></a>        : Read / Write / Construct
+  "<a class="link" href="GtkInfoBar.html#GtkInfoBar--show-close-button" title='The "show-close-button" property'>show-close-button</a>"        <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkInfoBar.style-properties"></a><h2>Style Properties</h2>
 <pre class="synopsis">
-  "<a class="link" href="GtkInfoBar.html#GtkInfoBar--s-action-area-border" title='The "action-area-border" style property'>action-area-border</a>"       <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read
-  "<a class="link" href="GtkInfoBar.html#GtkInfoBar--s-button-spacing" title='The "button-spacing" style property'>button-spacing</a>"           <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read
-  "<a class="link" href="GtkInfoBar.html#GtkInfoBar--s-content-area-border" title='The "content-area-border" style property'>content-area-border</a>"      <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read
-  "<a class="link" href="GtkInfoBar.html#GtkInfoBar--s-content-area-spacing" title='The "content-area-spacing" style property'>content-area-spacing</a>"     <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read
+  "<a class="link" href="GtkInfoBar.html#GtkInfoBar--s-action-area-border" title='The "action-area-border" style property'>action-area-border</a>"       <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read
+  "<a class="link" href="GtkInfoBar.html#GtkInfoBar--s-button-spacing" title='The "button-spacing" style property'>button-spacing</a>"           <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read
+  "<a class="link" href="GtkInfoBar.html#GtkInfoBar--s-content-area-border" title='The "content-area-border" style property'>content-area-border</a>"      <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read
+  "<a class="link" href="GtkInfoBar.html#GtkInfoBar--s-content-area-spacing" title='The "content-area-spacing" style property'>content-area-spacing</a>"     <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkInfoBar.signals"></a><h2>Signals</h2>
 <pre class="synopsis">
-  "<a class="link" href="GtkInfoBar.html#GtkInfoBar-close" title='The "close" signal'>close</a>"                                          : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS"><code class="literal">Action</code></a>
-  "<a class="link" href="GtkInfoBar.html#GtkInfoBar-response" title='The "response" signal'>response</a>"                                       : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="GtkInfoBar.html#GtkInfoBar-close" title='The "close" signal'>close</a>"                                          : <a href="../gobject/gobject-Signals.html#G-SIGNAL-ACTION:CAPS"><code class="literal">Action</code></a>
+  "<a class="link" href="GtkInfoBar.html#GtkInfoBar-response" title='The "response" signal'>response</a>"                                       : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
 </pre>
 </div>
 <div class="refsect1">
@@ -122,8 +123,8 @@ GtkInfoBar implements
 <a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> is a widget that can be used to show messages to
 the user without showing a dialog. It is often temporarily shown
 at the top or bottom of a document. In contrast to <a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a>, which
-has a horizontal action area at the bottom, <a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> has a
-vertical action area at the side.
+has a action area at the bottom, <a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> has an action area
+at the side.
 </p>
 <p>
 The API of <a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> is very similar to <a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a>, allowing you
@@ -136,13 +137,13 @@ To add widgets to the main content area of a <a class="link" href="GtkInfoBar.ht
 <p>
 Similar to <a class="link" href="GtkMessageDialog.html" title="GtkMessageDialog"><span class="type">GtkMessageDialog</span></a>, the contents of a <a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> can by
 classified as error message, warning, informational message, etc,
-by using <a class="link" href="GtkInfoBar.html#gtk-info-bar-set-message-type" title="gtk_info_bar_set_message_type ()"><code class="function">gtk_info_bar_set_message_type()</code></a>. GTK+ uses the message type
-to determine the background color of the message area.
+by using <a class="link" href="GtkInfoBar.html#gtk-info-bar-set-message-type" title="gtk_info_bar_set_message_type ()"><code class="function">gtk_info_bar_set_message_type()</code></a>. GTK+ may use the message type
+to determine how the message is displayed.
 </p>
 <p>
 </p>
 <div class="example">
-<a name="id883334"></a><p class="title"><b>Example 52. Simple GtkInfoBar usage.</b></p>
+<a name="id-1.3.8.5.9.5.1"></a><p class="title"><b>Example 20. Simple GtkInfoBar usage.</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -171,15 +172,15 @@ to determine the background color of the message area.
 22</pre></td>
         <td class="listing_code"><pre class="programlisting"><span class="comment">/* set up info bar */</span>
 <span class="normal">info_bar </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkInfoBar.html#gtk-info-bar-new">gtk_info_bar_new</a></span><span class="normal"> </span><span class="symbol">();</span>
-<span class="function"><a href="GtkWidget.html#gtk-widget-set-no-show-all">gtk_widget_set_no_show_all</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">info_bar</span><span class="symbol">,</span><span class="normal"> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">);</span>
+<span class="function"><a href="GtkWidget.html#gtk-widget-set-no-show-all">gtk_widget_set_no_show_all</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">info_bar</span><span class="symbol">,</span><span class="normal"> <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">);</span>
 <span class="normal">message_label </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkLabel.html#gtk-label-new">gtk_label_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">""</span><span class="symbol">);</span>
 <span class="function"><a href="GtkWidget.html#gtk-widget-show">gtk_widget_show</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">message_label</span><span class="symbol">);</span>
 <span class="normal">content_area </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkInfoBar.html#gtk-info-bar-get-content-area">gtk_info_bar_get_content_area</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_INFO_BAR</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">info_bar</span><span class="symbol">));</span>
 <span class="function"><a href="GtkContainer.html#gtk-container-add">gtk_container_add</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_CONTAINER</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">content_area</span><span class="symbol">),</span><span class="normal"> message_label</span><span class="symbol">);</span>
 <span class="function"><a href="GtkInfoBar.html#gtk-info-bar-add-button">gtk_info_bar_add_button</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_INFO_BAR</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">info_bar</span><span class="symbol">),</span>
-<span class="normal">                         <a href="gtk3-Stock-Items.html#GTK-STOCK-OK:CAPS">GTK_STOCK_OK</a></span><span class="symbol">,</span><span class="normal"> <a href="GtkDialog.html#GTK-RESPONSE-OK:CAPS">GTK_RESPONSE_OK</a></span><span class="symbol">);</span>
-<span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">info_bar</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"response"</span><span class="symbol">,</span>
-<span class="normal">                  </span><span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="GtkWidget.html#gtk-widget-hide">gtk_widget_hide</a></span><span class="symbol">),</span><span class="normal"> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="normal">                         </span><span class="function"><a href="../glib/glib-I18N.html#gettext-macro">_</a></span><span class="symbol">(</span><span class="string">"_OK"</span><span class="symbol">),</span><span class="normal"> <a href="GtkDialog.html#GTK-RESPONSE-OK:CAPS">GTK_RESPONSE_OK</a></span><span class="symbol">);</span>
+<span class="function"><a href="../gobject/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">info_bar</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"response"</span><span class="symbol">,</span>
+<span class="normal">                  </span><span class="function"><a href="../gobject/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="GtkWidget.html#gtk-widget-hide">gtk_widget_hide</a></span><span class="symbol">),</span><span class="normal"> <a href="../glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
 <span class="function"><a href="GtkGrid.html#gtk-grid-attach">gtk_grid_attach</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_GRID</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">grid</span><span class="symbol">),</span>
 <span class="normal">                 info_bar</span><span class="symbol">,</span>
 <span class="normal">                 </span><span class="number">0</span><span class="symbol">,</span><span class="normal"> </span><span class="number">2</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1</span><span class="symbol">,</span><span class="normal"> </span><span class="number">1</span><span class="symbol">);</span>
@@ -231,8 +232,11 @@ is the id of widget (which should be a child of the dialogs <em class="parameter
 <p>
 Creates a new <a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> object.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a new <a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> object</td>
@@ -243,29 +247,32 @@ Creates a new <a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span cl
 <hr>
 <div class="refsect2">
 <a name="gtk-info-bar-new-with-buttons"></a><h3>gtk_info_bar_new_with_buttons ()</h3>
-<pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_info_bar_new_with_buttons       (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_button_text</code></em>,
+<pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_info_bar_new_with_buttons       (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_button_text</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
 Creates a new <a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> with buttons. Button text/response ID
-pairs should be listed, with a <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> pointer ending the list.
+pairs should be listed, with a <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> pointer ending the list.
 Button text can be either a stock ID such as <a class="link" href="gtk3-Stock-Items.html#GTK-STOCK-OK:CAPS" title="GTK_STOCK_OK"><code class="literal">GTK_STOCK_OK</code></a>, or
 some arbitrary text. A response ID can be any positive number,
 or one of the values in the <a class="link" href="GtkDialog.html#GtkResponseType" title="enum GtkResponseType"><span class="type">GtkResponseType</span></a> enumeration. If the
 user clicks one of these dialog buttons, GtkInfoBar will emit
 the "response" signal with the corresponding response ID.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>first_button_text</code></em> :</span></p></td>
-<td>stock ID or text to go in first button, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>stock ID or text to go in first button, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
 <td>response ID for first button, then additional buttons, ending
-with <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+with <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 </td>
 </tr>
 <tr>
@@ -281,15 +288,18 @@ with <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.
 <a name="gtk-info-bar-add-action-widget"></a><h3>gtk_info_bar_add_action_widget ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_info_bar_add_action_widget      (<em class="parameter"><code><a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);</pre>
 <p>
 Add an activatable widget to the action area of a <a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a>,
 connecting a signal handler that will emit the <a class="link" href="GtkInfoBar.html#GtkInfoBar-response" title='The "response" signal'><span class="type">"response"</span></a>
 signal on the message area when the widget is activated. The widget
 is appended to the end of the message areas action area.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info_bar</code></em> :</span></p></td>
@@ -313,17 +323,20 @@ is appended to the end of the message areas action area.
 <div class="refsect2">
 <a name="gtk-info-bar-add-button"></a><h3>gtk_info_bar_add_button ()</h3>
 <pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_info_bar_add_button             (<em class="parameter"><code><a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *button_text</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);</pre>
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *button_text</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);</pre>
 <p>
-Adds a button with the given text (or a stock button, if button_text
-is a stock ID) and sets things up so that clicking the button will emit
-the "response" signal with the given response_id. The button is appended
-to the end of the info bars's action area. The button widget is
-returned, but usually you don't need it.
+Adds a button with the given text and sets things up so that
+clicking the button will emit the "response" signal with the given
+response_id. The button is appended to the end of the info bars's
+action area. The button widget is returned, but usually you don't
+need it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info_bar</code></em> :</span></p></td>
@@ -332,7 +345,7 @@ returned, but usually you don't need it.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>button_text</code></em> :</span></p></td>
-<td>text of button, or stock ID</td>
+<td>text of button</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>response_id</code></em> :</span></p></td>
@@ -351,16 +364,19 @@ returned, but usually you don't need it.
 <div class="refsect2">
 <a name="gtk-info-bar-add-buttons"></a><h3>gtk_info_bar_add_buttons ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_info_bar_add_buttons            (<em class="parameter"><code><a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_button_text</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_button_text</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
 Adds more buttons, same as calling <a class="link" href="GtkInfoBar.html#gtk-info-bar-add-button" title="gtk_info_bar_add_button ()"><code class="function">gtk_info_bar_add_button()</code></a>
-repeatedly. The variable argument list should be <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated
+repeatedly. The variable argument list should be <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated
 as with <a class="link" href="GtkInfoBar.html#gtk-info-bar-new-with-buttons" title="gtk_info_bar_new_with_buttons ()"><code class="function">gtk_info_bar_new_with_buttons()</code></a>. Each button must have both
 text and response ID.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info_bar</code></em> :</span></p></td>
@@ -374,7 +390,7 @@ text and response ID.
 <tr>
 <td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
 <td>response ID for first button, then more text-response_id pairs,
-ending with <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+ending with <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 </td>
 </tr>
 </tbody>
@@ -385,15 +401,18 @@ ending with <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-
 <div class="refsect2">
 <a name="gtk-info-bar-set-response-sensitive"></a><h3>gtk_info_bar_set_response_sensitive ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_info_bar_set_response_sensitive (<em class="parameter"><code><a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);</pre>
 <p>
 Calls gtk_widget_set_sensitive (widget, setting) for each
 widget in the info bars's action area with the given response_id.
 A convenient way to sensitize/desensitize dialog buttons.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info_bar</code></em> :</span></p></td>
@@ -416,7 +435,7 @@ A convenient way to sensitize/desensitize dialog buttons.
 <div class="refsect2">
 <a name="gtk-info-bar-set-default-response"></a><h3>gtk_info_bar_set_default_response ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_info_bar_set_default_response   (<em class="parameter"><code><a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);</pre>
 <p>
 Sets the last widget in the info bar's action area with
 the given response_id as the default widget for the dialog.
@@ -426,8 +445,11 @@ Pressing "Enter" normally activates the default widget.
 Note that this function currently requires <em class="parameter"><code>info_bar</code></em> to
 be added to a widget hierarchy.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info_bar</code></em> :</span></p></td>
@@ -446,12 +468,15 @@ be added to a widget hierarchy.
 <div class="refsect2">
 <a name="gtk-info-bar-response"></a><h3>gtk_info_bar_response ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_info_bar_response               (<em class="parameter"><code><a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);</pre>
 <p>
 Emits the 'response' signal with the given <em class="parameter"><code>response_id</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info_bar</code></em> :</span></p></td>
@@ -476,8 +501,11 @@ Sets the message type of the message area.
 GTK+ uses this type to determine what color to use
 when drawing the message area.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info_bar</code></em> :</span></p></td>
@@ -500,8 +528,11 @@ when drawing the message area.
 <p>
 Returns the message type of the message area.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info_bar</code></em> :</span></p></td>
@@ -523,8 +554,11 @@ Returns the message type of the message area.
 <p>
 Returns the action area of <em class="parameter"><code>info_bar</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info_bar</code></em> :</span></p></td>
@@ -547,8 +581,11 @@ Returns the action area of <em class="parameter"><code>info_bar</code></em>.
 <p>
 Returns the content area of <em class="parameter"><code>info_bar</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info_bar</code></em> :</span></p></td>
@@ -564,6 +601,62 @@ Returns the content area of <em class="parameter"><code>info_bar</code></em>.
 </table></div>
 <p class="since">Since 2.18</p>
 </div>
+<hr>
+<div class="refsect2">
+<a name="gtk-info-bar-get-show-close-button"></a><h3>gtk_info_bar_get_show_close_button ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_info_bar_get_show_close_button  (<em class="parameter"><code><a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar</code></em>);</pre>
+<p>
+Returns whether the widget will display a standard close button.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>info_bar</code></em> :</span></p></td>
+<td>a <a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the widget displays standard close button</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.10</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-info-bar-set-show-close-button"></a><h3>gtk_info_bar_set_show_close_button ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_info_bar_set_show_close_button  (<em class="parameter"><code><a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);</pre>
+<p>
+If true, a standard close button is shown. When clicked it emits
+the response <a class="link" href="GtkDialog.html#GTK-RESPONSE-CLOSE:CAPS"><code class="literal">GTK_RESPONSE_CLOSE</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>info_bar</code></em> :</span></p></td>
+<td>a <a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>setting</code></em> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> to include a close button</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.10</p>
+</div>
 </div>
 <div class="refsect1">
 <a name="GtkInfoBar.property-details"></a><h2>Property Details</h2>
@@ -574,28 +667,31 @@ Returns the content area of <em class="parameter"><code>info_bar</code></em>.
 The type of the message.
 </p>
 <p>
-The type is used to determine the colors to use in the info bar.
-The following symbolic color names can by used to customize
-these colors:
-"info_fg_color", "info_bg_color",
-"warning_fg_color", "warning_bg_color",
-"question_fg_color", "question_bg_color",
-"error_fg_color", "error_bg_color".
-"other_fg_color", "other_bg_color".
-</p>
-<p>
-If the type is <a class="link" href="GtkMessageDialog.html#GTK-MESSAGE-OTHER:CAPS"><span class="type">GTK_MESSAGE_OTHER</span></a>, no info bar is painted but the
-colors are still set.
+The type may be used to determine the appearance of the info bar.
 </p>
 <p>Default value: GTK_MESSAGE_INFO</p>
 <p class="since">Since 2.18</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GtkInfoBar--show-close-button"></a><h3>The <code class="literal">"show-close-button"</code> property</h3>
+<pre class="programlisting">  "show-close-button"        <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write / Construct</pre>
+<p>
+Whether to include a standard close button.
+</p>
+<p>Default value: FALSE</p>
+<p class="since">Since 3.10</p>
 </div>
 </div>
 <div class="refsect1">
 <a name="GtkInfoBar.style-property-details"></a><h2>Style Property Details</h2>
 <div class="refsect2">
 <a name="GtkInfoBar--s-action-area-border"></a><h3>The <code class="literal">"action-area-border"</code> style property</h3>
-<pre class="programlisting">  "action-area-border"       <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read</pre>
+<pre class="programlisting">  "action-area-border"       <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read</pre>
+<div class="warning">
+<h3 class="title">Warning</h3>
+<p><code class="literal">GtkInfoBar:action-area-border</code> has been deprecated since version 3.6 and should not be used in newly-written code. Use <a class="link" href="GtkContainer.html#gtk-container-set-border-width" title="gtk_container_set_border_width ()"><code class="function">gtk_container_set_border_width()</code></a></p>
+</div>
 <p>
 Width of the border around the action area of the info bar.
 </p>
@@ -606,7 +702,11 @@ Width of the border around the action area of the info bar.
 <hr>
 <div class="refsect2">
 <a name="GtkInfoBar--s-button-spacing"></a><h3>The <code class="literal">"button-spacing"</code> style property</h3>
-<pre class="programlisting">  "button-spacing"           <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read</pre>
+<pre class="programlisting">  "button-spacing"           <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read</pre>
+<div class="warning">
+<h3 class="title">Warning</h3>
+<p><code class="literal">GtkInfoBar:button-spacing</code> has been deprecated since version 3.6 and should not be used in newly-written code. Use <a class="link" href="GtkBox.html#gtk-box-set-spacing" title="gtk_box_set_spacing ()"><code class="function">gtk_box_set_spacing()</code></a></p>
+</div>
 <p>
 Spacing between buttons in the action area of the info bar.
 </p>
@@ -617,7 +717,11 @@ Spacing between buttons in the action area of the info bar.
 <hr>
 <div class="refsect2">
 <a name="GtkInfoBar--s-content-area-border"></a><h3>The <code class="literal">"content-area-border"</code> style property</h3>
-<pre class="programlisting">  "content-area-border"      <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read</pre>
+<pre class="programlisting">  "content-area-border"      <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read</pre>
+<div class="warning">
+<h3 class="title">Warning</h3>
+<p><code class="literal">GtkInfoBar:content-area-border</code> has been deprecated since version 3.6 and should not be used in newly-written code. Use <a class="link" href="GtkContainer.html#gtk-container-set-border-width" title="gtk_container_set_border_width ()"><code class="function">gtk_container_set_border_width()</code></a></p>
+</div>
 <p>
 The width of the border around the content
 content area of the info bar.
@@ -629,7 +733,11 @@ content area of the info bar.
 <hr>
 <div class="refsect2">
 <a name="GtkInfoBar--s-content-area-spacing"></a><h3>The <code class="literal">"content-area-spacing"</code> style property</h3>
-<pre class="programlisting">  "content-area-spacing"     <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read</pre>
+<pre class="programlisting">  "content-area-spacing"     <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read</pre>
+<div class="warning">
+<h3 class="title">Warning</h3>
+<p><code class="literal">GtkInfoBar:content-area-spacing</code> has been deprecated since version 3.6 and should not be used in newly-written code. Use <a class="link" href="GtkBox.html#gtk-box-set-spacing" title="gtk_box_set_spacing ()"><code class="function">gtk_box_set_spacing()</code></a></p>
+</div>
 <p>
 The default spacing used between elements of the
 content area of the info bar.
@@ -644,7 +752,7 @@ content area of the info bar.
 <div class="refsect2">
 <a name="GtkInfoBar-close"></a><h3>The <code class="literal">"close"</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *arg0,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>    user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS"><code class="literal">Action</code></a></pre>
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>    user_data)      : <a href="../gobject/gobject-Signals.html#G-SIGNAL-ACTION:CAPS"><code class="literal">Action</code></a></pre>
 <p>
 The ::close signal is a
 <a class="link" href="gtk3-Bindings.html#keybinding-signals">keybinding signal</a>
@@ -654,8 +762,11 @@ the info bar.
 <p>
 The default binding for this signal is the Escape key.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
 <td>user data set when the signal handler was connected.</td>
@@ -667,15 +778,18 @@ The default binding for this signal is the Escape key.
 <div class="refsect2">
 <a name="GtkInfoBar-response"></a><h3>The <code class="literal">"response"</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GtkInfoBar.html" title="GtkInfoBar"><span class="type">GtkInfoBar</span></a> *info_bar,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>        response_id,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>    user_data)        : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+                                                        <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>        response_id,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>    user_data)        : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
 <p>
 Emitted when an action widget is clicked or the application programmer
 calls <a class="link" href="GtkDialog.html#gtk-dialog-response" title="gtk_dialog_response ()"><code class="function">gtk_dialog_response()</code></a>. The <em class="parameter"><code>response_id</code></em> depends on which action
 widget was clicked.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>info_bar</code></em> :</span></p></td>
@@ -701,6 +815,6 @@ widget was clicked.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

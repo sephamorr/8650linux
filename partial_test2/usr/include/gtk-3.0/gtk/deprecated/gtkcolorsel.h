@@ -23,12 +23,12 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
+#ifndef __GTK_COLOR_SELECTION_H__
+#define __GTK_COLOR_SELECTION_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_COLOR_SELECTION_H__
-#define __GTK_COLOR_SELECTION_H__
 
 #include <gtk/gtkdialog.h>
 #include <gtk/gtkbox.h>
@@ -86,6 +86,7 @@ struct _GtkColorSelectionClass
 
 /* ColorSelection */
 
+GDK_DEPRECATED_IN_3_4
 GType      gtk_color_selection_get_type                (void) G_GNUC_CONST;
 GDK_DEPRECATED_IN_3_4_FOR(gtk_color_chooser_widget_new)
 GtkWidget *gtk_color_selection_new                     (void);
@@ -136,6 +137,7 @@ GDK_DEPRECATED_IN_3_4
 gchar*   gtk_color_selection_palette_to_string   (const GdkColor    *colors,
                                                   gint               n_colors);
 
+GDK_DEPRECATED_IN_3_4
 GtkColorSelectionChangePaletteWithScreenFunc gtk_color_selection_set_change_palette_with_screen_hook (GtkColorSelectionChangePaletteWithScreenFunc func);
 
 GDK_DEPRECATED_IN_3_4_FOR(gtk_color_chooser_set_rgba)

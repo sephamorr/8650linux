@@ -21,11 +21,10 @@
 #ifndef WebKitDOMMouseEvent_h
 #define WebKitDOMMouseEvent_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMUIEvent.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMUIEvent.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_MOUSE_EVENT            (webkit_dom_mouse_event_get_type())
@@ -50,26 +49,26 @@ webkit_dom_mouse_event_get_type (void);
  * webkit_dom_mouse_event_init_mouse_event:
  * @self: A #WebKitDOMMouseEvent
  * @type: A #gchar
- * @can_bubble: A #gboolean
+ * @canBubble: A #gboolean
  * @cancelable: A #gboolean
  * @view: A #WebKitDOMDOMWindow
  * @detail: A #glong
- * @screen_x: A #glong
- * @screen_y: A #glong
- * @client_x: A #glong
- * @client_y: A #glong
- * @ctrl_key: A #gboolean
- * @alt_key: A #gboolean
- * @shift_key: A #gboolean
- * @meta_key: A #gboolean
+ * @screenX: A #glong
+ * @screenY: A #glong
+ * @clientX: A #glong
+ * @clientY: A #glong
+ * @ctrlKey: A #gboolean
+ * @altKey: A #gboolean
+ * @shiftKey: A #gboolean
+ * @metaKey: A #gboolean
  * @button: A #gushort
- * @related_target: A #WebKitDOMEventTarget
+ * @relatedTarget: A #WebKitDOMEventTarget
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_mouse_event_init_mouse_event(WebKitDOMMouseEvent* self, const gchar* type, gboolean can_bubble, gboolean cancelable, WebKitDOMDOMWindow* view, glong detail, glong screen_x, glong screen_y, glong client_x, glong client_y, gboolean ctrl_key, gboolean alt_key, gboolean shift_key, gboolean meta_key, gushort button, WebKitDOMEventTarget* related_target);
+webkit_dom_mouse_event_init_mouse_event(WebKitDOMMouseEvent* self, const gchar* type, gboolean canBubble, gboolean cancelable, WebKitDOMDOMWindow* view, glong detail, glong screenX, glong screenY, glong clientX, glong clientY, gboolean ctrlKey, gboolean altKey, gboolean shiftKey, gboolean metaKey, gushort button, WebKitDOMEventTarget* relatedTarget);
 
 /**
  * webkit_dom_mouse_event_get_screen_x:

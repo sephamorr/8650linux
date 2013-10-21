@@ -21,11 +21,10 @@
 #ifndef WebKitDOMDOMImplementation_h
 #define WebKitDOMDOMImplementation_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_DOM_IMPLEMENTATION            (webkit_dom_dom_implementation_get_type())
@@ -61,22 +60,22 @@ webkit_dom_dom_implementation_has_feature(WebKitDOMDOMImplementation* self, cons
 /**
  * webkit_dom_dom_implementation_create_document_type:
  * @self: A #WebKitDOMDOMImplementation
- * @qualified_name: A #gchar
- * @public_id: A #gchar
- * @system_id: A #gchar
+ * @qualifiedName: A #gchar
+ * @publicId: A #gchar
+ * @systemId: A #gchar
  * @error: #GError
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMDocumentType*
-webkit_dom_dom_implementation_create_document_type(WebKitDOMDOMImplementation* self, const gchar* qualified_name, const gchar* public_id, const gchar* system_id, GError **error);
+webkit_dom_dom_implementation_create_document_type(WebKitDOMDOMImplementation* self, const gchar* qualifiedName, const gchar* publicId, const gchar* systemId, GError** error);
 
 /**
  * webkit_dom_dom_implementation_create_document:
  * @self: A #WebKitDOMDOMImplementation
- * @namespace_uri: A #gchar
- * @qualified_name: A #gchar
+ * @namespaceURI: A #gchar
+ * @qualifiedName: A #gchar
  * @doctype: A #WebKitDOMDocumentType
  * @error: #GError
  *
@@ -84,7 +83,7 @@ webkit_dom_dom_implementation_create_document_type(WebKitDOMDOMImplementation* s
  *
 **/
 WEBKIT_API WebKitDOMDocument*
-webkit_dom_dom_implementation_create_document(WebKitDOMDOMImplementation* self, const gchar* namespace_uri, const gchar* qualified_name, WebKitDOMDocumentType* doctype, GError **error);
+webkit_dom_dom_implementation_create_document(WebKitDOMDOMImplementation* self, const gchar* namespaceURI, const gchar* qualifiedName, WebKitDOMDocumentType* doctype, GError** error);
 
 /**
  * webkit_dom_dom_implementation_create_css_style_sheet:
@@ -97,7 +96,7 @@ webkit_dom_dom_implementation_create_document(WebKitDOMDOMImplementation* self, 
  *
 **/
 WEBKIT_API WebKitDOMCSSStyleSheet*
-webkit_dom_dom_implementation_create_css_style_sheet(WebKitDOMDOMImplementation* self, const gchar* title, const gchar* media, GError **error);
+webkit_dom_dom_implementation_create_css_style_sheet(WebKitDOMDOMImplementation* self, const gchar* title, const gchar* media, GError** error);
 
 /**
  * webkit_dom_dom_implementation_create_html_document:

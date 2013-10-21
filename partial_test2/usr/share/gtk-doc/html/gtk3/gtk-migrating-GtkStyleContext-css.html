@@ -2,22 +2,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Using the CSS file format</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>GTK+ 3 Reference Manual: Using the CSS file format</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GTK+ 3 Reference Manual">
 <link rel="up" href="gtk-migrating-GtkStyleContext.html" title="Theming changes">
 <link rel="prev" href="gtk-migrating-GtkStyleContext-parser-extensions.html" title="Extending the CSS parser">
 <link rel="next" href="gtk-migrating-GtkStyleContext-checklist.html" title="A checklist for widgets">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
-<td><a accesskey="p" href="gtk-migrating-GtkStyleContext-parser-extensions.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="gtk-migrating-GtkStyleContext.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GTK+ 3 Reference Manual</th>
-<td><a accesskey="n" href="gtk-migrating-GtkStyleContext-checklist.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left"></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="gtk-migrating-GtkStyleContext.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="gtk-migrating-GtkStyleContext-parser-extensions.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="gtk-migrating-GtkStyleContext-checklist.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="section">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
@@ -33,7 +33,7 @@
       how it can be translated into CSS:
     </p>
 <div class="example">
-<a name="id1482098"></a><p class="title"><b>Example 118. Sample RC code</b></p>
+<a name="id-1.6.4.6.4"></a><p class="title"><b>Example 124. Sample RC code</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -147,7 +147,7 @@
 <span class="normal">        base</span><span class="symbol">[</span><span class="normal">ACTIVE</span><span class="symbol">]</span><span class="normal">      </span><span class="symbol">=</span><span class="normal"> </span><span class="function">shade</span><span class="normal"> </span><span class="symbol">(</span><span class="number">0.9</span><span class="symbol">,</span><span class="normal"> @selected_bg_color</span><span class="symbol">)</span>
 
 <span class="normal">        engine </span><span class="string">"clearlooks"</span><span class="normal"> </span><span class="cbracket">{</span>
-<span class="normal">                colorize_scrollbar </span><span class="symbol">=</span><span class="normal"> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span>
+<span class="normal">                colorize_scrollbar </span><span class="symbol">=</span><span class="normal"> <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span>
 <span class="normal">                style </span><span class="symbol">=</span><span class="normal"> CLASSIC</span>
 <span class="normal">        </span><span class="cbracket">}</span>
 <span class="cbracket">}</span>
@@ -200,7 +200,7 @@
       would roughly translate to this CSS:
     </p>
 <div class="example">
-<a name="id1482136"></a><p class="title"><b>Example 119. CSS translation</b></p>
+<a name="id-1.6.4.6.6"></a><p class="title"><b>Example 125. CSS translation</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -385,7 +385,7 @@
 </div>
 
 <p>
-      With <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a>, you generally use <a href="http://developer.gnome.org/devel/gdk/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> instead of <a href="http://developer.gnome.org/devel/gdk/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a>
+      With <a class="link" href="GtkStyleContext.html" title="GtkStyleContext"><span class="type">GtkStyleContext</span></a>, you generally use <a href="../gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> instead of <a href="../gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a>
       and the code looks like this:
       </p>
 <div class="informalexample">
@@ -408,12 +408,12 @@
 
 <span class="function"><a href="GtkStyleContext.html#gtk-style-context-get">gtk_style_context_get</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">,</span><span class="normal"> <a href="gtk3-Standard-Enumerations.html#GTK-STATE-FLAG-PRELIGHT:CAPS">GTK_STATE_FLAG_PRELIGHT</a></span><span class="symbol">,</span>
 <span class="normal">                       </span><span class="string">"background-color"</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">color1</span><span class="symbol">,</span>
-<span class="normal">                       <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="normal">                       <a href="../glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
 <span class="function"><a href="GtkStyleContext.html#gtk-style-context-lookup-color">gtk_style_context_lookup_color</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"focus_color"</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">color2</span><span class="symbol">);</span>
 
 <span class="symbol">...</span>
 
-<span class="function"><a href="http://developer.gnome.org/devel/gdk/gdk3-RGBA-Colors.html#gdk-rgba-free">gdk_rgba_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">color1</span><span class="symbol">);</span></pre></td>
+<span class="function"><a href="../gdk3/gdk3-RGBA-Colors.html#gdk-rgba-free">gdk_rgba_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">color1</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -432,6 +432,6 @@
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

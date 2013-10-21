@@ -22,12 +22,12 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/. 
  */
 
+#ifndef __GDK_X11_CURSOR_H__
+#define __GDK_X11_CURSOR_H__
+
 #if !defined (__GDKX_H_INSIDE__) && !defined (GDK_COMPILATION)
 #error "Only <gdk/gdkx.h> can be included directly."
 #endif
-
-#ifndef __GDK_X11_CURSOR_H__
-#define __GDK_X11_CURSOR_H__
 
 #include <gdk/gdk.h>
 
@@ -50,9 +50,12 @@ typedef GdkCursor GdkX11Cursor;
 #endif
 typedef struct _GdkX11CursorClass GdkX11CursorClass;
 
+GDK_AVAILABLE_IN_ALL
 GType    gdk_x11_cursor_get_type          (void);
 
+GDK_AVAILABLE_IN_ALL
 Display *gdk_x11_cursor_get_xdisplay      (GdkCursor   *cursor);
+GDK_AVAILABLE_IN_ALL
 Cursor   gdk_x11_cursor_get_xcursor       (GdkCursor   *cursor);
 
 /**

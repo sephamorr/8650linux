@@ -22,13 +22,13 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
-#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
-#error "Only <gtk/gtk.h> can be included directly."
-#endif
-
 #ifndef __GTK_STYLE_H__
 #define __GTK_STYLE_H__
 
+
+#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
+#error "Only <gtk/gtk.h> can be included directly."
+#endif
 
 #include <gdk/gdk.h>
 #include <gtk/gtkenums.h>
@@ -366,6 +366,7 @@ struct _GtkStyleClass
   void (*_gtk_reserved11) (void);
 };
 
+GDK_DEPRECATED_IN_3_0
 GType     gtk_style_get_type                 (void) G_GNUC_CONST;
 GDK_DEPRECATED_IN_3_0_FOR(GtkStyleContext)
 GtkStyle* gtk_style_new                      (void);
@@ -655,44 +656,63 @@ void          _gtk_style_shade            (const GdkColor     *a,
                                            GdkColor           *b,
                                            gdouble             k);
 
+GDK_DEPRECATED_IN_3_0_FOR(GtkStyleContext)
 gboolean    gtk_style_has_context         (GtkStyle *style);
 
+GDK_DEPRECATED_IN_3_0
 void        gtk_widget_style_attach       (GtkWidget     *widget);
+GDK_DEPRECATED_IN_3_0_FOR(GtkStyleContext)
 gboolean    gtk_widget_has_rc_style       (GtkWidget            *widget);
+GDK_DEPRECATED_IN_3_0
 void        gtk_widget_set_style          (GtkWidget            *widget,
                                            GtkStyle             *style);
+GDK_DEPRECATED_IN_3_0
 void        gtk_widget_ensure_style       (GtkWidget            *widget);
+GDK_DEPRECATED_IN_3_0_FOR(gtk_widget_get_style_context)
 GtkStyle *  gtk_widget_get_style          (GtkWidget            *widget);
+GDK_DEPRECATED_IN_3_0_FOR(GtkStyleContext)
 void        gtk_widget_modify_style       (GtkWidget            *widget,
                                            GtkRcStyle           *style);
+GDK_DEPRECATED_IN_3_0_FOR(GtkStyleContext)
 GtkRcStyle *gtk_widget_get_modifier_style (GtkWidget            *widget);
+GDK_DEPRECATED_IN_3_0_FOR(gtk_widget_override_color)
 void        gtk_widget_modify_fg          (GtkWidget            *widget,
                                            GtkStateType          state,
                                            const GdkColor       *color);
+GDK_DEPRECATED_IN_3_0_FOR(gtk_widget_override_background)
 void        gtk_widget_modify_bg          (GtkWidget            *widget,
                                            GtkStateType          state,
                                            const GdkColor       *color);
+GDK_DEPRECATED_IN_3_0
 void        gtk_widget_modify_text        (GtkWidget            *widget,
                                            GtkStateType          state,
                                            const GdkColor       *color);
+GDK_DEPRECATED_IN_3_0
 void        gtk_widget_modify_base        (GtkWidget            *widget,
                                            GtkStateType          state,
                                            const GdkColor       *color);
+GDK_DEPRECATED_IN_3_0
 void        gtk_widget_modify_cursor      (GtkWidget            *widget,
                                            const GdkColor       *primary,
                                            const GdkColor       *secondary);
+GDK_DEPRECATED_IN_3_0_FOR(gtk_widget_override_font)
 void        gtk_widget_modify_font        (GtkWidget            *widget,
                                            PangoFontDescription *font_desc);
+GDK_DEPRECATED_IN_3_0_FOR(gtk_widget_reset_style)
 void       gtk_widget_reset_rc_styles     (GtkWidget      *widget);
+GDK_DEPRECATED_IN_3_0_FOR(gtk_style_context_new)
 GtkStyle*  gtk_widget_get_default_style   (void);
+GDK_DEPRECATED_IN_3_0_FOR(gtk_widget_get_path)
 void       gtk_widget_path                (GtkWidget *widget,
                                            guint     *path_length,
                                            gchar    **path,
                                            gchar    **path_reversed);
+GDK_DEPRECATED_IN_3_0
 void       gtk_widget_class_path          (GtkWidget *widget,
                                            guint     *path_length,
                                            gchar    **path,
                                            gchar    **path_reversed);
+GDK_DEPRECATED_IN_3_0_FOR(gtk_widget_render_icon_pixbuf)
 GdkPixbuf *gtk_widget_render_icon         (GtkWidget   *widget,
                                            const gchar *stock_id,
                                            GtkIconSize  size,

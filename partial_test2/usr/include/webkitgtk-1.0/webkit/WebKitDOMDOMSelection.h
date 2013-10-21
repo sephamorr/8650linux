@@ -21,11 +21,10 @@
 #ifndef WebKitDOMDOMSelection_h
 #define WebKitDOMDOMSelection_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_DOM_SELECTION            (webkit_dom_dom_selection_get_type())
@@ -57,7 +56,7 @@ webkit_dom_dom_selection_get_type (void);
  *
 **/
 WEBKIT_API void
-webkit_dom_dom_selection_collapse(WebKitDOMDOMSelection* self, WebKitDOMNode* node, glong index, GError **error);
+webkit_dom_dom_selection_collapse(WebKitDOMDOMSelection* self, WebKitDOMNode* node, glong index, GError** error);
 
 /**
  * webkit_dom_dom_selection_collapse_to_end:
@@ -68,7 +67,7 @@ webkit_dom_dom_selection_collapse(WebKitDOMDOMSelection* self, WebKitDOMNode* no
  *
 **/
 WEBKIT_API void
-webkit_dom_dom_selection_collapse_to_end(WebKitDOMDOMSelection* self, GError **error);
+webkit_dom_dom_selection_collapse_to_end(WebKitDOMDOMSelection* self, GError** error);
 
 /**
  * webkit_dom_dom_selection_collapse_to_start:
@@ -79,7 +78,7 @@ webkit_dom_dom_selection_collapse_to_end(WebKitDOMDOMSelection* self, GError **e
  *
 **/
 WEBKIT_API void
-webkit_dom_dom_selection_collapse_to_start(WebKitDOMDOMSelection* self, GError **error);
+webkit_dom_dom_selection_collapse_to_start(WebKitDOMDOMSelection* self, GError** error);
 
 /**
  * webkit_dom_dom_selection_delete_from_document:
@@ -95,13 +94,13 @@ webkit_dom_dom_selection_delete_from_document(WebKitDOMDOMSelection* self);
  * webkit_dom_dom_selection_contains_node:
  * @self: A #WebKitDOMDOMSelection
  * @node: A #WebKitDOMNode
- * @allow_partial: A #gboolean
+ * @allowPartial: A #gboolean
  *
  * Returns:
  *
 **/
 WEBKIT_API gboolean
-webkit_dom_dom_selection_contains_node(WebKitDOMDOMSelection* self, WebKitDOMNode* node, gboolean allow_partial);
+webkit_dom_dom_selection_contains_node(WebKitDOMDOMSelection* self, WebKitDOMNode* node, gboolean allowPartial);
 
 /**
  * webkit_dom_dom_selection_select_all_children:
@@ -113,7 +112,7 @@ webkit_dom_dom_selection_contains_node(WebKitDOMDOMSelection* self, WebKitDOMNod
  *
 **/
 WEBKIT_API void
-webkit_dom_dom_selection_select_all_children(WebKitDOMDOMSelection* self, WebKitDOMNode* node, GError **error);
+webkit_dom_dom_selection_select_all_children(WebKitDOMDOMSelection* self, WebKitDOMNode* node, GError** error);
 
 /**
  * webkit_dom_dom_selection_extend:
@@ -126,7 +125,7 @@ webkit_dom_dom_selection_select_all_children(WebKitDOMDOMSelection* self, WebKit
  *
 **/
 WEBKIT_API void
-webkit_dom_dom_selection_extend(WebKitDOMDOMSelection* self, WebKitDOMNode* node, glong offset, GError **error);
+webkit_dom_dom_selection_extend(WebKitDOMDOMSelection* self, WebKitDOMNode* node, glong offset, GError** error);
 
 /**
  * webkit_dom_dom_selection_get_range_at:
@@ -138,7 +137,7 @@ webkit_dom_dom_selection_extend(WebKitDOMDOMSelection* self, WebKitDOMNode* node
  *
 **/
 WEBKIT_API WebKitDOMRange*
-webkit_dom_dom_selection_get_range_at(WebKitDOMDOMSelection* self, glong index, GError **error);
+webkit_dom_dom_selection_get_range_at(WebKitDOMDOMSelection* self, glong index, GError** error);
 
 /**
  * webkit_dom_dom_selection_remove_all_ranges:
@@ -177,17 +176,17 @@ webkit_dom_dom_selection_modify(WebKitDOMDOMSelection* self, const gchar* alter,
 /**
  * webkit_dom_dom_selection_set_base_and_extent:
  * @self: A #WebKitDOMDOMSelection
- * @base_node: A #WebKitDOMNode
- * @base_offset: A #glong
- * @extent_node: A #WebKitDOMNode
- * @extent_offset: A #glong
+ * @baseNode: A #WebKitDOMNode
+ * @baseOffset: A #glong
+ * @extentNode: A #WebKitDOMNode
+ * @extentOffset: A #glong
  * @error: #GError
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_dom_selection_set_base_and_extent(WebKitDOMDOMSelection* self, WebKitDOMNode* base_node, glong base_offset, WebKitDOMNode* extent_node, glong extent_offset, GError **error);
+webkit_dom_dom_selection_set_base_and_extent(WebKitDOMDOMSelection* self, WebKitDOMNode* baseNode, glong baseOffset, WebKitDOMNode* extentNode, glong extentOffset, GError** error);
 
 /**
  * webkit_dom_dom_selection_set_position:
@@ -200,7 +199,7 @@ webkit_dom_dom_selection_set_base_and_extent(WebKitDOMDOMSelection* self, WebKit
  *
 **/
 WEBKIT_API void
-webkit_dom_dom_selection_set_position(WebKitDOMDOMSelection* self, WebKitDOMNode* node, glong offset, GError **error);
+webkit_dom_dom_selection_set_position(WebKitDOMDOMSelection* self, WebKitDOMNode* node, glong offset, GError** error);
 
 /**
  * webkit_dom_dom_selection_empty:

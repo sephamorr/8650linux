@@ -17,6 +17,10 @@ if test yes = yes ; then
 fi
 
 if test yes = yes ; then
+  libs="[--libs32] $libs"
+fi
+
+if test yes = yes ; then
   libs="[--libs] [--libs-posix] $libs"
   cflags="$cflags [--cflags-posix]"
 fi
@@ -67,7 +71,7 @@ while test $# -gt 0; do
       echo $exec_prefix
       ;;
     --version)
-      echo 8.30
+      echo 8.33
       ;;
     --cflags)
       if test ${prefix}/include != /usr/include ; then
@@ -102,6 +106,13 @@ while test $# -gt 0; do
     --libs16)
       if test yes = yes ; then
         echo $libS$libR -lpcre16
+      else
+        echo "${usage}" 1>&2
+      fi
+      ;;
+    --libs32)
+      if test yes = yes ; then
+        echo $libS$libR -lpcre32
       else
         echo "${usage}" 1>&2
       fi

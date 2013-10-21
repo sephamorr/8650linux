@@ -21,11 +21,10 @@
 #ifndef WebKitDOMHTMLObjectElement_h
 #define WebKitDOMHTMLObjectElement_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMHTMLElement.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMHTMLElement.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_HTML_OBJECT_ELEMENT            (webkit_dom_html_object_element_get_type())

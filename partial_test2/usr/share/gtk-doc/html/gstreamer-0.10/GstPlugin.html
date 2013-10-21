@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GstPlugin</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GStreamer 0.10 Core Reference Manual">
 <link rel="up" href="libgstreamer.html" title="GStreamer Core Library">
 <link rel="prev" href="GstPipeline.html" title="GstPipeline">
@@ -170,8 +170,11 @@ into memory.
 <p>
 Get the error quark.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>The error quark used in GError messages</td>
@@ -199,8 +202,11 @@ The error message category quark
 <p>
 The plugin loading errors
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="GST-PLUGIN-ERROR-MODULE:CAPS"></a><span class="term"><code class="literal">GST_PLUGIN_ERROR_MODULE</code></span></p></td>
@@ -253,8 +259,11 @@ loader will use the data provided there to initialize the plugin.
 The <em class="parameter"><code>licence</code></em> parameter must be one of: LGPL, GPL, QPL, GPL/QPL, MPL,
 BSD, MIT/X11, Proprietary, unknown.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><span class="type">gint</span> <em class="structfield"><code><a name="GstPluginDesc.major-version"></a>major_version</code></em>;</span></p></td>
@@ -317,8 +326,11 @@ plugin_desc struct.
 This function will be called by the loader at startup. One would then
 register each <a class="link" href="GstPluginFeature.html" title="GstPluginFeature"><span class="type">GstPluginFeature</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -344,8 +356,11 @@ The function will be called by the loader at startup. One would then
 register each <a class="link" href="GstPluginFeature.html" title="GstPluginFeature"><span class="type">GstPluginFeature</span></a>. This version allows
 user data to be passed to init function (useful for bindings).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -368,6 +383,11 @@ user data to be passed to init function (useful for bindings).
 <div class="refsect2">
 <a name="GST-PLUGIN-DEFINE:CAPS"></a><h3>GST_PLUGIN_DEFINE()</h3>
 <pre class="programlisting">#define             GST_PLUGIN_DEFINE(major,minor,name,description,init,version,license,package,origin)</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">GST_PLUGIN_DEFINE</code> is deprecated and should not be used in newly-written code. Use <code class="function">GST_PLUGIN_DEFINE2()</code> instead, which also allows to create
+plugins that can be used for static linking.</p>
+</div>
 <p>
 This macro needs to be used to define the entry point and meta data of a
 plugin. One would use this macro to export a plugin, so that it can be used
@@ -384,8 +404,11 @@ your application/package, e.g. 'someapp' or 'my-plugins-foo.
 If defined, the GST_PACKAGE_RELEASE_DATETIME will also be used for the
 <a class="link" href="GstPlugin.html#GstPluginDesc" title="struct GstPluginDesc"><span class="type">GstPluginDesc</span></a>,release_datetime field.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>major</code></em> :</span></p></td>
@@ -444,8 +467,11 @@ be used by the own application.
 <p>
 The macro uses a define named PACKAGE for the <a class="link" href="GstPlugin.html#GstPluginDesc.source"><span class="type">GstPluginDesc.source</span></a> field.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>major</code></em> :</span></p></td>
@@ -505,8 +531,11 @@ the licence.
 A function that can be used with e.g. <a class="link" href="GstRegistry.html#gst-registry-plugin-filter" title="gst_registry_plugin_filter ()"><code class="function">gst_registry_plugin_filter()</code></a>
 to get a list of plugins that match certain criteria.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -531,8 +560,11 @@ to get a list of plugins that match certain criteria.
 <p>
 Get the short name of the plugin
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -552,8 +584,11 @@ Get the short name of the plugin
 <p>
 Get the long descriptive name of the plugin
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -573,8 +608,11 @@ Get the long descriptive name of the plugin
 <p>
 get the filename of the plugin
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -594,8 +632,11 @@ get the filename of the plugin
 <p>
 get the license of the plugin
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -615,8 +656,11 @@ get the license of the plugin
 <p>
 get the package the plugin belongs to.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -636,8 +680,11 @@ get the package the plugin belongs to.
 <p>
 get the URL where the plugin comes from
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -657,8 +704,11 @@ get the URL where the plugin comes from
 <p>
 get the source module the plugin belongs to.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -678,8 +728,11 @@ get the source module the plugin belongs to.
 <p>
 get the version of the plugin
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -700,8 +753,11 @@ get the version of the plugin
 Gets the <span class="type">GModule</span> of the plugin. If the plugin isn't loaded yet, NULL is
 returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -723,8 +779,11 @@ plugin isn't loaded yet. <span class="annotation">[<acronym title="Don't free da
 <p>
 queries if the plugin is loaded into memory
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -745,8 +804,11 @@ queries if the plugin is loaded into memory
 Gets the plugin specific data cache. If it is <code class="literal">NULL</code> there is no cached data
 stored. This is the case when the registry is getting rebuilt.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -773,8 +835,11 @@ the <em class="parameter"><code>plugin</code></em>.
 <p>
 The cache is flushed every time the registry is rebuilt.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -798,8 +863,11 @@ The cache is flushed every time the registry is rebuilt.
 A standard filter that returns TRUE when the plugin is of the
 given name.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -824,8 +892,11 @@ given name.
 <p>
 Loads the given plugin and refs it.  Caller needs to unref after use.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
@@ -863,8 +934,11 @@ plugin = loaded_plugin;
 </pre>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -886,8 +960,11 @@ plugin = loaded_plugin;
 <p>
 Load the named plugin. Refs the plugin.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -908,8 +985,11 @@ Load the named plugin. Refs the plugin.
 <p>
 Unrefs each member of <em class="parameter"><code>list</code></em>, then frees the list.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
 <td>list of <a class="link" href="GstPlugin.html" title="GstPlugin"><span class="type">GstPlugin</span></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> Gst.Plugin]</span>
@@ -939,8 +1019,11 @@ being shipped as a separate module file).
 You must make sure that GStreamer has been initialised (with <a class="link" href="gstreamer-Gst.html#gst-init" title="gst_init ()"><code class="function">gst_init()</code></a> or
 via <a class="link" href="gstreamer-Gst.html#gst-init-get-option-group" title="gst_init_get_option_group ()"><code class="function">gst_init_get_option_group()</code></a>) before calling this function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>major_version</code></em> :</span></p></td>
@@ -1021,8 +1104,11 @@ for bindings).
 You must make sure that GStreamer has been initialised (with <a class="link" href="gstreamer-Gst.html#gst-init" title="gst_init ()"><code class="function">gst_init()</code></a> or
 via <a class="link" href="gstreamer-Gst.html#gst-init-get-option-group" title="gst_init_get_option_group ()"><code class="function">gst_init_get_option_group()</code></a>) before calling this function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>major_version</code></em> :</span></p></td>
@@ -1094,8 +1180,11 @@ of this plugin. <span class="annotation">[<acronym title="The callback is valid 
 <p>
 The plugin loading state
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="GST-PLUGIN-FLAG-CACHED:CAPS"></a><span class="term"><code class="literal">GST_PLUGIN_FLAG_CACHED</code></span></p></td>
@@ -1123,8 +1212,11 @@ The plugin loading state
 <p>
 Flags used in connection with <a class="link" href="GstPlugin.html#gst-plugin-add-dependency" title="gst_plugin_add_dependency ()"><code class="function">gst_plugin_add_dependency()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="GST-PLUGIN-DEPENDENCY-FLAG-NONE:CAPS"></a><span class="term"><code class="literal">GST_PLUGIN_DEPENDENCY_FLAG_NONE</code></span></p></td>
@@ -1173,8 +1265,11 @@ library and makes visualisations available as GStreamer elements, or a
 codec loader which exposes elements and/or caps dependent on what external
 codec libraries are currently installed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
@@ -1236,8 +1331,11 @@ Convenience wrapper function for <a class="link" href="GstPlugin.html#gst-plugin
 takes simple strings as arguments instead of string arrays, with multiple
 arguments separated by predefined delimiters (see above).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>

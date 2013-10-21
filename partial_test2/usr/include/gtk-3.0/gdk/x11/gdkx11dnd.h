@@ -15,12 +15,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GDK_X11_DND_H__
+#define __GDK_X11_DND_H__
+
 #if !defined (__GDKX_H_INSIDE__) && !defined (GDK_COMPILATION)
 #error "Only <gdk/gdkx.h> can be included directly."
 #endif
-
-#ifndef __GDK_X11_DND_H__
-#define __GDK_X11_DND_H__
 
 #include <gdk/gdk.h>
 
@@ -40,6 +40,7 @@ typedef GdkDragContext GdkX11DragContext;
 #endif
 typedef struct _GdkX11DragContextClass GdkX11DragContextClass;
 
+GDK_AVAILABLE_IN_ALL
 GType    gdk_x11_drag_context_get_type (void);
 
 G_END_DECLS

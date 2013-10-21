@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>gconf-backend</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.0">
 <link rel="home" href="index.html" title="GConf Reference Manual">
 <link rel="up" href="ch01.html" title="Using the GConf library">
 <link rel="prev" href="gconf-gconf-client.html" title="GConfClient">
 <link rel="next" href="gconf-gconf-engine.html" title="GConfEngine">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -39,16 +39,16 @@
 <a name="gconf-gconf-backend.synopsis"></a><h2>Synopsis</h2>
 <pre class="synopsis">struct              <a class="link" href="gconf-gconf-backend.html#GConfBackendVTable" title="struct GConfBackendVTable">GConfBackendVTable</a>;
                     <a class="link" href="gconf-gconf-backend.html#GConfBackend" title="GConfBackend">GConfBackend</a>;
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="gconf-gconf-backend.html#gconf-address-backend" title="gconf_address_backend ()">gconf_address_backend</a>               (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *address</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="gconf-gconf-backend.html#gconf-address-resource" title="gconf_address_resource ()">gconf_address_resource</a>              (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *address</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="gconf-gconf-backend.html#gconf-backend-file" title="gconf_backend_file ()">gconf_backend_file</a>                  (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *address</code></em>);
-<a class="link" href="gconf-gconf-backend.html#GConfBackend" title="GConfBackend"><span class="returnvalue">GConfBackend</span></a> *      <a class="link" href="gconf-gconf-backend.html#gconf-get-backend" title="gconf_get_backend ()">gconf_get_backend</a>                   (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *address</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="gconf-gconf-backend.html#gconf-address-backend" title="gconf_address_backend ()">gconf_address_backend</a>               (<em class="parameter"><code>const <span class="type">gchar</span> *address</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="gconf-gconf-backend.html#gconf-address-resource" title="gconf_address_resource ()">gconf_address_resource</a>              (<em class="parameter"><code>const <span class="type">gchar</span> *address</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="gconf-gconf-backend.html#gconf-backend-file" title="gconf_backend_file ()">gconf_backend_file</a>                  (<em class="parameter"><code>const <span class="type">gchar</span> *address</code></em>);
+<a class="link" href="gconf-gconf-backend.html#GConfBackend" title="GConfBackend"><span class="returnvalue">GConfBackend</span></a> *      <a class="link" href="gconf-gconf-backend.html#gconf-get-backend" title="gconf_get_backend ()">gconf_get_backend</a>                   (<em class="parameter"><code>const <span class="type">gchar</span> *address</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-backend.html#gconf-backend-ref" title="gconf_backend_ref ()">gconf_backend_ref</a>                   (<em class="parameter"><code><a class="link" href="gconf-gconf-backend.html#GConfBackend" title="GConfBackend"><span class="type">GConfBackend</span></a> *backend</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-backend.html#gconf-backend-unref" title="gconf_backend_unref ()">gconf_backend_unref</a>                 (<em class="parameter"><code><a class="link" href="gconf-gconf-backend.html#GConfBackend" title="GConfBackend"><span class="type">GConfBackend</span></a> *backend</code></em>);
 <a class="link" href="gconf-gconf-sources.html#GConfSource" title="struct GConfSource"><span class="returnvalue">GConfSource</span></a> *       <a class="link" href="gconf-gconf-backend.html#gconf-backend-resolve-address" title="gconf_backend_resolve_address ()">gconf_backend_resolve_address</a>       (<em class="parameter"><code><a class="link" href="gconf-gconf-backend.html#GConfBackend" title="GConfBackend"><span class="type">GConfBackend</span></a> *backend</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *address</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *address</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
 </pre>
 </div>
 <div class="refsect1">
@@ -159,7 +159,7 @@
   /* This is basically used by the test suite */
   void                (* clear_cache)     (GConfSource* source);
 
-  /* used by gconf-sanity-check */
+  /* was used by gconf-sanity-check */
   void                (* blow_away_locks) (const char *address);
 
   void                (* set_notify_func) (GConfSource           *source,
@@ -210,7 +210,7 @@ no longer needs.
 <td><em class="parameter"><code>resolve_address</code></em></td>
 <td>
 Should create a <a class="link" href="gconf-gconf-sources.html#GConfSource" title="struct GConfSource"><span class="type">GConfSource</span></a> for accessing the supplied address. Should set the
-<code class="literal">GCONF_SOURCE_ALL_READABLE</code> and <code class="literal">GCONF_SOURCE_ALL_WRITEABLE</code> flags if
+<a class="link" href="gconf-gconf-sources.html#GCONF-SOURCE-ALL-READABLE:CAPS"><code class="literal">GCONF_SOURCE_ALL_READABLE</code></a> and <a class="link" href="gconf-gconf-sources.html#GCONF-SOURCE-ALL-WRITEABLE:CAPS"><code class="literal">GCONF_SOURCE_ALL_WRITEABLE</code></a> flags if
 appropriate. If these are not set, the backend must implement the <em class="parameter"><code>writable</code></em> and
 <em class="parameter"><code>readable</code></em> methods. If <span class="symbol">NULL</span> is returned, then the error should
 be set.
@@ -232,8 +232,8 @@ should ignore their arguments and lock the entire backend.
 <tr>
 <td><em class="parameter"><code>readable</code></em></td>
 <td>
-If the <code class="literal">GCONF_SOURCE_ALL_READABLE</code> flag is set, this method is never called and
-may be <span class="symbol">NULL</span>. If <code class="literal">GCONF_SOURCE_ALL_READABLE</code> is unset, and this
+If the <a class="link" href="gconf-gconf-sources.html#GCONF-SOURCE-ALL-READABLE:CAPS"><code class="literal">GCONF_SOURCE_ALL_READABLE</code></a> flag is set, this method is never called and
+may be <span class="symbol">NULL</span>. If <a class="link" href="gconf-gconf-sources.html#GCONF-SOURCE-ALL-READABLE:CAPS"><code class="literal">GCONF_SOURCE_ALL_READABLE</code></a> is unset, and this
 method is <span class="symbol">NULL</span>, then the source is write-only. If this method
 is implemented, it should return <span class="symbol">TRUE</span> if the given key could be
 read from the given source. <span class="symbol">TRUE</span> should be returned even if the
@@ -374,7 +374,7 @@ daemon, the backend may support notifying the daemon (and any listening
 clients) of such changes. This function should add a listener to a
 section of the tree and when any of the following events occur, the
 backend should invoke the notify function with the key that has changed:
- <div class="itemizedlist"><ul class="itemizedlist" type="bullet">
+ <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: bullet; ">
 <li class="listitem" style="list-style-type: disc"><p>If the entry is set or unset</p></li>
 <li class="listitem" style="list-style-type: disc"><p>If the entry's value changes</p></li>
 <li class="listitem" style="list-style-type: disc"><p>If the entry's schema name changes</p></li>
@@ -415,29 +415,29 @@ by the integer supplied.
 <hr>
 <div class="refsect2">
 <a name="gconf-address-backend"></a><h3>gconf_address_backend ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             gconf_address_backend               (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *address</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             gconf_address_backend               (<em class="parameter"><code>const <span class="type">gchar</span> *address</code></em>);</pre>
 <p>
 </p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gconf-address-resource"></a><h3>gconf_address_resource ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             gconf_address_resource              (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *address</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             gconf_address_resource              (<em class="parameter"><code>const <span class="type">gchar</span> *address</code></em>);</pre>
 <p>
 </p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gconf-backend-file"></a><h3>gconf_backend_file ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             gconf_backend_file                  (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *address</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             gconf_backend_file                  (<em class="parameter"><code>const <span class="type">gchar</span> *address</code></em>);</pre>
 <p>
 </p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gconf-get-backend"></a><h3>gconf_get_backend ()</h3>
-<pre class="programlisting"><a class="link" href="gconf-gconf-backend.html#GConfBackend" title="GConfBackend"><span class="returnvalue">GConfBackend</span></a> *      gconf_get_backend                   (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *address</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="gconf-gconf-backend.html#GConfBackend" title="GConfBackend"><span class="returnvalue">GConfBackend</span></a> *      gconf_get_backend                   (<em class="parameter"><code>const <span class="type">gchar</span> *address</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 </p>
 </div>
@@ -459,8 +459,8 @@ by the integer supplied.
 <div class="refsect2">
 <a name="gconf-backend-resolve-address"></a><h3>gconf_backend_resolve_address ()</h3>
 <pre class="programlisting"><a class="link" href="gconf-gconf-sources.html#GConfSource" title="struct GConfSource"><span class="returnvalue">GConfSource</span></a> *       gconf_backend_resolve_address       (<em class="parameter"><code><a class="link" href="gconf-gconf-backend.html#GConfBackend" title="GConfBackend"><span class="type">GConfBackend</span></a> *backend</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *address</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *address</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 </p>
 </div>
@@ -468,6 +468,6 @@ by the integer supplied.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

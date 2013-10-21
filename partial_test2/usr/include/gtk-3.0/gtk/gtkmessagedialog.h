@@ -22,12 +22,12 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
+#ifndef __GTK_MESSAGE_DIALOG_H__
+#define __GTK_MESSAGE_DIALOG_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_MESSAGE_DIALOG_H__
-#define __GTK_MESSAGE_DIALOG_H__
 
 #include <gtk/gtkdialog.h>
 #include <gtk/gtkenums.h>
@@ -93,8 +93,10 @@ typedef enum
   GTK_BUTTONS_OK_CANCEL
 } GtkButtonsType;
 
+GDK_AVAILABLE_IN_ALL
 GType      gtk_message_dialog_get_type (void) G_GNUC_CONST;
 
+GDK_AVAILABLE_IN_ALL
 GtkWidget* gtk_message_dialog_new      (GtkWindow      *parent,
                                         GtkDialogFlags  flags,
                                         GtkMessageType  type,
@@ -102,6 +104,7 @@ GtkWidget* gtk_message_dialog_new      (GtkWindow      *parent,
                                         const gchar    *message_format,
                                         ...) G_GNUC_PRINTF (5, 6);
 
+GDK_AVAILABLE_IN_ALL
 GtkWidget* gtk_message_dialog_new_with_markup   (GtkWindow      *parent,
                                                  GtkDialogFlags  flags,
                                                  GtkMessageType  type,
@@ -109,22 +112,28 @@ GtkWidget* gtk_message_dialog_new_with_markup   (GtkWindow      *parent,
                                                  const gchar    *message_format,
                                                  ...) G_GNUC_PRINTF (5, 6);
 
+GDK_AVAILABLE_IN_ALL
 void       gtk_message_dialog_set_image    (GtkMessageDialog *dialog,
 					    GtkWidget        *image);
 
+GDK_AVAILABLE_IN_ALL
 GtkWidget * gtk_message_dialog_get_image   (GtkMessageDialog *dialog);
 
+GDK_AVAILABLE_IN_ALL
 void       gtk_message_dialog_set_markup  (GtkMessageDialog *message_dialog,
                                            const gchar      *str);
 
+GDK_AVAILABLE_IN_ALL
 void       gtk_message_dialog_format_secondary_text (GtkMessageDialog *message_dialog,
                                                      const gchar      *message_format,
                                                      ...) G_GNUC_PRINTF (2, 3);
 
+GDK_AVAILABLE_IN_ALL
 void       gtk_message_dialog_format_secondary_markup (GtkMessageDialog *message_dialog,
                                                        const gchar      *message_format,
                                                        ...) G_GNUC_PRINTF (2, 3);
 
+GDK_AVAILABLE_IN_ALL
 GtkWidget *gtk_message_dialog_get_message_area (GtkMessageDialog *message_dialog);
 
 G_END_DECLS

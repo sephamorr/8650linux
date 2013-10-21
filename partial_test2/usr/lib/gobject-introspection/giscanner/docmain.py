@@ -21,8 +21,10 @@
 import os
 import optparse
 
-from .mallardwriter import MallardWriter
+from .docwriter import DocWriter
+from .sectionparser import generate_sections_file, write_sections_file
 from .transformer import Transformer
+
 
 def doc_main(args):
     parser = optparse.OptionParser('%prog [options] GIR-file')
@@ -32,14 +34,18 @@ def doc_main(args):
                       help="Directory to write output to")
     parser.add_option("-l", "--language",
                       action="store", dest="language",
-                      default="Python",
+                      default="c",
                       help="Output language")
+    parser.add_option("", "--add-include-path",
+                      action="append", dest="include_paths", default=[],
+                      help="include paths for other GIR files")
+    parser.add_option("", "--write-sections-file",
+                      action="store_true", dest="write_sections",
+                      help="Generate and write out a sections file")
 
     options, args = parser.parse_args(args)
     if not options.output:
         raise SystemExit("missing output parameter")
-    if not os.path.isdir(options.output):
-        raise SystemExit("wrong output parameter: %s", options.output)
 
     if len(args) < 2:
         raise SystemExit("Need an input GIR filename")
@@ -50,9 +56,17 @@ def doc_main(args):
         extra_include_dirs = [os.path.join(top_srcdir, 'gir'), top_builddir]
     else:
         extra_include_dirs = []
+    extra_include_dirs.extend(options.include_paths)
     transformer = Transformer.parse_from_gir(args[1], extra_include_dirs)
 
-    writer = MallardWriter(transformer, options.language)
-    writer.write(options.output)
+    if options.write_sections:
+        sections_file = generate_sections_file(transformer)
+
+        fp = open(options.output, 'w')
+        write_sections_file(fp, sections_file)
+        fp.close()
+    else:
+        writer = DocWriter(transformer, options.language)
+        writer.write(options.output)
 
     return 0

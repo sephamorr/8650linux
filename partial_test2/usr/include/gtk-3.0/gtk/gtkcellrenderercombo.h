@@ -15,12 +15,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GTK_CELL_RENDERER_COMBO_H__
+#define __GTK_CELL_RENDERER_COMBO_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_CELL_RENDERER_COMBO_H__
-#define __GTK_CELL_RENDERER_COMBO_H__
 
 #include <gtk/gtktreemodel.h>
 #include <gtk/gtkcellrenderertext.h>
@@ -57,7 +57,9 @@ struct _GtkCellRendererComboClass
   void (*_gtk_reserved4) (void);
 };
 
+GDK_AVAILABLE_IN_ALL
 GType            gtk_cell_renderer_combo_get_type (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkCellRenderer *gtk_cell_renderer_combo_new      (void);
 
 G_END_DECLS

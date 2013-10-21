@@ -21,11 +21,10 @@
 #ifndef WebKitDOMHTMLMarqueeElement_h
 #define WebKitDOMHTMLMarqueeElement_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMHTMLElement.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMHTMLElement.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_HTML_MARQUEE_ELEMENT            (webkit_dom_html_marquee_element_get_type())
@@ -191,7 +190,7 @@ webkit_dom_html_marquee_element_get_loop(WebKitDOMHTMLMarqueeElement* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_html_marquee_element_set_loop(WebKitDOMHTMLMarqueeElement* self, glong value, GError **error);
+webkit_dom_html_marquee_element_set_loop(WebKitDOMHTMLMarqueeElement* self, glong value, GError** error);
 
 /**
  * webkit_dom_html_marquee_element_get_scroll_amount:
@@ -213,7 +212,7 @@ webkit_dom_html_marquee_element_get_scroll_amount(WebKitDOMHTMLMarqueeElement* s
  *
 **/
 WEBKIT_API void
-webkit_dom_html_marquee_element_set_scroll_amount(WebKitDOMHTMLMarqueeElement* self, glong value, GError **error);
+webkit_dom_html_marquee_element_set_scroll_amount(WebKitDOMHTMLMarqueeElement* self, glong value, GError** error);
 
 /**
  * webkit_dom_html_marquee_element_get_scroll_delay:
@@ -235,7 +234,7 @@ webkit_dom_html_marquee_element_get_scroll_delay(WebKitDOMHTMLMarqueeElement* se
  *
 **/
 WEBKIT_API void
-webkit_dom_html_marquee_element_set_scroll_delay(WebKitDOMHTMLMarqueeElement* self, glong value, GError **error);
+webkit_dom_html_marquee_element_set_scroll_delay(WebKitDOMHTMLMarqueeElement* self, glong value, GError** error);
 
 /**
  * webkit_dom_html_marquee_element_get_true_speed:

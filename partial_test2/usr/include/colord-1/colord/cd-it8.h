@@ -88,6 +88,7 @@ typedef enum {
 	CD_IT8_KIND_TI1,
 	CD_IT8_KIND_TI3,
 	CD_IT8_KIND_CCMX,
+	CD_IT8_KIND_CAL,
 	CD_IT8_KIND_LAST
 } CdIt8Kind;
 
@@ -100,13 +101,21 @@ CdIt8		*cd_it8_new_with_kind		(CdIt8Kind	 kind);
 gboolean	 cd_it8_load_from_data		(CdIt8		*it8,
 						 const gchar	*data,
 						 gsize		 size,
-						 GError		**error);
+						 GError		**error)
+						 G_GNUC_WARN_UNUSED_RESULT;
 gboolean	 cd_it8_load_from_file		(CdIt8		*it8,
 						 GFile		*file,
-						 GError		**error);
+						 GError		**error)
+						 G_GNUC_WARN_UNUSED_RESULT;
 gboolean	 cd_it8_save_to_file		(CdIt8		*it8,
 						 GFile		*file,
-						 GError		**error);
+						 GError		**error)
+						 G_GNUC_WARN_UNUSED_RESULT;
+gboolean	 cd_it8_save_to_data		(CdIt8		*it8,
+						 gchar		**data,
+						 gsize		*size,
+						 GError		**error)
+						 G_GNUC_WARN_UNUSED_RESULT;
 
 /* setters */
 void		 cd_it8_set_kind		(CdIt8		*it8,
@@ -123,6 +132,8 @@ void		 cd_it8_set_instrument		(CdIt8		*it8,
 						 const gchar	*instrument);
 void		 cd_it8_set_reference		(CdIt8		*it8,
 						 const gchar	*reference);
+void		 cd_it8_set_enable_created	(CdIt8		*it8,
+						 gboolean	 enable_created);
 void		 cd_it8_add_data		(CdIt8		*it8,
 						 const CdColorRGB *rgb,
 						 const CdColorXYZ *xyz);
@@ -140,6 +151,7 @@ const gchar	*cd_it8_get_title		(CdIt8		*it8);
 gboolean	 cd_it8_get_spectral		(CdIt8		*it8);
 const gchar	*cd_it8_get_instrument		(CdIt8		*it8);
 const gchar	*cd_it8_get_reference		(CdIt8		*it8);
+gboolean	 cd_it8_get_enable_created	(CdIt8		*it8);
 guint		 cd_it8_get_data_size		(CdIt8		*it8);
 gboolean	 cd_it8_get_data_item		(CdIt8		*it8,
 						 guint		 idx,

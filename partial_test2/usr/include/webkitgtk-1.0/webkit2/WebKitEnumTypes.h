@@ -14,6 +14,25 @@
 
 G_BEGIN_DECLS
 
+#include <webkit2/WebKitContextMenuActions.h>
+
+#define WEBKIT_TYPE_CONTEXT_MENU_ACTION webkit_context_menu_action_get_type()
+
+WEBKIT_API GType
+webkit_context_menu_action_get_type(void);
+
+#include <webkit2/WebKitCookieManager.h>
+
+#define WEBKIT_TYPE_COOKIE_PERSISTENT_STORAGE webkit_cookie_persistent_storage_get_type()
+
+WEBKIT_API GType
+webkit_cookie_persistent_storage_get_type(void);
+
+#define WEBKIT_TYPE_COOKIE_ACCEPT_POLICY webkit_cookie_accept_policy_get_type()
+
+WEBKIT_API GType
+webkit_cookie_accept_policy_get_type(void);
+
 #include <webkit2/WebKitError.h>
 
 #define WEBKIT_TYPE_NETWORK_ERROR webkit_network_error_get_type()
@@ -35,6 +54,16 @@ webkit_plugin_error_get_type(void);
 
 WEBKIT_API GType
 webkit_download_error_get_type(void);
+
+#define WEBKIT_TYPE_PRINT_ERROR webkit_print_error_get_type()
+
+WEBKIT_API GType
+webkit_print_error_get_type(void);
+
+#define WEBKIT_TYPE_JAVASCRIPT_ERROR webkit_javascript_error_get_type()
+
+WEBKIT_API GType
+webkit_javascript_error_get_type(void);
 
 #include <webkit2/WebKitFindController.h>
 
@@ -64,6 +93,13 @@ webkit_navigation_type_get_type(void);
 WEBKIT_API GType
 webkit_print_operation_response_get_type(void);
 
+#include <webkit2/WebKitScriptDialog.h>
+
+#define WEBKIT_TYPE_SCRIPT_DIALOG_TYPE webkit_script_dialog_type_get_type()
+
+WEBKIT_API GType
+webkit_script_dialog_type_get_type(void);
+
 #include <webkit2/WebKitWebContext.h>
 
 #define WEBKIT_TYPE_CACHE_MODEL webkit_cache_model_get_type()
@@ -82,6 +118,11 @@ webkit_policy_decision_type_get_type(void);
 
 WEBKIT_API GType
 webkit_load_event_get_type(void);
+
+#define WEBKIT_TYPE_SAVE_MODE webkit_save_mode_get_type()
+
+WEBKIT_API GType
+webkit_save_mode_get_type(void);
 
 G_END_DECLS
 

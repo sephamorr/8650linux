@@ -21,11 +21,10 @@
 #ifndef WebKitDOMHTMLInputElement_h
 #define WebKitDOMHTMLInputElement_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMHTMLElement.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMHTMLElement.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_HTML_INPUT_ELEMENT            (webkit_dom_html_input_element_get_type())
@@ -56,7 +55,7 @@ webkit_dom_html_input_element_get_type (void);
  *
 **/
 WEBKIT_API void
-webkit_dom_html_input_element_step_up(WebKitDOMHTMLInputElement* self, glong n, GError **error);
+webkit_dom_html_input_element_step_up(WebKitDOMHTMLInputElement* self, glong n, GError** error);
 
 /**
  * webkit_dom_html_input_element_step_down:
@@ -68,7 +67,7 @@ webkit_dom_html_input_element_step_up(WebKitDOMHTMLInputElement* self, glong n, 
  *
 **/
 WEBKIT_API void
-webkit_dom_html_input_element_step_down(WebKitDOMHTMLInputElement* self, glong n, GError **error);
+webkit_dom_html_input_element_step_down(WebKitDOMHTMLInputElement* self, glong n, GError** error);
 
 /**
  * webkit_dom_html_input_element_check_validity:
@@ -113,17 +112,17 @@ WEBKIT_API void
 webkit_dom_html_input_element_set_value_for_user(WebKitDOMHTMLInputElement* self, const gchar* value);
 
 /**
- * webkit_dom_html_input_element_get_default_value:
+ * webkit_dom_html_input_element_get_accept:
  * @self: A #WebKitDOMHTMLInputElement
  *
  * Returns:
  *
 **/
 WEBKIT_API gchar*
-webkit_dom_html_input_element_get_default_value(WebKitDOMHTMLInputElement* self);
+webkit_dom_html_input_element_get_accept(WebKitDOMHTMLInputElement* self);
 
 /**
- * webkit_dom_html_input_element_set_default_value:
+ * webkit_dom_html_input_element_set_accept:
  * @self: A #WebKitDOMHTMLInputElement
  * @value: A #gchar
  *
@@ -131,7 +130,70 @@ webkit_dom_html_input_element_get_default_value(WebKitDOMHTMLInputElement* self)
  *
 **/
 WEBKIT_API void
-webkit_dom_html_input_element_set_default_value(WebKitDOMHTMLInputElement* self, const gchar* value);
+webkit_dom_html_input_element_set_accept(WebKitDOMHTMLInputElement* self, const gchar* value);
+
+/**
+ * webkit_dom_html_input_element_get_alt:
+ * @self: A #WebKitDOMHTMLInputElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_html_input_element_get_alt(WebKitDOMHTMLInputElement* self);
+
+/**
+ * webkit_dom_html_input_element_set_alt:
+ * @self: A #WebKitDOMHTMLInputElement
+ * @value: A #gchar
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_input_element_set_alt(WebKitDOMHTMLInputElement* self, const gchar* value);
+
+/**
+ * webkit_dom_html_input_element_get_autocomplete:
+ * @self: A #WebKitDOMHTMLInputElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_html_input_element_get_autocomplete(WebKitDOMHTMLInputElement* self);
+
+/**
+ * webkit_dom_html_input_element_set_autocomplete:
+ * @self: A #WebKitDOMHTMLInputElement
+ * @value: A #gchar
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_input_element_set_autocomplete(WebKitDOMHTMLInputElement* self, const gchar* value);
+
+/**
+ * webkit_dom_html_input_element_get_autofocus:
+ * @self: A #WebKitDOMHTMLInputElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gboolean
+webkit_dom_html_input_element_get_autofocus(WebKitDOMHTMLInputElement* self);
+
+/**
+ * webkit_dom_html_input_element_set_autofocus:
+ * @self: A #WebKitDOMHTMLInputElement
+ * @value: A #gboolean
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_input_element_set_autofocus(WebKitDOMHTMLInputElement* self, gboolean value);
 
 /**
  * webkit_dom_html_input_element_get_default_checked:
@@ -155,6 +217,27 @@ WEBKIT_API void
 webkit_dom_html_input_element_set_default_checked(WebKitDOMHTMLInputElement* self, gboolean value);
 
 /**
+ * webkit_dom_html_input_element_get_checked:
+ * @self: A #WebKitDOMHTMLInputElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gboolean
+webkit_dom_html_input_element_get_checked(WebKitDOMHTMLInputElement* self);
+
+/**
+ * webkit_dom_html_input_element_set_checked:
+ * @self: A #WebKitDOMHTMLInputElement
+ * @value: A #gboolean
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_input_element_set_checked(WebKitDOMHTMLInputElement* self, gboolean value);
+
+/**
  * webkit_dom_html_input_element_get_dir_name:
  * @self: A #WebKitDOMHTMLInputElement
  *
@@ -176,6 +259,27 @@ WEBKIT_API void
 webkit_dom_html_input_element_set_dir_name(WebKitDOMHTMLInputElement* self, const gchar* value);
 
 /**
+ * webkit_dom_html_input_element_get_disabled:
+ * @self: A #WebKitDOMHTMLInputElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gboolean
+webkit_dom_html_input_element_get_disabled(WebKitDOMHTMLInputElement* self);
+
+/**
+ * webkit_dom_html_input_element_set_disabled:
+ * @self: A #WebKitDOMHTMLInputElement
+ * @value: A #gboolean
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_input_element_set_disabled(WebKitDOMHTMLInputElement* self, gboolean value);
+
+/**
  * webkit_dom_html_input_element_get_form:
  * @self: A #WebKitDOMHTMLInputElement
  *
@@ -184,6 +288,27 @@ webkit_dom_html_input_element_set_dir_name(WebKitDOMHTMLInputElement* self, cons
 **/
 WEBKIT_API WebKitDOMHTMLFormElement*
 webkit_dom_html_input_element_get_form(WebKitDOMHTMLInputElement* self);
+
+/**
+ * webkit_dom_html_input_element_get_files:
+ * @self: A #WebKitDOMHTMLInputElement
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMFileList*
+webkit_dom_html_input_element_get_files(WebKitDOMHTMLInputElement* self);
+
+/**
+ * webkit_dom_html_input_element_set_files:
+ * @self: A #WebKitDOMHTMLInputElement
+ * @value: A #WebKitDOMFileList
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_input_element_set_files(WebKitDOMHTMLInputElement* self, WebKitDOMFileList* value);
 
 /**
  * webkit_dom_html_input_element_get_form_action:
@@ -291,90 +416,38 @@ WEBKIT_API void
 webkit_dom_html_input_element_set_form_target(WebKitDOMHTMLInputElement* self, const gchar* value);
 
 /**
- * webkit_dom_html_input_element_get_validity:
- * @self: A #WebKitDOMHTMLInputElement
- *
- * Returns: (transfer none):
- *
-**/
-WEBKIT_API WebKitDOMValidityState*
-webkit_dom_html_input_element_get_validity(WebKitDOMHTMLInputElement* self);
-
-/**
- * webkit_dom_html_input_element_get_accept:
+ * webkit_dom_html_input_element_get_height:
  * @self: A #WebKitDOMHTMLInputElement
  *
  * Returns:
  *
 **/
-WEBKIT_API gchar*
-webkit_dom_html_input_element_get_accept(WebKitDOMHTMLInputElement* self);
+WEBKIT_API gulong
+webkit_dom_html_input_element_get_height(WebKitDOMHTMLInputElement* self);
 
 /**
- * webkit_dom_html_input_element_set_accept:
+ * webkit_dom_html_input_element_set_height:
  * @self: A #WebKitDOMHTMLInputElement
- * @value: A #gchar
+ * @value: A #gulong
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_html_input_element_set_accept(WebKitDOMHTMLInputElement* self, const gchar* value);
+webkit_dom_html_input_element_set_height(WebKitDOMHTMLInputElement* self, gulong value);
 
 /**
- * webkit_dom_html_input_element_get_align:
- * @self: A #WebKitDOMHTMLInputElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gchar*
-webkit_dom_html_input_element_get_align(WebKitDOMHTMLInputElement* self);
-
-/**
- * webkit_dom_html_input_element_set_align:
- * @self: A #WebKitDOMHTMLInputElement
- * @value: A #gchar
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_input_element_set_align(WebKitDOMHTMLInputElement* self, const gchar* value);
-
-/**
- * webkit_dom_html_input_element_get_alt:
- * @self: A #WebKitDOMHTMLInputElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gchar*
-webkit_dom_html_input_element_get_alt(WebKitDOMHTMLInputElement* self);
-
-/**
- * webkit_dom_html_input_element_set_alt:
- * @self: A #WebKitDOMHTMLInputElement
- * @value: A #gchar
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_input_element_set_alt(WebKitDOMHTMLInputElement* self, const gchar* value);
-
-/**
- * webkit_dom_html_input_element_get_checked:
+ * webkit_dom_html_input_element_get_indeterminate:
  * @self: A #WebKitDOMHTMLInputElement
  *
  * Returns:
  *
 **/
 WEBKIT_API gboolean
-webkit_dom_html_input_element_get_checked(WebKitDOMHTMLInputElement* self);
+webkit_dom_html_input_element_get_indeterminate(WebKitDOMHTMLInputElement* self);
 
 /**
- * webkit_dom_html_input_element_set_checked:
+ * webkit_dom_html_input_element_set_indeterminate:
  * @self: A #WebKitDOMHTMLInputElement
  * @value: A #gboolean
  *
@@ -382,70 +455,7 @@ webkit_dom_html_input_element_get_checked(WebKitDOMHTMLInputElement* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_html_input_element_set_checked(WebKitDOMHTMLInputElement* self, gboolean value);
-
-/**
- * webkit_dom_html_input_element_get_disabled:
- * @self: A #WebKitDOMHTMLInputElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gboolean
-webkit_dom_html_input_element_get_disabled(WebKitDOMHTMLInputElement* self);
-
-/**
- * webkit_dom_html_input_element_set_disabled:
- * @self: A #WebKitDOMHTMLInputElement
- * @value: A #gboolean
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_input_element_set_disabled(WebKitDOMHTMLInputElement* self, gboolean value);
-
-/**
- * webkit_dom_html_input_element_get_autofocus:
- * @self: A #WebKitDOMHTMLInputElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gboolean
-webkit_dom_html_input_element_get_autofocus(WebKitDOMHTMLInputElement* self);
-
-/**
- * webkit_dom_html_input_element_set_autofocus:
- * @self: A #WebKitDOMHTMLInputElement
- * @value: A #gboolean
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_input_element_set_autofocus(WebKitDOMHTMLInputElement* self, gboolean value);
-
-/**
- * webkit_dom_html_input_element_get_autocomplete:
- * @self: A #WebKitDOMHTMLInputElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gchar*
-webkit_dom_html_input_element_get_autocomplete(WebKitDOMHTMLInputElement* self);
-
-/**
- * webkit_dom_html_input_element_set_autocomplete:
- * @self: A #WebKitDOMHTMLInputElement
- * @value: A #gchar
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_input_element_set_autocomplete(WebKitDOMHTMLInputElement* self, const gchar* value);
+webkit_dom_html_input_element_set_indeterminate(WebKitDOMHTMLInputElement* self, gboolean value);
 
 /**
  * webkit_dom_html_input_element_get_list:
@@ -498,7 +508,7 @@ webkit_dom_html_input_element_get_max_length(WebKitDOMHTMLInputElement* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_html_input_element_set_max_length(WebKitDOMHTMLInputElement* self, glong value, GError **error);
+webkit_dom_html_input_element_set_max_length(WebKitDOMHTMLInputElement* self, glong value, GError** error);
 
 /**
  * webkit_dom_html_input_element_get_min:
@@ -541,27 +551,6 @@ webkit_dom_html_input_element_get_multiple(WebKitDOMHTMLInputElement* self);
 **/
 WEBKIT_API void
 webkit_dom_html_input_element_set_multiple(WebKitDOMHTMLInputElement* self, gboolean value);
-
-/**
- * webkit_dom_html_input_element_get_webkitdirectory:
- * @self: A #WebKitDOMHTMLInputElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gboolean
-webkit_dom_html_input_element_get_webkitdirectory(WebKitDOMHTMLInputElement* self);
-
-/**
- * webkit_dom_html_input_element_set_webkitdirectory:
- * @self: A #WebKitDOMHTMLInputElement
- * @value: A #gboolean
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_input_element_set_webkitdirectory(WebKitDOMHTMLInputElement* self, gboolean value);
 
 /**
  * webkit_dom_html_input_element_get_name:
@@ -732,17 +721,17 @@ WEBKIT_API void
 webkit_dom_html_input_element_set_step(WebKitDOMHTMLInputElement* self, const gchar* value);
 
 /**
- * webkit_dom_html_input_element_get_use_map:
+ * webkit_dom_html_input_element_get_default_value:
  * @self: A #WebKitDOMHTMLInputElement
  *
  * Returns:
  *
 **/
 WEBKIT_API gchar*
-webkit_dom_html_input_element_get_use_map(WebKitDOMHTMLInputElement* self);
+webkit_dom_html_input_element_get_default_value(WebKitDOMHTMLInputElement* self);
 
 /**
- * webkit_dom_html_input_element_set_use_map:
+ * webkit_dom_html_input_element_set_default_value:
  * @self: A #WebKitDOMHTMLInputElement
  * @value: A #gchar
  *
@@ -750,7 +739,7 @@ webkit_dom_html_input_element_get_use_map(WebKitDOMHTMLInputElement* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_html_input_element_set_use_map(WebKitDOMHTMLInputElement* self, const gchar* value);
+webkit_dom_html_input_element_set_default_value(WebKitDOMHTMLInputElement* self, const gchar* value);
 
 /**
  * webkit_dom_html_input_element_get_value:
@@ -793,17 +782,131 @@ webkit_dom_html_input_element_get_value_as_number(WebKitDOMHTMLInputElement* sel
  *
 **/
 WEBKIT_API void
-webkit_dom_html_input_element_set_value_as_number(WebKitDOMHTMLInputElement* self, gdouble value, GError **error);
+webkit_dom_html_input_element_set_value_as_number(WebKitDOMHTMLInputElement* self, gdouble value, GError** error);
 
 /**
- * webkit_dom_html_input_element_get_selected_option:
+ * webkit_dom_html_input_element_get_width:
+ * @self: A #WebKitDOMHTMLInputElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gulong
+webkit_dom_html_input_element_get_width(WebKitDOMHTMLInputElement* self);
+
+/**
+ * webkit_dom_html_input_element_set_width:
+ * @self: A #WebKitDOMHTMLInputElement
+ * @value: A #gulong
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_input_element_set_width(WebKitDOMHTMLInputElement* self, gulong value);
+
+/**
+ * webkit_dom_html_input_element_get_will_validate:
+ * @self: A #WebKitDOMHTMLInputElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gboolean
+webkit_dom_html_input_element_get_will_validate(WebKitDOMHTMLInputElement* self);
+
+/**
+ * webkit_dom_html_input_element_get_validity:
  * @self: A #WebKitDOMHTMLInputElement
  *
  * Returns: (transfer none):
  *
 **/
-WEBKIT_API WebKitDOMHTMLOptionElement*
-webkit_dom_html_input_element_get_selected_option(WebKitDOMHTMLInputElement* self);
+WEBKIT_API WebKitDOMValidityState*
+webkit_dom_html_input_element_get_validity(WebKitDOMHTMLInputElement* self);
+
+/**
+ * webkit_dom_html_input_element_get_validation_message:
+ * @self: A #WebKitDOMHTMLInputElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_html_input_element_get_validation_message(WebKitDOMHTMLInputElement* self);
+
+/**
+ * webkit_dom_html_input_element_get_labels:
+ * @self: A #WebKitDOMHTMLInputElement
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMNodeList*
+webkit_dom_html_input_element_get_labels(WebKitDOMHTMLInputElement* self);
+
+/**
+ * webkit_dom_html_input_element_get_align:
+ * @self: A #WebKitDOMHTMLInputElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_html_input_element_get_align(WebKitDOMHTMLInputElement* self);
+
+/**
+ * webkit_dom_html_input_element_set_align:
+ * @self: A #WebKitDOMHTMLInputElement
+ * @value: A #gchar
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_input_element_set_align(WebKitDOMHTMLInputElement* self, const gchar* value);
+
+/**
+ * webkit_dom_html_input_element_get_webkitdirectory:
+ * @self: A #WebKitDOMHTMLInputElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gboolean
+webkit_dom_html_input_element_get_webkitdirectory(WebKitDOMHTMLInputElement* self);
+
+/**
+ * webkit_dom_html_input_element_set_webkitdirectory:
+ * @self: A #WebKitDOMHTMLInputElement
+ * @value: A #gboolean
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_input_element_set_webkitdirectory(WebKitDOMHTMLInputElement* self, gboolean value);
+
+/**
+ * webkit_dom_html_input_element_get_use_map:
+ * @self: A #WebKitDOMHTMLInputElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_html_input_element_get_use_map(WebKitDOMHTMLInputElement* self);
+
+/**
+ * webkit_dom_html_input_element_set_use_map:
+ * @self: A #WebKitDOMHTMLInputElement
+ * @value: A #gchar
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_input_element_set_use_map(WebKitDOMHTMLInputElement* self, const gchar* value);
 
 /**
  * webkit_dom_html_input_element_get_incremental:
@@ -825,67 +928,6 @@ webkit_dom_html_input_element_get_incremental(WebKitDOMHTMLInputElement* self);
 **/
 WEBKIT_API void
 webkit_dom_html_input_element_set_incremental(WebKitDOMHTMLInputElement* self, gboolean value);
-
-/**
- * webkit_dom_html_input_element_get_will_validate:
- * @self: A #WebKitDOMHTMLInputElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gboolean
-webkit_dom_html_input_element_get_will_validate(WebKitDOMHTMLInputElement* self);
-
-/**
- * webkit_dom_html_input_element_get_validation_message:
- * @self: A #WebKitDOMHTMLInputElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gchar*
-webkit_dom_html_input_element_get_validation_message(WebKitDOMHTMLInputElement* self);
-
-/**
- * webkit_dom_html_input_element_get_indeterminate:
- * @self: A #WebKitDOMHTMLInputElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gboolean
-webkit_dom_html_input_element_get_indeterminate(WebKitDOMHTMLInputElement* self);
-
-/**
- * webkit_dom_html_input_element_set_indeterminate:
- * @self: A #WebKitDOMHTMLInputElement
- * @value: A #gboolean
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_input_element_set_indeterminate(WebKitDOMHTMLInputElement* self, gboolean value);
-
-/**
- * webkit_dom_html_input_element_get_files:
- * @self: A #WebKitDOMHTMLInputElement
- *
- * Returns: (transfer none):
- *
-**/
-WEBKIT_API WebKitDOMFileList*
-webkit_dom_html_input_element_get_files(WebKitDOMHTMLInputElement* self);
-
-/**
- * webkit_dom_html_input_element_get_labels:
- * @self: A #WebKitDOMHTMLInputElement
- *
- * Returns: (transfer none):
- *
-**/
-WEBKIT_API WebKitDOMNodeList*
-webkit_dom_html_input_element_get_labels(WebKitDOMHTMLInputElement* self);
 
 /**
  * webkit_dom_html_input_element_get_webkit_speech:
@@ -928,6 +970,27 @@ webkit_dom_html_input_element_get_webkit_grammar(WebKitDOMHTMLInputElement* self
 **/
 WEBKIT_API void
 webkit_dom_html_input_element_set_webkit_grammar(WebKitDOMHTMLInputElement* self, gboolean value);
+
+/**
+ * webkit_dom_html_input_element_get_capture:
+ * @self: A #WebKitDOMHTMLInputElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_html_input_element_get_capture(WebKitDOMHTMLInputElement* self);
+
+/**
+ * webkit_dom_html_input_element_set_capture:
+ * @self: A #WebKitDOMHTMLInputElement
+ * @value: A #gchar
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_input_element_set_capture(WebKitDOMHTMLInputElement* self, const gchar* value);
 
 G_END_DECLS
 

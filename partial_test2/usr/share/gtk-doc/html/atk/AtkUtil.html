@@ -3,31 +3,28 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AtkUtil</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="ATK - Accessibility Toolkit">
 <link rel="up" href="atk.html" title="ATK Library">
 <link rel="prev" href="AtkText.html" title="AtkText">
 <link rel="next" href="AtkValue.html" title="AtkValue">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="AtkText.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="atk.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">ATK - Accessibility Toolkit</th>
-<td><a accesskey="n" href="AtkValue.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#AtkUtil.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#AtkUtil.description" class="shortcut">Description</a>
                    | 
                   <a href="#AtkUtil.object-hierarchy" class="shortcut">Object Hierarchy</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="atk.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="AtkText.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="AtkValue.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="AtkUtil"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -53,7 +50,7 @@ enum                <a class="link" href="AtkUtil.html#AtkCoordType" title="enum
 struct              <a class="link" href="AtkUtil.html#AtkKeyEventStruct" title="struct AtkKeyEventStruct">AtkKeyEventStruct</a>;
 enum                <a class="link" href="AtkUtil.html#AtkKeyEventType" title="enum AtkKeyEventType">AtkKeyEventType</a>;
 <span class="returnvalue">gint</span>                (<a class="link" href="AtkUtil.html#AtkKeySnoopFunc" title="AtkKeySnoopFunc ()">*AtkKeySnoopFunc</a>)                  (<em class="parameter"><code><a class="link" href="AtkUtil.html#AtkKeyEventStruct" title="struct AtkKeyEventStruct"><span class="type">AtkKeyEventStruct</span></a> *event</code></em>,
-                                                         <em class="parameter"><code><span class="type">gpointer</span> func_data</code></em>);
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
 <span class="returnvalue">guint</span>               <a class="link" href="AtkUtil.html#atk-add-key-event-listener" title="atk_add_key_event_listener ()">atk_add_key_event_listener</a>          (<em class="parameter"><code><a class="link" href="AtkUtil.html#AtkKeySnoopFunc" title="AtkKeySnoopFunc ()"><span class="type">AtkKeySnoopFunc</span></a> listener</code></em>,
                                                          <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="AtkUtil.html#atk-remove-key-event-listener" title="atk_remove_key_event_listener ()">atk_remove_key_event_listener</a>       (<em class="parameter"><code><span class="type">guint</span> listener_id</code></em>);
@@ -93,9 +90,10 @@ const <span class="returnvalue">gchar</span> *       <a class="link" href="AtkUt
 <div class="refsect1">
 <a name="AtkUtil.description"></a><h2>Description</h2>
 <p>
-A set of ATK utility functions which are used to support event registration of
-various types, and obtaining the 'root' accessible of a process and
-information about the current ATK implementation and toolkit version.
+A set of ATK utility functions which are used to support event
+registration of various types, and obtaining the 'root' accessible
+of a process and information about the current ATK implementation
+and toolkit version.
 </p>
 </div>
 <div class="refsect1">
@@ -104,7 +102,6 @@ information about the current ATK implementation and toolkit version.
 <a name="AtkUtil-struct"></a><h3>struct AtkUtil</h3>
 <pre class="programlisting">struct AtkUtil;</pre>
 <p>
-The AtkUtil struct does not contain any fields.
 </p>
 </div>
 <hr>
@@ -140,6 +137,13 @@ top-level window
 <div class="refsect2">
 <a name="atk-add-focus-tracker"></a><h3>atk_add_focus_tracker ()</h3>
 <pre class="programlisting"><span class="returnvalue">guint</span>               atk_add_focus_tracker               (<em class="parameter"><code><a class="link" href="AtkUtil.html#AtkEventListener" title="AtkEventListener ()"><span class="type">AtkEventListener</span></a> focus_tracker</code></em>);</pre>
+<div class="warning">
+<h3 class="title">Warning</h3>
+<p><code class="literal">atk_add_focus_tracker</code> is deprecated and should not be used in newly-written code. This method is deprecated since ATK version
+2.9.4. Focus tracking has been dropped as a feature to be
+implemented by ATK itself. If you need focus tracking on your
+implementation, subscribe to the state-changed:focused signal.</p>
+</div>
 <p>
 Adds the specified function to the list of functions to be called
 when an object receives focus.
@@ -163,10 +167,17 @@ when an object receives focus.</td>
 <div class="refsect2">
 <a name="atk-remove-focus-tracker"></a><h3>atk_remove_focus_tracker ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                atk_remove_focus_tracker            (<em class="parameter"><code><span class="type">guint</span> tracker_id</code></em>);</pre>
+<div class="warning">
+<h3 class="title">Warning</h3>
+<p><code class="literal">atk_remove_focus_tracker</code> is deprecated and should not be used in newly-written code. This method is deprecated since ATK version
+2.9.4. Focus tracking has been dropped as a feature to be
+implemented by ATK itself. If you need focus tracking on your
+implementation, subscribe to the state-changed:focused signal.
+</p>
 <p>
 Removes the specified focus tracker from the list of functions
-to be called when any object receives focus.
-</p>
+to be called when any object receives focus.</p>
+</div>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
@@ -179,6 +190,12 @@ to be called when any object receives focus.
 <div class="refsect2">
 <a name="atk-focus-tracker-init"></a><h3>atk_focus_tracker_init ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                atk_focus_tracker_init              (<em class="parameter"><code><a class="link" href="AtkUtil.html#AtkEventListenerInit" title="AtkEventListenerInit ()"><span class="type">AtkEventListenerInit</span></a> init</code></em>);</pre>
+<div class="warning">
+<h3 class="title">Warning</h3>
+<p><code class="literal">atk_focus_tracker_init</code> is deprecated and should not be used in newly-written code. This method is deprecated since ATK version
+2.9.4. Focus tracking has been dropped as a feature to be
+implemented by ATK itself.</p>
+</div>
 <p>
 Specifies the function to be called for focus tracker initialization.
 This function should be called by an implementation of the
@@ -197,6 +214,12 @@ focus tracking.
 <div class="refsect2">
 <a name="atk-focus-tracker-notify"></a><h3>atk_focus_tracker_notify ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                atk_focus_tracker_notify            (<em class="parameter"><code><a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> *object</code></em>);</pre>
+<div class="warning">
+<h3 class="title">Warning</h3>
+<p><code class="literal">atk_focus_tracker_notify</code> is deprecated and should not be used in newly-written code. This method is deprecated since ATK version
+2.9.4. Focus tracking has been dropped as a feature to be
+implemented by ATK itself.</p>
+</div>
 <p>
 Cause the focus tracker functions which have been specified to be
 executed for the object.
@@ -257,17 +280,30 @@ when an ATK event of type event_type occurs.
 </p>
 <p>
 The format of event_type is the following:
- "ATK:&lt;atk_type&gt;:&lt;atk_event&gt;
+ "ATK:&lt;atk_type&gt;:&lt;atk_event&gt;:&lt;atk_event_detail&gt;
 </p>
 <p>
 Where "ATK" works as the namespace, &lt;atk_interface&gt; is the name of
-the ATK type (interface or object) and &lt;atk_event&gt; is the name of
-the signal defined on that interface.
+the ATK type (interface or object), &lt;atk_event&gt; is the name of the
+signal defined on that interface and &lt;atk_event_detail&gt; is the
+gsignal detail of that signal. You can find more info about gsignal
+details here:
+http://developer.gnome.org/gobject/stable/gobject-Signals.html
+</p>
+<p>
+The first three parameters are mandatory. The last one is optional.
 </p>
 <p>
 For example:
   ATK:AtkObject:state-change
   ATK:AtkText:text-selection-changed
+  ATK:AtkText:text-insert:system
+</p>
+<p>
+Toolkit implementor note: Atk provides a default implementation for
+this virtual method, and that implementation should be enough for
+most of the cases. You should have a really good reason to
+reimplement this method.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -291,6 +327,16 @@ For example:
 <div class="refsect2">
 <a name="atk-remove-global-event-listener"></a><h3>atk_remove_global_event_listener ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                atk_remove_global_event_listener    (<em class="parameter"><code><span class="type">guint</span> listener_id</code></em>);</pre>
+<p>
+<em class="parameter"><code>listener_id</code></em> is the value returned by <a class="link" href="AtkUtil.html#atk-add-global-event-listener" title="atk_add_global_event_listener ()"><span class="type">atk_add_global_event_listener</span></a>
+when you registered that event listener.
+</p>
+<p>
+Toolkit implementor note: Atk provides a default implementation for
+this virtual method, and that implementation should be enough for
+most of the cases. You should have a really good reason to
+reimplement this method.
+</p>
 <p>
 Removes the specified event listener
 </p>
@@ -399,7 +445,7 @@ Specifies the type of a keyboard evemt.
 <div class="refsect2">
 <a name="AtkKeySnoopFunc"></a><h3>AtkKeySnoopFunc ()</h3>
 <pre class="programlisting"><span class="returnvalue">gint</span>                (*AtkKeySnoopFunc)                  (<em class="parameter"><code><a class="link" href="AtkUtil.html#AtkKeyEventStruct" title="struct AtkKeyEventStruct"><span class="type">AtkKeyEventStruct</span></a> *event</code></em>,
-                                                         <em class="parameter"><code><span class="type">gpointer</span> func_data</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
 <p>
 An <a class="link" href="AtkUtil.html#AtkKeySnoopFunc" title="AtkKeySnoopFunc ()"><span class="type">AtkKeySnoopFunc</span></a> is a type of callback which is called whenever a key event occurs, 
 if registered via atk_add_key_event_listener.  It allows for pre-emptive 
@@ -414,7 +460,7 @@ interception of key events via the return code as described below.
 notification is being given.</td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>func_data</code></em> :</span></p></td>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
 <td>a block of data which will be passed to the event listener, on notification.</td>
 </tr>
 <tr>
@@ -461,7 +507,11 @@ along with the event notification, when it occurs.</td>
 <a name="atk-remove-key-event-listener"></a><h3>atk_remove_key_event_listener ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                atk_remove_key_event_listener       (<em class="parameter"><code><span class="type">guint</span> listener_id</code></em>);</pre>
 <p>
-Removes the specified event listener
+<em class="parameter"><code>listener_id</code></em> is the value returned by <a class="link" href="AtkUtil.html#atk-add-key-event-listener" title="atk_add_key_event_listener ()"><span class="type">atk_add_key_event_listener</span></a>
+when you registered that event listener.
+</p>
+<p>
+Removes the specified event listener.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -718,6 +768,6 @@ Similar to <a class="link" href="AtkUtil.html#ATK-DEFINE-TYPE-WITH-CODE:CAPS" ti
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

@@ -22,12 +22,12 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
+#ifndef __GDK_TYPES_H__
+#define __GDK_TYPES_H__
+
 #if !defined (__GDK_H_INSIDE__) && !defined (GDK_COMPILATION)
 #error "Only <gdk/gdk.h> can be included directly."
 #endif
-
-#ifndef __GDK_TYPES_H__
-#define __GDK_TYPES_H__
 
 /* GDK uses "glib". (And so does GTK).
  */
@@ -135,7 +135,7 @@ typedef struct _GdkAppLaunchContext   GdkAppLaunchContext;
  *   in memory as 0xcc, 0xee, 0xff, 0x00.
  * @GDK_MSB_FIRST: The values are stored with the most-significant byte
  *   first. For instance, the 32-bit value 0xffeecc would be stored
- *   in memory as 0x00, 0xcc, 0xee, 0xff.
+ *   in memory as 0x00, 0xff, 0xee, 0xcc.
  *
  * A set of values describing the possible byte-orders
  * for storing pixel values in memory.
@@ -297,8 +297,8 @@ typedef enum
  *  viewable.
  * @GDK_GRAB_FROZEN: the resource is frozen by an active grab of another client.
  *
- * Returned by gdk_pointer_grab() and gdk_keyboard_grab() to indicate
- * success or the reason for the failure of the grab attempt.
+ * Returned by gdk_device_grab(), gdk_pointer_grab() and gdk_keyboard_grab() to
+ * indicate success or the reason for the failure of the grab attempt.
  */
 typedef enum
 {
@@ -348,8 +348,8 @@ typedef enum
  * @GDK_SUBSTRUCTURE_MASK: receive events about window configuration changes of
  *   child windows
  * @GDK_SCROLL_MASK: receive scroll events
- * @GDK_TOUCH_MASK: receive touch events
- * @GDK_SMOOTH_SCROLL_MASK: receive smooth scrolling events
+ * @GDK_TOUCH_MASK: receive touch events. Since 3.4
+ * @GDK_SMOOTH_SCROLL_MASK: receive smooth scrolling events. Since 3.4
  * @GDK_ALL_EVENTS_MASK: the combination of all the above event masks.
  *
  * A set of bit-flags to indicate which events a window is to receive.

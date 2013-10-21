@@ -216,12 +216,12 @@ regress_test_closure_one_arg (GClosure *closure, int arg)
 /**
  * regress_test_closure_variant:
  * @closure: GClosure which takes one GVariant and returns a GVariant
- * @arg: (transfer none): a GVariant passed as argument to @closure
+ * @arg: (allow-none) (transfer none): a GVariant passed as argument to @closure
  *
  * Return value: (transfer full): the return value of @closure
  */
 GVariant*
-regress_test_closure_variant (GClosure *closure, const GVariant* arg)
+regress_test_closure_variant (GClosure *closure, GVariant* arg)
 {
   GValue return_value = {0, };
   GValue arguments[1] = {{0,} };
@@ -238,6 +238,8 @@ regress_test_closure_variant (GClosure *closure, const GVariant* arg)
                     NULL);
 
   ret = g_value_get_variant (&return_value);
+  if (ret != NULL)
+    g_variant_ref (ret);
 
   g_value_unset (&return_value);
   g_value_unset (&arguments[0]);
@@ -282,16 +284,21 @@ regress_test_value_return(int i)
 /************************************************************************/
 /* foreign structs */
 
+#ifndef _GI_DISABLE_CAIRO
 /**
  * regress_test_cairo_context_full_return:
+ *
  * Returns: (transfer full):
  */
 cairo_t *
 regress_test_cairo_context_full_return (void)
 {
   cairo_surface_t *surface;
+  cairo_t *cr;
   surface = cairo_image_surface_create (CAIRO_FORMAT_ARGB32, 10, 10);
-  return cairo_create (surface);
+  cr = cairo_create (surface);
+  cairo_surface_destroy (surface);
+  return cr;
 }
 
 /**
@@ -311,6 +318,7 @@ regress_test_cairo_context_none_in (cairo_t *context)
 
 /**
  * regress_test_cairo_surface_none_return:
+ *
  * Returns: (transfer none):
  */
 cairo_surface_t *
@@ -327,6 +335,7 @@ regress_test_cairo_surface_none_return (void)
 
 /**
  * regress_test_cairo_surface_full_return:
+ *
  * Returns: (transfer full):
  */
 cairo_surface_t *
@@ -356,6 +365,7 @@ regress_test_cairo_surface_full_out (cairo_surface_t **surface)
 {
   *surface = cairo_image_surface_create (CAIRO_FORMAT_ARGB32, 10, 10);
 }
+#endif
 
 /**
  * regress_test_gvariant_i:
@@ -429,6 +439,7 @@ static const char utf8_nonconst[] = "nonconst \xe2\x99\xa5 utf8";
 
 /**
  * regress_test_utf8_const_return:
+ *
  * Return value: UTF-8 string
  */
 const char *
@@ -709,7 +720,7 @@ regress_test_strv_in (char **arr)
  * @types: (array length=n_types): List of types
  *
  * Return value: (transfer full): string representation of provided types
- * */
+ */
 char *
 regress_test_array_gtype_in (int n_types, GType *types)
 {
@@ -808,6 +819,7 @@ regress_test_array_fixed_size_int_out (int **ints)
 
 /**
  * regress_test_array_fixed_size_int_return:
+ *
  * Returns: (array fixed-size=5) (transfer full): a list of 5 integers ranging from 0 to 4
  */
 int *
@@ -839,6 +851,7 @@ regress_test_strv_out_c (void)
 /**
  * regress_test_array_int_full_out:
  * @len: length of the returned array.
+ *
  * Returns: (array length=len) (transfer full): a new array of integers.
  */
 int *
@@ -855,6 +868,7 @@ regress_test_array_int_full_out(int *len)
 /**
  * regress_test_array_int_none_out:
  * @len: length of the returned array.
+ *
  * Returns: (array length=len) (transfer none): a static array of integers.
  */
 int *
@@ -894,7 +908,7 @@ regress_test_array_int_null_out (int **arr, int *len)
 /* GList */
 
 static /*const*/ GList *
-regress_test_sequence_list()
+regress_test_sequence_list (void)
 {
     static GList *list = NULL;
     if (!list) {
@@ -1015,7 +1029,7 @@ regress_test_glist_null_out (GSList **out_list)
 /* GSList */
 
 static /*const*/ GSList *
-regress_test_sequence_slist()
+regress_test_sequence_slist (void)
 {
     static GSList *list = NULL;
     if (!list) {
@@ -1139,7 +1153,7 @@ static char *table_data[3][2] = {
 };
 
 static GHashTable *
-regress_test_table_ghash_new_container()
+regress_test_table_ghash_new_container (void)
 {
   GHashTable *hash;
   int i;
@@ -1150,7 +1164,7 @@ regress_test_table_ghash_new_container()
 }
 
 static GHashTable *
-regress_test_table_ghash_new_full()
+regress_test_table_ghash_new_full (void)
 {
   GHashTable *hash;
   int i;
@@ -1163,7 +1177,7 @@ regress_test_table_ghash_new_full()
 }
 
 static /*const*/ GHashTable *
-regress_test_table_ghash_const()
+regress_test_table_ghash_const (void)
 {
   static GHashTable *hash = NULL;
   if (!hash) {
@@ -1256,6 +1270,14 @@ regress_test_ghash_gvalue_return (void)
   g_value_set_boxed(value, string_array);
   g_hash_table_insert(hash, g_strdup("strings"), value);
 
+  value = g_value_new(REGRESS_TEST_TYPE_FLAGS);
+  g_value_set_flags(value, REGRESS_TEST_FLAG1 | REGRESS_TEST_FLAG3);
+  g_hash_table_insert(hash, g_strdup("flags"), value);
+
+  value = g_value_new(regress_test_enum_get_type());
+  g_value_set_enum(value, REGRESS_TEST_VALUE2);
+  g_hash_table_insert(hash, g_strdup("enum"), value);
+
   return hash;
 }
 
@@ -1295,6 +1317,16 @@ regress_test_ghash_gvalue_in (GHashTable *hash)
   g_assert(strings != NULL);
   for (i = 0; string_array[i] != NULL; i++)
     g_assert(strcmp(strings[i], string_array[i]) == 0);
+
+  value = g_hash_table_lookup(hash, "flags");
+  g_assert(value != NULL);
+  g_assert(G_VALUE_HOLDS_FLAGS(value));
+  g_assert(g_value_get_flags(value) == (REGRESS_TEST_FLAG1 | REGRESS_TEST_FLAG3));
+
+  value = g_hash_table_lookup(hash, "enum");
+  g_assert(value != NULL);
+  g_assert(G_VALUE_HOLDS_ENUM(value));
+  g_assert(g_value_get_enum(value) == REGRESS_TEST_VALUE2);
 }
 
 /**
@@ -1541,6 +1573,90 @@ regress_global_get_flags_out (RegressTestFlags *v)
   *v = REGRESS_TEST_FLAG1 | REGRESS_TEST_FLAG3;
 }
 
+/* error domains */
+
+GType
+regress_test_error_get_type (void)
+{
+    static GType etype = 0;
+    if (G_UNLIKELY(etype == 0)) {
+        static const GEnumValue values[] = {
+            { REGRESS_TEST_ERROR_CODE1, "REGRESS_TEST_ERROR_CODE1", "code1" },
+            { REGRESS_TEST_ERROR_CODE2, "REGRESS_TEST_ERROR_CODE2", "code2" },
+            { REGRESS_TEST_ERROR_CODE3, "REGRESS_TEST_ERROR_CODE3", "code3" },
+            { 0, NULL, NULL }
+        };
+        etype = g_enum_register_static (g_intern_static_string ("RegressTestError"), values);
+    }
+
+    return etype;
+}
+
+GQuark
+regress_test_error_quark (void)
+{
+  return g_quark_from_static_string ("regress-test-error");
+}
+
+GType
+regress_test_abc_error_get_type (void)
+{
+    static GType etype = 0;
+    if (G_UNLIKELY(etype == 0)) {
+        static const GEnumValue values[] = {
+            { REGRESS_TEST_ABC_ERROR_CODE1, "REGRESS_TEST_ABC_ERROR_CODE1", "code1" },
+            { REGRESS_TEST_ABC_ERROR_CODE2, "REGRESS_TEST_ABC_ERROR_CODE2", "code2" },
+            { REGRESS_TEST_ABC_ERROR_CODE3, "REGRESS_TEST_ABC_ERROR_CODE3", "code3" },
+            { 0, NULL, NULL }
+        };
+        etype = g_enum_register_static (g_intern_static_string ("RegressTestABCError"), values);
+    }
+
+    return etype;
+}
+
+GQuark
+regress_test_abc_error_quark (void)
+{
+  return g_quark_from_static_string ("regress-test-abc-error");
+}
+
+GType
+regress_test_unconventional_error_get_type (void)
+{
+    static GType etype = 0;
+    if (G_UNLIKELY(etype == 0)) {
+        static const GEnumValue values[] = {
+            { REGRESS_TEST_OTHER_ERROR_CODE1, "REGRESS_TEST_OTHER_ERROR_CODE1", "code1" },
+            { REGRESS_TEST_OTHER_ERROR_CODE2, "REGRESS_TEST_OTHER_ERROR_CODE2", "code2" },
+            { REGRESS_TEST_OTHER_ERROR_CODE3, "REGRESS_TEST_OTHER_ERROR_CODE3", "code3" },
+            { 0, NULL, NULL }
+        };
+        etype = g_enum_register_static (g_intern_static_string ("RegressTestOtherError"), values);
+    }
+
+    return etype;
+}
+
+GQuark
+regress_test_unconventional_error_quark (void)
+{
+  return g_quark_from_static_string ("regress-test-other-error");
+}
+
+
+GQuark
+regress_test_def_error_quark (void)
+{
+  return g_quark_from_static_string ("regress-test-def-error");
+}
+
+GQuark
+regress_atest_error_quark (void)
+{
+  return g_quark_from_static_string ("regress-atest-error");
+}
+
 /* structures */
 
 /**
@@ -1555,6 +1671,18 @@ regress_test_struct_a_clone (RegressTestStructA *a,
 		     RegressTestStructA *a_out)
 {
   *a_out = *a;
+}
+
+/**
+ * regress_test_struct_a_parse:
+ * @a_out: (out caller-allocates): the structure that is to be filled
+ * @string: ignored
+ */
+void
+regress_test_struct_a_parse (RegressTestStructA *a_out,
+                             const gchar *string)
+{
+	a_out->some_int = 23;
 }
 
 /**
@@ -1794,6 +1922,85 @@ G_DEFINE_BOXED_TYPE(RegressTestBoxedB,
                     regress_test_boxed_b_copy,
                     regress_test_boxed_b_free);
 
+RegressTestBoxedC *
+regress_test_boxed_c_new (void)
+{
+  RegressTestBoxedC *boxed;
+
+  boxed = g_slice_new (RegressTestBoxedC);
+  boxed->refcount = 1;
+  boxed->another_thing = 42; /* what else */
+
+  return boxed;
+}
+
+static RegressTestBoxedC *
+regress_test_boxed_c_ref (RegressTestBoxedC *boxed)
+{
+  g_atomic_int_inc (&boxed->refcount);
+  return boxed;
+}
+
+static void
+regress_test_boxed_c_unref (RegressTestBoxedC *boxed)
+{
+  if (g_atomic_int_dec_and_test (&boxed->refcount)) {
+    g_slice_free (RegressTestBoxedC, boxed);
+  }
+}
+
+G_DEFINE_BOXED_TYPE(RegressTestBoxedC,
+                    regress_test_boxed_c,
+                    regress_test_boxed_c_ref,
+                    regress_test_boxed_c_unref);
+
+struct _RegressTestBoxedD {
+  char *a_string;
+  gint a_int;
+};
+
+RegressTestBoxedD *
+regress_test_boxed_d_new (const char *a_string, int a_int)
+{
+  RegressTestBoxedD *boxed;
+
+  boxed = g_slice_new (RegressTestBoxedD);
+  boxed->a_string = g_strdup (a_string);
+  boxed->a_int = a_int;
+
+  return boxed;
+}
+
+RegressTestBoxedD *
+regress_test_boxed_d_copy (RegressTestBoxedD *boxed)
+{
+  RegressTestBoxedD *ret;
+
+  ret = g_slice_new (RegressTestBoxedD);
+  ret->a_string = g_strdup (boxed->a_string);
+  ret->a_int = boxed->a_int;
+
+  return ret;
+}
+
+void
+regress_test_boxed_d_free (RegressTestBoxedD *boxed)
+{
+  g_free (boxed->a_string);
+  g_slice_free (RegressTestBoxedD, boxed);
+}
+
+int
+regress_test_boxed_d_get_magic (RegressTestBoxedD *boxed)
+{
+  return strlen (boxed->a_string) + boxed->a_int;
+}
+
+G_DEFINE_BOXED_TYPE(RegressTestBoxedD,
+                    regress_test_boxed_d,
+                    regress_test_boxed_d_copy,
+                    regress_test_boxed_d_free);
+
 G_DEFINE_TYPE(RegressTestObj, regress_test_obj, G_TYPE_OBJECT);
 
 enum
@@ -1807,7 +2014,8 @@ enum
   PROP_TEST_OBJ_INT,
   PROP_TEST_OBJ_FLOAT,
   PROP_TEST_OBJ_DOUBLE,
-  PROP_TEST_OBJ_STRING
+  PROP_TEST_OBJ_STRING,
+  PROP_TEST_OBJ_GTYPE
 };
 
 static void
@@ -1867,6 +2075,10 @@ regress_test_obj_set_property (GObject      *object,
       self->string = g_value_dup_string (value);
       break;
 
+    case PROP_TEST_OBJ_GTYPE:
+      self->gtype = g_value_get_gtype (value);
+      break;
+
     default:
       /* We don't have any other property... */
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -1920,6 +2132,10 @@ regress_test_obj_get_property (GObject    *object,
       g_value_set_string (value, self->string);
       break;
 
+    case PROP_TEST_OBJ_GTYPE:
+      g_value_set_gtype (value, self->gtype);
+      break;
+
     default:
       /* We don't have any other property... */
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
@@ -1957,12 +2173,17 @@ regress_test_obj_default_matrix (RegressTestObj *obj, const char *somestr)
 
 enum {
   REGRESS_TEST_OBJ_SIGNAL_SIG_NEW_WITH_ARRAY_PROP,
+  REGRESS_TEST_OBJ_SIGNAL_SIG_NEW_WITH_ARRAY_LEN_PROP,
   REGRESS_TEST_OBJ_SIGNAL_SIG_WITH_HASH_PROP,
   REGRESS_TEST_OBJ_SIGNAL_SIG_WITH_STRV,
   REGRESS_TEST_OBJ_SIGNAL_SIG_WITH_OBJ,
+  REGRESS_TEST_OBJ_SIGNAL_SIG_WITH_FOREIGN_STRUCT,
   REGRESS_TEST_OBJ_SIGNAL_FIRST,
   REGRESS_TEST_OBJ_SIGNAL_CLEANUP,
   REGRESS_TEST_OBJ_SIGNAL_ALL,
+  REGRESS_TEST_OBJ_SIGNAL_SIG_WITH_INT64_PROP,
+  REGRESS_TEST_OBJ_SIGNAL_SIG_WITH_UINT64_PROP,
+  REGRESS_TEST_OBJ_SIGNAL_SIG_WITH_INTARRAY_RET,
   N_REGRESS_TEST_OBJ_SIGNALS
 };
 
@@ -2019,6 +2240,27 @@ regress_test_obj_class_init (RegressTestObjClass *klass)
 		  G_TYPE_NONE,
 		  1,
 		  G_TYPE_ARRAY);
+
+  /**
+   * RegressTestObj::sig-with-array-len-prop:
+   * @self: an object
+   * @arr: (array length=len) (element-type uint) (allow-none): numbers, or %NULL
+   * @len: length of @arr, or 0
+   *
+   * This test signal similar to GSettings::change-event
+   */
+  regress_test_obj_signals[REGRESS_TEST_OBJ_SIGNAL_SIG_NEW_WITH_ARRAY_LEN_PROP] =
+    g_signal_new ("sig-with-array-len-prop",
+		  G_TYPE_FROM_CLASS (gobject_class),
+		  G_SIGNAL_RUN_LAST,
+		  0,
+		  NULL,
+		  NULL,
+		  NULL,
+		  G_TYPE_NONE,
+		  2,
+		  G_TYPE_POINTER,
+		  G_TYPE_INT);
 
   /**
    * RegressTestObj::sig-with-hash-prop:
@@ -2079,6 +2321,25 @@ regress_test_obj_class_init (RegressTestObjClass *klass)
 		  1,
 		  G_TYPE_OBJECT);
 
+#ifndef _GI_DISABLE_CAIRO
+   /**
+   * RegressTestObj::sig-with-foreign-struct:
+   * @self: an object
+   * @cr: (transfer none): A cairo context.
+   */
+  regress_test_obj_signals[REGRESS_TEST_OBJ_SIGNAL_SIG_WITH_FOREIGN_STRUCT] =
+    g_signal_new ("sig-with-foreign-struct",
+		  G_TYPE_FROM_CLASS (gobject_class),
+		  G_SIGNAL_RUN_LAST,
+		  0,
+		  NULL,
+		  NULL,
+                  NULL,
+		  G_TYPE_NONE,
+		  1,
+		  CAIRO_GOBJECT_TYPE_CONTEXT);
+#endif
+
   regress_test_obj_signals[REGRESS_TEST_OBJ_SIGNAL_FIRST] =
     g_signal_new ("first",
 		  G_TYPE_FROM_CLASS (gobject_class),
@@ -2111,6 +2372,65 @@ regress_test_obj_class_init (RegressTestObjClass *klass)
 		  g_cclosure_marshal_VOID__VOID,
 		  G_TYPE_NONE,
                   0);
+
+  /**
+   * RegressTestObj::sig-with-int64-prop:
+   * @self: an object
+   * @i: an integer
+   *
+   * You can use this with regress_test_obj_emit_sig_with_int64, or raise from
+   * the introspection client langage.
+   */
+  regress_test_obj_signals[REGRESS_TEST_OBJ_SIGNAL_SIG_WITH_INT64_PROP] =
+    g_signal_new ("sig-with-int64-prop",
+		  G_TYPE_FROM_CLASS (gobject_class),
+		  G_SIGNAL_RUN_LAST,
+		  0,
+		  NULL,
+		  NULL,
+		  g_cclosure_marshal_VOID__BOXED,
+		  G_TYPE_INT64,
+		  1,
+		  G_TYPE_INT64);
+
+  /**
+   * RegressTestObj::sig-with-uint64-prop:
+   * @self: an object
+   * @i: an integer
+   *
+   * You can use this with regress_test_obj_emit_sig_with_uint64, or raise from
+   * the introspection client langage.
+   */
+  regress_test_obj_signals[REGRESS_TEST_OBJ_SIGNAL_SIG_WITH_UINT64_PROP] =
+    g_signal_new ("sig-with-uint64-prop",
+		  G_TYPE_FROM_CLASS (gobject_class),
+		  G_SIGNAL_RUN_LAST,
+		  0,
+		  NULL,
+		  NULL,
+		  g_cclosure_marshal_VOID__BOXED,
+		  G_TYPE_UINT64,
+		  1,
+		  G_TYPE_UINT64);
+
+  /**
+   * RegressTestObj::sig-with-intarray-ret:
+   * @self: an object
+   * @i: an integer
+   *
+   * Returns: (array zero-terminated=1) (element-type gint) (transfer full):
+   */
+  regress_test_obj_signals[REGRESS_TEST_OBJ_SIGNAL_SIG_WITH_INTARRAY_RET] =
+    g_signal_new ("sig-with-intarray-ret",
+		  G_TYPE_FROM_CLASS (gobject_class),
+		  G_SIGNAL_RUN_LAST,
+		  0,
+		  NULL,
+		  NULL,
+		  g_cclosure_marshal_VOID__BOXED,
+		  G_TYPE_ARRAY,
+		  1,
+		  G_TYPE_INT);
 
   gobject_class->set_property = regress_test_obj_set_property;
   gobject_class->get_property = regress_test_obj_get_property;
@@ -2249,6 +2569,18 @@ regress_test_obj_class_init (RegressTestObjClass *klass)
                                    pspec);
 
 
+  /**
+   * TestObj:gtype:
+   */
+  pspec = g_param_spec_gtype ("gtype",
+                              "GType property",
+                              "A GType property",
+                              G_TYPE_NONE,
+                              G_PARAM_READWRITE);
+  g_object_class_install_property (gobject_class,
+                                   PROP_TEST_OBJ_GTYPE,
+                                   pspec);
+
   klass->matrix = regress_test_obj_default_matrix;
 }
 
@@ -2258,6 +2590,7 @@ regress_test_obj_init (RegressTestObj *obj)
   obj->bare = NULL;
   obj->boxed = NULL;
   obj->hash_table = NULL;
+  obj->gtype = G_TYPE_INVALID;
 }
 
 /**
@@ -2310,6 +2643,36 @@ regress_test_obj_emit_sig_with_obj (RegressTestObj *obj)
     g_object_set (obj_param, "int", 3, NULL);
     g_signal_emit_by_name (obj, "sig-with-obj", obj_param);
     g_object_unref (obj_param);
+}
+
+#ifndef _GI_DISABLE_CAIRO
+void
+regress_test_obj_emit_sig_with_foreign_struct (RegressTestObj *obj)
+{
+  cairo_t *cr = regress_test_cairo_context_full_return ();
+  g_signal_emit_by_name (obj, "sig-with-foreign-struct", cr);
+  cairo_destroy (cr);
+}
+#endif
+
+void
+regress_test_obj_emit_sig_with_int64 (RegressTestObj *obj)
+{
+  gint64 ret = 0;
+  RegressTestObj *obj_param = regress_constructor ();
+  g_signal_emit_by_name (obj, "sig-with-int64-prop", G_MAXINT64, &ret);
+  g_object_unref (obj_param);
+  g_assert (ret == G_MAXINT64);
+}
+
+void
+regress_test_obj_emit_sig_with_uint64 (RegressTestObj *obj)
+{
+  guint64 ret = 0;
+  RegressTestObj *obj_param = regress_constructor ();
+  g_signal_emit_by_name (obj, "sig-with-uint64-prop", G_MAXUINT64, &ret);
+  g_object_unref (obj_param);
+  g_assert (ret == G_MAXUINT64);
 }
 
 int
@@ -2603,7 +2966,7 @@ regress_test_obj_null_out (RegressTestObj **obj)
 void
 regress_test_array_fixed_out_objects (RegressTestObj ***objs)
 {
-    RegressTestObj **values = g_new(gpointer, 2);
+    RegressTestObj **values = (RegressTestObj**)g_new(gpointer, 2);
 
     values[0] = regress_constructor();
     values[1] = regress_constructor();
@@ -3055,6 +3418,20 @@ regress_test_callback_destroy_notify (RegressTestCallbackUserData callback,
 }
 
 /**
+ * regress_test_callback_destroy_notify_no_user_data:
+ * @callback: (scope notified):
+ *
+ * Adds a scope notified callback with no user data. This can invoke an error
+ * condition in bindings which needs to be tested.
+ **/
+int
+regress_test_callback_destroy_notify_no_user_data (RegressTestCallbackUserData callback,
+                              GDestroyNotify notify)
+{
+  return regress_test_callback_destroy_notify(callback, NULL, notify);
+}
+
+/**
  * regress_test_callback_thaw_notifications:
  *
  * Invokes all callbacks installed by #test_callback_destroy_notify(),
@@ -3231,27 +3608,28 @@ regress_test_owned_gerror_callback (RegressTestCallbackOwnedGError callback)
   callback (error);
 }
 
+/**
+ * regress_test_skip_unannotated_callback: (skip)
+ * @callback: No annotation here
+ *
+ * Should not emit a warning:
+ * https://bugzilla.gnome.org/show_bug.cgi?id=685399
+ */
+void
+regress_test_skip_unannotated_callback (RegressTestCallback callback)
+{
+}
+
 /* interface */
 
 static void
-regress_test_interface_class_init(void *g_iface)
+regress_test_interface_default_init(RegressTestInterfaceIface *iface)
 {
 }
 
-GType
-regress_test_interface_get_type(void)
-{
-    static GType type = 0;
-    if (type == 0) {
-        type = g_type_register_static_simple (G_TYPE_INTERFACE,
-                                              "RegressTestInterface",
-                                              sizeof (RegressTestInterfaceIface),
-                                              (GClassInitFunc) regress_test_interface_class_init,
-                                              0, NULL, 0);
-    }
+typedef RegressTestInterfaceIface RegressTestInterfaceInterface;
+G_DEFINE_INTERFACE (RegressTestInterface, regress_test_interface, G_TYPE_OBJECT)
 
-    return type;
-}
 
 /* gobject with non-standard prefix */
 G_DEFINE_TYPE(RegressTestWi8021x, regress_test_wi_802_1x, G_TYPE_OBJECT);
@@ -3602,4 +3980,38 @@ regress_test_struct_fixed_array_frob (RegressTestStructFixedArray *str)
 
   for (i = 0; i < G_N_ELEMENTS(str->array); i++)
     str->array[i] = 42 + i;
+}
+
+/**
+ * regress_has_parameter_named_attrs:
+ * @foo: some int
+ * @attributes: (type guint32) (array fixed-size=32): list of attributes
+ *
+ * This test case mirrors GnomeKeyringPasswordSchema from
+ * libgnome-keyring.
+ */
+void
+regress_has_parameter_named_attrs (int        foo,
+                                   gpointer   attributes)
+{
+}
+
+/**
+ * regress_test_versioning:
+ *
+ * Since: 1.32.1
+ * Deprecated: 1.33.3: Use foobar instead
+ * Stability: Unstable
+ */
+void
+regress_test_versioning (void)
+{
+}
+
+void
+regress_like_xkl_config_item_set_name (RegressLikeXklConfigItem *self,
+                                       const char *name)
+{
+  strncpy (self->name, name, sizeof (self->name) - 1);
+  self->name[sizeof(self->name)-1] = '\0';
 }

@@ -21,11 +21,10 @@
 #ifndef WebKitDOMHistory_h
 #define WebKitDOMHistory_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_HISTORY            (webkit_dom_history_get_type())

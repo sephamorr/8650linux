@@ -21,11 +21,10 @@
 #ifndef WebKitDOMGeolocation_h
 #define WebKitDOMGeolocation_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_GEOLOCATION            (webkit_dom_geolocation_get_type())
@@ -49,13 +48,13 @@ webkit_dom_geolocation_get_type (void);
 /**
  * webkit_dom_geolocation_clear_watch:
  * @self: A #WebKitDOMGeolocation
- * @watch_id: A #glong
+ * @watchId: A #glong
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_geolocation_clear_watch(WebKitDOMGeolocation* self, glong watch_id);
+webkit_dom_geolocation_clear_watch(WebKitDOMGeolocation* self, glong watchId);
 
 G_END_DECLS
 

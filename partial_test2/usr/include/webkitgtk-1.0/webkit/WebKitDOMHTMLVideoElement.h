@@ -21,11 +21,10 @@
 #ifndef WebKitDOMHTMLVideoElement_h
 #define WebKitDOMHTMLVideoElement_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMHTMLMediaElement.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMHTMLMediaElement.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_HTML_VIDEO_ELEMENT            (webkit_dom_html_video_element_get_type())
@@ -55,7 +54,7 @@ webkit_dom_html_video_element_get_type (void);
  *
 **/
 WEBKIT_API void
-webkit_dom_html_video_element_webkit_enter_fullscreen(WebKitDOMHTMLVideoElement* self, GError **error);
+webkit_dom_html_video_element_webkit_enter_fullscreen(WebKitDOMHTMLVideoElement* self, GError** error);
 
 /**
  * webkit_dom_html_video_element_webkit_exit_fullscreen:
@@ -76,7 +75,7 @@ webkit_dom_html_video_element_webkit_exit_fullscreen(WebKitDOMHTMLVideoElement* 
  *
 **/
 WEBKIT_API void
-webkit_dom_html_video_element_webkit_enter_full_screen(WebKitDOMHTMLVideoElement* self, GError **error);
+webkit_dom_html_video_element_webkit_enter_full_screen(WebKitDOMHTMLVideoElement* self, GError** error);
 
 /**
  * webkit_dom_html_video_element_webkit_exit_full_screen:

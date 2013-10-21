@@ -2,26 +2,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>GtkCssProvider</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>GTK+ 3 Reference Manual: GtkCssProvider</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GTK+ 3 Reference Manual">
-<link rel="up" href="theming.html" title="Part III. Theming in GTK+">
+<link rel="up" href="theming.html" title="Part IV. Theming in GTK+">
 <link rel="prev" href="GtkStyleContext.html" title="GtkStyleContext">
 <link rel="next" href="GtkStyleProvider.html" title="GtkStyleProvider">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="GtkStyleContext.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="theming.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GTK+ 3 Reference Manual</th>
-<td><a accesskey="n" href="GtkStyleProvider.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#GtkCssProvider.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#GtkCssProvider.description" class="shortcut">Description</a>
                    | 
@@ -30,8 +23,12 @@
                   <a href="#GtkCssProvider.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
                    | 
                   <a href="#GtkCssProvider.signals" class="shortcut">Signals</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="theming.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="GtkStyleContext.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="GtkStyleProvider.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="GtkCssProvider"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -48,18 +45,18 @@
 
 struct              <a class="link" href="GtkCssProvider.html#GtkCssProvider-struct" title="struct GtkCssProvider">GtkCssProvider</a>;
 <a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="returnvalue">GtkCssProvider</span></a> *    <a class="link" href="GtkCssProvider.html#gtk-css-provider-get-default" title="gtk_css_provider_get_default ()">gtk_css_provider_get_default</a>        (<em class="parameter"><code><span class="type">void</span></code></em>);
-<a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="returnvalue">GtkCssProvider</span></a> *    <a class="link" href="GtkCssProvider.html#gtk-css-provider-get-named" title="gtk_css_provider_get_named ()">gtk_css_provider_get_named</a>          (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *variant</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GtkCssProvider.html#gtk-css-provider-load-from-data" title="gtk_css_provider_load_from_data ()">gtk_css_provider_load_from_data</a>     (<em class="parameter"><code><a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a> *css_provider</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *data</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gssize"><span class="type">gssize</span></a> length</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GtkCssProvider.html#gtk-css-provider-load-from-file" title="gtk_css_provider_load_from_file ()">gtk_css_provider_load_from_file</a>     (<em class="parameter"><code><a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a> *css_provider</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *file</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GtkCssProvider.html#gtk-css-provider-load-from-path" title="gtk_css_provider_load_from_path ()">gtk_css_provider_load_from_path</a>     (<em class="parameter"><code><a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a> *css_provider</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *path</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="returnvalue">GtkCssProvider</span></a> *    <a class="link" href="GtkCssProvider.html#gtk-css-provider-get-named" title="gtk_css_provider_get_named ()">gtk_css_provider_get_named</a>          (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *variant</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GtkCssProvider.html#gtk-css-provider-load-from-data" title="gtk_css_provider_load_from_data ()">gtk_css_provider_load_from_data</a>     (<em class="parameter"><code><a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a> *css_provider</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *data</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gssize"><span class="type">gssize</span></a> length</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GtkCssProvider.html#gtk-css-provider-load-from-file" title="gtk_css_provider_load_from_file ()">gtk_css_provider_load_from_file</a>     (<em class="parameter"><code><a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a> *css_provider</code></em>,
+                                                         <em class="parameter"><code><a href="../gio/GFile.html"><span class="type">GFile</span></a> *file</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GtkCssProvider.html#gtk-css-provider-load-from-path" title="gtk_css_provider_load_from_path ()">gtk_css_provider_load_from_path</a>     (<em class="parameter"><code><a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a> *css_provider</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *path</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
 <a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="returnvalue">GtkCssProvider</span></a> *    <a class="link" href="GtkCssProvider.html#gtk-css-provider-new" title="gtk_css_provider_new ()">gtk_css_provider_new</a>                (<em class="parameter"><code><span class="type">void</span></code></em>);
 <span class="returnvalue">char</span> *              <a class="link" href="GtkCssProvider.html#gtk-css-provider-to-string" title="gtk_css_provider_to_string ()">gtk_css_provider_to_string</a>          (<em class="parameter"><code><a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a> *provider</code></em>);
 #define             <a class="link" href="GtkCssProvider.html#GTK-CSS-PROVIDER-ERROR:CAPS" title="GTK_CSS_PROVIDER_ERROR">GTK_CSS_PROVIDER_ERROR</a>
@@ -67,14 +64,13 @@ enum                <a class="link" href="GtkCssProvider.html#GtkCssProviderErro
 
                     <a class="link" href="GtkCssProvider.html#GtkCssSection-struct" title="GtkCssSection">GtkCssSection</a>;
 enum                <a class="link" href="GtkCssProvider.html#GtkCssSectionType" title="enum GtkCssSectionType">GtkCssSectionType</a>;
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="GtkCssProvider.html#gtk-css-section-get-end-line" title="gtk_css_section_get_end_line ()">gtk_css_section_get_end_line</a>        (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="GtkCssProvider.html#gtk-css-section-get-end-position" title="gtk_css_section_get_end_position ()">gtk_css_section_get_end_position</a>    (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);
-<a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="returnvalue">GFile</span></a> *             <a class="link" href="GtkCssProvider.html#gtk-css-section-get-file" title="gtk_css_section_get_file ()">gtk_css_section_get_file</a>            (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);
+<a href="../glib/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="GtkCssProvider.html#gtk-css-section-get-end-line" title="gtk_css_section_get_end_line ()">gtk_css_section_get_end_line</a>        (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);
+<a href="../glib/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="GtkCssProvider.html#gtk-css-section-get-end-position" title="gtk_css_section_get_end_position ()">gtk_css_section_get_end_position</a>    (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);
+<a href="../gio/GFile.html"><span class="returnvalue">GFile</span></a> *             <a class="link" href="GtkCssProvider.html#gtk-css-section-get-file" title="gtk_css_section_get_file ()">gtk_css_section_get_file</a>            (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);
 <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="returnvalue">GtkCssSection</span></a> *     <a class="link" href="GtkCssProvider.html#gtk-css-section-get-parent" title="gtk_css_section_get_parent ()">gtk_css_section_get_parent</a>          (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);
 <a class="link" href="GtkCssProvider.html#GtkCssSectionType" title="enum GtkCssSectionType"><span class="returnvalue">GtkCssSectionType</span></a>   <a class="link" href="GtkCssProvider.html#gtk-css-section-get-section-type" title="gtk_css_section_get_section_type ()">gtk_css_section_get_section_type</a>    (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="GtkCssProvider.html#gtk-css-section-get-start-line" title="gtk_css_section_get_start_line ()">gtk_css_section_get_start_line</a>      (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="GtkCssProvider.html#gtk-css-section-get-start-position" title="gtk_css_section_get_start_position ()">gtk_css_section_get_start_position</a>  (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);
-<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GtkCssProvider.html#gtk-css-section-get-type" title="gtk_css_section_get_type ()">gtk_css_section_get_type</a>            (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="../glib/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="GtkCssProvider.html#gtk-css-section-get-start-line" title="gtk_css_section_get_start_line ()">gtk_css_section_get_start_line</a>      (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);
+<a href="../glib/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="GtkCssProvider.html#gtk-css-section-get-start-position" title="gtk_css_section_get_start_position ()">gtk_css_section_get_start_position</a>  (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);
 <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="returnvalue">GtkCssSection</span></a> *     <a class="link" href="GtkCssProvider.html#gtk-css-section-ref" title="gtk_css_section_ref ()">gtk_css_section_ref</a>                 (<em class="parameter"><code><a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkCssProvider.html#gtk-css-section-unref" title="gtk_css_section_unref ()">gtk_css_section_unref</a>               (<em class="parameter"><code><a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);
 </pre>
@@ -82,7 +78,7 @@ enum                <a class="link" href="GtkCssProvider.html#GtkCssSectionType"
 <div class="refsect1">
 <a name="GtkCssProvider.object-hierarchy"></a><h2>Object Hierarchy</h2>
 <pre class="synopsis">
-  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
    +----GtkCssProvider
 </pre>
 <pre class="synopsis">
@@ -99,7 +95,7 @@ GtkCssProvider implements
 <div class="refsect1">
 <a name="GtkCssProvider.signals"></a><h2>Signals</h2>
 <pre class="synopsis">
-  "<a class="link" href="GtkCssProvider.html#GtkCssProvider-parsing-error" title='The "parsing-error" signal'>parsing-error</a>"                                  : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="GtkCssProvider.html#GtkCssProvider-parsing-error" title='The "parsing-error" signal'>parsing-error</a>"                                  : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
 </pre>
 </div>
 <div class="refsect1">
@@ -147,7 +143,7 @@ share the same declaration block, by putting all the separators in
 front of the block, separated by commas.
 </p>
 <div class="example">
-<a name="id603752"></a><p class="title"><b>Example 23. A rule set with two selectors</b></p>
+<a name="id-1.5.3.7.3.2.4"></a><p class="title"><b>Example 97. A rule set with two selectors</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -184,7 +180,7 @@ selector, which matches any widget.
 To express more complicated situations, selectors can be combined in
 various ways:
 </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem"><p>To require that a widget satisfies several conditions,
   combine several selectors into one by concatenating them. E.g.
   <code class="literal">GtkButton#button1</code> matches a GtkButton widget
@@ -202,7 +198,7 @@ various ways:
 <p>
 </p>
 <div class="example">
-<a name="id707722"></a><p class="title"><b>Example 24. Widget classes and names in selectors</b></p>
+<a name="id-1.5.3.7.3.3.4"></a><p class="title"><b>Example 98. Widget classes and names in selectors</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -294,7 +290,7 @@ a string as a widget class name if it contains any uppercase characters
 (which should work for more widgets with names like GtkLabel).
 </p>
 <div class="example">
-<a name="id712333"></a><p class="title"><b>Example 25. Style classes in selectors</b></p>
+<a name="id-1.5.3.7.3.3.8"></a><p class="title"><b>Example 99. Style classes in selectors</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -344,7 +340,7 @@ regions and pseudo-classes they define and see
 used by GTK+ widgets.
 </p>
 <div class="example">
-<a name="id740596"></a><p class="title"><b>Example 26. Regions in selectors</b></p>
+<a name="id-1.5.3.7.3.3.12"></a><p class="title"><b>Example 100. Regions in selectors</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -395,7 +391,7 @@ are :active, :prelight (or :hover), :insensitive, :selected, :focused
 and :inconsistent.
 </p>
 <div class="example">
-<a name="id740622"></a><p class="title"><b>Example 27. Styling specific widget states</b></p>
+<a name="id-1.5.3.7.3.3.14"></a><p class="title"><b>Example 101. Styling specific widget states</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -491,7 +487,7 @@ GTK+'s CSS supports the @import rule, in order to load another
 CSS style sheet in addition to the currently parsed one.
 </p>
 <div class="example">
-<a name="id714342"></a><p class="title"><b>Example 28. Using the @import rule</b></p>
+<a name="id-1.5.3.7.3.4.3"></a><p class="title"><b>Example 102. Using the @import rule</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -518,7 +514,7 @@ according to the current key theme, which is defined by the
 <a class="link" href="GtkSettings.html#GtkSettings--gtk-key-theme-name" title='The "gtk-key-theme-name" property'><span class="type">"gtk-key-theme-name"</span></a> setting.
 </p>
 <div class="example">
-<a name="id714392"></a><p class="title"><b>Example 29. Using the @binding rule</b></p>
+<a name="id-1.5.3.7.3.4.6"></a><p class="title"><b>Example 103. Using the @binding rule</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -564,7 +560,7 @@ representations. Also see the <a class="link" href="GtkSettings.html#GtkSettings
 for a way to override the values of these named colors.
 </p>
 <div class="example">
-<a name="id714424"></a><p class="title"><b>Example 30. Defining colors</b></p>
+<a name="id-1.5.3.7.3.4.8"></a><p class="title"><b>Example 104. Defining colors</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -599,7 +595,7 @@ a rich language to define colors which are derived from a set of base
 colors.
 </p>
 <div class="example">
-<a name="id714456"></a><p class="title"><b>Example 31. Using symbolic colors</b></p>
+<a name="id-1.5.3.7.3.5.3"></a><p class="title"><b>Example 105. Using symbolic colors</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -739,7 +735,7 @@ stop. 'from (<em class="parameter"><code>color</code></em>)' and 'to (<em class=
 color stops with position 0 and 1, respectively.
 </p>
 <div class="example">
-<a name="id740923"></a><p class="title"><b>Example 32. A linear gradient</b></p>
+<a name="id-1.5.3.7.3.6.4"></a><p class="title"><b>Example 106. A linear gradient</b></p>
 <div class="example-contents">
 <img src="gradient1.png"><p>This gradient was specified with
 </p>
@@ -749,7 +745,7 @@ color stops with position 0 and 1, respectively.
 </div>
 </div>
 <br class="example-break"><div class="example">
-<a name="id740949"></a><p class="title"><b>Example 33. Another linear gradient</b></p>
+<a name="id-1.5.3.7.3.6.5"></a><p class="title"><b>Example 107. Another linear gradient</b></p>
 <div class="example-contents">
 <img src="gradient2.png"><p>This gradient was specified with
 </p>
@@ -775,7 +771,7 @@ where <em class="parameter"><code>start_radius</code></em> and <em class="parame
 the other parameters are as before.
 </p>
 <div class="example">
-<a name="id741096"></a><p class="title"><b>Example 34. A radial gradient</b></p>
+<a name="id-1.5.3.7.3.6.7"></a><p class="title"><b>Example 108. A radial gradient</b></p>
 <div class="example-contents">
 <img src="gradient3.png"><p>This gradient was specified with
 </p>
@@ -786,7 +782,7 @@ the other parameters are as before.
 </div>
 </div>
 <br class="example-break"><div class="example">
-<a name="id741122"></a><p class="title"><b>Example 35. Another radial gradient</b></p>
+<a name="id-1.5.3.7.3.6.8"></a><p class="title"><b>Example 109. Another radial gradient</b></p>
 <div class="example-contents">
 <img src="gradient4.png"><p>This gradient was specified with
 </p>
@@ -821,18 +817,22 @@ parameters. The optional blur radius is parsed, but it is currently not rendered
 the GTK+ theming engine.
 </p>
 <p>
+To set a shadow on an icon, use the icon-shadow property instead,
+with the same syntax.
+</p>
+<p>
 To set multiple shadows on an element, you can specify a comma-separated list
-of shadow elements in the text-shadow property. Shadows are always rendered
-front-back, i.e. the first shadow specified is on top of the others. Shadows
-can thus overlay each other, but they can never overlay the text itself,
-which is always rendered on top of the shadow layer.
+of shadow elements in the text-shadow or icon-shadow property. Shadows are
+always rendered front-back, i.e. the first shadow specified is on top of the
+others. Shadows can thus overlay each other, but they can never overlay the
+text or icon itself, which is always rendered on top of the shadow layer.
 </p>
 </div>
 <p>
 </p>
 <hr>
 <div class="refsect2">
-<a name="id741230"></a><h3>Box shadow</h3>
+<a name="id-1.5.3.7.3.8"></a><h3>Box shadow</h3>
 <p>
 Themes can apply shadows on framed elements using the CSS3 box-shadow syntax,
 as defined in 
@@ -849,8 +849,7 @@ distance to expand the shadow shape in all directions, by the specified radius.
 The optional blur radius parameter is parsed, but it is currently not rendered by
 the GTK+ theming engine.
 The inset parameter defines whether the drop shadow should be rendered inside or outside
-the box canvas. Only inset box-shadows are currently supported by the GTK+ theming engine,
-non-inset elements are currently ignored.
+the box canvas.
 </p>
 <p>
 To set multiple box-shadows on an element, you can specify a comma-separated list
@@ -928,7 +927,7 @@ the horizontal behaviour and the second one the vertical behaviour.
 If only one option is specified, it affects both.
 </p>
 <div class="example">
-<a name="id741520"></a><p class="title"><b>Example 36. A border image</b></p>
+<a name="id-1.5.3.7.3.9.9"></a><p class="title"><b>Example 110. A border image</b></p>
 <div class="example-contents">
 <img src="border1.png"><p>This border image was specified with
 </p>
@@ -938,7 +937,7 @@ If only one option is specified, it affects both.
 </div>
 </div>
 <br class="example-break"><div class="example">
-<a name="id741548"></a><p class="title"><b>Example 37. A repeating border image</b></p>
+<a name="id-1.5.3.7.3.9.10"></a><p class="title"><b>Example 111. A repeating border image</b></p>
 <div class="example-contents">
 <img src="border2.png"><p>This border image was specified with
 </p>
@@ -948,7 +947,7 @@ If only one option is specified, it affects both.
 </div>
 </div>
 <br class="example-break"><div class="example">
-<a name="id741575"></a><p class="title"><b>Example 38. A stretched border image</b></p>
+<a name="id-1.5.3.7.3.9.11"></a><p class="title"><b>Example 112. A stretched border image</b></p>
 <div class="example-contents">
 <img src="border3.png"><p>This border image was specified with
 </p>
@@ -976,31 +975,31 @@ The option after the duration determines the transition function from a
 small set of predefined functions.
 </p>
 <div class="figure">
-<a name="id741635"></a><p class="title"><b>Figure 3. Linear transition</b></p>
+<a name="id-1.5.3.7.3.10.1.3"></a><p class="title"><b>Figure 6. Linear transition</b></p>
 <div class="figure-contents"><div><img src="linear.png" alt="Linear transition"></div></div>
 </div>
 <p><br class="figure-break">
 </p>
 <div class="figure">
-<a name="id741651"></a><p class="title"><b>Figure 4. Ease transition</b></p>
+<a name="id-1.5.3.7.3.10.1.4"></a><p class="title"><b>Figure 7. Ease transition</b></p>
 <div class="figure-contents"><div><img src="ease.png" alt="Ease transition"></div></div>
 </div>
 <p><br class="figure-break">
 </p>
 <div class="figure">
-<a name="id741667"></a><p class="title"><b>Figure 5. Ease-in-out transition</b></p>
+<a name="id-1.5.3.7.3.10.1.5"></a><p class="title"><b>Figure 8. Ease-in-out transition</b></p>
 <div class="figure-contents"><div><img src="ease-in-out.png" alt="Ease-in-out transition"></div></div>
 </div>
 <p><br class="figure-break">
 </p>
 <div class="figure">
-<a name="id741683"></a><p class="title"><b>Figure 6. Ease-in transition</b></p>
+<a name="id-1.5.3.7.3.10.1.6"></a><p class="title"><b>Figure 9. Ease-in transition</b></p>
 <div class="figure-contents"><div><img src="ease-in.png" alt="Ease-in transition"></div></div>
 </div>
 <p><br class="figure-break">
 </p>
 <div class="figure">
-<a name="id741699"></a><p class="title"><b>Figure 7. Ease-out transition</b></p>
+<a name="id-1.5.3.7.3.10.1.7"></a><p class="title"><b>Figure 10. Ease-out transition</b></p>
 <div class="figure-contents"><div><img src="ease-out.png" alt="Ease-out transition"></div></div>
 </div>
 <p><br class="figure-break">
@@ -1044,7 +1043,7 @@ The currently supported properties are:
 <tr>
 <td>background-color</td>
 <td rowspan="3">color (see above)</td>
-<td rowspan="8"><a href="http://developer.gnome.org/devel/gdk/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a></td>
+<td rowspan="8"><a href="../gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a></td>
 <td rowspan="8">
 <div class="literallayout"><p>background-color: #fff;<br>
 color: &amp;color1;<br>
@@ -1077,13 +1076,13 @@ color: mix (&amp;color1, #f0f, 0.8);</p></div>
 <td>font-family</td>
 <td>
 <em class="parameter"><code>family</code></em> [, <em class="parameter"><code>family</code></em>]*</td>
-<td><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Standard-Parameter-and-Value-Types.html#gchararray"><span class="type">gchararray</span></a></td>
+<td><a href="../gobject/gobject-Standard-Parameter-and-Value-Types.html#gchararray"><span class="type">gchararray</span></a></td>
 <td>font-family: Sans, Arial;</td>
 </tr>
 <tr>
 <td>font-style</td>
 <td>[normal|oblique|italic]</td>
-<td><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Fonts.html#PANGO-TYPE-STYLE:CAPS"><span class="type">PANGO_TYPE_STYLE</span></a></td>
+<td><a href="../pango/pango-Fonts.html#PANGO-TYPE-STYLE:CAPS"><span class="type">PANGO_TYPE_STYLE</span></a></td>
 <td>font-style: italic;</td>
 <td class="auto-generated"> </td>
 <td class="auto-generated"> </td>
@@ -1091,7 +1090,7 @@ color: mix (&amp;color1, #f0f, 0.8);</p></div>
 <tr>
 <td>font-variant</td>
 <td>[normal|small-caps]</td>
-<td><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Fonts.html#PANGO-TYPE-VARIANT:CAPS"><span class="type">PANGO_TYPE_VARIANT</span></a></td>
+<td><a href="../pango/pango-Fonts.html#PANGO-TYPE-VARIANT:CAPS"><span class="type">PANGO_TYPE_VARIANT</span></a></td>
 <td>font-variant: normal;</td>
 <td class="auto-generated"> </td>
 <td class="auto-generated"> </td>
@@ -1099,7 +1098,7 @@ color: mix (&amp;color1, #f0f, 0.8);</p></div>
 <tr>
 <td>font-weight</td>
 <td>[normal|bold|bolder|lighter|100|200|300|400|500|600|700|800|900]</td>
-<td><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Fonts.html#PANGO-TYPE-WEIGHT:CAPS"><span class="type">PANGO_TYPE_WEIGHT</span></a></td>
+<td><a href="../pango/pango-Fonts.html#PANGO-TYPE-WEIGHT:CAPS"><span class="type">PANGO_TYPE_WEIGHT</span></a></td>
 <td>font-weight: bold;</td>
 <td class="auto-generated"> </td>
 <td class="auto-generated"> </td>
@@ -1107,7 +1106,7 @@ color: mix (&amp;color1, #f0f, 0.8);</p></div>
 <tr>
 <td>font-size</td>
 <td>Font size in point</td>
-<td><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
 <td>font-size: 13;</td>
 <td class="auto-generated"> </td>
 <td class="auto-generated"> </td>
@@ -1116,7 +1115,7 @@ color: mix (&amp;color1, #f0f, 0.8);</p></div>
 <td>font</td>
 <td>
 <em class="parameter"><code>family</code></em> [<em class="parameter"><code>style</code></em>] [<em class="parameter"><code>size</code></em>]</td>
-<td><a href="/home/mclasen/gnome/share/gtk-doc/html/pango/pango-Fonts.html#PangoFontDescription"><span class="type">PangoFontDescription</span></a></td>
+<td><a href="../pango/pango-Fonts.html#PangoFontDescription"><span class="type">PangoFontDescription</span></a></td>
 <td>font: Sans 15;</td>
 <td class="auto-generated"> </td>
 <td class="auto-generated"> </td>
@@ -1124,7 +1123,7 @@ color: mix (&amp;color1, #f0f, 0.8);</p></div>
 <tr>
 <td>margin-top</td>
 <td>integer</td>
-<td><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
 <td>margin-top: 0;</td>
 <td class="auto-generated"> </td>
 <td class="auto-generated"> </td>
@@ -1132,7 +1131,7 @@ color: mix (&amp;color1, #f0f, 0.8);</p></div>
 <tr>
 <td>margin-left</td>
 <td>integer</td>
-<td><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
 <td>margin-left: 1;</td>
 <td class="auto-generated"> </td>
 <td class="auto-generated"> </td>
@@ -1140,7 +1139,7 @@ color: mix (&amp;color1, #f0f, 0.8);</p></div>
 <tr>
 <td>margin-bottom</td>
 <td>integer</td>
-<td><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
 <td>margin-bottom: 2;</td>
 <td class="auto-generated"> </td>
 <td class="auto-generated"> </td>
@@ -1148,7 +1147,7 @@ color: mix (&amp;color1, #f0f, 0.8);</p></div>
 <tr>
 <td>margin-right</td>
 <td>integer</td>
-<td><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
 <td>margin-right: 4;</td>
 <td class="auto-generated"> </td>
 <td class="auto-generated"> </td>
@@ -1174,13 +1173,13 @@ margin: 5 10 3 5;</p></div>
 <tr>
 <td>padding-top</td>
 <td>integer</td>
-<td><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
 <td>padding-top: 5;</td>
 </tr>
 <tr>
 <td>padding-left</td>
 <td>integer</td>
-<td><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
 <td>padding-left: 5;</td>
 <td class="auto-generated"> </td>
 <td class="auto-generated"> </td>
@@ -1189,7 +1188,7 @@ margin: 5 10 3 5;</p></div>
 <tr>
 <td>padding-bottom</td>
 <td>integer</td>
-<td><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
 <td>padding-bottom: 5;</td>
 <td class="auto-generated"> </td>
 <td class="auto-generated"> </td>
@@ -1198,7 +1197,7 @@ margin: 5 10 3 5;</p></div>
 <tr>
 <td>padding-right</td>
 <td>integer</td>
-<td><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
 <td>padding-right: 5;</td>
 <td class="auto-generated"> </td>
 <td class="auto-generated"> </td>
@@ -1217,7 +1216,7 @@ margin: 5 10 3 5;</p></div>
 <td>background-image</td>
 <td><div class="literallayout"><p>gradient (see above) or<br>
 url(<em class="parameter"><code>path</code></em>)</p></div></td>
-<td><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-pattern-t.html#cairo-pattern-t"><span class="type">cairo_pattern_t</span></a></td>
+<td><a href="../cairo/cairo-cairo-pattern-t.html#cairo-pattern-t"><span class="type">cairo_pattern_t</span></a></td>
 <td>
 <div class="literallayout"><p>-gtk-gradient (linear,<br>
                left top, right top,<br>
@@ -1254,7 +1253,7 @@ url ('background.png');</p></div>
 <tr>
 <td>border-top-width</td>
 <td>integer</td>
-<td><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
 <td>border-top-width: 5;</td>
 <td class="auto-generated"> </td>
 <td class="auto-generated"> </td>
@@ -1263,7 +1262,7 @@ url ('background.png');</p></div>
 <tr>
 <td>border-left-width</td>
 <td>integer</td>
-<td><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
 <td>border-left-width: 5;</td>
 <td class="auto-generated"> </td>
 <td class="auto-generated"> </td>
@@ -1272,7 +1271,7 @@ url ('background.png');</p></div>
 <tr>
 <td>border-bottom-width</td>
 <td>integer</td>
-<td><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
 <td>border-bottom-width: 5;</td>
 <td class="auto-generated"> </td>
 <td class="auto-generated"> </td>
@@ -1281,7 +1280,7 @@ url ('background.png');</p></div>
 <tr>
 <td>border-right-width</td>
 <td>integer</td>
-<td><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
 <td>border-right-width: 5;</td>
 <td class="auto-generated"> </td>
 <td class="auto-generated"> </td>
@@ -1304,7 +1303,7 @@ border-width: 1 2 3 5;</p></div>
 <tr>
 <td>border-radius</td>
 <td>integer</td>
-<td><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
 <td>border-radius: 5;</td>
 <td class="auto-generated"> </td>
 </tr>
@@ -1332,7 +1331,7 @@ border-image: url("/path/to/image.png") 3 4 4 3 repeat stretch;</p></div>
 <tr>
 <td>text-shadow</td>
 <td>shadow list (see above)</td>
-<td><span class="type">GtkTextShadow</span></td>
+<td>internal use only</td>
 <td><div class="literallayout"><p>text-shadow: 1 1 0 blue, -4 -4 red;</p></div></td>
 <td class="auto-generated"> </td>
 <td class="auto-generated"> </td>
@@ -1376,7 +1375,7 @@ using <a class="link" href="GtkWidget.html#gtk-widget-class-install-style-proper
 way, using the widget class name for <em class="replaceable"><code>namespace</code></em>.
 </p>
 <div class="example">
-<a name="id747563"></a><p class="title"><b>Example 39. Using engine-specific style properties</b></p>
+<a name="id-1.5.3.7.3.11.6"></a><p class="title"><b>Example 113. Using engine-specific style properties</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -1418,8 +1417,11 @@ way, using the widget class name for <em class="replaceable"><code>namespace</co
 Returns the provider containing the style settings used as a
 fallback for all widgets.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>The provider used for fallback styling.
@@ -1431,13 +1433,16 @@ This memory is owned by GTK+, and you must not free it. <span class="annotation"
 <hr>
 <div class="refsect2">
 <a name="gtk-css-provider-get-named"></a><h3>gtk_css_provider_get_named ()</h3>
-<pre class="programlisting"><a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="returnvalue">GtkCssProvider</span></a> *    gtk_css_provider_get_named          (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *variant</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="returnvalue">GtkCssProvider</span></a> *    gtk_css_provider_get_named          (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *variant</code></em>);</pre>
 <p>
 Loads a theme from the usual theme paths
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -1446,7 +1451,7 @@ Loads a theme from the usual theme paths
 <tr>
 <td><p><span class="term"><em class="parameter"><code>variant</code></em> :</span></p></td>
 <td>variant to load, for example, "dark", or
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for the default. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for the default. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -1461,16 +1466,19 @@ This memory is owned by GTK+, and you must not free it. <span class="annotation"
 <hr>
 <div class="refsect2">
 <a name="gtk-css-provider-load-from-data"></a><h3>gtk_css_provider_load_from_data ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_css_provider_load_from_data     (<em class="parameter"><code><a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a> *css_provider</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *data</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gssize"><span class="type">gssize</span></a> length</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_css_provider_load_from_data     (<em class="parameter"><code><a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a> *css_provider</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *data</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gssize"><span class="type">gssize</span></a> length</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Loads <em class="parameter"><code>data</code></em> into <em class="parameter"><code>css_provider</code></em>, making it clear any previously loaded
 information.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>css_provider</code></em> :</span></p></td>
@@ -1490,13 +1498,16 @@ potentially do a copy.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>return location for a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>return location for a <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the data could be loaded.</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>. The return value is deprecated and <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> will only be
+returned for backwards compatibility reasons if an <em class="parameter"><code>error</code></em> is not
+<a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> and a loading error occured. To track errors while loading
+CSS, connect to the GtkCssProvider::parsing-error signal.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1504,15 +1515,18 @@ potentially do a copy.</td>
 <hr>
 <div class="refsect2">
 <a name="gtk-css-provider-load-from-file"></a><h3>gtk_css_provider_load_from_file ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_css_provider_load_from_file     (<em class="parameter"><code><a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a> *css_provider</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> *file</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_css_provider_load_from_file     (<em class="parameter"><code><a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a> *css_provider</code></em>,
+                                                         <em class="parameter"><code><a href="../gio/GFile.html"><span class="type">GFile</span></a> *file</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Loads the data contained in <em class="parameter"><code>file</code></em> into <em class="parameter"><code>css_provider</code></em>, making it
 clear any previously loaded information.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>css_provider</code></em> :</span></p></td>
@@ -1522,17 +1536,20 @@ clear any previously loaded information.
 <tr>
 <td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> pointing to a file to load</td>
+<a href="../gio/GFile.html"><span class="type">GFile</span></a> pointing to a file to load</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>return location for a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>return location for a <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the data could be loaded.</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>. The return value is deprecated and <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> will only be
+returned for backwards compatibility reasons if an <em class="parameter"><code>error</code></em> is not
+<a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> and a loading error occured. To track errors while loading
+CSS, connect to the GtkCssProvider::parsing-error signal.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1540,15 +1557,18 @@ clear any previously loaded information.
 <hr>
 <div class="refsect2">
 <a name="gtk-css-provider-load-from-path"></a><h3>gtk_css_provider_load_from_path ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_css_provider_load_from_path     (<em class="parameter"><code><a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a> *css_provider</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *path</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_css_provider_load_from_path     (<em class="parameter"><code><a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a> *css_provider</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *path</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Loads the data contained in <em class="parameter"><code>path</code></em> into <em class="parameter"><code>css_provider</code></em>, making it clear
 any previously loaded information.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>css_provider</code></em> :</span></p></td>
@@ -1561,13 +1581,16 @@ any previously loaded information.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>return location for a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>return location for a <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the data could be loaded.</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>. The return value is deprecated and <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> will only be
+returned for backwards compatibility reasons if an <em class="parameter"><code>error</code></em> is not
+<a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> and a loading error occured. To track errors while loading
+CSS, connect to the GtkCssProvider::parsing-error signal.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1579,8 +1602,11 @@ any previously loaded information.
 <p>
 Returns a newly created <a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>A new <a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a>
@@ -1602,8 +1628,11 @@ from this function on a new provider created with
 <a class="link" href="GtkCssProvider.html#gtk-css-provider-new" title="gtk_css_provider_new ()"><code class="function">gtk_css_provider_new()</code></a> will basicallu create a duplicate of
 this <em class="parameter"><code>provider</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>provider</code></em> :</span></p></td>
@@ -1635,6 +1664,38 @@ this <em class="parameter"><code>provider</code></em>.
   GTK_CSS_PROVIDER_ERROR_UNKNOWN_VALUE
 } GtkCssProviderError;
 </pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><a name="GTK-CSS-PROVIDER-ERROR-FAILED:CAPS"></a><span class="term"><code class="literal">GTK_CSS_PROVIDER_ERROR_FAILED</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="GTK-CSS-PROVIDER-ERROR-SYNTAX:CAPS"></a><span class="term"><code class="literal">GTK_CSS_PROVIDER_ERROR_SYNTAX</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="GTK-CSS-PROVIDER-ERROR-IMPORT:CAPS"></a><span class="term"><code class="literal">GTK_CSS_PROVIDER_ERROR_IMPORT</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="GTK-CSS-PROVIDER-ERROR-NAME:CAPS"></a><span class="term"><code class="literal">GTK_CSS_PROVIDER_ERROR_NAME</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="GTK-CSS-PROVIDER-ERROR-DEPRECATED:CAPS"></a><span class="term"><code class="literal">GTK_CSS_PROVIDER_ERROR_DEPRECATED</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="GTK-CSS-PROVIDER-ERROR-UNKNOWN-VALUE:CAPS"></a><span class="term"><code class="literal">GTK_CSS_PROVIDER_ERROR_UNKNOWN_VALUE</code></span></p></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
@@ -1658,7 +1719,8 @@ containing region.
   GTK_CSS_SECTION_RULESET,
   GTK_CSS_SECTION_SELECTOR,
   GTK_CSS_SECTION_DECLARATION,
-  GTK_CSS_SECTION_VALUE
+  GTK_CSS_SECTION_VALUE,
+  GTK_CSS_SECTION_KEYFRAMES
 } GtkCssSectionType;
 </pre>
 <p>
@@ -1671,14 +1733,17 @@ but may contain extensions.
 More types might be added in the future as the parser incorporates
 more features.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="GTK-CSS-SECTION-DOCUMENT:CAPS"></a><span class="term"><code class="literal">GTK_CSS_SECTION_DOCUMENT</code></span></p></td>
 <td>The section describes a complete document.
   This section time is the only one where <a class="link" href="GtkCssProvider.html#gtk-css-section-get-parent" title="gtk_css_section_get_parent ()"><code class="function">gtk_css_section_get_parent()</code></a>
-  might return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+  might return <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 </td>
 </tr>
 <tr>
@@ -1719,6 +1784,12 @@ more features.
 <td>The section defines the value of a CSS declaration.
 </td>
 </tr>
+<tr>
+<td><p><a name="GTK-CSS-SECTION-KEYFRAMES:CAPS"></a><span class="term"><code class="literal">GTK_CSS_SECTION_KEYFRAMES</code></span></p></td>
+<td>The section defines keyframes. See <a class="ulink" href="http://dev.w3.org/csswg/css3-animations/#keyframes" target="_top">CSS
+  animations</a> for details. Since 3.6
+</td>
+</tr>
 </tbody>
 </table></div>
 <p class="since">Since 3.2</p>
@@ -1726,7 +1797,7 @@ more features.
 <hr>
 <div class="refsect2">
 <a name="gtk-css-section-get-end-line"></a><h3>gtk_css_section_get_end_line ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gtk_css_section_get_end_line        (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gtk_css_section_get_end_line        (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);</pre>
 <p>
 Returns the line in the CSS document where this section end.
 The line number is 0-indexed, so the first line of the document
@@ -1738,8 +1809,11 @@ The end position and line may be identical to the start
 position and line for sections which failed to parse anything
 successfully.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>section</code></em> :</span></p></td>
@@ -1756,7 +1830,7 @@ successfully.
 <hr>
 <div class="refsect2">
 <a name="gtk-css-section-get-end-position"></a><h3>gtk_css_section_get_end_position ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gtk_css_section_get_end_position    (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gtk_css_section_get_end_position    (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);</pre>
 <p>
 Returns the offset in bytes from the start of the current line
 returned via <a class="link" href="GtkCssProvider.html#gtk-css-section-get-end-line" title="gtk_css_section_get_end_line ()"><code class="function">gtk_css_section_get_end_line()</code></a>.
@@ -1767,8 +1841,11 @@ The end position and line may be identical to the start
 position and line for sections which failed to parse anything
 successfully.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>section</code></em> :</span></p></td>
@@ -1785,14 +1862,17 @@ successfully.
 <hr>
 <div class="refsect2">
 <a name="gtk-css-section-get-file"></a><h3>gtk_css_section_get_file ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="returnvalue">GFile</span></a> *             gtk_css_section_get_file            (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);</pre>
+<pre class="programlisting"><a href="../gio/GFile.html"><span class="returnvalue">GFile</span></a> *             gtk_css_section_get_file            (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);</pre>
 <p>
 Gets the file that <em class="parameter"><code>section</code></em> was parsed from. If no such file exists,
 for example because the CSS was loaded via
-<em class="parameter"><code><a class="link" href="GtkCssProvider.html#gtk-css-provider-load-from-data" title="gtk_css_provider_load_from_data ()"><code class="function">gtk_css_provider_load_from_data()</code></a></code></em>, then <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is returned.
+<em class="parameter"><code><a class="link" href="GtkCssProvider.html#gtk-css-provider-load-from-data" title="gtk_css_provider_load_from_data ()"><code class="function">gtk_css_provider_load_from_data()</code></a></code></em>, then <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>section</code></em> :</span></p></td>
@@ -1800,8 +1880,8 @@ for example because the CSS was loaded via
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the <a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> that <em class="parameter"><code>section</code></em> was parsed from
-or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>section</code></em> was parsed from other data. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+<td>the <a href="../gio/GFile.html"><span class="type">GFile</span></a> that <em class="parameter"><code>section</code></em> was parsed from
+or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>section</code></em> was parsed from other data. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1815,14 +1895,17 @@ or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.ht
 <p>
 Gets the parent section for the given <em class="parameter"><code>section</code></em>. The parent section is
 the section that contains this <em class="parameter"><code>section</code></em>. A special case are sections of
-type <span class="type">GTK_CSS_SECTION_TYPE_DOCUMENT</span>. Their parent will either be <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+type <a class="link" href="GtkCssProvider.html#GTK-CSS-SECTION-DOCUMENT:CAPS"><span class="type">GTK_CSS_SECTION_DOCUMENT</span></a>. Their parent will either be <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 if they are the original CSS document that was loaded by
 <a class="link" href="GtkCssProvider.html#gtk-css-provider-load-from-file" title="gtk_css_provider_load_from_file ()"><code class="function">gtk_css_provider_load_from_file()</code></a> or a section of type
-<span class="type">GTK_CSS_SECTION_TYPE_IMPORT</span> if it was loaded with an import rule from
+<a class="link" href="GtkCssProvider.html#GTK-CSS-SECTION-IMPORT:CAPS"><span class="type">GTK_CSS_SECTION_IMPORT</span></a> if it was loaded with an import rule from
 a different file.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>section</code></em> :</span></p></td>
@@ -1830,7 +1913,7 @@ a different file.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the parent section or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none</td>
+<td>the parent section or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none</td>
 </tr>
 </tbody>
 </table></div>
@@ -1843,8 +1926,11 @@ a different file.
 <p>
 Gets the type of information that <em class="parameter"><code>section</code></em> describes.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>section</code></em> :</span></p></td>
@@ -1862,14 +1948,17 @@ Gets the type of information that <em class="parameter"><code>section</code></em
 <hr>
 <div class="refsect2">
 <a name="gtk-css-section-get-start-line"></a><h3>gtk_css_section_get_start_line ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gtk_css_section_get_start_line      (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gtk_css_section_get_start_line      (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);</pre>
 <p>
 Returns the line in the CSS document where this section starts.
 The line number is 0-indexed, so the first line of the document
 will return 0.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>section</code></em> :</span></p></td>
@@ -1886,13 +1975,16 @@ will return 0.
 <hr>
 <div class="refsect2">
 <a name="gtk-css-section-get-start-position"></a><h3>gtk_css_section_get_start_position ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gtk_css_section_get_start_position  (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gtk_css_section_get_start_position  (<em class="parameter"><code>const <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);</pre>
 <p>
 Returns the offset in bytes from the start of the current line
 returned via <a class="link" href="GtkCssProvider.html#gtk-css-section-get-start-line" title="gtk_css_section_get_start_line ()"><code class="function">gtk_css_section_get_start_line()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>section</code></em> :</span></p></td>
@@ -1908,18 +2000,16 @@ returned via <a class="link" href="GtkCssProvider.html#gtk-css-section-get-start
 </div>
 <hr>
 <div class="refsect2">
-<a name="gtk-css-section-get-type"></a><h3>gtk_css_section_get_type ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               gtk_css_section_get_type            (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
-</div>
-<hr>
-<div class="refsect2">
 <a name="gtk-css-section-ref"></a><h3>gtk_css_section_ref ()</h3>
 <pre class="programlisting"><a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="returnvalue">GtkCssSection</span></a> *     gtk_css_section_ref                 (<em class="parameter"><code><a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a> *section</code></em>);</pre>
 <p>
 Increments the reference count on <em class="parameter"><code>section</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>section</code></em> :</span></p></td>
@@ -1943,8 +2033,11 @@ Increments the reference count on <em class="parameter"><code>section</code></em
 Decrements the reference count on <em class="parameter"><code>section</code></em>, freeing the
 structure if the reference count reaches 0.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>section</code></em> :</span></p></td>
 <td>a <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a>
@@ -1960,8 +2053,8 @@ structure if the reference count reaches 0.
 <a name="GtkCssProvider-parsing-error"></a><h3>The <code class="literal">"parsing-error"</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GtkCssProvider.html" title="GtkCssProvider"><span class="type">GtkCssProvider</span></a> *provider,
                                                         <a class="link" href="GtkCssProvider.html#GtkCssSection"><span class="type">GtkCssSection</span></a>  *section,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>         *error,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>        user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+                                                        <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>         *error,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>        user_data)      : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
 <p>
 Signals that a parsing error occured. the <em class="parameter"><code>path</code></em>, <em class="parameter"><code>line</code></em> and <em class="parameter"><code>position</code></em>
 describe the actual location of the error as accurately as possible.
@@ -1977,8 +2070,11 @@ Note that this signal may be emitted at any time as the css provider
 may opt to defer parsing parts or all of the input to a later time
 than when a loading function was called.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>provider</code></em> :</span></p></td>
@@ -2007,6 +2103,6 @@ than when a loading function was called.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

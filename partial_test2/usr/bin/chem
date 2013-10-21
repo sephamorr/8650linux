@@ -6,7 +6,7 @@
 # Installed position: <prefix>/bin/chem
 
 # Copyright (C) 2006, 2009 Free Software Foundation, Inc.
-# Written by Bernd Warken.
+# Written by Bernd Warken <groff-bernd.warken-72@web.de>.
 
 # This file is part of `chem', which is part of `groff'.
 
@@ -31,7 +31,7 @@ my $Program_Version = '0.3.1';
 my $Last_Update = '03 Jan 2009';
 
 # this setting of the groff version is only used before make is run,
-# otherwise 1.21 will set it.
+# otherwise 1.22.2 will set it.
 my $Groff_Version_Preset='1.20preset';
 
 # test on Perl version
@@ -62,7 +62,7 @@ BEGIN {
     my $before_make;		# script before run of `make'
     {
       my $at = '@';
-      $before_make = 1 if '1.21' eq "${at}VERSION${at}";
+      $before_make = 1 if '1.22.2' eq "${at}VERSION${at}";
     }
 
     my %at_at;
@@ -76,11 +76,11 @@ BEGIN {
       $Groff_Version = '';
       $Chem_Name = 'chem';
     } else {
-      $Groff_Version = '1.21';
+      $Groff_Version = '1.22.2';
       $at_at{'BINDIR'} = '/usr/bin';
       $at_at{'G'} = '';
-      $at_at{'PICDIR'} = '/usr/share/groff/1.21/pic';
-      $at_at{'TMACDIR'} = '/usr/share/groff/1.21/tmac';
+      $at_at{'PICDIR'} = '/usr/share/groff/1.22.2/pic';
+      $at_at{'TMACDIR'} = '/usr/share/groff/1.22.2/tmac';
       $File_chem_pic =
 	File::Spec->catfile($at_at{'PICDIR'}, 'chem.pic');
       $File_pic_tmac = File::Spec->catfile($at_at{'TMACDIR'}, 'pic.tmac');

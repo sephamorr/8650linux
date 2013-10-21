@@ -150,6 +150,17 @@
 #define EXT2_ET_MMP_UNKNOWN_SEQ                  (2133571470L)
 #define EXT2_ET_MMP_CHANGE_ABORT                 (2133571471L)
 #define EXT2_ET_MMP_OPEN_DIRECT                  (2133571472L)
+#define EXT2_ET_BAD_DESC_SIZE                    (2133571473L)
+#define EXT2_ET_INODE_CSUM_INVALID               (2133571474L)
+#define EXT2_ET_INODE_BITMAP_CSUM_INVALID        (2133571475L)
+#define EXT2_ET_EXTENT_CSUM_INVALID              (2133571476L)
+#define EXT2_ET_DIR_NO_SPACE_FOR_CSUM            (2133571477L)
+#define EXT2_ET_DIR_CSUM_INVALID                 (2133571478L)
+#define EXT2_ET_EXT_ATTR_CSUM_INVALID            (2133571479L)
+#define EXT2_ET_SB_CSUM_INVALID                  (2133571480L)
+#define EXT2_ET_UNKNOWN_CSUM                     (2133571481L)
+#define EXT2_ET_MMP_CSUM_INVALID                 (2133571482L)
+#define EXT2_ET_FILE_EXISTS                      (2133571483L)
 extern const struct error_table et_ext2_error_table;
 extern void initialize_ext2_error_table(void);
 

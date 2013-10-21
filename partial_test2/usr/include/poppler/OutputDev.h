@@ -17,11 +17,12 @@
 // Copyright (C) 2006 Thorkild Stray <thorkild@ifi.uio.no>
 // Copyright (C) 2007 Jeff Muizelaar <jeff@infidigm.net>
 // Copyright (C) 2007, 2011 Adrian Johnson <ajohnson@redneon.com>
-// Copyright (C) 2009-2012 Thomas Freitag <Thomas.Freitag@alfa.de>
+// Copyright (C) 2009-2013 Thomas Freitag <Thomas.Freitag@alfa.de>
 // Copyright (C) 2009, 2011 Carlos Garcia Campos <carlosgc@gnome.org>
-// Copyright (C) 2009, 2012 Albert Astals Cid <aacid@kde.org>
+// Copyright (C) 2009, 2012, 2013 Albert Astals Cid <aacid@kde.org>
 // Copyright (C) 2010 Christian Feuersänger <cfeuersaenger@googlemail.com>
 // Copyright (C) 2012 Fabio D'Urso <fabiodurso@hotmail.it>
+// Copyright (C) 2012 William Bader <williambader@hotmail.com>
 //
 // To see a description of the changes please see the Changelog file that
 // came with your tarball or type make ChangeLog if you are building from git
@@ -39,6 +40,7 @@
 #include "goo/gtypes.h"
 #include "CharTypes.h"
 #include "Object.h"
+#include "PopplerCache.h"
 
 class Annot;
 class Dict;
@@ -71,7 +73,13 @@ class OutputDev {
 public:
 
   // Constructor.
-  OutputDev() { profileHash = NULL; }
+  OutputDev() 
+#ifdef USE_CMS
+ : iccColorSpaceCache(5)
+#endif
+  {
+      profileHash = NULL;
+  }
 
   // Destructor.
   virtual ~OutputDev() {}
@@ -111,6 +119,10 @@ public:
   // Does this device require incCharCount to be called for text on
   // non-shown layers?
   virtual GBool needCharCount() { return gFalse; }
+  
+  // Does this device need to clip pages to the crop box even when the
+  // box is the crop box?
+  virtual GBool needClipToCropBox() { return gFalse; }
 
   //----- initialization and control
 
@@ -132,7 +144,7 @@ public:
     { return gTrue; }
 
   // Start a page.
-  virtual void startPage(int pageNum, GfxState *state) {}
+  virtual void startPage(int pageNum, GfxState *state, XRef *xref) {}
 
   // End a page.
   virtual void endPage() {}
@@ -238,7 +250,6 @@ public:
 			       CharCode /*code*/, Unicode * /*u*/, int /*uLen*/);
   virtual void endType3Char(GfxState * /*state*/) {}
   virtual void beginTextObject(GfxState * /*state*/) {}
-  virtual GBool deviceHasTextClip(GfxState * /*state*/) { return gFalse; }
   virtual void endTextObject(GfxState * /*state*/) {}
   virtual void incCharCount(int /*nChars*/) {}
   virtual void beginActualText(GfxState * /*state*/, GooString * /*text*/ ) {}
@@ -302,6 +313,7 @@ public:
   virtual GooHash *endProfile();
 
   //----- transparency groups and soft masks
+  virtual GBool checkTransparencyGroup(GfxState * /*state*/, GBool /*knockout*/) { return gTrue; }
   virtual void beginTransparencyGroup(GfxState * /*state*/, double * /*bbox*/,
 				      GfxColorSpace * /*blendingColorSpace*/,
 				      GBool /*isolated*/, GBool /*knockout*/,
@@ -320,11 +332,19 @@ public:
   virtual void setVectorAntialias(GBool /*vaa*/) {}
 #endif
 
+#ifdef USE_CMS
+  PopplerCache *getIccColorSpaceCache();
+#endif
+
 private:
 
   double defCTM[6];		// default coordinate transform matrix
   double defICTM[6];		// inverse of default CTM
   GooHash *profileHash;
+
+#ifdef USE_CMS
+  PopplerCache iccColorSpaceCache;
+#endif
 };
 
 #endif

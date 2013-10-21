@@ -26,6 +26,7 @@
 # Add this to Makefile.am where your library/program is built:
 #   include $(INTROSPECTION_MAKEFILE)
 #   INTROSPECTION_GIRS = YourLib-1.0.gir
+#   YourLib-1.0.gir: libyourlib.la
 #   YourLib_1_0_gir_NAMESPACE = YourLib
 #   YourLib_1_0_gir_VERSION = 1.0
 #   YourLib_1_0_gir_LIBS = libyourlib.la
@@ -74,14 +75,14 @@ _gir_verbosity = $(if $(AM_DEFAULT_VERBOSITY),$(AM_DEFAULT_VERBOSITY),1)
 
 _gir_silent_scanner_prefix = $(_gir_silent_scanner_prefix_$(V))
 _gir_silent_scanner_prefix_ = $(_gir_silent_scanner_prefix_$(_gir_verbosity))
-_gir_silent_scanner_prefix_0 = @echo "  GISCAN $(1)";
+_gir_silent_scanner_prefix_0 = @echo "  GISCAN   $(1)";
 _gir_silent_scanner_opts = $(_gir_silent_scanner_opts_$(V))
 _gir_silent_scanner_opts_ = $(_gir_silent_scanner_opts_$(_gir_verbosity))
 _gir_silent_scanner_opts_0 = --quiet
 
 _gir_silent_compiler = $(_gir_silent_compiler_$(V))
 _gir_silent_compiler_ = $(_gir_silent_compiler_$(_gir_verbosity))
-_gir_silent_compiler_0 = @echo "  GICOMP $(1)";
+_gir_silent_compiler_0 = @echo "  GICOMP   $(1)";
 
 #
 # Creates a GIR by scanning C headers/sources
@@ -141,7 +142,9 @@ $(1): $$($(_gir_name)_FILES)
 	  $(_gir_program) \
 	  $(_gir_libraries) \
 	  $($(_gir_name)_SCANNERFLAGS) \
+	  --cflags-begin \
 	  $($(_gir_name)_CFLAGS) \
+	  --cflags-end \
 	  $($(_gir_name)_LDFLAGS) \
 	  $$^ \
 	  --output $(1)

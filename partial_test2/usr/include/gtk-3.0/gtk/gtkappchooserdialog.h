@@ -22,12 +22,12 @@
  *          Cosimo Cecchi <ccecchi@redhat.com>
  */
 
+#ifndef __GTK_APP_CHOOSER_DIALOG_H__
+#define __GTK_APP_CHOOSER_DIALOG_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_APP_CHOOSER_DIALOG_H__
-#define __GTK_APP_CHOOSER_DIALOG_H__
 
 #include <gtk/gtkdialog.h>
 #include <gio/gio.h>
@@ -59,18 +59,24 @@ struct _GtkAppChooserDialogClass {
   gpointer padding[16];
 };
 
+GDK_AVAILABLE_IN_ALL
 GType         gtk_app_chooser_dialog_get_type             (void) G_GNUC_CONST;
 
+GDK_AVAILABLE_IN_ALL
 GtkWidget *   gtk_app_chooser_dialog_new                  (GtkWindow           *parent,
                                                            GtkDialogFlags       flags,
                                                            GFile               *file);
+GDK_AVAILABLE_IN_ALL
 GtkWidget *   gtk_app_chooser_dialog_new_for_content_type (GtkWindow           *parent,
                                                            GtkDialogFlags       flags,
                                                            const gchar         *content_type);
 
+GDK_AVAILABLE_IN_ALL
 GtkWidget *   gtk_app_chooser_dialog_get_widget           (GtkAppChooserDialog *self);
+GDK_AVAILABLE_IN_ALL
 void          gtk_app_chooser_dialog_set_heading          (GtkAppChooserDialog *self,
                                                            const gchar         *heading);
+GDK_AVAILABLE_IN_ALL
 const gchar * gtk_app_chooser_dialog_get_heading          (GtkAppChooserDialog *self);
 
 G_END_DECLS

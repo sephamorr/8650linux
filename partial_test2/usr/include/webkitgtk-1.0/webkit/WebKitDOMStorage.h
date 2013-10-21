@@ -21,11 +21,10 @@
 #ifndef WebKitDOMStorage_h
 #define WebKitDOMStorage_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_STORAGE            (webkit_dom_storage_get_type())
@@ -79,7 +78,7 @@ webkit_dom_storage_get_item(WebKitDOMStorage* self, const gchar* key);
  *
 **/
 WEBKIT_API void
-webkit_dom_storage_set_item(WebKitDOMStorage* self, const gchar* key, const gchar* data, GError **error);
+webkit_dom_storage_set_item(WebKitDOMStorage* self, const gchar* key, const gchar* data, GError** error);
 
 /**
  * webkit_dom_storage_remove_item:

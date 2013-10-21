@@ -13,7 +13,7 @@
 // All changes made under the Poppler project to this file are licensed
 // under GPL version 2 or later
 //
-// Copyright (C) 2005, 2007-2010 Albert Astals Cid <aacid@kde.org>
+// Copyright (C) 2005, 2007-2010, 2012 Albert Astals Cid <aacid@kde.org>
 // Copyright (C) 2005 Jonathan Blandford <jrb@redhat.com>
 // Copyright (C) 2006 Takashi Iwai <tiwai@suse.de>
 // Copyright (C) 2006 Kristian Høgsberg <krh@redhat.com>
@@ -133,14 +133,12 @@ public:
 
   ~GlobalParams();
 
-  void setBaseDir(const char *dir);
   void setupBaseFonts(char *dir);
 
   //----- accessors
 
   CharCode getMacRomanCharCode(char *charName);
 
-  GooString *getBaseDir();
   Unicode mapNameToUnicode(const char *charName);
   UnicodeMap *getResidentUnicodeMap(GooString *encodingName);
   FILE *getUnicodeMapFile(GooString *encodingName);
@@ -273,7 +271,6 @@ private:
 
   //----- user-modifiable settings
 
-  GooString *baseDir;		// base directory - for plugins, etc.
   NameToCharCode *		// mapping from char name to Unicode
     nameToUnicode;
   GooHash *cidToUnicodes;		// files for mappings from char collections

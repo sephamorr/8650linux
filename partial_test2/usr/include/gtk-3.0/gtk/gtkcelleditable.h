@@ -15,12 +15,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GTK_CELL_EDITABLE_H__
+#define __GTK_CELL_EDITABLE_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_CELL_EDITABLE_H__
-#define __GTK_CELL_EDITABLE_H__
 
 #include <gtk/gtkwidget.h>
 
@@ -49,11 +49,15 @@ struct _GtkCellEditableIface
 };
 
 
+GDK_AVAILABLE_IN_ALL
 GType gtk_cell_editable_get_type      (void) G_GNUC_CONST;
 
+GDK_AVAILABLE_IN_ALL
 void  gtk_cell_editable_start_editing (GtkCellEditable *cell_editable,
 				       GdkEvent        *event);
+GDK_AVAILABLE_IN_ALL
 void  gtk_cell_editable_editing_done  (GtkCellEditable *cell_editable);
+GDK_AVAILABLE_IN_ALL
 void  gtk_cell_editable_remove_widget (GtkCellEditable *cell_editable);
 
 

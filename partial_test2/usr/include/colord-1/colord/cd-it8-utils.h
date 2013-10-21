@@ -30,10 +30,15 @@
 
 #include "cd-it8.h"
 
+G_BEGIN_DECLS
+
 gboolean	 cd_it8_utils_calculate_ccmx		(CdIt8		*it8_reference,
 							 CdIt8		*it8_measured,
 							 CdIt8		*it8_ccmx,
-							 GError		**error);
+							 GError		**error)
+							 G_GNUC_WARN_UNUSED_RESULT;
+
+G_END_DECLS
 
 #endif /* __CD_IT8_UTILS_H__ */
 

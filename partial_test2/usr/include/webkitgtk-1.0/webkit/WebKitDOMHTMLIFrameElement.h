@@ -21,11 +21,10 @@
 #ifndef WebKitDOMHTMLIFrameElement_h
 #define WebKitDOMHTMLIFrameElement_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMHTMLElement.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMHTMLElement.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_HTML_IFRAME_ELEMENT            (webkit_dom_html_iframe_element_get_type())
@@ -215,6 +214,27 @@ WEBKIT_API void
 webkit_dom_html_iframe_element_set_sandbox(WebKitDOMHTMLIFrameElement* self, const gchar* value);
 
 /**
+ * webkit_dom_html_iframe_element_get_seamless:
+ * @self: A #WebKitDOMHTMLIFrameElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gboolean
+webkit_dom_html_iframe_element_get_seamless(WebKitDOMHTMLIFrameElement* self);
+
+/**
+ * webkit_dom_html_iframe_element_set_seamless:
+ * @self: A #WebKitDOMHTMLIFrameElement
+ * @value: A #gboolean
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_iframe_element_set_seamless(WebKitDOMHTMLIFrameElement* self, gboolean value);
+
+/**
  * webkit_dom_html_iframe_element_get_scrolling:
  * @self: A #WebKitDOMHTMLIFrameElement
  *
@@ -255,6 +275,27 @@ webkit_dom_html_iframe_element_get_src(WebKitDOMHTMLIFrameElement* self);
 **/
 WEBKIT_API void
 webkit_dom_html_iframe_element_set_src(WebKitDOMHTMLIFrameElement* self, const gchar* value);
+
+/**
+ * webkit_dom_html_iframe_element_get_srcdoc:
+ * @self: A #WebKitDOMHTMLIFrameElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_html_iframe_element_get_srcdoc(WebKitDOMHTMLIFrameElement* self);
+
+/**
+ * webkit_dom_html_iframe_element_set_srcdoc:
+ * @self: A #WebKitDOMHTMLIFrameElement
+ * @value: A #gchar
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_iframe_element_set_srcdoc(WebKitDOMHTMLIFrameElement* self, const gchar* value);
 
 /**
  * webkit_dom_html_iframe_element_get_width:

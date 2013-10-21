@@ -41,6 +41,9 @@ typedef struct proc_t {
     int
         tid,		// (special)       task id, the POSIX thread ID (see also: tgid)
     	ppid;		// stat,status     pid of parent process
+    unsigned long       // next 2 fields are NOT filled in by readproc
+        maj_delta,      // stat (special) major page faults since last update
+        min_delta;      // stat (special) minor page faults since last update
     unsigned
         pcpu;           // stat (special)  %CPU usage (is not filled in by readproc!!!)
     char
@@ -272,6 +275,7 @@ extern proc_t * get_proc_stats(pid_t pid, proc_t *p);
 
 #define PROC_EDITCGRPCVT    0x10000 // edit `cgroup' as single vector
 #define PROC_EDITCMDLCVT    0x20000 // edit `cmdline' as single vector
+#define PROC_EDITENVRCVT    0x40000 // edit `environ' as single vector
 
 // it helps to give app code a few spare bits
 #define PROC_SPARE_1     0x01000000

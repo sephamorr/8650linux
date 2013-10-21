@@ -30,8 +30,9 @@ C<_can_unlink_opened_file> method should be modified.
 Are the return values from C<stat> reliable? By default all the
 return values from C<stat> are compared when unlinking a temporary
 file using the filename and the handle. Operating systems other than
-unix do not always have valid entries in all fields. If C<unlink0> fails
-then the C<stat> comparison should be modified accordingly.
+unix do not always have valid entries in all fields. If utility function
+C<File::Temp::unlink0> fails then the C<stat> comparison should be
+modified accordingly.
 
 =item *
 
@@ -142,10 +143,12 @@ use 5.004;
 use strict;
 use Carp;
 use File::Spec 0.8;
+use Cwd ();
 use File::Path qw/ rmtree /;
 use Fcntl 1.03;
 use IO::Seekable;               # For SEEK_*
 use Errno;
+use Scalar::Util 'refaddr';
 require VMS::Stdio if $^O eq 'VMS';
 
 # pre-emptively load Carp::Heavy. If we don't when we run out of file
@@ -160,7 +163,8 @@ require Symbol if $] < 5.006;
 
 ### For the OO interface
 use base qw/ IO::Handle IO::Seekable /;
-use overload '""' => "STRINGIFY", fallback => 1;
+use overload '""' => "STRINGIFY", '0+' => "NUMIFY",
+  fallback => 1;
 
 # use 'our' on v5.6.0
 use vars qw($VERSION @EXPORT_OK %EXPORT_TAGS $DEBUG $KEEP_ALL);
@@ -203,7 +207,7 @@ Exporter::export_tags('POSIX','mktemp','seekable');
 
 # Version number
 
-$VERSION = '0.22';
+$VERSION = '0.23';
 
 # This is a list of characters that can be used in random filenames
 
@@ -635,7 +639,7 @@ sub _replace_XX {
 }
 
 # Internal routine to force a temp file to be writable after
-# it is created so that we can unlink it. Windows seems to occassionally
+# it is created so that we can unlink it. Windows seems to occasionally
 # force a file to be readonly when written to certain temp locations
 sub _force_writable {
   my $file = shift;
@@ -750,7 +754,7 @@ sub _is_verysafe {
   }
 
   # To reach this point either, the _PC_CHOWN_RESTRICTED symbol
-  # was not avialable or the symbol was there but chown giveaway
+  # was not available or the symbol was there but chown giveaway
   # is allowed. Either way, we now have to test the entire tree for
   # safety.
 
@@ -800,7 +804,7 @@ sub _is_verysafe {
 
 sub _can_unlink_opened_file {
 
-  if ($^O eq 'MSWin32' || $^O eq 'os2' || $^O eq 'VMS' || $^O eq 'dos' || $^O eq 'MacOS') {
+  if (grep { $^O eq $_ } qw/MSWin32 os2 VMS dos MacOS haiku/) {
     return 0;
   } else {
     return 1;
@@ -841,7 +845,7 @@ sub _can_do_level {
 # Arguments:
 #   _deferred_unlink( $fh, $fname, $isdir );
 #
-#   - filehandle (so that it can be expclicitly closed if open
+#   - filehandle (so that it can be explicitly closed if open
 #   - filename   (the thing we want to remove)
 #   - isdir      (flag to indicate that we are being given a directory)
 #                 [and hence no filehandle]
@@ -868,12 +872,17 @@ sub _can_do_level {
   # Set up an end block to use these arrays
   END {
     local($., $@, $!, $^E, $?);
-    cleanup();
+    cleanup(at_exit => 1);
   }
 
-  # Cleanup function. Always triggered on END but can be invoked
-  # manually.
+  # Cleanup function. Always triggered on END (with at_exit => 1) but
+  # can be invoked manually.
   sub cleanup {
+    my %h = @_;
+    my $at_exit = delete $h{at_exit};
+    $at_exit = 0 if not defined $at_exit;
+    { my @k = sort keys %h; die "unrecognized parameters: @k" if @k }
+
     if (!$KEEP_ALL) {
       # Files
       my @files = (exists $files_to_unlink{$$} ?
@@ -893,15 +902,35 @@ sub _can_do_level {
       # Dirs
       my @dirs = (exists $dirs_to_unlink{$$} ?
                   @{ $dirs_to_unlink{$$} } : () );
+      my ($cwd, $cwd_to_remove);
       foreach my $dir (@dirs) {
         if (-d $dir) {
           # Some versions of rmtree will abort if you attempt to remove
-          # the directory you are sitting in. We protect that and turn it
-          # into a warning. We do this because this occurs during
-          # cleanup and so can not be caught by the user.
+          # the directory you are sitting in. For automatic cleanup
+          # at program exit, we avoid this by chdir()ing out of the way
+          # first. If not at program exit, it's best not to mess with the
+          # current directory, so just let it fail with a warning.
+          if ($at_exit) {
+            $cwd = Cwd::abs_path(File::Spec->curdir) if not defined $cwd;
+            my $abs = Cwd::abs_path($dir);
+            if ($abs eq $cwd) {
+              $cwd_to_remove = $dir;
+              next;
+            }
+          }
           eval { rmtree($dir, $DEBUG, 0); };
           warn $@ if ($@ && $^W);
         }
+      }
+
+      if (defined $cwd_to_remove) {
+        # We do need to clean up the current directory, and everything
+        # else is done, so get out of there and remove it.
+        chdir $cwd_to_remove or die "cannot chdir to $cwd_to_remove: $!";
+        my $updir = File::Spec->updir;
+        chdir $updir or die "cannot chdir to $updir: $!";
+        eval { rmtree($cwd_to_remove, $DEBUG, 0); };
+        warn $@ if ($@ && $^W);
       }
 
       # clear the arrays
@@ -927,6 +956,12 @@ sub _can_do_level {
 
     warn "Setting up deferred removal of $fname\n"
       if $DEBUG;
+
+    # make sure we save the absolute path for later cleanup
+    # OK to untaint because we only ever use this internally
+    # as a file path, never interpolating into the shell
+    $fname = Cwd::abs_path($fname);
+    ($fname) = $fname =~ /^(.*)$/;
 
     # If we have a directory, check that it is a directory
     if ($isdir) {
@@ -964,6 +999,24 @@ sub _can_do_level {
 
 }
 
+# normalize argument keys to upper case and do consistent handling
+# of leading template vs TEMPLATE
+sub _parse_args {
+  my $leading_template = (scalar(@_) % 2 == 1 ? shift(@_) : '' );
+  my %args = @_;
+  %args = map { uc($_), $args{$_} } keys %args;
+
+  # template (store it in an array so that it will
+  # disappear from the arg list of tempfile)
+  my @template = (
+    exists $args{TEMPLATE}  ? $args{TEMPLATE} :
+    $leading_template       ? $leading_template : ()
+  );
+  delete $args{TEMPLATE};
+
+  return( \@template, \%args );
+}
+
 =head1 OBJECT-ORIENTED INTERFACE
 
 This is the primary interface for interacting with
@@ -972,11 +1025,17 @@ when the object is constructed and the file can be removed when the
 object is no longer required.
 
 Note that there is no method to obtain the filehandle from the
-C<File::Temp> object. The object itself acts as a filehandle. Also,
-the object is configured such that it stringifies to the name of the
-temporary file, and can be compared to a filename directly. The object
+C<File::Temp> object. The object itself acts as a filehandle.  The object
 isa C<IO::Handle> and isa C<IO::Seekable> so all those methods are
 available.
+
+Also, the object is configured such that it stringifies to the name of the
+temporary file and so can be compared to a filename directly.  It numifies
+to the C<refaddr> the same as other handles and so can be compared to other
+handles with C<==>.
+
+    $fh eq $filename       # as a string
+    $fh != \*STDOUT        # as a number
 
 =over 4
 
@@ -1010,24 +1069,17 @@ sub new {
   my $proto = shift;
   my $class = ref($proto) || $proto;
 
-  # read arguments and convert keys to upper case
-  my %args = @_;
-  %args = map { uc($_), $args{$_} } keys %args;
+  my ($maybe_template, $args) = _parse_args(@_);
 
   # see if they are unlinking (defaulting to yes)
-  my $unlink = (exists $args{UNLINK} ? $args{UNLINK} : 1 );
-  delete $args{UNLINK};
-
-  # template (store it in an array so that it will
-  # disappear from the arg list of tempfile)
-  my @template = ( exists $args{TEMPLATE} ? $args{TEMPLATE} : () );
-  delete $args{TEMPLATE};
+  my $unlink = (exists $args->{UNLINK} ? $args->{UNLINK} : 1 );
+  delete $args->{UNLINK};
 
   # Protect OPEN
-  delete $args{OPEN};
+  delete $args->{OPEN};
 
   # Open the file and retain file handle and file name
-  my ($fh, $path) = tempfile( @template, %args );
+  my ($fh, $path) = tempfile( @$maybe_template, %$args );
 
   print "Tmp: $fh - $path\n" if $DEBUG;
 
@@ -1038,7 +1090,7 @@ sub new {
   $FILES_CREATED_BY_OBJECT{$$}{$path} = 1;
 
   # Store unlink information in hash slot (plus other constructor info)
-  %{*$fh} = %args;
+  %{*$fh} = %$args;
 
   # create the object
   bless $fh, $class;
@@ -1062,26 +1114,29 @@ created with this method default to CLEANUP => 1.
 
   $dir = File::Temp->newdir( $template, %options );
 
+A template may be specified either with a leading template or
+with a TEMPLATE argument.
+
 =cut
 
 sub newdir {
   my $self = shift;
 
-  # need to handle args as in tempdir because we have to force CLEANUP
-  # default without passing CLEANUP to tempdir
-  my $template = (scalar(@_) % 2 == 1 ? shift(@_) : undef );
-  my %options = @_;
-  my $cleanup = (exists $options{CLEANUP} ? $options{CLEANUP} : 1 );
+  my ($maybe_template, $args) = _parse_args(@_);
 
-  delete $options{CLEANUP};
+  # handle CLEANUP without passing CLEANUP to tempdir
+  my $cleanup = (exists $args->{CLEANUP} ? $args->{CLEANUP} : 1 );
+  delete $args->{CLEANUP};
 
-  my $tempdir;
-  if (defined $template) {
-    $tempdir = tempdir( $template, %options );
-  } else {
-    $tempdir = tempdir( %options );
-  }
+  my $tempdir = tempdir( @$maybe_template, %$args);
+
+  # get a safe absolute path for cleanup, just like
+  # happens in _deferred_unlink
+  my $real_dir = Cwd::abs_path( $tempdir );
+  ($real_dir) = $real_dir =~ /^(.*)$/;
+
   return bless { DIRNAME => $tempdir,
+                 REALNAME => $real_dir,
                  CLEANUP => $cleanup,
                  LAUNCHPID => $$,
                }, "File::Temp::Dir";
@@ -1107,6 +1162,13 @@ sub filename {
 sub STRINGIFY {
   my $self = shift;
   return $self->filename;
+}
+
+# For reference, can't use '0+'=>\&Scalar::Util::refaddr directly because
+# refaddr() demands one parameter only, whereas overload.pm calls with three
+# even for unary operations like '0+'.
+sub NUMIFY {
+  return refaddr($_[0]);
 }
 
 =item B<dirname>
@@ -1140,7 +1202,7 @@ sub unlink_on_destroy {
 =item B<DESTROY>
 
 When the object goes out of scope, the destructor is called. This
-destructor will attempt to unlink the file (using C<unlink1>)
+destructor will attempt to unlink the file (using L<unlink1|"unlink1">)
 if the constructor was called with UNLINK set to 1 (the default state
 if UNLINK is not specified).
 
@@ -1149,9 +1211,12 @@ No error is given if the unlink fails.
 If the object has been passed to a child process during a fork, the
 file will be deleted when the object goes out of scope in the parent.
 
-For a temporary directory object the directory will be removed
-unless the CLEANUP argument was used in the constructor (and set to
-false) or C<unlink_on_destroy> was modified after creation.
+For a temporary directory object the directory will be removed unless
+the CLEANUP argument was used in the constructor (and set to false) or
+C<unlink_on_destroy> was modified after creation.  Note that if a temp
+directory is your current directory, it cannot be removed - a warning
+will be given in this case.  C<chdir()> out of the directory before
+letting the object go out of scope.
 
 If the global variable $KEEP_ALL is true, the file or directory
 will not be removed.
@@ -1293,7 +1358,9 @@ Will croak() if there is an error.
 =cut
 
 sub tempfile {
-
+  if ( @_ && $_[0] eq 'File::Temp' ) {
+      croak "'tempfile' can't be called as a method";
+  }
   # Can not check for argument count since we can have any
   # number of args
 
@@ -1308,10 +1375,11 @@ sub tempfile {
                 );
 
   # Check to see whether we have an odd or even number of arguments
-  my $template = (scalar(@_) % 2 == 1 ? shift(@_) : undef);
+  my ($maybe_template, $args) = _parse_args(@_);
+  my $template = @$maybe_template ? $maybe_template->[0] : undef;
 
   # Read the options and merge with defaults
-  %options = (%options, @_)  if @_;
+  %options = (%options, %$args);
 
   # First decision is whether or not to open the file
   if (! $options{"OPEN"}) {
@@ -1378,7 +1446,7 @@ sub tempfile {
 
   # Create the file
   my ($fh, $path, $errstr);
-  croak "Error in tempfile() using $template: $errstr"
+  croak "Error in tempfile() using template $template: $errstr"
     unless (($fh, $path) = _gettemp($template,
                                     "open" => $options{'OPEN'},
                                     "mkdir"=> 0 ,
@@ -1484,6 +1552,9 @@ Will croak() if there is an error.
 # '
 
 sub tempdir  {
+  if ( @_ && $_[0] eq 'File::Temp' ) {
+      croak "'tempdir' can't be called as a method";
+  }
 
   # Can not check for argument count since we can have any
   # number of args
@@ -1496,10 +1567,11 @@ sub tempdir  {
                 );
 
   # Check to see whether we have an odd or even number of arguments
-  my $template = (scalar(@_) % 2 == 1 ? shift(@_) : undef );
+  my ($maybe_template, $args) = _parse_args(@_);
+  my $template = @$maybe_template ? $maybe_template->[0] : undef;
 
   # Read the options and merge with defaults
-  %options = (%options, @_)  if @_;
+  %options = (%options, %$args);
 
   # Modify or generate the template
 
@@ -1976,15 +2048,14 @@ sub unlink0 {
     # Make sure that the link count is zero
     # - Cygwin provides deferred unlinking, however,
     #   on Win9x the link count remains 1
-    # On NFS the link count may still be 1 but we cant know that
-    # we are on NFS
-    return ( $fh[3] == 0 or $^O eq 'cygwin' ? 1 : 0);
+    # On NFS the link count may still be 1 but we can't know that
+    # we are on NFS.  Since we can't be sure, we'll defer it
 
-  } else {
-    _deferred_unlink($fh, $path, 0);
-    return 1;
+    return 1 if $fh[3] == 0 || $^O eq 'cygwin';
   }
-
+  # fall-through if we can't unlink now
+  _deferred_unlink($fh, $path, 0);
+  return 1;
 }
 
 =item B<cmpstat>
@@ -2135,6 +2206,11 @@ when the process exits but can be triggered manually if the caller is sure
 that none of the temp files are required. This method can be registered as
 an Apache callback.
 
+Note that if a temp directory is your current directory, it cannot be
+removed.  C<chdir()> out of the directory first before calling
+C<cleanup()>. (For the cleanup at program exit when the CLEANUP flag
+is set, this happens automatically.)
+
 On OSes where temp files are automatically removed when the temp file
 is closed, calling this function will have no effect other than to remove
 temporary directories (which may include temporary files).
@@ -2230,7 +2306,7 @@ simply examine the return value of C<safe_level>.
       if (($level != STANDARD) && ($level != MEDIUM) && ($level != HIGH)) {
         carp "safe_level: Specified level ($level) not STANDARD, MEDIUM or HIGH - ignoring\n" if $^W;
       } else {
-        # Dont allow this on perl 5.005 or earlier
+        # Don't allow this on perl 5.005 or earlier
         if ($] < 5.006 && $level != STANDARD) {
           # Cant do MEDIUM or HIGH checks
           croak "Currently requires perl 5.006 or newer to do the safe checks";
@@ -2316,10 +2392,12 @@ conditions.  It's far more secure to use the filehandle alone and
 dispense with the filename altogether.
 
 If you need to pass the handle to something that expects a filename
-then, on a unix system, use C<"/dev/fd/" . fileno($fh)> for arbitrary
-programs, or more generally C<< "+<=&" . fileno($fh) >> for Perl
-programs.  You will have to clear the close-on-exec bit on that file
-descriptor before passing it to another process.
+then on a unix system you can use C<"/dev/fd/" . fileno($fh)> for
+arbitrary programs. Perl code that uses the 2-argument version of
+C<< open >> can be passed C<< "+<=&" . fileno($fh) >>. Otherwise you
+will need to pass the filename. You will have to clear the
+close-on-exec bit on that file descriptor before passing it to another
+process.
 
     use Fcntl qw/F_SETFD F_GETFD/;
     fcntl($tmpfh, F_SETFD, 0)
@@ -2355,6 +2433,11 @@ Note that if you have chdir'ed into the temporary directory and it is
 subsequently cleaned up (either in the END block or as part of object
 destruction), then you will get a warning from File::Path::rmtree().
 
+=head2 Taint mode
+
+If you need to run code under taint mode, updating to the latest
+L<File::Spec> is highly recommended.
+
 =head2 BINMODE
 
 The file returned by File::Temp will have been opened in binary mode
@@ -2387,7 +2470,7 @@ the C<tempdir> function.
 
 Tim Jenness E<lt>tjenness@cpan.orgE<gt>
 
-Copyright (C) 2007-2009 Tim Jenness.
+Copyright (C) 2007-2010 Tim Jenness.
 Copyright (C) 1999-2007 Tim Jenness and the UK Particle Physics and
 Astronomy Research Council. All Rights Reserved.  This program is free
 software; you can redistribute it and/or modify it under the same
@@ -2404,7 +2487,9 @@ package File::Temp::Dir;
 
 use File::Path qw/ rmtree /;
 use strict;
-use overload '""' => "STRINGIFY", fallback => 1;
+use overload '""' => "STRINGIFY",
+  '0+' => \&File::Temp::NUMIFY,
+  fallback => 1;
 
 # private class specifically to support tempdir objects
 # created by File::Temp->newdir
@@ -2437,12 +2522,12 @@ sub DESTROY {
   local($., $@, $!, $^E, $?);
   if ($self->unlink_on_destroy && 
       $$ == $self->{LAUNCHPID} && !$File::Temp::KEEP_ALL) {
-    if (-d $self->{DIRNAME}) {
+    if (-d $self->{REALNAME}) {
       # Some versions of rmtree will abort if you attempt to remove
       # the directory you are sitting in. We protect that and turn it
       # into a warning. We do this because this occurs during object
       # destruction and so can not be caught by the user.
-      eval { rmtree($self->{DIRNAME}, $File::Temp::DEBUG, 0); };
+      eval { rmtree($self->{REALNAME}, $File::Temp::DEBUG, 0); };
       warn $@ if ($@ && $^W);
     }
   }
@@ -2450,3 +2535,5 @@ sub DESTROY {
 
 
 1;
+
+# vim: ts=2 sts=2 sw=2 et:

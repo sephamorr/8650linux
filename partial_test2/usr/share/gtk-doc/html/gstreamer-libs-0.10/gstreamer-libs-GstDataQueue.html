@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GstDataQueue</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GStreamer 0.10 Library Reference Manual">
 <link rel="up" href="gstreamer-base.html" title="GStreamer Base and Utillity Classes">
 <link rel="prev" href="gstreamer-libs-GstTypeFindHelper.html" title="GstTypeFindHelper">
@@ -93,8 +93,11 @@ any <a href="../gstreamer-0.10/GstElement.html"><span class="type">GstElement</s
 <p>
 Opaque <a class="link" href="gstreamer-libs-GstDataQueue.html#GstDataQueue" title="struct GstDataQueue"><span class="type">GstDataQueue</span></a> structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="type">GObject</span> <em class="structfield"><code><a name="GstDataQueue.object"></a>object</code></em>;</span></p></td>
 <td>the parent structure</td>
@@ -114,8 +117,11 @@ Opaque <a class="link" href="gstreamer-libs-GstDataQueue.html#GstDataQueue" titl
 <p>
 Structure describing the size of a queue.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><span class="type">guint</span> <em class="structfield"><code><a name="GstDataQueueSize.visible"></a>visible</code></em>;</span></p></td>
@@ -145,8 +151,11 @@ Structure describing the size of a queue.
 The prototype of the function used to inform the queue that it should be
 considered as full.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -194,8 +203,11 @@ considered as full.
 Structure used by <a class="link" href="gstreamer-libs-GstDataQueue.html#GstDataQueue" title="struct GstDataQueue"><span class="type">GstDataQueue</span></a>. You can supply a different structure, as
 long as the top of the structure is identical to this structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="../gstreamer-0.10/gstreamer-GstMiniObject.html#GstMiniObject"><span class="type">GstMiniObject</span></a> *<em class="structfield"><code><a name="GstDataQueueItem.object"></a>object</code></em>;</span></p></td>
@@ -242,8 +254,11 @@ This function should also drop the reference to <em class="parameter"><code>obje
 <a name="gst-data-queue-new"></a><h3>gst_data_queue_new ()</h3>
 <pre class="programlisting"><a class="link" href="gstreamer-libs-GstDataQueue.html#GstDataQueue" title="struct GstDataQueue"><span class="returnvalue">GstDataQueue</span></a> *      gst_data_queue_new                  (<em class="parameter"><code><a class="link" href="gstreamer-libs-GstDataQueue.html#GstDataQueueCheckFullFunction" title="GstDataQueueCheckFullFunction ()"><span class="type">GstDataQueueCheckFullFunction</span></a> checkfull</code></em>,
                                                          <em class="parameter"><code><span class="type">gpointer</span> checkdata</code></em>);</pre>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>checkfull</code></em> :</span></p></td>
@@ -273,8 +288,11 @@ Creates a new <a class="link" href="gstreamer-libs-GstDataQueue.html#GstDataQueu
 not emit the 'full' and 'empty' signals, but instead calling directly <em class="parameter"><code>fullcallback</code></em>
 or <em class="parameter"><code>emptycallback</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>checkfull</code></em> :</span></p></td>
@@ -318,8 +336,11 @@ and <a href="../gstreamer-0.10/GstPad.html#gst-pad-push-event"><code class="func
 the <a href="../gstreamer-0.10/gstreamer-GstMiniObject.html#GstMiniObject"><span class="type">GstMiniObject</span></a> contained in <em class="parameter"><code>item</code></em> if the push was successful. If FALSE
 is returned, the caller is responsible for freeing <em class="parameter"><code>item</code></em> and its contents.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -349,8 +370,11 @@ empty, the call will block until at least one item is available, OR the
 <em class="parameter"><code>queue</code></em> is set to the flushing state.
 MT safe.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -378,8 +402,11 @@ Flushes all the contents of the <em class="parameter"><code>queue</code></em>. A
 <a class="link" href="gstreamer-libs-GstDataQueue.html#gst-data-queue-pop" title="gst_data_queue_pop ()"><span class="type">gst_data_queue_pop</span></a> will be released.
 MT safe.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
 <td>a <a class="link" href="gstreamer-libs-GstDataQueue.html#GstDataQueue" title="struct GstDataQueue"><span class="type">GstDataQueue</span></a>.</td>
@@ -402,8 +429,11 @@ all calls to those two functions will return <span class="type">FALSE</span>.
 <p>
 MT Safe.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -425,8 +455,11 @@ MT Safe.
 <p>
 Pop and unref the head-most <a href="../gstreamer-0.10/gstreamer-GstMiniObject.html#GstMiniObject"><span class="type">GstMiniObject</span></a> with the given <span class="type">GType</span>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -453,8 +486,11 @@ Queries if <em class="parameter"><code>queue</code></em> is full. This check wil
 <a class="link" href="gstreamer-libs-GstDataQueue.html#GstDataQueueCheckFullFunction" title="GstDataQueueCheckFullFunction ()"><span class="type">GstDataQueueCheckFullFunction</span></a> registered with <em class="parameter"><code>queue</code></em>.
 MT safe.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -477,8 +513,11 @@ MT safe.
 Queries if there are any items in the <em class="parameter"><code>queue</code></em>.
 MT safe.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -501,8 +540,11 @@ MT safe.
 <p>
 Get the current level of the queue.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
@@ -525,8 +567,11 @@ Get the current level of the queue.
 Inform the queue that the limits for the fullness check have changed and that
 any blocking <a class="link" href="gstreamer-libs-GstDataQueue.html#gst-data-queue-push" title="gst_data_queue_push ()"><code class="function">gst_data_queue_push()</code></a> should be unblocked to recheck the limts.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
 <td>The <a class="link" href="gstreamer-libs-GstDataQueue.html#GstDataQueue" title="struct GstDataQueue"><span class="type">GstDataQueue</span></a>

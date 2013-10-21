@@ -16,12 +16,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GTK_RECENT_CHOOSER_MENU_H__
+#define __GTK_RECENT_CHOOSER_MENU_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_RECENT_CHOOSER_MENU_H__
-#define __GTK_RECENT_CHOOSER_MENU_H__
 
 #include <gtk/gtkmenu.h>
 #include <gtk/gtkrecentchooser.h>
@@ -58,12 +58,17 @@ struct _GtkRecentChooserMenuClass
   void (* gtk_recent4) (void);
 };
 
+GDK_AVAILABLE_IN_ALL
 GType      gtk_recent_chooser_menu_get_type         (void) G_GNUC_CONST;
 
+GDK_AVAILABLE_IN_ALL
 GtkWidget *gtk_recent_chooser_menu_new              (void);
+GDK_AVAILABLE_IN_ALL
 GtkWidget *gtk_recent_chooser_menu_new_for_manager  (GtkRecentManager     *manager);
 
+GDK_AVAILABLE_IN_ALL
 gboolean   gtk_recent_chooser_menu_get_show_numbers (GtkRecentChooserMenu *menu);
+GDK_AVAILABLE_IN_ALL
 void       gtk_recent_chooser_menu_set_show_numbers (GtkRecentChooserMenu *menu,
 						     gboolean              show_numbers);
 

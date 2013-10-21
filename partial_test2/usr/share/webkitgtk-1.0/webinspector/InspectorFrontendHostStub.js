@@ -32,10 +32,13 @@ if (!window.InspectorFrontendHost) {
 
 /**
  * @constructor
+ * @implements {InspectorFrontendHostAPI}
  */
 WebInspector.InspectorFrontendHostStub = function()
 {
     this._attachedWindowHeight = 0;
+    this.isStub = true;
+    WebInspector.documentCopyEventFired = this.documentCopy.bind(this);
 }
 
 WebInspector.InspectorFrontendHostStub.prototype = {
@@ -100,7 +103,7 @@ WebInspector.InspectorFrontendHostStub.prototype = {
 
     hiddenPanels: function()
     {
-        return "";
+        return WebInspector.queryParamsObject["hiddenPanels"] || "";
     },
 
     inspectedURLChanged: function(url)
@@ -108,8 +111,22 @@ WebInspector.InspectorFrontendHostStub.prototype = {
         document.title = WebInspector.UIString(Preferences.applicationTitle, url);
     },
 
-    copyText: function()
+    documentCopy: function(event)
     {
+        if (!this._textToCopy)
+            return;
+        event.clipboardData.setData("text", this._textToCopy);
+        event.preventDefault();
+        delete this._textToCopy;
+    },
+
+    copyText: function(text)
+    {
+        this._textToCopy = text;
+        if (!document.execCommand("copy")) {
+            var screen = new WebInspector.ClipboardAccessDeniedScreen();
+            screen.showModal();
+        }
     },
 
     openInNewTab: function(url)
@@ -117,12 +134,12 @@ WebInspector.InspectorFrontendHostStub.prototype = {
         window.open(url, "_blank");
     },
 
-    canSaveAs: function(fileName, content)
+    canSave: function()
     {
         return true;
     },
 
-    saveAs: function(fileName, content)
+    save: function(url, content, forceSaveAs)
     {
         var builder = new WebKitBlobBuilder();
         builder.append(content);
@@ -136,9 +153,13 @@ WebInspector.InspectorFrontendHostStub.prototype = {
         fr.readAsDataURL(blob);
     },
 
-    canAttachWindow: function()
+    canAppend: function()
     {
         return false;
+    },
+
+    append: function(url, content)
+    {
     },
 
     sendMessageToBackend: function(message)
@@ -159,11 +180,43 @@ WebInspector.InspectorFrontendHostStub.prototype = {
 
     loadResourceSynchronously: function(url)
     {
-        return "";
+        return loadXHR(url);
+    },
+
+    setZoomFactor: function(zoom)
+    {
+    },
+
+    canInspectWorkers: function()
+    {
+        return true;
     }
 }
 
-var InspectorFrontendHost = new WebInspector.InspectorFrontendHostStub();
+InspectorFrontendHost = new WebInspector.InspectorFrontendHostStub();
 Preferences.localizeUI = false;
+
+// Default implementation; platforms will override.
+WebInspector.clipboardAccessDeniedMessage = function()
+{
+    return "";
+}
+
+/**
+ * @constructor
+ * @extends {WebInspector.HelpScreen}
+ */
+WebInspector.ClipboardAccessDeniedScreen = function()
+{
+    WebInspector.HelpScreen.call(this, WebInspector.UIString("Clipboard access is denied"));
+    var platformMessage = WebInspector.clipboardAccessDeniedMessage();
+    if (platformMessage) {
+        var p = this.contentElement.createChild("p");
+        p.addStyleClass("help-section");
+        p.textContent = platformMessage;
+    }
+}
+
+WebInspector.ClipboardAccessDeniedScreen.prototype.__proto__ = WebInspector.HelpScreen.prototype;
 
 }

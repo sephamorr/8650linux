@@ -46,6 +46,11 @@ webkit_plugin_error_get_type(void);
 WEBKIT_API GType
 webkit_cache_model_get_type(void);
 
+#define WEBKIT_TYPE_CONTEXT_MENU_ACTION webkit_context_menu_action_get_type()
+
+WEBKIT_API GType
+webkit_context_menu_action_get_type(void);
+
 #include <webkit/webkithittestresult.h>
 
 #define WEBKIT_TYPE_HIT_TEST_RESULT_CONTEXT webkit_hit_test_result_context_get_type()

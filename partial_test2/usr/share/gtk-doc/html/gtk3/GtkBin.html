@@ -2,34 +2,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>GtkBin</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>GTK+ 3 Reference Manual: GtkBin</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GTK+ 3 Reference Manual">
 <link rel="up" href="AbstractObjects.html" title="Abstract Base Classes">
 <link rel="prev" href="GtkContainer.html" title="GtkContainer">
 <link rel="next" href="GtkMenuShell.html" title="GtkMenuShell">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="GtkContainer.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="AbstractObjects.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GTK+ 3 Reference Manual</th>
-<td><a accesskey="n" href="GtkMenuShell.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#GtkBin.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#GtkBin.description" class="shortcut">Description</a>
                    | 
                   <a href="#GtkBin.object-hierarchy" class="shortcut">Object Hierarchy</a>
                    | 
                   <a href="#GtkBin.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="AbstractObjects.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="GtkContainer.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="GtkMenuShell.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="GtkBin"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -51,8 +48,8 @@ struct              <a class="link" href="GtkBin.html#GtkBin-struct" title="stru
 <div class="refsect1">
 <a name="GtkBin.object-hierarchy"></a><h2>Object Hierarchy</h2>
 <pre class="synopsis">
-  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
-   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="../gobject/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
          +----<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
                +----<a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
                      +----GtkBin
@@ -65,9 +62,12 @@ struct              <a class="link" href="GtkBin.html#GtkBin-struct" title="stru
                            +----<a class="link" href="GtkEventBox.html" title="GtkEventBox">GtkEventBox</a>
                            +----<a class="link" href="GtkExpander.html" title="GtkExpander">GtkExpander</a>
                            +----<a class="link" href="GtkHandleBox.html" title="GtkHandleBox">GtkHandleBox</a>
+                           +----<a class="link" href="GtkListBox.html#GtkListBoxRow">GtkListBoxRow</a>
                            +----<a class="link" href="GtkToolItem.html" title="GtkToolItem">GtkToolItem</a>
                            +----<a class="link" href="GtkOverlay.html" title="GtkOverlay">GtkOverlay</a>
                            +----<a class="link" href="GtkScrolledWindow.html" title="GtkScrolledWindow">GtkScrolledWindow</a>
+                           +----<a class="link" href="GtkRevealer.html" title="GtkRevealer">GtkRevealer</a>
+                           +----<a class="link" href="GtkSearchBar.html" title="GtkSearchBar">GtkSearchBar</a>
                            +----<a class="link" href="GtkViewport.html" title="GtkViewport">GtkViewport</a>
 </pre>
 </div>
@@ -100,12 +100,15 @@ Many GTK+ widgets are subclasses of <a class="link" href="GtkBin.html" title="Gt
 <a name="gtk-bin-get-child"></a><h3>gtk_bin_get_child ()</h3>
 <pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_bin_get_child                   (<em class="parameter"><code><a class="link" href="GtkBin.html" title="GtkBin"><span class="type">GtkBin</span></a> *bin</code></em>);</pre>
 <p>
-Gets the child of the <a class="link" href="GtkBin.html" title="GtkBin"><span class="type">GtkBin</span></a>, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the bin contains
+Gets the child of the <a class="link" href="GtkBin.html" title="GtkBin"><span class="type">GtkBin</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the bin contains
 no child widget. The returned widget does not have a reference
 added, so you do not need to unref it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
@@ -124,6 +127,6 @@ added, so you do not need to unref it.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

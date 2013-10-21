@@ -8,7 +8,9 @@
 package Config;
 use strict;
 use warnings;
-use vars '%Config';
+use vars '%Config', '$VERSION';
+
+$VERSION = "5.018001";
 
 # Skip @Config::EXPORT because it only contains %Config, which we special
 # case below as it's not a function. @Config::EXPORT won't change in the
@@ -54,11 +56,11 @@ sub import {
     return;
 }
 
-die "Perl lib version (5.16.0) doesn't match executable '$0' version ($])"
+die "Perl lib version (5.18.1) doesn't match executable '$0' version ($])"
     unless $^V;
 
-$^V eq 5.16.0
-    or die "Perl lib version (5.16.0) doesn't match executable '$0' version (" .
+$^V eq 5.18.1
+    or die "Perl lib version (5.18.1) doesn't match executable '$0' version (" .
 	sprintf("v%vd",$^V) . ")";
 
 
@@ -97,7 +99,7 @@ tie %Config, 'Config', {
     ldlibpthname => 'LD_LIBRARY_PATH',
     libpth => '/usr/local/lib /lib /usr/lib',
     osname => 'linux',
-    osvers => '3.1.10-9-arch',
+    osvers => '3.2.34-1-farm',
     path_sep => ':',
     privlibexp => '/usr/share/perl5/core_perl',
     scriptdir => '/usr/bin/core_perl',
@@ -106,5 +108,5 @@ tie %Config, 'Config', {
     so => 'so',
     useithreads => 'define',
     usevendorprefix => 'define',
-    version => '5.16.0',
+    version => '5.18.1',
 };

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GstSegment</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GStreamer 0.10 Core Reference Manual">
 <link rel="up" href="libgstreamer.html" title="GStreamer Core Library">
 <link rel="prev" href="GstRegistry.html" title="GstRegistry">
@@ -106,7 +106,7 @@ interest in a media file, called a segment.
 <p>
 The structure can be used for two purposes:
 </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem"><p>performing seeks (handling seek events)</p></li>
 <li class="listitem"><p>tracking playback regions (handling newsegment events)</p></li>
 </ul></div>
@@ -190,8 +190,11 @@ Last reviewed on 2007-05-17 (0.10.13)
 A helper structure that holds the configured region of
 interest in a media file.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><span class="type">gdouble</span> <em class="structfield"><code><a name="GstSegment.rate"></a>rate</code></em>;</span></p></td>
@@ -268,8 +271,11 @@ respectively, the region fell partially in the segment.
 Note that when <em class="parameter"><code>stop</code></em> is -1, <em class="parameter"><code>clip_stop</code></em> will be set to the end of the
 segment. Depending on the use case, this may or may not be what you want.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>segment</code></em> :</span></p></td>
@@ -319,8 +325,11 @@ flags are set.
 <p>
 Initialize <em class="parameter"><code>segment</code></em> to its default values.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>segment</code></em> :</span></p></td>
@@ -344,8 +353,11 @@ Allocate a new <a class="link" href="gstreamer-GstSegment.html#GstSegment" title
 <p>
 Free-function: gst_segment_free
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a new <a class="link" href="gstreamer-GstSegment.html#GstSegment" title="struct GstSegment"><span class="type">GstSegment</span></a>, free with <a class="link" href="gstreamer-GstSegment.html#gst-segment-free" title="gst_segment_free ()"><code class="function">gst_segment_free()</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
@@ -363,8 +375,11 @@ Create a copy of given <em class="parameter"><code>segment</code></em>.
 <p>
 Free-function: gst_segment_free
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>segment</code></em> :</span></p></td>
@@ -387,8 +402,11 @@ Free-function: gst_segment_free
 <p>
 Free the allocated segment <em class="parameter"><code>segment</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>segment</code></em> :</span></p></td>
 <td>a <a class="link" href="gstreamer-GstSegment.html#GstSegment" title="struct GstSegment"><span class="type">GstSegment</span></a>. <span class="annotation">[<acronym title="Parameter for input. Default is transfer none."><span class="acronym">in</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
@@ -411,8 +429,11 @@ segment.
 This field should be set to allow seeking requests relative to the
 duration.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>segment</code></em> :</span></p></td>
@@ -442,8 +463,11 @@ Set the last observed stop position in the segment to <em class="parameter"><cod
 This field should be set to allow seeking requests relative to the
 current playing position.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>segment</code></em> :</span></p></td>
@@ -474,8 +498,11 @@ current playing position.
 Update the segment structure with the field values of a new segment event and
 with a default applied_rate of 1.0.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>segment</code></em> :</span></p></td>
@@ -523,8 +550,11 @@ with a default applied_rate of 1.0.
 <p>
 Update the segment structure with the field values of a new segment event.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>segment</code></em> :</span></p></td>
@@ -607,8 +637,11 @@ rate and applied_rate after calling this function.
 last_stop field. This field can be FALSE if, for example, only the <em class="parameter"><code>rate</code></em>
 has been changed but not the playback position.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>segment</code></em> :</span></p></td>
@@ -669,8 +702,11 @@ starting from 0. When <a class="link" href="gstreamer-GstSegment.html#gst-segmen
 <p>
 This function returns -1 if the position is outside of <em class="parameter"><code>segment</code></em> start and stop.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>segment</code></em> :</span></p></td>
@@ -711,8 +747,11 @@ clock time that one wants to convert to the stream time.
 The stream time is always between 0 and the total duration of the 
 media stream.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>segment</code></em> :</span></p></td>
@@ -744,8 +783,11 @@ was given.</td>
 Convert <em class="parameter"><code>running_time</code></em> into a position in the segment so that
 <a class="link" href="gstreamer-GstSegment.html#gst-segment-to-running-time" title="gst_segment_to_running_time ()"><code class="function">gst_segment_to_running_time()</code></a> with that position returns <em class="parameter"><code>running_time</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>segment</code></em> :</span></p></td>
@@ -778,8 +820,11 @@ Convert <em class="parameter"><code>running_time</code></em> into a position in 
 Adjust the start/stop and accum values of <em class="parameter"><code>segment</code></em> such that the next valid
 buffer will be one with <em class="parameter"><code>running_time</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>segment</code></em> :</span></p></td>

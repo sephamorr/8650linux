@@ -2,30 +2,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Events</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>GDK 3 Reference Manual: Events</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GDK 3 Reference Manual">
 <link rel="up" href="reference.html" title="API Reference">
-<link rel="prev" href="gdk3-Windows.html" title="Windows">
+<link rel="prev" href="gdk3-GdkFrameTimings.html" title="Frame timings">
 <link rel="next" href="gdk3-Event-Structures.html" title="Event Structures">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="gdk3-Windows.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="reference.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GDK 3 Reference Manual</th>
-<td><a accesskey="n" href="gdk3-Event-Structures.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#gdk3-Events.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#gdk3-Events.description" class="shortcut">Description</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="reference.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="gdk3-GdkFrameTimings.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="gdk3-Event-Structures.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="gdk3-Events"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -51,61 +48,63 @@ enum                <a class="link" href="gdk3-Events.html#GdkEventMask" title="
 #define             <a class="link" href="gdk3-Events.html#GDK-BUTTON-MIDDLE:CAPS" title="GDK_BUTTON_MIDDLE">GDK_BUTTON_MIDDLE</a>
 #define             <a class="link" href="gdk3-Events.html#GDK-BUTTON-SECONDARY:CAPS" title="GDK_BUTTON_SECONDARY">GDK_BUTTON_SECONDARY</a>
 
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-events-pending" title="gdk_events_pending ()">gdk_events_pending</a>                  (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-events-pending" title="gdk_events_pending ()">gdk_events_pending</a>                  (<em class="parameter"><code><span class="type">void</span></code></em>);
 <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="returnvalue">GdkEvent</span></a> *          <a class="link" href="gdk3-Events.html#gdk-event-peek" title="gdk_event_peek ()">gdk_event_peek</a>                      (<em class="parameter"><code><span class="type">void</span></code></em>);
 <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="returnvalue">GdkEvent</span></a> *          <a class="link" href="gdk3-Events.html#gdk-event-get" title="gdk_event_get ()">gdk_event_get</a>                       (<em class="parameter"><code><span class="type">void</span></code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gdk3-Events.html#gdk-event-put" title="gdk_event_put ()">gdk_event_put</a>                       (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);
 <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="returnvalue">GdkEvent</span></a> *          <a class="link" href="gdk3-Events.html#gdk-event-new" title="gdk_event_new ()">gdk_event_new</a>                       (<em class="parameter"><code><a class="link" href="gdk3-Events.html#GdkEventType" title="enum GdkEventType"><span class="type">GdkEventType</span></a> type</code></em>);
 <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="returnvalue">GdkEvent</span></a> *          <a class="link" href="gdk3-Events.html#gdk-event-copy" title="gdk_event_copy ()">gdk_event_copy</a>                      (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gdk3-Events.html#gdk-event-free" title="gdk_event_free ()">gdk_event_free</a>                      (<em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-get-axis" title="gdk_event_get_axis ()">gdk_event_get_axis</a>                  (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-get-axis" title="gdk_event_get_axis ()">gdk_event_get_axis</a>                  (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GdkDevice.html#GdkAxisUse" title="enum GdkAxisUse"><span class="type">GdkAxisUse</span></a> axis_use</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *value</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-get-button" title="gdk_event_get_button ()">gdk_event_get_button</a>                (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *button</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-get-click-count" title="gdk_event_get_click_count ()">gdk_event_get_click_count</a>           (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *click_count</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-get-coords" title="gdk_event_get_coords ()">gdk_event_get_coords</a>                (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *x_win</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *y_win</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-get-keycode" title="gdk_event_get_keycode ()">gdk_event_get_keycode</a>               (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"><span class="type">guint16</span></a> *keycode</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-get-keyval" title="gdk_event_get_keyval ()">gdk_event_get_keyval</a>                (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *keyval</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-get-root-coords" title="gdk_event_get_root_coords ()">gdk_event_get_root_coords</a>           (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *x_root</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *y_root</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-get-scroll-direction" title="gdk_event_get_scroll_direction ()">gdk_event_get_scroll_direction</a>      (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *value</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-get-button" title="gdk_event_get_button ()">gdk_event_get_button</a>                (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *button</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-get-click-count" title="gdk_event_get_click_count ()">gdk_event_get_click_count</a>           (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *click_count</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-get-coords" title="gdk_event_get_coords ()">gdk_event_get_coords</a>                (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *x_win</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *y_win</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-get-keycode" title="gdk_event_get_keycode ()">gdk_event_get_keycode</a>               (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint16"><span class="type">guint16</span></a> *keycode</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-get-keyval" title="gdk_event_get_keyval ()">gdk_event_get_keyval</a>                (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *keyval</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-get-root-coords" title="gdk_event_get_root_coords ()">gdk_event_get_root_coords</a>           (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *x_root</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *y_root</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-get-scroll-direction" title="gdk_event_get_scroll_direction ()">gdk_event_get_scroll_direction</a>      (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkScrollDirection" title="enum GdkScrollDirection"><span class="type">GdkScrollDirection</span></a> *direction</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-get-scroll-deltas" title="gdk_event_get_scroll_deltas ()">gdk_event_get_scroll_deltas</a>         (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *delta_x</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *delta_y</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-get-state" title="gdk_event_get_state ()">gdk_event_get_state</a>                 (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-get-scroll-deltas" title="gdk_event_get_scroll_deltas ()">gdk_event_get_scroll_deltas</a>         (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *delta_x</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *delta_y</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-get-state" title="gdk_event_get_state ()">gdk_event_get_state</a>                 (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkModifierType" title="enum GdkModifierType"><span class="type">GdkModifierType</span></a> *state</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             <a class="link" href="gdk3-Events.html#gdk-event-get-time" title="gdk_event_get_time ()">gdk_event_get_time</a>                  (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);
+<a href="../glib/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             <a class="link" href="gdk3-Events.html#gdk-event-get-time" title="gdk_event_get_time ()">gdk_event_get_time</a>                  (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);
+<a class="link" href="gdk3-Windows.html#GdkWindow"><span class="returnvalue">GdkWindow</span></a> *         <a class="link" href="gdk3-Events.html#gdk-event-get-window" title="gdk_event_get_window ()">gdk_event_get_window</a>                (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);
+<a class="link" href="gdk3-Events.html#GdkEventType" title="enum GdkEventType"><span class="returnvalue">GdkEventType</span></a>        <a class="link" href="gdk3-Events.html#gdk-event-get-event-type" title="gdk_event_get_event_type ()">gdk_event_get_event_type</a>            (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);
                     <a class="link" href="gdk3-Events.html#GdkEventSequence" title="GdkEventSequence">GdkEventSequence</a>;
 <a class="link" href="gdk3-Events.html#GdkEventSequence" title="GdkEventSequence"><span class="returnvalue">GdkEventSequence</span></a> *  <a class="link" href="gdk3-Events.html#gdk-event-get-event-sequence" title="gdk_event_get_event_sequence ()">gdk_event_get_event_sequence</a>        (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gdk3-Events.html#gdk-event-request-motions" title="gdk_event_request_motions ()">gdk_event_request_motions</a>           (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEventMotion" title="struct GdkEventMotion"><span class="type">GdkEventMotion</span></a> *event</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-events-get-angle" title="gdk_events_get_angle ()">gdk_events_get_angle</a>                (<em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event1</code></em>,
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-events-get-angle" title="gdk_events_get_angle ()">gdk_events_get_angle</a>                (<em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event1</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event2</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *angle</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-events-get-center" title="gdk_events_get_center ()">gdk_events_get_center</a>               (<em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event1</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *angle</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-events-get-center" title="gdk_events_get_center ()">gdk_events_get_center</a>               (<em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event1</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event2</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *x</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *y</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-events-get-distance" title="gdk_events_get_distance ()">gdk_events_get_distance</a>             (<em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event1</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *x</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *y</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-events-get-distance" title="gdk_events_get_distance ()">gdk_events_get_distance</a>             (<em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event1</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event2</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *distance</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-triggers-context-menu" title="gdk_event_triggers_context_menu ()">gdk_event_triggers_context_menu</a>     (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *distance</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-event-triggers-context-menu" title="gdk_event_triggers_context_menu ()">gdk_event_triggers_context_menu</a>     (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);
 
 <span class="returnvalue">void</span>                <a class="link" href="gdk3-Events.html#gdk-event-handler-set" title="gdk_event_handler_set ()">gdk_event_handler_set</a>               (<em class="parameter"><code><a class="link" href="gdk3-Events.html#GdkEventFunc" title="GdkEventFunc ()"><span class="type">GdkEventFunc</span></a> func</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> notify</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> notify</code></em>);
 <span class="returnvalue">void</span>                (<a class="link" href="gdk3-Events.html#GdkEventFunc" title="GdkEventFunc ()">*GdkEventFunc</a>)                     (<em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);
 
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-get-show-events" title="gdk_get_show_events ()">gdk_get_show_events</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
-<span class="returnvalue">void</span>                <a class="link" href="gdk3-Events.html#gdk-set-show-events" title="gdk_set_show_events ()">gdk_set_show_events</a>                 (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> show_events</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-get-show-events" title="gdk_get_show_events ()">gdk_get_show_events</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gdk3-Events.html#gdk-set-show-events" title="gdk_set_show_events ()">gdk_set_show_events</a>                 (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> show_events</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gdk3-Events.html#gdk-event-set-screen" title="gdk_event_set_screen ()">gdk_event_set_screen</a>                (<em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GdkScreen.html" title="GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>);
 <a class="link" href="GdkScreen.html" title="GdkScreen"><span class="returnvalue">GdkScreen</span></a> *         <a class="link" href="gdk3-Events.html#gdk-event-get-screen" title="gdk_event_get_screen ()">gdk_event_get_screen</a>                (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);
@@ -116,8 +115,8 @@ enum                <a class="link" href="gdk3-Events.html#GdkEventMask" title="
 <span class="returnvalue">void</span>                <a class="link" href="gdk3-Events.html#gdk-event-set-source-device" title="gdk_event_set_source_device ()">gdk_event_set_source_device</a>         (<em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a> *device</code></em>);
 
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-setting-get" title="gdk_setting_get ()">gdk_setting_get</a>                     (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *value</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk3-Events.html#gdk-setting-get" title="gdk_setting_get ()">gdk_setting_get</a>                     (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code><a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *value</code></em>);
 </pre>
 </div>
 <div class="refsect1">
@@ -128,9 +127,9 @@ system.
 </p>
 <p>
 In GTK+ applications the events are handled automatically in
-<a href="http://library.gnome.org/devel/gtk3/gtk-General.html#gtk-main-do-event"><code class="function">gtk_main_do_event()</code></a> and passed on to the appropriate widgets, so these
+<a href="../gtk3/gtk3-General.html#gtk-main-do-event"><code class="function">gtk_main_do_event()</code></a> and passed on to the appropriate widgets, so these
 functions are rarely needed. Though some of the fields in the
-<a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html">Event Structures</a> are useful.
+Event Structures are useful.
 </p>
 </div>
 <div class="refsect1">
@@ -145,7 +144,9 @@ functions are rarely needed. Though some of the fields in the
   GDK_MOTION_NOTIFY = 3,
   GDK_BUTTON_PRESS = 4,
   GDK_2BUTTON_PRESS = 5,
+  GDK_DOUBLE_BUTTON_PRESS = GDK_2BUTTON_PRESS,
   GDK_3BUTTON_PRESS = 6,
+  GDK_TRIPLE_BUTTON_PRESS = GDK_3BUTTON_PRESS,
   GDK_BUTTON_RELEASE = 7,
   GDK_KEY_PRESS		= 8,
   GDK_KEY_RELEASE = 9,
@@ -190,8 +191,19 @@ Do not confuse these events with the signals that GTK+ widgets emit.
 Although many of these events result in corresponding signals being emitted,
 the events are often transformed or filtered along the way.
 </p>
-<div class="variablelist"><table border="0">
+<p>
+In some language bindings, the values <a class="link" href="gdk3-Events.html#GDK-2BUTTON-PRESS:CAPS"><code class="literal">GDK_2BUTTON_PRESS</code></a> and
+<a class="link" href="gdk3-Events.html#GDK-3BUTTON-PRESS:CAPS"><code class="literal">GDK_3BUTTON_PRESS</code></a> would translate into something syntactically
+invalid (eg <code class="literal">Gdk.EventType.2ButtonPress</code>, where a
+symbol is not allowed to start with a number). In that case, the
+aliases <a class="link" href="gdk3-Events.html#GDK-DOUBLE-BUTTON-PRESS:CAPS"><code class="literal">GDK_DOUBLE_BUTTON_PRESS</code></a> and <a class="link" href="gdk3-Events.html#GDK-TRIPLE-BUTTON-PRESS:CAPS"><code class="literal">GDK_TRIPLE_BUTTON_PRESS</code></a> can
+be used instead.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="GDK-NOTHING:CAPS"></a><span class="term"><code class="literal">GDK_NOTHING</code></span></p></td>
@@ -234,9 +246,19 @@ the events are often transformed or filtered along the way.
 </td>
 </tr>
 <tr>
+<td><p><a name="GDK-DOUBLE-BUTTON-PRESS:CAPS"></a><span class="term"><code class="literal">GDK_DOUBLE_BUTTON_PRESS</code></span></p></td>
+<td>alias for <a class="link" href="gdk3-Events.html#GDK-2BUTTON-PRESS:CAPS"><code class="literal">GDK_2BUTTON_PRESS</code></a>, added in 3.6.
+</td>
+</tr>
+<tr>
 <td><p><a name="GDK-3BUTTON-PRESS:CAPS"></a><span class="term"><code class="literal">GDK_3BUTTON_PRESS</code></span></p></td>
 <td>a mouse button has been clicked 3 times in a short period
   of time. Note that each click also generates a <a class="link" href="gdk3-Events.html#GDK-BUTTON-PRESS:CAPS"><code class="literal">GDK_BUTTON_PRESS</code></a> event.
+</td>
+</tr>
+<tr>
+<td><p><a name="GDK-TRIPLE-BUTTON-PRESS:CAPS"></a><span class="term"><code class="literal">GDK_TRIPLE_BUTTON_PRESS</code></span></p></td>
+<td>alias for <a class="link" href="gdk3-Events.html#GDK-3BUTTON-PRESS:CAPS"><code class="literal">GDK_3BUTTON_PRESS</code></a>, added in 3.6.
 </td>
 </tr>
 <tr>
@@ -467,7 +489,7 @@ event is received each time the mouse moves. However, if the application
 spends a lot of time processing the event (updating the display, for example),
 it can lag behind the position of the mouse. When using
 <a class="link" href="gdk3-Events.html#GDK-POINTER-MOTION-HINT-MASK:CAPS"><code class="literal">GDK_POINTER_MOTION_HINT_MASK</code></a>, fewer <a class="link" href="gdk3-Events.html#GDK-MOTION-NOTIFY:CAPS"><code class="literal">GDK_MOTION_NOTIFY</code></a> events will be sent,
-some of which are marked as a hint (the is_hint member is <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>).
+some of which are marked as a hint (the is_hint member is <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>).
 To receive more motion events after a motion hint event, the application
 needs to asks for more, by calling <a class="link" href="gdk3-Events.html#gdk-event-request-motions" title="gdk_event_request_motions ()"><code class="function">gdk_event_request_motions()</code></a>.
 </p>
@@ -479,8 +501,11 @@ type <a class="link" href="gdk3-Events.html#GDK-TOUCH-BEGIN:CAPS"><code class="l
 <a class="link" href="gdk3-Events.html#gdk-event-get-event-sequence" title="gdk_event_get_event_sequence ()"><code class="function">gdk_event_get_event_sequence()</code></a> returns the event sequence for these
 events, so different sequences may be distinguished.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="GDK-EXPOSURE-MASK:CAPS"></a><span class="term"><code class="literal">GDK_EXPOSURE_MASK</code></span></p></td>
@@ -590,12 +615,12 @@ events, so different sequences may be distinguished.
 </tr>
 <tr>
 <td><p><a name="GDK-TOUCH-MASK:CAPS"></a><span class="term"><code class="literal">GDK_TOUCH_MASK</code></span></p></td>
-<td>receive touch events
+<td>receive touch events. Since 3.4
 </td>
 </tr>
 <tr>
 <td><p><a name="GDK-SMOOTH-SCROLL-MASK:CAPS"></a><span class="term"><code class="literal">GDK_SMOOTH_SCROLL_MASK</code></span></p></td>
-<td>receive smooth scrolling events
+<td>receive smooth scrolling events. Since 3.4
 </td>
 </tr>
 <tr>
@@ -621,7 +646,7 @@ Represents the current time, and can be used anywhere a time is expected.
 <pre class="programlisting">#define             GDK_PRIORITY_EVENTS</pre>
 <p>
 This is the priority that events from the X server are given in the
-<a href="http://library.gnome.org/devel/glib/unstable/glib-The-Main-Event-Loop.html">GLib Main Loop</a>.
+<a href="../glib/glib-The-Main-Event-Loop.html">GLib Main Loop</a>.
 </p>
 </div>
 <hr>
@@ -632,7 +657,7 @@ This is the priority that events from the X server are given in the
 <p>
 This is the priority that the idle handler processing window updates
 is given in the
-<a href="http://library.gnome.org/devel/glib/unstable/glib-The-Main-Event-Loop.html">GLib Main Loop</a>.
+<a href="../glib/glib-The-Main-Event-Loop.html">GLib Main Loop</a>.
 </p>
 </div>
 <hr>
@@ -692,16 +717,19 @@ left button in a left-handed setup.
 <hr>
 <div class="refsect2">
 <a name="gdk-events-pending"></a><h3>gdk_events_pending ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_events_pending                  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_events_pending                  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>
 Checks if any events are ready to be processed for any display.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if any events are pending.</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if any events are pending.</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -713,11 +741,14 @@ Checks if any events are ready to be processed for any display.
 If there is an event waiting in the event queue of some open
 display, returns a copy of it. See <a class="link" href="GdkDisplay.html#gdk-display-peek-event" title="gdk_display_peek_event ()"><code class="function">gdk_display_peek_event()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a copy of the first <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> on some event queue, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no
+<td>a copy of the first <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> on some event queue, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no
 events are in any queues. The returned <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> should be freed with
 <a class="link" href="gdk3-Events.html#gdk-event-free" title="gdk_event_free ()"><code class="function">gdk_event_free()</code></a>.</td>
 </tr></tbody>
@@ -732,11 +763,14 @@ Checks all open displays for a <a class="link" href="gdk3-Event-Structures.html#
 on, fetching events from the windowing system if necessary.
 See <a class="link" href="GdkDisplay.html#gdk-display-get-event" title="gdk_display_get_event ()"><code class="function">gdk_display_get_event()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the next <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> to be processed, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no events
+<td>the next <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> to be processed, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no events
 are pending. The returned <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> should be freed with <a class="link" href="gdk3-Events.html#gdk-event-free" title="gdk_event_free ()"><code class="function">gdk_event_free()</code></a>.</td>
 </tr></tbody>
 </table></div>
@@ -748,10 +782,13 @@ are pending. The returned <a class="link" href="gdk3-Event-Structures.html#GdkEv
 <p>
 Appends a copy of the given event onto the front of the event
 queue for event-&gt;any.window's display, or the default event
-queue if event-&gt;any.window is <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. See <a class="link" href="GdkDisplay.html#gdk-display-put-event" title="gdk_display_put_event ()"><code class="function">gdk_display_put_event()</code></a>.
+queue if event-&gt;any.window is <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. See <a class="link" href="GdkDisplay.html#gdk-display-put-event" title="gdk_display_put_event ()"><code class="function">gdk_display_put_event()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
 <td>a <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a>.</td>
@@ -765,8 +802,11 @@ queue if event-&gt;any.window is <a href="http://library.gnome.org/devel/glib/un
 <p>
 Creates a new event of the given type. All fields are set to 0.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -790,8 +830,11 @@ should be freed with <a class="link" href="gdk3-Events.html#gdk-event-free" titl
 Copies a <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a>, copying or incrementing the reference count of the
 resources associated with it (e.g. <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>'s and strings).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -816,8 +859,11 @@ Note that this function should only be called with events returned from
 functions such as <a class="link" href="gdk3-Events.html#gdk-event-peek" title="gdk_event_peek ()"><code class="function">gdk_event_peek()</code></a>, <a class="link" href="gdk3-Events.html#gdk-event-get" title="gdk_event_get ()"><code class="function">gdk_event_get()</code></a>, <a class="link" href="gdk3-Events.html#gdk-event-copy" title="gdk_event_copy ()"><code class="function">gdk_event_copy()</code></a>
 and <a class="link" href="gdk3-Events.html#gdk-event-new" title="gdk_event_new ()"><code class="function">gdk_event_new()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
 <td>a <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a>.</td>
@@ -827,15 +873,18 @@ and <a class="link" href="gdk3-Events.html#gdk-event-new" title="gdk_event_new (
 <hr>
 <div class="refsect2">
 <a name="gdk-event-get-axis"></a><h3>gdk_event_get_axis ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_get_axis                  (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_get_axis                  (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GdkDevice.html#GdkAxisUse" title="enum GdkAxisUse"><span class="type">GdkAxisUse</span></a> axis_use</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *value</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *value</code></em>);</pre>
 <p>
 Extract the axis value for a particular axis use from
 an event structure.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -854,7 +903,7 @@ an event structure.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the specified axis was found, otherwise <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the specified axis was found, otherwise <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>
 </td>
 </tr>
 </tbody>
@@ -863,13 +912,16 @@ an event structure.
 <hr>
 <div class="refsect2">
 <a name="gdk-event-get-button"></a><h3>gdk_event_get_button ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_get_button                (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *button</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_get_button                (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *button</code></em>);</pre>
 <p>
 Extract the button number from an event.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -884,7 +936,7 @@ Extract the button number from an event.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event delivered a button number</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event delivered a button number</td>
 </tr>
 </tbody>
 </table></div>
@@ -893,13 +945,16 @@ Extract the button number from an event.
 <hr>
 <div class="refsect2">
 <a name="gdk-event-get-click-count"></a><h3>gdk_event_get_click_count ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_get_click_count           (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *click_count</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_get_click_count           (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *click_count</code></em>);</pre>
 <p>
 Extracts the click count from an event.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -914,7 +969,7 @@ Extracts the click count from an event.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event delivered a click count</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event delivered a click count</td>
 </tr>
 </tbody>
 </table></div>
@@ -923,14 +978,17 @@ Extracts the click count from an event.
 <hr>
 <div class="refsect2">
 <a name="gdk-event-get-coords"></a><h3>gdk_event_get_coords ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_get_coords                (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *x_win</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *y_win</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_get_coords                (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *x_win</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *y_win</code></em>);</pre>
 <p>
 Extract the event window relative x/y coordinates from an event.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -950,7 +1008,7 @@ Extract the event window relative x/y coordinates from an event.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event delivered event window coordinates</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event delivered event window coordinates</td>
 </tr>
 </tbody>
 </table></div>
@@ -958,13 +1016,16 @@ Extract the event window relative x/y coordinates from an event.
 <hr>
 <div class="refsect2">
 <a name="gdk-event-get-keycode"></a><h3>gdk_event_get_keycode ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_get_keycode               (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint16"><span class="type">guint16</span></a> *keycode</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_get_keycode               (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint16"><span class="type">guint16</span></a> *keycode</code></em>);</pre>
 <p>
 Extracts the hardware keycode from an event.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -979,7 +1040,7 @@ Extracts the hardware keycode from an event.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event delivered a hardware keycode</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event delivered a hardware keycode</td>
 </tr>
 </tbody>
 </table></div>
@@ -988,13 +1049,16 @@ Extracts the hardware keycode from an event.
 <hr>
 <div class="refsect2">
 <a name="gdk-event-get-keyval"></a><h3>gdk_event_get_keyval ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_get_keyval                (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *keyval</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_get_keyval                (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *keyval</code></em>);</pre>
 <p>
 Extracts the keyval from an event.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -1009,7 +1073,7 @@ Extracts the keyval from an event.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event delivered a key symbol</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event delivered a key symbol</td>
 </tr>
 </tbody>
 </table></div>
@@ -1018,14 +1082,17 @@ Extracts the keyval from an event.
 <hr>
 <div class="refsect2">
 <a name="gdk-event-get-root-coords"></a><h3>gdk_event_get_root_coords ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_get_root_coords           (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *x_root</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *y_root</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_get_root_coords           (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *x_root</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *y_root</code></em>);</pre>
 <p>
 Extract the root window relative x/y coordinates from an event.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -1045,7 +1112,7 @@ Extract the root window relative x/y coordinates from an event.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event delivered root window coordinates</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event delivered root window coordinates</td>
 </tr>
 </tbody>
 </table></div>
@@ -1053,13 +1120,16 @@ Extract the root window relative x/y coordinates from an event.
 <hr>
 <div class="refsect2">
 <a name="gdk-event-get-scroll-direction"></a><h3>gdk_event_get_scroll_direction ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_get_scroll_direction      (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_get_scroll_direction      (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkScrollDirection" title="enum GdkScrollDirection"><span class="type">GdkScrollDirection</span></a> *direction</code></em>);</pre>
 <p>
 Extracts the scroll direction from an event.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -1074,7 +1144,7 @@ Extracts the scroll direction from an event.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event delivered a scroll direction</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event delivered a scroll direction</td>
 </tr>
 </tbody>
 </table></div>
@@ -1083,14 +1153,17 @@ Extracts the scroll direction from an event.
 <hr>
 <div class="refsect2">
 <a name="gdk-event-get-scroll-deltas"></a><h3>gdk_event_get_scroll_deltas ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_get_scroll_deltas         (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *delta_x</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *delta_y</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_get_scroll_deltas         (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *delta_x</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *delta_y</code></em>);</pre>
 <p>
 Retrieves the scroll deltas from a <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -1099,16 +1172,18 @@ Retrieves the scroll deltas from a <a class="link" href="gdk3-Event-Structures.h
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>delta_x</code></em> :</span></p></td>
-<td>return location for X delta</td>
+<td>return location for X delta. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>delta_y</code></em> :</span></p></td>
-<td>return location for Y delta</td>
+<td>return location for Y delta. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event contains smooth scroll information</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event contains smooth scroll information</td>
 </tr>
 </tbody>
 </table></div>
@@ -1117,16 +1192,19 @@ Retrieves the scroll deltas from a <a class="link" href="gdk3-Event-Structures.h
 <hr>
 <div class="refsect2">
 <a name="gdk-event-get-state"></a><h3>gdk_event_get_state ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_get_state                 (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_get_state                 (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gdk3-Windows.html#GdkModifierType" title="enum GdkModifierType"><span class="type">GdkModifierType</span></a> *state</code></em>);</pre>
 <p>
 If the event contains a "state" field, puts that field in <em class="parameter"><code>state</code></em>. Otherwise
-stores an empty state (0). Returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if there was a state field
-in the event. <em class="parameter"><code>event</code></em> may be <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, in which case it's treated
+stores an empty state (0). Returns <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if there was a state field
+in the event. <em class="parameter"><code>event</code></em> may be <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, in which case it's treated
 as if the event had no state field.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -1140,7 +1218,7 @@ as if the event had no state field.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if there was a state field in the event</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if there was a state field in the event</td>
 </tr>
 </tbody>
 </table></div>
@@ -1148,12 +1226,15 @@ as if the event had no state field.
 <hr>
 <div class="refsect2">
 <a name="gdk-event-get-time"></a><h3>gdk_event_get_time ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             gdk_event_get_time                  (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#guint32"><span class="returnvalue">guint32</span></a>             gdk_event_get_time                  (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);</pre>
 <p>
-returns <a class="link" href="gdk3-Events.html#GDK-CURRENT-TIME:CAPS" title="GDK_CURRENT_TIME"><span class="type">GDK_CURRENT_TIME</span></a>. If <em class="parameter"><code>event</code></em> is <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, returns <a class="link" href="gdk3-Events.html#GDK-CURRENT-TIME:CAPS" title="GDK_CURRENT_TIME"><span class="type">GDK_CURRENT_TIME</span></a>.
+returns <a class="link" href="gdk3-Events.html#GDK-CURRENT-TIME:CAPS" title="GDK_CURRENT_TIME"><span class="type">GDK_CURRENT_TIME</span></a>. If <em class="parameter"><code>event</code></em> is <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, returns <a class="link" href="gdk3-Events.html#GDK-CURRENT-TIME:CAPS" title="GDK_CURRENT_TIME"><span class="type">GDK_CURRENT_TIME</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -1170,6 +1251,60 @@ returns <a class="link" href="gdk3-Events.html#GDK-CURRENT-TIME:CAPS" title="GDK
 </div>
 <hr>
 <div class="refsect2">
+<a name="gdk-event-get-window"></a><h3>gdk_event_get_window ()</h3>
+<pre class="programlisting"><a class="link" href="gdk3-Windows.html#GdkWindow"><span class="returnvalue">GdkWindow</span></a> *         gdk_event_get_window                (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);</pre>
+<p>
+Extracts the <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> associated with an event.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>a <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The <a class="link" href="gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> associated with the event. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.10</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-event-get-event-type"></a><h3>gdk_event_get_event_type ()</h3>
+<pre class="programlisting"><a class="link" href="gdk3-Events.html#GdkEventType" title="enum GdkEventType"><span class="returnvalue">GdkEventType</span></a>        gdk_event_get_event_type            (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);</pre>
+<p>
+Retrieves the type of the event.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>a <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a class="link" href="gdk3-Events.html#GdkEventType" title="enum GdkEventType"><span class="type">GdkEventType</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.10</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="GdkEventSequence"></a><h3>GdkEventSequence</h3>
 <pre class="programlisting">typedef struct _GdkEventSequence GdkEventSequence;</pre>
 </div>
@@ -1180,10 +1315,13 @@ returns <a class="link" href="gdk3-Events.html#GDK-CURRENT-TIME:CAPS" title="GDK
 <p>
 If <em class="parameter"><code>event</code></em> if of type <a class="link" href="gdk3-Events.html#GDK-TOUCH-BEGIN:CAPS"><code class="literal">GDK_TOUCH_BEGIN</code></a>, <a class="link" href="gdk3-Events.html#GDK-TOUCH-UPDATE:CAPS"><code class="literal">GDK_TOUCH_UPDATE</code></a>,
 <a class="link" href="gdk3-Events.html#GDK-TOUCH-END:CAPS"><code class="literal">GDK_TOUCH_END</code></a> or <a class="link" href="gdk3-Events.html#GDK-TOUCH-CANCEL:CAPS"><code class="literal">GDK_TOUCH_CANCEL</code></a>, returns the <a class="link" href="gdk3-Events.html#GdkEventSequence" title="GdkEventSequence"><span class="type">GdkEventSequence</span></a>
-to which the event belongs. Otherwise, return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+to which the event belongs. Otherwise, return <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -1239,8 +1377,11 @@ motion events from a <a class="link" href="gdk3-Events.html#GDK-MOTION-NOTIFY:CA
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
 <td>a valid <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a>
@@ -1252,17 +1393,20 @@ motion events from a <a class="link" href="gdk3-Events.html#GDK-MOTION-NOTIFY:CA
 <hr>
 <div class="refsect2">
 <a name="gdk-events-get-angle"></a><h3>gdk_events_get_angle ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_events_get_angle                (<em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event1</code></em>,
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_events_get_angle                (<em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event1</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event2</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *angle</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *angle</code></em>);</pre>
 <p>
-If both events contain X/Y information, this function will return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>
+If both events contain X/Y information, this function will return <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>
 and return in <em class="parameter"><code>angle</code></em> the relative angle from <em class="parameter"><code>event1</code></em> to <em class="parameter"><code>event2</code></em>. The rotation
 direction for positive angles is from the positive X axis towards the positive
 Y axis.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event1</code></em> :</span></p></td>
@@ -1282,7 +1426,7 @@ Y axis.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the angle could be calculated.</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the angle could be calculated.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1291,16 +1435,19 @@ Y axis.
 <hr>
 <div class="refsect2">
 <a name="gdk-events-get-center"></a><h3>gdk_events_get_center ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_events_get_center               (<em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event1</code></em>,
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_events_get_center               (<em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event1</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event2</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *x</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *y</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *x</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *y</code></em>);</pre>
 <p>
 If both events contain X/Y information, the center of both coordinates
 will be returned in <em class="parameter"><code>x</code></em> and <em class="parameter"><code>y</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event1</code></em> :</span></p></td>
@@ -1325,7 +1472,7 @@ will be returned in <em class="parameter"><code>x</code></em> and <em class="par
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the center could be calculated.</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the center could be calculated.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1334,15 +1481,18 @@ will be returned in <em class="parameter"><code>x</code></em> and <em class="par
 <hr>
 <div class="refsect2">
 <a name="gdk-events-get-distance"></a><h3>gdk_events_get_distance ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_events_get_distance             (<em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event1</code></em>,
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_events_get_distance             (<em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event1</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event2</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *distance</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> *distance</code></em>);</pre>
 <p>
 If both events have X/Y information, the distance between both coordinates
 (as in a straight line going from <em class="parameter"><code>event1</code></em> to <em class="parameter"><code>event2</code></em>) will be returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event1</code></em> :</span></p></td>
@@ -1362,7 +1512,7 @@ If both events have X/Y information, the distance between both coordinates
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the distance could be calculated.</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the distance could be calculated.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1371,7 +1521,7 @@ If both events have X/Y information, the distance between both coordinates
 <hr>
 <div class="refsect2">
 <a name="gdk-event-triggers-context-menu"></a><h3>gdk_event_triggers_context_menu ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_triggers_context_menu     (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_event_triggers_context_menu     (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);</pre>
 <p>
 This function returns whether a <a class="link" href="gdk3-Event-Structures.html#GdkEventButton" title="struct GdkEventButton"><span class="type">GdkEventButton</span></a> should trigger a
 context menu, according to platform conventions. The right mouse
@@ -1384,8 +1534,11 @@ also trigger a context menu if this modifier is pressed.
 This function should always be used instead of simply checking for
 event-&gt;button == <a class="link" href="gdk3-Events.html#GDK-BUTTON-SECONDARY:CAPS" title="GDK_BUTTON_SECONDARY"><code class="literal">GDK_BUTTON_SECONDARY</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -1394,7 +1547,7 @@ event-&gt;button == <a class="link" href="gdk3-Events.html#GDK-BUTTON-SECONDARY:
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event should trigger a context menu.</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the event should trigger a context menu.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1404,19 +1557,22 @@ event-&gt;button == <a class="link" href="gdk3-Events.html#GDK-BUTTON-SECONDARY:
 <div class="refsect2">
 <a name="gdk-event-handler-set"></a><h3>gdk_event_handler_set ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gdk_event_handler_set               (<em class="parameter"><code><a class="link" href="gdk3-Events.html#GdkEventFunc" title="GdkEventFunc ()"><span class="type">GdkEventFunc</span></a> func</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> notify</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> notify</code></em>);</pre>
 <p>
 Sets the function to call to handle all events from GDK.
 </p>
 <p>
 Note that GTK+ uses this to install its own event handler, so it is
 usually not useful for GTK+ applications. (Although an application
-can call this function then call <a href="http://library.gnome.org/devel/gtk3/gtk-General.html#gtk-main-do-event"><code class="function">gtk_main_do_event()</code></a> to pass
+can call this function then call <a href="../gtk3/gtk3-General.html#gtk-main-do-event"><code class="function">gtk_main_do_event()</code></a> to pass
 events to GTK+.)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
@@ -1438,13 +1594,16 @@ events to GTK+.)
 <div class="refsect2">
 <a name="GdkEventFunc"></a><h3>GdkEventFunc ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                (*GdkEventFunc)                     (<em class="parameter"><code><a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
 <p>
 Specifies the type of function passed to <a class="link" href="gdk3-Events.html#gdk-event-handler-set" title="gdk_event_handler_set ()"><code class="function">gdk_event_handler_set()</code></a> to
 handle all GDK events.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -1462,35 +1621,41 @@ handle all GDK events.
 <hr>
 <div class="refsect2">
 <a name="gdk-get-show-events"></a><h3>gdk_get_show_events ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_get_show_events                 (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_get_show_events                 (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>
 Gets whether event debugging output is enabled.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if event debugging output is enabled.</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if event debugging output is enabled.</td>
 </tr></tbody>
 </table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gdk-set-show-events"></a><h3>gdk_set_show_events ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gdk_set_show_events                 (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> show_events</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                gdk_set_show_events                 (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> show_events</code></em>);</pre>
 <p>
 Sets whether a trace of received events is output.
 Note that GTK+ must be compiled with debugging (that is,
 configured using the <code class="option">--enable-debug</code> option)
 to use this option.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>show_events</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> to output event debugging information.</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> to output event debugging information.</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -1504,8 +1669,11 @@ Sets the screen for <em class="parameter"><code>event</code></em> to <em class="
 have been allocated by GTK+, for instance, by
 <a class="link" href="gdk3-Events.html#gdk-event-copy" title="gdk_event_copy ()"><code class="function">gdk_event_copy()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -1534,8 +1702,11 @@ that is, the screen which has the root window
 to which <code class="literal">event-&gt;motion.x_root</code> and
 <code class="literal">event-&gt;motion.y_root</code> are relative.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -1557,10 +1728,13 @@ to which <code class="literal">event-&gt;motion.x_root</code> and
 <pre class="programlisting"><a class="link" href="GdkDevice.html" title="GdkDevice"><span class="returnvalue">GdkDevice</span></a> *         gdk_event_get_device                (<em class="parameter"><code>const <a class="link" href="gdk3-Event-Structures.html#GdkEvent" title="union GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>);</pre>
 <p>
 If the event contains a "device" field, this function will return
-it, else it will return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+it, else it will return <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -1568,7 +1742,7 @@ it, else it will return <a href="http://library.gnome.org/devel/glib/unstable/gl
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a>, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+<td>a <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1585,8 +1759,11 @@ Sets the device for <em class="parameter"><code>event</code></em> to <em class="
 have been allocated by GTK+, for instance, by
 <a class="link" href="gdk3-Events.html#gdk-event-copy" title="gdk_event_copy ()"><code class="function">gdk_event_copy()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -1616,10 +1793,13 @@ geometry or a grab is acquired/released.
 </p>
 <p>
 If the event does not contain a device field, this function will
-return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+return <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -1628,7 +1808,7 @@ return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macro
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a>, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+<td>a <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1647,8 +1827,11 @@ Sets the slave device for <em class="parameter"><code>event</code></em> to <em c
 The event must have been allocated by GTK+,
 for instance by <a class="link" href="gdk3-Events.html#gdk-event-copy" title="gdk_event_copy ()"><code class="function">gdk_event_copy()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
@@ -1667,14 +1850,17 @@ for instance by <a class="link" href="gdk3-Events.html#gdk-event-copy" title="gd
 <hr>
 <div class="refsect2">
 <a name="gdk-setting-get"></a><h3>gdk_setting_get ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_setting_get                     (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *value</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_setting_get                     (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code><a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *value</code></em>);</pre>
 <p>
 Obtains a desktop-wide setting, such as the double-click time,
 for the default screen. See <a class="link" href="GdkScreen.html#gdk-screen-get-setting" title="gdk_screen_get_setting ()"><code class="function">gdk_screen_get_setting()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -1687,8 +1873,8 @@ for the default screen. See <a class="link" href="GdkScreen.html#gdk-screen-get-
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the setting existed and a value was stored
-in <em class="parameter"><code>value</code></em>, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the setting existed and a value was stored
+in <em class="parameter"><code>value</code></em>, <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1696,11 +1882,11 @@ in <em class="parameter"><code>value</code></em>, <a href="http://library.gnome.
 </div>
 <div class="refsect1">
 <a name="gdk3-Events.see-also"></a><h2>See Also</h2>
-<a href="http://library.gnome.org/devel/gdk3/gdk-Event-Structures.html">Event Structures</a>
+Event Structures
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

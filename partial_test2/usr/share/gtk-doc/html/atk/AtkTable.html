@@ -3,25 +3,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AtkTable</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="ATK - Accessibility Toolkit">
 <link rel="up" href="atk.html" title="ATK Library">
 <link rel="prev" href="AtkStreamableContent.html" title="AtkStreamableContent">
 <link rel="next" href="AtkText.html" title="AtkText">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="AtkStreamableContent.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="atk.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">ATK - Accessibility Toolkit</th>
-<td><a accesskey="n" href="AtkText.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#AtkTable.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#AtkTable.description" class="shortcut">Description</a>
                    | 
@@ -30,15 +23,19 @@
                   <a href="#AtkTable.implementations" class="shortcut">Known Implementations</a>
                    | 
                   <a href="#AtkTable.signals" class="shortcut">Signals</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="atk.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="AtkStreamableContent.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="AtkText.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="AtkTable"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="AtkTable.top_of_page"></a>AtkTable</span></h2>
-<p>AtkTable — The ATK interface implemented for UI components which contain tabular or
-row/column information.</p>
+<p>AtkTable — The ATK interface implemented for UI components
+ which contain tabular or row/column information.</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -138,25 +135,25 @@ AtkTable is implemented by
 <div class="refsect1">
 <a name="AtkTable.description"></a><h2>Description</h2>
 <p>
-<a class="link" href="AtkTable.html" title="AtkTable"><span class="type">AtkTable</span></a> should be implemented by components which present elements
-ordered via rows and columns.  It may also be used to present
-tree-structured information if the nodes of the trees can be said to
-contain multiple "columns".  Individual elements of an <a class="link" href="AtkTable.html" title="AtkTable"><span class="type">AtkTable</span></a> are
-typically referred to as "cells", and these cells are exposed by
-<a class="link" href="AtkTable.html" title="AtkTable"><span class="type">AtkTable</span></a> as child <a href="AtkObject.html"><span class="type">AtkObjects</span></a> of the <a class="link" href="AtkTable.html" title="AtkTable"><span class="type">AtkTable</span></a>.  Both row/column and
-child-index-based access to these children is provided.
+<a class="link" href="AtkTable.html" title="AtkTable"><span class="type">AtkTable</span></a> should be implemented by components which present
+elements ordered via rows and columns.  It may also be used to
+present tree-structured information if the nodes of the trees can
+be said to contain multiple "columns".  Individual elements of an
+<a class="link" href="AtkTable.html" title="AtkTable"><span class="type">AtkTable</span></a> are typically referred to as "cells", and these cells are
+exposed by <a class="link" href="AtkTable.html" title="AtkTable"><span class="type">AtkTable</span></a> as child <a href="AtkObject.html"><span class="type">AtkObjects</span></a> of the <a class="link" href="AtkTable.html" title="AtkTable"><span class="type">AtkTable</span></a>.  Both
+row/column and child-index-based access to these children is
+provided.
 </p>
 <p>
-Children of <a class="link" href="AtkTable.html" title="AtkTable"><span class="type">AtkTable</span></a> are frequently "lightweight" objects, that is,
-they may not have backing widgets in the host UI toolkit.  They are
-therefore often transient.
-</p>
-<p>
-Since tables are often very complex, <a class="link" href="AtkTable.html" title="AtkTable"><span class="type">AtkTable</span></a> includes provision for
-offering simplified summary information, as well as row and column
-headers and captions.  Headers and captions are <a href="AtkObject.html"><span class="type">AtkObjects</span></a> which may
-implement other interfaces (<a class="link" href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a>, <a class="link" href="AtkImage.html" title="AtkImage"><span class="type">AtkImage</span></a>, etc.) as appropriate.
-<a class="link" href="AtkTable.html" title="AtkTable"><span class="type">AtkTable</span></a> summaries may themselves be (simplified) <a href="AtkTable.html"><span class="type">AtkTables</span></a>, etc.
+Children of <a class="link" href="AtkTable.html" title="AtkTable"><span class="type">AtkTable</span></a> are frequently "lightweight" objects, that
+is, they may not have backing widgets in the host UI toolkit.  They
+are therefore often transient.
+Since tables are often very complex, <a class="link" href="AtkTable.html" title="AtkTable"><span class="type">AtkTable</span></a> includes provision
+for offering simplified summary information, as well as row and
+column headers and captions.  Headers and captions are <a href="AtkObject.html"><span class="type">AtkObjects</span></a>
+which may implement other interfaces (<a class="link" href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a>, <a class="link" href="AtkImage.html" title="AtkImage"><span class="type">AtkImage</span></a>, etc.) as
+appropriate.  <a class="link" href="AtkTable.html" title="AtkTable"><span class="type">AtkTable</span></a> summaries may themselves be (simplified)
+<a href="AtkTable.html"><span class="type">AtkTables</span></a>, etc.
 </p>
 </div>
 <div class="refsect1">
@@ -165,7 +162,6 @@ implement other interfaces (<a class="link" href="AtkText.html" title="AtkText">
 <a name="AtkTable-struct"></a><h3>AtkTable</h3>
 <pre class="programlisting">typedef struct _AtkTable AtkTable;</pre>
 <p>
-The AtkTable structure does not contain any fields.
 </p>
 </div>
 <hr>
@@ -425,7 +421,7 @@ Gets the caption for the <em class="parameter"><code>table</code></em>.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a AtkObject* representing the table caption, or
-<a href="/opt/gnome3/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a> if value does not implement this interface. <span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>]</span>
+<code class="literal">NULL</code> if value does not implement this interface. <span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>]</span>
 </td>
 </tr>
 </tbody>
@@ -453,7 +449,7 @@ Gets the description text of the specified <em class="parameter"><code>column</c
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a gchar* representing the column description, or <a href="/opt/gnome3/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a>
+<td>a gchar* representing the column description, or <code class="literal">NULL</code>
 if value does not implement this interface.</td>
 </tr>
 </tbody>
@@ -481,7 +477,7 @@ Gets the description text of the specified row in the table
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a gchar* representing the row description, or <a href="/opt/gnome3/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a>
+<td>a gchar* representing the row description, or <code class="literal">NULL</code>
 if value does not implement this interface.</td>
 </tr>
 </tbody>
@@ -509,7 +505,7 @@ Gets the column header of a specified column in an accessible table.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a AtkObject* representing the specified column
-header, or <a href="/opt/gnome3/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a> if value does not implement this interface. <span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>]</span>
+header, or <code class="literal">NULL</code> if value does not implement this interface. <span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>]</span>
 </td>
 </tr>
 </tbody>
@@ -537,7 +533,7 @@ Gets the row header of a specified row in an accessible table.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a AtkObject* representing the specified row
-header, or <a href="/opt/gnome3/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a> if value does not implement this interface. <span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>]</span>
+header, or <code class="literal">NULL</code> if value does not implement this interface. <span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>]</span>
 </td>
 </tr>
 </tbody>
@@ -1002,8 +998,8 @@ the selection, or 0 if value does not implement this interface.</td>
                                                         <span class="type">gint</span>      arg2,
                                                         <span class="type">gpointer</span>  user_data)      : <code class="literal">Run Last</code></pre>
 <p>
-The "column-deleted" signal is emitted by an object which implements the
-AtkTable interface when a column is deleted.
+The "column-deleted" signal is emitted by an object which
+implements the AtkTable interface when a column is deleted.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1035,8 +1031,8 @@ AtkTable interface when a column is deleted.
                                                         <span class="type">gint</span>      arg2,
                                                         <span class="type">gpointer</span>  user_data)      : <code class="literal">Run Last</code></pre>
 <p>
-The "column-inserted" signal is emitted by an object which implements the
-AtkTable interface when a column is inserted.
+The "column-inserted" signal is emitted by an object which
+implements the AtkTable interface when a column is inserted.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1066,8 +1062,9 @@ AtkTable interface when a column is inserted.
 <pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="AtkTable.html" title="AtkTable"><span class="type">AtkTable</span></a> *atktable,
                                                         <span class="type">gpointer</span>  user_data)      : <code class="literal">Run Last</code></pre>
 <p>
-The "column-reordered" signal is emitted by an object which implements the
-AtkTable interface when the columns are reordered.
+The "column-reordered" signal is emitted by an object which
+implements the AtkTable interface when the columns are
+reordered.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1089,8 +1086,9 @@ AtkTable interface when the columns are reordered.
 <pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="AtkTable.html" title="AtkTable"><span class="type">AtkTable</span></a> *atktable,
                                                         <span class="type">gpointer</span>  user_data)      : <code class="literal">Run Last</code></pre>
 <p>
-The "model-changed" signal is emitted by an object which implements the
-AtkTable interface when the model displayed by the table changes.
+The "model-changed" signal is emitted by an object which
+implements the AtkTable interface when the model displayed by
+the table changes.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1114,8 +1112,8 @@ AtkTable interface when the model displayed by the table changes.
                                                         <span class="type">gint</span>      arg2,
                                                         <span class="type">gpointer</span>  user_data)      : <code class="literal">Run Last</code></pre>
 <p>
-The "row-deleted" signal is emitted by an object which implements the
-AtkTable interface when a row is deleted.
+The "row-deleted" signal is emitted by an object which
+implements the AtkTable interface when a row is deleted.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1147,8 +1145,8 @@ AtkTable interface when a row is deleted.
                                                         <span class="type">gint</span>      arg2,
                                                         <span class="type">gpointer</span>  user_data)      : <code class="literal">Run Last</code></pre>
 <p>
-The "row-inserted" signal is emitted by an object which implements the
-AtkTable interface when a row is inserted.
+The "row-inserted" signal is emitted by an object which
+implements the AtkTable interface when a row is inserted.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1178,8 +1176,9 @@ AtkTable interface when a row is inserted.
 <pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="AtkTable.html" title="AtkTable"><span class="type">AtkTable</span></a> *atktable,
                                                         <span class="type">gpointer</span>  user_data)      : <code class="literal">Run Last</code></pre>
 <p>
-The "row-reordered" signal is emitted by an object which implements the
-AtkTable interface when the rows are reordered.
+The "row-reordered" signal is emitted by an object which
+implements the AtkTable interface when the rows are
+reordered.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1196,15 +1195,9 @@ AtkTable interface when the rows are reordered.
 </table></div>
 </div>
 </div>
-<div class="refsect1">
-<a name="AtkTable.see-also"></a><h2>See Also</h2>
-<p>
-<a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a>, <a class="link" href="atk-AtkState.html#ATK-STATE-TRANSIENT:CAPS"><span class="type">ATK_STATE_TRANSIENT</span></a>
-</p>
-</div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

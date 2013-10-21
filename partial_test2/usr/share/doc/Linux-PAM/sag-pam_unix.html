@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>6.37. pam_unix - traditional password authentication</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.0"><link rel="home" href="Linux-PAM_SAG.html" title="The Linux-PAM System Administrators' Guide"><link rel="up" href="sag-module-reference.html" title="Chapter 6. A reference guide for available modules"><link rel="prev" href="sag-pam_umask.html" title="6.36. pam_umask - set the file mode creation mask"><link rel="next" href="sag-pam_userdb.html" title="6.38. pam_userdb - authenticate against a db database"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.37. pam_unix - traditional password authentication</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="sag-pam_umask.html">Prev</a> </td><th width="60%" align="center">Chapter 6. A reference guide for available modules</th><td width="20%" align="right"> <a accesskey="n" href="sag-pam_userdb.html">Next</a></td></tr></table><hr></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sag-pam_unix"></a>6.37. pam_unix - traditional password authentication</h2></div></div></div><div class="cmdsynopsis"><p><code class="command">pam_unix.so</code>  [
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>6.37. pam_unix - traditional password authentication</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="Linux-PAM_SAG.html" title="The Linux-PAM System Administrators' Guide"><link rel="up" href="sag-module-reference.html" title="Chapter 6. A reference guide for available modules"><link rel="prev" href="sag-pam_umask.html" title="6.36. pam_umask - set the file mode creation mask"><link rel="next" href="sag-pam_userdb.html" title="6.38. pam_userdb - authenticate against a db database"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.37. pam_unix - traditional password authentication</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="sag-pam_umask.html">Prev</a> </td><th width="60%" align="center">Chapter 6. A reference guide for available modules</th><td width="20%" align="right"> <a accesskey="n" href="sag-pam_userdb.html">Next</a></td></tr></table><hr></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sag-pam_unix"></a>6.37. pam_unix - traditional password authentication</h2></div></div></div><div class="cmdsynopsis"><p><code class="command">pam_unix.so</code>  [
         ...
       ]</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="sag-pam_unix-description"></a>6.37.1. DESCRIPTION</h3></div></div></div><p>
       This is the standard Unix authentication module. It uses standard
@@ -39,7 +39,9 @@
       needed for use with certain applications.
     </p><p>
       The password component of this module performs the task of updating
-      the user's password.
+      the user's password. The default encryption hash is taken from the
+      <span class="emphasis"><em>ENCRYPT_METHOD</em></span> variable from
+      <span class="emphasis"><em>/etc/login.defs</em></span>
     </p><p>
       The session component of this module logs when a user logins
       or leave the system.
@@ -107,6 +109,8 @@
             user are saved in <code class="filename">/etc/security/opasswd</code>
             in order to force password change history and keep the user
             from alternating between the same password too frequently.
+            Instead of this option the <span class="command"><strong>pam_pwhistory</strong></span>
+            module should be used.
           </p></dd><dt><span class="term">
           <code class="option">shadow</code>
         </span></dt><dd><p>

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GstBufferList</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GStreamer 0.10 Core Reference Manual">
 <link rel="up" href="libgstreamer.html" title="GStreamer Core Library">
 <link rel="prev" href="gstreamer-GstBuffer.html" title="GstBuffer">
@@ -124,7 +124,7 @@ follows:
 <p>
 </p>
 <div class="example">
-<a name="idp4563688"></a><p class="title"><b>Example 4. Creating a buffer list</b></p>
+<a name="idp6729704"></a><p class="title"><b>Example 4. Creating a buffer list</b></p>
 <div class="example-contents"><pre class="programlisting">
    GstBufferList *list;
    GstBufferListIterator *it;
@@ -152,7 +152,7 @@ The basic use pattern of iterating over a buffer list is as follows:
 <p>
 </p>
 <div class="example">
-<a name="idp4350800"></a><p class="title"><b>Example 5. Iterating a buffer list</b></p>
+<a name="idp6731648"></a><p class="title"><b>Example 5. Iterating a buffer list</b></p>
 <div class="example-contents"><pre class="programlisting">
    GstBufferListIterator *it;
 
@@ -173,7 +173,7 @@ The basic use pattern of modifying a buffer in a list is as follows:
 <p>
 </p>
 <div class="example">
-<a name="idp4352384"></a><p class="title"><b>Example 6. Modifying the data of the first buffer in a list</b></p>
+<a name="idp6419144"></a><p class="title"><b>Example 6. Modifying the data of the first buffer in a list</b></p>
 <div class="example-contents"><pre class="programlisting">
    GstBufferListIterator *it;
 
@@ -233,8 +233,11 @@ with the buffer returned from the function. The function takes ownership of
 unreffed. If NULL is returned, the buffer will be removed from the list. The
 list must be writable.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
@@ -266,8 +269,11 @@ the returned <a class="link" href="gstreamer-GstBufferList.html#GstBufferList" t
 <p>
 Free-function: gst_buffer_list_unref
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the new <a class="link" href="gstreamer-GstBufferList.html#GstBufferList" title="GstBufferList"><span class="type">GstBufferList</span></a>. <a class="link" href="gstreamer-GstBufferList.html#gst-buffer-list-unref" title="gst_buffer_list_unref ()"><code class="function">gst_buffer_list_unref()</code></a>
@@ -290,8 +296,11 @@ Note that the refcount affects the writeability of <em class="parameter"><code>l
 additional references to GstBufferList instances can potentially increase
 the number of memcpy operations in a pipeline.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
@@ -316,8 +325,11 @@ the number of memcpy operations in a pipeline.
 Decreases the refcount of the buffer list. If the refcount reaches 0, the
 buffer list will be freed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
 <td>a <a class="link" href="gstreamer-GstBufferList.html#GstBufferList" title="GstBufferList"><span class="type">GstBufferList</span></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
@@ -335,8 +347,11 @@ Create a shallow copy of the given buffer list. This will make a newly
 allocated copy of the source list with copies of buffer pointers. The
 refcount of buffers pointed to will be increased by one.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
@@ -360,8 +375,11 @@ refcount of buffers pointed to will be increased by one.
 <p>
 Tests if you can safely add buffers and groups into a buffer list.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
 <td>a <a class="link" href="gstreamer-GstBufferList.html#GstBufferList" title="GstBufferList"><span class="type">GstBufferList</span></a>
@@ -380,8 +398,11 @@ Makes a writable buffer list from the given buffer list. If the source buffer
 list is already writable, this will simply return the same buffer list. A
 copy will otherwise be made using <a class="link" href="gstreamer-GstBufferList.html#gst-buffer-list-copy" title="gst_buffer_list_copy ()"><code class="function">gst_buffer_list_copy()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
@@ -405,8 +426,11 @@ same as <em class="parameter"><code>list</code></em>. <span class="annotation">[
 <p>
 Returns the number of groups in <em class="parameter"><code>list</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
@@ -433,8 +457,11 @@ Returns the number of groups in <em class="parameter"><code>list</code></em>.
 <p>
 The result of the <a class="link" href="gstreamer-GstBufferList.html#GstBufferListFunc" title="GstBufferListFunc ()"><span class="type">GstBufferListFunc</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="GST-BUFFER-LIST-CONTINUE:CAPS"></a><span class="term"><code class="literal">GST_BUFFER_LIST_CONTINUE</code></span></p></td>
@@ -479,8 +506,11 @@ When <em class="parameter"><code>buffer</code></em> has been made writable, the 
 to <em class="parameter"><code>buffer</code></em>. This function is responsible for unreffing the old buffer when
 removing or modifying.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
@@ -524,8 +554,11 @@ Call <em class="parameter"><code>func</code></em> with <em class="parameter"><co
 of <em class="parameter"><code>func</code></em> define if this function returns or if the remaining buffers in a
 group should be skipped.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
@@ -559,8 +592,11 @@ Get the buffer at <em class="parameter"><code>idx</code></em> in <em class="para
 Note that this function is not efficient for iterating over the entire list.
 Use an iterator or <a class="link" href="gstreamer-GstBufferList.html#gst-buffer-list-foreach" title="gst_buffer_list_foreach ()"><code class="function">gst_buffer_list_foreach()</code></a> instead.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
@@ -597,8 +633,11 @@ owner of a reference to <em class="parameter"><code>list</code></em> while the r
 <p>
 Free-function: gst_buffer_list_iterator_free
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
@@ -622,8 +661,11 @@ Free-function: gst_buffer_list_iterator_free
 <p>
 Free the iterator.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>it</code></em> :</span></p></td>
 <td>the <a class="link" href="gstreamer-GstBufferList.html#GstBufferListIterator" title="GstBufferListIterator"><span class="type">GstBufferListIterator</span></a> to free. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
@@ -645,8 +687,11 @@ it returns NULL.
 This function will not move the implicit cursor or in any other way affect
 the state of the iterator <em class="parameter"><code>it</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>it</code></em> :</span></p></td>
@@ -676,8 +721,11 @@ will return the buffer after the inserted buffer, if any.
 <p>
 This function takes ownership of <em class="parameter"><code>buffer</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>it</code></em> :</span></p></td>
@@ -704,8 +752,11 @@ group is inserted immediately before the group that would be returned by
 <a class="link" href="gstreamer-GstBufferList.html#gst-buffer-list-iterator-next-group" title="gst_buffer_list_iterator_next_group ()"><code class="function">gst_buffer_list_iterator_next_group()</code></a> will advance the iterator to the group
 after the inserted group, if any.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>it</code></em> :</span></p></td>
 <td>a <a class="link" href="gstreamer-GstBufferList.html#GstBufferListIterator" title="GstBufferListIterator"><span class="type">GstBufferListIterator</span></a>
@@ -729,8 +780,11 @@ will return the buffer after the last buffer of the inserted list, if any.
 <p>
 This function takes ownership of <em class="parameter"><code>list</code></em> and all its buffers.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>it</code></em> :</span></p></td>
@@ -759,8 +813,11 @@ repeatedly to iterate through the current group.
 The caller will not get a new ref to the returned <a class="link" href="gstreamer-GstBuffer.html#GstBuffer" title="struct GstBuffer"><span class="type">GstBuffer</span></a> and must not
 unref it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>it</code></em> :</span></p></td>
@@ -786,8 +843,11 @@ Advance the iterator <em class="parameter"><code>it</code></em> to the first buf
 iterator is at the last group, FALSE will be returned. This function may be
 called repeatedly to iterate through the groups in a buffer list.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>it</code></em> :</span></p></td>
@@ -816,8 +876,11 @@ only be called once per call to <a class="link" href="gstreamer-GstBufferList.ht
 <p>
 The removed buffer is unreffed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>it</code></em> :</span></p></td>
 <td>a <a class="link" href="gstreamer-GstBufferList.html#GstBufferListIterator" title="GstBufferListIterator"><span class="type">GstBufferListIterator</span></a>
@@ -834,8 +897,11 @@ The removed buffer is unreffed.
 Returns the last buffer returned by <a class="link" href="gstreamer-GstBufferList.html#gst-buffer-list-iterator-next" title="gst_buffer_list_iterator_next ()"><code class="function">gst_buffer_list_iterator_next()</code></a> without
 modifying the refcount of the buffer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>it</code></em> :</span></p></td>
@@ -872,8 +938,11 @@ refcount of <em class="parameter"><code>buffer</code></em> is not increased).
 <p>
 FIXME 0.11: this conditional taking-ownership is not good for bindings
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>it</code></em> :</span></p></td>
@@ -905,8 +974,11 @@ not have been called since the last call to <a class="link" href="gstreamer-GstB
 <p>
 See <a class="link" href="gstreamer-GstBufferList.html#GstBufferListDoFunction" title="GstBufferListDoFunction ()"><span class="type">GstBufferListDoFunction</span></a> for more details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>it</code></em> :</span></p></td>
@@ -949,8 +1021,11 @@ in the current group after the implicit cursor, NULL will be returned.
 This function will not move the implicit cursor or in any other way affect
 the state of the iterator <em class="parameter"><code>it</code></em> or the list.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>it</code></em> :</span></p></td>

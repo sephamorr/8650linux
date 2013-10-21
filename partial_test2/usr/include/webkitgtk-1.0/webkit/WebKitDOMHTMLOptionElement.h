@@ -21,11 +21,10 @@
 #ifndef WebKitDOMHTMLOptionElement_h
 #define WebKitDOMHTMLOptionElement_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMHTMLElement.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMHTMLElement.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_HTML_OPTION_ELEMENT            (webkit_dom_html_option_element_get_type())
@@ -45,57 +44,6 @@ struct _WebKitDOMHTMLOptionElementClass {
 
 WEBKIT_API GType
 webkit_dom_html_option_element_get_type (void);
-
-/**
- * webkit_dom_html_option_element_get_form:
- * @self: A #WebKitDOMHTMLOptionElement
- *
- * Returns: (transfer none):
- *
-**/
-WEBKIT_API WebKitDOMHTMLFormElement*
-webkit_dom_html_option_element_get_form(WebKitDOMHTMLOptionElement* self);
-
-/**
- * webkit_dom_html_option_element_get_default_selected:
- * @self: A #WebKitDOMHTMLOptionElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gboolean
-webkit_dom_html_option_element_get_default_selected(WebKitDOMHTMLOptionElement* self);
-
-/**
- * webkit_dom_html_option_element_set_default_selected:
- * @self: A #WebKitDOMHTMLOptionElement
- * @value: A #gboolean
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_option_element_set_default_selected(WebKitDOMHTMLOptionElement* self, gboolean value);
-
-/**
- * webkit_dom_html_option_element_get_text:
- * @self: A #WebKitDOMHTMLOptionElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gchar*
-webkit_dom_html_option_element_get_text(WebKitDOMHTMLOptionElement* self);
-
-/**
- * webkit_dom_html_option_element_get_index:
- * @self: A #WebKitDOMHTMLOptionElement
- *
- * Returns:
- *
-**/
-WEBKIT_API glong
-webkit_dom_html_option_element_get_index(WebKitDOMHTMLOptionElement* self);
 
 /**
  * webkit_dom_html_option_element_get_disabled:
@@ -119,6 +67,16 @@ WEBKIT_API void
 webkit_dom_html_option_element_set_disabled(WebKitDOMHTMLOptionElement* self, gboolean value);
 
 /**
+ * webkit_dom_html_option_element_get_form:
+ * @self: A #WebKitDOMHTMLOptionElement
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMHTMLFormElement*
+webkit_dom_html_option_element_get_form(WebKitDOMHTMLOptionElement* self);
+
+/**
  * webkit_dom_html_option_element_get_label:
  * @self: A #WebKitDOMHTMLOptionElement
  *
@@ -138,6 +96,27 @@ webkit_dom_html_option_element_get_label(WebKitDOMHTMLOptionElement* self);
 **/
 WEBKIT_API void
 webkit_dom_html_option_element_set_label(WebKitDOMHTMLOptionElement* self, const gchar* value);
+
+/**
+ * webkit_dom_html_option_element_get_default_selected:
+ * @self: A #WebKitDOMHTMLOptionElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gboolean
+webkit_dom_html_option_element_get_default_selected(WebKitDOMHTMLOptionElement* self);
+
+/**
+ * webkit_dom_html_option_element_set_default_selected:
+ * @self: A #WebKitDOMHTMLOptionElement
+ * @value: A #gboolean
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_option_element_set_default_selected(WebKitDOMHTMLOptionElement* self, gboolean value);
 
 /**
  * webkit_dom_html_option_element_get_selected:
@@ -180,6 +159,26 @@ webkit_dom_html_option_element_get_value(WebKitDOMHTMLOptionElement* self);
 **/
 WEBKIT_API void
 webkit_dom_html_option_element_set_value(WebKitDOMHTMLOptionElement* self, const gchar* value);
+
+/**
+ * webkit_dom_html_option_element_get_text:
+ * @self: A #WebKitDOMHTMLOptionElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_html_option_element_get_text(WebKitDOMHTMLOptionElement* self);
+
+/**
+ * webkit_dom_html_option_element_get_index:
+ * @self: A #WebKitDOMHTMLOptionElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API glong
+webkit_dom_html_option_element_get_index(WebKitDOMHTMLOptionElement* self);
 
 G_END_DECLS
 

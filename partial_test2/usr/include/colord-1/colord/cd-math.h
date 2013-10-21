@@ -1,22 +1,22 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*-
  *
- * Copyright (C) 2010-2011 Richard Hughes <richard@hughsie.com>
+ * Copyright (C) 2010-2012 Richard Hughes <richard@hughsie.com>
  *
- * Licensed under the GNU General Public License Version 2
+ * Licensed under the GNU Lesser General Public License Version 2.1
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
+ * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301 USA
  */
 
 #ifndef __CD_MATH_H__
@@ -49,7 +49,8 @@ void		 cd_vec3_scalar_multiply	(const CdVec3		*src,
 void		 cd_vec3_copy			(const CdVec3		*src,
 						 CdVec3			*dest);
 gdouble		 cd_vec3_squared_error		(const CdVec3		*src1,
-						 const CdVec3		*src2);
+						 const CdVec3		*src2)
+						 G_GNUC_WARN_UNUSED_RESULT;
 gchar		*cd_vec3_to_string		(const CdVec3		*src);
 gdouble		*cd_vec3_get_data		(const CdVec3		*src);
 void		 cd_vec3_init			(CdVec3			*dest,
@@ -71,11 +72,13 @@ void		 cd_mat33_matrix_multiply	(const CdMat3x3		*mat_src1,
 						 CdMat3x3		*mat_dest);
 gboolean	 cd_mat33_reciprocal		(const CdMat3x3		*src,
 						 CdMat3x3		*dest);
-gdouble		 cd_mat33_determinant		(const CdMat3x3		*src);
+gdouble		 cd_mat33_determinant		(const CdMat3x3		*src)
+						 G_GNUC_WARN_UNUSED_RESULT;
+void		 cd_mat33_normalize		(const CdMat3x3		*src,
+						 CdMat3x3		*dest);
 void		 cd_mat33_copy			(const CdMat3x3		*src,
 						 CdMat3x3		*dest);
 
-				
 #undef __CD_MATH_H_INSIDE__
 
 #endif /* __CD_MATH_H__ */

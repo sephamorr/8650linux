@@ -6,11 +6,7 @@ and/or use gtk-doc annotations.  -->
             xmlns="http://www.gtk.org/introspection/core/1.0"
             xmlns:c="http://www.gtk.org/introspection/c/1.0"
             xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
-  <include name="GLib" version="2.0"/>
-  <include name="GModule" version="2.0"/>
-  <include name="GObject" version="2.0"/>
   <include name="Gst" version="0.10"/>
-  <include name="libxml2" version="2.0"/>
   <package name="gstreamer-check-0.10"/>
   <c:include name="gst/check/gstbufferstraw.h"/>
   <c:include name="gst/check/gstcheck.h"/>
@@ -23,7 +19,7 @@ and/or use gtk-doc annotations.  -->
              c:symbol-prefixes="gst">
     <record name="CheckABIStruct" c:type="GstCheckABIStruct">
       <field name="name" writable="1">
-        <type name="utf8" c:type="char*"/>
+        <type name="utf8" c:type="const char*"/>
       </field>
       <field name="size" writable="1">
         <type name="gint" c:type="int"/>
@@ -182,7 +178,7 @@ and the data of the buffers. This function unrefs the buffers.</doc>
       <parameters>
         <parameter name="element_name" transfer-ownership="none">
           <doc xml:whitespace="preserve">name of the element that needs to be created</doc>
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="buffer_in" transfer-ownership="none">
           <doc xml:whitespace="preserve">push this buffer to the element</doc>
@@ -212,7 +208,7 @@ invalid buffer, when the final buffer is expected to fail, for example.</doc>
       <parameters>
         <parameter name="element_name" transfer-ownership="none">
           <doc xml:whitespace="preserve">name of the element that needs to be created</doc>
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="buffer_in" transfer-ownership="none">
           <doc xml:whitespace="preserve">a list of buffers that needs to be puched to the element</doc>
@@ -276,10 +272,10 @@ invalid buffer, when the final buffer is expected to fail, for example.</doc>
           <type c:type="Suite*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
         <parameter name="fname" transfer-ownership="none">
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
     </function>
@@ -291,7 +287,7 @@ invalid buffer, when the final buffer is expected to fail, for example.</doc>
       </return-value>
       <parameters>
         <parameter name="factory" transfer-ownership="none">
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
     </function>
@@ -327,7 +323,7 @@ invalid buffer, when the final buffer is expected to fail, for example.</doc>
           <type name="Gst.StaticPadTemplate" c:type="GstStaticPadTemplate*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
     </function>
@@ -363,7 +359,7 @@ invalid buffer, when the final buffer is expected to fail, for example.</doc>
           <type name="Gst.StaticPadTemplate" c:type="GstStaticPadTemplate*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
     </function>
@@ -388,7 +384,7 @@ invalid buffer, when the final buffer is expected to fail, for example.</doc>
           <type name="Gst.Element" c:type="GstElement*"/>
         </parameter>
         <parameter name="name" transfer-ownership="none">
-          <type name="utf8" c:type="gchar*"/>
+          <type name="utf8" c:type="const gchar*"/>
         </parameter>
       </parameters>
     </function>

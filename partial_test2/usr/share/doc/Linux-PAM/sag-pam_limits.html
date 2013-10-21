@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>6.15. pam_limits - limit resources</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.0"><link rel="home" href="Linux-PAM_SAG.html" title="The Linux-PAM System Administrators' Guide"><link rel="up" href="sag-module-reference.html" title="Chapter 6. A reference guide for available modules"><link rel="prev" href="sag-pam_lastlog.html" title="6.14. pam_lastlog - display date of last login"><link rel="next" href="sag-pam_listfile.html" title="6.16. pam_listfile - deny or allow services based on an arbitrary file"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.15. pam_limits - limit resources</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="sag-pam_lastlog.html">Prev</a> </td><th width="60%" align="center">Chapter 6. A reference guide for available modules</th><td width="20%" align="right"> <a accesskey="n" href="sag-pam_listfile.html">Next</a></td></tr></table><hr></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sag-pam_limits"></a>6.15. pam_limits - limit resources</h2></div></div></div><div class="cmdsynopsis"><p><code class="command">pam_limits.so</code>  [
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>6.15. pam_limits - limit resources</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="Linux-PAM_SAG.html" title="The Linux-PAM System Administrators' Guide"><link rel="up" href="sag-module-reference.html" title="Chapter 6. A reference guide for available modules"><link rel="prev" href="sag-pam_lastlog.html" title="6.14. pam_lastlog - display date of last login"><link rel="next" href="sag-pam_listfile.html" title="6.16. pam_listfile - deny or allow services based on an arbitrary file"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.15. pam_limits - limit resources</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="sag-pam_lastlog.html">Prev</a> </td><th width="60%" align="center">Chapter 6. A reference guide for available modules</th><td width="20%" align="right"> <a accesskey="n" href="sag-pam_listfile.html">Next</a></td></tr></table><hr></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sag-pam_limits"></a>6.15. pam_limits - limit resources</h2></div></div></div><div class="cmdsynopsis"><p><code class="command">pam_limits.so</code>  [
         conf=<em class="replaceable"><code>/path/to/limits.conf</code></em>
       ] [
         debug
@@ -27,6 +27,13 @@
       when it denies access based on limit of maximum number of concurrent
       login sessions.
     </p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="sag-limits.conf-description"></a>6.15.2. DESCRIPTION</h3></div></div></div><p>
+      The <span class="emphasis"><em>pam_limits.so</em></span> module applies ulimit limits,
+      nice priority and number of simultaneous login sessions limit to user
+      login sessions. This description of the configuration file syntax
+      applies to the <code class="filename">/etc/security/limits.conf</code> file and
+      <code class="filename">*.conf</code> files in the
+      <code class="filename">/etc/security/limits.d</code> directory.
+    </p><p>
       The syntax of the lines is as follows:
     </p><p>
       <em class="replaceable"><code>&lt;domain&gt;</code></em> <em class="replaceable"><code>&lt;type&gt;</code></em>
@@ -107,6 +114,9 @@
       Also, please note that all limit settings are set
       <span class="emphasis"><em>per login</em></span>. They are not global, nor are they
       permanent; existing only for the duration of the session.
+      One exception is the <span class="emphasis"><em>maxlogin</em></span> option, this one
+      is system wide. But there is a race, concurrent logins at the same
+      time will not always be detect as such but only counted as one.
     </p><p>
       In the <span class="emphasis"><em>limits</em></span> configuration file, the
       '<span class="emphasis"><em>#</em></span>' character introduces a comment

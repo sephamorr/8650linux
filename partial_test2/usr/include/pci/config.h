@@ -12,5 +12,6 @@
 #define PCI_PATH_IDS_DIR "/usr/share/hwdata"
 #define PCI_USE_DNS
 #define PCI_ID_DOMAIN "pci.id.ucw.cz"
+#define PCI_USE_LIBKMOD
 #define PCI_SHARED_LIB
-#define PCILIB_VERSION "3.1.9"
+#define PCILIB_VERSION "3.2.0"

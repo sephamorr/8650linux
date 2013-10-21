@@ -35,16 +35,17 @@
  * @param {string} source
  * @param {string} level
  * @param {string} message
- * @param {WebInspector.DebuggerPresentationModel.Linkifier} linkifier
+ * @param {WebInspector.Linkifier} linkifier
  * @param {string=} type
  * @param {string=} url
  * @param {number=} line
  * @param {number=} repeatCount
  * @param {Array.<RuntimeAgent.RemoteObject>=} parameters
  * @param {ConsoleAgent.StackTrace=} stackTrace
- * @param {WebInspector.Resource=} request
+ * @param {NetworkAgent.RequestId=} requestId
+ * @param {boolean=} isOutdated
  */
-WebInspector.ConsoleMessageImpl = function(source, level, message, linkifier, type, url, line, repeatCount, parameters, stackTrace, request)
+WebInspector.ConsoleMessageImpl = function(source, level, message, linkifier, type, url, line, repeatCount, parameters, stackTrace, requestId, isOutdated)
 {
     WebInspector.ConsoleMessage.call(this, source, level, url, line, repeatCount);
 
@@ -53,7 +54,8 @@ WebInspector.ConsoleMessageImpl = function(source, level, message, linkifier, ty
     this._messageText = message;
     this._parameters = parameters;
     this._stackTrace = stackTrace;
-    this._request = request;
+    this._request = requestId ? WebInspector.networkLog.requestForId(requestId) : null;
+    this._isOutdated = isOutdated;
 
     this._customFormatters = {
         "object": this._formatParameterAsObject,
@@ -91,7 +93,7 @@ WebInspector.ConsoleMessageImpl.prototype = {
             }
         } else if (this.source === WebInspector.ConsoleMessage.MessageSource.Network) {
             if (this._request) {
-                this._stackTrace = this._request.stackTrace;
+                this._stackTrace = this._request.initiator.stackTrace;
                 if (this._request.initiator && this._request.initiator.url) {
                     this.url = this._request.initiator.url;
                     this.line = this._request.initiator.lineNumber;
@@ -128,9 +130,11 @@ WebInspector.ConsoleMessageImpl.prototype = {
             }
         }
 
-        if (this._anchorElement)
-            this._formattedMessage.appendChild(this._anchorElement);
         this._formattedMessage.appendChild(this._messageElement);
+        if (this._anchorElement) {
+            this._formattedMessage.appendChild(document.createTextNode(" "));
+            this._formattedMessage.appendChild(this._anchorElement);
+        }
         
         var dumpStackTrace = !!this._stackTrace && this._stackTrace.length && (this.source === WebInspector.ConsoleMessage.MessageSource.Network || this.level === WebInspector.ConsoleMessage.MessageLevel.Error || this.type === WebInspector.ConsoleMessage.MessageType.Trace);
         if (dumpStackTrace) {
@@ -223,7 +227,7 @@ WebInspector.ConsoleMessageImpl.prototype = {
             if (shouldFormatMessage && parameters[i].type === "string")
                 formattedResult.appendChild(document.createTextNode(parameters[i].description));
             else
-                formattedResult.appendChild(this._formatParameter(parameters[i]));
+                formattedResult.appendChild(this._formatParameter(parameters[i], false, true));
             if (i < parameters.length - 1)
                 formattedResult.appendChild(document.createTextNode(" "));
         }
@@ -232,8 +236,9 @@ WebInspector.ConsoleMessageImpl.prototype = {
 
     /**
      * @param {boolean=} forceObjectFormat
+     * @param {boolean=} includePreview
      */
-    _formatParameter: function(output, forceObjectFormat)
+    _formatParameter: function(output, forceObjectFormat, includePreview)
     {
         var type;
         if (forceObjectFormat)
@@ -251,7 +256,7 @@ WebInspector.ConsoleMessageImpl.prototype = {
 
         var span = document.createElement("span");
         span.className = "console-formatted-" + type + " source-code";
-        formatter.call(this, output, span);
+        formatter.call(this, output, span, includePreview);
         return span;
     },
 
@@ -260,9 +265,72 @@ WebInspector.ConsoleMessageImpl.prototype = {
         elem.appendChild(document.createTextNode(val));
     },
 
-    _formatParameterAsObject: function(obj, elem)
+    _formatParameterAsObject: function(obj, elem, includePreview)
     {
-        elem.appendChild(new WebInspector.ObjectPropertiesSection(obj, obj.description).element);
+        this._formatParameterAsArrayOrObject(obj, obj.description, elem, includePreview);
+    },
+
+    /**
+     * @param {WebInspector.RemoteObject} obj
+     * @param {string} description
+     * @param {Element} elem
+     * @param {boolean} includePreview
+     */
+    _formatParameterAsArrayOrObject: function(obj, description, elem, includePreview)
+    {
+        var titleElement = document.createElement("span");
+        if (description)
+            titleElement.createTextChild(description);
+        if (includePreview && obj.preview) {
+            titleElement.addStyleClass("console-object-preview");
+            var lossless = this._appendObjectPreview(obj, description, titleElement);
+            if (lossless) {
+                elem.appendChild(titleElement);
+                return;
+            }
+        }
+        var section = new WebInspector.ObjectPropertiesSection(obj, titleElement);
+        section.enableContextMenu();
+        elem.appendChild(section.element);
+    },
+
+    /**
+     * @param {WebInspector.RemoteObject} obj
+     * @param {string} description
+     * @param {Element} titleElement
+     * @return {boolean} true iff preview captured all information.
+     */
+    _appendObjectPreview: function(obj, description, titleElement)
+    {
+        var preview = obj.preview;
+        var isArray = obj.subtype === "array";
+
+        if (description)
+            titleElement.createTextChild(" ");
+        titleElement.createTextChild(isArray ? "[" : "{");
+        for (var i = 0; i < preview.properties.length; ++i) {
+            if (i > 0)
+                titleElement.createTextChild(", ");
+
+            var property = preview.properties[i];
+            if (!isArray || property.name != i) {
+                titleElement.createChild("span", "name").textContent = property.name;
+                titleElement.createTextChild(": ");
+            }
+
+            var span = titleElement.createChild("span", "console-formatted-" + property.type);
+            if (property.type === "object") {
+                if (property.subtype === "node")
+                    span.addStyleClass("console-formatted-preview-node");
+                else if (property.subtype === "regexp")
+                    span.addStyleClass("console-formatted-string");
+            }
+            span.textContent = property.value;
+        }
+        if (preview.overflow)
+            titleElement.createChild("span").textContent = "\u2026";
+        titleElement.createTextChild(isArray ? "]" : "}");
+        return preview.lossless;
     },
 
     _formatParameterAsNode: function(object, elem)
@@ -272,7 +340,7 @@ WebInspector.ConsoleMessageImpl.prototype = {
             if (!nodeId) {
                 // Sometimes DOM is loaded after the sync message is being formatted, so we get no
                 // nodeId here. So we fall back to object formatting here.
-                this._formatParameterAsObject(object, elem);
+                this._formatParameterAsObject(object, elem, false);
                 return;
             }
             var treeOutline = new WebInspector.ElementsTreeOutline(false, false, true);
@@ -282,13 +350,23 @@ WebInspector.ConsoleMessageImpl.prototype = {
             if (!treeOutline.children[0].hasChildren)
                 treeOutline.element.addStyleClass("single-node");
             elem.appendChild(treeOutline.element);
+            treeOutline.element.treeElementForTest = treeOutline.children[0];
         }
         object.pushNodeToFrontend(printNode.bind(this));
     },
 
-    _formatParameterAsArray: function(arr, elem)
+    _formatParameterAsArray: function(array, elem)
     {
-        arr.getOwnProperties(this._printArray.bind(this, elem));
+        if (array.preview) {
+            this._formatParameterAsArrayOrObject(array, "", elem, true);
+            return;
+        }
+
+        const maxFlatArrayLength = 100;
+        if (this._isOutdated || array.arrayLength() > maxFlatArrayLength)
+            this._formatParameterAsObject(array, elem, false);
+        else
+            array.getOwnProperties(this._printArray.bind(this, array, elem));
     },
 
     _formatParameterAsString: function(output, elem)
@@ -304,35 +382,55 @@ WebInspector.ConsoleMessageImpl.prototype = {
         elem.appendChild(document.createTextNode("\""));
     },
 
-    _printArray: function(elem, properties)
+    _printArray: function(array, elem, properties)
     {
         if (!properties)
             return;
 
         var elements = [];
         for (var i = 0; i < properties.length; ++i) {
-            var name = properties[i].name;
-            if (name == parseInt(name, 10))
-                elements[name] = this._formatAsArrayEntry(properties[i].value);
+            var property = properties[i];
+            var name = property.name;
+            if (!isNaN(name))
+                elements[name] = this._formatAsArrayEntry(property.value);
         }
 
         elem.appendChild(document.createTextNode("["));
-        for (var i = 0; i < elements.length; ++i) {
+        var lastNonEmptyIndex = -1;
+
+        function appendUndefined(elem, index)
+        {
+            if (index - lastNonEmptyIndex <= 1)
+                return;
+            var span = elem.createChild(span, "console-formatted-undefined");
+            span.textContent = WebInspector.UIString("undefined × %d", index - lastNonEmptyIndex - 1);
+        }
+
+        var length = array.arrayLength();
+        for (var i = 0; i < length; ++i) {
             var element = elements[i];
-            if (element)
-                elem.appendChild(element);
-            else
-                elem.appendChild(document.createTextNode("undefined"))
-            if (i < elements.length - 1)
+            if (!element)
+                continue;
+
+            if (i - lastNonEmptyIndex > 1) {
+                appendUndefined(elem, i);
+                elem.appendChild(document.createTextNode(", "));
+            }
+
+            elem.appendChild(element);
+            lastNonEmptyIndex = i;
+            if (i < length - 1)
                 elem.appendChild(document.createTextNode(", "));
         }
+        appendUndefined(elem, length);
+
         elem.appendChild(document.createTextNode("]"));
     },
 
     _formatAsArrayEntry: function(output)
     {
         // Prevent infinite expansion of cross-referencing arrays.
-        return this._formatParameter(output, output.subtype && output.subtype === "array");
+        return this._formatParameter(output, output.subtype && output.subtype === "array", false);
     },
 
     _formatWithSubstitutionString: function(parameters, formattedResult)
@@ -341,7 +439,7 @@ WebInspector.ConsoleMessageImpl.prototype = {
 
         function parameterFormatter(force, obj)
         {
-            return this._formatParameter(obj, force);
+            return this._formatParameter(obj, force, false);
         }
 
         function valueFormatter(obj)
@@ -409,7 +507,7 @@ WebInspector.ConsoleMessageImpl.prototype = {
             matchRanges.push({ offset: match.index, length: match[0].length });
             match = regexObject.exec(text);
         }
-        highlightSearchResults(element, matchRanges);
+        WebInspector.highlightSearchResults(element, matchRanges);
     },
 
     matchesRegex: function(regexObject)
@@ -470,6 +568,7 @@ WebInspector.ConsoleMessageImpl.prototype = {
             content.appendChild(messageTextElement);
 
             if (frame.url) {
+                content.appendChild(document.createTextNode(" "));
                 var urlElement = this._linkifyCallFrame(frame);
                 content.appendChild(urlElement);
             }
@@ -570,6 +669,14 @@ WebInspector.ConsoleMessageImpl.prototype = {
         return this._messageText;
     },
 
+    location: function()
+    {
+        // FIXME(62725): stack trace line/column numbers are one-based.
+        var lineNumber = this.stackTrace ? this.stackTrace[0].lineNumber - 1 : this.line - 1;
+        var columnNumber = this.stackTrace && this.stackTrace[0].columnNumber ? this.stackTrace[0].columnNumber - 1 : 0;
+        return WebInspector.debuggerModel.createRawLocationByURL(this.url, lineNumber, columnNumber);
+    },
+
     isEqual: function(msg)
     {
         if (!msg)
@@ -608,7 +715,7 @@ WebInspector.ConsoleMessageImpl.prototype = {
      */
     clone: function()
     {
-        return WebInspector.ConsoleMessage.create(this.source, this.level, this._messageText, this.type, this.url, this.line, this.repeatCount, this._parameters, this._stackTrace, this._request);
+        return WebInspector.ConsoleMessage.create(this.source, this.level, this._messageText, this.type, this.url, this.line, this.repeatCount, this._parameters, this._stackTrace, this._requestId, this._isOutdated);
     }
 }
 

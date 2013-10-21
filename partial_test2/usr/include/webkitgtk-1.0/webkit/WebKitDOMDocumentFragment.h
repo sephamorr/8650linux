@@ -21,11 +21,10 @@
 #ifndef WebKitDOMDocumentFragment_h
 #define WebKitDOMDocumentFragment_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMNode.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMNode.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_DOCUMENT_FRAGMENT            (webkit_dom_document_fragment_get_type())
@@ -56,7 +55,7 @@ webkit_dom_document_fragment_get_type (void);
  *
 **/
 WEBKIT_API WebKitDOMElement*
-webkit_dom_document_fragment_query_selector(WebKitDOMDocumentFragment* self, const gchar* selectors, GError **error);
+webkit_dom_document_fragment_query_selector(WebKitDOMDocumentFragment* self, const gchar* selectors, GError** error);
 
 /**
  * webkit_dom_document_fragment_query_selector_all:
@@ -68,7 +67,7 @@ webkit_dom_document_fragment_query_selector(WebKitDOMDocumentFragment* self, con
  *
 **/
 WEBKIT_API WebKitDOMNodeList*
-webkit_dom_document_fragment_query_selector_all(WebKitDOMDocumentFragment* self, const gchar* selectors, GError **error);
+webkit_dom_document_fragment_query_selector_all(WebKitDOMDocumentFragment* self, const gchar* selectors, GError** error);
 
 G_END_DECLS
 

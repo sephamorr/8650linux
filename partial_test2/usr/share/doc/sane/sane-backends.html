@@ -9,7 +9,7 @@
 <h1>SANE: Backends (Drivers)</h1>
 </div>
 <hr>
-The following table summarizes the backends/drivers distributed   with sane-backends-1.0.22, and the hardware or software they   support.
+The following table summarizes the backends/drivers distributed   with sane-backends-1.0.24, and the hardware or software they   support.
 <p>This is only a summary!
 Please consult the manpages and the author-supplied webpages
 for more detailed (and usually important) information
@@ -41,14 +41,14 @@ isn't mentioned in this list at all.</p>
 </tr>
 <tr>
 <td align=center><a href="#SCANNERS">Scanners</a></td>
-<td align=center><font color="#000000">1874</font></td>
-<td align=center><font color="#000000">1138</font></td>
-<td align=center><font color="#007000">378</font></td>
-<td align=center><font color="#90B000">641</font></td>
-<td align=center><font color="#FF9000">97</font></td>
-<td align=center><font color="#B00000">22</font></td>
-<td align=center><font color="#0000B0">254</font></td>
-<td align=center><font color="#F00000">482</font></td>
+<td align=center><font color="#000000">2036</font></td>
+<td align=center><font color="#000000">1217</font></td>
+<td align=center><font color="#007000">417</font></td>
+<td align=center><font color="#90B000">671</font></td>
+<td align=center><font color="#FF9000">104</font></td>
+<td align=center><font color="#B00000">25</font></td>
+<td align=center><font color="#0000B0">336</font></td>
+<td align=center><font color="#F00000">483</font></td>
 </tr>
 <tr>
 <td align=center><a href="#STILL">Still cameras</a></td>
@@ -119,7 +119,9 @@ isn't mentioned in this list at all.</p>
 <a href="#S-HS2P">hs2p</a>, 
 <a href="#S-IBM">ibm</a>, 
 <a href="#S-KODAK">kodak</a>, 
+<a href="#S-KODAKAIO">kodakaio</a>, 
 <a href="#S-KVS20XX">kvs20xx</a>, 
+<a href="#S-KVS40XX">kvs40xx</a>, 
 <a href="#S-KVS1025">kvs1025</a>, 
 <a href="#S-LEO">leo</a>, 
 <a href="#S-LEXMARK">lexmark</a>, 
@@ -532,7 +534,7 @@ Siemens
 </tr>
 </table>
 <h3><a name="S-AVISION">Backend: avision
-(Build: 294)
+(Build: 296)
 </a></h3>
 <p>
 <b>Link(s):</b> 
@@ -728,7 +730,7 @@ Siemens
 <tr>
 <td align=center>AV610</td>
 <td align=center>USB</td>
-<td align=center>0x0638/0x0a19</td>
+<td align=center>0x0638/0x0a18</td>
 <td align=center><font color="#90B000">Good</font></td>
 <td>&nbsp;</td>
 </tr>
@@ -1435,7 +1437,7 @@ Visioneer
 <td>sheetfed scanner</td>
 </tr>
 <tr>
-<td align=center rowspan=20>
+<td align=center rowspan=21>
 Xerox
 <td align=center>DocuMate150</td>
 <td align=center>USB</td>
@@ -1482,6 +1484,13 @@ Xerox
 <td align=center>DocuMate252-G</td>
 <td align=center>USB</td>
 <td align=center>0x04a7/0x048c</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>DocuMate232</td>
+<td align=center>USB</td>
+<td align=center>0x04a7/0x0476</td>
 <td align=center><font color="#90B000">Good</font></td>
 <td>&nbsp;</td>
 </tr>
@@ -1685,7 +1694,7 @@ Kyocera
 <th align=center>Comment</th>
 </tr>
 <tr>
-<td align=center rowspan=6>
+<td align=center rowspan=7>
 <a href="http://www.canon.com/">Canon</a>
 <td align=center>CanoScan 300</td>
 <td align=center>SCSI</td>
@@ -1727,6 +1736,13 @@ Kyocera
 <td align=center>&nbsp;</td>
 <td align=center><font color="#90B000">Good</font></td>
 <td>1 pass; 36bit film scanner</td>
+</tr>
+<tr>
+<td align=center>IX-4015</td>
+<td align=center>SCSI</td>
+<td align=center>&nbsp;</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>1 pass; flatbed scanner</td>
 </tr>
 <tr>
 <td align=center rowspan=1>
@@ -1773,13 +1789,13 @@ Kyocera
 </tr>
 </table>
 <h3><a name="S-CANON-DR">Backend: canon_dr
-(37)
+(41)
 </a></h3>
 <p>
 <b>Link(s):</b> 
 <a href="http://www.thebility.com/canon/">http://www.thebility.com/canon/</a><br>
 <b>Manual page:</b> <a href="http://www.sane-project.org/man/sane-canon_dr.5.html">sane-canon_dr</a><br>
-<b>Comment:</b> Backend updated for SANE release 1.0.21, see sane-canon_dr manpage<br>
+<b>Comment:</b> Backend updated for SANE release 1.0.24, see sane-canon_dr manpage<br>
 </p>
 <table border=1>
 <tr bgcolor=E0E0FF>
@@ -1791,7 +1807,7 @@ Kyocera
 <th align=center>Comment</th>
 </tr>
 <tr>
-<td align=center rowspan=40>
+<td align=center rowspan=52>
 <a href="http://www.canon.com/">Canon</a>
 <td align=center>CR-25</td>
 <td align=center>USB</td>
@@ -1800,9 +1816,23 @@ Kyocera
 <td>Please test!</td>
 </tr>
 <tr>
+<td align=center>CR-50</td>
+<td align=center>USB</td>
+<td align=center>&nbsp;</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
 <td align=center>CR-55</td>
 <td align=center>USB</td>
 <td align=center>0x1083/0x160c</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>CR-80</td>
+<td align=center>USB</td>
+<td align=center>&nbsp;</td>
 <td align=center><font color="#0000B0">Untested</font></td>
 <td>Please test!</td>
 </tr>
@@ -1908,8 +1938,8 @@ Kyocera
 <td align=center>DR-3010C</td>
 <td align=center>USB</td>
 <td align=center>0x1083/0x161d</td>
-<td align=center><font color="#0000B0">Untested</font></td>
-<td>Please test!</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>Minimal testing, settings copied from DR-2510C</td>
 </tr>
 <tr>
 <td align=center>DR3020</td>
@@ -1978,8 +2008,8 @@ Kyocera
 <td align=center>DR-5020</td>
 <td align=center>SCSI</td>
 <td align=center>&nbsp;</td>
-<td align=center><font color="#0000B0">Untested</font></td>
-<td>Please test!</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>LineArt, Duplex working, cannot read buttons or screen?</td>
 </tr>
 <tr>
 <td align=center>DR-5060F</td>
@@ -2013,8 +2043,8 @@ Kyocera
 <td align=center>DR-6050C</td>
 <td align=center>USB SCSI</td>
 <td align=center>0x1083/0x1624</td>
-<td align=center><font color="#0000B0">Untested</font></td>
-<td>Please test!</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>Simplex, duplex, all resolutions, binary/ht/gray working.  Can't wake from stand-by mode</td>
 </tr>
 <tr>
 <td align=center>DR-6080</td>
@@ -2042,7 +2072,7 @@ Kyocera
 <td align=center>USB SCSI</td>
 <td align=center>0x1083/0x1623</td>
 <td align=center><font color="#0000B0">Untested</font></td>
-<td>Please test!</td>
+<td>Assumed compatible with DR-6050C</td>
 </tr>
 <tr>
 <td align=center>DR-7580</td>
@@ -2055,8 +2085,8 @@ Kyocera
 <td align=center>DR-9050C</td>
 <td align=center>USB SCSI</td>
 <td align=center>0x1083/0x1622</td>
-<td align=center><font color="#0000B0">Untested</font></td>
-<td>Please test!</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>Simplex, duplex, all resolutions, binary/ht/gray working.  Can't wake from stand-by mode</td>
 </tr>
 <tr>
 <td align=center>DR-9080C</td>
@@ -2071,6 +2101,76 @@ Kyocera
 <td align=center>0x1083/0x1618</td>
 <td align=center><font color="#0000B0">Untested</font></td>
 <td>Please test!</td>
+</tr>
+<tr>
+<td align=center>DR-C125</td>
+<td align=center>USB</td>
+<td align=center>&nbsp;</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Similar protocol to other canon_dr machines, but unsupported image format.</td>
+</tr>
+<tr>
+<td align=center>DR-C130</td>
+<td align=center>USB</td>
+<td align=center>&nbsp;</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>DR-G1100</td>
+<td align=center>USB</td>
+<td align=center>&nbsp;</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>DR-G1130</td>
+<td align=center>USB</td>
+<td align=center>&nbsp;</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>DR-M140</td>
+<td align=center>USB</td>
+<td align=center>&nbsp;</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>DR-M160</td>
+<td align=center>USB</td>
+<td align=center>&nbsp;</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>P-150</td>
+<td align=center>USB</td>
+<td align=center>&nbsp;</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>P-150M</td>
+<td align=center>USB</td>
+<td align=center>&nbsp;</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>P-208</td>
+<td align=center>USB</td>
+<td align=center>0x1083/0x164c</td>
+<td align=center><font color="#FF9000">Basic</font></td>
+<td>All modes and resolutions working, but calibration is poor.</td>
+</tr>
+<tr>
+<td align=center>P-215</td>
+<td align=center>USB</td>
+<td align=center>0x1083/0x1646</td>
+<td align=center><font color="#FF9000">Basic</font></td>
+<td>All modes and resolutions working, but calibration is poor. Card reader slot not working.</td>
 </tr>
 </table>
 <h3><a name="S-CANON-PP">Backend: canon_pp
@@ -2470,9 +2570,9 @@ Kyocera
 <tr>
 <td align=center>ScanSnap S1100</td>
 <td align=center>USB</td>
-<td align=center>&nbsp;</td>
-<td align=center><font color="#0000B0">Untested</font></td>
-<td>Testers needed!</td>
+<td align=center>0x04c5/0x1200</td>
+<td align=center><font color="#F00000">Unsupported</font></td>
+<td>Beta version of backend source available, which works well, but breaks support for other epjitsu scanners. See http://ubuntuforums.org/showthread.php?t=1678335</td>
 </tr>
 <tr>
 <td align=center>ScanSnap S1300</td>
@@ -2980,7 +3080,7 @@ Kyocera
 <th align=center>Comment</th>
 </tr>
 <tr>
-<td align=center rowspan=341>
+<td align=center rowspan=342>
 <a href="http://www.epson.com/">Epson</a>
 <td align=center><a href="http://www.epson.com/">Actionscanner II</a></td>
 <td align=center>parallel SCSI</td>
@@ -3227,7 +3327,7 @@ Kyocera
 <td>network interface unsupported<br>IEEE1394 untested</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux/scan/DL1.do">ES-D400</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">ES-D400</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0136</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
@@ -3346,7 +3446,7 @@ Kyocera
 <td>will be supported</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux/scan/DL1.do">GT-1500</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-1500</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0133</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
@@ -3437,14 +3537,14 @@ Kyocera
 <td>&nbsp;</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux/scan/DL1.do">GT-7200U</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-7200U</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x010f</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux/scan/DL1.do">GT-7300U</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-7300U</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x011d</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
@@ -3556,7 +3656,7 @@ Kyocera
 <td>&nbsp;</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux/scan/DL1.do">GT-9400UF</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-9400UF</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0116</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
@@ -3633,98 +3733,98 @@ Kyocera
 <td>IEEE1394 untested<br>overseas version of the ES-9000H</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux/scan/DL1.do">GT-D1000</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-D1000</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0133</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux/scan/DL1.do">GT-F500</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-F500</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0121</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux/scan/DL1.do">GT-F520</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-F520</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0122</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux/scan/DL1.do">GT-F550</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-F550</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0121</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux/scan/DL1.do">GT-F570</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-F570</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0122</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux/scan/DL1.do">GT-F600</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-F600</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0118</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux/scan/DL1.do">GT-F650</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-F650</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x012d</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux/scan/DL1.do">GT-F670</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-F670</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x012e</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux/scan/DL1.do">GT-F700</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-F700</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x012f</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux/scan/DL1.do">GT-F720</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-F720</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0131</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">GT-S50</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-S50</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0137</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">GT-S80</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-S80</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0136</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux/scan/DL1.do">GT-S600</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-S600</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x012d</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux/scan/DL1.do">GT-S620</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-S620</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0131</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
@@ -3738,14 +3838,14 @@ Kyocera
 <td>IEEE1394 untested</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux/scan/DL1.do">GT-X750</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-X750</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0119</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux/scan/DL1.do">GT-X770</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-X770</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0130</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
@@ -3759,7 +3859,7 @@ Kyocera
 <td>film area guide mode not supported<br>IEEE1394 untested</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux/scan/DL1.do">GT-X820</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">GT-X820</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x013a</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
@@ -4193,28 +4293,28 @@ Kyocera
 <td>overseas version of the GT-7700U</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">Perfection 1250</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Perfection 1250</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x010f</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">Perfection 1250 PHOTO</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Perfection 1250 PHOTO</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x010f</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">Perfection 1260</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Perfection 1260</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x011d</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">Perfection 1260 PHOTO</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Perfection 1260 PHOTO</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x011d</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
@@ -4298,21 +4398,21 @@ Kyocera
 <td>overseas version of the GT-9700F</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">Perfection 2480 PHOTO</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Perfection 2480 PHOTO</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0121</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">Perfection 2580 PHOTO</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Perfection 2580 PHOTO</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0121</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">Perfection 3170 PHOTO</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Perfection 3170 PHOTO</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0116</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
@@ -4326,28 +4426,28 @@ Kyocera
 <td>overseas version of the GT-9800F</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">Perfection 3490 PHOTO</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Perfection 3490 PHOTO</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0122</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">Perfection 3590 PHOTO</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Perfection 3590 PHOTO</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0122</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">Perfection 4180 PHOTO</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Perfection 4180 PHOTO</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0118</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">Perfection 4490 PHOTO</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Perfection 4490 PHOTO</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0119</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
@@ -4375,56 +4475,56 @@ Kyocera
 <td>seems to be a 4990 PHOTO with additional software</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">Perfection V10</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Perfection V10</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x012d</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">Perfection V30</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Perfection V30</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0131</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">Perfection V100 Photo</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Perfection V100 Photo</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x012d</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">Perfection V200 Photo</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Perfection V200 Photo</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x012e</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">Perfection V300 Photo</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Perfection V300 Photo</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0131</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">Perfection V350 Photo</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Perfection V350 Photo</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x012f</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">Perfection V500 Photo</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Perfection V500 Photo</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0130</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/scan/DL1.do">Perfection V600 Photo</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Perfection V600 Photo</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x013a</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
@@ -4543,14 +4643,14 @@ Kyocera
 <td>all-in-one</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/spc/DL1.do">Stylus CX4300</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Stylus CX4300</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x083f</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/spc/DL1.do">Stylus CX4400</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Stylus CX4400</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x083f</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
@@ -4627,14 +4727,14 @@ Kyocera
 <td>all-in-one</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/spc/DL1.do">Stylus CX5500</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Stylus CX5500</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x083f</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>supported by the epkowa backend plus non-free interpreter</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/spc/DL1.do">Stylus CX5600</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Stylus CX5600</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x083f</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
@@ -4795,7 +4895,7 @@ Kyocera
 <td>all-in-one</td>
 </tr>
 <tr>
-<td align=center><a href="http://www.avasys.jp/lx-bin2/linux_e/spc/DL1.do">Stylus DX4400</a></td>
+<td align=center><a href="http://download.ebz.epson.net/dsc/search/01/search/?OSC=LX">Stylus DX4400</a></td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x083f</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
@@ -5201,6 +5301,13 @@ Kyocera
 <td>all-in-one<br>overseas version of the PX-402A</td>
 </tr>
 <tr>
+<td align=center>Stylus SX125</td>
+<td align=center>USB</td>
+<td align=center>0x04b8/0x085c</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>all-in-one</td>
+</tr>
+<tr>
 <td align=center>Stylus SX200</td>
 <td align=center>USB</td>
 <td align=center>0x04b8/0x0849</td>
@@ -5370,13 +5477,13 @@ Kyocera
 </tr>
 </table>
 <h3><a name="S-FUJITSU">Backend: fujitsu
-(106)
+(117)
 </a></h3>
 <p>
 <b>Link(s):</b> 
 <a href="http://www.thebility.com/fujitsu/">http://www.thebility.com/fujitsu/</a><br>
 <b>Manual page:</b> <a href="http://www.sane-project.org/man/sane-fujitsu.5.html">sane-fujitsu</a><br>
-<b>Comment:</b> Backend updated for SANE release 1.0.22, see sane-fujitsu manpage<br>
+<b>Comment:</b> Backend updated for SANE release 1.0.24, see sane-fujitsu manpage<br>
 </p>
 <table border=1>
 <tr bgcolor=E0E0FF>
@@ -5388,7 +5495,7 @@ Kyocera
 <th align=center>Comment</th>
 </tr>
 <tr>
-<td align=center rowspan=74>
+<td align=center rowspan=72>
 <a href="http://www.fujitsu.com/">Fujitsu</a>
 <td align=center><a href="http://www.remote.org/frederik/projects/software/sane/">M3091DC</a></td>
 <td align=center>SCSI</td>
@@ -5430,6 +5537,13 @@ Kyocera
 <td align=center>0x04c5/0x10af</td>
 <td align=center><font color="#007000">Complete</font></td>
 <td>small, recent, discontinued, usb 2.0</td>
+</tr>
+<tr>
+<td align=center>fi-5110C</td>
+<td align=center>USB</td>
+<td align=center>0x04c5/0x1097</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>small, recent, discontinued</td>
 </tr>
 <tr>
 <td align=center>fi-5110EOX/2</td>
@@ -5509,14 +5623,42 @@ Kyocera
 <td>small, recent, discontinued</td>
 </tr>
 <tr>
-<td align=center>fi-5110C</td>
+<td align=center>fi-6130</td>
 <td align=center>USB</td>
-<td align=center>0x04c5/0x1097</td>
+<td align=center>0x04c5/0x114f</td>
 <td align=center><font color="#007000">Complete</font></td>
-<td>small, current</td>
+<td>small, recent, discontinued</td>
 </tr>
 <tr>
-<td align=center>fi-6010N</td>
+<td align=center>fi-6230</td>
+<td align=center>USB</td>
+<td align=center>0x04c5/0x1150</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>small, recent, discontinued</td>
+</tr>
+<tr>
+<td align=center>ScanSnap S1500</td>
+<td align=center>USB</td>
+<td align=center>0x04c5/0x11a2</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>small, discontinued</td>
+</tr>
+<tr>
+<td align=center>ScanSnap S1500M</td>
+<td align=center>USB</td>
+<td align=center>0x04c5/0x11a2</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>small, discontinued, same as S1500</td>
+</tr>
+<tr>
+<td align=center>ScanSnap N1800</td>
+<td align=center>Ethernet</td>
+<td align=center>&nbsp;</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>small, current, integrated touchscreen and keyboard</td>
+</tr>
+<tr>
+<td align=center>ScanSnap fi-6010N</td>
 <td align=center>Ethernet</td>
 <td align=center>&nbsp;</td>
 <td align=center><font color="#0000B0">Untested</font></td>
@@ -5530,74 +5672,25 @@ Kyocera
 <td>small, current</td>
 </tr>
 <tr>
-<td align=center>fi-6130</td>
-<td align=center>USB</td>
-<td align=center>0x04c5/0x114f</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>small, current</td>
-</tr>
-<tr>
-<td align=center>fi-6230</td>
-<td align=center>USB</td>
-<td align=center>0x04c5/0x1150</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>small, current</td>
-</tr>
-<tr>
-<td align=center>fi-6125</td>
-<td align=center>USB</td>
-<td align=center>0x04c5/0x11ee</td>
-<td align=center><font color="#0000B0">Untested</font></td>
-<td>small, unreleased</td>
-</tr>
-<tr>
-<td align=center>fi-6225</td>
-<td align=center>USB</td>
-<td align=center>0x04c5/0x11ef</td>
-<td align=center><font color="#0000B0">Untested</font></td>
-<td>small, unreleased</td>
-</tr>
-<tr>
-<td align=center>fi-6145</td>
-<td align=center>USB</td>
-<td align=center>0x04c5/0x11f1</td>
-<td align=center><font color="#0000B0">Untested</font></td>
-<td>small, unreleased</td>
-</tr>
-<tr>
-<td align=center>fi-6245</td>
-<td align=center>USB</td>
-<td align=center>0x04c5/0x11f2</td>
-<td align=center><font color="#0000B0">Untested</font></td>
-<td>small, unreleased</td>
-</tr>
-<tr>
-<td align=center>fi-6135</td>
+<td align=center>fi-6130Z</td>
 <td align=center>USB</td>
 <td align=center>0x04c5/0x11f3</td>
-<td align=center><font color="#0000B0">Untested</font></td>
-<td>small, unreleased</td>
-</tr>
-<tr>
-<td align=center>fi-6235</td>
-<td align=center>USB</td>
-<td align=center>0x04c5/0x11f4</td>
-<td align=center><font color="#0000B0">Untested</font></td>
-<td>small, unreleased</td>
-</tr>
-<tr>
-<td align=center>ScanSnap S1500</td>
-<td align=center>USB</td>
-<td align=center>0x04c5/0x11a2</td>
 <td align=center><font color="#007000">Complete</font></td>
 <td>small, current</td>
 </tr>
 <tr>
-<td align=center>ScanSnap S1500M</td>
+<td align=center>fi-6230Z</td>
 <td align=center>USB</td>
-<td align=center>0x04c5/0x11a2</td>
+<td align=center>0x04c5/0x11f4</td>
 <td align=center><font color="#007000">Complete</font></td>
-<td>small, current, same as S1500</td>
+<td>small, current</td>
+</tr>
+<tr>
+<td align=center>ScanSnap iX500</td>
+<td align=center>USB WiFi</td>
+<td align=center>0x04c5/0x132b</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>small, current, WiFi not supported. Hardware only scans in color. Backend generates binary and grayscale modes.</td>
 </tr>
 <tr>
 <td align=center>M3093E</td>
@@ -5677,6 +5770,13 @@ Kyocera
 <td>medium, old, discontinued</td>
 </tr>
 <tr>
+<td align=center>fi-4340C</td>
+<td align=center>SCSI USB</td>
+<td align=center>0x04c5/0x10cf</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>medium, current</td>
+</tr>
+<tr>
 <td align=center>fi-4530C</td>
 <td align=center>SCSI USB</td>
 <td align=center>0x04c5/0x1078</td>
@@ -5705,11 +5805,18 @@ Kyocera
 <td>medium, recent, discontinued</td>
 </tr>
 <tr>
-<td align=center>fi-4340C</td>
+<td align=center>fi-6140</td>
 <td align=center>SCSI USB</td>
-<td align=center>0x04c5/0x10cf</td>
+<td align=center>0x04c5/0x114d</td>
 <td align=center><font color="#007000">Complete</font></td>
-<td>medium, current</td>
+<td>medium, recent, discontinued</td>
+</tr>
+<tr>
+<td align=center>fi-6240</td>
+<td align=center>SCSI USB</td>
+<td align=center>0x04c5/0x114e</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>medium, recent, discontinued</td>
 </tr>
 <tr>
 <td align=center>fi-5530C2</td>
@@ -5719,18 +5826,18 @@ Kyocera
 <td>medium, current</td>
 </tr>
 <tr>
-<td align=center>fi-6140</td>
+<td align=center>fi-6140Z</td>
 <td align=center>SCSI USB</td>
-<td align=center>0x04c5/0x114d</td>
-<td align=center><font color="#90B000">Good</font></td>
-<td>medium, current, Autocrop and Autodeskew not supported</td>
+<td align=center>0x04c5/0x11f1</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>medium, current</td>
 </tr>
 <tr>
-<td align=center>fi-6240</td>
+<td align=center>fi-6240Z</td>
 <td align=center>SCSI USB</td>
-<td align=center>0x04c5/0x114e</td>
-<td align=center><font color="#90B000">Good</font></td>
-<td>medium, current, Autocrop and Autodeskew not supported</td>
+<td align=center>0x04c5/0x11f2</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>medium, current</td>
 </tr>
 <tr>
 <td align=center>M3099A</td>
@@ -5831,6 +5938,13 @@ Kyocera
 <td>big, recent, discontinued</td>
 </tr>
 <tr>
+<td align=center>fi-5900C</td>
+<td align=center>SCSI USB</td>
+<td align=center>0x04c5/0x10e7</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>big, recent, discontinued. Independent ultrasonic control and multistream unsupported</td>
+</tr>
+<tr>
 <td align=center>fi-6750S</td>
 <td align=center>USB</td>
 <td align=center>0x04c5/0x1178</td>
@@ -5838,18 +5952,11 @@ Kyocera
 <td>Simplex, USB only version of fi-6770, won't wakeup via software, discontinued</td>
 </tr>
 <tr>
-<td align=center>fi-5900C</td>
+<td align=center>fi-5950</td>
 <td align=center>SCSI USB</td>
-<td align=center>0x04c5/0x10e7</td>
-<td align=center><font color="#90B000">Good</font></td>
-<td>big, current, independent ultrasonic control and multistream unsupported</td>
-</tr>
-<tr>
-<td align=center>fi-5950C</td>
-<td align=center>SCSI USB</td>
-<td align=center>&nbsp;</td>
+<td align=center>0x04c5/0x1213</td>
 <td align=center><font color="#0000B0">Untested</font></td>
-<td>Faster version of fi-5900?</td>
+<td>big, current. Faster version of fi-5900?</td>
 </tr>
 <tr>
 <td align=center>fi-6670</td>
@@ -5884,32 +5991,18 @@ Kyocera
 <td align=center>SCSI USB</td>
 <td align=center>0x04c5/0x119d</td>
 <td align=center><font color="#0000B0">Untested</font></td>
-<td>big, current</td>
+<td>big, current. Independent ultrasonic control and multistream unsupported</td>
 </tr>
 <tr>
 <td align=center>fi-6800-CGA</td>
 <td align=center>SCSI USB</td>
 <td align=center>0x04c5/0x119e</td>
 <td align=center><font color="#0000B0">Untested</font></td>
-<td>big, current. VRS CGA board unsupported</td>
-</tr>
-<tr>
-<td align=center>fi-6900</td>
-<td align=center>SCSI USB</td>
-<td align=center>0x04c5/0x119f</td>
-<td align=center><font color="#0000B0">Untested</font></td>
-<td>big, unreleased, similar to fi-5900?</td>
-</tr>
-<tr>
-<td align=center>fi-6900-CGA</td>
-<td align=center>SCSI USB</td>
-<td align=center>0x04c5/0x11a0</td>
-<td align=center><font color="#0000B0">Untested</font></td>
-<td>big, unreleased, similar to fi-5900? VRS CGA board unsupported</td>
+<td>big, current. VRS CGA board unsupported, Independent ultrasonic control and multistream unsupported</td>
 </tr>
 </table>
 <h3><a name="S-GENESYS">Backend: genesys
-(1.0-62)
+(1.0-63)
 </a></h3>
 <p>
 <b>Link(s):</b> 
@@ -5959,7 +6052,7 @@ Kyocera
 <td>Has a Primax USB ID. Same as MD5345</td>
 </tr>
 <tr>
-<td align=center rowspan=7>
+<td align=center rowspan=9>
 <a href="http://www.hp.com/">Hewlett-Packard</a>
 <td align=center>ScanJet 2300C</td>
 <td align=center>USB</td>
@@ -5971,14 +6064,14 @@ Kyocera
 <td align=center>ScanJet 2400C</td>
 <td align=center>USB</td>
 <td align=center>0x03f0/0x0a01</td>
-<td align=center><font color="#0000B0">Untested</font></td>
+<td align=center><font color="#007000">Complete</font></td>
 <td>1200x1200 dpi max</td>
 </tr>
 <tr>
 <td align=center>ScanJet G2410</td>
 <td align=center>USB</td>
 <td align=center>0x03f0/0x0a01</td>
-<td align=center><font color="#0000B0">Untested</font></td>
+<td align=center><font color="#FF9000">Basic</font></td>
 <td>clone of the HP 2400C</td>
 </tr>
 <tr>
@@ -5993,24 +6086,38 @@ Kyocera
 <td align=center>USB</td>
 <td align=center>0x03f0/0x1405</td>
 <td align=center><font color="#007000">Complete</font></td>
-<td>1200x1200 dpi max, same as HP3670C</td>
+<td>1200x1200 dpi max, same as HP 3670C</td>
+</tr>
+<tr>
+<td align=center>ScanJet 4850C</td>
+<td align=center>USB</td>
+<td align=center>0x03f0/0x1b05</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>resolution from 100 to 2400 supported, UTA not supported yet</td>
 </tr>
 <tr>
 <td align=center>ScanJet G4010</td>
 <td align=center>USB</td>
 <td align=center>0x03f0/0x4505</td>
-<td align=center><font color="#FF9000">Basic</font></td>
-<td>resolution from 100 to 600 supported, 1200 and 2400 remain to be added</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>resolution from 100 to 2400 supported, UTA not supported yet</td>
 </tr>
 <tr>
 <td align=center>ScanJet G4050</td>
 <td align=center>USB</td>
 <td align=center>0x03f0/0x4605</td>
-<td align=center><font color="#FF9000">Basic</font></td>
-<td>resolution from 100 to 600 supported, 1200 and 2400 remain to be added</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>resolution from 100 to 2400 supported, UTA not supported yet</td>
 </tr>
 <tr>
-<td align=center rowspan=10>
+<td align=center>ScanJet N6310</td>
+<td align=center>USB</td>
+<td align=center>0x03f0/0x4705</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Not supported yet</td>
+</tr>
+<tr>
+<td align=center rowspan=12>
 <a href="http://www.canon.com/">Canon</a>
 <td align=center>CanoScan LiDE 35</td>
 <td align=center>USB</td>
@@ -6044,7 +6151,7 @@ Kyocera
 <td align=center>USB</td>
 <td align=center>0x04a9/0x1904</td>
 <td align=center><font color="#007000">Complete</font></td>
-<td>&nbsp;</td>
+<td>GL847 based, resolution from 75 to 2400 dpi</td>
 </tr>
 <tr>
 <td align=center>CanoScan LiDE 110</td>
@@ -6058,7 +6165,7 @@ Kyocera
 <td align=center>USB</td>
 <td align=center>0x04a9/0x1905</td>
 <td align=center><font color="#007000">Complete</font></td>
-<td>&nbsp;</td>
+<td>GL847 based, resolution from 75 to 4800 dpi</td>
 </tr>
 <tr>
 <td align=center>CanoScan LiDE 210</td>
@@ -6066,6 +6173,13 @@ Kyocera
 <td align=center>0x04a9/0x190a</td>
 <td align=center><font color="#007000">Complete</font></td>
 <td>GL124 based, resolution from 75 to 2400 dpi</td>
+</tr>
+<tr>
+<td align=center>CanoScan 4400f</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x2228</td>
+<td align=center><font color="#F00000">Unsupported</font></td>
+<td>GL843 based, to be added to the genesys backend</td>
 </tr>
 <tr>
 <td align=center>CanoScan 5600F</td>
@@ -6078,8 +6192,15 @@ Kyocera
 <td align=center>CanoScan 700F</td>
 <td align=center>USB</td>
 <td align=center>0x04a9/0x1907</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>GL847 based, resolution from 75 to 4800 dpi</td>
+</tr>
+<tr>
+<td align=center>Canon Image Formula 101</td>
+<td align=center>USB</td>
+<td align=center>0x1083/0x162e</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
-<td>GL847 based, to be added to the genesys backend</td>
+<td>GL846 based, work in progress</td>
 </tr>
 <tr>
 <td align=center rowspan=5>
@@ -6174,13 +6295,20 @@ Syscan
 <td>All resolution and mode supported, calibration is available, front- and backside side-by-side, with backside mirrored horizontally.</td>
 </tr>
 <tr>
-<td align=center rowspan=1>
-Xerox
+<td align=center rowspan=2>
+<a href="http://www.xerox.com/">Xerox</a>
 <td align=center>Travel Scanner 100</td>
 <td align=center>USB</td>
 <td align=center>0x04a7/0x04ac</td>
 <td align=center><font color="#90B000">Good</font></td>
 <td>All resolution and mode supported, calibration is available</td>
+</tr>
+<tr>
+<td align=center>2400 Onetouch</td>
+<td align=center>USB</td>
+<td align=center>0x0461/0x038b</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>GL646 based, resolution from 75 to 2400 dpi</td>
 </tr>
 <tr>
 <td align=center rowspan=1>
@@ -7520,28 +7648,28 @@ Ricoh
 </tr>
 <tr>
 <td align=center>i810 Scanner</td>
-<td align=center>IEEE-1394</td>
+<td align=center>SCSI</td>
 <td align=center>&nbsp;</td>
 <td align=center><font color="#0000B0">Untested</font></td>
 <td>Please test!</td>
 </tr>
 <tr>
 <td align=center>i820 Scanner</td>
-<td align=center>IEEE-1394</td>
+<td align=center>SCSI</td>
 <td align=center>&nbsp;</td>
 <td align=center><font color="#0000B0">Untested</font></td>
 <td>Please test!</td>
 </tr>
 <tr>
 <td align=center>i830 Scanner</td>
-<td align=center>IEEE-1394</td>
+<td align=center>SCSI</td>
 <td align=center>&nbsp;</td>
 <td align=center><font color="#0000B0">Untested</font></td>
 <td>Please test!</td>
 </tr>
 <tr>
 <td align=center>i840 Scanner</td>
-<td align=center>IEEE-1394</td>
+<td align=center>SCSI</td>
 <td align=center>&nbsp;</td>
 <td align=center><font color="#0000B0">Untested</font></td>
 <td>Please test!</td>
@@ -7568,8 +7696,220 @@ Ricoh
 <td>Please test!</td>
 </tr>
 </table>
+<h3><a name="S-KODAKAIO">Backend: kodakaio
+(2.4.6)
+</a></h3>
+<p>
+<b>Link(s):</b> 
+<a href="http://sourceforge.net/projects/cupsdriverkodak/">http://sourceforge.net/projects/cupsdriverkodak/</a><br>
+<b>Manual page:</b> <a href="http://www.sane-project.org/man/sane-kodakaio.5.html">sane-kodakaio</a><br>
+<b>Comment:</b> Backend for Kodak AiO ESP and Hero printers. Also possibly Advent AWL10<br>
+</p>
+<table border=1>
+<tr bgcolor=E0E0FF>
+<th align=center>Manufacturer</th>
+<th align=center>Model</th>
+<th align=center>Interface</th>
+<th align=center>USB id</th>
+<th align=center>Status</th>
+<th align=center>Comment</th>
+</tr>
+<tr>
+<td align=center rowspan=26>
+<a href="http://www.kodak.com/">Kodak</a>
+<td align=center>ESP 2150</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x4059</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>ESP 2170</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x4066</td>
+<td align=center><font color="#FF9000">Basic</font></td>
+<td>Tested with network</td>
+</tr>
+<tr>
+<td align=center>ESP 3200</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x4043</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>ESP 3300</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x4031</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>ESP 4100</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x4053</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>ESP 5000</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x4028</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>ESP 5100</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x4025</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>ESP 5200</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x040a/0x4041</td>
+<td align=center><font color="#FF9000">Basic</font></td>
+<td>USB good, Network good</td>
+</tr>
+<tr>
+<td align=center>ESP 5300</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x4026</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>ESP 5500</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x4027</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>ESP 6100</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x4054</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>ESP 7200</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x4056</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>ESP 9200</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x4065</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>ESP 5</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x4032</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>ESP 7</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x403e</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>ESP 9</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x403f</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>ESP C110</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x4057</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>ESP C115</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x4058</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>ESP C310</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x405d</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>ESP C315</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x405e</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>Hero 3.1</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x406d</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>Hero 4.1</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x4069</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>Hero 5.1</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x4064</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>Hero Office 6.1</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x4062</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>Hero 7.1</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x4063</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+<tr>
+<td align=center>Hero 9.1</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x040a/0x4067</td>
+<td align=center><font color="#FF9000">Basic</font></td>
+<td>USB good, Network good</td>
+</tr>
+<tr>
+<td align=center rowspan=1>
+<a href="http://www.adventcomputers.co.uk">Advent</a>
+<td align=center>AW10</td>
+<td align=center>USB</td>
+<td align=center>0x040a/0x4060</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Please test!</td>
+</tr>
+</table>
 <h3><a name="S-KVS20XX">Backend: kvs20xx
-(2, <font color="#F00000">NEW!</font>)
+(unmaintained)
 </a></h3>
 <p>
 <b>Manual page:</b> <a href="http://www.sane-project.org/man/sane-kvs20xx.5.html">sane-kvs20xx</a><br>
@@ -7629,8 +7969,48 @@ Ricoh
 <td>&nbsp;</td>
 </tr>
 </table>
+<h3><a name="S-KVS40XX">Backend: kvs40xx
+(unmaintained)
+</a></h3>
+<p>
+<b>Manual page:</b> <a href="http://www.sane-project.org/man/sane-kvs40xx.5.html">sane-kvs40xx</a><br>
+<b>Comment:</b> New backend for SANE release 1.0.23, see sane-kvs40xx manpage<br>
+</p>
+<table border=1>
+<tr bgcolor=E0E0FF>
+<th align=center>Manufacturer</th>
+<th align=center>Model</th>
+<th align=center>Interface</th>
+<th align=center>USB id</th>
+<th align=center>Status</th>
+<th align=center>Comment</th>
+</tr>
+<tr>
+<td align=center rowspan=3>
+<a href="http://www.panasonic.com/">Panasonic</a>
+<td align=center>KV-S4065C</td>
+<td align=center>USB</td>
+<td align=center>0x04da/0x100d</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>KV-S4085C</td>
+<td align=center>USB</td>
+<td align=center>0x04da/0x100c</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>KV-S7075C</td>
+<td align=center>USB</td>
+<td align=center>0x04da/0x100e</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+</table>
 <h3><a name="S-KVS1025">Backend: kvs1025
-(3)
+(unmaintained)
 </a></h3>
 <p>
 <b>Manual page:</b> <a href="http://www.sane-project.org/man/sane-kvs1025.5.html">sane-kvs1025</a><br>
@@ -7851,7 +8231,7 @@ Dell
 </tr>
 </table>
 <h3><a name="S-MAGICOLOR">Backend: magicolor
-(1.0.0, <font color="#F00000">NEW!</font>)
+(1.0.0)
 </a></h3>
 <p>
 <b>Link(s):</b> 
@@ -9216,7 +9596,7 @@ Adlib
 </tr>
 </table>
 <h3><a name="S-PIXMA">Backend: pixma
-(0.16.1)
+(0.17.4)
 </a></h3>
 <p>
 <b>Link(s):</b> 
@@ -9233,8 +9613,190 @@ Adlib
 <th align=center>Comment</th>
 </tr>
 <tr>
-<td align=center rowspan=84>
+<td align=center rowspan=148>
 <a href="http://www.canon.com/">Canon</a>
+<td align=center>PIXMA E500</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1758</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA E510</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1761</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA E600</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x175a</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA E610</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1767</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG2100 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1751</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 1200DPI).</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG2200 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1760</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG2400 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x176c</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG2500 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x176d</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG3100 Series</td>
+<td align=center>USB WLAN</td>
+<td align=center>0x04a9/0x1752</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 1200DPI).</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG3200 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1762</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG3500 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x176e</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG4100 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1753</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG4200 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1763</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 1200DPI).</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG5100 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1748</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 1200DPI).</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG5200 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1749</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 1200DPI).</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG5300 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1754</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 2400DPI).</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG5400 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1764</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG5500 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1771</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG6100 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x174a</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 2400 DPI)</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG6200 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1755</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 4800 DPI)</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG6300 Series</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x04a9/0x1765</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 2400DPI).</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG6400 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1770</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG6500 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x176f</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG7100 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1772</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG8100 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x174b</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MG8200 Series</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x04a9/0x1756</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 4800DPI).</td>
+</tr>
+<tr>
 <td align=center>PIXMA MP140</td>
 <td align=center>USB</td>
 <td align=center>0x04a9/0x172b</td>
@@ -9270,6 +9832,13 @@ Adlib
 <td>&nbsp;</td>
 </tr>
 <tr>
+<td align=center>PIXMA MP190</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1734</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 600DPI)</td>
+</tr>
+<tr>
 <td align=center>PIXMA MP210</td>
 <td align=center>USB</td>
 <td align=center>0x04a9/0x1721</td>
@@ -9284,137 +9853,46 @@ Adlib
 <td>All resolutions supported (up to 1200DPI).</td>
 </tr>
 <tr>
-<td align=center>PIXMA MP450</td>
+<td align=center>PIXMA MP230</td>
 <td align=center>USB</td>
-<td align=center>0x04a9/0x170b</td>
+<td align=center>0x04a9/0x175f</td>
 <td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 1200DPI).</td>
+<td>All resolutions supported (up to 600DPI).</td>
 </tr>
 <tr>
-<td align=center>PIXMA MP460</td>
+<td align=center>PIXMA MP240</td>
 <td align=center>USB</td>
-<td align=center>0x04a9/0x1716</td>
+<td align=center>0x04a9/0x1732</td>
 <td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 1200DPI).</td>
+<td>All resolutions supported (up to 1200DPI)</td>
 </tr>
 <tr>
-<td align=center>PIXMA MP470</td>
+<td align=center>PIXMA MP250</td>
 <td align=center>USB</td>
-<td align=center>0x04a9/0x1723</td>
+<td align=center>0x04a9/0x173a</td>
 <td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 2400DPI).</td>
+<td>All resolutions supported (up to 600DPI)</td>
 </tr>
 <tr>
-<td align=center>PIXMA MP500</td>
+<td align=center>PIXMA MP260</td>
 <td align=center>USB</td>
-<td align=center>0x04a9/0x170c</td>
+<td align=center>0x04a9/0x1733</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 1200DPI)</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP270</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x173b</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 1200DPI)</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP280</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1746</td>
 <td align=center><font color="#90B000">Good</font></td>
-<td>&nbsp;</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP510</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x1717</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 1200DPI).</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP520</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x1724</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 2400DPI)</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP530</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x1712</td>
-<td align=center><font color="#90B000">Good</font></td>
-<td>&nbsp;</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP600</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x1718</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 2400DPI)</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP600R</td>
-<td align=center>USB Ethernet</td>
-<td align=center>0x04a9/0x1719</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 2400DPI)</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP610</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x1725</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 4800DPI)</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP750</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x1706</td>
-<td align=center><font color="#B00000">Minimal</font></td>
-<td>No grayscale. Canceling scan in ADF mode doesn't eject the paper!</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP760</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x1708</td>
-<td align=center><font color="#B00000">Minimal</font></td>
-<td>No grayscale. The scanner sometimes hangs!</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP780</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x1707</td>
-<td align=center><font color="#B00000">Minimal</font></td>
-<td>No grayscale. The scanner sometimes hangs!</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP800</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x170d</td>
-<td align=center><font color="#90B000">Good</font></td>
-<td>All resolutions supported up to 2400DPI. TPU scan up to 1200DPI.</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP800R</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x170e</td>
-<td align=center><font color="#90B000">Good</font></td>
-<td>All resolutions supported up to 2400DPI. TPU scan up to 1200DPI.</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP810</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x171a</td>
-<td align=center><font color="#90B000">Good</font></td>
-<td>All resolutions supported up to 2400DPI. Vertical stripes at 4800DPI. USB Snoops needed for TPU film scan.</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP830</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x1713</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported up to 2400DPI. Flatbed, ADF simplex and Duplex supported.</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP960</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x171b</td>
-<td align=center><font color="#B00000">Minimal</font></td>
-<td>&nbsp;</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP970</td>
-<td align=center>USB Ethernet</td>
-<td align=center>0x04a9/0x1726</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 4800DPI). Full TPU support (negative and slides) at 24 or 48 bits.</td>
+<td>All resolutions supported (up to 600DPI).</td>
 </tr>
 <tr>
 <td align=center>PIXMA MP360</td>
@@ -9445,6 +9923,146 @@ Adlib
 <td>All resolutions supported (up to 1200DPI).</td>
 </tr>
 <tr>
+<td align=center>PIXMA MP450</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x170b</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 1200DPI).</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP460</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1716</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 1200DPI).</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP470</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1723</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 2400DPI).</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP480</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1731</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 2400DPI)</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP490</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x173c</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 1200DPI)</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP493</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1757</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP495</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1747</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Same protocol as Pixma MP280? Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP500</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x170c</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP510</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1717</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 1200DPI).</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP520</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1724</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 2400DPI)</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP530</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1712</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP540</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1730</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 2400DPI)</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP550</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x173d</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 2400DPI)</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP560</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x173e</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 2400DPI)</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP600</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1718</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 2400DPI)</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP600R</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x04a9/0x1719</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 2400DPI)</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP610</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1725</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 4800DPI)</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP620</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x04a9/0x172f</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 2400DPI)</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP630</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x172e</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 4800DPI)</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP640</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x04a9/0x173f</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 4800DPI)</td>
+</tr>
+<tr>
 <td align=center>PIXMA MP700</td>
 <td align=center>USB</td>
 <td align=center>0x04a9/0x2630</td>
@@ -9459,6 +10077,13 @@ Adlib
 <td>All resolutions supported (up to 1200DPI)</td>
 </tr>
 <tr>
+<td align=center>PIXMA MP730</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x262f</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>Flatbed color up to 1200DPI, grayscale up to 600DPI. ADF scan to be confirmed.</td>
+</tr>
+<tr>
 <td align=center>PIXMA MP740</td>
 <td align=center>USB</td>
 <td align=center>0x04a9/0x264c</td>
@@ -9466,11 +10091,95 @@ Adlib
 <td>Same protocol as Pixma MP710? Testers needed!</td>
 </tr>
 <tr>
-<td align=center>PIXMA MP730</td>
+<td align=center>PIXMA MP750</td>
 <td align=center>USB</td>
-<td align=center>0x04a9/0x262f</td>
-<td align=center><font color="#90B000">Good</font></td>
-<td>Flatbed color up to 1200DPI, grayscale up to 600DPI. ADF scan to be confirmed.</td>
+<td align=center>0x04a9/0x1706</td>
+<td align=center><font color="#B00000">Minimal</font></td>
+<td>No grayscale. Canceling scan in ADF mode doesn't eject the paper!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP760</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1708</td>
+<td align=center><font color="#B00000">Minimal</font></td>
+<td>No grayscale. The scanner sometimes hangs!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP770</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1708</td>
+<td align=center><font color="#B00000">Minimal</font></td>
+<td>No grayscale. The scanner sometimes hangs!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP780</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1707</td>
+<td align=center><font color="#B00000">Minimal</font></td>
+<td>No grayscale. The scanner sometimes hangs!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP790</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1707</td>
+<td align=center><font color="#B00000">Minimal</font></td>
+<td>No grayscale. The scanner sometimes hangs!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP800</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x170d</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported up to 2400DPI. Full TPU support up to 2400DPI.</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP800R</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x170e</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported up to 2400DPI. Full TPU support up to 2400DPI.</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP810</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x171a</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported up to 4800DPI. Full TPU support (negative and slides) up to 4800DPI.</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP830</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1713</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported up to 2400DPI. Flatbed, ADF simplex and Duplex supported.</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP960</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x171b</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported up to 4800DPI. Full TPU support (negative and slides) up to 4800DPI.</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP970</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x04a9/0x1726</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 4800DPI). Full TPU support (negative and slides) at 24 or 48 bits.</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP980</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x04a9/0x172d</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>Working fine at all resolutions.</td>
+</tr>
+<tr>
+<td align=center>PIXMA MP990</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x04a9/0x1740</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>Working fine at all resolutions.</td>
 </tr>
 <tr>
 <td align=center>PIXMA MX300</td>
@@ -9515,11 +10224,88 @@ Adlib
 <td>Flatbed and ADF scan. All resolutions supported (up to 1200DPI)</td>
 </tr>
 <tr>
+<td align=center>PIXMA MX360</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x174d</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>Flatbed and ADF scan. All resolutions supported (up to 1200DPI). ADF empty buggy.</td>
+</tr>
+<tr>
+<td align=center>PIXMA MX370 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1759</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>Flatbed and ADF scan. All resolutions supported (up to 1200DPI).</td>
+</tr>
+<tr>
+<td align=center>PIXMA MX390 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1766</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MX410</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x04a9/0x174e</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Same protocol as Pixma MX420? Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MX420</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x04a9/0x174f</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>Flatbed and ADF scan. All resolutions supported (up to 1200DPI). ADF empty buggy.</td>
+</tr>
+<tr>
+<td align=center>PIXMA MX430 Series</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x04a9/0x175b</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MX450 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1768</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MX510 Series</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x04a9/0x175c</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MX520 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1769</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
 <td align=center>PIXMA MX700</td>
 <td align=center>USB Ethernet</td>
 <td align=center>0x04a9/0x1729</td>
 <td align=center><font color="#007000">Complete</font></td>
 <td>Flatbed and ADF scan. All resolutions supported (up to 2400DPI)</td>
+</tr>
+<tr>
+<td align=center>PIXMA MX710 Series</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x04a9/0x175d</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>PIXMA MX720 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x176a</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
 </tr>
 <tr>
 <td align=center>PIXMA MX850</td>
@@ -9543,6 +10329,41 @@ Adlib
 <td>All resolutions supported (up to 2400DPI). Flatbed, ADF simplex and Duplex supported, ADF empty buggy.</td>
 </tr>
 <tr>
+<td align=center>PIXMA MX880 Series</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x04a9/0x1750</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 2400DPI). Flatbed, ADF simplex and Duplex supported, ADF empty buggy.</td>
+</tr>
+<tr>
+<td align=center>PIXMA MX882</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x04a9/0x1750</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 2400DPI). Flatbed, ADF simplex and Duplex supported, ADF empty buggy.</td>
+</tr>
+<tr>
+<td align=center>PIXMA MX885</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x04a9/0x1750</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 2400DPI). Flatbed, ADF simplex and Duplex supported, ADF empty buggy.</td>
+</tr>
+<tr>
+<td align=center>PIXMA MX890 Series</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x04a9/0x175e</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 2400DPI). Flatbed, ADF simplex and Duplex supported, ADF empty buggy.</td>
+</tr>
+<tr>
+<td align=center>PIXMA MX920 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x176b</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
 <td align=center>PIXMA MX7600</td>
 <td align=center>USB Ethernet</td>
 <td align=center>0x04a9/0x171c</td>
@@ -9550,109 +10371,11 @@ Adlib
 <td>Flatbed and ADF scan. All resolutions supported (up to 4800DPI)</td>
 </tr>
 <tr>
-<td align=center>PIXMA MP980</td>
-<td align=center>USB Ethernet</td>
-<td align=center>0x04a9/0x172d</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>Working fine at all resolutions.</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP990</td>
-<td align=center>USB Ethernet</td>
-<td align=center>0x04a9/0x1740</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>Working fine at all resolutions.</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP640</td>
-<td align=center>USB Ethernet</td>
-<td align=center>0x04a9/0x173f</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 4800DPI)</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP630</td>
+<td align=center>imageCLASS D420</td>
 <td align=center>USB</td>
-<td align=center>0x04a9/0x172e</td>
+<td align=center>0x04a9/0x26ef</td>
 <td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 4800DPI)</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP620</td>
-<td align=center>USB Ethernet</td>
-<td align=center>0x04a9/0x172f</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 2400DPI)</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP560</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x173e</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 2400DPI)</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP550</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x173d</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 2400DPI)</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP540</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x1730</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 2400DPI)</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP490</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x173c</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 1200DPI)</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP480</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x1731</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 2400DPI)</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP250</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x173a</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 600DPI)</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP270</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x173b</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 1200DPI)</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP240</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x1732</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 1200DPI)</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP260</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x1733</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 1200DPI)</td>
-</tr>
-<tr>
-<td align=center>PIXMA MP190</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x1734</td>
-<td align=center><font color="#007000">Complete</font></td>
-<td>All resolutions supported (up to 600DPI)</td>
+<td>All resolutions supported (up to 600DPI). Flatbed, ADF simplex and Duplex supported.</td>
 </tr>
 <tr>
 <td align=center>imageCLASS D480</td>
@@ -9662,46 +10385,11 @@ Adlib
 <td>All resolutions supported (up to 600DPI). Flatbed, ADF simplex and Duplex supported.</td>
 </tr>
 <tr>
-<td align=center>imageCLASS MF5630</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x264e</td>
-<td align=center><font color="#0000B0">Untested</font></td>
-<td>Testers needed!</td>
-</tr>
-<tr>
-<td align=center>laserBase MF5650</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x264f</td>
-<td align=center><font color="#0000B0">Untested</font></td>
-<td>Testers needed!</td>
-</tr>
-<tr>
-<td align=center>imageCLASS MF8170c</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x2659</td>
-<td align=center><font color="#0000B0">Untested</font></td>
-<td>Testers needed!</td>
-</tr>
-<tr>
-<td align=center>imageCLASS MF5730</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x265d</td>
-<td align=center><font color="#0000B0">Untested</font></td>
-<td>Testers needed!</td>
-</tr>
-<tr>
-<td align=center>imageCLASS MF5750</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x265e</td>
-<td align=center><font color="#0000B0">Untested</font></td>
-<td>Testers needed!</td>
-</tr>
-<tr>
-<td align=center>imageCLASS MF5770</td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x265f</td>
+<td align=center>i-SENSYS MF3010</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x04a9/0x2759</td>
 <td align=center><font color="#007000">Complete</font></td>
-<td>Flatbed and ADF scan. All resolutions supported (up to 600DPI).</td>
+<td>All resolutions supported (up to 600DPI)</td>
 </tr>
 <tr>
 <td align=center>imageCLASS MF3110</td>
@@ -9802,11 +10490,95 @@ Adlib
 <td>Flatbed and ADF scan.  All resolutions supported (up to 600DPI). Network not supported</td>
 </tr>
 <tr>
+<td align=center>imageCLASS MF4410</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x2737</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>All resolutions supported (up to 600DPI)</td>
+</tr>
+<tr>
+<td align=center>imageCLASS MF4430</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x2737</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>Flatbed and ADF scan. All resolutions supported (up to 600DPI). ADF empty buggy.</td>
+</tr>
+<tr>
+<td align=center>i-SENSYS MF4550d</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x2736</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>Flatbed and ADF scan. All resolutions supported (up to 600DPI).</td>
+</tr>
+<tr>
+<td align=center>imageCLASS MF4770n</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x04a9/0x2774</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>Flatbed scan. All resolutions supported (up to 600DPI). ADF buggy.</td>
+</tr>
+<tr>
+<td align=center>imageCLASS MF4570dw</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x275a</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>imageCLASS MF4660</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x26b0</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>Flatbed and ADF scan.  All resolutions supported (up to 600DPI)</td>
+</tr>
+<tr>
 <td align=center>imageCLASS MF4690</td>
 <td align=center>USB</td>
 <td align=center>0x04a9/0x26b0</td>
 <td align=center><font color="#007000">Complete</font></td>
 <td>Flatbed and ADF scan.  All resolutions supported (up to 600DPI)</td>
+</tr>
+<tr>
+<td align=center>imageCLASS MF5630</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x264e</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>laserBase MF5650</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x264f</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>imageCLASS MF5730</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x265d</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>Flatbed and ADF scan. All resolutions supported (up to 1200DPI).</td>
+</tr>
+<tr>
+<td align=center>imageCLASS MF5750</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x265e</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>imageCLASS MF5770</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x265f</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>Flatbed and ADF scan. All resolutions supported (up to 600DPI).</td>
+</tr>
+<tr>
+<td align=center>i-SENSYS MF5880dn</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x26f9</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
 </tr>
 <tr>
 <td align=center>imageCLASS MF6500 series</td>
@@ -9816,11 +10588,67 @@ Adlib
 <td>Flatbed and ADF scan.  All resolutions supported (up to 600DPI)</td>
 </tr>
 <tr>
+<td align=center>imageCLASS MF6550</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x2686</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>Flatbed and ADF scan.  All resolutions supported (up to 600DPI)</td>
+</tr>
+<tr>
+<td align=center>i-SENSYS MF6680dn</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x26fa</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>imageCLASS MF8030</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x2707</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>imageCLASS MF8170c</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x2659</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
+<td align=center>imageRUNNER 1020/1024/1025</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x26e6</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>Flatbed and ADF scan.  All resolutions supported (up to 600DPI)</td>
+</tr>
+<tr>
+<td align=center>imageRUNNER 1133</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x2742</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>Testers needed!</td>
+</tr>
+<tr>
 <td align=center>CanoScan 8800F</td>
 <td align=center>USB</td>
 <td align=center>0x04a9/0x1901</td>
 <td align=center><font color="#007000">Complete</font></td>
 <td>Flatbed scan. TPU for negatives and slides. All resolutions supported (up to 4800DPI).</td>
+</tr>
+<tr>
+<td align=center>CanoScan 9000F</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x1908</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>Full flatbed support up to 4800DPI (Note: flatbed does not have 9600DPI capability). Full TPU support (negatives, slides and infrared) up to 9600DPI.</td>
+</tr>
+<tr>
+<td align=center>CanoScan 9000F Mark II</td>
+<td align=center>USB</td>
+<td align=center>0x04a9/0x190d</td>
+<td align=center><font color="#007000">Complete</font></td>
+<td>Full flatbed support up to 4800DPI (Note: flatbed does not have 9600DPI capability). Full TPU support (negatives, slides and infrared) up to 9600DPI.</td>
 </tr>
 </table>
 <h3><a name="S-PLUSTEK">Backend: plustek
@@ -10120,12 +10948,19 @@ Ambir
 <td>Rebaged Travelscan 464</td>
 </tr>
 <tr>
-<td align=center rowspan=1>
+<td align=center rowspan=2>
 <a href="http://www.pandp.com.tw/">Portable Peripheral Co., Ltd.</a>
 <td align=center>Q-Scan USB001 (A4 portable scanner)</td>
 <td align=center>USB</td>
 <td align=center>0x0a53/0x1000</td>
 <td align=center><font color="#007000">Complete</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>Q-Scan USB201 (A6 portable scanner)</td>
+<td align=center>USB</td>
+<td align=center>0x0a53/0x2000</td>
+<td align=center><font color="#90B000">Good</font></td>
 <td>&nbsp;</td>
 </tr>
 <tr>
@@ -10798,7 +11633,7 @@ BrightScan
 <td>&nbsp;</td>
 </tr>
 <tr>
-<td align=center rowspan=24>
+<td align=center rowspan=25>
 <a href="http://www.benq.com">Benq (Acer)</a>
 <td align=center>300f</td>
 <td align=center>SCSI</td>
@@ -10829,6 +11664,13 @@ BrightScan
 </tr>
 <tr>
 <td align=center>620s</td>
+<td align=center>SCSI</td>
+<td align=center>&nbsp;</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>ScanWit 2720s</td>
 <td align=center>SCSI</td>
 <td align=center>&nbsp;</td>
 <td align=center><font color="#90B000">Good</font></td>
@@ -11705,14 +12547,14 @@ RevScan
 <td align=center>IEEE-1394</td>
 <td align=center>&nbsp;</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
-<td>will propably work one day</td>
+<td>will probably work one day</td>
 </tr>
 <tr>
 <td align=center>Astra 6450</td>
 <td align=center>IEEE-1394</td>
 <td align=center>&nbsp;</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
-<td>will propably work one day</td>
+<td>will probably work one day</td>
 </tr>
 <tr>
 <td align=center>Astra MX3</td>
@@ -11796,7 +12638,7 @@ RevScan
 <td align=center>IEEE-1394</td>
 <td align=center>&nbsp;</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
-<td>will propably work one day</td>
+<td>will probably work one day</td>
 </tr>
 <tr>
 <td align=center>PowerLook 2000</td>
@@ -12462,7 +13304,7 @@ Boeder
 <td>Probably unsupported.</td>
 </tr>
 <tr>
-<td align=center rowspan=38>
+<td align=center rowspan=37>
 <a href="http://www.canon.com/">Canon</a>
 <td align=center><a href="/unsupported/canon-3000.html">CanoScan 3000</a></td>
 <td align=center>USB</td>
@@ -12482,7 +13324,7 @@ Boeder
 <td align=center>USB</td>
 <td align=center>0x04a9/0x2215</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
-<td>GL660+GL646 based.</td>
+<td>GL660+GL646 based, to be added to genesys backend</td>
 </tr>
 <tr>
 <td align=center><a href="/unsupported/canon-4200f.html">CanoScan 4200F</a></td>
@@ -12496,7 +13338,7 @@ Boeder
 <td align=center>USB</td>
 <td align=center>0x04a9/0x2228</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
-<td>GL841 based, to be added to genesys backend</td>
+<td>GL843 based, to be added to genesys backend</td>
 </tr>
 <tr>
 <td align=center><a href="/unsupported/canon-5000f.html">CanoScan 5000F</a></td>
@@ -12698,13 +13540,6 @@ Boeder
 <td align=center><a href="/unsupported/canon-imagerunner.html">ImageRunner iR1023</a></td>
 <td align=center>USB</td>
 <td align=center>0x04a9/0x269d</td>
-<td align=center><font color="#F00000">Unsupported</font></td>
-<td>Probably not supported. See link for details.</td>
-</tr>
-<tr>
-<td align=center><a href="/unsupported/canon-multipass-390.html">Multipass 390</a></td>
-<td align=center>USB</td>
-<td align=center>0x04a9/0x263e</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>Probably not supported. See link for details.</td>
 </tr>
@@ -12929,7 +13764,7 @@ Hercules
 <td>Probably unsupported. See link for details.</td>
 </tr>
 <tr>
-<td align=center rowspan=17>
+<td align=center rowspan=15>
 <a href="http://www.hp.com/">Hewlett-Packard</a>
 <td align=center><a href="/unsupported/hp-photo-1000.html">Photo Scanner 1000</a></td>
 <td align=center>USB</td>
@@ -13034,20 +13869,6 @@ Hercules
 <td align=center>0x03f0/0x4505</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>Probably not supported. See link for details.</td>
-</tr>
-<tr>
-<td align=center><a href="/unsupported/hp-g4000.html">ScanJet G4010</a></td>
-<td align=center>USB</td>
-<td align=center>0x03f0/0x4505</td>
-<td align=center><font color="#F00000">Unsupported</font></td>
-<td>Probably not supported. See link for details.</td>
-</tr>
-<tr>
-<td align=center><a href="/unsupported/hp-g4050.html">ScanJet G4050</a></td>
-<td align=center>USB</td>
-<td align=center>0x03f0/0x4605</td>
-<td align=center><font color="#F00000">Unsupported</font></td>
-<td>gl843 scanner, support is currently being work on in the genesys backend</td>
 </tr>
 <tr>
 <td align=center rowspan=1>
@@ -13951,7 +14772,7 @@ Pentax
 <td>Not supported. See link for details.</td>
 </tr>
 <tr>
-<td align=center rowspan=30>
+<td align=center rowspan=32>
 <a href="http://www.plustek.de/">Plustek</a>
 <td align=center><a href="/unsupported/plustek-opticfilm-7200.html">OpticFilm 7200</a></td>
 <td align=center>USB</td>
@@ -14035,6 +14856,20 @@ Pentax
 <td align=center>0x07b3/0x0801</td>
 <td align=center><font color="#F00000">Unsupported</font></td>
 <td>GL841 based, to be added to genesys backend</td>
+</tr>
+<tr>
+<td align=center><a href="/unsupported/plustek-opticpro-st28.html">OpticPro ST28</a></td>
+<td align=center>USB</td>
+<td align=center>0x07b3/0x0802</td>
+<td align=center><font color="#F00000">Unsupported</font></td>
+<td>GL841 based, to be added to genesys backend</td>
+</tr>
+<tr>
+<td align=center><a href="/unsupported/umax-astrscan-4750.html">Umax AstraScan 4750</a></td>
+<td align=center>USB</td>
+<td align=center>0x07b3/0x0802</td>
+<td align=center><font color="#F00000">Unsupported</font></td>
+<td>GL841 based, to be added to genesys backend, rebadged Plustek ST28</td>
 </tr>
 <tr>
 <td align=center><a href="/unsupported/plustek-opticpro-st48.html">OpticPro ST48</a></td>
@@ -14693,7 +15528,7 @@ Vantas
 <td>Not supported. See link for more details.</td>
 </tr>
 <tr>
-<td align=center rowspan=25>
+<td align=center rowspan=37>
 <a href="http://www.visioneer.com/">Visioneer</a>
 <td align=center>6200</td>
 <td align=center>USB</td>
@@ -14870,15 +15705,6 @@ Vantas
 <td>Not supported. See link for details.</td>
 </tr>
 <tr>
-<td align=center rowspan=13>
-<a href="http://www.xerox.com/">Xerox</a>
-<td align=center><a href="/unsupported/xerox-2400-onetouch.html">2400 Onetouch</a></td>
-<td align=center>USB</td>
-<td align=center>0x0461/0x038b</td>
-<td align=center><font color="#F00000">Unsupported</font></td>
-<td>Probably GL646_HP based, maybe can be added to genesys backend</td>
-</tr>
-<tr>
 <td align=center><a href="/unsupported/xerox-4800-onetouch.html">4800 One Touch</a></td>
 <td align=center>USB</td>
 <td align=center>0x04a7/0x03a0</td>
@@ -14964,7 +15790,7 @@ Vantas
 </tr>
 </table>
 <h3><a name="S-XEROX-MFP">Backend: xerox_mfp
-(1.0-11)
+(1.0-13)
 </a></h3>
 <p>
 <b>Manual page:</b> <a href="http://www.sane-project.org/man/sane-xerox_mfp.5.html">sane-xerox_mfp</a><br>
@@ -15023,7 +15849,7 @@ Vantas
 <td>&nbsp;</td>
 </tr>
 <tr>
-<td align=center rowspan=1>
+<td align=center rowspan=2>
 <a href="http://www.dell.com/">Dell</a>
 <td align=center>Dell MFP Laser Printer 1815dn</td>
 <td align=center>USB</td>
@@ -15032,8 +15858,71 @@ Vantas
 <td>&nbsp;</td>
 </tr>
 <tr>
-<td align=center rowspan=11>
+<td align=center>Dell 1235cn</td>
+<td align=center>USB</td>
+<td align=center>0x413c/0x5310</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center rowspan=60>
 <a href="http://www.samsung.com">Samsung</a>
+<td align=center>SCX-4x16</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3409</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-6x20</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x340d</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>MFP-560</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x340e</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>MFP-750</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x340f</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-4x20</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3412</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-4100</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3413</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-4x21</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3419</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-5x30</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x341a</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
 <td align=center>SCX-4200</td>
 <td align=center>USB</td>
 <td align=center>0x04e8/0x341b</td>
@@ -15041,9 +15930,51 @@ Vantas
 <td>&nbsp;</td>
 </tr>
 <tr>
+<td align=center>CLX-3160</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x341c</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-6x22</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x341d</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX4725</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x341f</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
 <td align=center>SCX4725-FN</td>
 <td align=center>USB</td>
 <td align=center>0x04e8/0x341f</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-6x45</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3420</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>CLX-8380</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3421</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>CLX-2160</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3425</td>
 <td align=center><font color="#90B000">Good</font></td>
 <td>&nbsp;</td>
 </tr>
@@ -15055,7 +15986,28 @@ Vantas
 <td>&nbsp;</td>
 </tr>
 <tr>
-<td align=center>CLX-3170fn</td>
+<td align=center>CLX-6200</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3427</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>CLX-6240</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3428</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-6x55</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3429</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>CLX-3170fn (CLX-3170 Series)</td>
 <td align=center>USB</td>
 <td align=center>0x04e8/0x342a</td>
 <td align=center><font color="#90B000">Good</font></td>
@@ -15069,9 +16021,23 @@ Vantas
 <td>&nbsp;</td>
 </tr>
 <tr>
-<td align=center>SCX-4824</td>
+<td align=center>SCX-4500W</td>
+<td align=center>USB Ethernet</td>
+<td align=center>0x04e8/0x342b</td>
+<td align=center><font color="#FF9000">Basic</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-4824 (SCX-4x24 Series)</td>
 <td align=center>USB</td>
 <td align=center>0x04e8/0x342c</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-4828FN (SCX-4x28 Series)</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x342d</td>
 <td align=center><font color="#90B000">Good</font></td>
 <td>&nbsp;</td>
 </tr>
@@ -15080,6 +16046,27 @@ Vantas
 <td align=center>USB</td>
 <td align=center>0x04e8/0x342e</td>
 <td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-5835_5935</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x342f</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-5635</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3430</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-4x26</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3432</td>
+<td align=center><font color="#0000B0">Untested</font></td>
 <td>&nbsp;</td>
 </tr>
 <tr>
@@ -15097,17 +16084,206 @@ Vantas
 <td>&nbsp;</td>
 </tr>
 <tr>
-<td align=center>SCX-4825FN</td>
+<td align=center>MFP-65x</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3435</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-6545</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3437</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>CLX-8385</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3439</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>CLX-6220</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x343a</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>CLX-6250</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x343b</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-4825FN (SCX-4x25 Series)</td>
 <td align=center>USB</td>
 <td align=center>0x04e8/0x343c</td>
 <td align=center><font color="#90B000">Good</font></td>
 <td>&nbsp;</td>
 </tr>
 <tr>
-<td align=center>SCX-4500W</td>
+<td align=center>CLX-3185</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x343d</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>CLX-8540</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x343f</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-4623FW</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3440</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-3205W (SCX-3200 Series)</td>
 <td align=center>USB Ethernet</td>
-<td align=center>0x04e8/0x342b</td>
+<td align=center>0x04e8/0x3441</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-6545X</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3442</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-6x55X</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3443</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>CLX-8385X</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3444</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-5835_5935X</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3446</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-4833FD</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x344b</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-4835FD</td>
+<td align=center>Ethernet</td>
+<td align=center>0x04e8/0x344b</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-3405W</td>
+<td align=center>Ethernet</td>
+<td align=center>&nbsp;</td>
 <td align=center><font color="#FF9000">Basic</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-3400</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x344f</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SF-760</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3450</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-4729FD</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3453</td>
+<td align=center><font color="#FF9000">Basic</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>CLX-6260</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3455</td>
+<td align=center><font color="#B00000">Minimal</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>CLX-3300 Series</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3456</td>
+<td align=center><font color="#FF9000">Basic</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-470x</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3457</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>CLX-4190</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x345a</td>
+<td align=center><font color="#B00000">Minimal</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-4650 4x21S Series</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x345b</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>M337x 387x 407x Series</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3460</td>
+<td align=center><font color="#90B000">Good</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>M267x 287x Series</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3461</td>
+<td align=center><font color="#F00000">Unsupported</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>SCX-681x</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3466</td>
+<td align=center><font color="#0000B0">Untested</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align=center>C460</td>
+<td align=center>USB</td>
+<td align=center>0x04e8/0x3468</td>
+<td align=center><font color="#0000B0">Untested</font></td>
 <td>&nbsp;</td>
 </tr>
 </table>
@@ -15488,7 +16664,7 @@ Grandtek Scopecam
 >Contact</a>
 </address>
 <font size=-1>
-This page was last updated on Mon Apr 30 15:25:44 2012
- by sane-desc 3.5 from sane-backends 1.0.22
+This page was last updated on Sun Oct  6 03:29:13 2013
+ by sane-desc 3.5 from sane-backends 1.0.24
 </font>
 </body> </html>

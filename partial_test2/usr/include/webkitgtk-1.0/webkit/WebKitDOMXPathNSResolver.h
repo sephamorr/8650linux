@@ -21,11 +21,10 @@
 #ifndef WebKitDOMXPathNSResolver_h
 #define WebKitDOMXPathNSResolver_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_XPATH_NS_RESOLVER            (webkit_dom_xpath_ns_resolver_get_type())

@@ -29,10 +29,6 @@ extern "C" {
 #define NO_INLINE_FUNCS
 #endif
 
-#ifndef _XOPEN_SOURCE
-#define _XOPEN_SOURCE 600	/* for posix_memalign() */
-#endif
-
 /*
  * Where the master copy of the superblock is located, and how big
  * superblocks are supposed to be.  We define SUPERBLOCK_SIZE because
@@ -57,16 +53,6 @@ extern "C" {
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-
-#ifndef __USE_XOPEN2K
-/* If the "#define _XOPEN_SOURCE 600" didn't succeed in declaring
- * posix_memalign(), maybe due to <features.h> or <stdlib.h> included beforej
- * _XOPEN_SOURCE, declare it here to avoid compiler warnings. */
-extern int posix_memalign(void **__memptr, size_t __alignment, size_t __size);
-#endif
 
 #if EXT2_FLAT_INCLUDES
 #include "e2_types.h"
@@ -925,7 +911,7 @@ extern errcode_t ext2fs_close(ext2_filsys fs);
 extern errcode_t ext2fs_close2(ext2_filsys fs, int flags);
 extern errcode_t ext2fs_flush(ext2_filsys fs);
 extern errcode_t ext2fs_flush2(ext2_filsys fs, int flags);
-extern int ext2fs_bg_has_super(ext2_filsys fs, int group_block);
+extern int ext2fs_bg_has_super(ext2_filsys fs, dgrp_t group_block);
 extern errcode_t ext2fs_super_and_bgd_loc2(ext2_filsys fs,
 				    dgrp_t group,
 				    blk64_t *ret_super_blk,
@@ -1084,6 +1070,7 @@ extern errcode_t ext2fs_extent_open2(ext2_filsys fs, ext2_ino_t ino,
 extern void ext2fs_extent_free(ext2_extent_handle_t handle);
 extern errcode_t ext2fs_extent_get(ext2_extent_handle_t handle,
 				   int flags, struct ext2fs_extent *extent);
+extern errcode_t ext2fs_extent_node_split(ext2_extent_handle_t handle);
 extern errcode_t ext2fs_extent_replace(ext2_extent_handle_t handle, int flags,
 				       struct ext2fs_extent *extent);
 extern errcode_t ext2fs_extent_insert(ext2_extent_handle_t handle, int flags,
@@ -1096,6 +1083,9 @@ extern errcode_t ext2fs_extent_get_info(ext2_extent_handle_t handle,
 					struct ext2_extent_info *info);
 extern errcode_t ext2fs_extent_goto(ext2_extent_handle_t handle,
 				    blk64_t blk);
+extern errcode_t ext2fs_extent_goto2(ext2_extent_handle_t handle,
+				     int leaf_level, blk64_t blk);
+extern errcode_t ext2fs_extent_fix_parents(ext2_extent_handle_t handle);
 
 /* fileio.c */
 extern errcode_t ext2fs_file_open2(ext2_filsys fs, ext2_ino_t ino,
@@ -1262,6 +1252,11 @@ extern errcode_t ext2fs_icount_store(ext2_icount_t icount, ext2_ino_t ino,
 extern ext2_ino_t ext2fs_get_icount_size(ext2_icount_t icount);
 errcode_t ext2fs_icount_validate(ext2_icount_t icount, FILE *);
 
+/* inline.c */
+
+extern errcode_t ext2fs_get_memalign(unsigned long size,
+				     unsigned long align, void *ptr);
+
 /* inode.c */
 extern errcode_t ext2fs_flush_icache(ext2_filsys fs);
 extern errcode_t ext2fs_get_next_inode_full(ext2_inode_scan scan,
@@ -1379,6 +1374,10 @@ errcode_t ext2fs_link(ext2_filsys fs, ext2_ino_t dir, const char *name,
 errcode_t ext2fs_unlink(ext2_filsys fs, ext2_ino_t dir, const char *name,
 			ext2_ino_t ino, int flags);
 
+/* symlink.c */
+errcode_t ext2fs_symlink(ext2_filsys fs, ext2_ino_t parent, ext2_ino_t ino,
+			 const char *name, char *target);
+
 /* mmp.c */
 errcode_t ext2fs_mmp_read(ext2_filsys fs, blk64_t mmp_blk, void *buf);
 errcode_t ext2fs_mmp_write(ext2_filsys fs, blk64_t mmp_blk, void *buf);
@@ -1426,6 +1425,11 @@ extern void ext2fs_swap_inode(ext2_filsys fs,struct ext2_inode *t,
 			      struct ext2_inode *f, int hostorder);
 extern void ext2fs_swap_mmp(struct mmp_struct *mmp);
 
+/* unix_io.c */
+extern int ext2fs_open_file(const char *pathname, int flags, mode_t mode);
+extern int ext2fs_stat(const char *path, ext2fs_struct_stat *buf);
+extern int ext2fs_fstat(int fd, ext2fs_struct_stat *buf);
+
 /* valid_blk.c */
 extern int ext2fs_inode_has_valid_blocks(struct ext2_inode *inode);
 extern int ext2fs_inode_has_valid_blocks2(ext2_filsys fs,
@@ -1443,9 +1447,8 @@ extern errcode_t ext2fs_write_bb_FILE(ext2_badblocks_list bb_list,
 
 
 /* inline functions */
+#ifdef NO_INLINE_FUNCS
 extern errcode_t ext2fs_get_mem(unsigned long size, void *ptr);
-extern errcode_t ext2fs_get_memalign(unsigned long size,
-				     unsigned long align, void *ptr);
 extern errcode_t ext2fs_get_memzero(unsigned long size, void *ptr);
 extern errcode_t ext2fs_get_array(unsigned long count,
 				  unsigned long size, void *ptr);
@@ -1472,9 +1475,7 @@ extern blk_t ext2fs_inode_data_blocks(ext2_filsys fs,
 				      struct ext2_inode *inode);
 extern unsigned int ext2fs_div_ceil(unsigned int a, unsigned int b);
 extern __u64 ext2fs_div64_ceil(__u64 a, __u64 b);
-extern int ext2fs_open_file(const char *pathname, int flags, mode_t mode);
-extern int ext2fs_stat(const char *path, ext2fs_struct_stat *buf);
-extern int ext2fs_fstat(int fd, ext2fs_struct_stat *buf);
+#endif
 
 /*
  * The actual inlined functions definitions themselves...
@@ -1486,11 +1487,15 @@ extern int ext2fs_fstat(int fd, ext2fs_struct_stat *buf);
 #ifdef INCLUDE_INLINE_FUNCS
 #define _INLINE_ extern
 #else
+#if (__STDC_VERSION__ >= 199901L)
+#define _INLINE_ inline
+#else
 #ifdef __GNUC__
 #define _INLINE_ extern __inline__
 #else				/* For Watcom C */
 #define _INLINE_ extern inline
-#endif
+#endif /* __GNUC__ */
+#endif /* __STDC_VERSION__ >= 199901L */
 #endif
 
 #ifndef EXT2_CUSTOM_MEMORY_ROUTINES
@@ -1707,38 +1712,6 @@ _INLINE_ __u64 ext2fs_div64_ceil(__u64 a, __u64 b)
 	if (!a)
 		return 0;
 	return ((a - 1) / b) + 1;
-}
-
-_INLINE_ int ext2fs_open_file(const char *pathname, int flags, mode_t mode)
-{
-	if (mode)
-#if defined(HAVE_OPEN64) && !defined(__OSX_AVAILABLE_BUT_DEPRECATED)
-		return open64(pathname, flags, mode);
-	else
-		return open64(pathname, flags);
-#else
-		return open(pathname, flags, mode);
-	else
-		return open(pathname, flags);
-#endif
-}
-
-_INLINE_ int ext2fs_stat(const char *path, ext2fs_struct_stat *buf)
-{
-#if defined(HAVE_FSTAT64) && !defined(__OSX_AVAILABLE_BUT_DEPRECATED)
-	return stat64(path, buf);
-#else
-	return stat(path, buf);
-#endif
-}
-
-_INLINE_ int ext2fs_fstat(int fd, ext2fs_struct_stat *buf)
-{
-#if defined(HAVE_FSTAT64) && !defined(__OSX_AVAILABLE_BUT_DEPRECATED)
-	return fstat64(fd, buf);
-#else
-	return fstat(fd, buf);
-#endif
 }
 
 #undef _INLINE_

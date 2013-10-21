@@ -42,11 +42,6 @@ But the ordinals of characters differ between ASCII, EBCDIC, and
 the UTF- encodings, and a string encoded in UTF-EBCDIC may occupy more bytes
 than in UTF-8.
 
-Also, on some EBCDIC machines, functions that are documented as operating on
-US-ASCII (or Basic Latin in Unicode terminology) may in fact operate on all
-256 characters in the EBCDIC range, not just the subset corresponding to
-US-ASCII.
-
 The listing below is alphabetical, case insensitive.
 
 
@@ -141,7 +136,7 @@ Found in file cop.h
 =item AvFILL
 X<AvFILL>
 
-Same as C<av_len()>.  Deprecated, use C<av_len()> instead.
+Same as C<av_top_index()>.  Deprecated, use C<av_top_index()> instead.
 
 	int	AvFILL(AV* av)
 
@@ -271,10 +266,9 @@ Found in file av.c
 =item av_len
 X<av_len>
 
-Returns the highest index in the array.  The number of elements in the
-array is C<av_len(av) + 1>.  Returns -1 if the array is empty.
-
-The Perl equivalent for this is C<$#myarray>.
+Same as L</av_top_index>.  Returns the highest index in the array.  Note that the
+return value is +1 what its name implies it returns; and hence differs in
+meaning from what the similarly named L</sv_len> returns.
 
 	I32	av_len(AV *av)
 
@@ -298,8 +292,9 @@ Found in file av.c
 =item av_pop
 X<av_pop>
 
-Pops an SV off the end of the array.  Returns C<&PL_sv_undef> if the array
-is empty.
+Removes one SV from the end of the array, reducing its size by one and
+returning the SV (transferring control of one reference count) to the
+caller.  Returns C<&PL_sv_undef> if the array is empty.
 
 Perl equivalent: C<pop(@myarray);>
 
@@ -359,6 +354,31 @@ more information on how to use this function on tied arrays.
 =for hackers
 Found in file av.c
 
+=item av_tindex
+X<av_tindex>
+
+Same as C<av_top_index()>.
+
+	int	av_tindex(AV* av)
+
+=for hackers
+Found in file av.h
+
+=item av_top_index
+X<av_top_index>
+
+Returns the highest index in the array.  The number of elements in the
+array is C<av_top_index(av) + 1>.  Returns -1 if the array is empty.
+
+The Perl equivalent for this is C<$#myarray>.
+
+(A slightly shorter form is C<av_tindex>.)
+
+	I32	av_top_index(AV *av)
+
+=for hackers
+Found in file av.c
+
 =item av_undef
 X<av_undef>
 
@@ -379,7 +399,7 @@ array.  The array will grow automatically to accommodate the addition.  You
 must then use C<av_store> to assign values to these new elements.
 
 Perl equivalent: C<unshift @myarray, ( (undef) x $n );>
-    
+
 	void	av_unshift(AV *av, I32 num)
 
 =for hackers
@@ -420,7 +440,7 @@ X<sortsv>
 
 Sort an array. Here is an example:
 
-    sortsv(AvARRAY(av), av_len(av)+1, Perl_sv_cmp_locale);
+    sortsv(AvARRAY(av), av_top_index(av)+1, Perl_sv_cmp_locale);
 
 Currently this always uses mergesort. See sortsv_flags for a more
 flexible routine.
@@ -580,8 +600,8 @@ Found in file scope.h
 =item toLOWER
 X<toLOWER>
 
-Converts the specified character to lowercase in the platform's native
-character set, if possible; otherwise returns the input character itself.
+Converts the specified character to lowercase, if possible; otherwise returns
+the input character itself.
 
 	char	toLOWER(char ch)
 
@@ -591,8 +611,8 @@ Found in file handy.h
 =item toUPPER
 X<toUPPER>
 
-Converts the specified character to uppercase in the platform's native
-character set, if possible; otherwise returns the input character itself.
+Converts the specified character to uppercase, if possible; otherwise returns
+the input character itself.
 
 	char	toUPPER(char ch)
 
@@ -604,25 +624,56 @@ Found in file handy.h
 
 =head1 Character classes
 
-There are three variants for all the functions in this section.  The base ones
-operate using the character set of the platform Perl is running on.  The ones
-with an C<_A> suffix operate on the ASCII character set, and the ones with an
-C<_L1> suffix operate on the full Latin1 character set.  All are unaffected by
-locale and by C<use bytes>.
+This section is about functions (really macros) that classify characters
+into types, such as punctuation versus alphabetic, etc.  Most of these are
+analogous to regular expression character classes.  (See
+L<perlrecharclass/POSIX Character Classes>.)  There are several variants for
+each class.  (Not all macros have all variants; each item below lists the
+ones valid for it.)  None are affected by C<use bytes>, and only the ones
+with C<LC> in the name are affected by the current locale.
 
-For ASCII platforms, the base function with no suffix and the one with the
-C<_A> suffix are identical.  The function with the C<_L1> suffix imposes the
-Latin-1 character set onto the platform.  That is, the code points that are
-ASCII are unaffected, since ASCII is a subset of Latin-1.  But the non-ASCII
-code points are treated as if they are Latin-1 characters.  For example,
-C<isSPACE_L1()> will return true when called with the code point 0xA0, which is
-the Latin-1 NO-BREAK SPACE.
+The base function, e.g., C<isALPHA()>, takes an octet (either a C<char> or a
+C<U8>) as input and returns a boolean as to whether or not the character
+represented by that octet is (or on non-ASCII platforms, corresponds to) an
+ASCII character in the named class based on platform, Unicode, and Perl rules.
+If the input is a number that doesn't fit in an octet, FALSE is returned.
 
-For EBCDIC platforms, the base function with no suffix and the one with the
-C<_L1> suffix should be identical, since, as of this writing, the EBCDIC code
-pages that Perl knows about all are equivalent to Latin-1.  The function that
-ends in an C<_A> suffix will not return true unless the specified character also
-has an ASCII equivalent.
+Variant C<isFOO_A> (e.g., C<isALPHA_A()>) is identical to the base function
+with no suffix C<"_A">.
+
+Variant C<isFOO_L1> imposes the Latin-1 (or EBCDIC equivlalent) character set
+onto the platform.  That is, the code points that are ASCII are unaffected,
+since ASCII is a subset of Latin-1.  But the non-ASCII code points are treated
+as if they are Latin-1 characters.  For example, C<isWORDCHAR_L1()> will return
+true when called with the code point 0xDF, which is a word character in both
+ASCII and EBCDIC (though it represent different characters in each).
+
+Variant C<isFOO_uni> is like the C<isFOO_L1> variant, but accepts any UV code
+point as input.  If the code point is larger than 255, Unicode rules are used
+to determine if it is in the character class.  For example,
+C<isWORDCHAR_uni(0x100)> returns TRUE, since 0x100 is LATIN CAPITAL LETTER A
+WITH MACRON in Unicode, and is a word character.
+
+Variant C<isFOO_utf8> is like C<isFOO_uni>, but the input is a pointer to a
+(known to be well-formed) UTF-8 encoded string (C<U8*> or C<char*>).  The
+classification of just the first (possibly multi-byte) character in the string
+is tested.
+
+Variant C<isFOO_LC> is like the C<isFOO_A> and C<isFOO_L1> variants, but uses
+the C library function that gives the named classification instead of
+hard-coded rules.  For example, C<isDIGIT_LC()> returns the result of calling
+C<isdigit()>.  This means that the result is based on the current locale, which
+is what C<LC> in the name stands for.  FALSE is always returned if the input
+won't fit into an octet.
+
+Variant C<isFOO_LC_uvchr> is like C<isFOO_LC>, but is defined on any UV.  It
+returns the same as C<isFOO_LC> for input code points less than 256, and
+returns the hard-coded, not-affected-by-locale, Unicode results for larger ones.
+
+Variant C<isFOO_LC_utf8> is like C<isFOO_LC_uvchr>, but the input is a pointer to a
+(known to be well-formed) UTF-8 encoded string (C<U8*> or C<char*>).  The
+classification of just the first (possibly multi-byte) character in the string
+is tested.
 
 
 =over 8
@@ -631,11 +682,27 @@ has an ASCII equivalent.
 X<isALPHA>
 
 Returns a boolean indicating whether the specified character is an
-alphabetic character in the platform's native character set.
+alphabetic character, analogous to C<m/[[:alpha:]]/>.
 See the L<top of this section|/Character classes> for an explanation of variants
-C<isALPHA_A> and C<isALPHA_L1>.
+C<isALPHA_A>, C<isALPHA_L1>, C<isALPHA_uni>, C<isALPHA_utf8>, C<isALPHA_LC>,
+C<isALPHA_LC_uvchr>, and C<isALPHA_LC_utf8>.
 
 	bool	isALPHA(char ch)
+
+=for hackers
+Found in file handy.h
+
+=item isALPHANUMERIC
+X<isALPHANUMERIC>
+
+Returns a boolean indicating whether the specified character is a either an
+alphabetic character or decimal digit, analogous to C<m/[[:alnum:]]/>.
+See the L<top of this section|/Character classes> for an explanation of variants
+C<isALPHANUMERIC_A>, C<isALPHANUMERIC_L1>, C<isALPHANUMERIC_uni>,
+C<isALPHANUMERIC_utf8>, C<isALPHANUMERIC_LC>, C<isALPHANUMERIC_LC_uvchr>, and
+C<isALPHANUMERIC_LC_utf8>.
+
+	bool	isALPHANUMERIC(char ch)
 
 =for hackers
 Found in file handy.h
@@ -644,11 +711,49 @@ Found in file handy.h
 X<isASCII>
 
 Returns a boolean indicating whether the specified character is one of the 128
-characters in the ASCII character set.  On non-ASCII platforms, it is if this
+characters in the ASCII character set, analogous to C<m/[[:ascii:]]/>.
+On non-ASCII platforms, it returns TRUE iff this
 character corresponds to an ASCII character.  Variants C<isASCII_A()> and
 C<isASCII_L1()> are identical to C<isASCII()>.
+See the L<top of this section|/Character classes> for an explanation of variants
+C<isASCII_uni>, C<isASCII_utf8>, C<isASCII_LC>, C<isASCII_LC_uvchr>, and
+C<isASCII_LC_utf8>.  Note, however, that some platforms do not have the C
+library routine C<isascii()>.  In these cases, the variants whose names contain
+C<LC> are the same as the corresponding ones without.
 
 	bool	isASCII(char ch)
+
+=for hackers
+Found in file handy.h
+
+=item isBLANK
+X<isBLANK>
+
+Returns a boolean indicating whether the specified character is a
+character considered to be a blank, analogous to C<m/[[:blank:]]/>.
+See the L<top of this section|/Character classes> for an explanation of variants
+C<isBLANK_A>, C<isBLANK_L1>, C<isBLANK_uni>, C<isBLANK_utf8>, C<isBLANK_LC>,
+C<isBLANK_LC_uvchr>, and C<isBLANK_LC_utf8>.  Note, however, that some
+platforms do not have the C library routine C<isblank()>.  In these cases, the
+variants whose names contain C<LC> are the same as the corresponding ones
+without.
+
+	bool	isBLANK(char ch)
+
+=for hackers
+Found in file handy.h
+
+=item isCNTRL
+X<isCNTRL>
+
+Returns a boolean indicating whether the specified character is a
+control character, analogous to C<m/[[:cntrl:]]/>.
+See the L<top of this section|/Character classes> for an explanation of variants
+C<isCNTRL_A>, C<isCNTRL_L1>, C<isCNTRL_uni>, C<isCNTRL_utf8>, C<isCNTRL_LC>,
+C<isCNTRL_LC_uvchr>, and C<isCNTRL_LC_utf8>
+On EBCDIC platforms, you almost always want to use the C<isCNTRL_L1> variant.
+
+	bool	isCNTRL(char ch)
 
 =for hackers
 Found in file handy.h
@@ -657,10 +762,60 @@ Found in file handy.h
 X<isDIGIT>
 
 Returns a boolean indicating whether the specified character is a
-digit in the platform's native character set.
+digit, analogous to C<m/[[:digit:]]/>.
 Variants C<isDIGIT_A> and C<isDIGIT_L1> are identical to C<isDIGIT>.
+See the L<top of this section|/Character classes> for an explanation of variants
+C<isDIGIT_uni>, C<isDIGIT_utf8>, C<isDIGIT_LC>, C<isDIGIT_LC_uvchr>, and
+C<isDIGIT_LC_utf8>.
 
 	bool	isDIGIT(char ch)
+
+=for hackers
+Found in file handy.h
+
+=item isGRAPH
+X<isGRAPH>
+
+Returns a boolean indicating whether the specified character is a
+graphic character, analogous to C<m/[[:graph:]]/>.
+See the L<top of this section|/Character classes> for an explanation of variants
+C<isGRAPH_A>, C<isGRAPH_L1>, C<isGRAPH_uni>, C<isGRAPH_utf8>, C<isGRAPH_LC>,
+C<isGRAPH_LC_uvchr>, and C<isGRAPH_LC_utf8>.
+
+	bool	isGRAPH(char ch)
+
+=for hackers
+Found in file handy.h
+
+=item isIDCONT
+X<isIDCONT>
+
+Returns a boolean indicating whether the specified character can be the
+second or succeeding character of an identifier.  This is very close to, but
+not quite the same as the official Unicode property C<XID_Continue>.  The
+difference is that this returns true only if the input character also matches
+L</isWORDCHAR>.  See the L<top of this section|/Character classes> for an
+explanation of variants C<isIDCONT_A>, C<isIDCONT_L1>, C<isIDCONT_uni>,
+C<isIDCONT_utf8>, C<isIDCONT_LC>, C<isIDCONT_LC_uvchr>, and
+C<isIDCONT_LC_utf8>.
+
+	bool	isIDCONT(char ch)
+
+=for hackers
+Found in file handy.h
+
+=item isIDFIRST
+X<isIDFIRST>
+
+Returns a boolean indicating whether the specified character can be the first
+character of an identifier.  This is very close to, but not quite the same as
+the official Unicode property C<XID_Start>.  The difference is that this
+returns true only if the input character also matches L</isWORDCHAR>.
+See the L<top of this section|/Character classes> for an explanation of variants
+C<isIDFIRST_A>, C<isIDFIRST_L1>, C<isIDFIRST_uni>, C<isIDFIRST_utf8>,
+C<isIDFIRST_LC>, C<isIDFIRST_LC_uvchr>, and C<isIDFIRST_LC_utf8>.
+
+	bool	isIDFIRST(char ch)
 
 =for hackers
 Found in file handy.h
@@ -669,9 +824,10 @@ Found in file handy.h
 X<isLOWER>
 
 Returns a boolean indicating whether the specified character is a
-lowercase character in the platform's native character set.
+lowercase character, analogous to C<m/[[:lower:]]/>.
 See the L<top of this section|/Character classes> for an explanation of variants
-C<isLOWER_A> and C<isLOWER_L1>.
+C<isLOWER_A>, C<isLOWER_L1>, C<isLOWER_uni>, C<isLOWER_utf8>, C<isLOWER_LC>,
+C<isLOWER_LC_uvchr>, and C<isLOWER_LC_utf8>.
 
 	bool	isLOWER(char ch)
 
@@ -682,10 +838,65 @@ Found in file handy.h
 X<isOCTAL>
 
 Returns a boolean indicating whether the specified character is an
-octal digit, [0-7] in the platform's native character set.
-Variants C<isOCTAL_A> and C<isOCTAL_L1> are identical to C<isOCTAL>.
+octal digit, [0-7].
+The only two variants are C<isOCTAL_A> and C<isOCTAL_L1>; each is identical to
+C<isOCTAL>.
 
 	bool	isOCTAL(char ch)
+
+=for hackers
+Found in file handy.h
+
+=item isPRINT
+X<isPRINT>
+
+Returns a boolean indicating whether the specified character is a
+printable character, analogous to C<m/[[:print:]]/>.
+See the L<top of this section|/Character classes> for an explanation of variants
+C<isPRINT_A>, C<isPRINT_L1>, C<isPRINT_uni>, C<isPRINT_utf8>, C<isPRINT_LC>,
+C<isPRINT_LC_uvchr>, and C<isPRINT_LC_utf8>.
+
+	bool	isPRINT(char ch)
+
+=for hackers
+Found in file handy.h
+
+=item isPSXSPC
+X<isPSXSPC>
+
+(short for Posix Space)
+Starting in 5.18, this is identical (experimentally) in all its forms to the
+corresponding C<isSPACE()> macros.  ("Experimentally" means that this change
+may be backed out in 5.20 or 5.22 if field experience indicates that it
+was unwise.)
+The locale forms of this macro are identical to their corresponding
+C<isSPACE()> forms in all Perl releases.  In releases prior to 5.18, the
+non-locale forms differ from their C<isSPACE()> forms only in that the
+C<isSPACE()> forms don't match a Vertical Tab, and the C<isPSXSPC()> forms do.
+Otherwise they are identical.  Thus this macro is analogous to what
+C<m/[[:space:]]/> matches in a regular expression.
+See the L<top of this section|/Character classes> for an explanation of variants
+C<isPSXSPC_A>, C<isPSXSPC_L1>, C<isPSXSPC_uni>, C<isPSXSPC_utf8>, C<isPSXSPC_LC>,
+C<isPSXSPC_LC_uvchr>, and C<isPSXSPC_LC_utf8>.
+
+	bool	isPSXSPC(char ch)
+
+=for hackers
+Found in file handy.h
+
+=item isPUNCT
+X<isPUNCT>
+
+Returns a boolean indicating whether the specified character is a
+punctuation character, analogous to C<m/[[:punct:]]/>.
+Note that the definition of what is punctuation isn't as
+straightforward as one might desire.  See L<perlrecharclass/POSIX Character
+Classes> for details.
+See the L<top of this section|/Character classes> for an explanation of variants
+C<isPUNCT_A>, C<isPUNCT_L1>, C<isPUNCT_uni>, C<isPUNCT_utf8>, C<isPUNCT_LC>,
+C<isPUNCT_LC_uvchr>, and C<isPUNCT_LC_utf8>.
+
+	bool	isPUNCT(char ch)
 
 =for hackers
 Found in file handy.h
@@ -694,10 +905,18 @@ Found in file handy.h
 X<isSPACE>
 
 Returns a boolean indicating whether the specified character is a
-whitespace character in the platform's native character set.  This is the same
-as what C<\s> matches in a regular expression.
+whitespace character.  This is analogous
+to what C<m/\s/> matches in a regular expression.  Starting in Perl 5.18
+(experimentally), this also matches what C<m/[[:space:]]/> does.
+("Experimentally" means that this change may be backed out in 5.20 or 5.22 if
+field experience indicates that it was unwise.)  Prior to 5.18, only the
+locale forms of this macro (the ones with C<LC> in their names) matched
+precisely what C<m/[[:space:]]/> does.  In those releases, the only difference,
+in the non-locale variants, was that C<isSPACE()> did not match a vertical tab.
+(See L</isPSXSPC> for a macro that matches a vertical tab in all releases.)
 See the L<top of this section|/Character classes> for an explanation of variants
-C<isSPACE_A> and C<isSPACE_L1>.
+C<isSPACE_A>, C<isSPACE_L1>, C<isSPACE_uni>, C<isSPACE_utf8>, C<isSPACE_LC>,
+C<isSPACE_LC_uvchr>, and C<isSPACE_LC_utf8>.
 
 	bool	isSPACE(char ch)
 
@@ -708,9 +927,10 @@ Found in file handy.h
 X<isUPPER>
 
 Returns a boolean indicating whether the specified character is an
-uppercase character in the platform's native character set.
+uppercase character, analogous to C<m/[[:upper:]]/>.
 See the L<top of this section|/Character classes> for an explanation of variants
-C<isUPPER_A> and C<isUPPER_L1>.
+C<isUPPER_A>, C<isUPPER_L1>, C<isUPPER_uni>, C<isUPPER_utf8>, C<isUPPER_LC>,
+C<isUPPER_LC_uvchr>, and C<isUPPER_LC_utf8>.
 
 	bool	isUPPER(char ch)
 
@@ -720,14 +940,17 @@ Found in file handy.h
 =item isWORDCHAR
 X<isWORDCHAR>
 
-Returns a boolean indicating whether the specified character is a
-character that is any of: alphabetic, numeric, or an underscore.  This is the
-same as what C<\w> matches in a regular expression.
-C<isALNUM()> is a synonym provided for backward compatibility.  Note that it
-does not have the standard C language meaning of alphanumeric, since it matches
-an underscore and the standard meaning does not.
+Returns a boolean indicating whether the specified character is a character
+that is a word character, analogous to what C<m/\w/> and C<m/[[:word:]]/> match
+in a regular expression.  A word character is an alphabetic character, a
+decimal digit, a connecting punctuation character (such as an underscore), or
+a "mark" character that attaches to one of those (like some sort of accent).
+C<isALNUM()> is a synonym provided for backward compatibility, even though a
+word character includes more than the standard C language meaning of
+alphanumeric.
 See the L<top of this section|/Character classes> for an explanation of variants
-C<isWORDCHAR_A> and C<isWORDCHAR_L1>.
+C<isWORDCHAR_A>, C<isWORDCHAR_L1>, C<isWORDCHAR_uni>, C<isWORDCHAR_utf8>,
+C<isWORDCHAR_LC>, C<isWORDCHAR_LC_uvchr>, and C<isWORDCHAR_LC_utf8>.
 
 	bool	isWORDCHAR(char ch)
 
@@ -738,8 +961,11 @@ Found in file handy.h
 X<isXDIGIT>
 
 Returns a boolean indicating whether the specified character is a hexadecimal
-digit, [0-9A-Fa-f].  Variants C<isXDIGIT_A()> and C<isXDIGIT_L1()> are
-identical to C<isXDIGIT()>.
+digit.  In the ASCII range these are C<[0-9A-Fa-f]>.  Variants C<isXDIGIT_A()>
+and C<isXDIGIT_L1()> are identical to C<isXDIGIT()>.
+See the L<top of this section|/Character classes> for an explanation of variants
+C<isXDIGIT_uni>, C<isXDIGIT_utf8>, C<isXDIGIT_LC>, C<isXDIGIT_LC_uvchr>, and
+C<isXDIGIT_LC_utf8>.
 
 	bool	isXDIGIT(char ch)
 
@@ -1461,6 +1687,8 @@ currently-compiling function.
 The function I<func> is linked into the pad, and its C<CvOUTSIDE> link
 to the outer scope is weakened to avoid a reference loop.
 
+One reference count is stolen, so you may need to do C<SvREFCNT_inc(func)>.
+
 I<optype> should be an opcode indicating the type of operation that the
 pad entry is to support.  This doesn't affect operational semantics,
 but is used for debugging.
@@ -2134,6 +2362,20 @@ Found in file mathoms.c
 
 =over 8
 
+=item alloccopstash
+X<alloccopstash>
+
+Available only under threaded builds, this function allocates an entry in
+C<PL_stashpad> for the stash passed to it.
+
+NOTE: this function is experimental and may change or be
+removed without notice.
+
+	PADOFFSET alloccopstash(HV *hv)
+
+=for hackers
+Found in file op.c
+
 =item op_contextualize
 X<op_contextualize>
 
@@ -2162,7 +2404,7 @@ Provides system-specific tune up of the C runtime environment necessary to
 run Perl interpreters. This should be called only once, before creating
 any Perl interpreters.
 
-	void	PERL_SYS_INIT(int argc, char** argv)
+	void	PERL_SYS_INIT(int *argc, char*** argv)
 
 =for hackers
 Found in file perl.h
@@ -2174,8 +2416,8 @@ Provides system-specific tune up of the C runtime environment necessary to
 run Perl interpreters. This should be called only once, before creating
 any Perl interpreters.
 
-	void	PERL_SYS_INIT3(int argc, char** argv,
-		               char** env)
+	void	PERL_SYS_INIT3(int *argc, char*** argv,
+		               char*** env)
 
 =for hackers
 Found in file perl.h
@@ -2261,9 +2503,21 @@ Found in file pp_pack.c
 =item unpackstring
 X<unpackstring>
 
-The engine implementing unpack() Perl function. C<unpackstring> puts the
-extracted list items on the stack and returns the number of elements.
-Issue C<PUTBACK> before and C<SPAGAIN> after the call to this function.
+The engine implementing the unpack() Perl function.
+
+Using the template pat..patend, this function unpacks the string
+s..strend into a number of mortal SVs, which it pushes onto the perl
+argument (@_) stack (so you will need to issue a C<PUTBACK> before and
+C<SPAGAIN> after the call to this function). It returns the number of
+pushed elements.
+
+The strend and patend pointers should point to the byte following the last
+character of each string.
+
+Although this function returns its values on the perl argument stack, it
+doesn't take any parameters from that stack (and thus in particular
+there's no need to do a PUSHMARK before calling it, unlike L</call_pv> for
+example).
 
 	I32	unpackstring(const char *pat,
 		             const char *patend, const char *s,
@@ -2444,6 +2698,36 @@ Found in file perlvars.h
 
 =over 8
 
+=item GvAV
+X<GvAV>
+
+Return the AV from the GV.
+
+	AV*	GvAV(GV* gv)
+
+=for hackers
+Found in file gv.h
+
+=item GvCV
+X<GvCV>
+
+Return the CV from the GV.
+
+	CV*	GvCV(GV* gv)
+
+=for hackers
+Found in file gv.h
+
+=item GvHV
+X<GvHV>
+
+Return the HV from the GV.
+
+	HV*	GvHV(GV* gv)
+
+=for hackers
+Found in file gv.h
+
 =item GvSV
 X<GvSV>
 
@@ -2547,9 +2831,12 @@ side-effect creates a glob with the given C<name> in the given C<stash>
 which in the case of success contains an alias for the subroutine, and sets
 up caching info for this glob.
 
-Currently, the only significant value for C<flags> is SVf_UTF8.
+The only significant values for C<flags> are GV_SUPER and SVf_UTF8.
 
-This function grants C<"SUPER"> token as a postfix of the stash name. The
+GV_SUPER indicates that we want to look up the method in the superclasses
+of the C<stash>.
+
+The
 GV returned from C<gv_fetchmeth> may be a method cache entry, which is not
 visible to Perl code.  So when calling C<call_sv>, you should not use
 the GV directly; instead, you should use the method's CV, which can be
@@ -2707,6 +2994,16 @@ created if it does not already exist.  If the package does not exist and
 C<flags> is 0 (or any other setting that does not create packages) then NULL
 is returned.
 
+Flags may be one of:
+
+    GV_ADD
+    SVf_UTF8
+    GV_NOADD_NOINIT
+    GV_NOINIT
+    GV_NOEXPAND
+    GV_ADDMG
+
+The most important of which are probably GV_ADD and SVf_UTF8.
 
 	HV*	gv_stashpvn(const char* name, U32 namelen,
 		            I32 flags)
@@ -2959,7 +3256,12 @@ Found in file hv.h
 =item HeVAL
 X<HeVAL>
 
-Returns the value slot (type C<SV*>) stored in the hash entry.
+Returns the value slot (type C<SV*>) stored in the hash entry. Can be assigned
+to.
+
+  SV *foo= HeVAL(hv);
+  HeVAL(hv)= sv;
+
 
 	SV*	HeVAL(HE* he)
 
@@ -3148,7 +3450,10 @@ X<hv_fetch>
 Returns the SV which corresponds to the specified key in the hash.
 The absolute value of C<klen> is the length of the key.  If C<klen> is
 negative the key is assumed to be in UTF-8-encoded Unicode.  If
-C<lval> is set then the fetch will be part of a store.  Check that the
+C<lval> is set then the fetch will be part of a store.  This means that if
+there is no value in the hash associated with the given key, then one is
+created and a pointer to it is returned.  The C<SV*> it points to can be
+assigned to.  But always check that the
 return value is non-null before dereferencing it to an C<SV*>.
 
 See L<perlguts/"Understanding the Magic of Tied Hashes and Arrays"> for more
@@ -4280,7 +4585,8 @@ Found in file mg.c
 =item mg_get
 X<mg_get>
 
-Do magic after a value is retrieved from the SV.  See C<sv_magic>.
+Do magic before a value is retrieved from the SV.  The type of SV must
+be >= SVt_PVMG. See C<sv_magic>.
 
 	int	mg_get(SV* sv)
 
@@ -4290,7 +4596,13 @@ Found in file mg.c
 =item mg_length
 X<mg_length>
 
-Report on the SV's length.  See C<sv_magic>.
+This function is deprecated.
+
+It reports on the SV's length in bytes, calling length magic if available,
+but does not set the UTF8 flag on the sv.  It will fall back to 'get'
+magic if there is no 'length' magic, but with no indication as to
+whether it called 'get' magic.  It assumes the sv is a PVMG or
+higher.  Use sv_len() instead.
 
 	U32	mg_length(SV* sv)
 
@@ -4320,7 +4632,8 @@ Found in file mg.c
 =item SvGETMAGIC
 X<SvGETMAGIC>
 
-Invokes C<mg_get> on an SV if it has 'get' magic.  This macro evaluates its
+Invokes C<mg_get> on an SV if it has 'get' magic.  For example, this
+will call C<FETCH> on a tied variable.  This macro evaluates its
 argument more than once.
 
 	void	SvGETMAGIC(SV* sv)
@@ -4342,7 +4655,9 @@ Found in file sv.h
 =item SvSETMAGIC
 X<SvSETMAGIC>
 
-Invokes C<mg_set> on an SV if it has 'set' magic.  This macro evaluates its
+Invokes C<mg_set> on an SV if it has 'set' magic.  This is necessary
+after modifying a scalar, in case it is a magical variable like C<$|>
+or a tied variable (it calls C<STORE>).  This macro evaluates its
 argument more than once.
 
 	void	SvSETMAGIC(SV* sv)
@@ -4425,8 +4740,8 @@ Found in file sv.h
 X<Copy>
 
 The XSUB-writer's interface to the C C<memcpy> function.  The C<src> is the
-source, C<dest> is the destination, C<nitems> is the number of items, and C<type> is
-the type.  May fail on overlapping copies.  See also C<Move>.
+source, C<dest> is the destination, C<nitems> is the number of items, and
+C<type> is the type.  May fail on overlapping copies.  See also C<Move>.
 
 	void	Copy(void* src, void* dest, int nitems, type)
 
@@ -4448,8 +4763,8 @@ Found in file handy.h
 X<Move>
 
 The XSUB-writer's interface to the C C<memmove> function.  The C<src> is the
-source, C<dest> is the destination, C<nitems> is the number of items, and C<type> is
-the type.  Can do overlapping moves.  See also C<Copy>.
+source, C<dest> is the destination, C<nitems> is the number of items, and
+C<type> is the type.  Can do overlapping moves.  See also C<Copy>.
 
 	void	Move(void* src, void* dest, int nitems, type)
 
@@ -4676,7 +4991,7 @@ X<StructCopy>
 
 This is an architecture-independent macro to copy one structure to another.
 
-	void	StructCopy(type src, type dest, type)
+	void	StructCopy(type *src, type *dest, type)
 
 =for hackers
 Found in file handy.h
@@ -4724,8 +5039,8 @@ Found in file util.c
 =item fbm_instr
 X<fbm_instr>
 
-Returns the location of the SV in the string delimited by C<str> and
-C<strend>.  It returns C<NULL> if the string can't be found.  The C<sv>
+Returns the location of the SV in the string delimited by C<big> and
+C<bigend>.  It returns C<NULL> if the string can't be found.  The C<sv>
 does not have to be fbm_compiled, but the search will not be as fast
 then.
 
@@ -4909,6 +5224,17 @@ some time when tokenizing.
 
 =for hackers
 Found in file util.c
+
+=item READ_XDIGIT
+X<READ_XDIGIT>
+
+Returns the value of an ASCII-range hex digit and advances the string pointer.
+Behaviour is only well defined when isXDIGIT(*str) is true.
+
+	U8	READ_XDIGIT(char str*)
+
+=for hackers
+Found in file handy.h
 
 =item scan_version
 X<scan_version>
@@ -5578,7 +5904,7 @@ I<cond> supplies the expression that will be locally assigned to a lexical
 variable, and I<block> supplies the body of the C<given> construct; they
 are consumed by this function and become part of the constructed op tree.
 I<defsv_off> is the pad offset of the scalar lexical variable that will
-be affected.
+be affected.  If it is 0, the global $_ will be used.
 
 	OP *	newGIVENOP(OP *cond, OP *block,
 		           PADOFFSET defsv_off)
@@ -5638,7 +5964,7 @@ X<newLOOPEX>
 Constructs, checks, and returns a loop-exiting op (such as C<goto>
 or C<last>).  I<type> is the opcode.  I<label> supplies the parameter
 determining the target of the op; it is consumed by this function and
-become part of the constructed op tree.
+becomes part of the constructed op tree.
 
 	OP *	newLOOPEX(I32 type, OP *label)
 
@@ -6050,6 +6376,9 @@ eligible for inlining at compile-time.
 
 Currently, the only useful value for C<flags> is SVf_UTF8.
 
+The newly created subroutine takes ownership of a reference to the passed in
+SV.
+
 Passing NULL for SV creates a constant sub equivalent to C<sub BAR () {}>,
 which won't be called if used as a destructor, but will suppress the overhead
 of a call to C<AUTOLOAD>.  (This form, however, isn't eligible for inlining at
@@ -6256,40 +6585,40 @@ Found in file op.c
 =item CvPADLIST
 X<CvPADLIST>
 
-CV's can have CvPADLIST(cv) set to point to an AV.  This is the CV's
+CV's can have CvPADLIST(cv) set to point to a PADLIST.  This is the CV's
 scratchpad, which stores lexical variables and opcode temporary and
 per-thread values.
 
-For these purposes "forms" are a kind-of CV, eval""s are too (except they're
+For these purposes "formats" are a kind-of CV; eval""s are too (except they're
 not callable at will and are always thrown away after the eval"" is done
-executing). Require'd files are simply evals without any outer lexical
+executing).  Require'd files are simply evals without any outer lexical
 scope.
 
 XSUBs don't have CvPADLIST set - dXSTARG fetches values from PL_curpad,
 but that is really the callers pad (a slot of which is allocated by
 every entersub).
 
-The CvPADLIST AV has the REFCNT of its component items managed "manually"
-(mostly in pad.c) rather than by normal av.c rules.  So we turn off AvREAL
-just before freeing it, to let av.c know not to touch the entries.
-The items in the AV are not SVs as for a normal AV, but other AVs:
+The PADLIST has a C array where pads are stored.
 
-0'th Entry of the CvPADLIST is an AV which represents the "names" or rather
-the "static type information" for lexicals.
+The 0th entry of the PADLIST is a PADNAMELIST (which is actually just an
+AV, but that may change) which represents the "names" or rather
+the "static type information" for lexicals.  The individual elements of a
+PADNAMELIST are PADNAMEs (just SVs; but, again, that may change).  Future
+refactorings might stop the PADNAMELIST from being stored in the PADLIST's
+array, so don't rely on it.  See L</PadlistNAMES>.
 
-The CvDEPTH'th entry of CvPADLIST AV is an AV which is the stack frame at that
-depth of recursion into the CV.
-The 0'th slot of a frame AV is an AV which is @_.
-other entries are storage for variables and op targets.
+The CvDEPTH'th entry of a PADLIST is a PAD (an AV) which is the stack frame
+at that depth of recursion into the CV.  The 0th slot of a frame AV is an
+AV which is @_.  Other entries are storage for variables and op targets.
 
-Iterating over the names AV iterates over all possible pad
-items. Pad slots that are SVs_PADTMP (targets/GVs/constants) end up having
+Iterating over the PADNAMELIST iterates over all possible pad
+items.  Pad slots that are SVs_PADTMP (targets/GVs/constants) end up having
 &PL_sv_undef "names" (see pad_alloc()).
 
-Only my/our variable (SVs_PADMY/SVs_PADOUR) slots get valid names.
+Only my/our variable (SvPADMY/PADNAME_isOUR) slots get valid names.
 The rest are op targets/GVs/constants which are statically allocated
 or resolved at compile time.  These don't have names by which they
-can be looked up from Perl code at run time through eval"" like
+can be looked up from Perl code at run time through eval"" the way
 my/our variables can be.  Since they can't be looked up by "name"
 but only by their index allocated at compile time (which is usually
 in PL_op->op_targ), wasting a name SV for them doesn't make sense.
@@ -6312,7 +6641,8 @@ SvOURSTASH slot pointing at the stash of the associated global (so that
 duplicate C<our> declarations in the same package can be detected).  SvUVX is
 sometimes hijacked to store the generation number during compilation.
 
-If SvFAKE is set on the name SV, then that slot in the frame AV is
+If PADNAME_OUTER (SvFAKE) is set on the
+name SV, then that slot in the frame AV is
 a REFCNT'ed reference to a lexical from "outside". In this case,
 the name SV does not use xlow and xhigh to store a cop_seq range, since it is
 in scope throughout. Instead xhigh stores some flags containing info about
@@ -6321,21 +6651,23 @@ instantiated multiple times?), and for fake ANONs, xlow contains the index
 within the parent's pad where the lexical's value is stored, to make
 cloning quicker.
 
-If the 'name' is '&' the corresponding entry in frame AV
+If the 'name' is '&' the corresponding entry in the PAD
 is a CV representing a possible closure.
-(SvFAKE and name of '&' is not a meaningful combination currently but could
+(PADNAME_OUTER and name of '&' is not a
+meaningful combination currently but could
 become so if C<my sub foo {}> is implemented.)
 
 Note that formats are treated as anon subs, and are cloned each time
 write is called (if necessary).
 
 The flag SVs_PADSTALE is cleared on lexicals each time the my() is executed,
-and set on scope exit. This allows the 'Variable $x is not available' warning
+and set on scope exit.  This allows the
+'Variable $x is not available' warning
 to be generated in evals, such as 
 
     { my $x = 1; sub f { eval '$x'} } f();
 
-For state vars, SVs_PADSTALE is overloaded to mean 'not yet initialised'
+For state vars, SVs_PADSTALE is overloaded to mean 'not yet initialised'.
 
 NOTE: this function is experimental and may change or be
 removed without notice.
@@ -6344,6 +6676,191 @@ removed without notice.
 
 =for hackers
 Found in file pad.c
+
+=item PadARRAY
+X<PadARRAY>
+
+The C array of pad entries.
+
+NOTE: this function is experimental and may change or be
+removed without notice.
+
+	SV **	PadARRAY(PAD pad)
+
+=for hackers
+Found in file pad.h
+
+=item PadlistARRAY
+X<PadlistARRAY>
+
+The C array of a padlist, containing the pads.  Only subscript it with
+numbers >= 1, as the 0th entry is not guaranteed to remain usable.
+
+NOTE: this function is experimental and may change or be
+removed without notice.
+
+	PAD **	PadlistARRAY(PADLIST padlist)
+
+=for hackers
+Found in file pad.h
+
+=item PadlistMAX
+X<PadlistMAX>
+
+The index of the last pad in the padlist.
+
+NOTE: this function is experimental and may change or be
+removed without notice.
+
+	SSize_t	PadlistMAX(PADLIST padlist)
+
+=for hackers
+Found in file pad.h
+
+=item PadlistNAMES
+X<PadlistNAMES>
+
+The names associated with pad entries.
+
+NOTE: this function is experimental and may change or be
+removed without notice.
+
+	PADNAMELIST * PadlistNAMES(PADLIST padlist)
+
+=for hackers
+Found in file pad.h
+
+=item PadlistNAMESARRAY
+X<PadlistNAMESARRAY>
+
+The C array of pad names.
+
+NOTE: this function is experimental and may change or be
+removed without notice.
+
+	PADNAME ** PadlistNAMESARRAY(PADLIST padlist)
+
+=for hackers
+Found in file pad.h
+
+=item PadlistNAMESMAX
+X<PadlistNAMESMAX>
+
+The index of the last pad name.
+
+NOTE: this function is experimental and may change or be
+removed without notice.
+
+	SSize_t	PadlistNAMESMAX(PADLIST padlist)
+
+=for hackers
+Found in file pad.h
+
+=item PadlistREFCNT
+X<PadlistREFCNT>
+
+The reference count of the padlist.  Currently this is always 1.
+
+NOTE: this function is experimental and may change or be
+removed without notice.
+
+	U32	PadlistREFCNT(PADLIST padlist)
+
+=for hackers
+Found in file pad.h
+
+=item PadMAX
+X<PadMAX>
+
+The index of the last pad entry.
+
+NOTE: this function is experimental and may change or be
+removed without notice.
+
+	SSize_t	PadMAX(PAD pad)
+
+=for hackers
+Found in file pad.h
+
+=item PadnameLEN
+X<PadnameLEN>
+
+The length of the name.
+
+NOTE: this function is experimental and may change or be
+removed without notice.
+
+	STRLEN	PadnameLEN(PADNAME pn)
+
+=for hackers
+Found in file pad.h
+
+=item PadnamelistARRAY
+X<PadnamelistARRAY>
+
+The C array of pad names.
+
+NOTE: this function is experimental and may change or be
+removed without notice.
+
+	PADNAME ** PadnamelistARRAY(PADNAMELIST pnl)
+
+=for hackers
+Found in file pad.h
+
+=item PadnamelistMAX
+X<PadnamelistMAX>
+
+The index of the last pad name.
+
+NOTE: this function is experimental and may change or be
+removed without notice.
+
+	SSize_t	PadnamelistMAX(PADNAMELIST pnl)
+
+=for hackers
+Found in file pad.h
+
+=item PadnamePV
+X<PadnamePV>
+
+The name stored in the pad name struct.  This returns NULL for a target or
+GV slot.
+
+NOTE: this function is experimental and may change or be
+removed without notice.
+
+	char *	PadnamePV(PADNAME pn)
+
+=for hackers
+Found in file pad.h
+
+=item PadnameSV
+X<PadnameSV>
+
+Returns the pad name as an SV.  This is currently just C<pn>.  It will
+begin returning a new mortal SV if pad names ever stop being SVs.
+
+NOTE: this function is experimental and may change or be
+removed without notice.
+
+	SV *	PadnameSV(PADNAME pn)
+
+=for hackers
+Found in file pad.h
+
+=item PadnameUTF8
+X<PadnameUTF8>
+
+Whether PadnamePV is in UTF8.
+
+NOTE: this function is experimental and may change or be
+removed without notice.
+
+	bool	PadnameUTF8(PADNAME pn)
+
+=for hackers
+Found in file pad.h
 
 =item pad_add_name_pvs
 X<pad_add_name_pvs>
@@ -6415,7 +6932,7 @@ Found in file pad.c
 X<PL_curpad>
 
 Points directly to the body of the L</PL_comppad> array.
-(I.e., this is C<AvARRAY(PL_comppad)>.)
+(I.e., this is C<PAD_ARRAY(PL_comppad)>.)
 
 NOTE: this function is experimental and may change or be
 removed without notice.
@@ -6855,7 +7372,7 @@ Found in file pp.h
 =item POPp
 X<POPp>
 
-Pops a string off the stack. Deprecated. New code should use POPpx.
+Pops a string off the stack.
 
 	char*	POPp
 
@@ -6875,7 +7392,8 @@ Found in file pp.h
 =item POPpx
 X<POPpx>
 
-Pops a string off the stack.
+Pops a string off the stack.  Identical to POPp.  There are two names for
+historical reasons.
 
 	char*	POPpx
 
@@ -7259,13 +7777,72 @@ X<svtype>
 An enum of flags for Perl types.  These are found in the file B<sv.h>
 in the C<svtype> enum.  Test these flags with the C<SvTYPE> macro.
 
+The types are:
+
+    SVt_NULL
+    SVt_BIND (unused)
+    SVt_IV
+    SVt_NV
+    SVt_RV
+    SVt_PV
+    SVt_PVIV
+    SVt_PVNV
+    SVt_PVMG
+    SVt_REGEXP
+    SVt_PVGV
+    SVt_PVLV
+    SVt_PVAV
+    SVt_PVHV
+    SVt_PVCV
+    SVt_PVFM
+    SVt_PVIO
+
+These are most easily explained from the bottom up.
+
+SVt_PVIO is for I/O objects, SVt_PVFM for formats, SVt_PVCV for
+subroutines, SVt_PVHV for hashes and SVt_PVAV for arrays.
+
+All the others are scalar types, that is, things that can be bound to a
+C<$> variable.  For these, the internal types are mostly orthogonal to
+types in the Perl language.
+
+Hence, checking C<< SvTYPE(sv) < SVt_PVAV >> is the best way to see whether
+something is a scalar.
+
+SVt_PVGV represents a typeglob.  If !SvFAKE(sv), then it is a real,
+incoercible typeglob.  If SvFAKE(sv), then it is a scalar to which a
+typeglob has been assigned.  Assigning to it again will stop it from being
+a typeglob.  SVt_PVLV represents a scalar that delegates to another scalar
+behind the scenes.  It is used, e.g., for the return value of C<substr> and
+for tied hash and array elements.  It can hold any scalar value, including
+a typeglob. SVt_REGEXP is for regular expressions.
+
+SVt_PVMG represents a "normal" scalar (not a typeglob, regular expression,
+or delegate).  Since most scalars do not need all the internal fields of a
+PVMG, we save memory by allocating smaller structs when possible.  All the
+other types are just simpler forms of SVt_PVMG, with fewer internal fields.
+ SVt_NULL can only hold undef.  SVt_IV can hold undef, an integer, or a
+reference.  (SVt_RV is an alias for SVt_IV, which exists for backward
+compatibility.)  SVt_NV can hold any of those or a double.  SVt_PV can only
+hold undef or a string.  SVt_PVIV is a superset of SVt_PV and SVt_IV.
+SVt_PVNV is similar.  SVt_PVMG can hold anything SVt_PVNV can hold, but it
+can, but does not have to, be blessed or magical.
+
 =for hackers
 Found in file sv.h
 
 =item SVt_IV
 X<SVt_IV>
 
-Integer type flag for scalars.  See C<svtype>.
+Type flag for scalars.  See L</svtype>.
+
+=for hackers
+Found in file sv.h
+
+=item SVt_NULL
+X<SVt_NULL>
+
+Type flag for scalars.  See L</svtype>.
 
 =for hackers
 Found in file sv.h
@@ -7273,7 +7850,7 @@ Found in file sv.h
 =item SVt_NV
 X<SVt_NV>
 
-Double type flag for scalars.  See C<svtype>.
+Type flag for scalars.  See L</svtype>.
 
 =for hackers
 Found in file sv.h
@@ -7281,7 +7858,7 @@ Found in file sv.h
 =item SVt_PV
 X<SVt_PV>
 
-Pointer type flag for scalars.  See C<svtype>.
+Type flag for scalars.  See L</svtype>.
 
 =for hackers
 Found in file sv.h
@@ -7289,7 +7866,7 @@ Found in file sv.h
 =item SVt_PVAV
 X<SVt_PVAV>
 
-Type flag for arrays.  See C<svtype>.
+Type flag for arrays.  See L</svtype>.
 
 =for hackers
 Found in file sv.h
@@ -7297,7 +7874,23 @@ Found in file sv.h
 =item SVt_PVCV
 X<SVt_PVCV>
 
-Type flag for code refs.  See C<svtype>.
+Type flag for subroutines.  See L</svtype>.
+
+=for hackers
+Found in file sv.h
+
+=item SVt_PVFM
+X<SVt_PVFM>
+
+Type flag for formats.  See L</svtype>.
+
+=for hackers
+Found in file sv.h
+
+=item SVt_PVGV
+X<SVt_PVGV>
+
+Type flag for typeglobs.  See L</svtype>.
 
 =for hackers
 Found in file sv.h
@@ -7305,7 +7898,31 @@ Found in file sv.h
 =item SVt_PVHV
 X<SVt_PVHV>
 
-Type flag for hashes.  See C<svtype>.
+Type flag for hashes.  See L</svtype>.
+
+=for hackers
+Found in file sv.h
+
+=item SVt_PVIO
+X<SVt_PVIO>
+
+Type flag for I/O objects.  See L</svtype>.
+
+=for hackers
+Found in file sv.h
+
+=item SVt_PVIV
+X<SVt_PVIV>
+
+Type flag for scalars.  See L</svtype>.
+
+=for hackers
+Found in file sv.h
+
+=item SVt_PVLV
+X<SVt_PVLV>
+
+Type flag for scalars.  See L</svtype>.
 
 =for hackers
 Found in file sv.h
@@ -7313,7 +7930,23 @@ Found in file sv.h
 =item SVt_PVMG
 X<SVt_PVMG>
 
-Type flag for blessed scalars.  See C<svtype>.
+Type flag for scalars.  See L</svtype>.
+
+=for hackers
+Found in file sv.h
+
+=item SVt_PVNV
+X<SVt_PVNV>
+
+Type flag for scalars.  See L</svtype>.
+
+=for hackers
+Found in file sv.h
+
+=item SVt_REGEXP
+X<SVt_REGEXP>
+
+Type flag for regular expressions.  See L</svtype>.
 
 =for hackers
 Found in file sv.h
@@ -7377,6 +8010,21 @@ Creates an RV wrapper for an SV.  The reference count for the original SV is
 incremented.
 
 	SV*	newRV_inc(SV* sv)
+
+=for hackers
+Found in file sv.h
+
+=item newSVpadname
+X<newSVpadname>
+
+Creates a new SV containing the pad name.  This is currently identical
+to C<newSVsv>, but pad names may cease being SVs at some point, so
+C<newSVpadname> is preferable.
+
+NOTE: this function is experimental and may change or be
+removed without notice.
+
+	SV*	newSVpadname(PADNAME *pn)
 
 =for hackers
 Found in file sv.h
@@ -7452,7 +8100,8 @@ X<SvGROW>
 Expands the character buffer in the SV so that it has room for the
 indicated number of bytes (remember to reserve space for an extra trailing
 NUL character).  Calls C<sv_grow> to perform the expansion if necessary.
-Returns a pointer to the character buffer.
+Returns a pointer to the character buffer. SV must be of type >= SVt_PV. One
+alternative is to call C<sv_grow> if you are not sure of the type of SV.
 
 	char *	SvGROW(SV* sv, STRLEN len)
 
@@ -7523,7 +8172,7 @@ Found in file sv.h
 =item SvIOK_only_UV
 X<SvIOK_only_UV>
 
-Tells and SV that it is an unsigned integer and disables all other OK bits.
+Tells an SV that it is an unsigned integer and disables all other OK bits.
 
 	void	SvIOK_only_UV(SV* sv)
 
@@ -7533,7 +8182,9 @@ Found in file sv.h
 =item SvIOK_UV
 X<SvIOK_UV>
 
-Returns a boolean indicating whether the SV contains an unsigned integer.
+Returns a boolean indicating whether the SV contains an integer that must be
+interpreted as unsigned.  A non-negative integer whose value is within the
+range of both an IV and a UV may be be flagged as either SvUOK or SVIOK.
 
 	bool	SvIOK_UV(SV* sv)
 
@@ -7902,6 +8553,15 @@ the SV if the SV does not contain a string.  The SV may cache the
 stringified version becoming C<SvPOK>.  Handles 'get' magic.  See also
 C<SvPVx> for a version which guarantees to evaluate sv only once.
 
+Note that there is no guarantee that the return value of C<SvPV()> is
+equal to C<SvPVX(sv)>, or that C<SvPVX(sv)> contains valid data, or that
+successive calls to C<SvPV(sv)) will return the same pointer value each
+time. This is due to the way that things like overloading and
+Copy-On-Write are handled.  In these cases, the return value may point to
+a temporary buffer or similar.  If you absolutely need the SvPVX field to
+be valid (for example, if you intend to write to it), then see
+L</SvPV_force>.
+
 	char*	SvPV(SV* sv, STRLEN len)
 
 =for hackers
@@ -8019,7 +8679,8 @@ Found in file sv.h
 X<SvPVX>
 
 Returns a pointer to the physical string in the SV.  The SV must contain a
-string.
+string. Prior to 5.9.3 it is not safe to execute this macro unless the SV's
+type >= SVt_PV.
 
 This is also used to store the name of an autoloaded subroutine in an XS
 AUTOLOAD routine.  See L<perlguts/Autoloading with XSUBs>.
@@ -8044,9 +8705,15 @@ Found in file sv.h
 =item SvPV_force
 X<SvPV_force>
 
-Like C<SvPV> but will force the SV into containing just a string
-(C<SvPOK_only>).  You want force if you are going to update the C<SvPVX>
-directly.
+Like C<SvPV> but will force the SV into containing a string (C<SvPOK>), and
+only a string (C<SvPOK_only>), by hook or by crook.  You need force if you are
+going to update the C<SvPVX> directly.  Processes get magic.
+
+Note that coercing an arbitrary scalar into a plain PV will potentially
+strip useful data from it. For example if the SV was C<SvROK>, then the
+referent will have its reference count decremented, and the SV itself may
+be converted to an C<SvPOK> scalar with a string buffer containing a value
+such as C<"ARRAY(0x1234)">.
 
 	char*	SvPV_force(SV* sv, STRLEN len)
 
@@ -8056,9 +8723,7 @@ Found in file sv.h
 =item SvPV_force_nomg
 X<SvPV_force_nomg>
 
-Like C<SvPV> but will force the SV into containing just a string
-(C<SvPOK_only>).  You want force if you are going to update the C<SvPVX>
-directly.  Doesn't process magic.
+Like C<SvPV_force>, but doesn't process get magic.
 
 	char*	SvPV_force_nomg(SV* sv, STRLEN len)
 
@@ -8068,9 +8733,7 @@ Found in file sv.h
 =item SvPV_nolen
 X<SvPV_nolen>
 
-Returns a pointer to the string in the SV, or a stringified form of
-the SV if the SV does not contain a string.  The SV may cache the
-stringified form becoming C<SvPOK>.  Handles 'get' magic.
+Like C<SvPV> but doesn't set a length variable.
 
 	char*	SvPV_nolen(SV* sv)
 
@@ -8100,7 +8763,12 @@ Found in file sv.h
 =item SvPV_set
 X<SvPV_set>
 
-Set the value of the PV pointer in sv to val.  See C<SvIV_set>.
+Set the value of the PV pointer in sv to val.  See also C<SvIV_set>.
+
+Beware that the existing pointer may be involved in copy-on-write or other
+mischief, so do C<SvOOK_off(sv)> and use C<sv_force_normal> or
+C<SvPV_force> (or check the SvIsCOW flag) first to make sure this
+modification is safe.
 
 	void	SvPV_set(SV* sv, char* val)
 
@@ -8120,9 +8788,21 @@ Found in file sv.h
 =item SvREFCNT_dec
 X<SvREFCNT_dec>
 
-Decrements the reference count of the given SV.
+Decrements the reference count of the given SV. I<sv> may be NULL.
 
 	void	SvREFCNT_dec(SV* sv)
+
+=for hackers
+Found in file sv.h
+
+=item SvREFCNT_dec_NN
+X<SvREFCNT_dec_NN>
+
+Same as SvREFCNT_dec, but can only be used if you know I<sv>
+is not NULL.  Since we don't have to check the NULLness, it's faster
+and smaller.
+
+	void	SvREFCNT_dec_NN(SV* sv)
 
 =for hackers
 Found in file sv.h
@@ -8130,7 +8810,7 @@ Found in file sv.h
 =item SvREFCNT_inc
 X<SvREFCNT_inc>
 
-Increments the reference count of the given SV.
+Increments the reference count of the given SV, returning the SV.
 
 All of the following SvREFCNT_inc* macros are optimized versions of
 SvREFCNT_inc, and can be replaced with SvREFCNT_inc.
@@ -8380,7 +9060,9 @@ Found in file sv.h
 =item SvUOK
 X<SvUOK>
 
-Returns a boolean indicating whether the SV contains an unsigned integer.
+Returns a boolean indicating whether the SV contains an integer that must be
+interpreted as unsigned.  A non-negative integer whose value is within the
+range of both an IV and a UV may be be flagged as either SvUOK or SVIOK.
 
 	bool	SvUOK(SV* sv)
 
@@ -8403,8 +9085,8 @@ X<SvUTF8>
 
 Returns a U32 value indicating the UTF-8 status of an SV.  If things are set-up
 properly, this indicates whether or not the SV contains UTF-8 encoded data.
-Call this after SvPV() in case any call to string overloading updates the
-internal flag.
+You should use this I<after> a call to SvPV() or one of its variants, in
+case any call to string overloading updates the internal flag.
 
 	U32	SvUTF8(SV* sv)
 
@@ -8459,7 +9141,7 @@ Found in file sv.h
 X<SvUVx>
 
 Coerces the given SV to an unsigned integer and
-returns it.  Guarantees to C<sv> only once.  Only
+returns it.  Guarantees to evaluate C<sv> only once.  Only
 use this if C<sv> is an expression with side effects,
 otherwise use the more efficient C<SvUV>.
 
@@ -8804,7 +9486,8 @@ X<newSVpvn_share>
 
 Creates a new SV with its SvPVX_const pointing to a shared string in the string
 table.  If the string does not already exist in the table, it is
-created first.  Turns on READONLY and FAKE.  If the C<hash> parameter
+created first.  Turns on the SvIsCOW flag (or READONLY
+and FAKE in 5.16 and earlier).  If the C<hash> parameter
 is non-zero, that value is used; otherwise the hash is computed.
 The string's hash can later be retrieved from the SV
 with the C<SvSHARED_HASH()> macro.  The idea here is
@@ -8862,10 +9545,10 @@ Found in file sv.c
 =item newSVrv
 X<newSVrv>
 
-Creates a new SV for the RV, C<rv>, to point to.  If C<rv> is not an RV then
-it will be upgraded to one.  If C<classname> is non-null then the new SV will
-be blessed in the specified package.  The new SV is returned and its
-reference count is 1.
+Creates a new SV for the existing RV, C<rv>, to point to.  If C<rv> is not an
+RV then it will be upgraded to one.  If C<classname> is non-null then the new
+SV will be blessed in the specified package.  The new SV is returned and its
+reference count is 1. The reference count 1 is owned by C<rv>.
 
 	SV*	newSVrv(SV *const rv,
 		        const char *const classname)
@@ -9216,9 +9899,10 @@ Found in file sv.c
 =item sv_catsv
 X<sv_catsv>
 
-Concatenates the string from SV C<ssv> onto the end of the string in
-SV C<dsv>.  Modifies C<dsv> but not C<ssv>.  Handles 'get' magic, but
-not 'set' magic.  See C<sv_catsv_mg>.
+Concatenates the string from SV C<ssv> onto the end of the string in SV
+C<dsv>.  If C<ssv> is null, does nothing; otherwise modifies only C<dsv>.
+Handles 'get' magic on both SVs, but no 'set' magic.  See C<sv_catsv_mg> and
+C<sv_catsv_nomg>.
 
 	void	sv_catsv(SV *dstr, SV *sstr)
 
@@ -9228,12 +9912,12 @@ Found in file sv.c
 =item sv_catsv_flags
 X<sv_catsv_flags>
 
-Concatenates the string from SV C<ssv> onto the end of the string in
-SV C<dsv>.  Modifies C<dsv> but not C<ssv>.  If C<flags> has C<SV_GMAGIC>
-bit set, will C<mg_get> on the C<ssv>, if appropriate, before
-reading it.  If the C<flags> contain C<SV_SMAGIC>, C<mg_set> will be
-called on the modified SV afterward, if appropriate.  C<sv_catsv>
-and C<sv_catsv_nomg> are implemented in terms of this function.
+Concatenates the string from SV C<ssv> onto the end of the string in SV
+C<dsv>.  If C<ssv> is null, does nothing; otherwise modifies only C<dsv>.
+If C<flags> include C<SV_GMAGIC> bit set, will call C<mg_get> on both SVs if
+appropriate.  If C<flags> include C<SV_SMAGIC>, C<mg_set> will be called on
+the modified SV afterward, if appropriate.  C<sv_catsv>, C<sv_catsv_nomg>,
+and C<sv_catsv_mg> are implemented in terms of this function.
 
 	void	sv_catsv_flags(SV *const dsv, SV *const ssv,
 		               const I32 flags)
@@ -9245,9 +9929,10 @@ Found in file sv.c
 X<sv_chop>
 
 Efficient removal of characters from the beginning of the string buffer.
-SvPOK(sv) must be true and the C<ptr> must be a pointer to somewhere inside
-the string buffer.  The C<ptr> becomes the first character of the adjusted
-string.  Uses the "OOK hack".
+SvPOK(sv), or at least SvPOKp(sv), must be true and the C<ptr> must be a
+pointer to somewhere inside the string buffer.  The C<ptr> becomes the first
+character of the adjusted string.  Uses the "OOK hack".  On return, only
+SvPOK(sv) and SvPOKp(sv) among the OK flags will be true.
 
 Beware: after this function returns, C<ptr> and SvPVX_const(sv) may no longer
 refer to the same chunk of data.
@@ -9360,18 +10045,24 @@ settings.
 =for hackers
 Found in file sv.c
 
-=item sv_copypv
-X<sv_copypv>
+=item sv_copypv_flags
+X<sv_copypv_flags>
 
-Copies a stringified representation of the source SV into the
-destination SV.  Automatically performs any necessary mg_get and
-coercion of numeric values into strings.  Guaranteed to preserve
-UTF8 flag even from overloaded objects.  Similar in nature to
-sv_2pv[_flags] but operates directly on an SV instead of just the
-string.  Mostly uses sv_2pv_flags to do its work, except when that
-would lose the UTF-8'ness of the PV.
+Implementation of sv_copypv and sv_copypv_nomg.  Calls get magic iff flags
+include SV_GMAGIC.
 
-	void	sv_copypv(SV *const dsv, SV *const ssv)
+	void	sv_copypv_flags(SV *const dsv, SV *const ssv,
+		                const I32 flags)
+
+=for hackers
+Found in file sv.c
+
+=item sv_copypv_nomg
+X<sv_copypv_nomg>
+
+Like sv_copypv, but doesn't invoke get magic first.
+
+	void	sv_copypv_nomg(SV *const dsv, SV *const ssv)
 
 =for hackers
 Found in file sv.c
@@ -9425,10 +10116,12 @@ Found in file sv.c
 =item sv_force_normal_flags
 X<sv_force_normal_flags>
 
-Undo various types of fakery on an SV: if the PV is a shared string, make
+Undo various types of fakery on an SV, where fakery means
+"more than" a string: if the PV is a shared string, make
 a private copy; if we're a ref, stop refing; if we're a glob, downgrade to
 an xpvmg; if we're a copy-on-write scalar, this is the on-write time when
-we do the copy, and is also used locally.  If C<SV_COW_DROP_PV> is set
+we do the copy, and is also used locally; if this is a
+vstring, drop the vstring magic.  If C<SV_COW_DROP_PV> is set
 then a copy-on-write scalar drops its PV buffer (if any) and becomes
 SvPOK_off rather than making a copy.  (Used where this
 scalar is about to be set to some other value.)  In addition,
@@ -9459,7 +10152,10 @@ Found in file sv.c
 X<sv_gets>
 
 Get a line from the filehandle and store it into the SV, optionally
-appending to the currently-stored string.
+appending to the currently-stored string. If C<append> is not 0, the
+line is appended to the SV instead of overwriting it. C<append> should
+be set to the byte offset that the appended string should start at
+in the SV (typically, C<SvCUR(sv)> is a suitable choice).
 
 	char*	sv_gets(SV *const sv, PerlIO *const fp,
 		        I32 append)
@@ -9559,7 +10255,8 @@ Found in file sv.c
 X<sv_len>
 
 Returns the length of the string in the SV.  Handles magic and type
-coercion.  See also C<SvCUR>, which gives raw access to the xpv_cur slot.
+coercion and sets the UTF8 flag appropriately.  See also C<SvCUR>, which
+gives raw access to the xpv_cur slot.
 
 	STRLEN	sv_len(SV *const sv)
 
@@ -10274,7 +10971,7 @@ in a byte, this conversion will fail;
 in this case, either returns false or, if C<fail_ok> is not
 true, croaks.
 
-This is not as a general purpose Unicode to byte encoding interface:
+This is not a general purpose Unicode to byte encoding interface:
 use the Encode extension for that.
 
 NOTE: this function is experimental and may change or be
@@ -10307,7 +11004,7 @@ Always sets the SvUTF8 flag to avoid future validity checks even
 if the whole string is the same in UTF-8 as not.
 Returns the number of bytes in the converted string
 
-This is not as a general purpose byte encoding to Unicode interface:
+This is not a general purpose byte encoding to Unicode interface:
 use the Encode extension for that.
 
 	STRLEN	sv_utf8_upgrade(SV *sv)
@@ -10328,7 +11025,7 @@ Returns the number of bytes in the converted string
 C<sv_utf8_upgrade> and
 C<sv_utf8_upgrade_nomg> are implemented in terms of this function.
 
-This is not as a general purpose byte encoding to Unicode interface:
+This is not a general purpose byte encoding to Unicode interface:
 use the Encode extension for that.
 
 	STRLEN	sv_utf8_upgrade_flags(SV *const sv,
@@ -10364,19 +11061,36 @@ Found in file sv.c
 =item sv_vcatpvfn
 X<sv_vcatpvfn>
 
+	void	sv_vcatpvfn(SV *const sv, const char *const pat,
+		            const STRLEN patlen,
+		            va_list *const args,
+		            SV **const svargs, const I32 svmax,
+		            bool *const maybe_tainted)
+
+=for hackers
+Found in file sv.c
+
+=item sv_vcatpvfn_flags
+X<sv_vcatpvfn_flags>
+
 Processes its arguments like C<vsprintf> and appends the formatted output
 to an SV.  Uses an array of SVs if the C style variable argument list is
 missing (NULL).  When running with taint checks enabled, indicates via
 C<maybe_tainted> if results are untrustworthy (often due to the use of
 locales).
 
+If called as C<sv_vcatpvfn> or flags include C<SV_GMAGIC>, calls get magic.
+
 Usually used via one of its frontends C<sv_vcatpvf> and C<sv_vcatpvf_mg>.
 
-	void	sv_vcatpvfn(SV *const sv, const char *const pat,
-		            const STRLEN patlen,
-		            va_list *const args,
-		            SV **const svargs, const I32 svmax,
-		            bool *const maybe_tainted)
+	void	sv_vcatpvfn_flags(SV *const sv,
+		                  const char *const pat,
+		                  const STRLEN patlen,
+		                  va_list *const args,
+		                  SV **const svargs,
+		                  const I32 svmax,
+		                  bool *const maybe_tainted,
+		                  const U32 flags)
 
 =for hackers
 Found in file sv.c
@@ -10525,9 +11239,11 @@ scanning won't continue past that goal.  Correspondingly for C<l2> with respect 
 C<s2>.
 
 If C<pe1> is non-NULL and the pointer it points to is not NULL, that pointer is
-considered an end pointer beyond which scanning of C<s1> will not continue under
-any circumstances.  This means that if both C<l1> and C<pe1> are specified, and
-C<pe1>
+considered an end pointer to the position 1 byte past the maximum point
+in C<s1> beyond which scanning will not continue under any circumstances.
+(This routine assumes that UTF-8 encoded input strings are not malformed;
+malformed input can cause it to read past C<pe1>).
+This means that if both C<l1> and C<pe1> are specified, and C<pe1>
 is less than C<s1>+C<l1>, the match will never be successful because it can
 never
 get as far as its goal (and in fact is asserted against).  Correspondingly for
@@ -10633,7 +11349,7 @@ case of "utf8ness failure") or the location C<s>+C<len> (in the case of
 See also L</is_utf8_string_loclen>() and L</is_utf8_string>().
 
 	bool	is_utf8_string_loc(const U8 *s, STRLEN len,
-		                   const U8 **p)
+		                   const U8 **ep)
 
 =for hackers
 Found in file utf8.c
@@ -10886,7 +11602,13 @@ determinable reasonable value.
 The UTF8_CHECK_ONLY flag overrides the behavior when a non-allowed (by other
 flags) malformation is found.  If this flag is set, the routine assumes that
 the caller will raise a warning, and this function will silently just set
-C<retlen> to C<-1> and return zero.
+C<retlen> to C<-1> (cast to C<STRLEN>) and return zero.
+
+Note that this API requires disambiguation between successful decoding a NUL
+character, and an error return (unless the UTF8_CHECK_ONLY flag is set), as
+in both cases, 0 is returned.  To disambiguate, upon a zero return, see if the
+first byte of C<s> is 0 as well.  If so, the input was a NUL; if not, the input
+had an error.
 
 Certain code points are considered problematic.  These are Unicode surrogates,
 Unicode non-characters, and code points above the Unicode maximum of 0x10FFFF.
@@ -11026,11 +11748,12 @@ C<*retlen> will be set to the length, in bytes, of that character.
 
 If C<s> does not point to a well-formed UTF-8 character and UTF8 warnings are
 enabled, zero is returned and C<*retlen> is set (if C<retlen> isn't
-NULL) to -1.  If those warnings are off, the computed value if well-defined (or
-the Unicode REPLACEMENT CHARACTER, if not) is silently returned, and C<*retlen>
-is set (if C<retlen> isn't NULL) so that (S<C<s> + C<*retlen>>) is the
-next possible position in C<s> that could begin a non-malformed character.
-See L</utf8n_to_uvuni> for details on when the REPLACEMENT CHARACTER is returned.
+NULL) to -1.  If those warnings are off, the computed value, if well-defined
+(or the Unicode REPLACEMENT CHARACTER if not), is silently returned, and
+C<*retlen> is set (if C<retlen> isn't NULL) so that (S<C<s> + C<*retlen>>) is
+the next possible position in C<s> that could begin a non-malformed character.
+See L</utf8n_to_uvuni> for details on when the REPLACEMENT CHARACTER is
+returned.
 
 	UV	utf8_to_uvchr_buf(const U8 *s, const U8 *send,
 		                  STRLEN *retlen)
@@ -11113,7 +11836,7 @@ Found in file utf8.c
 =item uvuni_to_utf8_flags
 X<uvuni_to_utf8_flags>
 
-Adds the UTF-8 representation of the code point C<uv> to the end
+Adds the UTF-8 representation of the Unicode code point C<uv> to the end
 of the string C<d>; C<d> should have at least C<UTF8_MAXBYTES+1> free
 bytes available. The return value is the pointer to the byte after the
 end of the new character. In other words,
@@ -11132,6 +11855,10 @@ This is the recommended Unicode-aware way of saying
 
     *(d++) = uv;
 
+where uv is a code point expressed in Latin-1 or above, not the platform's
+native character set.  B<Almost all code should instead use L</uvchr_to_utf8>
+or L</uvchr_to_utf8_flags>>.
+
 This function will convert to UTF-8 (and not warn) even code points that aren't
 legal Unicode or are problematic, unless C<flags> contains one or more of the
 following flags:
@@ -11142,8 +11869,9 @@ UNICODE_DISALLOW_SURROGATE is set, the function will fail and return NULL.
 If both flags are set, the function will both warn and return NULL.
 
 The UNICODE_WARN_NONCHAR and UNICODE_DISALLOW_NONCHAR flags correspondingly
-affect how the function handles a Unicode non-character.  And, likewise for the
-UNICODE_WARN_SUPER and UNICODE_DISALLOW_SUPER flags, and code points that are
+affect how the function handles a Unicode non-character.  And likewise, the
+UNICODE_WARN_SUPER and UNICODE_DISALLOW_SUPER flags, affect the handling of
+code points that are
 above the Unicode maximum of 0x10FFFF.  Code points above 0x7FFF_FFFF (which are
 even less portable) can be warned and/or disallowed even if other above-Unicode
 code points are accepted by the UNICODE_WARN_FE_FF and UNICODE_DISALLOW_FE_FF
@@ -11578,11 +12306,14 @@ Found in file util.c
 
 The following functions have been flagged as part of the public API,
 but are currently undocumented. Use them at your own risk, as the
-interfaces are subject to change.
+interfaces are subject to change.  Functions that are not listed in this
+document are not intended for public use, and should NOT be used under any
+circumstances.
 
-If you use one of them, you may wish to consider creating and submitting
-documentation for it. If your patch is accepted, this will indicate that
-the interface is stable (unless it is explicitly marked otherwise).
+If you use one of the undocumented functions below, you may wish to consider
+creating and submitting documentation for it. If your patch is accepted, this
+will indicate that the interface is stable (unless it is explicitly marked
+otherwise).
 
 =over
 
@@ -11660,15 +12391,6 @@ X<PerlIO_unread>
 
 =item PerlIO_write
 X<PerlIO_write>
-
-=item Slab_Alloc
-X<Slab_Alloc>
-
-=item Slab_Free
-X<Slab_Free>
-
-=item _is_utf8_quotemeta
-X<_is_utf8_quotemeta>
 
 =item amagic_call
 X<amagic_call>
@@ -12033,6 +12755,9 @@ X<hv_placeholders_p>
 =item hv_placeholders_set
 X<hv_placeholders_set>
 
+=item hv_rand_set
+X<hv_rand_set>
+
 =item hv_riter_p
 X<hv_riter_p>
 
@@ -12059,144 +12784,6 @@ X<instr>
 
 =item is_lvalue_sub
 X<is_lvalue_sub>
-
-=item is_uni_alnum
-X<is_uni_alnum>
-
-=item is_uni_alnum_lc
-X<is_uni_alnum_lc>
-
-=item is_uni_alpha
-X<is_uni_alpha>
-
-=item is_uni_alpha_lc
-X<is_uni_alpha_lc>
-
-=item is_uni_ascii
-X<is_uni_ascii>
-
-=item is_uni_ascii_lc
-X<is_uni_ascii_lc>
-
-=item is_uni_cntrl
-X<is_uni_cntrl>
-
-=item is_uni_cntrl_lc
-X<is_uni_cntrl_lc>
-
-=item is_uni_digit
-X<is_uni_digit>
-
-=item is_uni_digit_lc
-X<is_uni_digit_lc>
-
-=item is_uni_graph
-X<is_uni_graph>
-
-=item is_uni_graph_lc
-X<is_uni_graph_lc>
-
-=item is_uni_idfirst
-X<is_uni_idfirst>
-
-=item is_uni_idfirst_lc
-X<is_uni_idfirst_lc>
-
-=item is_uni_lower
-X<is_uni_lower>
-
-=item is_uni_lower_lc
-X<is_uni_lower_lc>
-
-=item is_uni_print
-X<is_uni_print>
-
-=item is_uni_print_lc
-X<is_uni_print_lc>
-
-=item is_uni_punct
-X<is_uni_punct>
-
-=item is_uni_punct_lc
-X<is_uni_punct_lc>
-
-=item is_uni_space
-X<is_uni_space>
-
-=item is_uni_space_lc
-X<is_uni_space_lc>
-
-=item is_uni_upper
-X<is_uni_upper>
-
-=item is_uni_upper_lc
-X<is_uni_upper_lc>
-
-=item is_uni_xdigit
-X<is_uni_xdigit>
-
-=item is_uni_xdigit_lc
-X<is_uni_xdigit_lc>
-
-=item is_utf8_alnum
-X<is_utf8_alnum>
-
-=item is_utf8_alpha
-X<is_utf8_alpha>
-
-=item is_utf8_ascii
-X<is_utf8_ascii>
-
-=item is_utf8_cntrl
-X<is_utf8_cntrl>
-
-=item is_utf8_digit
-X<is_utf8_digit>
-
-=item is_utf8_graph
-X<is_utf8_graph>
-
-=item is_utf8_idcont
-X<is_utf8_idcont>
-
-=item is_utf8_idfirst
-X<is_utf8_idfirst>
-
-=item is_utf8_lower
-X<is_utf8_lower>
-
-=item is_utf8_mark
-X<is_utf8_mark>
-
-=item is_utf8_perl_space
-X<is_utf8_perl_space>
-
-=item is_utf8_perl_word
-X<is_utf8_perl_word>
-
-=item is_utf8_posix_digit
-X<is_utf8_posix_digit>
-
-=item is_utf8_print
-X<is_utf8_print>
-
-=item is_utf8_punct
-X<is_utf8_punct>
-
-=item is_utf8_space
-X<is_utf8_space>
-
-=item is_utf8_upper
-X<is_utf8_upper>
-
-=item is_utf8_xdigit
-X<is_utf8_xdigit>
-
-=item is_utf8_xidcont
-X<is_utf8_xidcont>
-
-=item is_utf8_xidfirst
-X<is_utf8_xidfirst>
 
 =item leave_scope
 X<leave_scope>
@@ -12750,9 +13337,6 @@ X<stack_grow>
 =item start_subparse
 X<start_subparse>
 
-=item stashpv_hvname_match
-X<stashpv_hvname_match>
-
 =item str_to_version
 X<str_to_version>
 
@@ -12770,9 +13354,6 @@ X<sv_catpvf_mg_nocontext>
 
 =item sv_catpvf_nocontext
 X<sv_catpvf_nocontext>
-
-=item sv_compile_2op
-X<sv_compile_2op>
 
 =item sv_dump
 X<sv_dump>
@@ -12830,27 +13411,6 @@ X<taint_proper>
 
 =item tmps_grow
 X<tmps_grow>
-
-=item to_uni_fold
-X<to_uni_fold>
-
-=item to_uni_lower
-X<to_uni_lower>
-
-=item to_uni_lower_lc
-X<to_uni_lower_lc>
-
-=item to_uni_title
-X<to_uni_title>
-
-=item to_uni_title_lc
-X<to_uni_title_lc>
-
-=item to_uni_upper
-X<to_uni_upper>
-
-=item to_uni_upper_lc
-X<to_uni_upper_lc>
 
 =item unlnk
 X<unlnk>

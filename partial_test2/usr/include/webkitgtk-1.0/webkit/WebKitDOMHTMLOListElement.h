@@ -21,11 +21,10 @@
 #ifndef WebKitDOMHTMLOListElement_h
 #define WebKitDOMHTMLOListElement_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMHTMLElement.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMHTMLElement.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_HTMLO_LIST_ELEMENT            (webkit_dom_htmlo_list_element_get_type())

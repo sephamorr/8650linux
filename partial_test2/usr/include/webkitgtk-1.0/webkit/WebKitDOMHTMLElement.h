@@ -21,11 +21,10 @@
 #ifndef WebKitDOMHTMLElement_h
 #define WebKitDOMHTMLElement_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMElement.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMElement.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_HTML_ELEMENT            (webkit_dom_html_element_get_type())
@@ -57,7 +56,7 @@ webkit_dom_html_element_get_type (void);
  *
 **/
 WEBKIT_API WebKitDOMElement*
-webkit_dom_html_element_insert_adjacent_element(WebKitDOMHTMLElement* self, const gchar* where, WebKitDOMElement* element, GError **error);
+webkit_dom_html_element_insert_adjacent_element(WebKitDOMHTMLElement* self, const gchar* where, WebKitDOMElement* element, GError** error);
 
 /**
  * webkit_dom_html_element_insert_adjacent_html:
@@ -70,7 +69,7 @@ webkit_dom_html_element_insert_adjacent_element(WebKitDOMHTMLElement* self, cons
  *
 **/
 WEBKIT_API void
-webkit_dom_html_element_insert_adjacent_html(WebKitDOMHTMLElement* self, const gchar* where, const gchar* html, GError **error);
+webkit_dom_html_element_insert_adjacent_html(WebKitDOMHTMLElement* self, const gchar* where, const gchar* html, GError** error);
 
 /**
  * webkit_dom_html_element_insert_adjacent_text:
@@ -83,7 +82,7 @@ webkit_dom_html_element_insert_adjacent_html(WebKitDOMHTMLElement* self, const g
  *
 **/
 WEBKIT_API void
-webkit_dom_html_element_insert_adjacent_text(WebKitDOMHTMLElement* self, const gchar* where, const gchar* text, GError **error);
+webkit_dom_html_element_insert_adjacent_text(WebKitDOMHTMLElement* self, const gchar* where, const gchar* text, GError** error);
 
 /**
  * webkit_dom_html_element_click:
@@ -199,37 +198,6 @@ webkit_dom_html_element_get_dir(WebKitDOMHTMLElement* self);
 **/
 WEBKIT_API void
 webkit_dom_html_element_set_dir(WebKitDOMHTMLElement* self, const gchar* value);
-
-/**
- * webkit_dom_html_element_get_class_name:
- * @self: A #WebKitDOMHTMLElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gchar*
-webkit_dom_html_element_get_class_name(WebKitDOMHTMLElement* self);
-
-/**
- * webkit_dom_html_element_set_class_name:
- * @self: A #WebKitDOMHTMLElement
- * @value: A #gchar
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_element_set_class_name(WebKitDOMHTMLElement* self, const gchar* value);
-
-/**
- * webkit_dom_html_element_get_class_list:
- * @self: A #WebKitDOMHTMLElement
- *
- * Returns: (transfer none):
- *
-**/
-WEBKIT_API WebKitDOMDOMTokenList*
-webkit_dom_html_element_get_class_list(WebKitDOMHTMLElement* self);
 
 /**
  * webkit_dom_html_element_get_tab_index:
@@ -356,7 +324,7 @@ webkit_dom_html_element_get_inner_html(WebKitDOMHTMLElement* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_html_element_set_inner_html(WebKitDOMHTMLElement* self, const gchar* value, GError **error);
+webkit_dom_html_element_set_inner_html(WebKitDOMHTMLElement* self, const gchar* value, GError** error);
 
 /**
  * webkit_dom_html_element_get_inner_text:
@@ -378,7 +346,7 @@ webkit_dom_html_element_get_inner_text(WebKitDOMHTMLElement* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_html_element_set_inner_text(WebKitDOMHTMLElement* self, const gchar* value, GError **error);
+webkit_dom_html_element_set_inner_text(WebKitDOMHTMLElement* self, const gchar* value, GError** error);
 
 /**
  * webkit_dom_html_element_get_outer_html:
@@ -400,7 +368,7 @@ webkit_dom_html_element_get_outer_html(WebKitDOMHTMLElement* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_html_element_set_outer_html(WebKitDOMHTMLElement* self, const gchar* value, GError **error);
+webkit_dom_html_element_set_outer_html(WebKitDOMHTMLElement* self, const gchar* value, GError** error);
 
 /**
  * webkit_dom_html_element_get_outer_text:
@@ -422,7 +390,7 @@ webkit_dom_html_element_get_outer_text(WebKitDOMHTMLElement* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_html_element_set_outer_text(WebKitDOMHTMLElement* self, const gchar* value, GError **error);
+webkit_dom_html_element_set_outer_text(WebKitDOMHTMLElement* self, const gchar* value, GError** error);
 
 /**
  * webkit_dom_html_element_get_children:
@@ -454,7 +422,7 @@ webkit_dom_html_element_get_content_editable(WebKitDOMHTMLElement* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_html_element_set_content_editable(WebKitDOMHTMLElement* self, const gchar* value, GError **error);
+webkit_dom_html_element_set_content_editable(WebKitDOMHTMLElement* self, const gchar* value, GError** error);
 
 /**
  * webkit_dom_html_element_get_is_content_editable:

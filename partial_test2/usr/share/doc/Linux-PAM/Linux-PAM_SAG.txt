@@ -835,20 +835,15 @@ Case Change Only
 Similar
 
     Is the new password too much like the old one? This is primarily controlled
-    by one argument, difok which is a number of characters that if different
-    between the old and new are enough to accept the new password, this
-    defaults to 10 or 1/2 the size of the new password whichever is smaller.
-
-    To avoid the lockup associated with trying to change a long and complicated
-    password, difignore is available. This argument can be used to specify the
-    minimum length a new password needs to be before the difok value is
-    ignored. The default value for difignore is 23.
+    by one argument, difok which is a number of character changes (inserts,
+    removals, or replacements) between the old and new password that are enough
+    to accept the new password. This defaults to 5 changes.
 
 Simple
 
-    Is the new password too small? This is controlled by 5 arguments minlen,
-    dcredit, ucredit, lcredit, and ocredit. See the section on the arguments
-    for the details of how these work and there defaults.
+    Is the new password too small? This is controlled by 6 arguments minlen,
+    maxclassrepeat, dcredit, ucredit, lcredit, and ocredit. See the section on
+    the arguments for the details of how these work and there defaults.
 
 Rotated
 
@@ -857,6 +852,10 @@ Rotated
 Same consecutive characters
 
     Optional check for same consecutive characters.
+
+Too long monotonic character sequence
+
+    Optional check for too long monotonic character sequence.
 
 Contains user name
 
@@ -896,15 +895,8 @@ retry=N
 
 difok=N
 
-    This argument will change the default of 5 for the number of characters in
-    the new password that must not be present in the old password. In addition,
-    if 1/2 of the characters in the new password are different then the new
-    password will be accepted anyway.
-
-difignore=N
-
-    How many characters should the password have before difok will be ignored.
-    The default is 23.
+    This argument will change the default of 5 for the number of character
+    changes in the new password that differentiate it from the old password.
 
 minlen=N
 
@@ -972,10 +964,37 @@ maxrepeat=N
     Reject passwords which contain more than N same consecutive characters. The
     default is 0 which means that this check is disabled.
 
+maxsequence=N
+
+    Reject passwords which contain monotonic character sequences longer than N.
+    The default is 0 which means that this check is disabled. Examples of such
+    sequence are '12345' or 'fedcb'. Note that most such passwords will not
+    pass the simplicity check unless the sequence is only a minor part of the
+    password.
+
+maxclassrepeat=N
+
+    Reject passwords which contain more than N consecutive characters of the
+    same class. The default is 0 which means that this check is disabled.
+
 reject_username
 
     Check whether the name of the user in straight or reversed form is
     contained in the new password. If it is found the new password is rejected.
+
+gecoscheck
+
+    Check whether the words from the GECOS field (usualy full name of the user)
+    longer than 3 characters in straight or reversed form are contained in the
+    new password. If any such word is found the new password is rejected.
+
+enforce_for_root
+
+    The module will return error on failed check also if the user changing the
+    password is root. This option is off by default which means that just the
+    message about the failed check is printed but root can change the password
+    anyway. Note that root is not asked for an old password so the checks that
+    compare the old and new password are not performed.
 
 use_authtok
 
@@ -1428,8 +1447,8 @@ pam_env was written by Dave Kinchlea <kinch@kinch.ark.com>.
 
 6.7. pam_exec - call an external command
 
-pam_exec.so [ debug ] [ expose_authtok ] [ seteuid ] [ quiet ] [ log=file ]
-command [ ... ]
+pam_exec.so [ debug ] [ expose_authtok ] [ seteuid ] [ quiet ] [ stdout ] [ log
+=file ] [ type=type ] command [ ... ]
 
 6.7.1. DESCRIPTION
 
@@ -1458,6 +1477,17 @@ expose_authtok
 log=file
 
     The output of the command is appended to file
+
+type=type
+
+    Only run the command if the module type matches the given type.
+
+stdout
+
+    Per default the output of the executed command is written to /dev/null.
+    With this option, the stdout output of the executed command is redirected
+    to the calling application. It's in the responsibility of this application
+    what happens with the output. The log option is ignored.
 
 quiet
 
@@ -1490,7 +1520,8 @@ PAM_SYSTEM_ERR
 
 PAM_IGNORE
 
-    pam_setcred was called, which does not execute the command.
+    pam_setcred was called, which does not execute the command. Or, the value
+    given for the type= parameter did not match the module type.
 
 6.7.5. EXAMPLES
 
@@ -1508,7 +1539,8 @@ with effective user ID.
 
 6.7.6. AUTHOR
 
-pam_exec was written by Thorsten Kukuk <kukuk@thkukuk.de>.
+pam_exec was written by Thorsten Kukuk <kukuk@thkukuk.de> and Josh Triplett
+<josh@joshtriplett.org>.
 
 6.8. pam_faildelay - change the delay on failure per-application
 
@@ -2066,7 +2098,7 @@ pam_keyinit was written by David Howells, <dhowells@redhat.com>.
 6.14. pam_lastlog - display date of last login
 
 pam_lastlog.so [ debug ] [ silent ] [ never ] [ nodate ] [ nohost ] [ noterm ]
-[ nowtmp ] [ noupdate ] [ showfailed ]
+[ nowtmp ] [ noupdate ] [ showfailed ] [ inactive=<days> ]
 
 6.14.1. DESCRIPTION
 
@@ -2075,6 +2107,10 @@ login of the user. In addition, the module maintains the /var/log/lastlog file.
 
 Some applications may perform this function themselves. In such cases, this
 module is not necessary.
+
+If the module is called in the auth or account phase, the accounts that were
+not used recently enough will be disallowed to log in. The check is not
+performed for the root account so the root is never locked out.
 
 6.14.2. OPTIONS
 
@@ -2118,9 +2154,17 @@ showfailed
     Display number of failed login attempts and the date of the last failed
     attempt from btmp. The date is not displayed when nodate is specified.
 
+inactive=<days>
+
+    This option is specific for the auth or account phase. It specifies the
+    number of days after the last login of the user when the user will be
+    locked out by the module. The default value is 90.
+
 6.14.3. MODULE TYPES PROVIDED
 
-Only the session module type is provided.
+The auth and account module type allows to lock out users which did not login
+recently enough. The session module type is provided for displaying the
+information about the last login and/or updating the lastlog and wtmp files.
 
 6.14.4. RETURN VALUES
 
@@ -2136,6 +2180,15 @@ PAM_USER_UNKNOWN
 
     User not known.
 
+PAM_AUTH_ERR
+
+    User locked out in the auth or account phase due to inactivity.
+
+PAM_IGNORE
+
+    There was an error during reading the lastlog file in the auth or account
+    phase and thus inactivity of the user cannot be determined.
+
 6.14.5. EXAMPLES
 
 Add the following line to /etc/pam.d/login to display the last login time of an
@@ -2144,9 +2197,17 @@ user:
     session  required  pam_lastlog.so nowtmp
 
 
+To reject the user if he did not login during the previous 50 days the
+following line can be used:
+
+    auth  required  pam_lastlog.so inactive=50
+
+
 6.14.6. AUTHOR
 
 pam_lastlog was written by Andrew G. Morgan <morgan@kernel.org>.
+
+Inactive account lock out added by Tom?? Mr?z <tm@t8m.info>.
 
 6.15. pam_limits - limit resources
 
@@ -2172,6 +2233,11 @@ If Linux PAM is compiled with audit support the module will report when it
 denies access based on limit of maximum number of concurrent login sessions.
 
 6.15.2. DESCRIPTION
+
+The pam_limits.so module applies ulimit limits, nice priority and number of
+simultaneous login sessions limit to user login sessions. This description of
+the configuration file syntax applies to the /etc/security/limits.conf file and
+*.conf files in the /etc/security/limits.d directory.
 
 The syntax of the lines is as follows:
 
@@ -2321,6 +2387,9 @@ line, the user will have its limits set according to this line.
 
 Also, please note that all limit settings are set per login. They are not
 global, nor are they permanent; existing only for the duration of the session.
+One exception is the maxlogin option, this one is system wide. But there is a
+race, concurrent logins at the same time will not always be detect as such but
+only counted as one.
 
 In the limits configuration file, the '#' character introduces a comment -
 after which the rest of the line is ignored.
@@ -2861,7 +2930,7 @@ pam_motd was written by Ben Collins <bcollins@debian.org>.
 
 pam_namespace.so [ debug ] [ unmnt_remnt ] [ unmnt_only ] [ require_selinux ] [
 gen_hash ] [ ignore_config_error ] [ ignore_instance_parent_mode ] [
-no_unmount_on_close ] [ use_current_context ] [ use_default_context ] [
+unmount_on_close ] [ use_current_context ] [ use_default_context ] [
 mount_private ]
 
 6.22.1. DESCRIPTION
@@ -2949,6 +3018,10 @@ noinit - instance directory init script will not be executed.
 shared - the instance directories for "context" and "level" methods will not
 contain the user name and will be shared among all users.
 
+mntopts=value - value of this flag is passed to the mount call when the tmpfs
+mount is done. It allows for example the specification of the maximum size of
+the tmpfs instance that is created by the mount call. See mount(8) for details.
+
 The directory where polyinstantiated instances are to be created, must exist
 and must have, by default, the mode of 0000. The requirement that the instance
 parent be of mode 0000 can be overridden with the command line option 
@@ -3011,12 +3084,14 @@ ignore_instance_parent_mode
     will reduce security and isolation goals of the polyinstantiation
     mechanism.
 
-no_unmount_on_close
+unmount_on_close
 
-    For certain trusted programs such as newrole, open session is called from a
-    child process while the parent performs close session and pam end
-    functions. For these commands use this option to instruct pam_close_session
-    to not unmount the bind mounted polyinstantiated directory in the parent.
+    Explicitly unmount the polyinstantiated directories instead of relying on
+    automatic namespace destruction after the last process in a namespace
+    exits. This option should be used only in case it is ensured by other means
+    that there cannot be any processes running in the private namespace left
+    after the session close. It is also useful only in case there are multiple
+    pam session calls in sequence from the same process.
 
 use_current_context
 
@@ -3034,10 +3109,15 @@ mount_private
 
     This option can be used on systems where the / mount point or its submounts
     are made shared (for example with a mount --make-rshared / command). The
-    module will make the polyinstantiated directory mount points private.
-    Normally the pam_namespace will try to detect the shared / mount point and
-    make the polyinstantiated directories private automatically. This option
-    has to be used just when only a subtree is shared and / is not.
+    module will mark the whole directory tree so any mount and unmount
+    operations in the polyinstantiation namespace are private. Normally the
+    pam_namespace will try to detect the shared / mount point and make the
+    polyinstantiated directories private automatically. This option has to be
+    used just when only a subtree is shared and / is not.
+
+    Note that mounts and unmounts done in the private namespace will not affect
+    the parent namespace if this option is used or when the shared / mount
+    point is autodetected.
 
 6.22.4. MODULE TYPES PROVIDED
 
@@ -3503,63 +3583,71 @@ pam_securetty was written by Elliot Lee <sopwith@cuc.edu>.
 
 6.29. pam_selinux - set the default security context
 
-pam_selinux.so [ close ] [ debug ] [ open ] [ nottys ] [ verbose ] [
-select_context ] [ env_params ] [ use_current_range ]
+pam_selinux.so [ open ] [ close ] [ restore ] [ nottys ] [ debug ] [ verbose ]
+[ select_context ] [ env_params ] [ use_current_range ]
 
 6.29.1. DESCRIPTION
 
-In a nutshell, pam_selinux sets up the default security context for the next
-execed shell.
+pam_selinux is a PAM module that sets up the default SELinux security context
+for the next executed process.
 
-When an application opens a session using pam_selinux, the shell that gets
-executed will be run in the default security context, or if the user chooses
-and the pam file allows the selected security context. Also the controlling tty
-will have it's security context modified to match the users.
+When a new session is started, the open_session part of the module computes and
+sets up the execution security context used for the next execve(2) call, the
+file security context for the controlling terminal, and the security context
+used for creating a new kernel keyring.
 
-Adding pam_selinux into a pam file could cause other pam modules to change
-their behavior if the exec another application. The close and open option help
-mitigate this problem. close option will only cause the close portion of the
-pam_selinux to execute, and open will only cause the open portion to run. You
-can add pam_selinux to the config file twice. Add the pam_selinux close as the
-executes the open pass through the modules, pam_selinux open_session will
-happen last. When PAM executes the close pass through the modules pam_selinux
-close_session will happen first.
+When the session is ended, the close_session part of the module restores old
+security contexts that were in effect before the change made by the
+open_session part of the module.
+
+Adding pam_selinux into the PAM stack might disrupt behavior of other PAM
+modules which execute applications. To avoid that, pam_selinux.so open should
+be placed after such modules in the PAM stack, and pam_selinux.so close should
+be placed before them. When such a placement is not feasible, pam_selinux.so
+restore could be used to temporary restore original security contexts.
 
 6.29.2. OPTIONS
 
-close
-
-    Only execute the close_session portion of the module.
-
-debug
-
-    Turns on debugging via syslog(3).
-
 open
 
-    Only execute the open_session portion of the module.
+    Only execute the open_session part of the module.
+
+close
+
+    Only execute the close_session part of the module.
+
+restore
+
+    In open_session part of the module, temporarily restore the security
+    contexts as they were before the previous call of the module. Another call
+    of this module without the restore option will set up the new security
+    contexts again.
 
 nottys
 
-    Do not try to setup the ttys security context.
+    Do not setup security context of the controlling terminal.
+
+debug
+
+    Turn on debug messages via syslog(3).
 
 verbose
 
-    attempt to inform the user when security context is set.
+    Attempt to inform the user when security context is set.
 
 select_context
 
-    Attempt to ask the user for a custom security context role. If MLS is on
+    Attempt to ask the user for a custom security context role. If MLS is on,
     ask also for sensitivity level.
 
 env_params
 
     Attempt to obtain a custom security context role from PAM environment. If
-    MLS is on obtain also sensitivity level. This option and the select_context
-    option are mutually exclusive. The respective PAM environment variables are
-    SELINUX_ROLE_REQUESTED, SELINUX_LEVEL_REQUESTED, and 
-    SELINUX_USE_CURRENT_RANGE. The first two variables are self describing and
-    the last one if set to 1 makes the PAM module behave as if the
+    MLS is on, obtain also sensitivity level. This option and the
+    select_context option are mutually exclusive. The respective PAM
+    environment variables are SELINUX_ROLE_REQUESTED, SELINUX_LEVEL_REQUESTED,
+    and SELINUX_USE_CURRENT_RANGE. The first two variables are self describing
+    and the last one if set to 1 makes the PAM module behave as if the
     use_current_range was specified on the command line of the module.
 
 use_current_range
@@ -3574,17 +3662,21 @@ Only the session module type is provided.
 
 6.29.4. RETURN VALUES
 
-PAM_AUTH_ERR
-
-    Unable to get or set a valid context.
-
 PAM_SUCCESS
 
     The security context was set successfully.
 
+PAM_SESSION_ERR
+
+    Unable to get or set a valid context.
+
 PAM_USER_UNKNOWN
 
     The user is not known to the system.
+
+PAM_BUF_ERR
+
+    Memory allocation error.
 
 6.29.5. EXAMPLES
 
@@ -3646,8 +3738,9 @@ pam_succeed_if.so [flag...] [condition...]
 6.31.1. DESCRIPTION
 
 pam_succeed_if.so is designed to succeed or fail authentication based on
-characteristics of the account belonging to the user being authenticated. One
-use is to select whether to load other modules based on this test.
+characteristics of the account belonging to the user being authenticated or
+values of other PAM items. One use is to select whether to load other modules
+based on this test.
 
 The module should be given one or more conditions as module arguments, and
 authentication will succeed only if all of the conditions are met.
@@ -3683,7 +3776,8 @@ audit
 
 Conditions are three words: a field, a test, and a value to test for.
 
-Available fields are user, uid, gid, shell, home and service:
+Available fields are user, uid, gid, shell, home, ruser, rhost, tty and service
+:
 
 field < number
 
@@ -4259,7 +4353,6 @@ login ; tty* & !ttyp* ; !root ; !Al0000-2400
 Games (configured to use PAM) are only to be accessed out of working hours.
 This rule does not apply to the user waster:
 
-
 games ; * ; !waster ; Wd0000-2400 | Wk1800-0800
 
 
@@ -4340,7 +4433,7 @@ session optional pam_timestamp.so
 
 6.35.8. AUTHOR
 
-pam_tally was written by Nalin Dahyabhai.
+pam_timestamp was written by Nalin Dahyabhai.
 
 6.36. pam_umask - set the file mode creation mask
 
@@ -4357,15 +4450,16 @@ following order:
 
   * umask= argument
 
-  * umask= entry of the users GECOS field
-
-  * pri= entry of the users GECOS field
-
-  * ulimit= entry of the users GECOS field
+  * umask= entry in the user's GECOS field
 
   * UMASK= entry from /etc/default/login
 
   * UMASK entry from /etc/login.defs
+
+The GECOS field is split on comma ',' characters. The module also in addition
+to the umask= entry recognizes pri= entry, which sets the nice priority value
+for the session, and ulimit= entry, which sets the maximum size of files the
+processes in the session can create.
 
 6.36.2. OPTIONS
 
@@ -4455,7 +4549,8 @@ suppress this temporary shielding and may be needed for use with certain
 applications.
 
 The password component of this module performs the task of updating the user's
-password.
+password. The default encryption hash is taken from the ENCRYPT_METHOD variable
+from /etc/login.defs
 
 The session component of this module logs when a user logins or leave the
 system.
@@ -4519,7 +4614,8 @@ remember=n
 
     The last n passwords for each user are saved in /etc/security/opasswd in
     order to force password change history and keep the user from alternating
-    between the same password too frequently.
+    between the same password too frequently. Instead of this option the 
+    pam_pwhistory module should be used.
 
 shadow
 

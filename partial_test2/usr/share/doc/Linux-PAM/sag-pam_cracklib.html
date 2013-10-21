@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>6.2. pam_cracklib - checks the password against dictionary words</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.0"><link rel="home" href="Linux-PAM_SAG.html" title="The Linux-PAM System Administrators' Guide"><link rel="up" href="sag-module-reference.html" title="Chapter 6. A reference guide for available modules"><link rel="prev" href="sag-pam_access.html" title="6.1. pam_access - logdaemon style login access control"><link rel="next" href="sag-pam_debug.html" title="6.3. pam_debug - debug the PAM stack"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.2. pam_cracklib - checks the password against dictionary words</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="sag-pam_access.html">Prev</a> </td><th width="60%" align="center">Chapter 6. A reference guide for available modules</th><td width="20%" align="right"> <a accesskey="n" href="sag-pam_debug.html">Next</a></td></tr></table><hr></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sag-pam_cracklib"></a>6.2. pam_cracklib - checks the password against dictionary words</h2></div></div></div><div class="cmdsynopsis"><p><code class="command">pam_cracklib.so</code>  [
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>6.2. pam_cracklib - checks the password against dictionary words</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="Linux-PAM_SAG.html" title="The Linux-PAM System Administrators' Guide"><link rel="up" href="sag-module-reference.html" title="Chapter 6. A reference guide for available modules"><link rel="prev" href="sag-pam_access.html" title="6.1. pam_access - logdaemon style login access control"><link rel="next" href="sag-pam_debug.html" title="6.3. pam_debug - debug the PAM stack"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.2. pam_cracklib - checks the password against dictionary words</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="sag-pam_access.html">Prev</a> </td><th width="60%" align="center">Chapter 6. A reference guide for available modules</th><td width="20%" align="right"> <a accesskey="n" href="sag-pam_debug.html">Next</a></td></tr></table><hr></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sag-pam_cracklib"></a>6.2. pam_cracklib - checks the password against dictionary words</h2></div></div></div><div class="cmdsynopsis"><p><code class="command">pam_cracklib.so</code>  [
         <em class="replaceable"><code>...</code></em>
       ]</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="sag-pam_cracklib-description"></a>6.2.1. DESCRIPTION</h3></div></div></div><p>
       This module can be plugged into the <span class="emphasis"><em>password</em></span> stack of
@@ -25,19 +25,14 @@
           </p></dd><dt><span class="term">Similar</span></dt><dd><p>
             Is the new password too much like the old one?
             This is primarily controlled by one argument,
-            <code class="option">difok</code> which is a number of characters
-            that if different between the old and new are enough to accept
-            the new password, this defaults to 10 or 1/2 the size of the
-            new password whichever is smaller.
-          </p><p>
-            To avoid the lockup associated with trying to change a long and
-            complicated password, <code class="option">difignore</code> is available.
-            This argument can be used to specify the minimum length a new
-            password needs to be before the <code class="option">difok</code> value is
-            ignored. The default value for <code class="option">difignore</code> is 23.
+            <code class="option">difok</code> which is a number of character changes
+            (inserts, removals, or replacements) between the old and new
+            password that are enough to accept the new password.
+            This defaults to 5 changes.
           </p></dd><dt><span class="term">Simple</span></dt><dd><p>
              Is the new password too small?
-             This is controlled by 5 arguments <code class="option">minlen</code>,
+             This is controlled by 6 arguments <code class="option">minlen</code>,
+             <code class="option">maxclassrepeat</code>,
              <code class="option">dcredit</code>, <code class="option">ucredit</code>,
              <code class="option">lcredit</code>, and <code class="option">ocredit</code>. See the section
              on the arguments for the details of how these work and there defaults.
@@ -45,6 +40,8 @@
             Is the new password a rotated version of the old password?
           </p></dd><dt><span class="term">Same consecutive characters</span></dt><dd><p>
             Optional check for same consecutive characters.
+          </p></dd><dt><span class="term">Too long monotonic character sequence</span></dt><dd><p>
+            Optional check for too long monotonic character sequence.
           </p></dd><dt><span class="term">Contains user name</span></dt><dd><p>
             Optional check whether the password contains the user's name
             in some form.
@@ -88,17 +85,9 @@
             <code class="option">difok=<em class="replaceable"><code>N</code></em></code>
           </span></dt><dd><p>
               This argument will change the default of
-              <span class="emphasis"><em>5</em></span> for the number of characters in
-              the new password that must not be present in the old
-              password. In addition, if 1/2 of the characters in the
-              new password are different then the new password will
-              be accepted anyway.
-            </p></dd><dt><span class="term">
-            <code class="option">difignore=<em class="replaceable"><code>N</code></em></code>
-          </span></dt><dd><p>
-              How many characters should the password have before
-              difok will be ignored. The default is
-              <span class="emphasis"><em>23</em></span>.
+              <span class="emphasis"><em>5</em></span> for the number of character
+              changes in the new password that differentiate it
+              from the old password.
             </p></dd><dt><span class="term">
             <code class="option">minlen=<em class="replaceable"><code>N</code></em></code>
           </span></dt><dd><p>
@@ -189,11 +178,41 @@
               characters. The default is 0 which means that this check
               is disabled.
             </p></dd><dt><span class="term">
+            <code class="option">maxsequence=<em class="replaceable"><code>N</code></em></code>
+          </span></dt><dd><p>
+              Reject passwords which contain monotonic character sequences
+              longer than N. The default is 0 which means that this check
+              is disabled. Examples of such sequence are '12345' or 'fedcb'.
+              Note that most such passwords will not pass the simplicity
+              check unless the sequence is only a minor part of the password.
+            </p></dd><dt><span class="term">
+            <code class="option">maxclassrepeat=<em class="replaceable"><code>N</code></em></code>
+          </span></dt><dd><p>
+              Reject passwords which contain more than N consecutive
+              characters of the same class. The default is 0 which means
+              that this check is disabled.
+            </p></dd><dt><span class="term">
             <code class="option">reject_username</code>
           </span></dt><dd><p>
               Check whether the name of the user in straight or reversed
               form is contained in the new password. If it is found the
               new password is rejected.
+            </p></dd><dt><span class="term">
+            <code class="option">gecoscheck</code>
+          </span></dt><dd><p>
+              Check whether the words from the GECOS field (usualy full name
+              of the user) longer than 3 characters in straight or reversed
+              form are contained in the new password. If any such word is
+              found the new password is rejected.
+            </p></dd><dt><span class="term">
+            <code class="option">enforce_for_root</code>
+          </span></dt><dd><p>
+              The module will return error on failed check also if the user
+              changing the password is root. This option is off by default
+              which means that just the message about the failed check is
+              printed but root can change the password anyway.
+              Note that root is not asked for an old password so the checks
+              that compare the old and new password are not performed.
             </p></dd><dt><span class="term">
             <code class="option">use_authtok</code>
           </span></dt><dd><p>

@@ -3,35 +3,34 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AtkObject</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="ATK - Accessibility Toolkit">
 <link rel="up" href="atk.html" title="ATK Library">
 <link rel="prev" href="AtkNoOpObjectFactory.html" title="AtkNoOpObjectFactory">
 <link rel="next" href="AtkObjectFactory.html" title="AtkObjectFactory">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="AtkNoOpObjectFactory.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="atk.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">ATK - Accessibility Toolkit</th>
-<td><a accesskey="n" href="AtkObjectFactory.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#AtkObject.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#AtkObject.description" class="shortcut">Description</a>
                    | 
                   <a href="#AtkObject.object-hierarchy" class="shortcut">Object Hierarchy</a>
                    | 
+                  <a href="#AtkObject.derived-interfaces" class="shortcut">Known Derived Interfaces</a>
+                   | 
                   <a href="#AtkObject.properties" class="shortcut">Properties</a>
                    | 
                   <a href="#AtkObject.signals" class="shortcut">Signals</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="atk.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="AtkNoOpObjectFactory.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="AtkObjectFactory.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="AtkObject"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -49,9 +48,9 @@ enum                <a class="link" href="AtkObject.html#AtkRole" title="enum At
 enum                <a class="link" href="AtkObject.html#AtkLayer" title="enum AtkLayer">AtkLayer</a>;
                     <a class="link" href="AtkObject.html#AtkImplementor" title="AtkImplementor">AtkImplementor</a>;
                     <a class="link" href="AtkObject.html#AtkPropertyValues" title="AtkPropertyValues">AtkPropertyValues</a>;
-<span class="returnvalue">gboolean</span>            (<a class="link" href="AtkObject.html#AtkFunction" title="AtkFunction ()">*AtkFunction</a>)                      (<em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
-<span class="returnvalue">void</span>                (<a class="link" href="AtkObject.html#AtkPropertyChangeHandler" title="AtkPropertyChangeHandler ()">*AtkPropertyChangeHandler</a>)         (<em class="parameter"><code><a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> *Param1</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="AtkObject.html#AtkPropertyValues" title="AtkPropertyValues"><span class="type">AtkPropertyValues</span></a> *Param2</code></em>);
+<span class="returnvalue">gboolean</span>            (<a class="link" href="AtkObject.html#AtkFunction" title="AtkFunction ()">*AtkFunction</a>)                      (<em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="AtkObject.html#AtkPropertyChangeHandler" title="AtkPropertyChangeHandler ()">*AtkPropertyChangeHandler</a>)         (<em class="parameter"><code><a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="AtkObject.html#AtkPropertyValues" title="AtkPropertyValues"><span class="type">AtkPropertyValues</span></a> *vals</code></em>);
 <a class="link" href="AtkObject.html" title="AtkObject"><span class="returnvalue">AtkObject</span></a> *         <a class="link" href="AtkObject.html#atk-implementor-ref-accessible" title="atk_implementor_ref_accessible ()">atk_implementor_ref_accessible</a>      (<em class="parameter"><code><a class="link" href="AtkObject.html#AtkImplementor" title="AtkImplementor"><span class="type">AtkImplementor</span></a> *implementor</code></em>);
 const <span class="returnvalue">gchar</span> *       <a class="link" href="AtkObject.html#atk-object-get-name" title="atk_object_get_name ()">atk_object_get_name</a>                 (<em class="parameter"><code><a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> *accessible</code></em>);
 const <span class="returnvalue">gchar</span> *       <a class="link" href="AtkObject.html#atk-object-get-description" title="atk_object_get_description ()">atk_object_get_description</a>          (<em class="parameter"><code><a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> *accessible</code></em>);
@@ -92,6 +91,7 @@ const <span class="returnvalue">gchar</span> *       <a class="link" href="AtkOb
                                                          <em class="parameter"><code><a class="link" href="AtkRelation.html#AtkRelationType" title="enum AtkRelationType"><span class="type">AtkRelationType</span></a> relationship</code></em>,
                                                          <em class="parameter"><code><a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> *target</code></em>);
 <a class="link" href="AtkText.html#AtkAttributeSet" title="AtkAttributeSet"><span class="returnvalue">AtkAttributeSet</span></a> *   <a class="link" href="AtkObject.html#atk-object-get-attributes" title="atk_object_get_attributes ()">atk_object_get_attributes</a>           (<em class="parameter"><code><a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> *accessible</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="AtkObject.html#atk-object-get-object-locale" title="atk_object_get_object_locale ()">atk_object_get_object_locale</a>        (<em class="parameter"><code><a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> *accessible</code></em>);
 const <span class="returnvalue">gchar</span> *       <a class="link" href="AtkObject.html#atk-role-get-name" title="atk_role_get_name ()">atk_role_get_name</a>                   (<em class="parameter"><code><a class="link" href="AtkObject.html#AtkRole" title="enum AtkRole"><span class="type">AtkRole</span></a> role</code></em>);
 const <span class="returnvalue">gchar</span> *       <a class="link" href="AtkObject.html#atk-role-get-localized-name" title="atk_role_get_localized_name ()">atk_role_get_localized_name</a>         (<em class="parameter"><code><a class="link" href="AtkObject.html#AtkRole" title="enum AtkRole"><span class="type">AtkRole</span></a> role</code></em>);
 <a class="link" href="AtkObject.html#AtkRole" title="enum AtkRole"><span class="returnvalue">AtkRole</span></a>             <a class="link" href="AtkObject.html#atk-role-for-name" title="atk_role_for_name ()">atk_role_for_name</a>                   (<em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);
@@ -105,6 +105,12 @@ const <span class="returnvalue">gchar</span> *       <a class="link" href="AtkOb
          +----<a class="link" href="AtkGObjectAccessible.html" title="AtkGObjectAccessible">AtkGObjectAccessible</a>
          +----<a class="link" href="AtkNoOpObject.html" title="AtkNoOpObject">AtkNoOpObject</a>
 </pre>
+</div>
+<div class="refsect1">
+<a name="AtkObject.derived-interfaces"></a><h2>Known Derived Interfaces</h2>
+<p>
+AtkObject is required by
+ <a class="link" href="AtkWindow.html" title="AtkWindow">AtkWindow</a>.</p>
 </div>
 <div class="refsect1">
 <a name="AtkObject.properties"></a><h2>Properties</h2>
@@ -140,22 +146,28 @@ const <span class="returnvalue">gchar</span> *       <a class="link" href="AtkOb
 <div class="refsect1">
 <a name="AtkObject.description"></a><h2>Description</h2>
 <p>
-This class is the primary class for accessibility support via
-the Accessibility ToolKit (ATK).  Objects which are instances
-of <a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> (or instances of AtkObject-derived types) are
-queried for properties which relate basic (and generic) properties of a
-UI component such as name and description.  Instances of <a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a>
-may also be queried as to whether they implement other ATK interfaces
-(e.g. <a class="link" href="AtkAction.html" title="AtkAction"><span class="type">AtkAction</span></a>, <a class="link" href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a>, etc.), as appropriate to the role
-which a given UI component plays in a user interface.
+This class is the primary class for accessibility support via the
+Accessibility ToolKit (ATK).  Objects which are instances of
+<a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> (or instances of AtkObject-derived types) are queried
+for properties which relate basic (and generic) properties of a UI
+component such as name and description.  Instances of <a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a>
+may also be queried as to whether they implement other ATK
+interfaces (e.g. <a class="link" href="AtkAction.html" title="AtkAction"><span class="type">AtkAction</span></a>, <a class="link" href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a>, etc.), as appropriate
+to the role which a given UI component plays in a user interface.
 </p>
-<p>All UI components in an application which provide useful
+<p>
+All UI components in an application which provide useful
 information or services to the user must provide corresponding
-<a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> instances on request (in GTK+, for instance, usually
-on a call to #<code class="function">gtk_widget_get_accessible()</code>), either via ATK support
-built into the toolkit for the widget class or ancestor class, or in
-the case of custom widgets, if the inherited <a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> implementation
-is insufficient, via instances of a new <a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> subclass.
+<a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> instances on request (in GTK+, for instance, usually on
+a call to #<code class="function">gtk_widget_get_accessible()</code>), either via ATK support
+built into the toolkit for the widget class or ancestor class, or
+in the case of custom widgets, if the inherited <a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a>
+implementation is insufficient, via instances of a new <a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a>
+subclass.
+</p>
+<p>
+See also: <a class="link" href="AtkObjectFactory.html" title="AtkObjectFactory"><span class="type">AtkObjectFactory</span></a>, <a class="link" href="AtkRegistry.html" title="AtkRegistry"><span class="type">AtkRegistry</span></a>.  (GTK+ users see also
+<span class="type">GtkAccessible</span>).
 </p>
 </div>
 <div class="refsect1">
@@ -164,15 +176,14 @@ is insufficient, via instances of a new <a class="link" href="AtkObject.html" ti
 <a name="AtkObject-struct"></a><h3>struct AtkObject</h3>
 <pre class="programlisting">struct AtkObject;</pre>
 <p>
-The AtkObject structure should not be accessed directly.
 </p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="AtkRole"></a><h3>enum AtkRole</h3>
 <pre class="programlisting">typedef enum {
-  ATK_ROLE_INVALID = 0, 
-  ATK_ROLE_ACCEL_LABEL,
+  ATK_ROLE_INVALID = 0,
+  ATK_ROLE_ACCEL_LABEL,      /*&lt;nick=accelerator-label&gt;*/
   ATK_ROLE_ALERT,
   ATK_ROLE_ANIMATION,
   ATK_ROLE_ARROW,
@@ -272,6 +283,7 @@ The AtkObject structure should not be accessed directly.
   ATK_ROLE_IMAGE_MAP,
   ATK_ROLE_NOTIFICATION,
   ATK_ROLE_INFO_BAR,
+  ATK_ROLE_LEVEL_BAR,
   ATK_ROLE_LAST_DEFINED
 } AtkRole;
 </pre>
@@ -801,6 +813,11 @@ in other words it is an "input method window." <em class="parameter"><code>Since
 </td>
 </tr>
 <tr>
+<td><p><a name="ATK-ROLE-LEVEL-BAR:CAPS"></a><span class="term"><code class="literal">ATK_ROLE_LEVEL_BAR</code></span></p></td>
+<td>A bar that serves as a level indicator to, for instance, show the strength of a password or the state of a battery.  <em class="parameter"><code>Since</code></em>: ATK-2.7.3
+</td>
+</tr>
+<tr>
 <td><p><a name="ATK-ROLE-LAST-DEFINED:CAPS"></a><span class="term"><code class="literal">ATK_ROLE_LAST_DEFINED</code></span></p></td>
 <td>not a valid role, used for finding end of the enumeration
 </td>
@@ -902,7 +919,6 @@ determinations of when components occlude one another.
 <a name="AtkImplementor"></a><h3>AtkImplementor</h3>
 <pre class="programlisting">typedef struct _AtkImplementor AtkImplementor;</pre>
 <p>
-The AtkImplementor interface is implemented by objects for which AtkObject peers may be obtained via calls to iface-&gt;(ref_accessible)(implementor);
 </p>
 </div>
 <hr>
@@ -915,26 +931,16 @@ The AtkImplementor interface is implemented by objects for which AtkObject peers
 } AtkPropertyValues;
 </pre>
 <p>
-<em class="parameter"><code>note</code></em>: For most properties the old_value field of AtkPropertyValues will
-not contain a valid value.
+Note: for most properties the old_value field of <a class="link" href="AtkObject.html#AtkPropertyValues" title="AtkPropertyValues"><span class="type">AtkPropertyValues</span></a>
+will not contain a valid value.
 </p>
 <p>
 Currently, the only property for which old_value is used is
 accessible-state; for instance if there is a focus state the
 property change handler will be called for the object which lost the focus
-with the old_value containing an AtkState value corresponding to focused
+with the old_value containing an <a class="link" href="atk-AtkState.html#AtkState" title="AtkState"><span class="type">AtkState</span></a> value corresponding to focused
 and the property change handler will be called for the object which
-received the focus with the new_value containing an AtkState value
-corresponding to focused.
-</p>
-<p>
-The Atk PropertyValue structure is used when notifying a change in property.
-Currently, the only property for which old_value is used is
-accessible-state; for instance if there is a focus change the
-property change handler will be called for the object which lost the focus
-with the old_value containing the AtkState value corresponding to focused
-and the property change handler will be called for the object which
-received the focus with the new_value containing the AtkState value
+received the focus with the new_value containing an <a class="link" href="atk-AtkState.html#AtkState" title="AtkState"><span class="type">AtkState</span></a> value
 corresponding to focused.
 </p>
 <div class="variablelist"><table border="0">
@@ -958,21 +964,22 @@ corresponding to focused.
 <hr>
 <div class="refsect2">
 <a name="AtkFunction"></a><h3>AtkFunction ()</h3>
-<pre class="programlisting"><span class="returnvalue">gboolean</span>            (*AtkFunction)                      (<em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            (*AtkFunction)                      (<em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
 <p>
-An AtkFunction is a function definition used for padding which has been added
-to class and interface structures to allow for expansion in the future.
+An AtkFunction is a function definition used for padding which has
+been added to class and interface structures to allow for expansion
+in the future.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
-<td>a gpointer to parameter data.</td>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>custom data defined by the user</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>Nothing useful, this is only a dummy prototype.</td>
+<td>not used</td>
 </tr>
 </tbody>
 </table></div>
@@ -980,24 +987,23 @@ to class and interface structures to allow for expansion in the future.
 <hr>
 <div class="refsect2">
 <a name="AtkPropertyChangeHandler"></a><h3>AtkPropertyChangeHandler ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                (*AtkPropertyChangeHandler)         (<em class="parameter"><code><a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> *Param1</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="AtkObject.html#AtkPropertyValues" title="AtkPropertyValues"><span class="type">AtkPropertyValues</span></a> *Param2</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*AtkPropertyChangeHandler)         (<em class="parameter"><code><a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> *obj</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="AtkObject.html#AtkPropertyValues" title="AtkPropertyValues"><span class="type">AtkPropertyValues</span></a> *vals</code></em>);</pre>
 <p>
-An AtkPropertyChangeHandler is a function which is executed when an AtkObject's property changes value. It is specified in a call to
+An AtkPropertyChangeHandler is a function which is executed when an
+AtkObject's property changes value. It is specified in a call to
 <a class="link" href="AtkObject.html#atk-object-connect-property-change-handler" title="atk_object_connect_property_change_handler ()"><code class="function">atk_object_connect_property_change_handler()</code></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>Param1</code></em> :</span></p></td>
-<td>an <a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a>
-</td>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>atkobject which property changes</td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>Param2</code></em> :</span></p></td>
-<td>an <a class="link" href="AtkObject.html#AtkPropertyValues" title="AtkPropertyValues"><span class="type">AtkPropertyValues</span></a>
-</td>
+<td><p><span class="term"><em class="parameter"><code>vals</code></em> :</span></p></td>
+<td>values changed</td>
 </tr>
 </tbody>
 </table></div>
@@ -1179,7 +1185,7 @@ of the object. <span class="annotation">[<a href="http://foldoc.org/transfer%20f
 <div class="refsect2">
 <a name="atk-object-get-layer"></a><h3>atk_object_get_layer ()</h3>
 <pre class="programlisting"><a class="link" href="AtkObject.html#AtkLayer" title="enum AtkLayer"><span class="returnvalue">AtkLayer</span></a>            atk_object_get_layer                (<em class="parameter"><code><a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> *accessible</code></em>);</pre>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="warning">
 <h3 class="title">Warning</h3>
 <p><code class="literal">atk_object_get_layer</code> is deprecated and should not be used in newly-written code. Use atk_component_get_layer instead.</p>
 </div>
@@ -1205,7 +1211,7 @@ Gets the layer of the accessible.
 <div class="refsect2">
 <a name="atk-object-get-mdi-zorder"></a><h3>atk_object_get_mdi_zorder ()</h3>
 <pre class="programlisting"><span class="returnvalue">gint</span>                atk_object_get_mdi_zorder           (<em class="parameter"><code><a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> *accessible</code></em>);</pre>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="warning">
 <h3 class="title">Warning</h3>
 <p><code class="literal">atk_object_get_mdi_zorder</code> is deprecated and should not be used in newly-written code. Use atk_component_get_mdi_zorder instead.</p>
 </div>
@@ -1587,14 +1593,41 @@ Not all objects have explicit "name-value pair" <a class="link" href="AtkText.ht
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>an <a class="link" href="AtkText.html#AtkAttributeSet" title="AtkAttributeSet"><span class="type">AtkAttributeSet</span></a> consisting of all explicit
-properties/annotations applied to the object, or an empty set if the object
-has no name-value pair attributes assigned to it. <span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>]</span>
+<td>an <a class="link" href="AtkText.html#AtkAttributeSet" title="AtkAttributeSet"><span class="type">AtkAttributeSet</span></a> consisting of all
+explicit properties/annotations applied to the object, or an empty
+set if the object has no name-value pair attributes assigned to
+it. This <span class="type">atkattributeset</span> should be freed by a call to
+<a class="link" href="AtkText.html#atk-attribute-set-free" title="atk_attribute_set_free ()"><code class="function">atk_attribute_set_free()</code></a>. <span class="annotation">[<a href="http://foldoc.org/transfer%20full"><span class="acronym">transfer full</span></a>]</span>
 </td>
 </tr>
 </tbody>
 </table></div>
 <p class="since">Since 1.12</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="atk-object-get-object-locale"></a><h3>atk_object_get_object_locale ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       atk_object_get_object_locale        (<em class="parameter"><code><a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> *accessible</code></em>);</pre>
+<p>
+Gets a UTF-8 string indicating the POSIX-style LC_MESSAGES locale
+of <em class="parameter"><code>accessible</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accessible</code></em> :</span></p></td>
+<td>an <a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a UTF-8 string indicating the POSIX-style LC_MESSAGES
+locale of <em class="parameter"><code>accessible</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.7.90</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1654,8 +1687,7 @@ Get the <a class="link" href="AtkObject.html#AtkRole" title="enum AtkRole"><span
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the <a class="link" href="AtkObject.html#AtkRole" title="enum AtkRole"><span class="type">AtkRole</span></a> enumerated type corresponding to the specified
-name,
+<td>the <a class="link" href="AtkObject.html#AtkRole" title="enum AtkRole"><span class="type">AtkRole</span></a> enumerated type corresponding to the specified name,
 or <a class="link" href="AtkObject.html#ATK-ROLE-INVALID:CAPS"><span class="type">ATK_ROLE_INVALID</span></a> if no matching role is found.</td>
 </tr>
 </tbody>
@@ -1712,7 +1744,7 @@ or <a class="link" href="AtkObject.html#ATK-ROLE-INVALID:CAPS"><span class="type
 <pre class="programlisting">  "accessible-role"          <span class="type">gint</span>                  : Read / Write</pre>
 <p>The accessible role of this object.</p>
 <p>Allowed values: &gt;= 0</p>
-<p>Default value: 0</p>
+<p>Default value: 66</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1776,10 +1808,10 @@ or <a class="link" href="AtkObject.html#ATK-ROLE-INVALID:CAPS"><span class="type
                                                         <span class="type">gpointer</span>   arg1,
                                                         <span class="type">gpointer</span>   user_data)      : <code class="literal">Has Details</code></pre>
 <p>
-The "active-descendant-changed" signal is emitted by an object which has
-the state ATK_STATE_MANAGES_DESCENDANTS when the focus object in the
-object changes. For instance, a table will emit the signal when the cell
-in the table which has focus changes.
+The "active-descendant-changed" signal is emitted by an object
+which has the state ATK_STATE_MANAGES_DESCENDANTS when the focus
+object in the object changes. For instance, a table will emit the
+signal when the cell in the table which has focus changes.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1808,7 +1840,8 @@ in the table which has focus changes.
                                                         <span class="type">gpointer</span>   user_data)      : <code class="literal">Has Details</code></pre>
 <p>
 The signal "children-changed" is emitted when a child is added or
-removed form an object. It supports two details: "add" and "remove"
+removed form an object. It supports two details: "add" and
+"remove"
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1819,7 +1852,9 @@ removed form an object. It supports two details: "add" and "remove"
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
-<td>The index of the added or removed child</td>
+<td>The index of the added or removed child. The value can be
+-1. This is used if the value is not known by the implementor
+when the child is added or irrelevant.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>arg2</code></em> :</span></p></td>
@@ -1838,19 +1873,25 @@ removed form an object. It supports two details: "add" and "remove"
 <pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> *atkobject,
                                                         <span class="type">gboolean</span>   arg1,
                                                         <span class="type">gpointer</span>   user_data)      : <code class="literal">Run Last</code></pre>
+<div class="warning">
+<h3 class="title">Warning</h3>
+<p><code class="literal">AtkObject::focus-event</code> is deprecated and should not be used in newly-written code. Since 2.9.4. Use <a class="link" href="AtkObject.html#AtkObject-state-change" title='The "state-change" signal'><span class="type">"state-change"</span></a> signal instead.</p>
+</div>
 <p>
-The signal "focus-event" is emitted when an object gains or loses focus.
+The signal "focus-event" is emitted when an object gained or lost
+focus.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atkobject</code></em> :</span></p></td>
-<td>the object which received the signal.</td>
+<td>the object which received the signal</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
-<td>A boolean value which indicates whether the object gained or lost focus.</td>
+<td>a boolean value which indicates whether the object gained
+or lost focus.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
@@ -1867,8 +1908,8 @@ The signal "focus-event" is emitted when an object gains or loses focus.
                                                         <span class="type">gpointer</span>   user_data)      : <code class="literal">Has Details</code></pre>
 <p>
 The signal "property-change" is emitted when an object's property
-value changes. The detail identifies the name of the property whose
-value has changed.
+value changes. The detail identifies the name of the property
+whose value has changed.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1896,8 +1937,9 @@ value has changed.
                                                         <span class="type">gboolean</span>   arg2,
                                                         <span class="type">gpointer</span>   user_data)      : <code class="literal">Has Details</code></pre>
 <p>
-The "state-change" signal is emitted  when an object's state changes.
-The detail value identifies the state type which has changed.
+The "state-change" signal is emitted when an object's state
+changes.  The detail value identifies the state type which has
+changed.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1927,8 +1969,8 @@ The detail value identifies the state type which has changed.
 <pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> *atkobject,
                                                         <span class="type">gpointer</span>   user_data)      : <code class="literal">Run Last</code></pre>
 <p>
-The "visible-data-changed" signal is emitted when the visual appearance of
-the object changed.
+The "visible-data-changed" signal is emitted when the visual
+appearance of the object changed.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1945,16 +1987,9 @@ the object changed.
 </table></div>
 </div>
 </div>
-<div class="refsect1">
-<a name="AtkObject.see-also"></a><h2>See Also</h2>
-<p>
-See also: <a class="link" href="AtkObjectFactory.html" title="AtkObjectFactory"><span class="type">AtkObjectFactory</span></a>, <a class="link" href="AtkRegistry.html" title="AtkRegistry"><span class="type">AtkRegistry</span></a>.
-( GTK+ users see also <span class="type">GtkAccessible</span>).
-</p>
-</div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

@@ -17,12 +17,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GTK_MENU_TOOL_BUTTON_H__
+#define __GTK_MENU_TOOL_BUTTON_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_MENU_TOOL_BUTTON_H__
-#define __GTK_MENU_TOOL_BUTTON_H__
 
 #include <gtk/gtkmenu.h>
 #include <gtk/gtktoolbutton.h>
@@ -61,16 +61,23 @@ struct _GtkMenuToolButtonClass
   void (*_gtk_reserved4) (void);
 };
 
+GDK_AVAILABLE_IN_ALL
 GType         gtk_menu_tool_button_get_type       (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkToolItem  *gtk_menu_tool_button_new            (GtkWidget   *icon_widget,
                                                    const gchar *label);
+GDK_DEPRECATED_IN_3_10_FOR(gtk_menu_tool_button_new)
 GtkToolItem  *gtk_menu_tool_button_new_from_stock (const gchar *stock_id);
 
+GDK_AVAILABLE_IN_ALL
 void          gtk_menu_tool_button_set_menu       (GtkMenuToolButton *button,
                                                    GtkWidget         *menu);
+GDK_AVAILABLE_IN_ALL
 GtkWidget    *gtk_menu_tool_button_get_menu       (GtkMenuToolButton *button);
+GDK_AVAILABLE_IN_ALL
 void          gtk_menu_tool_button_set_arrow_tooltip_text   (GtkMenuToolButton *button,
 							     const gchar       *text);
+GDK_AVAILABLE_IN_ALL
 void          gtk_menu_tool_button_set_arrow_tooltip_markup (GtkMenuToolButton *button,
 							     const gchar       *markup);
 

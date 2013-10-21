@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>6.36. pam_umask - set the file mode creation mask</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.0"><link rel="home" href="Linux-PAM_SAG.html" title="The Linux-PAM System Administrators' Guide"><link rel="up" href="sag-module-reference.html" title="Chapter 6. A reference guide for available modules"><link rel="prev" href="sag-pam_timestamp.html" title="6.35. pam_timestamp - authenticate using cached successful authentication attempts"><link rel="next" href="sag-pam_unix.html" title="6.37. pam_unix - traditional password authentication"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.36. pam_umask - set the file mode creation mask</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="sag-pam_timestamp.html">Prev</a> </td><th width="60%" align="center">Chapter 6. A reference guide for available modules</th><td width="20%" align="right"> <a accesskey="n" href="sag-pam_unix.html">Next</a></td></tr></table><hr></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sag-pam_umask"></a>6.36. pam_umask - set the file mode creation mask</h2></div></div></div><div class="cmdsynopsis"><p><code class="command">pam_umask.so</code>  [
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>6.36. pam_umask - set the file mode creation mask</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="Linux-PAM_SAG.html" title="The Linux-PAM System Administrators' Guide"><link rel="up" href="sag-module-reference.html" title="Chapter 6. A reference guide for available modules"><link rel="prev" href="sag-pam_timestamp.html" title="6.35. pam_timestamp - authenticate using cached successful authentication attempts"><link rel="next" href="sag-pam_unix.html" title="6.37. pam_unix - traditional password authentication"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.36. pam_umask - set the file mode creation mask</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="sag-pam_timestamp.html">Prev</a> </td><th width="60%" align="center">Chapter 6. A reference guide for available modules</th><td width="20%" align="right"> <a accesskey="n" href="sag-pam_unix.html">Next</a></td></tr></table><hr></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sag-pam_umask"></a>6.36. pam_umask - set the file mode creation mask</h2></div></div></div><div class="cmdsynopsis"><p><code class="command">pam_umask.so</code>  [
 	debug
       ] [
         silent
@@ -16,16 +16,18 @@
       </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
             umask= argument
           </p></li><li class="listitem"><p>
-            umask= entry of the users GECOS field
-          </p></li><li class="listitem"><p>
-            pri= entry of the users GECOS field
-          </p></li><li class="listitem"><p>
-            ulimit= entry of the users GECOS field
+            umask= entry in the user's GECOS field
           </p></li><li class="listitem"><p>
             UMASK= entry from /etc/default/login
           </p></li><li class="listitem"><p>
             UMASK entry from /etc/login.defs
           </p></li></ul></div><p>
+    </p><p>
+      The GECOS field is split on comma ',' characters. The module
+      also in addition to the umask= entry recognizes pri= entry,
+      which sets the nice priority value for the session, and
+      ulimit= entry, which sets the maximum size of files the processes
+      in the session can create.
     </p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="sag-pam_umask-options"></a>6.36.2. OPTIONS</h3></div></div></div><p>
       </p><div class="variablelist"><dl class="variablelist"><dt><span class="term">
             <code class="option">debug</code>

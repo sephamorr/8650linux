@@ -22,13 +22,13 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
-#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
-#error "Only <gtk/gtk.h> can be included directly."
-#endif
-
 #ifndef __GTK_ARROW_H__
 #define __GTK_ARROW_H__
 
+
+#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
+#error "Only <gtk/gtk.h> can be included directly."
+#endif
 
 #include <gtk/gtkmisc.h>
 
@@ -67,9 +67,12 @@ struct _GtkArrowClass
 };
 
 
+GDK_AVAILABLE_IN_ALL
 GType      gtk_arrow_get_type   (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkWidget* gtk_arrow_new        (GtkArrowType   arrow_type,
 				 GtkShadowType  shadow_type);
+GDK_AVAILABLE_IN_ALL
 void       gtk_arrow_set        (GtkArrow      *arrow,
 				 GtkArrowType   arrow_type,
 				 GtkShadowType  shadow_type);

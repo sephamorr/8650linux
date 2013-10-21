@@ -414,6 +414,8 @@ inline WKContextMenuItemTag toAPI(WebCore::ContextMenuAction action)
         return kWKContextMenuItemTagPDFSinglePageScrolling;
     case WebCore::ContextMenuItemTagPDFFacingPagesScrolling:
         return kWKContextMenuItemTagPDFFacingPagesScrolling;
+    case WebCore::ContextMenuItemTagDictationAlternative:
+        return kWKContextMenuItemTagDictationAlternative;
 #if ENABLE(INSPECTOR)
     case WebCore::ContextMenuItemTagInspectElement:
         return kWKContextMenuItemTagInspectElement;
@@ -592,6 +594,8 @@ inline WebCore::ContextMenuAction toImpl(WKContextMenuItemTag tag)
         return WebCore::ContextMenuItemTagPDFSinglePageScrolling;
     case kWKContextMenuItemTagPDFFacingPagesScrolling:
         return WebCore::ContextMenuItemTagPDFFacingPagesScrolling;
+    case kWKContextMenuItemTagDictationAlternative:
+        return WebCore::ContextMenuItemTagDictationAlternative;
 #if ENABLE(INSPECTOR)
     case kWKContextMenuItemTagInspectElement:
         return WebCore::ContextMenuItemTagInspectElement;
@@ -752,6 +756,30 @@ inline ImageOptions toImageOptions(WKImageOptions wkImageOptions)
         imageOptions |= ImageOptionsShareable;
 
     return static_cast<ImageOptions>(imageOptions);
+}
+
+inline SnapshotOptions snapshotOptionsFromImageOptions(WKImageOptions wkImageOptions)
+{
+    unsigned snapshotOptions = 0;
+
+    if (wkImageOptions & kWKImageOptionsShareable)
+        snapshotOptions |= SnapshotOptionsShareable;
+
+    return snapshotOptions;
+}
+
+inline SnapshotOptions toSnapshotOptions(WKSnapshotOptions wkSnapshotOptions)
+{
+    unsigned snapshotOptions = 0;
+
+    if (wkSnapshotOptions & kWKSnapshotOptionsShareable)
+        snapshotOptions |= SnapshotOptionsShareable;
+    if (wkSnapshotOptions & kWKSnapshotOptionsExcludeSelectionHighlighting)
+        snapshotOptions |= SnapshotOptionsExcludeSelectionHighlighting;
+    if (wkSnapshotOptions & kWKSnapshotOptionsInViewCoordinates)
+        snapshotOptions |= SnapshotOptionsInViewCoordinates;
+
+    return snapshotOptions;
 }
 
 } // namespace WebKit

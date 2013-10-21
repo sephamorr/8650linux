@@ -21,11 +21,10 @@
 #ifndef WebKitDOMCDATASection_h
 #define WebKitDOMCDATASection_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMText.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMText.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_CDATA_SECTION            (webkit_dom_cdata_section_get_type())

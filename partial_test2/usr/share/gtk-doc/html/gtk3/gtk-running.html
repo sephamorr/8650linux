@@ -2,22 +2,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Running GTK+ Applications</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>GTK+ 3 Reference Manual: Running GTK+ Applications</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GTK+ 3 Reference Manual">
-<link rel="up" href="gtk.html" title="Part I. GTK+ Overview">
+<link rel="up" href="platform-support.html" title="Part VII. GTK+ Platform Support">
 <link rel="prev" href="gtk-compiling.html" title="Compiling GTK+ Applications">
 <link rel="next" href="gtk-x11.html" title="Using GTK+ on the X Window System">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
-<td><a accesskey="p" href="gtk-compiling.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="gtk.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GTK+ 3 Reference Manual</th>
-<td><a accesskey="n" href="gtk-x11.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left"></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="platform-support.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="gtk-compiling.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="gtk-x11.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
 <a name="gtk-running"></a><div class="titlepage"></div>
@@ -31,9 +31,9 @@ How to run and debug your GTK+ application
 <td valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsect1">
-<a name="id621490"></a><h2>Running and debugging GTK+ Applications</h2>
+<a name="id-1.8.4.3"></a><h2>Running and debugging GTK+ Applications</h2>
 <div class="refsect2">
-<a name="id604222"></a><h3>Common commandline options</h3>
+<a name="id-1.8.4.3.2"></a><h3>Common commandline options</h3>
 <p>
 All GTK+ applications support a number of standard commandline
 options. These are removed from <code class="literal">argv</code> by gtk_init().
@@ -56,8 +56,8 @@ warning that occurs.
 <p><b><code class="systemitem">--gtk-debug <em class="replaceable"><code>options</code></em></code>. </b>
 A list of <a class="link" href="gtk-running.html#GTK-Debug-Options" title="GTK_DEBUG">debug options</a>
 to turn on in addition to those specified in the <code class="envar">GTK_DEBUG</code>
-environment variable. This option is only available if GTK+ has been
-configured with <code class="option">--enable-debug=yes</code>.
+environment variable. This option is not available if GTK+ has been
+configured with <code class="option">--enable-debug=no</code>.
 </p>
 <p><b><code class="systemitem">--gtk-no-debug <em class="replaceable"><code>options</code></em></code>. </b>
 A list of <a class="link" href="gtk-running.html#GTK-Debug-Options" title="GTK_DEBUG">debug options</a>
@@ -88,23 +88,26 @@ to turn off. This option is only available if GTK+ has been configured with
 </div>
 <hr>
 <div class="refsect2">
-<a name="id609358"></a><h3>Environment variables</h3>
+<a name="id-1.8.4.3.3"></a><h3>Environment variables</h3>
 <p>
 GTK+ inspects a number of environment variables in addition to standard
 variables like <code class="envar">LANG</code>, <code class="envar">PATH</code>, <code class="envar">HOME</code>
 or <code class="envar">DISPLAY</code>; mostly to determine paths to look for certain
-files. The X11,
+files. The <a class="link" href="gtk-x11.html#x11-envar" title="X11-specific environment variables">X11</a>,
 <a class="link" href="gtk-windows.html#win32-envar" title="Windows-specific environment variables">Windows</a> and
-Framebuffer GDK backends use some
+<a class="link" href="gtk-broadway.html#broadway-envar" title="Broadway-specific environment variables">Broadway</a> GDK backends use some
 additional environment variables.
 </p>
 <p><a name="GTK-Debug-Options"></a><b><code class="envar">GTK_DEBUG</code>. </b>
-  If GTK+ has been configured with <code class="option">--enable-debug=yes</code>,
+  Unless GTK+ has been configured with <code class="option">--enable-debug=no</code>,
   this variable can be set to a list of debug options, which cause GTK+
   to print out different types of debugging information.
   </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">misc</span></p></td>
@@ -154,6 +157,14 @@ additional environment variables.
 <td><p><span class="term">builder</span></p></td>
 <td><p>GtkBuilder support</p></td>
 </tr>
+<tr>
+<td><p><span class="term">size-request</span></p></td>
+<td><p>Size requests</p></td>
+</tr>
+<tr>
+<td><p><span class="term">no-css-cache</span></p></td>
+<td><p>Bypass caching for CSS style properties.</p></td>
+</tr>
 </tbody>
 </table></div>
 <p>
@@ -163,7 +174,7 @@ additional environment variables.
 <p><b><code class="envar">GTK_MODULES</code>. </b>
     A list of modules to load. Note that GTK+ also allows to specify modules to load via a commandline option (<code class="option">--gtk-module</code>) and with the <code class="literal">gtk-modules</code> setting.
   </p>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="warning">
 <h3 class="title">Warning</h3>
     Note that this environment variable is read by GTK+ 2.x too,
     which may not have the same set of modules available for loading.
@@ -205,7 +216,7 @@ additional environment variables.
     The components of GTK_PATH are separated by the ':' character on
     Linux and Unix, and the ';' character on Windows.
   </p>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="warning">
 <h3 class="title">Warning</h3>
     Note that this environment variable is read by GTK+ 2.x too, which
     makes it unsuitable for setting it system-wide (or session-wide),
@@ -230,7 +241,7 @@ additional environment variables.
     The <code class="filename">immodules.cache</code> file is generated by the
     <span class="command"><strong>gtk-query-immodules-3.0</strong></span> utility.
   </p>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="warning">
 <h3 class="title">Warning</h3>
     Note that this environment variable is read by GTK+ 2.x too, which
     makes it unsuitable for setting it system-wide (or session-wide),
@@ -265,8 +276,11 @@ nevertheless.
   this variable can be set to a list of debug options, which cause GDK
   to print out different types of debugging information.
   </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">misc</span></p></td>
@@ -320,8 +334,11 @@ nevertheless.
     way GDK creates backing surfaces for double buffering. The following values can
     be used:
     </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">similar</span></p></td>
@@ -350,8 +367,11 @@ nevertheless.
     GTK+ is compiled with support for that backend. The following backends can
     be selected:
     </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">quartz</span></p></td>
@@ -367,20 +387,19 @@ nevertheless.
 </tr>
 <tr>
 <td><p><span class="term">broadway</span></p></td>
-<td><p>Selects the HTML5 backend.</p></td>
+<td><p>Selects the Broadway backend for display in web browsers</p></td>
 </tr>
 <tr>
 <td><p><span class="term">wayland</span></p></td>
-<td><p>Selects the Wayland backend for connecting to Wayland display servers.</p></td>
+<td><p>Selects the Wayland backend for connecting to Wayland display servers</p></td>
 </tr>
 </tbody>
 </table></div>
 <p>
+    Since 3.10, this environment variable can contain a comma-separated list
+    of backend names, which are tried in order. The list may also contain
+    a *, which means: try all remaining backends.
     For more information about selecting backends, see the gdk_display_manager_get() function.
-  </p>
-<p><b><code class="envar">GDK_SYNCHRONIZE</code>. </b>
-    If set, GDK makes all X requests synchronously. This is a useful
-    option for debugging, but it will slow down the performance considerably.
   </p>
 <p><b><code class="envar">XDG_DATA_HOME</code>, <code class="envar">XDG_DATA_DIRS</code>. </b>
     GTK+ uses these environment variables to locate icon themes
@@ -402,6 +421,6 @@ nevertheless.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

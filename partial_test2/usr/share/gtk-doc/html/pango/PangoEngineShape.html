@@ -2,32 +2,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>PangoEngineShape</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>Pango Reference Manual: PangoEngineShape</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="Pango Reference Manual">
 <link rel="up" href="lowlevel.html" title="Low Level Functionality">
 <link rel="prev" href="PangoEngineLang.html" title="PangoEngineLang">
 <link rel="next" href="pango-Modules.html" title="Modules">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="PangoEngineLang.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="lowlevel.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">Pango Reference Manual</th>
-<td><a accesskey="n" href="pango-Modules.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#PangoEngineShape.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#PangoEngineShape.description" class="shortcut">Description</a>
                    | 
                   <a href="#PangoEngineShape.object-hierarchy" class="shortcut">Object Hierarchy</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="lowlevel.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="PangoEngineLang.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="pango-Modules.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="PangoEngineShape"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -88,12 +85,14 @@ for Fontconfig-based backends.
 <div class="refsect2">
 <a name="PangoEngineShapeClass"></a><h3>struct PangoEngineShapeClass</h3>
 <pre class="programlisting">struct PangoEngineShapeClass {
-  void (*script_shape) (PangoEngineShape *engine,
-			PangoFont        *font,
-			const char       *text,
-			int               length,
+  void (*script_shape) (PangoEngineShape    *engine,
+			PangoFont           *font,
+			const char          *item_text,
+			unsigned int         item_length,
 			const PangoAnalysis *analysis,
-			PangoGlyphString *glyphs);
+			PangoGlyphString    *glyphs,
+			const char          *paragraph_text,
+			unsigned int         paragraph_length);
   PangoCoverageLevel (*covers)   (PangoEngineShape *engine,
 				  PangoFont        *font,
 				  PangoLanguage    *language,
@@ -103,8 +102,11 @@ for Fontconfig-based backends.
 <p>
 Class structure for <a class="link" href="PangoEngineShape.html" title="PangoEngineShape"><span class="type">PangoEngineShape</span></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="structfield"><code><a name="PangoEngineShapeClass.script-shape"></a>script_shape</code></em> ()</span></p></td>
@@ -164,7 +166,7 @@ are defined.
 <p>
 </p>
 <p>
-The <code class="function"><em class="replaceable"><code>prefix</code></em>, <code class="function">_register_type()</code></code>
+The <code class="function"><em class="replaceable"><code>prefix</code></em><code class="function">_register_type()</code></code>
 function should be called in your <a class="link" href="pango-Engines.html#script-engine-init" title="script_engine_init ()"><code class="function">script_engine_init()</code></a> function for
 each type that your module implements, and then your <a class="link" href="pango-Engines.html#script-engine-create" title="script_engine_create ()"><code class="function">script_engine_create()</code></a>
 function can create instances of the object as follows:
@@ -184,8 +186,11 @@ function can create instances of the object as follows:
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -214,6 +219,6 @@ function can create instances of the object as follows:
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

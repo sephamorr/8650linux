@@ -21,11 +21,10 @@
 #ifndef WebKitDOMWebKitAnimationList_h
 #define WebKitDOMWebKitAnimationList_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_WEBKIT_ANIMATION_LIST            (webkit_dom_webkit_animation_list_get_type())

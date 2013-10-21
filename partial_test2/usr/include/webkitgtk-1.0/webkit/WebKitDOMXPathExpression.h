@@ -21,11 +21,10 @@
 #ifndef WebKitDOMXPathExpression_h
 #define WebKitDOMXPathExpression_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_XPATH_EXPRESSION            (webkit_dom_xpath_expression_get_type())
@@ -49,16 +48,16 @@ webkit_dom_xpath_expression_get_type (void);
 /**
  * webkit_dom_xpath_expression_evaluate:
  * @self: A #WebKitDOMXPathExpression
- * @context_node: A #WebKitDOMNode
+ * @contextNode: A #WebKitDOMNode
  * @type: A #gushort
- * @in_result: A #WebKitDOMXPathResult
+ * @inResult: A #WebKitDOMXPathResult
  * @error: #GError
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMXPathResult*
-webkit_dom_xpath_expression_evaluate(WebKitDOMXPathExpression* self, WebKitDOMNode* context_node, gushort type, WebKitDOMXPathResult* in_result, GError **error);
+webkit_dom_xpath_expression_evaluate(WebKitDOMXPathExpression* self, WebKitDOMNode* contextNode, gushort type, WebKitDOMXPathResult* inResult, GError** error);
 
 G_END_DECLS
 

@@ -47,13 +47,13 @@
  *
  */
 
-#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
-#error "Only <gtk/gtk.h> can be included directly."
-#endif
-
 #ifndef __GTK_TEXT_ATTRIBUTES_H__
 #define __GTK_TEXT_ATTRIBUTES_H__
 
+
+#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
+#error "Only <gtk/gtk.h> can be included directly."
+#endif
 
 #include <gdk/gdk.h>
 #include <gtk/gtkenums.h>
@@ -67,14 +67,6 @@ typedef struct _GtkTextAttributes GtkTextAttributes;
 
 typedef struct _GtkTextAppearance GtkTextAppearance;
 
-/**
- * GtkTextAttributes:
- *
- * Using #GtkTextAttributes directly should rarely be necessary.
- * It's primarily useful with gtk_text_iter_get_attributes().
- * As with most GTK+ structs, the fields in this struct should only
- * be read, never modified directly.
- */
 struct _GtkTextAppearance
 {
   /*< public >*/
@@ -110,6 +102,14 @@ struct _GtkTextAppearance
 #endif
 };
 
+/**
+ * GtkTextAttributes:
+ *
+ * Using #GtkTextAttributes directly should rarely be necessary.
+ * It's primarily useful with gtk_text_iter_get_attributes().
+ * As with most GTK+ structs, the fields in this struct should only
+ * be read, never modified directly.
+ */
 struct _GtkTextAttributes
 {
   /*< private >*/
@@ -144,6 +144,7 @@ struct _GtkTextAttributes
   PangoLanguage *language;
 
   /*< private >*/
+  /* Paragraph background */
   GdkColor *pg_bg_color;
 
   /*< public >*/
@@ -159,18 +160,25 @@ struct _GtkTextAttributes
   guint editable : 1;
 
   /*< private >*/
+  /* Paragraph background */
   GdkRGBA *pg_bg_rgba;
 
   guint padding[3];
 };
 
+GDK_AVAILABLE_IN_ALL
 GtkTextAttributes* gtk_text_attributes_new         (void);
+GDK_AVAILABLE_IN_ALL
 GtkTextAttributes* gtk_text_attributes_copy        (GtkTextAttributes *src);
+GDK_AVAILABLE_IN_ALL
 void               gtk_text_attributes_copy_values (GtkTextAttributes *src,
                                                     GtkTextAttributes *dest);
+GDK_AVAILABLE_IN_ALL
 void               gtk_text_attributes_unref       (GtkTextAttributes *values);
+GDK_AVAILABLE_IN_ALL
 GtkTextAttributes *gtk_text_attributes_ref         (GtkTextAttributes *values);
 
+GDK_AVAILABLE_IN_ALL
 GType              gtk_text_attributes_get_type    (void) G_GNUC_CONST;
 
 

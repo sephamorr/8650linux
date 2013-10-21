@@ -2,34 +2,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Xft Fonts and Rendering</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>Pango Reference Manual: Xft Fonts and Rendering</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="Pango Reference Manual">
 <link rel="up" href="rendering.html" title="Rendering with Pango">
 <link rel="prev" href="pango-FreeType-Fonts-and-Rendering.html" title="FreeType Fonts and Rendering">
 <link rel="next" href="pango-Cairo-Rendering.html" title="Cairo Rendering">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="pango-FreeType-Fonts-and-Rendering.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="rendering.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">Pango Reference Manual</th>
-<td><a accesskey="n" href="pango-Cairo-Rendering.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#pango-Xft-Fonts-and-Rendering.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#pango-Xft-Fonts-and-Rendering.description" class="shortcut">Description</a>
                    | 
                   <a href="#pango-Xft-Fonts-and-Rendering.object-hierarchy" class="shortcut">Object Hierarchy</a>
                    | 
                   <a href="#pango-Xft-Fonts-and-Rendering.properties" class="shortcut">Properties</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="rendering.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="pango-FreeType-Fonts-and-Rendering.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="pango-Cairo-Rendering.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="pango-Xft-Fonts-and-Rendering"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -193,7 +190,7 @@ type <a class="link" href="pango-Xft-Fonts-and-Rendering.html#PangoXftFont"><spa
 <a name="PANGO-RENDER-TYPE-XFT:CAPS"></a><h3>PANGO_RENDER_TYPE_XFT</h3>
 <pre class="programlisting">#define PANGO_RENDER_TYPE_XFT "PangoRenderXft"
 </pre>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="warning">
 <h3 class="title">Warning</h3>
 <p><code class="literal">PANGO_RENDER_TYPE_XFT</code> is deprecated and should not be used in newly-written code.</p>
 </div>
@@ -207,7 +204,7 @@ with the Xft backend. See <a class="link" href="PangoFcFont.html#PANGO-RENDER-TY
 <a name="pango-xft-get-context"></a><h3>pango_xft_get_context ()</h3>
 <pre class="programlisting"><a class="link" href="pango-Text-Processing.html#PangoContext"><span class="returnvalue">PangoContext</span></a> *      pango_xft_get_context               (<em class="parameter"><code><span class="type">Display</span> *display</code></em>,
                                                          <em class="parameter"><code><span class="type">int</span> screen</code></em>);</pre>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="warning">
 <h3 class="title">Warning</h3>
 <p><code class="literal">pango_xft_get_context</code> has been deprecated since version 1.22 and should not be used in newly-written code. Use <a class="link" href="pango-Xft-Fonts-and-Rendering.html#pango-xft-get-font-map" title="pango_xft_get_font_map ()"><code class="function">pango_xft_get_font_map()</code></a> followed by
 <a class="link" href="pango-Fonts.html#pango-font-map-create-context" title="pango_font_map_create_context ()"><code class="function">pango_font_map_create_context()</code></a> instead.</p>
@@ -216,8 +213,11 @@ with the Xft backend. See <a class="link" href="PangoFcFont.html#PANGO-RENDER-TY
 Retrieves a <a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a> appropriate for rendering with
 Xft fonts on the given screen of the given display.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -244,8 +244,11 @@ Returns the <span class="type">PangoXftFontmap</span> for the given display and 
 The fontmap is owned by Pango and will be valid until
 the display is closed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -279,8 +282,11 @@ substitution on a <span class="type">FcPattern</span> before it is used to load
 the font. This function can be used to do things like set
 hinting and antialiasing options.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -317,8 +323,11 @@ on <span class="type">FcPattern</span> objects.</td>
 <p>
 Function type for doing final config tweaking on prepared FcPatterns.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>pattern</code></em> :</span></p></td>
@@ -343,8 +352,11 @@ default substitution function set with
 That is, if your substitution function will return different
 results for the same input pattern, you must call this function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -370,8 +382,11 @@ combination of <em class="parameter"><code>display</code></em> and <em class="pa
 X display is closed, resources are released automatically,
 without needing to call this function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -393,8 +408,11 @@ without needing to call this function.
 <p>
 Returns the XftFont of a font.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>font</code></em> :</span></p></td>
@@ -414,8 +432,11 @@ Returns the XftFont of a font.
 <p>
 Returns the X display of the XftFont of a font.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>font</code></em> :</span></p></td>
@@ -433,7 +454,7 @@ Returns the X display of the XftFont of a font.
 <a name="pango-xft-font-has-char"></a><h3>pango_xft_font_has_char ()</h3>
 <pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            pango_xft_font_has_char             (<em class="parameter"><code><a class="link" href="pango-Fonts.html#PangoFont"><span class="type">PangoFont</span></a> *font</code></em>,
                                                          <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Unicode-Manipulation.html#gunichar"><span class="type">gunichar</span></a> wc</code></em>);</pre>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="warning">
 <h3 class="title">Warning</h3>
 <p><code class="literal">pango_xft_font_has_char</code> is deprecated and should not be used in newly-written code.</p>
 </div>
@@ -443,8 +464,11 @@ Determines whether <em class="parameter"><code>font</code></em> has a glyph for 
 <p>
 Use <a class="link" href="PangoFcFont.html#pango-fc-font-has-char" title="pango_fc_font_has_char ()"><code class="function">pango_fc_font_has_char()</code></a> instead.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>font</code></em> :</span></p></td>
@@ -467,7 +491,7 @@ Use <a class="link" href="PangoFcFont.html#pango-fc-font-has-char" title="pango_
 <div class="refsect2">
 <a name="pango-xft-font-lock-face"></a><h3>pango_xft_font_lock_face ()</h3>
 <pre class="programlisting"><span class="returnvalue">FT_Face</span>             pango_xft_font_lock_face            (<em class="parameter"><code><a class="link" href="pango-Fonts.html#PangoFont"><span class="type">PangoFont</span></a> *font</code></em>);</pre>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="warning">
 <h3 class="title">Warning</h3>
 <p><code class="literal">pango_xft_font_lock_face</code> is deprecated and should not be used in newly-written code.</p>
 </div>
@@ -479,8 +503,11 @@ This face will be kept around until you call
 <p>
 Use <a class="link" href="PangoFcFont.html#pango-fc-font-lock-face" title="pango_fc_font_lock_face ()"><code class="function">pango_fc_font_lock_face()</code></a> instead.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>font</code></em> :</span></p></td>
@@ -498,7 +525,7 @@ Use <a class="link" href="PangoFcFont.html#pango-fc-font-lock-face" title="pango
 <div class="refsect2">
 <a name="pango-xft-font-unlock-face"></a><h3>pango_xft_font_unlock_face ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                pango_xft_font_unlock_face          (<em class="parameter"><code><a class="link" href="pango-Fonts.html#PangoFont"><span class="type">PangoFont</span></a> *font</code></em>);</pre>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="warning">
 <h3 class="title">Warning</h3>
 <p><code class="literal">pango_xft_font_unlock_face</code> is deprecated and should not be used in newly-written code.</p>
 </div>
@@ -509,8 +536,11 @@ Releases a font previously obtained with
 <p>
 Use <a class="link" href="PangoFcFont.html#pango-fc-font-unlock-face" title="pango_fc_font_unlock_face ()"><code class="function">pango_fc_font_unlock_face()</code></a> instead.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>font</code></em> :</span></p></td>
 <td>a <a class="link" href="pango-Fonts.html#PangoFont"><span class="type">PangoFont</span></a>.</td>
@@ -523,7 +553,7 @@ Use <a class="link" href="PangoFcFont.html#pango-fc-font-unlock-face" title="pan
 <a name="pango-xft-font-get-glyph"></a><h3>pango_xft_font_get_glyph ()</h3>
 <pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               pango_xft_font_get_glyph            (<em class="parameter"><code><a class="link" href="pango-Fonts.html#PangoFont"><span class="type">PangoFont</span></a> *font</code></em>,
                                                          <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Unicode-Manipulation.html#gunichar"><span class="type">gunichar</span></a> wc</code></em>);</pre>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="warning">
 <h3 class="title">Warning</h3>
 <p><code class="literal">pango_xft_font_get_glyph</code> is deprecated and should not be used in newly-written code.</p>
 </div>
@@ -535,8 +565,11 @@ whether the font has the glyph, use <a class="link" href="pango-Xft-Fonts-and-Re
 <p>
 Use <a class="link" href="PangoFcFont.html#pango-fc-font-get-glyph" title="pango_fc_font_get_glyph ()"><code class="function">pango_fc_font_get_glyph()</code></a> instead.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>font</code></em> :</span></p></td>
@@ -560,7 +593,7 @@ character does not exist in the font.</td>
 <a name="pango-xft-font-get-unknown-glyph"></a><h3>pango_xft_font_get_unknown_glyph ()</h3>
 <pre class="programlisting"><a class="link" href="pango-Glyph-Storage.html#PangoGlyph" title="PangoGlyph"><span class="returnvalue">PangoGlyph</span></a>          pango_xft_font_get_unknown_glyph    (<em class="parameter"><code><a class="link" href="pango-Fonts.html#PangoFont"><span class="type">PangoFont</span></a> *font</code></em>,
                                                          <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Unicode-Manipulation.html#gunichar"><span class="type">gunichar</span></a> wc</code></em>);</pre>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="warning">
 <h3 class="title">Warning</h3>
 <p><code class="literal">pango_xft_font_get_unknown_glyph</code> is deprecated and should not be used in newly-written code.</p>
 </div>
@@ -571,8 +604,11 @@ unknown character.
 <p>
 Use <a class="link" href="pango-Glyph-Storage.html#PANGO-GET-UNKNOWN-GLYPH:CAPS" title="PANGO_GET_UNKNOWN_GLYPH()"><code class="function">PANGO_GET_UNKNOWN_GLYPH()</code></a> instead.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>font</code></em> :</span></p></td>
@@ -618,8 +654,11 @@ elements occurs.
 <p>
 The class structure for <a class="link" href="pango-Xft-Fonts-and-Rendering.html#PangoXftRenderer"><span class="type">PangoXftRenderer</span></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="structfield"><code><a name="PangoXftRendererClass.composite-trapezoids"></a>composite_trapezoids</code></em> ()</span></p></td>
@@ -647,8 +686,11 @@ Create a new <a class="link" href="pango-Xft-Fonts-and-Rendering.html#PangoXftRe
 with the Xft library. You must call <a class="link" href="pango-Xft-Fonts-and-Rendering.html#pango-xft-renderer-set-draw" title="pango_xft_renderer_set_draw ()"><code class="function">pango_xft_renderer_set_draw()</code></a> before
 using the renderer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -676,8 +718,11 @@ be freed with <a href="http://library.gnome.org/devel/gobject/unstable/gobject-T
 Sets the <span class="type">XftDraw</span> object that the renderer is drawing to.
 The renderer must not be currently active.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>xftrenderer</code></em> :</span></p></td>
@@ -702,8 +747,11 @@ The renderer must not be currently active.
 <p>
 Sets the default foreground color for a <span class="type">XftRenderer</span>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>xftrenderer</code></em> :</span></p></td>
@@ -730,8 +778,11 @@ Sets the default foreground color for a <span class="type">XftRenderer</span>.
 <p>
 Renders a <a class="link" href="pango-Glyph-Storage.html#PangoGlyphString"><span class="type">PangoGlyphString</span></a> onto an <span class="type">XftDraw</span> object wrapping an X drawable.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>draw</code></em> :</span></p></td>
@@ -773,8 +824,11 @@ Renders a <a class="link" href="pango-Glyph-Storage.html#PangoGlyphString"><span
 <p>
 Renders a <a class="link" href="pango-Glyph-Storage.html#PangoGlyphString"><span class="type">PangoGlyphString</span></a> onto an Xrender <span class="type">Picture</span> object.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
@@ -825,8 +879,11 @@ changed, so to produce correct rendering results, the <em class="parameter"><cod
 must have been loaded using a <a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a> with an identical
 transformation matrix to that passed in to this function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>draw</code></em> :</span></p></td>
@@ -874,8 +931,11 @@ in user space coordinates)</td>
 <p>
 Render a <a class="link" href="pango-Layout-Objects.html#PangoLayoutLine"><span class="type">PangoLayoutLine</span></a> onto a <span class="type">XftDraw</span>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>draw</code></em> :</span></p></td>
@@ -915,8 +975,11 @@ Render a <a class="link" href="pango-Layout-Objects.html#PangoLayoutLine"><span 
 <p>
 Render a <a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a> onto a <span class="type">XftDraw</span>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>draw</code></em> :</span></p></td>
@@ -965,6 +1028,6 @@ Render a <a class="link" href="pango-Layout-Objects.html#PangoLayout"><span clas
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

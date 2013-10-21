@@ -20,12 +20,12 @@
  * by Christian Hergert <christian.hergert@gmail.com>
  */
 
+#ifndef __GTK_SPINNER_H__
+#define __GTK_SPINNER_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_SPINNER_H__
-#define __GTK_SPINNER_H__
 
 #include <gtk/gtkwidget.h>
 
@@ -36,7 +36,7 @@ G_BEGIN_DECLS
 #define GTK_SPINNER_CLASS(obj)     (G_TYPE_CHECK_CLASS_CAST ((obj), GTK_TYPE_SPINNER,  GtkSpinnerClass))
 #define GTK_IS_SPINNER(obj)        (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_TYPE_SPINNER))
 #define GTK_IS_SPINNER_CLASS(obj)  (G_TYPE_CHECK_CLASS_TYPE ((obj), GTK_TYPE_SPINNER))
-#define GTK_SPINNER_GET_CLASS      (G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_TYPE_SPINNER, GtkSpinnerClass))
+#define GTK_SPINNER_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_TYPE_SPINNER, GtkSpinnerClass))
 
 typedef struct _GtkSpinner      GtkSpinner;
 typedef struct _GtkSpinnerClass GtkSpinnerClass;
@@ -61,9 +61,13 @@ struct _GtkSpinnerClass
   void (*_gtk_reserved4) (void);
 };
 
+GDK_AVAILABLE_IN_ALL
 GType      gtk_spinner_get_type  (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkWidget *gtk_spinner_new (void);
+GDK_AVAILABLE_IN_ALL
 void       gtk_spinner_start      (GtkSpinner *spinner);
+GDK_AVAILABLE_IN_ALL
 void       gtk_spinner_stop       (GtkSpinner *spinner);
 
 G_END_DECLS

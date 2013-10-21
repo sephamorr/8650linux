@@ -21,11 +21,10 @@
 #ifndef WebKitDOMHTMLButtonElement_h
 #define WebKitDOMHTMLButtonElement_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMHTMLElement.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMHTMLElement.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_HTML_BUTTON_ELEMENT            (webkit_dom_html_button_element_get_type())
@@ -66,6 +65,48 @@ webkit_dom_html_button_element_check_validity(WebKitDOMHTMLButtonElement* self);
 **/
 WEBKIT_API void
 webkit_dom_html_button_element_set_custom_validity(WebKitDOMHTMLButtonElement* self, const gchar* error);
+
+/**
+ * webkit_dom_html_button_element_get_autofocus:
+ * @self: A #WebKitDOMHTMLButtonElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gboolean
+webkit_dom_html_button_element_get_autofocus(WebKitDOMHTMLButtonElement* self);
+
+/**
+ * webkit_dom_html_button_element_set_autofocus:
+ * @self: A #WebKitDOMHTMLButtonElement
+ * @value: A #gboolean
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_button_element_set_autofocus(WebKitDOMHTMLButtonElement* self, gboolean value);
+
+/**
+ * webkit_dom_html_button_element_get_disabled:
+ * @self: A #WebKitDOMHTMLButtonElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gboolean
+webkit_dom_html_button_element_get_disabled(WebKitDOMHTMLButtonElement* self);
+
+/**
+ * webkit_dom_html_button_element_set_disabled:
+ * @self: A #WebKitDOMHTMLButtonElement
+ * @value: A #gboolean
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_button_element_set_disabled(WebKitDOMHTMLButtonElement* self, gboolean value);
 
 /**
  * webkit_dom_html_button_element_get_form:
@@ -183,58 +224,6 @@ WEBKIT_API void
 webkit_dom_html_button_element_set_form_target(WebKitDOMHTMLButtonElement* self, const gchar* value);
 
 /**
- * webkit_dom_html_button_element_get_validity:
- * @self: A #WebKitDOMHTMLButtonElement
- *
- * Returns: (transfer none):
- *
-**/
-WEBKIT_API WebKitDOMValidityState*
-webkit_dom_html_button_element_get_validity(WebKitDOMHTMLButtonElement* self);
-
-/**
- * webkit_dom_html_button_element_get_disabled:
- * @self: A #WebKitDOMHTMLButtonElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gboolean
-webkit_dom_html_button_element_get_disabled(WebKitDOMHTMLButtonElement* self);
-
-/**
- * webkit_dom_html_button_element_set_disabled:
- * @self: A #WebKitDOMHTMLButtonElement
- * @value: A #gboolean
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_button_element_set_disabled(WebKitDOMHTMLButtonElement* self, gboolean value);
-
-/**
- * webkit_dom_html_button_element_get_autofocus:
- * @self: A #WebKitDOMHTMLButtonElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gboolean
-webkit_dom_html_button_element_get_autofocus(WebKitDOMHTMLButtonElement* self);
-
-/**
- * webkit_dom_html_button_element_set_autofocus:
- * @self: A #WebKitDOMHTMLButtonElement
- * @value: A #gboolean
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_button_element_set_autofocus(WebKitDOMHTMLButtonElement* self, gboolean value);
-
-/**
  * webkit_dom_html_button_element_get_name:
  * @self: A #WebKitDOMHTMLButtonElement
  *
@@ -285,6 +274,16 @@ webkit_dom_html_button_element_set_value(WebKitDOMHTMLButtonElement* self, const
 **/
 WEBKIT_API gboolean
 webkit_dom_html_button_element_get_will_validate(WebKitDOMHTMLButtonElement* self);
+
+/**
+ * webkit_dom_html_button_element_get_validity:
+ * @self: A #WebKitDOMHTMLButtonElement
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMValidityState*
+webkit_dom_html_button_element_get_validity(WebKitDOMHTMLButtonElement* self);
 
 /**
  * webkit_dom_html_button_element_get_validation_message:

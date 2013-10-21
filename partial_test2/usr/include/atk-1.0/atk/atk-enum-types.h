@@ -30,6 +30,8 @@ GType atk_text_attribute_get_type (void);
 #define ATK_TYPE_TEXT_ATTRIBUTE (atk_text_attribute_get_type())
 GType atk_text_boundary_get_type (void);
 #define ATK_TYPE_TEXT_BOUNDARY (atk_text_boundary_get_type())
+GType atk_text_granularity_get_type (void);
+#define ATK_TYPE_TEXT_GRANULARITY (atk_text_granularity_get_type())
 GType atk_text_clip_type_get_type (void);
 #define ATK_TYPE_TEXT_CLIP_TYPE (atk_text_clip_type_get_type())
 /* enumerations from "atkutil.h" */

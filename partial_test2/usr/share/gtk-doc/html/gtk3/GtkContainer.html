@@ -2,26 +2,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>GtkContainer</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>GTK+ 3 Reference Manual: GtkContainer</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GTK+ 3 Reference Manual">
 <link rel="up" href="AbstractObjects.html" title="Abstract Base Classes">
 <link rel="prev" href="GtkWidget.html" title="GtkWidget">
 <link rel="next" href="GtkBin.html" title="GtkBin">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="GtkWidget.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="AbstractObjects.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GTK+ 3 Reference Manual</th>
-<td><a accesskey="n" href="GtkBin.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#GtkContainer.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#GtkContainer.description" class="shortcut">Description</a>
                    | 
@@ -32,8 +25,12 @@
                   <a href="#GtkContainer.properties" class="shortcut">Properties</a>
                    | 
                   <a href="#GtkContainer.signals" class="shortcut">Signals</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="AbstractObjects.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="GtkWidget.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="GtkBin.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="GtkContainer"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -59,7 +56,7 @@ struct              <a class="link" href="GtkContainer.html#GtkContainer-struct"
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-add-with-properties" title="gtk_container_add_with_properties ()">gtk_container_add_with_properties</a>   (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_prop_name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_prop_name</code></em>,
                                                          <em class="parameter"><code>...</code></em>);
 <a class="link" href="gtk3-Standard-Enumerations.html#GtkResizeMode" title="enum GtkResizeMode"><span class="returnvalue">GtkResizeMode</span></a>       <a class="link" href="GtkContainer.html#gtk-container-get-resize-mode" title="gtk_container_get_resize_mode ()">gtk_container_get_resize_mode</a>       (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-set-resize-mode" title="gtk_container_set_resize_mode ()">gtk_container_set_resize_mode</a>       (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
@@ -67,13 +64,13 @@ struct              <a class="link" href="GtkContainer.html#GtkContainer-struct"
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-check-resize" title="gtk_container_check_resize ()">gtk_container_check_resize</a>          (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-foreach" title="gtk_container_foreach ()">gtk_container_foreach</a>               (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkCallback" title="GtkCallback ()"><span class="type">GtkCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> callback_data</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="GtkContainer.html#gtk-container-get-children" title="gtk_container_get_children ()">gtk_container_get_children</a>          (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> callback_data</code></em>);
+<a href="../glib/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="GtkContainer.html#gtk-container-get-children" title="gtk_container_get_children ()">gtk_container_get_children</a>          (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>);
 <a class="link" href="gtk3-GtkWidgetPath.html#GtkWidgetPath" title="GtkWidgetPath"><span class="returnvalue">GtkWidgetPath</span></a> *     <a class="link" href="GtkContainer.html#gtk-container-get-path-for-child" title="gtk_container_get_path_for_child ()">gtk_container_get_path_for_child</a>    (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-set-reallocate-redraws" title="gtk_container_set_reallocate_redraws ()">gtk_container_set_reallocate_redraws</a>
                                                         (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> needs_redraws</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> needs_redraws</code></em>);
 <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GtkContainer.html#gtk-container-get-focus-child" title="gtk_container_get_focus_child ()">gtk_container_get_focus_child</a>       (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-set-focus-child" title="gtk_container_set_focus_child ()">gtk_container_set_focus_child</a>       (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>);
@@ -84,58 +81,58 @@ struct              <a class="link" href="GtkContainer.html#GtkContainer-struct"
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-set-focus-hadjustment" title="gtk_container_set_focus_hadjustment ()">gtk_container_set_focus_hadjustment</a> (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-resize-children" title="gtk_container_resize_children ()">gtk_container_resize_children</a>       (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>);
-<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GtkContainer.html#gtk-container-child-type" title="gtk_container_child_type ()">gtk_container_child_type</a>            (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>);
+<a href="../gobject/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="GtkContainer.html#gtk-container-child-type" title="gtk_container_child_type ()">gtk_container_child_type</a>            (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-child-get" title="gtk_container_child_get ()">gtk_container_child_get</a>             (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_prop_name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_prop_name</code></em>,
                                                          <em class="parameter"><code>...</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-child-set" title="gtk_container_child_set ()">gtk_container_child_set</a>             (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_prop_name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_prop_name</code></em>,
                                                          <em class="parameter"><code>...</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-child-get-property" title="gtk_container_child_get_property ()">gtk_container_child_get_property</a>    (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *value</code></em>);
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>,
+                                                         <em class="parameter"><code><a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *value</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-child-set-property" title="gtk_container_child_set_property ()">gtk_container_child_set_property</a>    (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *value</code></em>);
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *value</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-child-get-valist" title="gtk_container_child_get_valist ()">gtk_container_child_get_valist</a>      (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_property_name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_property_name</code></em>,
                                                          <em class="parameter"><code><span class="type">va_list</span> var_args</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-child-set-valist" title="gtk_container_child_set_valist ()">gtk_container_child_set_valist</a>      (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_property_name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_property_name</code></em>,
                                                          <em class="parameter"><code><span class="type">va_list</span> var_args</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-child-notify" title="gtk_container_child_notify ()">gtk_container_child_notify</a>          (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *child_property</code></em>);
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *child_property</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-forall" title="gtk_container_forall ()">gtk_container_forall</a>                (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkCallback" title="GtkCallback ()"><span class="type">GtkCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> callback_data</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="GtkContainer.html#gtk-container-get-border-width" title="gtk_container_get_border_width ()">gtk_container_get_border_width</a>      (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> callback_data</code></em>);
+<a href="../glib/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="GtkContainer.html#gtk-container-get-border-width" title="gtk_container_get_border_width ()">gtk_container_get_border_width</a>      (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-set-border-width" title="gtk_container_set_border_width ()">gtk_container_set_border_width</a>      (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> border_width</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> border_width</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-propagate-draw" title="gtk_container_propagate_draw ()">gtk_container_propagate_draw</a>        (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GtkContainer.html#gtk-container-get-focus-chain" title="gtk_container_get_focus_chain ()">gtk_container_get_focus_chain</a>       (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> **focusable_widgets</code></em>);
+                                                         <em class="parameter"><code><a href="../cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GtkContainer.html#gtk-container-get-focus-chain" title="gtk_container_get_focus_chain ()">gtk_container_get_focus_chain</a>       (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> **focusable_widgets</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-set-focus-chain" title="gtk_container_set_focus_chain ()">gtk_container_set_focus_chain</a>       (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *focusable_widgets</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *focusable_widgets</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-unset-focus-chain" title="gtk_container_unset_focus_chain ()">gtk_container_unset_focus_chain</a>     (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>);
-<a href="http://library.gnome.org/devel/gobject/unstable/gobject-GParamSpec.html#GParamSpec"><span class="returnvalue">GParamSpec</span></a> *        <a class="link" href="GtkContainer.html#gtk-container-class-find-child-property" title="gtk_container_class_find_child_property ()">gtk_container_class_find_child_property</a>
-                                                        (<em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObjectClass"><span class="type">GObjectClass</span></a> *cclass</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>);
+<a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="returnvalue">GParamSpec</span></a> *        <a class="link" href="GtkContainer.html#gtk-container-class-find-child-property" title="gtk_container_class_find_child_property ()">gtk_container_class_find_child_property</a>
+                                                        (<em class="parameter"><code><a href="../gobject/gobject-The-Base-Object-Type.html#GObjectClass"><span class="type">GObjectClass</span></a> *cclass</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-class-install-child-property" title="gtk_container_class_install_child_property ()">gtk_container_class_install_child_property</a>
                                                         (<em class="parameter"><code><span class="type">GtkContainerClass</span> *cclass</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> property_id</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);
-<a href="http://library.gnome.org/devel/gobject/unstable/gobject-GParamSpec.html#GParamSpec"><span class="returnvalue">GParamSpec</span></a> **       <a class="link" href="GtkContainer.html#gtk-container-class-list-child-properties" title="gtk_container_class_list_child_properties ()">gtk_container_class_list_child_properties</a>
-                                                        (<em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObjectClass"><span class="type">GObjectClass</span></a> *cclass</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *n_properties</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> property_id</code></em>,
+                                                         <em class="parameter"><code><a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);
+<a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="returnvalue">GParamSpec</span></a> **       <a class="link" href="GtkContainer.html#gtk-container-class-list-child-properties" title="gtk_container_class_list_child_properties ()">gtk_container_class_list_child_properties</a>
+                                                        (<em class="parameter"><code><a href="../gobject/gobject-The-Base-Object-Type.html#GObjectClass"><span class="type">GObjectClass</span></a> *cclass</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *n_properties</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkContainer.html#gtk-container-class-handle-border-width" title="gtk_container_class_handle_border_width ()">gtk_container_class_handle_border_width</a>
                                                         (<em class="parameter"><code><span class="type">GtkContainerClass</span> *klass</code></em>);
 </pre>
@@ -143,20 +140,22 @@ struct              <a class="link" href="GtkContainer.html#GtkContainer-struct"
 <div class="refsect1">
 <a name="GtkContainer.object-hierarchy"></a><h2>Object Hierarchy</h2>
 <pre class="synopsis">
-  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
-   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="../gobject/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
          +----<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
                +----GtkContainer
                      +----<a class="link" href="GtkBin.html" title="GtkBin">GtkBin</a>
                      +----<a class="link" href="GtkBox.html" title="GtkBox">GtkBox</a>
                      +----<a class="link" href="GtkFixed.html" title="GtkFixed">GtkFixed</a>
                      +----<a class="link" href="GtkGrid.html" title="GtkGrid">GtkGrid</a>
+                     +----<a class="link" href="GtkHeaderBar.html" title="GtkHeaderBar">GtkHeaderBar</a>
                      +----<a class="link" href="GtkPaned.html" title="GtkPaned">GtkPaned</a>
                      +----<a class="link" href="GtkIconView.html" title="GtkIconView">GtkIconView</a>
                      +----<a class="link" href="GtkLayout.html" title="GtkLayout">GtkLayout</a>
+                     +----<a class="link" href="GtkListBox.html" title="GtkListBox">GtkListBox</a>
                      +----<a class="link" href="GtkMenuShell.html" title="GtkMenuShell">GtkMenuShell</a>
                      +----<a class="link" href="GtkNotebook.html" title="GtkNotebook">GtkNotebook</a>
-                     +----<a class="link" href="GtkSocket.html" title="GtkSocket">GtkSocket</a>
+                     +----<a class="link" href="GtkStack.html" title="GtkStack">GtkStack</a>
                      +----<a class="link" href="GtkTable.html" title="GtkTable">GtkTable</a>
                      +----<a class="link" href="GtkTextView.html" title="GtkTextView">GtkTextView</a>
                      +----<a class="link" href="GtkToolbar.html" title="GtkToolbar">GtkToolbar</a>
@@ -174,7 +173,7 @@ GtkContainer implements
 <div class="refsect1">
 <a name="GtkContainer.properties"></a><h2>Properties</h2>
 <pre class="synopsis">
-  "<a class="link" href="GtkContainer.html#GtkContainer--border-width" title='The "border-width" property'>border-width</a>"             <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write
+  "<a class="link" href="GtkContainer.html#GtkContainer--border-width" title='The "border-width" property'>border-width</a>"             <a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write
   "<a class="link" href="GtkContainer.html#GtkContainer--child" title='The "child" property'>child</a>"                    <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>*            : Write
   "<a class="link" href="GtkContainer.html#GtkContainer--resize-mode" title='The "resize-mode" property'>resize-mode</a>"              <a class="link" href="gtk3-Standard-Enumerations.html#GtkResizeMode" title="enum GtkResizeMode"><span class="type">GtkResizeMode</span></a>         : Read / Write
 </pre>
@@ -182,10 +181,10 @@ GtkContainer implements
 <div class="refsect1">
 <a name="GtkContainer.signals"></a><h2>Signals</h2>
 <pre class="synopsis">
-  "<a class="link" href="GtkContainer.html#GtkContainer-add" title='The "add" signal'>add</a>"                                            : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a>
-  "<a class="link" href="GtkContainer.html#GtkContainer-check-resize" title='The "check-resize" signal'>check-resize</a>"                                   : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
-  "<a class="link" href="GtkContainer.html#GtkContainer-remove" title='The "remove" signal'>remove</a>"                                         : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a>
-  "<a class="link" href="GtkContainer.html#GtkContainer-set-focus-child" title='The "set-focus-child" signal'>set-focus-child</a>"                                : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a>
+  "<a class="link" href="GtkContainer.html#GtkContainer-add" title='The "add" signal'>add</a>"                                            : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a>
+  "<a class="link" href="GtkContainer.html#GtkContainer-check-resize" title='The "check-resize" signal'>check-resize</a>"                                   : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="GtkContainer.html#GtkContainer-remove" title='The "remove" signal'>remove</a>"                                         : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a>
+  "<a class="link" href="GtkContainer.html#GtkContainer-set-focus-child" title='The "set-focus-child" signal'>set-focus-child</a>"                                : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a>
 </pre>
 </div>
 <div class="refsect1">
@@ -378,7 +377,7 @@ contain multiple &lt;property&gt; elements that specify
 child properties for the child.
 </p>
 <div class="example">
-<a name="id1512457"></a><p class="title"><b>Example 105. Child properties in UI definitions</b></p>
+<a name="id-1.3.19.3.8.6.3.2.1"></a><p class="title"><b>Example 72. Child properties in UI definitions</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -433,12 +432,15 @@ for regular properties.
 This macro should be used to emit a standard warning about unexpected
 properties in <code class="function">set_child_property()</code> and <code class="function">get_child_property()</code> implementations.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
-<td>the <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> on which <code class="function">set_child_property()</code> or <code class="function">get_child_property()</code>
+<td>the <a href="../gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> on which <code class="function">set_child_property()</code> or <code class="function">get_child_property()</code>
 was called</td>
 </tr>
 <tr>
@@ -447,7 +449,7 @@ was called</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>pspec</code></em> :</span></p></td>
-<td>the <a href="http://library.gnome.org/devel/gobject/unstable/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> of the property</td>
+<td>the <a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> of the property</td>
 </tr>
 </tbody>
 </table></div>
@@ -467,8 +469,16 @@ consider functions such as <a class="link" href="GtkBox.html#gtk-box-pack-start"
 those cases. A widget may be added to only one container at a time;
 you can't place the same widget inside two different containers.
 </p>
-<div class="variablelist"><table border="0">
+<p>
+Note that some containers, such as <a class="link" href="GtkScrolledWindow.html" title="GtkScrolledWindow"><span class="type">GtkScrolledWindow</span></a> or <a class="link" href="GtkListBox.html" title="GtkListBox"><span class="type">GtkListBox</span></a>,
+may add intermediate children between the added widget and the
+container.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -494,13 +504,16 @@ Note that <em class="parameter"><code>container</code></em> will own a reference
 may be the last reference held; so removing a widget from its
 container can destroy that widget. If you want to use <em class="parameter"><code>widget</code></em>
 again, you need to add a reference to it while it's not inside
-a container, using <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-ref"><code class="function">g_object_ref()</code></a>. If you don't want to use <em class="parameter"><code>widget</code></em>
+a container, using <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-ref"><code class="function">g_object_ref()</code></a>. If you don't want to use <em class="parameter"><code>widget</code></em>
 again it's usually more efficient to simply destroy it directly
 using <a class="link" href="GtkWidget.html#gtk-widget-destroy" title="gtk_widget_destroy ()"><code class="function">gtk_widget_destroy()</code></a> since this will remove it from the
 container and help break any circular reference count cycles.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -520,14 +533,17 @@ container and help break any circular reference count cycles.
 <a name="gtk-container-add-with-properties"></a><h3>gtk_container_add_with_properties ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_container_add_with_properties   (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_prop_name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_prop_name</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
 Adds <em class="parameter"><code>widget</code></em> to <em class="parameter"><code>container</code></em>, setting child properties at the same time.
 See <a class="link" href="GtkContainer.html#gtk-container-add" title="gtk_container_add ()"><code class="function">gtk_container_add()</code></a> and <a class="link" href="GtkContainer.html#gtk-container-child-set" title="gtk_container_child_set ()"><code class="function">gtk_container_child_set()</code></a> for more details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -545,7 +561,7 @@ See <a class="link" href="GtkContainer.html#gtk-container-add" title="gtk_contai
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated list of property names and values, starting
+<td>a <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated list of property names and values, starting
 with <em class="parameter"><code>first_prop_name</code></em>
 </td>
 </tr>
@@ -560,8 +576,11 @@ with <em class="parameter"><code>first_prop_name</code></em>
 Returns the resize mode for the container. See
 <a class="link" href="GtkContainer.html#gtk-container-set-resize-mode" title="gtk_container_set_resize_mode ()"><code class="function">gtk_container_set_resize_mode()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -588,8 +607,11 @@ The resize mode of a container determines whether a resize request
 will be passed to the container's parent, queued for later execution
 or executed immediately.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -613,15 +635,18 @@ or executed immediately.
 <a name="gtk-container-foreach"></a><h3>gtk_container_foreach ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_container_foreach               (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkCallback" title="GtkCallback ()"><span class="type">GtkCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> callback_data</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> callback_data</code></em>);</pre>
 <p>
 Invokes <em class="parameter"><code>callback</code></em> on each non-internal child of <em class="parameter"><code>container</code></em>. See
 <a class="link" href="GtkContainer.html#gtk-container-forall" title="gtk_container_forall ()"><code class="function">gtk_container_forall()</code></a> for details on what constitutes an
 "internal" child.  Most applications should use
 <a class="link" href="GtkContainer.html#gtk-container-foreach" title="gtk_container_foreach ()"><code class="function">gtk_container_foreach()</code></a>, rather than <a class="link" href="GtkContainer.html#gtk-container-forall" title="gtk_container_forall ()"><code class="function">gtk_container_forall()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -643,13 +668,16 @@ Invokes <em class="parameter"><code>callback</code></em> on each non-internal ch
 <hr>
 <div class="refsect2">
 <a name="gtk-container-get-children"></a><h3>gtk_container_get_children ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             gtk_container_get_children          (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             gtk_container_get_children          (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>);</pre>
 <p>
 Returns the container's non-internal children. See
 <a class="link" href="GtkContainer.html#gtk-container-forall" title="gtk_container_forall ()"><code class="function">gtk_container_forall()</code></a> for details on what constitutes an "internal" child.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -673,8 +701,11 @@ Returns the container's non-internal children. See
 Returns a newly created widget path representing all the widget hierarchy
 from the toplevel down to and including <em class="parameter"><code>child</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -699,7 +730,7 @@ from the toplevel down to and including <em class="parameter"><code>child</code>
 <a name="gtk-container-set-reallocate-redraws"></a><h3>gtk_container_set_reallocate_redraws ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_container_set_reallocate_redraws
                                                         (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> needs_redraws</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> needs_redraws</code></em>);</pre>
 <p>
 Sets the <em class="parameter"><code>reallocate_redraws</code></em> flag of the container to the given value.
 </p>
@@ -707,8 +738,11 @@ Sets the <em class="parameter"><code>reallocate_redraws</code></em> flag of the 
 Containers requesting reallocation redraws get automatically
 redrawn if any of their children changed allocation.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -731,8 +765,11 @@ Returns the current focus child widget inside <em class="parameter"><code>contai
 currently focused widget. That can be obtained by calling
 <a class="link" href="GtkWindow.html#gtk-window-get-focus" title="gtk_window_get_focus ()"><code class="function">gtk_window_get_focus()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -743,7 +780,7 @@ currently focused widget. That can be obtained by calling
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>The child widget which will receive the
 focus inside <em class="parameter"><code>container</code></em> when the <em class="parameter"><code>conatiner</code></em> is focussed,
-or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none is set. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none is set. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -756,7 +793,7 @@ or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.ht
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_container_set_focus_child       (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>);</pre>
 <p>
-Sets, or unsets if <em class="parameter"><code>child</code></em> is <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, the focused child of <em class="parameter"><code>container</code></em>.
+Sets, or unsets if <em class="parameter"><code>child</code></em> is <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, the focused child of <em class="parameter"><code>container</code></em>.
 </p>
 <p>
 This function emits the GtkContainer::set_focus_child signal of
@@ -767,8 +804,11 @@ default behaviour by overriding the class closure of this signal.
 This is function is mostly meant to be used by widgets. Applications can use
 <a class="link" href="GtkWidget.html#gtk-widget-grab-focus" title="gtk_widget_grab_focus ()"><code class="function">gtk_widget_grab_focus()</code></a> to manualy set the focus to a specific widget.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -777,7 +817,7 @@ This is function is mostly meant to be used by widgets. Applications can use
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>child</code></em> :</span></p></td>
-<td>a <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>a <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -791,8 +831,11 @@ This is function is mostly meant to be used by widgets. Applications can use
 Retrieves the vertical focus adjustment for the container. See
 <a class="link" href="GtkContainer.html#gtk-container-set-focus-vadjustment" title="gtk_container_set_focus_vadjustment ()"><code class="function">gtk_container_set_focus_vadjustment()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -801,7 +844,7 @@ Retrieves the vertical focus adjustment for the container. See
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the vertical focus adjustment, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if
+<td>the vertical focus adjustment, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if
 none has been set. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
@@ -825,8 +868,11 @@ the horizontal adjustment.
 The adjustments have to be in pixel units and in the same coordinate
 system as the allocation for immediate children of the container.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -850,8 +896,11 @@ is moved among the descendents of <em class="parameter"><code>container</code></
 Retrieves the horizontal focus adjustment for the container. See
 <a class="link" href="GtkContainer.html#gtk-container-set-focus-hadjustment" title="gtk_container_set_focus_hadjustment ()"><code class="function">gtk_container_set_focus_hadjustment()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -860,7 +909,7 @@ Retrieves the horizontal focus adjustment for the container. See
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the horizontal focus adjustment, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if
+<td>the horizontal focus adjustment, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if
 none has been set. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
@@ -884,8 +933,11 @@ the vertical adjustment.
 The adjustments have to be in pixel units and in the same coordinate
 system as the allocation for immediate children of the container.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -905,21 +957,39 @@ moved among the descendents of <em class="parameter"><code>container</code></em>
 <div class="refsect2">
 <a name="gtk-container-resize-children"></a><h3>gtk_container_resize_children ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_container_resize_children       (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>);</pre>
+<div class="warning">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_container_resize_children</code> is deprecated and should not be used in newly-written code. 3.10</p>
+</div>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
+<td>a <a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a>
+</td>
+</tr></tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="gtk-container-child-type"></a><h3>gtk_container_child_type ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               gtk_container_child_type            (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>);</pre>
+<pre class="programlisting"><a href="../gobject/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               gtk_container_child_type            (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>);</pre>
 <p>
 Returns the type of the children supported by the container.
 </p>
 <p>
-Note that this may return <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-TYPE-NONE:CAPS"><code class="literal">G_TYPE_NONE</code></a> to indicate that no more
+Note that this may return <a href="../gobject/gobject-Type-Information.html#G-TYPE-NONE:CAPS"><code class="literal">G_TYPE_NONE</code></a> to indicate that no more
 children can be added, e.g. for a <a class="link" href="GtkPaned.html" title="GtkPaned"><span class="type">GtkPaned</span></a> which already has two
 children.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -928,7 +998,7 @@ children.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a>.</td>
+<td>a <a href="../gobject/gobject-Type-Information.html#GType"><span class="type">GType</span></a>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -938,13 +1008,16 @@ children.
 <a name="gtk-container-child-get"></a><h3>gtk_container_child_get ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_container_child_get             (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_prop_name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_prop_name</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
 Gets the values of one or more child properties for <em class="parameter"><code>child</code></em> and <em class="parameter"><code>container</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -963,7 +1036,7 @@ Gets the values of one or more child properties for <em class="parameter"><code>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
 <td>return location for the first property, followed
-optionally by more name/return location pairs, followed by <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+optionally by more name/return location pairs, followed by <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 </td>
 </tr>
 </tbody>
@@ -974,13 +1047,16 @@ optionally by more name/return location pairs, followed by <a href="http://libra
 <a name="gtk-container-child-set"></a><h3>gtk_container_child_set ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_container_child_set             (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_prop_name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_prop_name</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
 Sets one or more child properties for <em class="parameter"><code>child</code></em> and <em class="parameter"><code>container</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -998,7 +1074,7 @@ Sets one or more child properties for <em class="parameter"><code>child</code></
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated list of property names and values, starting
+<td>a <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated list of property names and values, starting
 with <em class="parameter"><code>first_prop_name</code></em>
 </td>
 </tr>
@@ -1010,13 +1086,16 @@ with <em class="parameter"><code>first_prop_name</code></em>
 <a name="gtk-container-child-get-property"></a><h3>gtk_container_child_get_property ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_container_child_get_property    (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *value</code></em>);</pre>
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>,
+                                                         <em class="parameter"><code><a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *value</code></em>);</pre>
 <p>
 Gets the value of a child property for <em class="parameter"><code>child</code></em> and <em class="parameter"><code>container</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -1044,13 +1123,16 @@ Gets the value of a child property for <em class="parameter"><code>child</code><
 <a name="gtk-container-child-set-property"></a><h3>gtk_container_child_set_property ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_container_child_set_property    (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *value</code></em>);</pre>
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *value</code></em>);</pre>
 <p>
 Sets a child property for <em class="parameter"><code>child</code></em> and <em class="parameter"><code>container</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -1078,13 +1160,16 @@ Sets a child property for <em class="parameter"><code>child</code></em> and <em 
 <a name="gtk-container-child-get-valist"></a><h3>gtk_container_child_get_valist ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_container_child_get_valist      (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_property_name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_property_name</code></em>,
                                                          <em class="parameter"><code><span class="type">va_list</span> var_args</code></em>);</pre>
 <p>
 Gets the values of one or more child properties for <em class="parameter"><code>child</code></em> and <em class="parameter"><code>container</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -1103,7 +1188,7 @@ Gets the values of one or more child properties for <em class="parameter"><code>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>var_args</code></em> :</span></p></td>
 <td>return location for the first property, followed
-optionally by more name/return location pairs, followed by <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+optionally by more name/return location pairs, followed by <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 </td>
 </tr>
 </tbody>
@@ -1114,13 +1199,16 @@ optionally by more name/return location pairs, followed by <a href="http://libra
 <a name="gtk-container-child-set-valist"></a><h3>gtk_container_child_set_valist ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_container_child_set_valist      (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_property_name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_property_name</code></em>,
                                                          <em class="parameter"><code><span class="type">va_list</span> var_args</code></em>);</pre>
 <p>
 Sets one or more child properties for <em class="parameter"><code>child</code></em> and <em class="parameter"><code>container</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -1138,7 +1226,7 @@ Sets one or more child properties for <em class="parameter"><code>child</code></
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>var_args</code></em> :</span></p></td>
-<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated list of property names and values, starting
+<td>a <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated list of property names and values, starting
 with <em class="parameter"><code>first_prop_name</code></em>
 </td>
 </tr>
@@ -1150,20 +1238,23 @@ with <em class="parameter"><code>first_prop_name</code></em>
 <a name="gtk-container-child-notify"></a><h3>gtk_container_child_notify ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_container_child_notify          (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *child_property</code></em>);</pre>
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *child_property</code></em>);</pre>
 <p>
 Emits a <a class="link" href="GtkWidget.html#GtkWidget-child-notify" title='The "child-notify" signal'><span class="type">"child-notify"</span></a> signal for the
 <a class="link" href="GtkContainer.html#child-properties" title="Child properties">child property</a>
 <em class="parameter"><code>child_property</code></em> on widget.
 </p>
 <p>
-This is an analogue of <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-notify"><code class="function">g_object_notify()</code></a> for child properties.
+This is an analogue of <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-notify"><code class="function">g_object_notify()</code></a> for child properties.
 </p>
 <p>
 Also see <a class="link" href="GtkWidget.html#gtk-widget-child-notify" title="gtk_widget_child_notify ()"><code class="function">gtk_widget_child_notify()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -1189,7 +1280,7 @@ the class of <em class="parameter"><code>container</code></em>
 <a name="gtk-container-forall"></a><h3>gtk_container_forall ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_container_forall                (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html#GtkCallback" title="GtkCallback ()"><span class="type">GtkCallback</span></a> callback</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> callback_data</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> callback_data</code></em>);</pre>
 <p>
 Invokes <em class="parameter"><code>callback</code></em> on each child of <em class="parameter"><code>container</code></em>, including children
 that are considered "internal" (implementation details of the
@@ -1201,8 +1292,11 @@ rather than <a class="link" href="GtkContainer.html#gtk-container-forall" title=
 <p>
 Virtual: forall
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -1224,13 +1318,16 @@ Virtual: forall
 <hr>
 <div class="refsect2">
 <a name="gtk-container-get-border-width"></a><h3>gtk_container_get_border_width ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gtk_container_get_border_width      (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gtk_container_get_border_width      (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>);</pre>
 <p>
 Retrieves the border width of the container. See
 <a class="link" href="GtkContainer.html#gtk-container-set-border-width" title="gtk_container_set_border_width ()"><code class="function">gtk_container_set_border_width()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -1248,7 +1345,7 @@ Retrieves the border width of the container. See
 <div class="refsect2">
 <a name="gtk-container-set-border-width"></a><h3>gtk_container_set_border_width ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_container_set_border_width      (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> border_width</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> border_width</code></em>);</pre>
 <p>
 Sets the border width of the container.
 </p>
@@ -1262,8 +1359,11 @@ create a <a class="link" href="GtkAlignment.html" title="GtkAlignment"><span cla
 to give it a size, and place it on the side of the container as
 a spacer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -1283,11 +1383,11 @@ the container. Valid values are in the range 0-65535 pixels.</td>
 <a name="gtk-container-propagate-draw"></a><h3>gtk_container_propagate_draw ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_container_propagate_draw        (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> *cr</code></em>);</pre>
 <p>
 When a container receives a call to the draw function, it must send
 synthetic <a class="link" href="GtkWidget.html#GtkWidget-draw" title='The "draw" signal'><span class="type">"draw"</span></a> calls to all children that don't have their
-own <a href="http://developer.gnome.org/devel/gdk/gdk3-Windows.html#GdkWindow"><span class="type">GdkWindows</span></a>. This function provides a convenient way of doing this.
+own <a href="../gdk3/gdk3-Windows.html#GdkWindow"><span class="type">GdkWindows</span></a>. This function provides a convenient way of doing this.
 A container, when it receives a call to its <a class="link" href="GtkWidget.html#GtkWidget-draw" title='The "draw" signal'><span class="type">"draw"</span></a> function,
 calls <a class="link" href="GtkContainer.html#gtk-container-propagate-draw" title="gtk_container_propagate_draw ()"><code class="function">gtk_container_propagate_draw()</code></a> once for each child, passing in
 the <em class="parameter"><code>cr</code></em> the container received.
@@ -1303,8 +1403,11 @@ In most cases, a container can simply either inherit the
 <a class="link" href="GtkWidget.html#GtkWidget-draw" title='The "draw" signal'><span class="type">"draw"</span></a> implementation from <a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a>, or do some drawing
 and then chain to the ::draw implementation from <a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -1319,8 +1422,8 @@ and then chain to the ::draw implementation from <a class="link" href="GtkContai
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
 <td>Cairo context as passed to the container. If you want to use <em class="parameter"><code>cr</code></em>
-in container's draw function, consider using <a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-save"><code class="function">cairo_save()</code></a> and
-<a href="/usr/share/gtk-doc/html/cairo/cairo-cairo-t.html#cairo-restore"><code class="function">cairo_restore()</code></a> before calling this function.</td>
+in container's draw function, consider using <a href="../cairo/cairo-cairo-t.html#cairo-save"><code class="function">cairo_save()</code></a> and
+<a href="../cairo/cairo-cairo-t.html#cairo-restore"><code class="function">cairo_restore()</code></a> before calling this function.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1328,17 +1431,20 @@ in container's draw function, consider using <a href="/usr/share/gtk-doc/html/ca
 <hr>
 <div class="refsect2">
 <a name="gtk-container-get-focus-chain"></a><h3>gtk_container_get_focus_chain ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_container_get_focus_chain       (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> **focusable_widgets</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_container_get_focus_chain       (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> **focusable_widgets</code></em>);</pre>
 <p>
 Retrieves the focus chain of the container, if one has been
 set explicitly. If no focus chain has been explicitly
 set, GTK+ computes the focus chain based on the positions
-of the children. In that case, GTK+ stores <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> in
-<em class="parameter"><code>focusable_widgets</code></em> and returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.
+of the children. In that case, GTK+ stores <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> in
+<em class="parameter"><code>focusable_widgets</code></em> and returns <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -1349,8 +1455,8 @@ of the children. In that case, GTK+ stores <a href="http://library.gnome.org/dev
 <td><p><span class="term"><em class="parameter"><code>focusable_widgets</code></em> :</span></p></td>
 <td>location
 to store the focus chain of the
-container, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. You should free this list
-using <a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a> when you are done with it, however
+container, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. You should free this list
+using <a href="../glib/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a> when you are done with it, however
 no additional reference count is added to the
 individual widgets in the focus chain. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkWidget][<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span>
 </td>
@@ -1358,7 +1464,7 @@ individual widgets in the focus chain. <span class="annotation">[<acronym title=
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the focus chain of the container
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the focus chain of the container
 has been set explicitly.</td>
 </tr>
 </tbody>
@@ -1368,7 +1474,7 @@ has been set explicitly.</td>
 <div class="refsect2">
 <a name="gtk-container-set-focus-chain"></a><h3>gtk_container_set_focus_chain ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_container_set_focus_chain       (<em class="parameter"><code><a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *focusable_widgets</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *focusable_widgets</code></em>);</pre>
 <p>
 Sets a focus chain, overriding the one computed automatically by GTK+.
 </p>
@@ -1379,8 +1485,11 @@ to set the focus chain before you pack the widgets, or have a widget
 in the chain that isn't always packed. The necessary checks are done
 when the focus chain is actually traversed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -1402,8 +1511,11 @@ when the focus chain is actually traversed.
 <p>
 Removes a focus chain explicitly set with <a class="link" href="GtkContainer.html#gtk-container-set-focus-chain" title="gtk_container_set_focus_chain ()"><code class="function">gtk_container_set_focus_chain()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
 <td>a <a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a>
@@ -1414,14 +1526,17 @@ Removes a focus chain explicitly set with <a class="link" href="GtkContainer.htm
 <hr>
 <div class="refsect2">
 <a name="gtk-container-class-find-child-property"></a><h3>gtk_container_class_find_child_property ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-GParamSpec.html#GParamSpec"><span class="returnvalue">GParamSpec</span></a> *        gtk_container_class_find_child_property
-                                                        (<em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObjectClass"><span class="type">GObjectClass</span></a> *cclass</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>);</pre>
+<pre class="programlisting"><a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="returnvalue">GParamSpec</span></a> *        gtk_container_class_find_child_property
+                                                        (<em class="parameter"><code><a href="../gobject/gobject-The-Base-Object-Type.html#GObjectClass"><span class="type">GObjectClass</span></a> *cclass</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>);</pre>
 <p>
 Finds a child property of a container class by name.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cclass</code></em> :</span></p></td>
@@ -1434,8 +1549,8 @@ Finds a child property of a container class by name.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the <a href="http://library.gnome.org/devel/gobject/unstable/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> of the child property
-or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>class</code></em> has no child property with that name. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+<td>the <a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> of the child property
+or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>class</code></em> has no child property with that name. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1446,13 +1561,16 @@ or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.ht
 <a name="gtk-container-class-install-child-property"></a><h3>gtk_container_class_install_child_property ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_container_class_install_child_property
                                                         (<em class="parameter"><code><span class="type">GtkContainerClass</span> *cclass</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> property_id</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> property_id</code></em>,
+                                                         <em class="parameter"><code><a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);</pre>
 <p>
 Installs a child property on a container class.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cclass</code></em> :</span></p></td>
@@ -1465,7 +1583,7 @@ Installs a child property on a container class.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>pspec</code></em> :</span></p></td>
-<td>the <a href="http://library.gnome.org/devel/gobject/unstable/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> for the property</td>
+<td>the <a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> for the property</td>
 </tr>
 </tbody>
 </table></div>
@@ -1473,14 +1591,17 @@ Installs a child property on a container class.
 <hr>
 <div class="refsect2">
 <a name="gtk-container-class-list-child-properties"></a><h3>gtk_container_class_list_child_properties ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-GParamSpec.html#GParamSpec"><span class="returnvalue">GParamSpec</span></a> **       gtk_container_class_list_child_properties
-                                                        (<em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObjectClass"><span class="type">GObjectClass</span></a> *cclass</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *n_properties</code></em>);</pre>
+<pre class="programlisting"><a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="returnvalue">GParamSpec</span></a> **       gtk_container_class_list_child_properties
+                                                        (<em class="parameter"><code><a href="../gobject/gobject-The-Base-Object-Type.html#GObjectClass"><span class="type">GObjectClass</span></a> *cclass</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *n_properties</code></em>);</pre>
 <p>
 Returns all child properties of a container class.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cclass</code></em> :</span></p></td>
@@ -1493,8 +1614,8 @@ Returns all child properties of a container class.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a newly allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of <a href="http://library.gnome.org/devel/gobject/unstable/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a>*.
-The array must be freed with <a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_properties][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span>
+<td>a newly allocated <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of <a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a>*.
+The array must be freed with <a href="../glib/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_properties][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1518,8 +1639,11 @@ would break API too badly to make this behavior the default. So
 subclasses must "opt in" to the parent class handling border_width
 for them.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>klass</code></em> :</span></p></td>
 <td>the class struct of a <a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> subclass</td>
@@ -1531,7 +1655,7 @@ for them.
 <a name="GtkContainer.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GtkContainer--border-width"></a><h3>The <code class="literal">"border-width"</code> property</h3>
-<pre class="programlisting">  "border-width"             <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write</pre>
+<pre class="programlisting">  "border-width"             <a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write</pre>
 <p>The width of the empty border outside the containers children.</p>
 <p>Allowed values: &lt;= 65535</p>
 <p>Default value: 0</p>
@@ -1556,32 +1680,32 @@ for them.
 <a name="GtkContainer-add"></a><h3>The <code class="literal">"add"</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container,
                                                         <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>    *widget,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>      user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a></pre>
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>      user_data)      : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a></pre>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkContainer-check-resize"></a><h3>The <code class="literal">"check-resize"</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>      user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>      user_data)      : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkContainer-remove"></a><h3>The <code class="literal">"remove"</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container,
                                                         <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>    *widget,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>      user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a></pre>
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>      user_data)      : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a></pre>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkContainer-set-focus-child"></a><h3>The <code class="literal">"set-focus-child"</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GtkContainer.html" title="GtkContainer"><span class="type">GtkContainer</span></a> *container,
                                                         <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>    *widget,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>      user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a></pre>
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>      user_data)      : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a></pre>
 </div>
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

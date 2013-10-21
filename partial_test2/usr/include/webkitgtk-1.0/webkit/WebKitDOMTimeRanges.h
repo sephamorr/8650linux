@@ -21,11 +21,10 @@
 #ifndef WebKitDOMTimeRanges_h
 #define WebKitDOMTimeRanges_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_TIME_RANGES            (webkit_dom_time_ranges_get_type())
@@ -56,7 +55,7 @@ webkit_dom_time_ranges_get_type (void);
  *
 **/
 WEBKIT_API gfloat
-webkit_dom_time_ranges_start(WebKitDOMTimeRanges* self, gulong index, GError **error);
+webkit_dom_time_ranges_start(WebKitDOMTimeRanges* self, gulong index, GError** error);
 
 /**
  * webkit_dom_time_ranges_end:
@@ -68,7 +67,7 @@ webkit_dom_time_ranges_start(WebKitDOMTimeRanges* self, gulong index, GError **e
  *
 **/
 WEBKIT_API gfloat
-webkit_dom_time_ranges_end(WebKitDOMTimeRanges* self, gulong index, GError **error);
+webkit_dom_time_ranges_end(WebKitDOMTimeRanges* self, gulong index, GError** error);
 
 /**
  * webkit_dom_time_ranges_get_length:

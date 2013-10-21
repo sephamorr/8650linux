@@ -23,12 +23,12 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
+#ifndef __GTK_CELL_RENDERER_PROGRESS_H__
+#define __GTK_CELL_RENDERER_PROGRESS_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_CELL_RENDERER_PROGRESS_H__
-#define __GTK_CELL_RENDERER_PROGRESS_H__
 
 #include <gtk/gtkcellrenderer.h>
 
@@ -64,7 +64,9 @@ struct _GtkCellRendererProgressClass
   void (*_gtk_reserved4) (void);
 };
 
+GDK_AVAILABLE_IN_ALL
 GType		 gtk_cell_renderer_progress_get_type (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkCellRenderer* gtk_cell_renderer_progress_new      (void);
 
 G_END_DECLS

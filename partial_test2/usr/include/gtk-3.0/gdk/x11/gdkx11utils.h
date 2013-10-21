@@ -22,12 +22,12 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/. 
  */
 
+#ifndef __GDK_X11_UTILS_H__
+#define __GDK_X11_UTILS_H__
+
 #if !defined (__GDKX_H_INSIDE__) && !defined (GDK_COMPILATION)
 #error "Only <gdk/gdkx.h> can be included directly."
 #endif
-
-#ifndef __GDK_X11_UTILS_H__
-#define __GDK_X11_UTILS_H__
 
 #include <gdk/gdk.h>
 
@@ -37,7 +37,9 @@
 G_BEGIN_DECLS
 
 #ifndef GDK_MULTIHEAD_SAFE
+GDK_AVAILABLE_IN_ALL
 Window   gdk_x11_get_default_root_xwindow (void);
+GDK_AVAILABLE_IN_ALL
 Display *gdk_x11_get_default_xdisplay     (void);
 #endif
 
@@ -68,7 +70,9 @@ Display *gdk_x11_get_default_xdisplay     (void);
 #define GDK_POINTER_TO_XID(pointer) GPOINTER_TO_UINT(pointer)
 
 #ifndef GDK_MULTIHEAD_SAFE
+GDK_AVAILABLE_IN_ALL
 void          gdk_x11_grab_server    (void);
+GDK_AVAILABLE_IN_ALL
 void          gdk_x11_ungrab_server  (void);
 #endif
 

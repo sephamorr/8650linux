@@ -21,11 +21,10 @@
 #ifndef WebKitDOMMediaError_h
 #define WebKitDOMMediaError_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_MEDIA_ERROR            (webkit_dom_media_error_get_type())

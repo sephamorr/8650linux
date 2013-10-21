@@ -21,11 +21,10 @@
 #ifndef WebKitDOMDocument_h
 #define WebKitDOMDocument_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMNode.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMNode.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_DOCUMENT            (webkit_dom_document_get_type())
@@ -49,14 +48,14 @@ webkit_dom_document_get_type (void);
 /**
  * webkit_dom_document_create_element:
  * @self: A #WebKitDOMDocument
- * @tag_name: A #gchar
+ * @tagName: A #gchar
  * @error: #GError
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMElement*
-webkit_dom_document_create_element(WebKitDOMDocument* self, const gchar* tag_name, GError **error);
+webkit_dom_document_create_element(WebKitDOMDocument* self, const gchar* tagName, GError** error);
 
 /**
  * webkit_dom_document_create_document_fragment:
@@ -100,7 +99,7 @@ webkit_dom_document_create_comment(WebKitDOMDocument* self, const gchar* data);
  *
 **/
 WEBKIT_API WebKitDOMCDATASection*
-webkit_dom_document_create_cdata_section(WebKitDOMDocument* self, const gchar* data, GError **error);
+webkit_dom_document_create_cdata_section(WebKitDOMDocument* self, const gchar* data, GError** error);
 
 /**
  * webkit_dom_document_create_processing_instruction:
@@ -113,7 +112,7 @@ webkit_dom_document_create_cdata_section(WebKitDOMDocument* self, const gchar* d
  *
 **/
 WEBKIT_API WebKitDOMProcessingInstruction*
-webkit_dom_document_create_processing_instruction(WebKitDOMDocument* self, const gchar* target, const gchar* data, GError **error);
+webkit_dom_document_create_processing_instruction(WebKitDOMDocument* self, const gchar* target, const gchar* data, GError** error);
 
 /**
  * webkit_dom_document_create_attribute:
@@ -125,7 +124,7 @@ webkit_dom_document_create_processing_instruction(WebKitDOMDocument* self, const
  *
 **/
 WEBKIT_API WebKitDOMAttr*
-webkit_dom_document_create_attribute(WebKitDOMDocument* self, const gchar* name, GError **error);
+webkit_dom_document_create_attribute(WebKitDOMDocument* self, const gchar* name, GError** error);
 
 /**
  * webkit_dom_document_create_entity_reference:
@@ -137,7 +136,7 @@ webkit_dom_document_create_attribute(WebKitDOMDocument* self, const gchar* name,
  *
 **/
 WEBKIT_API WebKitDOMEntityReference*
-webkit_dom_document_create_entity_reference(WebKitDOMDocument* self, const gchar* name, GError **error);
+webkit_dom_document_create_entity_reference(WebKitDOMDocument* self, const gchar* name, GError** error);
 
 /**
  * webkit_dom_document_get_elements_by_tag_name:
@@ -153,7 +152,7 @@ webkit_dom_document_get_elements_by_tag_name(WebKitDOMDocument* self, const gcha
 /**
  * webkit_dom_document_import_node:
  * @self: A #WebKitDOMDocument
- * @imported_node: A #WebKitDOMNode
+ * @importedNode: A #WebKitDOMNode
  * @deep: A #gboolean
  * @error: #GError
  *
@@ -161,56 +160,56 @@ webkit_dom_document_get_elements_by_tag_name(WebKitDOMDocument* self, const gcha
  *
 **/
 WEBKIT_API WebKitDOMNode*
-webkit_dom_document_import_node(WebKitDOMDocument* self, WebKitDOMNode* imported_node, gboolean deep, GError **error);
+webkit_dom_document_import_node(WebKitDOMDocument* self, WebKitDOMNode* importedNode, gboolean deep, GError** error);
 
 /**
  * webkit_dom_document_create_element_ns:
  * @self: A #WebKitDOMDocument
- * @namespace_uri: A #gchar
- * @qualified_name: A #gchar
+ * @namespaceURI: A #gchar
+ * @qualifiedName: A #gchar
  * @error: #GError
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMElement*
-webkit_dom_document_create_element_ns(WebKitDOMDocument* self, const gchar* namespace_uri, const gchar* qualified_name, GError **error);
+webkit_dom_document_create_element_ns(WebKitDOMDocument* self, const gchar* namespaceURI, const gchar* qualifiedName, GError** error);
 
 /**
  * webkit_dom_document_create_attribute_ns:
  * @self: A #WebKitDOMDocument
- * @namespace_uri: A #gchar
- * @qualified_name: A #gchar
+ * @namespaceURI: A #gchar
+ * @qualifiedName: A #gchar
  * @error: #GError
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMAttr*
-webkit_dom_document_create_attribute_ns(WebKitDOMDocument* self, const gchar* namespace_uri, const gchar* qualified_name, GError **error);
+webkit_dom_document_create_attribute_ns(WebKitDOMDocument* self, const gchar* namespaceURI, const gchar* qualifiedName, GError** error);
 
 /**
  * webkit_dom_document_get_elements_by_tag_name_ns:
  * @self: A #WebKitDOMDocument
- * @namespace_uri: A #gchar
- * @local_name: A #gchar
+ * @namespaceURI: A #gchar
+ * @localName: A #gchar
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMNodeList*
-webkit_dom_document_get_elements_by_tag_name_ns(WebKitDOMDocument* self, const gchar* namespace_uri, const gchar* local_name);
+webkit_dom_document_get_elements_by_tag_name_ns(WebKitDOMDocument* self, const gchar* namespaceURI, const gchar* localName);
 
 /**
  * webkit_dom_document_get_element_by_id:
  * @self: A #WebKitDOMDocument
- * @element_id: A #gchar
+ * @elementId: A #gchar
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMElement*
-webkit_dom_document_get_element_by_id(WebKitDOMDocument* self, const gchar* element_id);
+webkit_dom_document_get_element_by_id(WebKitDOMDocument* self, const gchar* elementId);
 
 /**
  * webkit_dom_document_adopt_node:
@@ -222,19 +221,19 @@ webkit_dom_document_get_element_by_id(WebKitDOMDocument* self, const gchar* elem
  *
 **/
 WEBKIT_API WebKitDOMNode*
-webkit_dom_document_adopt_node(WebKitDOMDocument* self, WebKitDOMNode* source, GError **error);
+webkit_dom_document_adopt_node(WebKitDOMDocument* self, WebKitDOMNode* source, GError** error);
 
 /**
  * webkit_dom_document_create_event:
  * @self: A #WebKitDOMDocument
- * @event_type: A #gchar
+ * @eventType: A #gchar
  * @error: #GError
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMEvent*
-webkit_dom_document_create_event(WebKitDOMDocument* self, const gchar* event_type, GError **error);
+webkit_dom_document_create_event(WebKitDOMDocument* self, const gchar* eventType, GError** error);
 
 /**
  * webkit_dom_document_create_range:
@@ -250,43 +249,43 @@ webkit_dom_document_create_range(WebKitDOMDocument* self);
  * webkit_dom_document_create_node_iterator:
  * @self: A #WebKitDOMDocument
  * @root: A #WebKitDOMNode
- * @what_to_show: A #gulong
+ * @whatToShow: A #gulong
  * @filter: A #WebKitDOMNodeFilter
- * @expand_entity_references: A #gboolean
+ * @expandEntityReferences: A #gboolean
  * @error: #GError
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMNodeIterator*
-webkit_dom_document_create_node_iterator(WebKitDOMDocument* self, WebKitDOMNode* root, gulong what_to_show, WebKitDOMNodeFilter* filter, gboolean expand_entity_references, GError **error);
+webkit_dom_document_create_node_iterator(WebKitDOMDocument* self, WebKitDOMNode* root, gulong whatToShow, WebKitDOMNodeFilter* filter, gboolean expandEntityReferences, GError** error);
 
 /**
  * webkit_dom_document_create_tree_walker:
  * @self: A #WebKitDOMDocument
  * @root: A #WebKitDOMNode
- * @what_to_show: A #gulong
+ * @whatToShow: A #gulong
  * @filter: A #WebKitDOMNodeFilter
- * @expand_entity_references: A #gboolean
+ * @expandEntityReferences: A #gboolean
  * @error: #GError
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMTreeWalker*
-webkit_dom_document_create_tree_walker(WebKitDOMDocument* self, WebKitDOMNode* root, gulong what_to_show, WebKitDOMNodeFilter* filter, gboolean expand_entity_references, GError **error);
+webkit_dom_document_create_tree_walker(WebKitDOMDocument* self, WebKitDOMNode* root, gulong whatToShow, WebKitDOMNodeFilter* filter, gboolean expandEntityReferences, GError** error);
 
 /**
  * webkit_dom_document_get_override_style:
  * @self: A #WebKitDOMDocument
  * @element: A #WebKitDOMElement
- * @pseudo_element: A #gchar
+ * @pseudoElement: A #gchar
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMCSSStyleDeclaration*
-webkit_dom_document_get_override_style(WebKitDOMDocument* self, WebKitDOMElement* element, const gchar* pseudo_element);
+webkit_dom_document_get_override_style(WebKitDOMDocument* self, WebKitDOMElement* element, const gchar* pseudoElement);
 
 /**
  * webkit_dom_document_create_expression:
@@ -299,47 +298,47 @@ webkit_dom_document_get_override_style(WebKitDOMDocument* self, WebKitDOMElement
  *
 **/
 WEBKIT_API WebKitDOMXPathExpression*
-webkit_dom_document_create_expression(WebKitDOMDocument* self, const gchar* expression, WebKitDOMXPathNSResolver* resolver, GError **error);
+webkit_dom_document_create_expression(WebKitDOMDocument* self, const gchar* expression, WebKitDOMXPathNSResolver* resolver, GError** error);
 
 /**
  * webkit_dom_document_create_ns_resolver:
  * @self: A #WebKitDOMDocument
- * @node_resolver: A #WebKitDOMNode
+ * @nodeResolver: A #WebKitDOMNode
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMXPathNSResolver*
-webkit_dom_document_create_ns_resolver(WebKitDOMDocument* self, WebKitDOMNode* node_resolver);
+webkit_dom_document_create_ns_resolver(WebKitDOMDocument* self, WebKitDOMNode* nodeResolver);
 
 /**
  * webkit_dom_document_evaluate:
  * @self: A #WebKitDOMDocument
  * @expression: A #gchar
- * @context_node: A #WebKitDOMNode
+ * @contextNode: A #WebKitDOMNode
  * @resolver: A #WebKitDOMXPathNSResolver
  * @type: A #gushort
- * @in_result: A #WebKitDOMXPathResult
+ * @inResult: A #WebKitDOMXPathResult
  * @error: #GError
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMXPathResult*
-webkit_dom_document_evaluate(WebKitDOMDocument* self, const gchar* expression, WebKitDOMNode* context_node, WebKitDOMXPathNSResolver* resolver, gushort type, WebKitDOMXPathResult* in_result, GError **error);
+webkit_dom_document_evaluate(WebKitDOMDocument* self, const gchar* expression, WebKitDOMNode* contextNode, WebKitDOMXPathNSResolver* resolver, gushort type, WebKitDOMXPathResult* inResult, GError** error);
 
 /**
  * webkit_dom_document_exec_command:
  * @self: A #WebKitDOMDocument
  * @command: A #gchar
- * @user_interface: A #gboolean
+ * @userInterface: A #gboolean
  * @value: A #gchar
  *
  * Returns:
  *
 **/
 WEBKIT_API gboolean
-webkit_dom_document_exec_command(WebKitDOMDocument* self, const gchar* command, gboolean user_interface, const gchar* value);
+webkit_dom_document_exec_command(WebKitDOMDocument* self, const gchar* command, gboolean userInterface, const gchar* value);
 
 /**
  * webkit_dom_document_query_command_enabled:
@@ -399,13 +398,13 @@ webkit_dom_document_query_command_value(WebKitDOMDocument* self, const gchar* co
 /**
  * webkit_dom_document_get_elements_by_name:
  * @self: A #WebKitDOMDocument
- * @element_name: A #gchar
+ * @elementName: A #gchar
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMNodeList*
-webkit_dom_document_get_elements_by_name(WebKitDOMDocument* self, const gchar* element_name);
+webkit_dom_document_get_elements_by_name(WebKitDOMDocument* self, const gchar* elementName);
 
 /**
  * webkit_dom_document_element_from_point:
@@ -462,7 +461,7 @@ webkit_dom_document_get_elements_by_class_name(WebKitDOMDocument* self, const gc
  *
 **/
 WEBKIT_API WebKitDOMElement*
-webkit_dom_document_query_selector(WebKitDOMDocument* self, const gchar* selectors, GError **error);
+webkit_dom_document_query_selector(WebKitDOMDocument* self, const gchar* selectors, GError** error);
 
 /**
  * webkit_dom_document_query_selector_all:
@@ -474,7 +473,7 @@ webkit_dom_document_query_selector(WebKitDOMDocument* self, const gchar* selecto
  *
 **/
 WEBKIT_API WebKitDOMNodeList*
-webkit_dom_document_query_selector_all(WebKitDOMDocument* self, const gchar* selectors, GError **error);
+webkit_dom_document_query_selector_all(WebKitDOMDocument* self, const gchar* selectors, GError** error);
 
 /**
  * webkit_dom_document_webkit_cancel_full_screen:
@@ -485,6 +484,26 @@ webkit_dom_document_query_selector_all(WebKitDOMDocument* self, const gchar* sel
 **/
 WEBKIT_API void
 webkit_dom_document_webkit_cancel_full_screen(WebKitDOMDocument* self);
+
+/**
+ * webkit_dom_document_webkit_exit_fullscreen:
+ * @self: A #WebKitDOMDocument
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_document_webkit_exit_fullscreen(WebKitDOMDocument* self);
+
+/**
+ * webkit_dom_document_webkit_exit_pointer_lock:
+ * @self: A #WebKitDOMDocument
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_document_webkit_exit_pointer_lock(WebKitDOMDocument* self);
 
 /**
  * webkit_dom_document_webkit_get_flow_by_name:
@@ -567,7 +586,7 @@ webkit_dom_document_get_xml_version(WebKitDOMDocument* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_document_set_xml_version(WebKitDOMDocument* self, const gchar* value, GError **error);
+webkit_dom_document_set_xml_version(WebKitDOMDocument* self, const gchar* value, GError** error);
 
 /**
  * webkit_dom_document_get_xml_standalone:
@@ -589,7 +608,7 @@ webkit_dom_document_get_xml_standalone(WebKitDOMDocument* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_document_set_xml_standalone(WebKitDOMDocument* self, gboolean value, GError **error);
+webkit_dom_document_set_xml_standalone(WebKitDOMDocument* self, gboolean value, GError** error);
 
 /**
  * webkit_dom_document_get_document_uri:
@@ -682,7 +701,7 @@ webkit_dom_document_get_domain(WebKitDOMDocument* self);
  *
 **/
 WEBKIT_API gchar*
-webkit_dom_document_get_cookie(WebKitDOMDocument* self, GError **error);
+webkit_dom_document_get_cookie(WebKitDOMDocument* self, GError** error);
 
 /**
  * webkit_dom_document_set_cookie:
@@ -694,7 +713,7 @@ webkit_dom_document_get_cookie(WebKitDOMDocument* self, GError **error);
  *
 **/
 WEBKIT_API void
-webkit_dom_document_set_cookie(WebKitDOMDocument* self, const gchar* value, GError **error);
+webkit_dom_document_set_cookie(WebKitDOMDocument* self, const gchar* value, GError** error);
 
 /**
  * webkit_dom_document_get_body:
@@ -716,7 +735,7 @@ webkit_dom_document_get_body(WebKitDOMDocument* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_document_set_body(WebKitDOMDocument* self, WebKitDOMHTMLElement* value, GError **error);
+webkit_dom_document_set_body(WebKitDOMDocument* self, WebKitDOMHTMLElement* value, GError** error);
 
 /**
  * webkit_dom_document_get_head:
@@ -911,6 +930,36 @@ WEBKIT_API WebKitDOMElement*
 webkit_dom_document_get_webkit_current_full_screen_element(WebKitDOMDocument* self);
 
 /**
+ * webkit_dom_document_get_webkit_fullscreen_enabled:
+ * @self: A #WebKitDOMDocument
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gboolean
+webkit_dom_document_get_webkit_fullscreen_enabled(WebKitDOMDocument* self);
+
+/**
+ * webkit_dom_document_get_webkit_fullscreen_element:
+ * @self: A #WebKitDOMDocument
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMElement*
+webkit_dom_document_get_webkit_fullscreen_element(WebKitDOMDocument* self);
+
+/**
+ * webkit_dom_document_get_webkit_pointer_lock_element:
+ * @self: A #WebKitDOMDocument
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMElement*
+webkit_dom_document_get_webkit_pointer_lock_element(WebKitDOMDocument* self);
+
+/**
  * webkit_dom_document_get_webkit_visibility_state:
  * @self: A #WebKitDOMDocument
  *
@@ -929,6 +978,16 @@ webkit_dom_document_get_webkit_visibility_state(WebKitDOMDocument* self);
 **/
 WEBKIT_API gboolean
 webkit_dom_document_get_webkit_hidden(WebKitDOMDocument* self);
+
+/**
+ * webkit_dom_document_get_security_policy:
+ * @self: A #WebKitDOMDocument
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMDOMSecurityPolicy*
+webkit_dom_document_get_security_policy(WebKitDOMDocument* self);
 
 G_END_DECLS
 

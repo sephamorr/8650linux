@@ -17,12 +17,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GTK_SEPARATOR_TOOL_ITEM_H__
+#define __GTK_SEPARATOR_TOOL_ITEM_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_SEPARATOR_TOOL_ITEM_H__
-#define __GTK_SEPARATOR_TOOL_ITEM_H__
 
 #include <gtk/gtktoolitem.h>
 
@@ -58,10 +58,14 @@ struct _GtkSeparatorToolItemClass
   void (* _gtk_reserved4) (void);
 };
 
+GDK_AVAILABLE_IN_ALL
 GType        gtk_separator_tool_item_get_type (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkToolItem *gtk_separator_tool_item_new      (void);
 
+GDK_AVAILABLE_IN_ALL
 gboolean     gtk_separator_tool_item_get_draw (GtkSeparatorToolItem *item);
+GDK_AVAILABLE_IN_ALL
 void         gtk_separator_tool_item_set_draw (GtkSeparatorToolItem *item,
 					       gboolean              draw);
 

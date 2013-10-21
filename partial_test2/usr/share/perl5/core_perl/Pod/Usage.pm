@@ -11,8 +11,311 @@ package Pod::Usage;
 use strict;
 
 use vars qw($VERSION @ISA @EXPORT);
-$VERSION = '1.51';  ## Current version of this package
+$VERSION = '1.61';  ## Current version of this package
 require  5.005;    ## requires this Perl version or later
+
+#use diagnostics;
+use Carp;
+use Config;
+use Exporter;
+use File::Spec;
+
+@EXPORT = qw(&pod2usage);
+BEGIN {
+    $Pod::Usage::Formatter ||=
+      ( $] >= 5.005_58 ? 'Pod::Text' : 'Pod::PlainText');
+    eval "require $Pod::Usage::Formatter";
+    die $@ if $@;
+    @ISA = ( $Pod::Usage::Formatter );
+}
+
+require Pod::Select;
+
+##---------------------------------------------------------------------------
+
+##---------------------------------
+## Function definitions begin here
+##---------------------------------
+
+sub pod2usage {
+    local($_) = shift;
+    my %opts;
+    ## Collect arguments
+    if (@_ > 0) {
+        ## Too many arguments - assume that this is a hash and
+        ## the user forgot to pass a reference to it.
+        %opts = ($_, @_);
+    }
+    elsif (!defined $_) {
+      $_ = '';
+    }
+    elsif (ref $_) {
+        ## User passed a ref to a hash
+        %opts = %{$_}  if (ref($_) eq 'HASH');
+    }
+    elsif (/^[-+]?\d+$/) {
+        ## User passed in the exit value to use
+        $opts{'-exitval'} =  $_;
+    }
+    else {
+        ## User passed in a message to print before issuing usage.
+        $_  and  $opts{'-message'} = $_;
+    }
+
+    ## Need this for backward compatibility since we formerly used
+    ## options that were all uppercase words rather than ones that
+    ## looked like Unix command-line options.
+    ## to be uppercase keywords)
+    %opts = map {
+        my ($key, $val) = ($_, $opts{$_});
+        $key =~ s/^(?=\w)/-/;
+        $key =~ /^-msg/i   and  $key = '-message';
+        $key =~ /^-exit/i  and  $key = '-exitval';
+        lc($key) => $val;
+    } (keys %opts);
+
+    ## Now determine default -exitval and -verbose values to use
+    if ((! defined $opts{'-exitval'}) && (! defined $opts{'-verbose'})) {
+        $opts{'-exitval'} = 2;
+        $opts{'-verbose'} = 0;
+    }
+    elsif (! defined $opts{'-exitval'}) {
+        $opts{'-exitval'} = ($opts{'-verbose'} > 0) ? 1 : 2;
+    }
+    elsif (! defined $opts{'-verbose'}) {
+        $opts{'-verbose'} = (lc($opts{'-exitval'}) eq 'noexit' ||
+                             $opts{'-exitval'} < 2);
+    }
+
+    ## Default the output file
+    $opts{'-output'} = (lc($opts{'-exitval'}) eq 'noexit' ||
+                        $opts{'-exitval'} < 2) ? \*STDOUT : \*STDERR
+            unless (defined $opts{'-output'});
+    ## Default the input file
+    $opts{'-input'} = $0  unless (defined $opts{'-input'});
+
+    ## Look up input file in path if it doesnt exist.
+    unless ((ref $opts{'-input'}) || (-e $opts{'-input'})) {
+        my $basename = $opts{'-input'};
+        my $pathsep = ($^O =~ /^(?:dos|os2|MSWin32)$/i) ? ';'
+                            : (($^O eq 'MacOS' || $^O eq 'VMS') ? ',' :  ':');
+        my $pathspec = $opts{'-pathlist'} || $ENV{PATH} || $ENV{PERL5LIB};
+
+        my @paths = (ref $pathspec) ? @$pathspec : split($pathsep, $pathspec);
+        for my $dirname (@paths) {
+            $_ = File::Spec->catfile($dirname, $basename)  if length;
+            last if (-e $_) && ($opts{'-input'} = $_);
+        }
+    }
+
+    ## Now create a pod reader and constrain it to the desired sections.
+    my $parser = new Pod::Usage(USAGE_OPTIONS => \%opts);
+    if ($opts{'-verbose'} == 0) {
+        $parser->select('(?:SYNOPSIS|USAGE)\s*');
+    }
+    elsif ($opts{'-verbose'} == 1) {
+        my $opt_re = '(?i)' .
+                     '(?:OPTIONS|ARGUMENTS)' .
+                     '(?:\s*(?:AND|\/)\s*(?:OPTIONS|ARGUMENTS))?';
+        $parser->select( '(?:SYNOPSIS|USAGE)\s*', $opt_re, "DESCRIPTION/$opt_re" );
+    }
+    elsif ($opts{'-verbose'} >= 2 && $opts{'-verbose'} != 99) {
+        $parser->select('.*');
+    }
+    elsif ($opts{'-verbose'} == 99) {
+        my $sections = $opts{'-sections'};
+        $parser->select( (ref $sections) ? @$sections : $sections );
+        $opts{'-verbose'} = 1;
+    }
+
+    ## Check for perldoc
+    my $progpath = File::Spec->catfile($Config{scriptdirexp} 
+	|| $Config{scriptdir}, 'perldoc');
+
+    my $version = sprintf("%vd",$^V);
+    if ($Config{versiononly} and $Config{startperl} =~ /\Q$version\E$/ ) {
+      $progpath .= $version;
+    }
+    $opts{'-noperldoc'} = 1 unless -e $progpath;
+
+    ## Now translate the pod document and then exit with the desired status
+    if (      !$opts{'-noperldoc'}
+         and  $opts{'-verbose'} >= 2
+         and  !ref($opts{'-input'})
+         and  $opts{'-output'} == \*STDOUT )
+    {
+       ## spit out the entire PODs. Might as well invoke perldoc
+       print { $opts{'-output'} } ($opts{'-message'}, "\n") if($opts{'-message'});
+       if(defined $opts{-input} && $opts{-input} =~ /^\s*(\S.*?)\s*$/) {
+         # the perldocs back to 5.005 should all have -F
+	 # without -F there are warnings in -T scripts
+         system($progpath, '-F', $1);
+         if($?) {
+           # RT16091: fall back to more if perldoc failed
+           system(($Config{pager} || $ENV{PAGER} || '/bin/more'), $1);
+         }
+       } else {
+         croak "Unspecified input file or insecure argument.\n";
+       }
+    }
+    else {
+       $parser->parse_from_file($opts{'-input'}, $opts{'-output'});
+    }
+
+    exit($opts{'-exitval'})  unless (lc($opts{'-exitval'}) eq 'noexit');
+}
+
+##---------------------------------------------------------------------------
+
+##-------------------------------
+## Method definitions begin here
+##-------------------------------
+
+sub new {
+    my $this = shift;
+    my $class = ref($this) || $this;
+    my %params = @_;
+    my $self = {%params};
+    bless $self, $class;
+    if ($self->can('initialize')) {
+        $self->initialize();
+    } else {
+        # pass through options to Pod::Text
+        my %opts;
+       	for (qw(alt code indent loose margin quotes sentence stderr utf8 width)) {
+            my $val = $params{USAGE_OPTIONS}{"-$_"};
+            $opts{$_} = $val if defined $val;
+        }
+        $self = $self->SUPER::new(%opts);
+        %$self = (%$self, %params);
+    }
+    return $self;
+}
+
+sub select {
+    my ($self, @sections) = @_;
+    if ($ISA[0]->can('select')) {
+        $self->SUPER::select(@sections);
+    } else {
+        # we're using Pod::Simple - need to mimic the behavior of Pod::Select
+        my $add = ($sections[0] eq '+') ? shift(@sections) : '';
+        ## Reset the set of sections to use
+        unless (@sections) {
+          delete $self->{USAGE_SELECT} unless ($add);
+          return;
+        }
+        $self->{USAGE_SELECT} = []
+          unless ($add && $self->{USAGE_SELECT});
+        my $sref = $self->{USAGE_SELECT};
+        ## Compile each spec
+        for my $spec (@sections) {
+          my $cs = Pod::Select::_compile_section_spec($spec);
+          if ( defined $cs ) {
+            ## Store them in our sections array
+            push(@$sref, $cs);
+          } else {
+            carp qq{Ignoring section spec "$spec"!\n};
+          }
+        }
+    }
+}
+
+# Override Pod::Text->seq_i to return just "arg", not "*arg*".
+sub seq_i { return $_[1] }
+
+# This overrides the Pod::Text method to do something very akin to what
+# Pod::Select did as well as the work done below by preprocess_paragraph.
+# Note that the below is very, very specific to Pod::Text.
+sub _handle_element_end {
+    my ($self, $element) = @_;
+    if ($element eq 'head1') {
+        $self->{USAGE_HEADINGS} = [ $$self{PENDING}[-1][1] ];
+        if ($self->{USAGE_OPTIONS}->{-verbose} < 2) {
+            $$self{PENDING}[-1][1] =~ s/^\s*SYNOPSIS\s*$/USAGE/;
+        }
+    } elsif ($element =~ /^head(\d+)$/ && $1) { # avoid 0
+        my $idx = $1 - 1;
+        $self->{USAGE_HEADINGS} = [] unless($self->{USAGE_HEADINGS});
+        $self->{USAGE_HEADINGS}->[$idx] = $$self{PENDING}[-1][1];
+    }
+    if ($element =~ /^head\d+$/) {
+        $$self{USAGE_SKIPPING} = 1;
+        if (!$$self{USAGE_SELECT} || !@{ $$self{USAGE_SELECT} }) {
+            $$self{USAGE_SKIPPING} = 0;
+        } else {
+            my @headings = @{$$self{USAGE_HEADINGS}};
+            for my $section_spec ( @{$$self{USAGE_SELECT}} ) {
+                my $match = 1;
+                for (my $i = 0; $i < $Pod::Select::MAX_HEADING_LEVEL; ++$i) {
+                    $headings[$i] = '' unless defined $headings[$i];
+                    my $regex   = $section_spec->[$i];
+                    my $negated = ($regex =~ s/^\!//);
+                    $match  &= ($negated ? ($headings[$i] !~ /${regex}/)
+                                         : ($headings[$i] =~ /${regex}/));
+                    last unless ($match);
+                } # end heading levels
+                if ($match) {
+                  $$self{USAGE_SKIPPING} = 0;
+                  last;
+                }
+            } # end sections
+        }
+
+        # Try to do some lowercasing instead of all-caps in headings, and use
+        # a colon to end all headings.
+        if($self->{USAGE_OPTIONS}->{-verbose} < 2) {
+            local $_ = $$self{PENDING}[-1][1];
+            s{([A-Z])([A-Z]+)}{((length($2) > 2) ? $1 : lc($1)) . lc($2)}ge;
+            s/\s*$/:/  unless (/:\s*$/);
+            $_ .= "\n";
+            $$self{PENDING}[-1][1] = $_;
+        }
+    }
+    if ($$self{USAGE_SKIPPING} && $element !~ m/^over-/) {
+        pop @{ $$self{PENDING} };
+    } else {
+        $self->SUPER::_handle_element_end($element);
+    }
+}
+
+# required for Pod::Simple API
+sub start_document {
+    my $self = shift;
+    $self->SUPER::start_document();
+    my $msg = $self->{USAGE_OPTIONS}->{-message}  or  return 1;
+    my $out_fh = $self->output_fh();
+    print $out_fh "$msg\n";
+}
+
+# required for old Pod::Parser API
+sub begin_pod {
+    my $self = shift;
+    $self->SUPER::begin_pod();  ## Have to call superclass
+    my $msg = $self->{USAGE_OPTIONS}->{-message}  or  return 1;
+    my $out_fh = $self->output_handle();
+    print $out_fh "$msg\n";
+}
+
+sub preprocess_paragraph {
+    my $self = shift;
+    local $_ = shift;
+    my $line = shift;
+    ## See if this is a heading and we arent printing the entire manpage.
+    if (($self->{USAGE_OPTIONS}->{-verbose} < 2) && /^=head/) {
+        ## Change the title of the SYNOPSIS section to USAGE
+        s/^=head1\s+SYNOPSIS\s*$/=head1 USAGE/;
+        ## Try to do some lowercasing instead of all-caps in headings
+        s{([A-Z])([A-Z]+)}{((length($2) > 2) ? $1 : lc($1)) . lc($2)}ge;
+        ## Use a colon to end all headings
+        s/\s*$/:/  unless (/:\s*$/);
+        $_ .= "\n";
+    }
+    return  $self->SUPER::preprocess_paragraph($_);
+}
+
+1; # keep require happy
+
+__END__
 
 =head1 NAME
 
@@ -149,11 +452,20 @@ output the POD.
 
 =back
 
+=head2 Formatting base class
+
+The default text formatter depends on the Perl version (L<Pod::Text> or 
+L<Pod::PlainText> for Perl versions E<lt> 5.005_58). The base class for
+Pod::Usage can be defined by pre-setting C<$Pod::Usage::Formatter> I<before>
+loading Pod::Usage, e.g.:
+
+    BEGIN { $Pod::Usage::Formatter = 'Pod::Text::Termcap'; }
+    use Pod::Usage qw(pod2usage);
+
 =head2 Pass-through options
 
-The following options are passed through to the underlying text formatter
-(L<Pod::Text> or L<Pod::PlainText> for Perl versions E<lt> 5.005_58). See 
-the manual pages of these modules for more information.
+The following options are passed through to the underlying text formatter.
+See the manual pages of these modules for more information.
 
   alt code indent loose margin quotes sentence stderr utf8 width
 
@@ -422,7 +734,11 @@ similar to the following:
 In the pathological case that a script is called via a relative path
 I<and> the script itself changes the current working directory
 (see L<perlfunc/chdir>) I<before> calling pod2usage, Pod::Usage will
-fail even on robust platforms. Don't do that.
+fail even on robust platforms. Don't do that. Or use L<FindBin> to locate
+the script:
+
+    use FindBin;
+    pod2usage(-input => $FindBin::Bin . "/" . $FindBin::Script);
 
 =head1 AUTHOR
 
@@ -442,306 +758,10 @@ with re-writing this manpage.
 
 =head1 SEE ALSO
 
-B<Pod::Usage> is part of the L<Pod::Parser> distribution.
+B<Pod::Usage> is now a standalone distribution.
 
-L<Pod::Parser>, L<Getopt::Long>, L<Pod::Find>
+L<Pod::Parser>, L<Pod::Perldoc>, L<Getopt::Long>, L<Pod::Find>, L<FindBin>,
+L<Pod::Text>, L<Pod::PlainText>, L<Pod::Text::Termcap>
 
 =cut
 
-#############################################################################
-
-#use diagnostics;
-use Carp;
-use Config;
-use Exporter;
-use File::Spec;
-
-@EXPORT = qw(&pod2usage);
-BEGIN {
-    if ( $] >= 5.005_58 ) {
-       require Pod::Text;
-       @ISA = qw( Pod::Text );
-    }
-    else {
-       require Pod::PlainText;
-       @ISA = qw( Pod::PlainText );
-    }
-}
-
-require Pod::Select;
-
-##---------------------------------------------------------------------------
-
-##---------------------------------
-## Function definitions begin here
-##---------------------------------
-
-sub pod2usage {
-    local($_) = shift;
-    my %opts;
-    ## Collect arguments
-    if (@_ > 0) {
-        ## Too many arguments - assume that this is a hash and
-        ## the user forgot to pass a reference to it.
-        %opts = ($_, @_);
-    }
-    elsif (!defined $_) {
-      $_ = '';
-    }
-    elsif (ref $_) {
-        ## User passed a ref to a hash
-        %opts = %{$_}  if (ref($_) eq 'HASH');
-    }
-    elsif (/^[-+]?\d+$/) {
-        ## User passed in the exit value to use
-        $opts{'-exitval'} =  $_;
-    }
-    else {
-        ## User passed in a message to print before issuing usage.
-        $_  and  $opts{'-message'} = $_;
-    }
-
-    ## Need this for backward compatibility since we formerly used
-    ## options that were all uppercase words rather than ones that
-    ## looked like Unix command-line options.
-    ## to be uppercase keywords)
-    %opts = map {
-        my ($key, $val) = ($_, $opts{$_});
-        $key =~ s/^(?=\w)/-/;
-        $key =~ /^-msg/i   and  $key = '-message';
-        $key =~ /^-exit/i  and  $key = '-exitval';
-        lc($key) => $val;
-    } (keys %opts);
-
-    ## Now determine default -exitval and -verbose values to use
-    if ((! defined $opts{'-exitval'}) && (! defined $opts{'-verbose'})) {
-        $opts{'-exitval'} = 2;
-        $opts{'-verbose'} = 0;
-    }
-    elsif (! defined $opts{'-exitval'}) {
-        $opts{'-exitval'} = ($opts{'-verbose'} > 0) ? 1 : 2;
-    }
-    elsif (! defined $opts{'-verbose'}) {
-        $opts{'-verbose'} = (lc($opts{'-exitval'}) eq 'noexit' ||
-                             $opts{'-exitval'} < 2);
-    }
-
-    ## Default the output file
-    $opts{'-output'} = (lc($opts{'-exitval'}) eq 'noexit' ||
-                        $opts{'-exitval'} < 2) ? \*STDOUT : \*STDERR
-            unless (defined $opts{'-output'});
-    ## Default the input file
-    $opts{'-input'} = $0  unless (defined $opts{'-input'});
-
-    ## Look up input file in path if it doesnt exist.
-    unless ((ref $opts{'-input'}) || (-e $opts{'-input'})) {
-        my $basename = $opts{'-input'};
-        my $pathsep = ($^O =~ /^(?:dos|os2|MSWin32)$/i) ? ';'
-                            : (($^O eq 'MacOS' || $^O eq 'VMS') ? ',' :  ':');
-        my $pathspec = $opts{'-pathlist'} || $ENV{PATH} || $ENV{PERL5LIB};
-
-        my @paths = (ref $pathspec) ? @$pathspec : split($pathsep, $pathspec);
-        for my $dirname (@paths) {
-            $_ = File::Spec->catfile($dirname, $basename)  if length;
-            last if (-e $_) && ($opts{'-input'} = $_);
-        }
-    }
-
-    ## Now create a pod reader and constrain it to the desired sections.
-    my $parser = new Pod::Usage(USAGE_OPTIONS => \%opts);
-    if ($opts{'-verbose'} == 0) {
-        $parser->select('(?:SYNOPSIS|USAGE)\s*');
-    }
-    elsif ($opts{'-verbose'} == 1) {
-        my $opt_re = '(?i)' .
-                     '(?:OPTIONS|ARGUMENTS)' .
-                     '(?:\s*(?:AND|\/)\s*(?:OPTIONS|ARGUMENTS))?';
-        $parser->select( '(?:SYNOPSIS|USAGE)\s*', $opt_re, "DESCRIPTION/$opt_re" );
-    }
-    elsif ($opts{'-verbose'} >= 2 && $opts{'-verbose'} != 99) {
-        $parser->select('.*');
-    }
-    elsif ($opts{'-verbose'} == 99) {
-        my $sections = $opts{'-sections'};
-        $parser->select( (ref $sections) ? @$sections : $sections );
-        $opts{'-verbose'} = 1;
-    }
-
-    ## Now translate the pod document and then exit with the desired status
-    if (      !$opts{'-noperldoc'}
-         and  $opts{'-verbose'} >= 2
-         and  !ref($opts{'-input'})
-         and  $opts{'-output'} == \*STDOUT )
-    {
-       ## spit out the entire PODs. Might as well invoke perldoc
-       my $progpath = File::Spec->catfile($Config{scriptdirexp} 
-	       || $Config{scriptdir}, 'perldoc');
-       print { $opts{'-output'} } ($opts{'-message'}, "\n") if($opts{'-message'});
-       if(defined $opts{-input} && $opts{-input} =~ /^\s*(\S.*?)\s*$/) {
-         # the perldocs back to 5.005 should all have -F
-	 # without -F there are warnings in -T scripts
-         system($progpath, '-F', $1);
-         if($?) {
-           # RT16091: fall back to more if perldoc failed
-           system(($Config{pager} || $ENV{PAGER} || '/bin/more'), $1);
-         }
-       } else {
-         croak "Unspecified input file or insecure argument.\n";
-       }
-    }
-    else {
-       $parser->parse_from_file($opts{'-input'}, $opts{'-output'});
-    }
-
-    exit($opts{'-exitval'})  unless (lc($opts{'-exitval'}) eq 'noexit');
-}
-
-##---------------------------------------------------------------------------
-
-##-------------------------------
-## Method definitions begin here
-##-------------------------------
-
-sub new {
-    my $this = shift;
-    my $class = ref($this) || $this;
-    my %params = @_;
-    my $self = {%params};
-    bless $self, $class;
-    if ($self->can('initialize')) {
-        $self->initialize();
-    } else {
-        # pass through options to Pod::Text
-        my %opts;
-       	for (qw(alt code indent loose margin quotes sentence stderr utf8 width)) {
-            my $val = $params{USAGE_OPTIONS}{"-$_"};
-            $opts{$_} = $val if defined $val;
-        }
-        $self = $self->SUPER::new(%opts);
-        %$self = (%$self, %params);
-    }
-    return $self;
-}
-
-sub select {
-    my ($self, @sections) = @_;
-    if ($ISA[0]->can('select')) {
-        $self->SUPER::select(@sections);
-    } else {
-        # we're using Pod::Simple - need to mimic the behavior of Pod::Select
-        my $add = ($sections[0] eq '+') ? shift(@sections) : '';
-        ## Reset the set of sections to use
-        unless (@sections) {
-          delete $self->{USAGE_SELECT} unless ($add);
-          return;
-        }
-        $self->{USAGE_SELECT} = []
-          unless ($add && $self->{USAGE_SELECT});
-        my $sref = $self->{USAGE_SELECT};
-        ## Compile each spec
-        for my $spec (@sections) {
-          my $cs = Pod::Select::_compile_section_spec($spec);
-          if ( defined $cs ) {
-            ## Store them in our sections array
-            push(@$sref, $cs);
-          } else {
-            carp qq{Ignoring section spec "$spec"!\n};
-          }
-        }
-    }
-}
-
-# Override Pod::Text->seq_i to return just "arg", not "*arg*".
-sub seq_i { return $_[1] }
-
-# This overrides the Pod::Text method to do something very akin to what
-# Pod::Select did as well as the work done below by preprocess_paragraph.
-# Note that the below is very, very specific to Pod::Text.
-sub _handle_element_end {
-    my ($self, $element) = @_;
-    if ($element eq 'head1') {
-        $self->{USAGE_HEADINGS} = [ $$self{PENDING}[-1][1] ];
-        if ($self->{USAGE_OPTIONS}->{-verbose} < 2) {
-            $$self{PENDING}[-1][1] =~ s/^\s*SYNOPSIS\s*$/USAGE/;
-        }
-    } elsif ($element =~ /^head(\d+)$/ && $1) { # avoid 0
-        my $idx = $1 - 1;
-        $self->{USAGE_HEADINGS} = [] unless($self->{USAGE_HEADINGS});
-        $self->{USAGE_HEADINGS}->[$idx] = $$self{PENDING}[-1][1];
-    }
-    if ($element =~ /^head\d+$/) {
-        $$self{USAGE_SKIPPING} = 1;
-        if (!$$self{USAGE_SELECT} || !@{ $$self{USAGE_SELECT} }) {
-            $$self{USAGE_SKIPPING} = 0;
-        } else {
-            my @headings = @{$$self{USAGE_HEADINGS}};
-            for my $section_spec ( @{$$self{USAGE_SELECT}} ) {
-                my $match = 1;
-                for (my $i = 0; $i < $Pod::Select::MAX_HEADING_LEVEL; ++$i) {
-                    $headings[$i] = '' unless defined $headings[$i];
-                    my $regex   = $section_spec->[$i];
-                    my $negated = ($regex =~ s/^\!//);
-                    $match  &= ($negated ? ($headings[$i] !~ /${regex}/)
-                                         : ($headings[$i] =~ /${regex}/));
-                    last unless ($match);
-                } # end heading levels
-                if ($match) {
-                  $$self{USAGE_SKIPPING} = 0;
-                  last;
-                }
-            } # end sections
-        }
-
-        # Try to do some lowercasing instead of all-caps in headings, and use
-        # a colon to end all headings.
-        if($self->{USAGE_OPTIONS}->{-verbose} < 2) {
-            local $_ = $$self{PENDING}[-1][1];
-            s{([A-Z])([A-Z]+)}{((length($2) > 2) ? $1 : lc($1)) . lc($2)}ge;
-            s/\s*$/:/  unless (/:\s*$/);
-            $_ .= "\n";
-            $$self{PENDING}[-1][1] = $_;
-        }
-    }
-    if ($$self{USAGE_SKIPPING} && $element !~ m/^over-/) {
-        pop @{ $$self{PENDING} };
-    } else {
-        $self->SUPER::_handle_element_end($element);
-    }
-}
-
-# required for Pod::Simple API
-sub start_document {
-    my $self = shift;
-    $self->SUPER::start_document();
-    my $msg = $self->{USAGE_OPTIONS}->{-message}  or  return 1;
-    my $out_fh = $self->output_fh();
-    print $out_fh "$msg\n";
-}
-
-# required for old Pod::Parser API
-sub begin_pod {
-    my $self = shift;
-    $self->SUPER::begin_pod();  ## Have to call superclass
-    my $msg = $self->{USAGE_OPTIONS}->{-message}  or  return 1;
-    my $out_fh = $self->output_handle();
-    print $out_fh "$msg\n";
-}
-
-sub preprocess_paragraph {
-    my $self = shift;
-    local $_ = shift;
-    my $line = shift;
-    ## See if this is a heading and we arent printing the entire manpage.
-    if (($self->{USAGE_OPTIONS}->{-verbose} < 2) && /^=head/) {
-        ## Change the title of the SYNOPSIS section to USAGE
-        s/^=head1\s+SYNOPSIS\s*$/=head1 USAGE/;
-        ## Try to do some lowercasing instead of all-caps in headings
-        s{([A-Z])([A-Z]+)}{((length($2) > 2) ? $1 : lc($1)) . lc($2)}ge;
-        ## Use a colon to end all headings
-        s/\s*$/:/  unless (/:\s*$/);
-        $_ .= "\n";
-    }
-    return  $self->SUPER::preprocess_paragraph($_);
-}
-
-1; # keep require happy

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GstGError</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GStreamer 0.10 Core Reference Manual">
 <link rel="up" href="libgstreamer.html" title="GStreamer Core Library">
 <link rel="prev" href="GstElementFactory.html" title="GstElementFactory">
@@ -70,7 +70,7 @@ similarly.
 Errors from elements are the combination of a <span class="type">GError</span> and a debug string.
 The <span class="type">GError</span> contains:
 </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem"><p>a domain type: CORE, LIBRARY, RESOURCE or STREAM</p></li>
 <li class="listitem"><p>a code: an enum value specific to the domain</p></li>
 <li class="listitem"><p>a translated, human-readable message</p></li>
@@ -115,7 +115,7 @@ Elements throw errors using the <a class="link" href="GstElement.html#GST-ELEMEN
 <p>
 </p>
 <div class="example">
-<a name="idp8429648"></a><p class="title"><b>Example 10. Throwing an error</b></p>
+<a name="idp7959488"></a><p class="title"><b>Example 10. Throwing an error</b></p>
 <div class="example-contents"><pre class="programlisting">
     GST_ELEMENT_ERROR (src, RESOURCE, NOT_FOUND,
       (_("No file name specified for reading.")), (NULL));
@@ -126,7 +126,7 @@ Elements throw errors using the <a class="link" href="GstElement.html#GST-ELEMEN
 <p>
 Things to keep in mind:
 </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem"><p>Don't go off inventing new error codes.  The ones
     currently provided should be enough.  If you find your type of error
     does not fit the current codes, you should use FAILED.</p></li>
@@ -176,8 +176,11 @@ Last reviewed on 2006-09-15 (0.10.10)
 <p>
 Core errors are errors inside the core GStreamer library.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="GST-CORE-ERROR-FAILED:CAPS"></a><span class="term"><code class="literal">GST_CORE_ERROR_FAILED</code></span></p></td>
@@ -278,8 +281,11 @@ this functionality yet.
 Library errors are for errors from the library being used by elements
 (initializing, finalizing, settings, ...)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="GST-LIBRARY-ERROR-FAILED:CAPS"></a><span class="term"><code class="literal">GST_LIBRARY_ERROR_FAILED</code></span></p></td>
@@ -347,8 +353,11 @@ Resource errors are for any resource used by an element:
 memory, files, network connections, process space, ...
 They're typically used by source and sink elements.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="GST-RESOURCE-ERROR-FAILED:CAPS"></a><span class="term"><code class="literal">GST_RESOURCE_ERROR_FAILED</code></span></p></td>
@@ -456,8 +465,11 @@ Stream errors are for anything related to the stream being processed:
 format errors, media type errors, ...
 They're typically used by decoders, demuxers, converters, ...
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="GST-STREAM-ERROR-FAILED:CAPS"></a><span class="term"><code class="literal">GST_STREAM_ERROR_FAILED</code></span></p></td>
@@ -603,8 +615,11 @@ call.  To be used as the debug argument in <a class="link" href="GstElement.html
 <p>
 Get a string describing the error message in the current locale.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>domain</code></em> :</span></p></td>

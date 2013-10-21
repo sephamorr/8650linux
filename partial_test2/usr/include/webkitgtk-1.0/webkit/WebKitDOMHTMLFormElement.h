@@ -21,11 +21,10 @@
 #ifndef WebKitDOMHTMLFormElement_h
 #define WebKitDOMHTMLFormElement_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMHTMLElement.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMHTMLElement.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_HTML_FORM_ELEMENT            (webkit_dom_html_form_element_get_type())
@@ -77,24 +76,130 @@ WEBKIT_API gboolean
 webkit_dom_html_form_element_check_validity(WebKitDOMHTMLFormElement* self);
 
 /**
- * webkit_dom_html_form_element_get_elements:
- * @self: A #WebKitDOMHTMLFormElement
- *
- * Returns: (transfer none):
- *
-**/
-WEBKIT_API WebKitDOMHTMLCollection*
-webkit_dom_html_form_element_get_elements(WebKitDOMHTMLFormElement* self);
-
-/**
- * webkit_dom_html_form_element_get_length:
+ * webkit_dom_html_form_element_get_accept_charset:
  * @self: A #WebKitDOMHTMLFormElement
  *
  * Returns:
  *
 **/
-WEBKIT_API glong
-webkit_dom_html_form_element_get_length(WebKitDOMHTMLFormElement* self);
+WEBKIT_API gchar*
+webkit_dom_html_form_element_get_accept_charset(WebKitDOMHTMLFormElement* self);
+
+/**
+ * webkit_dom_html_form_element_set_accept_charset:
+ * @self: A #WebKitDOMHTMLFormElement
+ * @value: A #gchar
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_form_element_set_accept_charset(WebKitDOMHTMLFormElement* self, const gchar* value);
+
+/**
+ * webkit_dom_html_form_element_get_action:
+ * @self: A #WebKitDOMHTMLFormElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_html_form_element_get_action(WebKitDOMHTMLFormElement* self);
+
+/**
+ * webkit_dom_html_form_element_set_action:
+ * @self: A #WebKitDOMHTMLFormElement
+ * @value: A #gchar
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_form_element_set_action(WebKitDOMHTMLFormElement* self, const gchar* value);
+
+/**
+ * webkit_dom_html_form_element_get_autocomplete:
+ * @self: A #WebKitDOMHTMLFormElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_html_form_element_get_autocomplete(WebKitDOMHTMLFormElement* self);
+
+/**
+ * webkit_dom_html_form_element_set_autocomplete:
+ * @self: A #WebKitDOMHTMLFormElement
+ * @value: A #gchar
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_form_element_set_autocomplete(WebKitDOMHTMLFormElement* self, const gchar* value);
+
+/**
+ * webkit_dom_html_form_element_get_enctype:
+ * @self: A #WebKitDOMHTMLFormElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_html_form_element_get_enctype(WebKitDOMHTMLFormElement* self);
+
+/**
+ * webkit_dom_html_form_element_set_enctype:
+ * @self: A #WebKitDOMHTMLFormElement
+ * @value: A #gchar
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_form_element_set_enctype(WebKitDOMHTMLFormElement* self, const gchar* value);
+
+/**
+ * webkit_dom_html_form_element_get_encoding:
+ * @self: A #WebKitDOMHTMLFormElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_html_form_element_get_encoding(WebKitDOMHTMLFormElement* self);
+
+/**
+ * webkit_dom_html_form_element_set_encoding:
+ * @self: A #WebKitDOMHTMLFormElement
+ * @value: A #gchar
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_form_element_set_encoding(WebKitDOMHTMLFormElement* self, const gchar* value);
+
+/**
+ * webkit_dom_html_form_element_get_method:
+ * @self: A #WebKitDOMHTMLFormElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_html_form_element_get_method(WebKitDOMHTMLFormElement* self);
+
+/**
+ * webkit_dom_html_form_element_set_method:
+ * @self: A #WebKitDOMHTMLFormElement
+ * @value: A #gchar
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_form_element_set_method(WebKitDOMHTMLFormElement* self, const gchar* value);
 
 /**
  * webkit_dom_html_form_element_get_name:
@@ -139,111 +244,6 @@ WEBKIT_API void
 webkit_dom_html_form_element_set_no_validate(WebKitDOMHTMLFormElement* self, gboolean value);
 
 /**
- * webkit_dom_html_form_element_get_accept_charset:
- * @self: A #WebKitDOMHTMLFormElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gchar*
-webkit_dom_html_form_element_get_accept_charset(WebKitDOMHTMLFormElement* self);
-
-/**
- * webkit_dom_html_form_element_set_accept_charset:
- * @self: A #WebKitDOMHTMLFormElement
- * @value: A #gchar
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_form_element_set_accept_charset(WebKitDOMHTMLFormElement* self, const gchar* value);
-
-/**
- * webkit_dom_html_form_element_get_action:
- * @self: A #WebKitDOMHTMLFormElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gchar*
-webkit_dom_html_form_element_get_action(WebKitDOMHTMLFormElement* self);
-
-/**
- * webkit_dom_html_form_element_set_action:
- * @self: A #WebKitDOMHTMLFormElement
- * @value: A #gchar
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_form_element_set_action(WebKitDOMHTMLFormElement* self, const gchar* value);
-
-/**
- * webkit_dom_html_form_element_get_encoding:
- * @self: A #WebKitDOMHTMLFormElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gchar*
-webkit_dom_html_form_element_get_encoding(WebKitDOMHTMLFormElement* self);
-
-/**
- * webkit_dom_html_form_element_set_encoding:
- * @self: A #WebKitDOMHTMLFormElement
- * @value: A #gchar
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_form_element_set_encoding(WebKitDOMHTMLFormElement* self, const gchar* value);
-
-/**
- * webkit_dom_html_form_element_get_enctype:
- * @self: A #WebKitDOMHTMLFormElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gchar*
-webkit_dom_html_form_element_get_enctype(WebKitDOMHTMLFormElement* self);
-
-/**
- * webkit_dom_html_form_element_set_enctype:
- * @self: A #WebKitDOMHTMLFormElement
- * @value: A #gchar
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_form_element_set_enctype(WebKitDOMHTMLFormElement* self, const gchar* value);
-
-/**
- * webkit_dom_html_form_element_get_method:
- * @self: A #WebKitDOMHTMLFormElement
- *
- * Returns:
- *
-**/
-WEBKIT_API gchar*
-webkit_dom_html_form_element_get_method(WebKitDOMHTMLFormElement* self);
-
-/**
- * webkit_dom_html_form_element_set_method:
- * @self: A #WebKitDOMHTMLFormElement
- * @value: A #gchar
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_form_element_set_method(WebKitDOMHTMLFormElement* self, const gchar* value);
-
-/**
  * webkit_dom_html_form_element_get_target:
  * @self: A #WebKitDOMHTMLFormElement
  *
@@ -265,25 +265,24 @@ WEBKIT_API void
 webkit_dom_html_form_element_set_target(WebKitDOMHTMLFormElement* self, const gchar* value);
 
 /**
- * webkit_dom_html_form_element_get_autocomplete:
+ * webkit_dom_html_form_element_get_elements:
  * @self: A #WebKitDOMHTMLFormElement
  *
- * Returns:
+ * Returns: (transfer none):
  *
 **/
-WEBKIT_API gchar*
-webkit_dom_html_form_element_get_autocomplete(WebKitDOMHTMLFormElement* self);
+WEBKIT_API WebKitDOMHTMLCollection*
+webkit_dom_html_form_element_get_elements(WebKitDOMHTMLFormElement* self);
 
 /**
- * webkit_dom_html_form_element_set_autocomplete:
+ * webkit_dom_html_form_element_get_length:
  * @self: A #WebKitDOMHTMLFormElement
- * @value: A #gchar
  *
  * Returns:
  *
 **/
-WEBKIT_API void
-webkit_dom_html_form_element_set_autocomplete(WebKitDOMHTMLFormElement* self, const gchar* value);
+WEBKIT_API glong
+webkit_dom_html_form_element_get_length(WebKitDOMHTMLFormElement* self);
 
 G_END_DECLS
 

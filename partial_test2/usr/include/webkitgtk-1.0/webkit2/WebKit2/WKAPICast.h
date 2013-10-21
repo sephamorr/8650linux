@@ -56,6 +56,8 @@ class NotificationPermissionRequest;
 class WebApplicationCacheManagerProxy;
 class WebBackForwardList;
 class WebBackForwardListItem;
+class WebBatteryManagerProxy;
+class WebBatteryStatus;
 class WebResourceCacheManagerProxy;
 class WebContext;
 class WebCookieManagerProxy;
@@ -70,9 +72,13 @@ class WebGrammarDetail;
 class WebHitTestResult;
 class WebIconDatabase;
 class WebInspectorProxy;
+class WebIntentData;
+class WebIntentServiceInfo;
 class WebKeyValueStorageManagerProxy;
 class WebMediaCacheManagerProxy;
 class WebNavigationData;
+class WebNetworkInfoManagerProxy;
+class WebNetworkInfo;
 class WebNotification;
 class WebNotificationProvider;
 class WebNotificationManagerProxy;
@@ -83,13 +89,18 @@ class WebPageProxy;
 class WebPluginSiteDataManager;
 class WebPreferences;
 class WebProtectionSpace;
+class WebRenderLayer;
+class WebRenderObject;
 class WebTextChecker;
+class WebVibrationProxy;
 
 WK_ADD_API_MAPPING(WKApplicationCacheManagerRef, WebApplicationCacheManagerProxy)
 WK_ADD_API_MAPPING(WKAuthenticationChallengeRef, AuthenticationChallengeProxy)
 WK_ADD_API_MAPPING(WKAuthenticationDecisionListenerRef, AuthenticationDecisionListener)
 WK_ADD_API_MAPPING(WKBackForwardListItemRef, WebBackForwardListItem)
 WK_ADD_API_MAPPING(WKBackForwardListRef, WebBackForwardList)
+WK_ADD_API_MAPPING(WKBatteryManagerRef, WebBatteryManagerProxy)
+WK_ADD_API_MAPPING(WKBatteryStatusRef, WebBatteryStatus)
 WK_ADD_API_MAPPING(WKResourceCacheManagerRef, WebResourceCacheManagerProxy)
 WK_ADD_API_MAPPING(WKContextRef, WebContext)
 WK_ADD_API_MAPPING(WKCookieManagerRef, WebCookieManagerProxy)
@@ -105,9 +116,13 @@ WK_ADD_API_MAPPING(WKGeolocationPositionRef, WebGeolocationPosition)
 WK_ADD_API_MAPPING(WKGrammarDetailRef, WebGrammarDetail)
 WK_ADD_API_MAPPING(WKHitTestResultRef, WebHitTestResult)
 WK_ADD_API_MAPPING(WKIconDatabaseRef, WebIconDatabase)
+WK_ADD_API_MAPPING(WKIntentDataRef, WebIntentData)
+WK_ADD_API_MAPPING(WKIntentServiceInfoRef, WebIntentServiceInfo)
 WK_ADD_API_MAPPING(WKKeyValueStorageManagerRef, WebKeyValueStorageManagerProxy)
 WK_ADD_API_MAPPING(WKMediaCacheManagerRef, WebMediaCacheManagerProxy)
 WK_ADD_API_MAPPING(WKNavigationDataRef, WebNavigationData)
+WK_ADD_API_MAPPING(WKNetworkInfoManagerRef, WebNetworkInfoManagerProxy)
+WK_ADD_API_MAPPING(WKNetworkInfoRef, WebNetworkInfo)
 WK_ADD_API_MAPPING(WKNotificationManagerRef, WebNotificationManagerProxy)
 WK_ADD_API_MAPPING(WKNotificationPermissionRequestRef, NotificationPermissionRequest)
 WK_ADD_API_MAPPING(WKNotificationProviderRef, WebNotificationProvider)
@@ -119,7 +134,10 @@ WK_ADD_API_MAPPING(WKPageRef, WebPageProxy)
 WK_ADD_API_MAPPING(WKPluginSiteDataManagerRef, WebPluginSiteDataManager)
 WK_ADD_API_MAPPING(WKPreferencesRef, WebPreferences)
 WK_ADD_API_MAPPING(WKProtectionSpaceRef, WebProtectionSpace)
+WK_ADD_API_MAPPING(WKRenderLayerRef, WebRenderLayer)
+WK_ADD_API_MAPPING(WKRenderObjectRef, WebRenderObject)
 WK_ADD_API_MAPPING(WKTextCheckerRef, WebTextChecker)
+WK_ADD_API_MAPPING(WKVibrationRef, WebVibrationProxy)
 
 #if ENABLE(INSPECTOR)
 WK_ADD_API_MAPPING(WKInspectorRef, WebInspectorProxy)
@@ -355,4 +373,13 @@ inline ProxyingRefPtr<WebGrammarDetail> toAPI(const WebCore::GrammarDetail& gram
 #if defined(BUILDING_GTK__)
 #include "WKAPICastGtk.h"
 #endif
+
+#if USE(SOUP)
+#include "WKAPICastSoup.h"
+#endif
+
+#if defined(BUILDING_EFL__)
+#include "WKAPICastEfl.h"
+#endif
+
 #endif // WKAPICast_h

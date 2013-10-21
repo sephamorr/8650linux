@@ -42,8 +42,6 @@ typedef struct WKContextStatistics WKContextStatistics;
 
 WK_EXPORT void WKContextGetGlobalStatistics(WKContextStatistics* statistics);
 
-WK_EXPORT WKContextRef WKContextGetSharedThreadContext();
-
 WK_EXPORT void WKContextSetAdditionalPluginsDirectory(WKContextRef context, WKStringRef pluginsDirectory);
 
 WK_EXPORT void WKContextRegisterURLSchemeAsEmptyDocument(WKContextRef context, WKStringRef urlScheme);
@@ -62,9 +60,6 @@ WK_EXPORT void WKContextSetIconDatabasePath(WKContextRef context, WKStringRef ic
 // we should really change these settings to be on WebPreferences and changeable at runtime.
 WK_EXPORT void WKContextSetDatabaseDirectory(WKContextRef context, WKStringRef databaseDirectory);
 WK_EXPORT void WKContextSetLocalStorageDirectory(WKContextRef context, WKStringRef localStorageDirectory);
-WK_EXPORT void WKContextSetOverrideWebInspectorBaseDirectory(WKContextRef context, WKStringRef webInspectorBaseDirectory);
-WK_EXPORT void WKContextSetOverrideWebInspectorPagePath(WKContextRef context, WKStringRef webInspectorPagePath);
-WK_EXPORT void WKContextSetOverrideWebInspectorLocalizedStringsPath(WKContextRef context, WKStringRef webInspectorLocalizedStringsPath);
 
 // FIXME: This is a workaround for testing purposes only and should be removed once a better
 // solution has been found for testing.

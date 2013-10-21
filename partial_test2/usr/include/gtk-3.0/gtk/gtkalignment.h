@@ -22,13 +22,13 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
-#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
-#error "Only <gtk/gtk.h> can be included directly."
-#endif
-
 #ifndef __GTK_ALIGNMENT_H__
 #define __GTK_ALIGNMENT_H__
 
+
+#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
+#error "Only <gtk/gtk.h> can be included directly."
+#endif
 
 #include <gtk/gtkbin.h>
 
@@ -67,23 +67,28 @@ struct _GtkAlignmentClass
 };
 
 
+GDK_AVAILABLE_IN_ALL
 GType      gtk_alignment_get_type   (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkWidget* gtk_alignment_new        (gfloat             xalign,
 				     gfloat             yalign,
 				     gfloat             xscale,
 				     gfloat             yscale);
+GDK_AVAILABLE_IN_ALL
 void       gtk_alignment_set        (GtkAlignment      *alignment,
 				     gfloat             xalign,
 				     gfloat             yalign,
 				     gfloat             xscale,
 				     gfloat             yscale);
 
+GDK_AVAILABLE_IN_ALL
 void       gtk_alignment_set_padding (GtkAlignment      *alignment,
 				      guint              padding_top,
 				      guint              padding_bottom,
 				      guint              padding_left,
 				      guint              padding_right);
 
+GDK_AVAILABLE_IN_ALL
 void       gtk_alignment_get_padding (GtkAlignment      *alignment,
 				      guint             *padding_top,
 				      guint             *padding_bottom,

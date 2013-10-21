@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GConfClient</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.0">
 <link rel="home" href="index.html" title="GConf Reference Manual">
 <link rel="up" href="ch01.html" title="Using the GConf library">
 <link rel="prev" href="ch01.html" title="Using the GConf library">
 <link rel="next" href="gconf-gconf-backend.html" title="gconf-backend">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -40,29 +40,29 @@
 <pre class="synopsis">enum                <a class="link" href="gconf-gconf-client.html#GConfClientPreloadType" title="enum GConfClientPreloadType">GConfClientPreloadType</a>;
 enum                <a class="link" href="gconf-gconf-client.html#GConfClientErrorHandlingMode" title="enum GConfClientErrorHandlingMode">GConfClientErrorHandlingMode</a>;
 <span class="returnvalue">void</span>                (<a class="link" href="gconf-gconf-client.html#GConfClientNotifyFunc" title="GConfClientNotifyFunc ()">*GConfClientNotifyFunc</a>)            (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> cnxn_id</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> cnxn_id</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfEntry" title="struct GConfEntry"><span class="type">GConfEntry</span></a> *entry</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
 <span class="returnvalue">void</span>                (<a class="link" href="gconf-gconf-client.html#GConfClientErrorHandlerFunc" title="GConfClientErrorHandlerFunc ()">*GConfClientErrorHandlerFunc</a>)      (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> *error</code></em>);
+                                                         <em class="parameter"><code><span class="type">GError</span> *error</code></em>);
 #define             <a class="link" href="gconf-gconf-client.html#GCONF-CLIENT:CAPS" title="GCONF_CLIENT()">GCONF_CLIENT</a>                        (obj)
 <span class="returnvalue">GConfClient</span> *       <a class="link" href="gconf-gconf-client.html#gconf-client-get-default" title="gconf_client_get_default ()">gconf_client_get_default</a>            (<em class="parameter"><code><span class="type">void</span></code></em>);
 <span class="returnvalue">GConfClient</span> *       <a class="link" href="gconf-gconf-client.html#gconf-client-get-for-engine" title="gconf_client_get_for_engine ()">gconf_client_get_for_engine</a>         (<em class="parameter"><code><a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a> *engine</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-client.html#gconf-client-add-dir" title="gconf_client_add_dir ()">gconf_client_add_dir</a>                (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *dir</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *dir</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-client.html#GConfClientPreloadType" title="enum GConfClientPreloadType"><span class="type">GConfClientPreloadType</span></a> preload</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-client.html#gconf-client-remove-dir" title="gconf_client_remove_dir ()">gconf_client_remove_dir</a>             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *dir</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="gconf-gconf-client.html#gconf-client-notify-add" title="gconf_client_notify_add ()">gconf_client_notify_add</a>             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *namespace_section</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *dir</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+<span class="returnvalue">guint</span>               <a class="link" href="gconf-gconf-client.html#gconf-client-notify-add" title="gconf_client_notify_add ()">gconf_client_notify_add</a>             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *namespace_section</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-client.html#GConfClientNotifyFunc" title="GConfClientNotifyFunc ()"><span class="type">GConfClientNotifyFunc</span></a> func</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Miscellaneous-Utility-Functions.html#GFreeFunc"><span class="type">GFreeFunc</span></a> destroy_notify</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>,
+                                                         <em class="parameter"><code><span class="type">GFreeFunc</span> destroy_notify</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-client.html#gconf-client-notify-remove" title="gconf_client_notify_remove ()">gconf_client_notify_remove</a>          (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> cnxn</code></em>);
+                                                         <em class="parameter"><code><span class="type">guint</span> cnxn</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-client.html#gconf-client-notify" title="gconf_client_notify ()">gconf_client_notify</a>                 (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
                                                          <em class="parameter"><code>const <span class="type">char</span> *key</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-client.html#gconf-client-set-error-handling" title="gconf_client_set_error_handling ()">gconf_client_set_error_handling</a>     (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
@@ -71,129 +71,129 @@ enum                <a class="link" href="gconf-gconf-client.html#GConfClientErr
                                                         (<em class="parameter"><code><a class="link" href="gconf-gconf-client.html#GConfClientErrorHandlerFunc" title="GConfClientErrorHandlerFunc ()"><span class="type">GConfClientErrorHandlerFunc</span></a> func</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-client.html#gconf-client-clear-cache" title="gconf_client_clear_cache ()">gconf_client_clear_cache</a>            (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-client.html#gconf-client-preload" title="gconf_client_preload ()">gconf_client_preload</a>                (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *dirname</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *dirname</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-client.html#GConfClientPreloadType" title="enum GConfClientPreloadType"><span class="type">GConfClientPreloadType</span></a> type</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-client.html#gconf-client-set" title="gconf_client_set ()">gconf_client_set</a>                    (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a> *val</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
 <a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="returnvalue">GConfValue</span></a> *        <a class="link" href="gconf-gconf-client.html#gconf-client-get" title="gconf_client_get ()">gconf_client_get</a>                    (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
 <a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="returnvalue">GConfValue</span></a> *        <a class="link" href="gconf-gconf-client.html#gconf-client-get-without-default" title="gconf_client_get_without_default ()">gconf_client_get_without_default</a>    (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
 <a class="link" href="gconf-gconf-value.html#GConfEntry" title="struct GConfEntry"><span class="returnvalue">GConfEntry</span></a> *        <a class="link" href="gconf-gconf-client.html#gconf-client-get-entry" title="gconf_client_get_entry ()">gconf_client_get_entry</a>              (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *locale</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> use_schema_default</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *locale</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> use_schema_default</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
 <a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="returnvalue">GConfValue</span></a> *        <a class="link" href="gconf-gconf-client.html#gconf-client-get-default-from-schema" title="gconf_client_get_default_from_schema ()">gconf_client_get_default_from_schema</a>
                                                         (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gconf-gconf-client.html#gconf-client-unset" title="gconf_client_unset ()">gconf_client_unset</a>                  (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gconf-gconf-client.html#gconf-client-recursive-unset" title="gconf_client_recursive_unset ()">gconf_client_recursive_unset</a>        (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gconf-gconf-client.html#gconf-client-unset" title="gconf_client_unset ()">gconf_client_unset</a>                  (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gconf-gconf-client.html#gconf-client-recursive-unset" title="gconf_client_recursive_unset ()">gconf_client_recursive_unset</a>        (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
                                                          <em class="parameter"><code>const <span class="type">char</span> *key</code></em>,
                                                          <em class="parameter"><code><span class="type">GConfUnsetFlags</span> flags</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="gconf-gconf-client.html#gconf-client-all-entries" title="gconf_client_all_entries ()">gconf_client_all_entries</a>            (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *dir</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="gconf-gconf-client.html#gconf-client-all-dirs" title="gconf_client_all_dirs ()">gconf_client_all_dirs</a>               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *dir</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="gconf-gconf-client.html#gconf-client-all-entries" title="gconf_client_all_entries ()">gconf_client_all_entries</a>            (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *dir</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="gconf-gconf-client.html#gconf-client-all-dirs" title="gconf_client_all_dirs ()">gconf_client_all_dirs</a>               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *dir</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-client.html#gconf-client-suggest-sync" title="gconf_client_suggest_sync ()">gconf_client_suggest_sync</a>           (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gconf-gconf-client.html#gconf-client-dir-exists" title="gconf_client_dir_exists ()">gconf_client_dir_exists</a>             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *dir</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gconf-gconf-client.html#gconf-client-key-is-writable" title="gconf_client_key_is_writable ()">gconf_client_key_is_writable</a>        (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             <a class="link" href="gconf-gconf-client.html#gconf-client-get-float" title="gconf_client_get_float ()">gconf_client_get_float</a>              (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gconf-gconf-client.html#gconf-client-get-int" title="gconf_client_get_int ()">gconf_client_get_int</a>                (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="gconf-gconf-client.html#gconf-client-get-string" title="gconf_client_get_string ()">gconf_client_get_string</a>             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gconf-gconf-client.html#gconf-client-get-bool" title="gconf_client_get_bool ()">gconf_client_get_bool</a>               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gconf-gconf-client.html#gconf-client-dir-exists" title="gconf_client_dir_exists ()">gconf_client_dir_exists</a>             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *dir</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gconf-gconf-client.html#gconf-client-key-is-writable" title="gconf_client_key_is_writable ()">gconf_client_key_is_writable</a>        (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+<span class="returnvalue">gdouble</span>             <a class="link" href="gconf-gconf-client.html#gconf-client-get-float" title="gconf_client_get_float ()">gconf_client_get_float</a>              (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="gconf-gconf-client.html#gconf-client-get-int" title="gconf_client_get_int ()">gconf_client_get_int</a>                (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="gconf-gconf-client.html#gconf-client-get-string" title="gconf_client_get_string ()">gconf_client_get_string</a>             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gconf-gconf-client.html#gconf-client-get-bool" title="gconf_client_get_bool ()">gconf_client_get_bool</a>               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
 <a class="link" href="gconf-gconf-schema.html#GConfSchema" title="GConfSchema"><span class="returnvalue">GConfSchema</span></a> *       <a class="link" href="gconf-gconf-client.html#gconf-client-get-schema" title="gconf_client_get_schema ()">gconf_client_get_schema</a>             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="gconf-gconf-client.html#gconf-client-get-list" title="gconf_client_get_list ()">gconf_client_get_list</a>               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="gconf-gconf-client.html#gconf-client-get-list" title="gconf_client_get_list ()">gconf_client_get_list</a>               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="type">GConfValueType</span></a> list_type</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gconf-gconf-client.html#gconf-client-get-pair" title="gconf_client_get_pair ()">gconf_client_get_pair</a>               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gconf-gconf-client.html#gconf-client-get-pair" title="gconf_client_get_pair ()">gconf_client_get_pair</a>               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="type">GConfValueType</span></a> car_type</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="type">GConfValueType</span></a> cdr_type</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> car_retloc</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> cdr_retloc</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gconf-gconf-client.html#gconf-client-set-float" title="gconf_client_set_float ()">gconf_client_set_float</a>              (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> val</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gconf-gconf-client.html#gconf-client-set-int" title="gconf_client_set_int ()">gconf_client_set_int</a>                (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> val</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gconf-gconf-client.html#gconf-client-set-string" title="gconf_client_set_string ()">gconf_client_set_string</a>             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *val</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gconf-gconf-client.html#gconf-client-set-bool" title="gconf_client_set_bool ()">gconf_client_set_bool</a>               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> val</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gconf-gconf-client.html#gconf-client-set-schema" title="gconf_client_set_schema ()">gconf_client_set_schema</a>             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> car_retloc</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> cdr_retloc</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gconf-gconf-client.html#gconf-client-set-float" title="gconf_client_set_float ()">gconf_client_set_float</a>              (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">gdouble</span> val</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gconf-gconf-client.html#gconf-client-set-int" title="gconf_client_set_int ()">gconf_client_set_int</a>                (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> val</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gconf-gconf-client.html#gconf-client-set-string" title="gconf_client_set_string ()">gconf_client_set_string</a>             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *val</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gconf-gconf-client.html#gconf-client-set-bool" title="gconf_client_set_bool ()">gconf_client_set_bool</a>               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> val</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gconf-gconf-client.html#gconf-client-set-schema" title="gconf_client_set_schema ()">gconf_client_set_schema</a>             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="gconf-gconf-schema.html#GConfSchema" title="GConfSchema"><span class="type">GConfSchema</span></a> *val</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gconf-gconf-client.html#gconf-client-set-list" title="gconf_client_set_list ()">gconf_client_set_list</a>               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gconf-gconf-client.html#gconf-client-set-list" title="gconf_client_set_list ()">gconf_client_set_list</a>               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="type">GConfValueType</span></a> list_type</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *list</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gconf-gconf-client.html#gconf-client-set-pair" title="gconf_client_set_pair ()">gconf_client_set_pair</a>               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *list</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gconf-gconf-client.html#gconf-client-set-pair" title="gconf_client_set_pair ()">gconf_client_set_pair</a>               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="type">GConfValueType</span></a> car_type</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="type">GConfValueType</span></a> cdr_type</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> address_of_car</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> address_of_cdr</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> address_of_car</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> address_of_cdr</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-client.html#gconf-client-error" title="gconf_client_error ()">gconf_client_error</a>                  (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> *error</code></em>);
+                                                         <em class="parameter"><code><span class="type">GError</span> *error</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-client.html#gconf-client-unreturned-error" title="gconf_client_unreturned_error ()">gconf_client_unreturned_error</a>       (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> *error</code></em>);
+                                                         <em class="parameter"><code><span class="type">GError</span> *error</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-client.html#gconf-client-value-changed" title="gconf_client_value_changed ()">gconf_client_value_changed</a>          (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a> *value</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gconf-gconf-client.html#gconf-client-commit-change-set" title="gconf_client_commit_change_set ()">gconf_client_commit_change_set</a>      (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+<span class="returnvalue">gboolean</span>            <a class="link" href="gconf-gconf-client.html#gconf-client-commit-change-set" title="gconf_client_commit_change_set ()">gconf_client_commit_change_set</a>      (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> remove_committed</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+                                                         <em class="parameter"><code><span class="type">gboolean</span> remove_committed</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
 <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *    <a class="link" href="gconf-gconf-client.html#gconf-client-reverse-change-set" title="gconf_client_reverse_change_set ()">gconf_client_reverse_change_set</a>     (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
 <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *    <a class="link" href="gconf-gconf-client.html#gconf-client-change-set-from-currentv" title="gconf_client_change_set_from_currentv ()">gconf_client_change_set_from_currentv</a>
                                                         (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **keys</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> **keys</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);
 <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *    <a class="link" href="gconf-gconf-client.html#gconf-client-change-set-from-current" title="gconf_client_change_set_from_current ()">gconf_client_change_set_from_current</a>
                                                         (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *first_key</code></em>,
                                                          <em class="parameter"><code>...</code></em>);
 </pre>
 </div>
@@ -202,7 +202,7 @@ enum                <a class="link" href="gconf-gconf-client.html#GConfClientErr
 <p>
 <span class="type">GConfClient</span> adds the following features to plain GConf:
 </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem"><p>
 A client-side cache for a specified list of directories you're interested in.
 You can "preload" entire directories into the cache, speeding things up even more.
@@ -225,7 +225,7 @@ directly, or you'll break things. This is why there's no
 <a class="link" href="gconf-gconf-client.html#gconf-client-get-default" title="gconf_client_get_default ()"><code class="function">gconf_client_get_default()</code></a>, there is no (legitimate) way to obtain a pointer to the
 underlying <a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a>. If you create a <span class="type">GConfClient</span> from an existing engine,
 you'll have to be disciplined enough to avoid using that engine directly.
-<sup>[<a name="idp10853104" href="#ftn.idp10853104" class="footnote">1</a>]</sup>
+<a href="#ftn.idm46912422256368" class="footnote" name="idm46912422256368"><sup class="footnote">[1]</sup></a>
 </p>
 </div>
 <p>
@@ -238,12 +238,12 @@ signal won't be emitted for them.
 <p>
 There are two error-related signals in <span class="type">GConfClient</span>. The first is plain "error";
 it's emitted anytime an error occurs. The second is "unreturned_error"; this
-signal is emitted if you pass <span class="symbol">NULL</span> as the <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>** to any
+signal is emitted if you pass <span class="symbol">NULL</span> as the <span class="type">GError</span>** to any
 <span class="type">GConfClient</span> function. The idea is that you can have a global error handler
 attached to the "unreturned_error" signal; if you want to use this handler, you
 don't need to use the normal GConf error handling mechanism. However, if you
 ever need to handle errors for a specific function call, you can override the
-global handler by passing a non-<span class="symbol">NULL</span> <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>** to the
+global handler by passing a non-<span class="symbol">NULL</span> <span class="type">GError</span>** to the
 function.  If you want an error handler that's <span class="emphasis"><em>always</em></span>
 invoked, use the "error" signal.
 </p>
@@ -313,8 +313,11 @@ idea. <em class="parameter"><code>GCONF_CLIENT_PRELOAD_NONE</code></em> specifie
 <em class="parameter"><code>GCONF_CLIENT_PRELOAD_RECURSIVE</code></em> loads <span class="emphasis"><em>all</em></span> children of the
 directory and its subdirectories, recursively.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="GCONF-CLIENT-PRELOAD-NONE:CAPS"></a><span class="term"><code class="literal">GCONF_CLIENT_PRELOAD_NONE</code></span></p></td>
@@ -351,10 +354,13 @@ handling.  <span class="type">GConfClient</span> can pop up a dialog in the defa
 unreturned errors are handled, or all errors are handled with this enumeration.
 You can prevent specific errors from being handled automatically by stopping the
 signal emission before the default signal handler is called (see the GLib
-documentation, <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#g-signal-stop-emission-by-name"><code class="function">g_signal_stop_emission_by_name()</code></a> for example).
+documentation, <code class="function">g_signal_stop_emission_by_name()</code> for example).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="GCONF-CLIENT-HANDLE-NONE:CAPS"></a><span class="term"><code class="literal">GCONF_CLIENT_HANDLE_NONE</code></span></p></td>
@@ -378,9 +384,9 @@ documentation, <a href="http://library.gnome.org/devel/gobject/unstable/gobject-
 <div class="refsect2">
 <a name="GConfClientNotifyFunc"></a><h3>GConfClientNotifyFunc ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                (*GConfClientNotifyFunc)            (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> cnxn_id</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> cnxn_id</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfEntry" title="struct GConfEntry"><span class="type">GConfEntry</span></a> *entry</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
 <p>
 This is the signature of a user function added with <a class="link" href="gconf-gconf-client.html#gconf-client-notify-add" title="gconf_client_notify_add ()"><code class="function">gconf_client_notify_add()</code></a>.
 The notify function is invoked when the value of a key changes. The <em class="parameter"><code>entry</code></em>
@@ -389,8 +395,11 @@ value in the <em class="parameter"><code>entry</code></em> argument should not b
 want to keep it around (the <span class="type">GConfClient</span> will destroy it sometime after your
 notify function is called).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -415,13 +424,16 @@ notify function is called).
 <div class="refsect2">
 <a name="GConfClientErrorHandlerFunc"></a><h3>GConfClientErrorHandlerFunc ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                (*GConfClientErrorHandlerFunc)      (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> *error</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">GError</span> *error</code></em>);</pre>
 <p>
 This is the signature of a user function which needs to be called for error
 handling.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -429,7 +441,7 @@ handling.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 </tbody>
 </table></div>
@@ -442,8 +454,11 @@ handling.
 <p>
 Casts a pointer to a <span class="type">GConfClient</span>*.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
 <td>a <span class="type">GConfClient</span>.</td>
@@ -461,13 +476,16 @@ engine you want. If someone else is already using the default
 with the reference count incremented. So you have to unref either way.
 </p>
 <p>
-It's important to call <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#g-type-init"><code class="function">g_type_init()</code></a> before using this GObject, to initialize the type system.
+It's important to call <code class="function">g_type_init()</code> before using this GObject, to initialize the type system.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a new <span class="type">GConfClient</span>. <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a> when you're done. <span class="annotation">[<a href="http://foldoc.org/transfer%20full"><span class="acronym">transfer full</span></a>]</span>
+<td>a new <span class="type">GConfClient</span>. <code class="function">g_object_unref()</code> when you're done. <span class="annotation">[<a href="http://foldoc.org/transfer%20full"><span class="acronym">transfer full</span></a>]</span>
 </td>
 </tr></tbody>
 </table></div>
@@ -479,12 +497,15 @@ It's important to call <a href="http://library.gnome.org/devel/gobject/unstable/
 <p>
 Creates a new <span class="type">GConfClient</span> with a specific <a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a>. Only specialized
 configuration-related programs should need to call this function. The
-returned <span class="type">GConfClient</span> should be unref'd when you're done with <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.
+returned <span class="type">GConfClient</span> should be unref'd when you're done with <code class="function">g_object_unref()</code>.
 Remember to avoid using the <a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a> directly once you have a <span class="type">GConfClient</span>
 wrapper.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>engine</code></em> :</span></p></td>
@@ -502,9 +523,9 @@ wrapper.
 <div class="refsect2">
 <a name="gconf-client-add-dir"></a><h3>gconf_client_add_dir ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gconf_client_add_dir                (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *dir</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *dir</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-client.html#GConfClientPreloadType" title="enum GConfClientPreloadType"><span class="type">GConfClientPreloadType</span></a> preload</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Add a directory to the list of directories the <span class="type">GConfClient</span> will watch. Any
 changes to keys below this directory will cause the "value_changed" signal to be
@@ -518,8 +539,11 @@ multiple times; if you add a directory multiple times, it will not be removed
 until you call <a class="link" href="gconf-gconf-client.html#gconf-client-remove-dir" title="gconf_client_remove_dir ()"><code class="function">gconf_client_remove_dir()</code></a> an equal number of times. The directory
 name must not have a trailing slash.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -535,7 +559,7 @@ name must not have a trailing slash.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 </tbody>
 </table></div>
@@ -544,8 +568,8 @@ name must not have a trailing slash.
 <div class="refsect2">
 <a name="gconf-client-remove-dir"></a><h3>gconf_client_remove_dir ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gconf_client_remove_dir             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *dir</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *dir</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Remove a directory from the list created with <a class="link" href="gconf-gconf-client.html#gconf-client-add-dir" title="gconf_client_add_dir ()"><code class="function">gconf_client_add_dir()</code></a>.  If any
 notifications have been added below this directory with
@@ -553,8 +577,11 @@ notifications have been added below this directory with
 the removed directory.  Note that if a directory has been added multiple times,
 you must remove it the same number of times before the remove takes effect.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -566,7 +593,7 @@ you must remove it the same number of times before the remove takes effect.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 </tbody>
 </table></div>
@@ -574,12 +601,12 @@ you must remove it the same number of times before the remove takes effect.
 <hr>
 <div class="refsect2">
 <a name="gconf-client-notify-add"></a><h3>gconf_client_notify_add ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gconf_client_notify_add             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *namespace_section</code></em>,
+<pre class="programlisting"><span class="returnvalue">guint</span>               gconf_client_notify_add             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *namespace_section</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-client.html#GConfClientNotifyFunc" title="GConfClientNotifyFunc ()"><span class="type">GConfClientNotifyFunc</span></a> func</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Miscellaneous-Utility-Functions.html#GFreeFunc"><span class="type">GFreeFunc</span></a> destroy_notify</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>,
+                                                         <em class="parameter"><code><span class="type">GFreeFunc</span> destroy_notify</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Request notification of changes to <em class="parameter"><code>namespace_section</code></em>. This includes the key
 <em class="parameter"><code>namespace_section</code></em> itself, and any keys below it (the behavior is identical to
@@ -604,8 +631,11 @@ The function returns a connection ID you can use to call
 See the description of <a class="link" href="gconf-gconf-client.html#GConfClientNotifyFunc" title="GConfClientNotifyFunc ()"><span class="type">GConfClientNotifyFunc</span></a> for details on how the
 notification function is called.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -631,14 +661,17 @@ notification function is called.
 <div class="refsect2">
 <a name="gconf-client-notify-remove"></a><h3>gconf_client_notify_remove ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gconf_client_notify_remove          (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> cnxn</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">guint</span> cnxn</code></em>);</pre>
 <p>
 Remove a notification using the ID returned from
 <a class="link" href="gconf-gconf-client.html#gconf-client-notify-add" title="gconf_client_notify_add ()"><code class="function">gconf_client_notify_add()</code></a>. Invokes the destroy notify function on the
 notification's user data, if appropriate.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -660,8 +693,11 @@ notification's user data, if appropriate.
 Emits the "value-changed" signal and notifies listeners as if <em class="parameter"><code>key</code></em> had been
 changed
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -684,8 +720,11 @@ changed
 Controls the default error handling for <span class="type">GConfClient</span>. See
 <a class="link" href="gconf-gconf-client.html#GConfClientErrorHandlingMode" title="enum GConfClientErrorHandlingMode"><span class="type">GConfClientErrorHandlingMode</span></a> and <span class="type">GConfClientParentWindowFunc</span> for details on this.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -707,8 +746,11 @@ Controls the default error handling for <span class="type">GConfClient</span>. S
 Set <em class="parameter"><code>func</code></em> as the default error handler for the <span class="type">GConfClient</span>. This handler would be called
 for all <span class="type">GConfClient</span> internal errors.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
 <td>pointer to the function to be called for error handling.</td>
@@ -724,8 +766,11 @@ Dumps everything out of the <span class="type">GConfClient</span> client-side ca
 done using the <span class="type">GConfClient</span> for a while, you can call this function to save some
 memory.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
 <td>a <span class="type">GConfClient</span>.</td>
@@ -736,16 +781,19 @@ memory.
 <div class="refsect2">
 <a name="gconf-client-preload"></a><h3>gconf_client_preload ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gconf_client_preload                (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *dirname</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *dirname</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-client.html#GConfClientPreloadType" title="enum GConfClientPreloadType"><span class="type">GConfClientPreloadType</span></a> type</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Preloads a directory. Normally you do this when you call <a class="link" href="gconf-gconf-client.html#gconf-client-add-dir" title="gconf_client_add_dir ()"><code class="function">gconf_client_add_dir()</code></a>,
 but if you've called <a class="link" href="gconf-gconf-client.html#gconf-client-clear-cache" title="gconf_client_clear_cache ()"><code class="function">gconf_client_clear_cache()</code></a> there may be a reason to do it
 again.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -761,7 +809,7 @@ again.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 </tbody>
 </table></div>
@@ -770,16 +818,19 @@ again.
 <div class="refsect2">
 <a name="gconf-client-set"></a><h3>gconf_client_set ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gconf_client_set                    (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a> *val</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Sets the value of a configuration key. Just like <a class="link" href="gconf-gconf.html#gconf-engine-set" title="gconf_engine_set ()"><code class="function">gconf_engine_set()</code></a>, but uses
 <span class="type">GConfClient</span> caching and error-handling features. The <em class="parameter"><code>val</code></em> argument will not be
 modified.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -795,7 +846,7 @@ modified.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 </tbody>
 </table></div>
@@ -804,14 +855,17 @@ modified.
 <div class="refsect2">
 <a name="gconf-client-get"></a><h3>gconf_client_get ()</h3>
 <pre class="programlisting"><a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="returnvalue">GConfValue</span></a> *        gconf_client_get                    (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Gets the value of a configuration key. Just like <a class="link" href="gconf-gconf.html#gconf-engine-get" title="gconf_engine_get ()"><code class="function">gconf_engine_get()</code></a>, but uses
 <span class="type">GConfClient</span> caching and error-handling features.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -823,7 +877,7 @@ Gets the value of a configuration key. Just like <a class="link" href="gconf-gco
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -836,13 +890,16 @@ Gets the value of a configuration key. Just like <a class="link" href="gconf-gco
 <div class="refsect2">
 <a name="gconf-client-get-without-default"></a><h3>gconf_client_get_without_default ()</h3>
 <pre class="programlisting"><a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="returnvalue">GConfValue</span></a> *        gconf_client_get_without_default    (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Gets the value of a configuration key. Just like <a class="link" href="gconf-gconf-client.html#gconf-client-get" title="gconf_client_get ()"><code class="function">gconf_client_get()</code></a> but doesn't look for a default value if the key is unset.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -854,7 +911,7 @@ Gets the value of a configuration key. Just like <a class="link" href="gconf-gco
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -867,15 +924,18 @@ Gets the value of a configuration key. Just like <a class="link" href="gconf-gco
 <div class="refsect2">
 <a name="gconf-client-get-entry"></a><h3>gconf_client_get_entry ()</h3>
 <pre class="programlisting"><a class="link" href="gconf-gconf-value.html#GConfEntry" title="struct GConfEntry"><span class="returnvalue">GConfEntry</span></a> *        gconf_client_get_entry              (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *locale</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> use_schema_default</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *locale</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> use_schema_default</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Obtains the full <a class="link" href="gconf-gconf-value.html#GConfEntry" title="struct GConfEntry"><span class="type">GConfEntry</span></a> for a value. Just like <a class="link" href="gconf-gconf.html#gconf-engine-get-entry" title="gconf_engine_get_entry ()"><code class="function">gconf_engine_get_entry()</code></a>, but uses <span class="type">GConfClient</span> caching and error-handling features.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -895,7 +955,7 @@ Obtains the full <a class="link" href="gconf-gconf-value.html#GConfEntry" title=
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -909,8 +969,8 @@ Obtains the full <a class="link" href="gconf-gconf-value.html#GConfEntry" title=
 <a name="gconf-client-get-default-from-schema"></a><h3>gconf_client_get_default_from_schema ()</h3>
 <pre class="programlisting"><a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="returnvalue">GConfValue</span></a> *        gconf_client_get_default_from_schema
                                                         (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Returns the default value stored in the key's schema, if the key has a schema
 associated and the schema exists and the schema contains a default value.  Note
@@ -920,8 +980,11 @@ function is just for convenience; you could also get the <a class="link" href="g
 key, read the schema name from there, then look up the schema by name and
 extract the default value. Just like <a class="link" href="gconf-gconf.html#gconf-engine-get-default-from-schema" title="gconf_engine_get_default_from_schema ()"><code class="function">gconf_engine_get_default_from_schema()</code></a>, but uses <span class="type">GConfClient</span> caching and error-handling features.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -933,7 +996,7 @@ extract the default value. Just like <a class="link" href="gconf-gconf.html#gcon
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -945,17 +1008,20 @@ extract the default value. Just like <a class="link" href="gconf-gconf.html#gcon
 <hr>
 <div class="refsect2">
 <a name="gconf-client-unset"></a><h3>gconf_client_unset ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gconf_client_unset                  (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gconf_client_unset                  (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Unsets the value of <em class="parameter"><code>key</code></em>; if <em class="parameter"><code>key</code></em> is already unset, has no effect.  An
 error of note is <code class="literal">GCONF_OVERRIDDEN</code>, indicating that the system
 administrator has "forced" a value for this key.
 Just like <a class="link" href="gconf-gconf.html#gconf-engine-unset" title="gconf_engine_unset ()"><code class="function">gconf_engine_unset()</code></a>, but uses <span class="type">GConfClient</span> caching and error-handling features.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -967,7 +1033,7 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-unset" title="gcon
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -980,17 +1046,20 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-unset" title="gcon
 <hr>
 <div class="refsect2">
 <a name="gconf-client-recursive-unset"></a><h3>gconf_client_recursive_unset ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gconf_client_recursive_unset        (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gconf_client_recursive_unset        (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
                                                          <em class="parameter"><code>const <span class="type">char</span> *key</code></em>,
                                                          <em class="parameter"><code><span class="type">GConfUnsetFlags</span> flags</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Unsets all keys below <em class="parameter"><code>key</code></em>, including <em class="parameter"><code>key</code></em> itself.  If any unset fails, continues on to unset
 as much as it can. The first failure is returned in <em class="parameter"><code>err</code></em>. Just like <code class="function">gconf_engine_recursive_unset()</code>,
 but uses <span class="type">GConfClient</span> caching and error-handling features.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1006,7 +1075,7 @@ but uses <span class="type">GConfClient</span> caching and error-handling featur
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1020,20 +1089,23 @@ but uses <span class="type">GConfClient</span> caching and error-handling featur
 <hr>
 <div class="refsect2">
 <a name="gconf-client-all-entries"></a><h3>gconf_client_all_entries ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            gconf_client_all_entries            (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *dir</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            gconf_client_all_entries            (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *dir</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Lists the key-value pairs in <em class="parameter"><code>dir</code></em>. Does not list subdirectories; for
 that use <a class="link" href="gconf-gconf-client.html#gconf-client-all-dirs" title="gconf_client_all_dirs ()"><code class="function">gconf_client_all_dirs()</code></a>. The returned list contains <a class="link" href="gconf-gconf-value.html#GConfEntry" title="struct GConfEntry"><span class="type">GConfEntry</span></a>
 objects. A <a class="link" href="gconf-gconf-value.html#GConfEntry" title="struct GConfEntry"><span class="type">GConfEntry</span></a> contains an <span class="emphasis"><em>absolute</em></span> key
 and a value. The list is not recursive, it contains only the immediate
 children of <em class="parameter"><code>dir</code></em>.  To free the returned list, <a class="link" href="gconf-gconf-value.html#gconf-entry-free" title="gconf_entry_free ()"><code class="function">gconf_entry_free()</code></a>
-each list element, then <a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#g-slist-free"><code class="function">g_slist_free()</code></a> the list itself.
+each list element, then <code class="function">g_slist_free()</code> the list itself.
 Just like <a class="link" href="gconf-gconf.html#gconf-engine-all-entries" title="gconf_engine_all_entries ()"><code class="function">gconf_engine_all_entries()</code></a>, but uses <span class="type">GConfClient</span> caching and error-handling features.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1045,7 +1117,7 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-all-entries" title
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1058,18 +1130,21 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-all-entries" title
 <hr>
 <div class="refsect2">
 <a name="gconf-client-all-dirs"></a><h3>gconf_client_all_dirs ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            gconf_client_all_dirs               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *dir</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            gconf_client_all_dirs               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *dir</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Lists the subdirectories in <em class="parameter"><code>dir</code></em>. The returned list contains
 allocated strings. Each string is the absolute path of a
-subdirectory. You should <a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> each string in the list, then
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#g-slist-free"><code class="function">g_slist_free()</code></a> the list itself.  Just like <a class="link" href="gconf-gconf.html#gconf-engine-all-dirs" title="gconf_engine_all_dirs ()"><code class="function">gconf_engine_all_dirs()</code></a>,
+subdirectory. You should <code class="function">g_free()</code> each string in the list, then
+<code class="function">g_slist_free()</code> the list itself.  Just like <a class="link" href="gconf-gconf.html#gconf-engine-all-dirs" title="gconf_engine_all_dirs ()"><code class="function">gconf_engine_all_dirs()</code></a>,
 but uses <span class="type">GConfClient</span> caching and error-handling features.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1081,7 +1156,7 @@ but uses <span class="type">GConfClient</span> caching and error-handling featur
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1095,7 +1170,7 @@ but uses <span class="type">GConfClient</span> caching and error-handling featur
 <div class="refsect2">
 <a name="gconf-client-suggest-sync"></a><h3>gconf_client_suggest_sync ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gconf_client_suggest_sync           (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Suggests to <span class="application">gconfd</span> that you've just finished
 a block of changes, and it would be an optimal time to sync to
@@ -1106,8 +1181,11 @@ provided to <span class="application">gconfd</span> to maximize efficiency
 and minimize data loss.
 Just like <a class="link" href="gconf-gconf.html#gconf-engine-suggest-sync" title="gconf_engine_suggest_sync ()"><code class="function">gconf_engine_suggest_sync()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1115,7 +1193,7 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-suggest-sync" titl
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1123,16 +1201,19 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-suggest-sync" titl
 <hr>
 <div class="refsect2">
 <a name="gconf-client-dir-exists"></a><h3>gconf_client_dir_exists ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gconf_client_dir_exists             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *dir</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gconf_client_dir_exists             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *dir</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Queries whether the directory <em class="parameter"><code>dir</code></em> exists in the GConf
 database. Returns <span class="symbol">TRUE</span> or <span class="symbol">FALSE</span>.
 Just like <a class="link" href="gconf-gconf.html#gconf-engine-dir-exists" title="gconf_engine_dir_exists ()"><code class="function">gconf_engine_dir_exists()</code></a>, but uses <span class="type">GConfClient</span> caching and error-handling features.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1144,7 +1225,7 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-dir-exists" title=
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1157,14 +1238,17 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-dir-exists" title=
 <hr>
 <div class="refsect2">
 <a name="gconf-client-key-is-writable"></a><h3>gconf_client_key_is_writable ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gconf_client_key_is_writable        (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gconf_client_key_is_writable        (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Checks whether the key is writable.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1176,7 +1260,7 @@ Checks whether the key is writable.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1189,9 +1273,9 @@ Checks whether the key is writable.
 <hr>
 <div class="refsect2">
 <a name="gconf-client-get-float"></a><h3>gconf_client_get_float ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             gconf_client_get_float              (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">gdouble</span>             gconf_client_get_float              (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Requests the floating point number (<a class="link" href="gconf-gconf-value.html#GCONF-VALUE-FLOAT:CAPS"><code class="literal">GCONF_VALUE_FLOAT</code></a>) stored at
 <em class="parameter"><code>key</code></em>. Automatically performs type-checking, so if a non-float is
@@ -1199,8 +1283,11 @@ stored at <em class="parameter"><code>key</code></em>, an error is returned. On 
 0.0 is returned.
 Just like <a class="link" href="gconf-gconf.html#gconf-engine-get-float" title="gconf_engine_get_float ()"><code class="function">gconf_engine_get_float()</code></a>, but uses <span class="type">GConfClient</span> caching and error-handling features.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1212,7 +1299,7 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-get-float" title="
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1224,9 +1311,9 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-get-float" title="
 <hr>
 <div class="refsect2">
 <a name="gconf-client-get-int"></a><h3>gconf_client_get_int ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gconf_client_get_int                (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">gint</span>                gconf_client_get_int                (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Requests the integer (<a class="link" href="gconf-gconf-value.html#GCONF-VALUE-INT:CAPS"><code class="literal">GCONF_VALUE_INT</code></a>) stored at
 <em class="parameter"><code>key</code></em>. Automatically performs type-checking, so if a non-integer is
@@ -1234,8 +1321,11 @@ stored at <em class="parameter"><code>key</code></em>, an error is returned. On 
 0 is returned.
 Just like <a class="link" href="gconf-gconf.html#gconf-engine-get-int" title="gconf_engine_get_int ()"><code class="function">gconf_engine_get_int()</code></a>, but uses <span class="type">GConfClient</span> caching and error-handling features.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1247,7 +1337,7 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-get-int" title="gc
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1259,9 +1349,9 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-get-int" title="gc
 <hr>
 <div class="refsect2">
 <a name="gconf-client-get-string"></a><h3>gconf_client_get_string ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             gconf_client_get_string             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             gconf_client_get_string             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Requests the string (<a class="link" href="gconf-gconf-value.html#GCONF-VALUE-STRING:CAPS"><code class="literal">GCONF_VALUE_STRING</code></a>) stored at
 <em class="parameter"><code>key</code></em>. Automatically performs type-checking, so if a non-string is
@@ -1269,8 +1359,11 @@ stored at <em class="parameter"><code>key</code></em>, an error is returned. On 
 <span class="symbol">NULL</span> is returned.
 Just like <a class="link" href="gconf-gconf.html#gconf-engine-get-string" title="gconf_engine_get_string ()"><code class="function">gconf_engine_get_string()</code></a>, but uses <span class="type">GConfClient</span> caching and error-handling features.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1282,7 +1375,7 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-get-string" title=
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1294,9 +1387,9 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-get-string" title=
 <hr>
 <div class="refsect2">
 <a name="gconf-client-get-bool"></a><h3>gconf_client_get_bool ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gconf_client_get_bool               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gconf_client_get_bool               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Requests the boolean value (<a class="link" href="gconf-gconf-value.html#GCONF-VALUE-BOOL:CAPS"><code class="literal">GCONF_VALUE_BOOL</code></a>) stored at
 <em class="parameter"><code>key</code></em>. Automatically performs type-checking, so if a non-bool is
@@ -1304,8 +1397,11 @@ stored at <em class="parameter"><code>key</code></em>, an error is returned. On 
 <span class="symbol">FALSE</span> is returned.
 Just like <a class="link" href="gconf-gconf.html#gconf-engine-get-bool" title="gconf_engine_get_bool ()"><code class="function">gconf_engine_get_bool()</code></a>, but uses <span class="type">GConfClient</span> caching and error-handling features.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1317,7 +1413,7 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-get-bool" title="g
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1330,8 +1426,8 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-get-bool" title="g
 <div class="refsect2">
 <a name="gconf-client-get-schema"></a><h3>gconf_client_get_schema ()</h3>
 <pre class="programlisting"><a class="link" href="gconf-gconf-schema.html#GConfSchema" title="GConfSchema"><span class="returnvalue">GConfSchema</span></a> *       gconf_client_get_schema             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Requests the schema (<a class="link" href="gconf-gconf-value.html#GCONF-VALUE-SCHEMA:CAPS"><code class="literal">GCONF_VALUE_SCHEMA</code></a>) stored at <em class="parameter"><code>key</code></em>.
 Automatically performs type-checking, so if a non-schema is stored at
@@ -1339,8 +1435,11 @@ Automatically performs type-checking, so if a non-schema is stored at
 <span class="symbol">NULL</span> is returned.
 Just like <a class="link" href="gconf-gconf.html#gconf-engine-get-schema" title="gconf_engine_get_schema ()"><code class="function">gconf_engine_get_schema()</code></a>, but uses <span class="type">GConfClient</span> caching and error-handling features.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1352,7 +1451,7 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-get-schema" title=
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1364,10 +1463,10 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-get-schema" title=
 <hr>
 <div class="refsect2">
 <a name="gconf-client-get-list"></a><h3>gconf_client_get_list ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            gconf_client_get_list               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            gconf_client_get_list               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="type">GConfValueType</span></a> list_type</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Requests the list (<a class="link" href="gconf-gconf-value.html#GCONF-VALUE-LIST:CAPS"><code class="literal">GCONF_VALUE_LIST</code></a>) stored at <em class="parameter"><code>key</code></em>.  Automatically
 performs type-checking, so if a non-list is stored at <em class="parameter"><code>key</code></em>, or the
@@ -1409,12 +1508,12 @@ contain:
 </tr>
 <tr>
 <td><a class="link" href="gconf-gconf-value.html#GCONF-VALUE-FLOAT:CAPS"><code class="literal">GCONF_VALUE_FLOAT</code></a></td>
-<td>A pointer to <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>, which should be freed with <a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>
+<td>A pointer to <span class="type">gdouble</span>, which should be freed with <code class="function">g_free()</code>
 </td>
 </tr>
 <tr>
 <td><a class="link" href="gconf-gconf-value.html#GCONF-VALUE-STRING:CAPS"><code class="literal">GCONF_VALUE_STRING</code></a></td>
-<td>A pointer to <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>, which should be freed with <a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>
+<td>A pointer to <span class="type">gchar</span>, which should be freed with <code class="function">g_free()</code>
 </td>
 </tr>
 <tr>
@@ -1427,15 +1526,18 @@ contain:
 <p>
  
 In the <a class="link" href="gconf-gconf-value.html#GCONF-VALUE-FLOAT:CAPS"><code class="literal">GCONF_VALUE_FLOAT</code></a> and <a class="link" href="gconf-gconf-value.html#GCONF-VALUE-STRING:CAPS"><code class="literal">GCONF_VALUE_STRING</code></a> cases, you must
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> each list element. In the <a class="link" href="gconf-gconf-value.html#GCONF-VALUE-SCHEMA:CAPS"><code class="literal">GCONF_VALUE_SCHEMA</code></a> case you must
+<code class="function">g_free()</code> each list element. In the <a class="link" href="gconf-gconf-value.html#GCONF-VALUE-SCHEMA:CAPS"><code class="literal">GCONF_VALUE_SCHEMA</code></a> case you must
 <a class="link" href="gconf-gconf-schema.html#gconf-schema-free" title="gconf_schema_free ()"><code class="function">gconf_schema_free()</code></a> each element. In all cases you must free the
-list itself with <a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#g-slist-free"><code class="function">g_slist_free()</code></a>.
+list itself with <code class="function">g_slist_free()</code>.
 </p>
 <p>
 Just like <a class="link" href="gconf-gconf.html#gconf-engine-get-list" title="gconf_engine_get_list ()"><code class="function">gconf_engine_get_list()</code></a>, but uses <span class="type">GConfClient</span> caching and error-handling features.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1451,7 +1553,7 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-get-list" title="g
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1463,13 +1565,13 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-get-list" title="g
 <hr>
 <div class="refsect2">
 <a name="gconf-client-get-pair"></a><h3>gconf_client_get_pair ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gconf_client_get_pair               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gconf_client_get_pair               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="type">GConfValueType</span></a> car_type</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="type">GConfValueType</span></a> cdr_type</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> car_retloc</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> cdr_retloc</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">gpointer</span> car_retloc</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> cdr_retloc</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Requests the pair (<a class="link" href="gconf-gconf-value.html#GCONF-VALUE-PAIR:CAPS"><code class="literal">GCONF_VALUE_PAIR</code></a>) stored at <em class="parameter"><code>key</code></em>.  Automatically
 performs type-checking, so if a non-pair is stored at <em class="parameter"><code>key</code></em>, or the
@@ -1496,22 +1598,22 @@ depends on the corresponding <em class="parameter"><code>car_type</code></em> an
 <tbody>
 <tr>
 <td><a class="link" href="gconf-gconf-value.html#GCONF-VALUE-INT:CAPS"><code class="literal">GCONF_VALUE_INT</code></a></td>
-<td>pointer to <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>
+<td>pointer to <span class="type">gint</span>
 </td>
 </tr>
 <tr>
 <td><a class="link" href="gconf-gconf-value.html#GCONF-VALUE-BOOL:CAPS"><code class="literal">GCONF_VALUE_BOOL</code></a></td>
-<td>pointer to <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>
+<td>pointer to <span class="type">gboolean</span>
 </td>
 </tr>
 <tr>
 <td><a class="link" href="gconf-gconf-value.html#GCONF-VALUE-FLOAT:CAPS"><code class="literal">GCONF_VALUE_FLOAT</code></a></td>
-<td>pointer to <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a>
+<td>pointer to <span class="type">gdouble</span>
 </td>
 </tr>
 <tr>
 <td><a class="link" href="gconf-gconf-value.html#GCONF-VALUE-STRING:CAPS"><code class="literal">GCONF_VALUE_STRING</code></a></td>
-<td>pointer to <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*</td>
+<td>pointer to <span class="type">gchar</span>*</td>
 </tr>
 <tr>
 <td><a class="link" href="gconf-gconf-value.html#GCONF-VALUE-SCHEMA:CAPS"><code class="literal">GCONF_VALUE_SCHEMA</code></a></td>
@@ -1520,7 +1622,7 @@ depends on the corresponding <em class="parameter"><code>car_type</code></em> an
 </tbody>
 </table></div>
 <p>
-In the <a class="link" href="gconf-gconf-value.html#GCONF-VALUE-STRING:CAPS"><code class="literal">GCONF_VALUE_STRING</code></a> case, you must <a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> the string(s)
+In the <a class="link" href="gconf-gconf-value.html#GCONF-VALUE-STRING:CAPS"><code class="literal">GCONF_VALUE_STRING</code></a> case, you must <code class="function">g_free()</code> the string(s)
 stored in the return location(s). In the <a class="link" href="gconf-gconf-value.html#GCONF-VALUE-SCHEMA:CAPS"><code class="literal">GCONF_VALUE_SCHEMA</code></a> case you
 must <a class="link" href="gconf-gconf-schema.html#gconf-schema-free" title="gconf_schema_free ()"><code class="function">gconf_schema_free()</code></a> the returned schema. If there's an error
 or the value is unset, <em class="parameter"><code>car_retloc</code></em> and <em class="parameter"><code>cdr_retloc</code></em> are left unchanged.
@@ -1558,8 +1660,11 @@ else
 </pre>
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1587,7 +1692,7 @@ else
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1600,16 +1705,19 @@ else
 <hr>
 <div class="refsect2">
 <a name="gconf-client-set-float"></a><h3>gconf_client_set_float ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gconf_client_set_float              (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> val</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gconf_client_set_float              (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">gdouble</span> val</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Change the value of <em class="parameter"><code>key</code></em> to <em class="parameter"><code>val</code></em>. Automatically creates the <em class="parameter"><code>key</code></em> if it didn't exist before (ie it was unset or it only had a default value). If the key already exists but doesn't store a float (GCONF_VALUE_FLOAT), <a class="link" href="gconf-gconf-client.html#gconf-client-set-float" title="gconf_client_set_float ()"><code class="function">gconf_client_set_float()</code></a> will fail.
 Just like <a class="link" href="gconf-gconf.html#gconf-engine-set" title="gconf_engine_set ()"><code class="function">gconf_engine_set()</code></a>, but uses <span class="type">GConfClient</span> caching and error-handling features.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1625,7 +1733,7 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-set" title="gconf_
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1638,16 +1746,19 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-set" title="gconf_
 <hr>
 <div class="refsect2">
 <a name="gconf-client-set-int"></a><h3>gconf_client_set_int ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gconf_client_set_int                (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> val</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gconf_client_set_int                (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> val</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Change the value of <em class="parameter"><code>key</code></em> to <em class="parameter"><code>val</code></em>. Automatically creates the <em class="parameter"><code>key</code></em> if it didn't exist before (ie it was unset or it only had a default value). If the key already exists but doesn't store an integer (GCONF_VALUE_INT), <a class="link" href="gconf-gconf-client.html#gconf-client-set-int" title="gconf_client_set_int ()"><code class="function">gconf_client_set_int()</code></a> will fail.
 Just like <a class="link" href="gconf-gconf.html#gconf-engine-set" title="gconf_engine_set ()"><code class="function">gconf_engine_set()</code></a>, but uses <span class="type">GConfClient</span> caching and error-handling features.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1663,7 +1774,7 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-set" title="gconf_
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1676,16 +1787,19 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-set" title="gconf_
 <hr>
 <div class="refsect2">
 <a name="gconf-client-set-string"></a><h3>gconf_client_set_string ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gconf_client_set_string             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *val</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gconf_client_set_string             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *val</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Change the value of <em class="parameter"><code>key</code></em> to <em class="parameter"><code>val</code></em>. Automatically creates the <em class="parameter"><code>key</code></em> if it didn't exist before (ie it was unset or it only had a default value). If the key already exists but doesn't store a string (GCONF_VALUE_STRING), <a class="link" href="gconf-gconf-client.html#gconf-client-set-string" title="gconf_client_set_string ()"><code class="function">gconf_client_set_string()</code></a> will fail.
 Just like <a class="link" href="gconf-gconf.html#gconf-engine-set" title="gconf_engine_set ()"><code class="function">gconf_engine_set()</code></a>, but uses <span class="type">GConfClient</span> caching and error-handling features.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1701,7 +1815,7 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-set" title="gconf_
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1714,16 +1828,19 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-set" title="gconf_
 <hr>
 <div class="refsect2">
 <a name="gconf-client-set-bool"></a><h3>gconf_client_set_bool ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gconf_client_set_bool               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> val</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gconf_client_set_bool               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> val</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Change the value of <em class="parameter"><code>key</code></em> to <em class="parameter"><code>val</code></em>. Automatically creates the <em class="parameter"><code>key</code></em> if it didn't exist before (ie it was unset or it only had a default value). If the key already exists but but doesn't store a boolean (GCONF_VALUE_BOOL), <a class="link" href="gconf-gconf-client.html#gconf-client-set-bool" title="gconf_client_set_bool ()"><code class="function">gconf_client_set_bool()</code></a> will fail.
 Just like <a class="link" href="gconf-gconf.html#gconf-engine-set" title="gconf_engine_set ()"><code class="function">gconf_engine_set()</code></a>, but uses <span class="type">GConfClient</span> caching and error-handling features.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1739,7 +1856,7 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-set" title="gconf_
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1752,16 +1869,19 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-set" title="gconf_
 <hr>
 <div class="refsect2">
 <a name="gconf-client-set-schema"></a><h3>gconf_client_set_schema ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gconf_client_set_schema             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gconf_client_set_schema             (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="gconf-gconf-schema.html#GConfSchema" title="GConfSchema"><span class="type">GConfSchema</span></a> *val</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Change the value of <em class="parameter"><code>key</code></em> to <em class="parameter"><code>val</code></em>. Automatically creates the <em class="parameter"><code>key</code></em> if it didn't exist before (ie it was unset or it only had a default value). If the key already exists but doesn't store a schema value (GCONF_VALUE_SCHEMA), <a class="link" href="gconf-gconf-client.html#gconf-client-set-schema" title="gconf_client_set_schema ()"><code class="function">gconf_client_set_schema()</code></a> will fail.
 Just like <a class="link" href="gconf-gconf.html#gconf-engine-set" title="gconf_engine_set ()"><code class="function">gconf_engine_set()</code></a>, but uses <span class="type">GConfClient</span> caching and error-handling features.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1777,7 +1897,7 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-set" title="gconf_
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1790,18 +1910,21 @@ Just like <a class="link" href="gconf-gconf.html#gconf-engine-set" title="gconf_
 <hr>
 <div class="refsect2">
 <a name="gconf-client-set-list"></a><h3>gconf_client_set_list ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gconf_client_set_list               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gconf_client_set_list               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="type">GConfValueType</span></a> list_type</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *list</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">GSList</span> *list</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Changes the value of <em class="parameter"><code>key</code></em> to a <em class="parameter"><code>list</code></em> of type <em class="parameter"><code>list_type</code></em>. Automatically creates the <em class="parameter"><code>key</code></em> if it didn't exist before
 (ie it was unset or it had a default value). If the key already exists but doesn't store a list value
 (GCONF_VALUE_LIST), <a class="link" href="gconf-gconf-client.html#gconf-client-set-list" title="gconf_client_set_list ()"><code class="function">gconf_client_set_list()</code></a> will fail.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1821,7 +1944,7 @@ Changes the value of <em class="parameter"><code>key</code></em> to a <em class=
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1834,20 +1957,23 @@ Changes the value of <em class="parameter"><code>key</code></em> to a <em class=
 <hr>
 <div class="refsect2">
 <a name="gconf-client-set-pair"></a><h3>gconf_client_set_pair ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gconf_client_set_pair               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gconf_client_set_pair               (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="type">GConfValueType</span></a> car_type</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="type">GConfValueType</span></a> cdr_type</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> address_of_car</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> address_of_cdr</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> address_of_car</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> address_of_cdr</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Changes the value of <em class="parameter"><code>key</code></em> to a pair with the first field of type <em class="parameter"><code>car_type</code></em> and the second field of type <em class="parameter"><code>cdr_type</code></em>.
 Automatically creates the key if it didn't exist before (ie it was unset or it had a default value). If the key
 already exists but doesn't store a pair value (GCONF_VALUE_PAIR), <a class="link" href="gconf-gconf-client.html#gconf-client-set-pair" title="gconf_client_set_pair ()"><code class="function">gconf_client_set_pair()</code></a> will fail.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1875,7 +2001,7 @@ already exists but doesn't store a pair value (GCONF_VALUE_PAIR), <a class="link
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -1889,12 +2015,15 @@ already exists but doesn't store a pair value (GCONF_VALUE_PAIR), <a class="link
 <div class="refsect2">
 <a name="gconf-client-error"></a><h3>gconf_client_error ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gconf_client_error                  (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> *error</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">GError</span> *error</code></em>);</pre>
 <p>
 Emits the "error" signal. Rarely useful.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1911,12 +2040,15 @@ Emits the "error" signal. Rarely useful.
 <div class="refsect2">
 <a name="gconf-client-unreturned-error"></a><h3>gconf_client_unreturned_error ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gconf_client_unreturned_error       (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> *error</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">GError</span> *error</code></em>);</pre>
 <p>
 Emits the "unreturned_error" signal. Rarely useful.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1933,13 +2065,16 @@ Emits the "unreturned_error" signal. Rarely useful.
 <div class="refsect2">
 <a name="gconf-client-value-changed"></a><h3>gconf_client_value_changed ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gconf_client_value_changed          (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a> *value</code></em>);</pre>
 <p>
 Emits the "value_changed" signal. Rarely useful.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1959,10 +2094,10 @@ Emits the "value_changed" signal. Rarely useful.
 <hr>
 <div class="refsect2">
 <a name="gconf-client-commit-change-set"></a><h3>gconf_client_commit_change_set ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gconf_client_commit_change_set      (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gconf_client_commit_change_set      (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> remove_committed</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">gboolean</span> remove_committed</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Applies the changes in the change set to the <span class="type">GConfClient</span> passed as
 the first argument. If <em class="parameter"><code>remove_committed</code></em> is <span class="symbol">TRUE</span>,
@@ -1978,8 +2113,11 @@ terminates and the error is returned in <em class="parameter"><code>err</code></
 occurred will have been removed from the set. If any error occurs,
 <span class="symbol">FALSE</span> is returned.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -1995,7 +2133,7 @@ occurred will have been removed from the set. If any error occurs,
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -2010,13 +2148,16 @@ occurred will have been removed from the set. If any error occurs,
 <a name="gconf-client-reverse-change-set"></a><h3>gconf_client_reverse_change_set ()</h3>
 <pre class="programlisting"><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *    gconf_client_reverse_change_set     (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Creates a change set that would reverse <em class="parameter"><code>cs</code></em>. That is, for each change in <em class="parameter"><code>cs</code></em>,
 save the current state of that key in the returned change set.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -2028,7 +2169,7 @@ save the current state of that key in the returned change set.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -2042,16 +2183,19 @@ save the current state of that key in the returned change set.
 <a name="gconf-client-change-set-from-currentv"></a><h3>gconf_client_change_set_from_currentv ()</h3>
 <pre class="programlisting"><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *    gconf_client_change_set_from_currentv
                                                         (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **keys</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> **keys</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
 <p>
 Creates a change set that will change the keys in
 <span class="symbol">NULL</span>-terminated array <em class="parameter"><code>keys</code></em> to their current state. Use this to
 save the current state of a collection of keys; then you can later revert to the
 current state by committing the returned change set.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -2064,7 +2208,7 @@ current state by committing the returned change set.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -2078,14 +2222,17 @@ current state by committing the returned change set.
 <a name="gconf-client-change-set-from-current"></a><h3>gconf_client_change_set_from_current ()</h3>
 <pre class="programlisting"><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *    gconf_client_change_set_from_current
                                                         (<em class="parameter"><code><span class="type">GConfClient</span> *client</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *first_key</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
 Convenient varargs version of <a class="link" href="gconf-gconf-client.html#gconf-client-change-set-from-currentv" title="gconf_client_change_set_from_currentv ()"><code class="function">gconf_client_change_set_from_currentv()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
@@ -2093,11 +2240,16 @@ Convenient varargs version of <a class="link" href="gconf-gconf-client.html#gcon
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
+<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>first_key</code></em> :</span></p></td>
 <td>first key to save the current state of.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Varargs</code></em> :</span></p></td>
+<td>
+<span class="symbol">NULL</span>-terminated list of additional keys.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -2108,8 +2260,8 @@ Convenient varargs version of <a class="link" href="gconf-gconf-client.html#gcon
 </div>
 </div>
 <div class="footnotes">
-<br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a id="ftn.idp10853104" href="#idp10853104" class="para">1</a>] </sup>
+<br><hr style="width:100; text-align:left;margin-left: 0">
+<div id="ftn.idm46912422256368" class="footnote"><p><a href="#idm46912422256368" class="para"><sup class="para">[1] </sup></a>
 This is all a white lie; <span class="emphasis"><em>some</em></span> direct <a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a>
 operations are safe. But it's complicated to know which, and if an operation
 isn't safe the resulting bugs will mangle the cache and cause weird bugs at an
@@ -2120,6 +2272,6 @@ situation.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

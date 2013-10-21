@@ -1,10 +1,14 @@
 #ifndef __GITESTTYPES_H__
 #define __GITESTTYPES_H__
 
-#include <cairo.h>
+#ifndef _GI_DISABLE_CAIRO
+#include <cairo-gobject.h>
+#endif
 #include <glib-object.h>
 #include <gio/gio.h>
 #include <time.h>
+#include <string.h>
+#include <stdlib.h>
 
 void regress_set_abort_on_error (gboolean abort_on_error);
 
@@ -122,13 +126,14 @@ GPtrArray *regress_test_garray_full_return (void);
 /* closure */
 int regress_test_closure (GClosure *closure);
 int regress_test_closure_one_arg (GClosure *closure, int arg);
-GVariant *regress_test_closure_variant (GClosure *closure, const GVariant* arg);
+GVariant *regress_test_closure_variant (GClosure *closure, GVariant* arg);
 
 /* value */
 int regress_test_int_value_arg(const GValue *v);
 const GValue *regress_test_value_return(int i);
 
 /* foreign structs */
+#ifndef _GI_DISABLE_CAIRO
 cairo_t *regress_test_cairo_context_full_return (void);
 void regress_test_cairo_context_none_in (cairo_t *context);
 
@@ -136,6 +141,10 @@ cairo_surface_t *regress_test_cairo_surface_none_return (void);
 cairo_surface_t *regress_test_cairo_surface_full_return (void);
 void regress_test_cairo_surface_none_in (cairo_surface_t *surface);
 void regress_test_cairo_surface_full_out (cairo_surface_t **surface);
+#endif
+
+/* versioning (deprecated, since, stability) */
+void regress_test_versioning (void);
 
 GVariant *regress_test_gvariant_i (void);
 GVariant *regress_test_gvariant_s (void);
@@ -147,6 +156,13 @@ GVariant *regress_test_gvariant_as (void);
 
 #define NUM_REGRESS_FOO
 
+/**
+ * RegressTestEnum:
+ * @REGRESS_TEST_VALUE1: value 1
+ * @REGRESS_TEST_VALUE2: value 2
+ *
+ * By purpose, not all members have documentation
+ */
 typedef enum
 {
   REGRESS_TEST_VALUE1,
@@ -175,6 +191,16 @@ GType regress_test_enum_unsigned_get_type (void) G_GNUC_CONST;
 GType regress_test_flags_get_type (void) G_GNUC_CONST;
 #define REGRESS_TEST_TYPE_FLAGS (regress_test_flags_get_type ())
 
+typedef enum
+{
+  REGRESS_TEST_REFERENCE_0 = 2 + 2,
+  REGRESS_TEST_REFERENCE_1 = 1 + 1,
+  REGRESS_TEST_REFERENCE_2 = 6 * 9,
+  REGRESS_TEST_REFERENCE_3 = REGRESS_TEST_REFERENCE_1 + REGRESS_TEST_REFERENCE_1,
+  REGRESS_TEST_REFERENCE_4 = REGRESS_TEST_REFERENCE_2 * REGRESS_TEST_REFERENCE_3,
+  REGRESS_TEST_REFERENCE_5 = ~REGRESS_TEST_REFERENCE_4,
+} RegressTestReferenceEnum;
+
 /* this is not registered with GType */
 typedef enum
 {
@@ -188,18 +214,87 @@ const gchar * regress_test_unsigned_enum_param(RegressTestEnumUnsigned e);
 
 void regress_global_get_flags_out (RegressTestFlags *v);
 
+/* error domains */
+
+typedef enum
+{
+  REGRESS_TEST_ERROR_CODE1 = 1,
+  REGRESS_TEST_ERROR_CODE2 = 2,
+  REGRESS_TEST_ERROR_CODE3 = 3
+} RegressTestError;
+
+GType regress_test_error_get_type (void);
+GQuark regress_test_error_quark (void);
+
+/* Test weird names, with and without
+   c_symbol_prefix given by a GType
+*/
+typedef enum
+{
+  REGRESS_TEST_ABC_ERROR_CODE1 = 1,
+  REGRESS_TEST_ABC_ERROR_CODE2 = 2,
+  REGRESS_TEST_ABC_ERROR_CODE3 = 3
+} RegressTestABCError;
+
+GType regress_test_abc_error_get_type (void);
+GQuark regress_test_abc_error_quark (void);
+
+typedef enum
+{
+  REGRESS_TEST_OTHER_ERROR_CODE1 = 1,
+  REGRESS_TEST_OTHER_ERROR_CODE2 = 2,
+  REGRESS_TEST_OTHER_ERROR_CODE3 = 3
+} RegressTestOtherError;
+
+/* This returns a GType for RegressTestOtherError.
+   The difference is intentional, although it
+   is mainly meant for capitalization problems.
+*/
+GType regress_test_unconventional_error_get_type (void);
+GQuark regress_test_unconventional_error_quark (void);
+
+typedef enum
+{
+  REGRESS_TEST_DEF_ERROR_CODE0 = 0,
+  REGRESS_TEST_DEF_ERROR_CODE1 = 1,
+  REGRESS_TEST_DEF_ERROR_CODE2 = 2
+} RegressTestDEFError;
+
+GQuark regress_test_def_error_quark (void);
+
+/* the scanner used to have problem
+   with two uppercase letter right after
+   the identifier prefix, that's why
+   we break the RegressTest convention */
+typedef enum
+{
+  REGRESS_ATEST_ERROR_CODE0 = 0,
+  REGRESS_ATEST_ERROR_CODE1 = 1,
+  REGRESS_ATEST_ERROR_CODE2 = 2
+} RegressATestError;
+
+GQuark regress_atest_error_quark (void);
+
+
 /* constants */
 
+#define REGRESS_NEGATIVE_INT_CONSTANT -42
 #define REGRESS_INT_CONSTANT 4422
 #define REGRESS_DOUBLE_CONSTANT 44.22
 #define REGRESS_STRING_CONSTANT "Some String"
 #define REGRESS_Mixed_Case_Constant 4423
+#define REGRESS_G_GINT64_CONSTANT (G_GINT64_CONSTANT (1000))
+#define REGRESS_GUINT64_CONSTANT ((guint64) -1)
+
+typedef guint64 RegressTestTypeGUInt64;
+#define REGRESS_GUINT64_CONSTANTA ((RegressTestTypeGUInt64) -1)
 
 /* structures */
 typedef struct _RegressTestStructA RegressTestStructA;
 typedef struct _RegressTestStructB RegressTestStructB;
 typedef struct _RegressTestStructC RegressTestStructC;
 typedef struct _RegressTestStructD RegressTestStructD;
+typedef struct _RegressTestStructF RegressTestStructF;
 
 struct _RegressTestStructA
 {
@@ -211,6 +306,7 @@ struct _RegressTestStructA
 
 void regress_test_struct_a_clone (RegressTestStructA *a,
 				  RegressTestStructA *a_out);
+void regress_test_struct_a_parse (RegressTestStructA *a_out, const gchar *string);
 
 struct _RegressTestStructB
 {
@@ -236,6 +332,7 @@ struct _RegressTestStructC
  * @field: (type RegressTestObj):
  * @list: (element-type RegressTestObj):
  * @garray: (element-type RegressTestObj):
+ * @ref_count:
  */
 struct _RegressTestStructD
 {
@@ -261,6 +358,18 @@ struct RegressTestStructE
     gdouble	v_double;
     gpointer	v_pointer;
   } some_union[2];
+};
+
+/* This one has members with const or volatile modifiers. */
+struct _RegressTestStructF
+{
+  volatile gint   ref_count;
+  const gint     *data1;
+  const gint     *const data2;
+  const gint     *const *const data3;
+  const gint    **const* data4;
+  volatile gint  *const data5;
+  const gint     *volatile data6;
 };
 
 /* plain-old-data boxed types */
@@ -328,6 +437,27 @@ GType regress_test_boxed_b_get_type (void);
 RegressTestBoxedB *regress_test_boxed_b_new (gint8 some_int8, glong some_long);
 RegressTestBoxedB *regress_test_boxed_b_copy (RegressTestBoxedB *boxed);
 
+typedef struct _RegressTestBoxedC RegressTestBoxedC;
+
+struct _RegressTestBoxedC
+{
+  guint refcount;
+  guint another_thing;
+};
+
+GType regress_test_boxed_c_get_type (void);
+RegressTestBoxedC *regress_test_boxed_c_new (void);
+
+typedef struct _RegressTestBoxedD RegressTestBoxedD;
+
+GType regress_test_boxed_d_get_type (void);
+
+RegressTestBoxedD *regress_test_boxed_d_new (const char *a_string, int a_int);
+RegressTestBoxedD *regress_test_boxed_d_copy (RegressTestBoxedD *boxed);
+void regress_test_boxed_d_free (RegressTestBoxedD *boxed);
+
+int regress_test_boxed_d_get_magic (RegressTestBoxedD *boxed);
+
 /* gobject */
 #define REGRESS_TEST_TYPE_OBJ              (regress_test_obj_get_type ())
 #define REGRESS_TEST_OBJECT(object)        (G_TYPE_CHECK_INSTANCE_CAST ((object), REGRESS_TEST_TYPE_OBJ, RegressTestObj))
@@ -353,6 +483,7 @@ struct _RegressTestObj
   float some_float;
   double some_double;
   char* string;
+  GType gtype;
 };
 
 struct _RegressTestObjClass
@@ -362,7 +493,7 @@ struct _RegressTestObjClass
   int (*matrix) (RegressTestObj *obj, const char *somestr);
 
   /**
-   * RegressTestObjClass::allow_none_vfunc
+   * RegressTestObjClass::allow_none_vfunc:
    * @two: (allow-none): Another object
    */
   void (*allow_none_vfunc) (RegressTestObj *obj, RegressTestObj *two);
@@ -381,6 +512,9 @@ RegressTestObj*   regress_constructor (void);
 RegressTestObj*   regress_test_obj_new_from_file (const char *x, GError **error);
 void       regress_test_obj_set_bare (RegressTestObj *obj, GObject *bare);
 void       regress_test_obj_emit_sig_with_obj (RegressTestObj *obj);
+void       regress_test_obj_emit_sig_with_foreign_struct (RegressTestObj *obj);
+void       regress_test_obj_emit_sig_with_int64 (RegressTestObj *obj);
+void       regress_test_obj_emit_sig_with_uint64 (RegressTestObj *obj);
 int        regress_test_obj_instance_method (RegressTestObj *obj);
 double     regress_test_obj_static_method (int x);
 void       regress_forced_method (RegressTestObj *obj);
@@ -577,6 +711,8 @@ int regress_test_callback_user_data (RegressTestCallbackUserData callback,
 int regress_test_callback_destroy_notify (RegressTestCallbackUserData callback,
                                   gpointer user_data,
                                   GDestroyNotify notify);
+int regress_test_callback_destroy_notify_no_user_data (RegressTestCallbackUserData callback,
+                                  GDestroyNotify notify);
 int regress_test_callback_thaw_notifications (void);
 
 void regress_test_callback_async (RegressTestCallbackUserData callback, gpointer user_data);
@@ -593,6 +729,8 @@ void regress_test_hash_table_callback (GHashTable *data, RegressTestCallbackHash
 void regress_test_gerror_callback (RegressTestCallbackGError callback);
 void regress_test_null_gerror_callback (RegressTestCallbackGError callback);
 void regress_test_owned_gerror_callback (RegressTestCallbackOwnedGError callback);
+
+void regress_test_skip_unannotated_callback (RegressTestCallback callback);
 
 typedef struct _RegressTestInterface RegressTestInterface;
 
@@ -769,6 +907,13 @@ typedef struct {
 
 void regress_test_struct_fixed_array_frob (RegressTestStructFixedArray *str);
 
+typedef struct {
+  gchar name[32];
+} RegressLikeXklConfigItem;
+
+void regress_like_xkl_config_item_set_name (RegressLikeXklConfigItem *self,
+                                            const char *name);
+
 #define REGRESS_UTF8_CONSTANT "const \xe2\x99\xa5 utf8"
 
 #ifdef __GNUC__
@@ -782,5 +927,27 @@ void regress_test_struct_fixed_array_frob (RegressTestStructFixedArray *str);
 	"AOL,APPLELINK,ATTMAIL,CIS,EWORLD,INTERNET,IBMMAIL,MCIMAIL," \
 	"POWERSHARE,PRODIGY,TLX,X400,GIF,CGM,WMF,BMP,MET,PMB,DIB,PICT,TIFF," \
 	"PDF,PS,JPEG,QTIME,MPEG,MPEG2,AVI,WAVE,AIFF,PCM,X509,PGP"
+
+void regress_has_parameter_named_attrs (int        foo,
+                                        gpointer   attributes);
+
+typedef struct {
+  int dummy;
+  struct {
+    const char *name;
+    guint x;
+  } attributes[32];
+
+  double dummy2;
+} RegressLikeGnomeKeyringPasswordSchema;
+
+/* Ensure we ignore symbols that start with _; in particular we don't
+ * want to issue a namespace warning.
+ */
+#define _DONTSCANTHIS 1
+
+/* https://bugzilla.gnome.org/show_bug.cgi?id=685022 */
+#define REGRESS_MININT64 ((gint64) G_GINT64_CONSTANT(0x8000000000000000))
+#define REGRESS_MAXUINT64 (G_GINT64_CONSTANT(0xffffffffffffffffU))
 
 #endif /* __GITESTTYPES_H__ */

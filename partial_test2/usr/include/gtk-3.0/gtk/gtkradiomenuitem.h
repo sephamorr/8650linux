@@ -22,13 +22,13 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
-#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
-#error "Only <gtk/gtk.h> can be included directly."
-#endif
-
 #ifndef __GTK_RADIO_MENU_ITEM_H__
 #define __GTK_RADIO_MENU_ITEM_H__
 
+
+#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
+#error "Only <gtk/gtk.h> can be included directly."
+#endif
 
 #include <gtk/gtkcheckmenuitem.h>
 
@@ -70,19 +70,28 @@ struct _GtkRadioMenuItemClass
 };
 
 
+GDK_AVAILABLE_IN_ALL
 GType      gtk_radio_menu_item_get_type	         (void) G_GNUC_CONST;
 
+GDK_AVAILABLE_IN_ALL
 GtkWidget* gtk_radio_menu_item_new                           (GSList           *group);
+GDK_AVAILABLE_IN_ALL
 GtkWidget* gtk_radio_menu_item_new_with_label                (GSList           *group,
 							      const gchar      *label);
+GDK_AVAILABLE_IN_ALL
 GtkWidget* gtk_radio_menu_item_new_with_mnemonic             (GSList           *group,
 							      const gchar      *label);
+GDK_AVAILABLE_IN_ALL
 GtkWidget* gtk_radio_menu_item_new_from_widget               (GtkRadioMenuItem *group);
+GDK_AVAILABLE_IN_ALL
 GtkWidget *gtk_radio_menu_item_new_with_mnemonic_from_widget (GtkRadioMenuItem *group,
 							      const gchar      *label);
+GDK_AVAILABLE_IN_ALL
 GtkWidget *gtk_radio_menu_item_new_with_label_from_widget    (GtkRadioMenuItem *group,
 							      const gchar      *label);
+GDK_AVAILABLE_IN_ALL
 GSList*    gtk_radio_menu_item_get_group                     (GtkRadioMenuItem *radio_menu_item);
+GDK_AVAILABLE_IN_ALL
 void       gtk_radio_menu_item_set_group                     (GtkRadioMenuItem *radio_menu_item,
 							      GSList           *group);
 

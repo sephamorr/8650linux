@@ -5,10 +5,10 @@
 # Source file position: <groff-source>/contrib/groffer/perl/man.pl
 # Installed position: <prefix>/lib/groff/groffer/man.pl
 
-# Copyright (C) 2006, 2009 Free Software Foundation, Inc.
-# Written by Bernd Warken.
+# Copyright (C) 2006, 2009, 2011 Free Software Foundation, Inc.
+# Written by Bernd Warken <groff-bernd.warken-72@web.de>.
 
-# Last update: 5 Jan 2009
+# Last update: 27 Jan 2011
 
 # This file is part of `groffer', which is part of `groff'.
 
@@ -142,7 +142,7 @@ sub apropos_setup {
 #              $main::Man{EXT}, $tmpdir
 #         out: $main::Manspec
 #
-# Arguments: 1, a hash refernce with keys 'name', 'sec', 'ext', where
+# Arguments: 1, a hash reference with keys 'name', 'sec', 'ext', where
 #               'sec' is a string of one or several section characters
 #
 sub is_man {
@@ -201,7 +201,7 @@ sub is_man {
 # Globals in: $main::Manspec, $main::Man{MANSPEC}, $main::Man{SEC_CHARS},
 #             $main::Man{EXT}, $main::Man{ALL}
 #
-# Arguments: 1, a hash refernce with keys 'name', 'sec', 'ext', where
+# Arguments: 1, a hash reference with keys 'name', 'sec', 'ext', where
 #               'sec' is a string of one or several section characters
 #
 sub man_get {
@@ -522,7 +522,8 @@ sub manpath_set_from_path {
   my @path =
     qw( /usr/local /usr /usr/X11R6 /usr/openwin /opt /opt/gnome /opt/kde );
   # get a basic man path from $ENV{PATH}
-  foreach (@main::Path) {
+  my @path2 = @main::Path;
+  foreach (@path2) {
     s#bin/*$##;
     push @path, $_;
   }

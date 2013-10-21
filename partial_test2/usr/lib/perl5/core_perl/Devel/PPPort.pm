@@ -172,8 +172,8 @@ in older Perl releases:
     grok_bin
     grok_hex
     grok_number
-    GROK_NUMERIC_RADIX
     grok_numeric_radix
+    GROK_NUMERIC_RADIX
     grok_oct
     gv_fetchpvn_flags
     gv_fetchpvs
@@ -505,8 +505,8 @@ in older Perl releases:
     SvUV
     SvUV_nomg
     SvUV_set
-    SvUVX
     SvUVx
+    SvUVX
     SvUVXx
     SvVSTRING_mg
     UNDERBAR

@@ -21,11 +21,10 @@
 #ifndef WebKitDOMDOMWindow_h
 #define WebKitDOMDOMWindow_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_DOM_WINDOW            (webkit_dom_dom_window_get_type())
@@ -132,30 +131,30 @@ webkit_dom_dom_window_confirm(WebKitDOMDOMWindow* self, const gchar* message);
  * webkit_dom_dom_window_prompt:
  * @self: A #WebKitDOMDOMWindow
  * @message: A #gchar
- * @default_value: A #gchar
+ * @defaultValue: A #gchar
  *
  * Returns:
  *
 **/
 WEBKIT_API gchar*
-webkit_dom_dom_window_prompt(WebKitDOMDOMWindow* self, const gchar* message, const gchar* default_value);
+webkit_dom_dom_window_prompt(WebKitDOMDOMWindow* self, const gchar* message, const gchar* defaultValue);
 
 /**
  * webkit_dom_dom_window_find:
  * @self: A #WebKitDOMDOMWindow
  * @string: A #gchar
- * @case_sensitive: A #gboolean
+ * @caseSensitive: A #gboolean
  * @backwards: A #gboolean
  * @wrap: A #gboolean
- * @whole_word: A #gboolean
- * @search_in_frames: A #gboolean
- * @show_dialog: A #gboolean
+ * @wholeWord: A #gboolean
+ * @searchInFrames: A #gboolean
+ * @showDialog: A #gboolean
  *
  * Returns:
  *
 **/
 WEBKIT_API gboolean
-webkit_dom_dom_window_find(WebKitDOMDOMWindow* self, const gchar* string, gboolean case_sensitive, gboolean backwards, gboolean wrap, gboolean whole_word, gboolean search_in_frames, gboolean show_dialog);
+webkit_dom_dom_window_find(WebKitDOMDOMWindow* self, const gchar* string, gboolean caseSensitive, gboolean backwards, gboolean wrap, gboolean wholeWord, gboolean searchInFrames, gboolean showDialog);
 
 /**
  * webkit_dom_dom_window_scroll_by:
@@ -256,13 +255,13 @@ webkit_dom_dom_window_match_media(WebKitDOMDOMWindow* self, const gchar* query);
  * webkit_dom_dom_window_get_computed_style:
  * @self: A #WebKitDOMDOMWindow
  * @element: A #WebKitDOMElement
- * @pseudo_element: A #gchar
+ * @pseudoElement: A #gchar
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMCSSStyleDeclaration*
-webkit_dom_dom_window_get_computed_style(WebKitDOMDOMWindow* self, WebKitDOMElement* element, const gchar* pseudo_element);
+webkit_dom_dom_window_get_computed_style(WebKitDOMDOMWindow* self, WebKitDOMElement* element, const gchar* pseudoElement);
 
 /**
  * webkit_dom_dom_window_webkit_convert_point_from_page_to_node:
@@ -342,7 +341,7 @@ webkit_dom_dom_window_webkit_cancel_request_animation_frame(WebKitDOMDOMWindow* 
  *
 **/
 WEBKIT_API gchar*
-webkit_dom_dom_window_atob(WebKitDOMDOMWindow* self, const gchar* string, GError **error);
+webkit_dom_dom_window_atob(WebKitDOMDOMWindow* self, const gchar* string, GError** error);
 
 /**
  * webkit_dom_dom_window_btoa:
@@ -354,7 +353,7 @@ webkit_dom_dom_window_atob(WebKitDOMDOMWindow* self, const gchar* string, GError
  *
 **/
 WEBKIT_API gchar*
-webkit_dom_dom_window_btoa(WebKitDOMDOMWindow* self, const gchar* string, GError **error);
+webkit_dom_dom_window_btoa(WebKitDOMDOMWindow* self, const gchar* string, GError** error);
 
 /**
  * webkit_dom_dom_window_dispatch_event:
@@ -366,7 +365,7 @@ webkit_dom_dom_window_btoa(WebKitDOMDOMWindow* self, const gchar* string, GError
  *
 **/
 WEBKIT_API gboolean
-webkit_dom_dom_window_dispatch_event(WebKitDOMDOMWindow* self, WebKitDOMEvent* evt, GError **error);
+webkit_dom_dom_window_dispatch_event(WebKitDOMDOMWindow* self, WebKitDOMEvent* evt, GError** error);
 
 /**
  * webkit_dom_dom_window_capture_events:
@@ -820,7 +819,7 @@ webkit_dom_dom_window_get_application_cache(WebKitDOMDOMWindow* self);
  *
 **/
 WEBKIT_API WebKitDOMStorage*
-webkit_dom_dom_window_get_session_storage(WebKitDOMDOMWindow* self, GError **error);
+webkit_dom_dom_window_get_session_storage(WebKitDOMDOMWindow* self, GError** error);
 
 /**
  * webkit_dom_dom_window_get_local_storage:
@@ -831,7 +830,7 @@ webkit_dom_dom_window_get_session_storage(WebKitDOMDOMWindow* self, GError **err
  *
 **/
 WEBKIT_API WebKitDOMStorage*
-webkit_dom_dom_window_get_local_storage(WebKitDOMDOMWindow* self, GError **error);
+webkit_dom_dom_window_get_local_storage(WebKitDOMDOMWindow* self, GError** error);
 
 /**
  * webkit_dom_dom_window_get_console:
@@ -842,6 +841,16 @@ webkit_dom_dom_window_get_local_storage(WebKitDOMDOMWindow* self, GError **error
 **/
 WEBKIT_API WebKitDOMConsole*
 webkit_dom_dom_window_get_console(WebKitDOMDOMWindow* self);
+
+/**
+ * webkit_dom_dom_window_get_webkit_storage_info:
+ * @self: A #WebKitDOMDOMWindow
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMStorageInfo*
+webkit_dom_dom_window_get_webkit_storage_info(WebKitDOMDOMWindow* self);
 
 G_END_DECLS
 

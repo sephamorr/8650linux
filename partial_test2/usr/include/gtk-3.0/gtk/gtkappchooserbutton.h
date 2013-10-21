@@ -19,12 +19,12 @@
  * Authors: Cosimo Cecchi <ccecchi@redhat.com>
  */
 
+#ifndef __GTK_APP_CHOOSER_BUTTON_H__
+#define __GTK_APP_CHOOSER_BUTTON_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_APP_CHOOSER_BUTTON_H__
-#define __GTK_APP_CHOOSER_BUTTON_H__
 
 #include <gtk/gtkcombobox.h>
 #include <gio/gio.h>
@@ -59,23 +59,32 @@ struct _GtkAppChooserButtonClass {
   gpointer padding[16];
 };
 
+GDK_AVAILABLE_IN_ALL
 GType       gtk_app_chooser_button_get_type           (void) G_GNUC_CONST;
 
+GDK_AVAILABLE_IN_ALL
 GtkWidget * gtk_app_chooser_button_new                (const gchar         *content_type);
 
+GDK_AVAILABLE_IN_ALL
 void        gtk_app_chooser_button_append_separator   (GtkAppChooserButton *self);
+GDK_AVAILABLE_IN_ALL
 void        gtk_app_chooser_button_append_custom_item (GtkAppChooserButton *self,
                                                        const gchar         *name,
                                                        const gchar         *label,
                                                        GIcon               *icon);
+GDK_AVAILABLE_IN_ALL
 void     gtk_app_chooser_button_set_active_custom_item (GtkAppChooserButton *self,
                                                         const gchar         *name);
 
+GDK_AVAILABLE_IN_ALL
 void     gtk_app_chooser_button_set_show_dialog_item  (GtkAppChooserButton *self,
                                                        gboolean             setting);
+GDK_AVAILABLE_IN_ALL
 gboolean gtk_app_chooser_button_get_show_dialog_item  (GtkAppChooserButton *self);
+GDK_AVAILABLE_IN_ALL
 void     gtk_app_chooser_button_set_heading           (GtkAppChooserButton *self,
                                                        const gchar         *heading);
+GDK_AVAILABLE_IN_ALL
 const gchar *
          gtk_app_chooser_button_get_heading           (GtkAppChooserButton *self);
 GDK_AVAILABLE_IN_3_2

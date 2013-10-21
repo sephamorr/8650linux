@@ -22,12 +22,12 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
+#ifndef __GTK_TABLE_H__
+#define __GTK_TABLE_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_TABLE_H__
-#define __GTK_TABLE_H__
 
 #include <gtk/gtkcontainer.h>
 
@@ -96,6 +96,7 @@ struct _GtkTableRowCol
 };
 
 
+GDK_DEPRECATED_IN_3_4
 GType	   gtk_table_get_type	      (void) G_GNUC_CONST;
 GDK_DEPRECATED_IN_3_4_FOR(GtkGrid)
 GtkWidget* gtk_table_new	      (guint		rows,

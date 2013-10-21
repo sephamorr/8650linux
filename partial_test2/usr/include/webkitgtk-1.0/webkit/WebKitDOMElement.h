@@ -21,11 +21,10 @@
 #ifndef WebKitDOMElement_h
 #define WebKitDOMElement_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMNode.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMNode.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_ELEMENT            (webkit_dom_element_get_type())
@@ -68,7 +67,7 @@ webkit_dom_element_get_attribute(WebKitDOMElement* self, const gchar* name);
  *
 **/
 WEBKIT_API void
-webkit_dom_element_set_attribute(WebKitDOMElement* self, const gchar* name, const gchar* value, GError **error);
+webkit_dom_element_set_attribute(WebKitDOMElement* self, const gchar* name, const gchar* value, GError** error);
 
 /**
  * webkit_dom_element_remove_attribute:
@@ -95,26 +94,26 @@ webkit_dom_element_get_attribute_node(WebKitDOMElement* self, const gchar* name)
 /**
  * webkit_dom_element_set_attribute_node:
  * @self: A #WebKitDOMElement
- * @new_attr: A #WebKitDOMAttr
+ * @newAttr: A #WebKitDOMAttr
  * @error: #GError
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMAttr*
-webkit_dom_element_set_attribute_node(WebKitDOMElement* self, WebKitDOMAttr* new_attr, GError **error);
+webkit_dom_element_set_attribute_node(WebKitDOMElement* self, WebKitDOMAttr* newAttr, GError** error);
 
 /**
  * webkit_dom_element_remove_attribute_node:
  * @self: A #WebKitDOMElement
- * @old_attr: A #WebKitDOMAttr
+ * @oldAttr: A #WebKitDOMAttr
  * @error: #GError
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMAttr*
-webkit_dom_element_remove_attribute_node(WebKitDOMElement* self, WebKitDOMAttr* old_attr, GError **error);
+webkit_dom_element_remove_attribute_node(WebKitDOMElement* self, WebKitDOMAttr* oldAttr, GError** error);
 
 /**
  * webkit_dom_element_get_elements_by_tag_name:
@@ -130,20 +129,20 @@ webkit_dom_element_get_elements_by_tag_name(WebKitDOMElement* self, const gchar*
 /**
  * webkit_dom_element_get_attribute_ns:
  * @self: A #WebKitDOMElement
- * @namespace_uri: A #gchar
- * @local_name: A #gchar
+ * @namespaceURI: A #gchar
+ * @localName: A #gchar
  *
  * Returns:
  *
 **/
 WEBKIT_API gchar*
-webkit_dom_element_get_attribute_ns(WebKitDOMElement* self, const gchar* namespace_uri, const gchar* local_name);
+webkit_dom_element_get_attribute_ns(WebKitDOMElement* self, const gchar* namespaceURI, const gchar* localName);
 
 /**
  * webkit_dom_element_set_attribute_ns:
  * @self: A #WebKitDOMElement
- * @namespace_uri: A #gchar
- * @qualified_name: A #gchar
+ * @namespaceURI: A #gchar
+ * @qualifiedName: A #gchar
  * @value: A #gchar
  * @error: #GError
  *
@@ -151,55 +150,55 @@ webkit_dom_element_get_attribute_ns(WebKitDOMElement* self, const gchar* namespa
  *
 **/
 WEBKIT_API void
-webkit_dom_element_set_attribute_ns(WebKitDOMElement* self, const gchar* namespace_uri, const gchar* qualified_name, const gchar* value, GError **error);
+webkit_dom_element_set_attribute_ns(WebKitDOMElement* self, const gchar* namespaceURI, const gchar* qualifiedName, const gchar* value, GError** error);
 
 /**
  * webkit_dom_element_remove_attribute_ns:
  * @self: A #WebKitDOMElement
- * @namespace_uri: A #gchar
- * @local_name: A #gchar
+ * @namespaceURI: A #gchar
+ * @localName: A #gchar
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_element_remove_attribute_ns(WebKitDOMElement* self, const gchar* namespace_uri, const gchar* local_name);
+webkit_dom_element_remove_attribute_ns(WebKitDOMElement* self, const gchar* namespaceURI, const gchar* localName);
 
 /**
  * webkit_dom_element_get_elements_by_tag_name_ns:
  * @self: A #WebKitDOMElement
- * @namespace_uri: A #gchar
- * @local_name: A #gchar
+ * @namespaceURI: A #gchar
+ * @localName: A #gchar
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMNodeList*
-webkit_dom_element_get_elements_by_tag_name_ns(WebKitDOMElement* self, const gchar* namespace_uri, const gchar* local_name);
+webkit_dom_element_get_elements_by_tag_name_ns(WebKitDOMElement* self, const gchar* namespaceURI, const gchar* localName);
 
 /**
  * webkit_dom_element_get_attribute_node_ns:
  * @self: A #WebKitDOMElement
- * @namespace_uri: A #gchar
- * @local_name: A #gchar
+ * @namespaceURI: A #gchar
+ * @localName: A #gchar
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMAttr*
-webkit_dom_element_get_attribute_node_ns(WebKitDOMElement* self, const gchar* namespace_uri, const gchar* local_name);
+webkit_dom_element_get_attribute_node_ns(WebKitDOMElement* self, const gchar* namespaceURI, const gchar* localName);
 
 /**
  * webkit_dom_element_set_attribute_node_ns:
  * @self: A #WebKitDOMElement
- * @new_attr: A #WebKitDOMAttr
+ * @newAttr: A #WebKitDOMAttr
  * @error: #GError
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMAttr*
-webkit_dom_element_set_attribute_node_ns(WebKitDOMElement* self, WebKitDOMAttr* new_attr, GError **error);
+webkit_dom_element_set_attribute_node_ns(WebKitDOMElement* self, WebKitDOMAttr* newAttr, GError** error);
 
 /**
  * webkit_dom_element_has_attribute:
@@ -215,14 +214,14 @@ webkit_dom_element_has_attribute(WebKitDOMElement* self, const gchar* name);
 /**
  * webkit_dom_element_has_attribute_ns:
  * @self: A #WebKitDOMElement
- * @namespace_uri: A #gchar
- * @local_name: A #gchar
+ * @namespaceURI: A #gchar
+ * @localName: A #gchar
  *
  * Returns:
  *
 **/
 WEBKIT_API gboolean
-webkit_dom_element_has_attribute_ns(WebKitDOMElement* self, const gchar* namespace_uri, const gchar* local_name);
+webkit_dom_element_has_attribute_ns(WebKitDOMElement* self, const gchar* namespaceURI, const gchar* localName);
 
 /**
  * webkit_dom_element_focus:
@@ -247,24 +246,24 @@ webkit_dom_element_blur(WebKitDOMElement* self);
 /**
  * webkit_dom_element_scroll_into_view:
  * @self: A #WebKitDOMElement
- * @align_with_top: A #gboolean
+ * @alignWithTop: A #gboolean
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_element_scroll_into_view(WebKitDOMElement* self, gboolean align_with_top);
+webkit_dom_element_scroll_into_view(WebKitDOMElement* self, gboolean alignWithTop);
 
 /**
  * webkit_dom_element_scroll_into_view_if_needed:
  * @self: A #WebKitDOMElement
- * @center_if_needed: A #gboolean
+ * @centerIfNeeded: A #gboolean
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_element_scroll_into_view_if_needed(WebKitDOMElement* self, gboolean center_if_needed);
+webkit_dom_element_scroll_into_view_if_needed(WebKitDOMElement* self, gboolean centerIfNeeded);
 
 /**
  * webkit_dom_element_scroll_by_lines:
@@ -309,7 +308,7 @@ webkit_dom_element_get_elements_by_class_name(WebKitDOMElement* self, const gcha
  *
 **/
 WEBKIT_API WebKitDOMElement*
-webkit_dom_element_query_selector(WebKitDOMElement* self, const gchar* selectors, GError **error);
+webkit_dom_element_query_selector(WebKitDOMElement* self, const gchar* selectors, GError** error);
 
 /**
  * webkit_dom_element_query_selector_all:
@@ -321,7 +320,7 @@ webkit_dom_element_query_selector(WebKitDOMElement* self, const gchar* selectors
  *
 **/
 WEBKIT_API WebKitDOMNodeList*
-webkit_dom_element_query_selector_all(WebKitDOMElement* self, const gchar* selectors, GError **error);
+webkit_dom_element_query_selector_all(WebKitDOMElement* self, const gchar* selectors, GError** error);
 
 /**
  * webkit_dom_element_webkit_matches_selector:
@@ -333,7 +332,7 @@ webkit_dom_element_query_selector_all(WebKitDOMElement* self, const gchar* selec
  *
 **/
 WEBKIT_API gboolean
-webkit_dom_element_webkit_matches_selector(WebKitDOMElement* self, const gchar* selectors, GError **error);
+webkit_dom_element_webkit_matches_selector(WebKitDOMElement* self, const gchar* selectors, GError** error);
 
 /**
  * webkit_dom_element_webkit_request_full_screen:
@@ -345,6 +344,26 @@ webkit_dom_element_webkit_matches_selector(WebKitDOMElement* self, const gchar* 
 **/
 WEBKIT_API void
 webkit_dom_element_webkit_request_full_screen(WebKitDOMElement* self, gushort flags);
+
+/**
+ * webkit_dom_element_webkit_request_fullscreen:
+ * @self: A #WebKitDOMElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_element_webkit_request_fullscreen(WebKitDOMElement* self);
+
+/**
+ * webkit_dom_element_webkit_request_pointer_lock:
+ * @self: A #WebKitDOMElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_element_webkit_request_pointer_lock(WebKitDOMElement* self);
 
 /**
  * webkit_dom_element_get_tag_name:
@@ -519,6 +538,37 @@ WEBKIT_API glong
 webkit_dom_element_get_scroll_height(WebKitDOMElement* self);
 
 /**
+ * webkit_dom_element_get_class_name:
+ * @self: A #WebKitDOMElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_element_get_class_name(WebKitDOMElement* self);
+
+/**
+ * webkit_dom_element_set_class_name:
+ * @self: A #WebKitDOMElement
+ * @value: A #gchar
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_element_set_class_name(WebKitDOMElement* self, const gchar* value);
+
+/**
+ * webkit_dom_element_get_class_list:
+ * @self: A #WebKitDOMElement
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMDOMTokenList*
+webkit_dom_element_get_class_list(WebKitDOMElement* self);
+
+/**
  * webkit_dom_element_get_first_element_child:
  * @self: A #WebKitDOMElement
  *
@@ -569,14 +619,14 @@ WEBKIT_API gulong
 webkit_dom_element_get_child_element_count(WebKitDOMElement* self);
 
 /**
- * webkit_dom_element_get_webkit_region_overflow:
+ * webkit_dom_element_get_webkit_region_overset:
  * @self: A #WebKitDOMElement
  *
  * Returns:
  *
 **/
 WEBKIT_API gchar*
-webkit_dom_element_get_webkit_region_overflow(WebKitDOMElement* self);
+webkit_dom_element_get_webkit_region_overset(WebKitDOMElement* self);
 
 G_END_DECLS
 

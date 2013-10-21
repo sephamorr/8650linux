@@ -21,11 +21,10 @@
 #ifndef WebKitDOMHTMLMediaElement_h
 #define WebKitDOMHTMLMediaElement_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMHTMLElement.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMHTMLElement.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_HTML_MEDIA_ELEMENT            (webkit_dom_html_media_element_get_type())
@@ -55,7 +54,7 @@ webkit_dom_html_media_element_get_type (void);
  *
 **/
 WEBKIT_API void
-webkit_dom_html_media_element_load(WebKitDOMHTMLMediaElement* self, GError **error);
+webkit_dom_html_media_element_load(WebKitDOMHTMLMediaElement* self, GError** error);
 
 /**
  * webkit_dom_html_media_element_can_play_type:
@@ -210,7 +209,7 @@ webkit_dom_html_media_element_get_current_time(WebKitDOMHTMLMediaElement* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_html_media_element_set_current_time(WebKitDOMHTMLMediaElement* self, gfloat value, GError **error);
+webkit_dom_html_media_element_set_current_time(WebKitDOMHTMLMediaElement* self, gfloat value, GError** error);
 
 /**
  * webkit_dom_html_media_element_get_initial_time:
@@ -407,7 +406,7 @@ webkit_dom_html_media_element_get_volume(WebKitDOMHTMLMediaElement* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_html_media_element_set_volume(WebKitDOMHTMLMediaElement* self, gfloat value, GError **error);
+webkit_dom_html_media_element_set_volume(WebKitDOMHTMLMediaElement* self, gfloat value, GError** error);
 
 /**
  * webkit_dom_html_media_element_get_muted:

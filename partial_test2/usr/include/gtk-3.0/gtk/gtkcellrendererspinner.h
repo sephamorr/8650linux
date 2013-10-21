@@ -18,12 +18,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GTK_CELL_RENDERER_SPINNER_H__
+#define __GTK_CELL_RENDERER_SPINNER_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_CELL_RENDERER_SPINNER_H__
-#define __GTK_CELL_RENDERER_SPINNER_H__
 
 #include <gtk/gtkcellrenderer.h>
 
@@ -59,7 +59,9 @@ struct _GtkCellRendererSpinnerClass
   void (*_gtk_reserved4) (void);
 };
 
+GDK_AVAILABLE_IN_ALL
 GType            gtk_cell_renderer_spinner_get_type (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkCellRenderer *gtk_cell_renderer_spinner_new      (void);
 
 G_END_DECLS

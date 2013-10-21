@@ -21,11 +21,10 @@
 #ifndef WebKitDOMMediaList_h
 #define WebKitDOMMediaList_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_MEDIA_LIST            (webkit_dom_media_list_get_type())
@@ -60,26 +59,26 @@ webkit_dom_media_list_item(WebKitDOMMediaList* self, gulong index);
 /**
  * webkit_dom_media_list_delete_medium:
  * @self: A #WebKitDOMMediaList
- * @old_medium: A #gchar
+ * @oldMedium: A #gchar
  * @error: #GError
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_media_list_delete_medium(WebKitDOMMediaList* self, const gchar* old_medium, GError **error);
+webkit_dom_media_list_delete_medium(WebKitDOMMediaList* self, const gchar* oldMedium, GError** error);
 
 /**
  * webkit_dom_media_list_append_medium:
  * @self: A #WebKitDOMMediaList
- * @new_medium: A #gchar
+ * @newMedium: A #gchar
  * @error: #GError
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_media_list_append_medium(WebKitDOMMediaList* self, const gchar* new_medium, GError **error);
+webkit_dom_media_list_append_medium(WebKitDOMMediaList* self, const gchar* newMedium, GError** error);
 
 /**
  * webkit_dom_media_list_get_media_text:
@@ -101,7 +100,7 @@ webkit_dom_media_list_get_media_text(WebKitDOMMediaList* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_media_list_set_media_text(WebKitDOMMediaList* self, const gchar* value, GError **error);
+webkit_dom_media_list_set_media_text(WebKitDOMMediaList* self, const gchar* value, GError** error);
 
 /**
  * webkit_dom_media_list_get_length:

@@ -2,32 +2,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Vertical Text</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>Pango Reference Manual: Vertical Text</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="Pango Reference Manual">
 <link rel="up" href="pango.html" title="Basic Pango Interfaces">
 <link rel="prev" href="pango-Bidirectional-Text.html" title="Bidirectional Text">
 <link rel="next" href="rendering.html" title="Rendering with Pango">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="pango-Bidirectional-Text.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="pango.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">Pango Reference Manual</th>
-<td><a accesskey="n" href="rendering.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#pango-Vertical-Text.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#pango-Vertical-Text.description" class="shortcut">Description</a>
                    | 
                   <a href="#pango-Vertical-Text.object-hierarchy" class="shortcut">Object Hierarchy</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="pango.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="pango-Bidirectional-Text.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="rendering.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="pango-Vertical-Text"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -41,6 +38,7 @@
 <a name="pango-Vertical-Text.synopsis"></a><h2>Synopsis</h2>
 <a name="PangoGravity"></a><a name="PangoGravityHint"></a><pre class="synopsis">enum                <a class="link" href="pango-Vertical-Text.html#PangoGravity-enum" title="enum PangoGravity">PangoGravity</a>;
 enum                <a class="link" href="pango-Vertical-Text.html#PangoGravityHint-enum" title="enum PangoGravityHint">PangoGravityHint</a>;
+#define             <a class="link" href="pango-Vertical-Text.html#PANGO-GRAVITY-IS-IMPROPER:CAPS" title="PANGO_GRAVITY_IS_IMPROPER()">PANGO_GRAVITY_IS_IMPROPER</a>           (gravity)
 #define             <a class="link" href="pango-Vertical-Text.html#PANGO-GRAVITY-IS-VERTICAL:CAPS" title="PANGO_GRAVITY_IS_VERTICAL()">PANGO_GRAVITY_IS_VERTICAL</a>           (gravity)
 <a class="link" href="pango-Vertical-Text.html#PangoGravity"><span class="returnvalue">PangoGravity</span></a>        <a class="link" href="pango-Vertical-Text.html#pango-gravity-get-for-matrix" title="pango_gravity_get_for_matrix ()">pango_gravity_get_for_matrix</a>        (<em class="parameter"><code>const <a class="link" href="pango-Glyph-Storage.html#PangoMatrix"><span class="type">PangoMatrix</span></a> *matrix</code></em>);
 <a class="link" href="pango-Vertical-Text.html#PangoGravity"><span class="returnvalue">PangoGravity</span></a>        <a class="link" href="pango-Vertical-Text.html#pango-gravity-get-for-script" title="pango_gravity_get_for_script ()">pango_gravity_get_for_script</a>        (<em class="parameter"><code><a class="link" href="pango-Scripts-and-Languages.html#PangoScript"><span class="type">PangoScript</span></a> script</code></em>,
@@ -144,8 +142,11 @@ Not every value in this enumeration makes sense for every usage of
 <p>
 See also: <a class="link" href="pango-Vertical-Text.html#PangoGravityHint"><span class="type">PangoGravityHint</span></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="PANGO-GRAVITY-SOUTH:CAPS"></a><span class="term"><code class="literal">PANGO_GRAVITY_SOUTH</code></span></p></td>
@@ -193,8 +194,11 @@ example.
 <p>
 See <a class="link" href="pango-Vertical-Text.html#PangoGravity"><span class="type">PangoGravity</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="PANGO-GRAVITY-HINT-NATURAL:CAPS"></a><span class="term"><code class="literal">PANGO_GRAVITY_HINT_NATURAL</code></span></p></td>
@@ -222,13 +226,43 @@ opposite gravities and both flow top-to-bottom for example.
 </div>
 <hr>
 <div class="refsect2">
+<a name="PANGO-GRAVITY-IS-IMPROPER:CAPS"></a><h3>PANGO_GRAVITY_IS_IMPROPER()</h3>
+<pre class="programlisting">#define             PANGO_GRAVITY_IS_IMPROPER(gravity)</pre>
+<p>
+Whether a <a class="link" href="pango-Vertical-Text.html#PangoGravity"><span class="type">PangoGravity</span></a> represents a gravity that results in reversal of text direction.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gravity</code></em> :</span></p></td>
+<td>the <a class="link" href="pango-Vertical-Text.html#PangoGravity"><span class="type">PangoGravity</span></a> to check</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>gravity</code></em> is <a class="link" href="pango-Vertical-Text.html#PANGO-GRAVITY-WEST:CAPS"><code class="literal">PANGO_GRAVITY_WEST</code></a> or <a class="link" href="pango-Vertical-Text.html#PANGO-GRAVITY-NORTH:CAPS"><code class="literal">PANGO_GRAVITY_NORTH</code></a>,
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.32</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="PANGO-GRAVITY-IS-VERTICAL:CAPS"></a><h3>PANGO_GRAVITY_IS_VERTICAL()</h3>
 <pre class="programlisting">#define             PANGO_GRAVITY_IS_VERTICAL(gravity)</pre>
 <p>
 Whether a <a class="link" href="pango-Vertical-Text.html#PangoGravity"><span class="type">PangoGravity</span></a> represents vertical writing directions.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>gravity</code></em> :</span></p></td>
@@ -252,8 +286,11 @@ Whether a <a class="link" href="pango-Vertical-Text.html#PangoGravity"><span cla
 Finds the gravity that best matches the rotation component
 in a <a class="link" href="pango-Glyph-Storage.html#PangoMatrix"><span class="type">PangoMatrix</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>matrix</code></em> :</span></p></td>
@@ -285,8 +322,11 @@ If <em class="parameter"><code>base_gravity</code></em> is <a class="link" href=
 preferred gravity of <em class="parameter"><code>script</code></em>.  To get the preferred gravity of a script,
 pass <a class="link" href="pango-Vertical-Text.html#PANGO-GRAVITY-AUTO:CAPS"><code class="literal">PANGO_GRAVITY_AUTO</code></a> and <a class="link" href="pango-Vertical-Text.html#PANGO-GRAVITY-HINT-STRONG:CAPS"><code class="literal">PANGO_GRAVITY_HINT_STRONG</code></a> in.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>script</code></em> :</span></p></td>
@@ -335,8 +375,11 @@ context.
 If <em class="parameter"><code>base_gravity</code></em> is <a class="link" href="pango-Vertical-Text.html#PANGO-GRAVITY-AUTO:CAPS"><code class="literal">PANGO_GRAVITY_AUTO</code></a>, it is first replaced with the
 preferred gravity of <em class="parameter"><code>script</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>script</code></em> :</span></p></td>
@@ -379,8 +422,11 @@ Note that <a class="link" href="pango-Glyph-Storage.html#pango-matrix-rotate" ti
 So, to call <a class="link" href="pango-Glyph-Storage.html#pango-matrix-rotate" title="pango_matrix_rotate ()"><code class="function">pango_matrix_rotate()</code></a> with the output of this function
 you should multiply it by (180. / G_PI).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>gravity</code></em> :</span></p></td>
@@ -412,6 +458,6 @@ you should multiply it by (180. / G_PI).
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

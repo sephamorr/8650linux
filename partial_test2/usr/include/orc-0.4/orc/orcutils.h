@@ -28,6 +28,32 @@
 #ifndef _ORC_UTILS_H_
 #define _ORC_UTILS_H_
 
+/* Orc objects */
+//typedef struct _OrcVariable OrcVariable;
+//typedef struct _OrcOpcodeSet OrcOpcodeSet;
+//typedef struct _OrcStaticOpcode OrcStaticOpcode;
+typedef struct _OrcInstruction OrcInstruction;
+typedef struct _OrcProgram OrcProgram;
+typedef struct _OrcCompiler OrcCompiler;
+typedef struct _OrcConstant OrcConstant;
+//typedef struct _OrcFixup OrcFixup;
+typedef struct _OrcTarget OrcTarget;
+typedef struct _OrcCode OrcCode;
+//typedef struct _OrcCodeChunk OrcCodeChunk;
+
+typedef enum {
+  ORC_COMPILE_RESULT_OK = 0,
+
+  ORC_COMPILE_RESULT_UNKNOWN_COMPILE = 0x100,
+  ORC_COMPILE_RESULT_MISSING_RULE = 0x101,
+
+  ORC_COMPILE_RESULT_UNKNOWN_PARSE = 0x200,
+  ORC_COMPILE_RESULT_PARSE = 0x201,
+  ORC_COMPILE_RESULT_VARIABLE = 0x202
+
+} OrcCompileResult;
+
+
 #ifndef _ORC_INTEGER_TYPEDEFS_
 #define _ORC_INTEGER_TYPEDEFS_
 #if defined(__STDC__) && __STDC__ && __STDC_VERSION__ >= 199901L
@@ -136,10 +162,16 @@ typedef unsigned int orc_bool;
 #define ORC_GNUC_PREREQ(maj, min) 0
 #endif
   
-#if ORC_GNUC_PREREQ(3,3) && defined(__ELF__)
-#define ORC_INTERNAL __attribute__ ((visibility ("internal")))
+#ifndef ORC_INTERNAL
+#if defined(__SUNPRO_C) && (__SUNPRO_C >= 0x590)
+#define ORC_INTERNAL __attribute__((visibility("hidden")))
+#elif defined(__SUNPRO_C) && (__SUNPRO_C >= 0x550)
+#define ORC_INTERNAL __hidden
+#elif defined (__GNUC__) && ORC_GNUC_PREREQ(3,3) && defined(__ELF__)
+#define ORC_INTERNAL __attribute__((visibility("hidden")))
 #else
 #define ORC_INTERNAL
+#endif
 #endif
 
 #if ORC_GNUC_PREREQ(3,3) /* guess */

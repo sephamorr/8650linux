@@ -55,7 +55,7 @@ class BuildScriptsTestCase(support.TempdirManager,
         expected = []
         expected.append("script1.py")
         self.write_script(dir, "script1.py",
-                          ("#! /usr/bin/env python2.3\n"
+                          ("#! /usr/bin/env python2\n"
                            "# bogus script w/ Python sh-bang\n"
                            "pass\n"))
         expected.append("script2.py")

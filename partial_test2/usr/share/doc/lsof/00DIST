@@ -115,6 +115,7 @@
 		4.84, July 29, 2010
 		4.85, September 27, 2011
 		4.86, April 10, 2012
+		4.87, January 2, 2013
 
 
 Dialects Supported
@@ -4332,7 +4333,7 @@ Supplement	Regenerated the 4.04 distribution to correct a non-
 		and Phil Shin <pshin@xceedium.com> applied some speed
 		improvements to lsof, particularly when the files of
 		interest are /Internet files -- i.e., selected with lsof's 
-		-i" option.  Added a two new options to assist the
+		"-i" option.  Added a two new options to assist the
 		improvements: 1) "-c^<command>" to tell lsof to exclude the
 		named command(s); and 2) "-stcp|ud>:[^]state' to tell lsof
 		to include in its reporting or exclude ('^') from its
@@ -4636,6 +4637,60 @@ Supplement	Regenerated the 4.04 distribution to correct a non-
 		Added code to handle a Linux NFS-mounted root.  Jia He
 		<hejianet@linux.vnet.ibm.com> reported the need for this.
 
+4.87		January 2, 2013
+		Added an entry to 00FAQ about lsof behavior when the
+		HASSECURITY and HASNOSOCKSECURITY options are defined.
+		Carson Gaspar <carson@taltos.org> pointed out the need
+		for this clarification.
+
+		Added a work-around for a missing definition of mach_port_t
+		in Darwin 9 (Mac OS/X 10.5.8).  The work-around was supplied
+		by Jim Reid <jim@rfc1035.com>.
+
+		Added support for Linux anon_inodefs, provided by Masatake
+		YAMATO <yamato@redhat.com>.
+
+		Documented a Solaris 9 and 10 portmap reporting problem
+		(+M) in 00FAQ.  The problem was reported by Clint
+		Roberts <Clint.Roberts@ttius.com>.  I have no solution
+		to the problem, but discuss a possible work-around in
+		the answer to this 00FAQ question: "Why doesn't lsof
+		report portmap registrations for some Solaris versions?"
+
+		Added FreeBSD support for the oldnfs and newnfs file system
+		types.  Daniel Braniss <danny@cs.huji.ac.il> reported the
+		need for the addition.
+
+		Added ICMP socket support for Linux with code provided by
+		Masatake YAMATO <yamato@redhat.com>.
+
+		Corrected the reporting of process group ID for libproc
+		versions of Mac OS X with a patch from Jeff Trawick
+		<trawick@gmail.com>.  The patch has not been applied to
+		Darwin kmem versions, because of little call for them
+		and inadequate test system access.  The patch has been
+		tested on Mac OS X 10.8 (Mountain Lion), courtesy of a
+		test system provided by Allan Nathanson <ajn@apple.com>.
+
+		Added thread support to those FreeBSD versions that have
+		ki_numthreads in their kinfo_proc structure.  This also
+		activates the -K option for those FreeBSD versions.  Jeff
+		Trawick reported problems with FreeBSD lsof when threads
+		are present and this addition solves those problems.
+
+		Made changes to 00FAQ and the distribution, suggested by
+		Warren Young <warren@etr-usa.com>.  The 00FAQ changes
+		center on sections that discuss the -s option.  The changes
+		to the distribution include a ChangeLog file that is either
+		a pointer to or a copy of 00DIST, the distribution notes.
+
+		Added support to FreeBSD for using the clang compiler.
+
+		Added Linux support for using the getxattr() call to obtain
+		socket protocol identification when it is can't be obtained
+		from the /proc/net files that lsof examines.  Masatake YAMATO
+		<yamato@redhat.com> developed the kernel patch to getxattr()
+		and supplied the lsof patch.
 
 Vic Abell <abe@purdue.edu>
-April 10, 2012
+January 2, 2013

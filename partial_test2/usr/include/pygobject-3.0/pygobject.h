@@ -140,6 +140,7 @@ struct _PyGObject_Functions {
 				     PyGThreadBlockFunc unblock_threads_func);
     PyGThreadBlockFunc block_threads;
     PyGThreadBlockFunc unblock_threads;
+
     PyTypeObject *paramspec_type;
     PyObject *(* paramspec_new)(GParamSpec *spec);
     GParamSpec *(*paramspec_get)(PyObject *tuple);
@@ -183,16 +184,41 @@ struct _PyGObject_Functions {
     void      (*add_warning_redirection) (const char *domain,
                                           PyObject   *warning);
     void      (*disable_warning_redirections) (void);
-    void      (*type_register_custom)(const gchar *type_name,
-				      PyGTypeRegistrationFunction callback,
-				      gpointer data);
+
+    /* type_register_custom API now removed, but leave a pointer here to not
+     * break ABI. */
+    void      *_type_register_custom;
+
     gboolean  (*gerror_exception_check) (GError **error);
     PyObject* (*option_group_new) (GOptionGroup *group);
     GType (* type_from_object_strict) (PyObject *obj, gboolean strict);
 
     PyObject *(* newgobj_full)(GObject *obj, gboolean steal, gpointer g_class);
     PyTypeObject *object_type;
+    int (* value_from_pyobject_with_error)(GValue *value, PyObject *obj);
 };
+
+
+#ifdef DISABLE_THREADING
+#    define pyg_threads_enabled           FALSE
+#    define pyg_gil_state_ensure()        0
+#    define pyg_gil_state_release(state)
+#    define pyg_begin_allow_threads       G_STMT_START {
+#    define pyg_end_allow_threads         } G_STMT_END
+#else
+#    define pyg_threads_enabled           TRUE
+#    define pyg_gil_state_ensure          PyGILState_Ensure
+#    define pyg_gil_state_release         PyGILState_Release
+#    define pyg_begin_allow_threads       Py_BEGIN_ALLOW_THREADS
+#    define pyg_end_allow_threads         Py_END_ALLOW_THREADS
+#endif
+
+/* Deprecated, only available for API compatibility. */
+#define pyg_enable_threads()
+#define pyg_set_thread_block_funcs(a, b)
+#define pyg_block_threads()
+#define pyg_unblock_threads()
+
 
 #ifndef _INSIDE_PYGOBJECT_
 
@@ -219,6 +245,7 @@ struct _PyGObject_Functions *_PyGObject_API;
 #define pyg_flags_get_value         (_PyGObject_API->flags_get_value)
 #define pyg_register_gtype_custom   (_PyGObject_API->register_gtype_custom)
 #define pyg_value_from_pyobject     (_PyGObject_API->value_from_pyobject)
+#define pyg_value_from_pyobject_with_error (_PyGObject_API->value_from_pyobject_with_error)
 #define pyg_value_as_pyobject       (_PyGObject_API->value_as_pyobject)
 #define pyg_register_interface      (_PyGObject_API->register_interface)
 #define PyGBoxed_Type               (*_PyGObject_API->boxed_type)
@@ -231,7 +258,6 @@ struct _PyGObject_Functions *_PyGObject_API;
 #define pyg_flags_add_constants     (_PyGObject_API->flags_add_constants)
 #define pyg_constant_strip_prefix   (_PyGObject_API->constant_strip_prefix)
 #define pyg_error_check             (_PyGObject_API->error_check)
-#define pyg_set_thread_block_funcs  (_PyGObject_API->set_thread_block_funcs)
 #define PyGParamSpec_Type           (*_PyGObject_API->paramspec_type)
 #define pyg_param_spec_new          (_PyGObject_API->paramspec_new)
 #define pyg_param_spec_from_object  (_PyGObject_API->paramspec_get)
@@ -245,37 +271,12 @@ struct _PyGObject_Functions *_PyGObject_API;
 #define PyGFlags_Type               (*_PyGObject_API->flags_type)
 #define pyg_flags_add               (_PyGObject_API->flags_add)
 #define pyg_flags_from_gtype        (_PyGObject_API->flags_from_gtype)
-#define pyg_enable_threads          (_PyGObject_API->enable_threads)
-#define pyg_gil_state_ensure        (_PyGObject_API->gil_state_ensure)
-#define pyg_gil_state_release       (_PyGObject_API->gil_state_release)
 #define pyg_register_class_init     (_PyGObject_API->register_class_init)
 #define pyg_register_interface_info (_PyGObject_API->register_interface_info)
 #define pyg_add_warning_redirection   (_PyGObject_API->add_warning_redirection)
 #define pyg_disable_warning_redirections (_PyGObject_API->disable_warning_redirections)
-#define pyg_type_register_custom_callback (_PyGObject_API->type_register_custom)
 #define pyg_gerror_exception_check (_PyGObject_API->gerror_exception_check)
 #define pyg_option_group_new       (_PyGObject_API->option_group_new)
-
-#define pyg_block_threads()   G_STMT_START {   \
-    if (_PyGObject_API->block_threads != NULL) \
-      (* _PyGObject_API->block_threads)();     \
-  } G_STMT_END
-#define pyg_unblock_threads() G_STMT_START {     \
-    if (_PyGObject_API->unblock_threads != NULL) \
-      (* _PyGObject_API->unblock_threads)();     \
-  } G_STMT_END
-
-#define pyg_threads_enabled (_PyGObject_API->threads_enabled)
-
-#define pyg_begin_allow_threads                 \
-    G_STMT_START {                              \
-        PyThreadState *_save = NULL;            \
-        if (_PyGObject_API->threads_enabled)    \
-            _save = PyEval_SaveThread();
-#define pyg_end_allow_threads                   \
-        if (_PyGObject_API->threads_enabled)    \
-            PyEval_RestoreThread(_save);        \
-    } G_STMT_END
 
 
 /**
@@ -342,14 +343,8 @@ pygobject_init(int req_major, int req_minor, int req_micro)
     }
 
     cobject = PyObject_GetAttrString(gobject, "_PyGObject_API");
-#if PY_VERSION_HEX >= 0x03000000
     if (cobject && PyCapsule_CheckExact(cobject))
         _PyGObject_API = (struct _PyGObject_Functions *) PyCapsule_GetPointer(cobject, "gobject._PyGObject_API");
-
-#else
-    if (cobject && PyCObject_Check(cobject))
-        _PyGObject_API = (struct _PyGObject_Functions *) PyCObject_AsVoidPtr(cobject);
-#endif
     else {
         PyErr_SetString(PyExc_ImportError,
                         "could not import gobject (could not find _PyGObject_API object)");

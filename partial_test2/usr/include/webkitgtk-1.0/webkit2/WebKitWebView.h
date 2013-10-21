@@ -28,16 +28,24 @@
 #ifndef WebKitWebView_h
 #define WebKitWebView_h
 
+#include <JavaScriptCore/JSBase.h>
 #include <webkit2/WebKitBackForwardList.h>
 #include <webkit2/WebKitDefines.h>
+#include <webkit2/WebKitFileChooserRequest.h>
 #include <webkit2/WebKitFindController.h>
+#include <webkit2/WebKitFormSubmissionRequest.h>
 #include <webkit2/WebKitHitTestResult.h>
+#include <webkit2/WebKitJavascriptResult.h>
+#include <webkit2/WebKitPermissionRequest.h>
+#include <webkit2/WebKitPolicyDecision.h>
+#include <webkit2/WebKitScriptDialog.h>
 #include <webkit2/WebKitSettings.h>
 #include <webkit2/WebKitURIRequest.h>
 #include <webkit2/WebKitWebContext.h>
+#include <webkit2/WebKitWebInspector.h>
+#include <webkit2/WebKitWebResource.h>
 #include <webkit2/WebKitWebViewBase.h>
 #include <webkit2/WebKitWindowProperties.h>
-#include <webkit2/WebKitPolicyDecision.h>
 
 G_BEGIN_DECLS
 
@@ -48,7 +56,6 @@ G_BEGIN_DECLS
 #define WEBKIT_IS_WEB_VIEW_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE((klass),  WEBKIT_TYPE_WEB_VIEW))
 #define WEBKIT_WEB_VIEW_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS((obj),  WEBKIT_TYPE_WEB_VIEW, WebKitWebViewClass))
 
-typedef struct _WebKitWebView WebKitWebView;
 typedef struct _WebKitWebViewClass WebKitWebViewClass;
 typedef struct _WebKitWebViewPrivate WebKitWebViewPrivate;
 
@@ -111,6 +118,17 @@ typedef enum {
     WEBKIT_LOAD_FINISHED
 } WebKitLoadEvent;
 
+/**
+ * WebKitSaveMode:
+ * @WEBKIT_SAVE_MODE_MHTML: Save the current page using the MHTML format.
+ *
+ * Enum values to specify the different ways in which a #WebKitWebView
+ * can save its current web page into a self-contained file.
+ */
+typedef enum {
+    WEBKIT_SAVE_MODE_MHTML
+} WebKitSaveMode;
+
 struct _WebKitWebView {
     WebKitWebViewBase parent;
 
@@ -121,34 +139,45 @@ struct _WebKitWebView {
 struct _WebKitWebViewClass {
     WebKitWebViewBaseClass parent;
 
-    void       (* load_changed)         (WebKitWebView             *web_view,
-                                         WebKitLoadEvent            load_event);
-    gboolean   (* load_failed)          (WebKitWebView             *web_view,
-                                         WebKitLoadEvent            load_event,
-                                         const gchar               *failing_uri,
-                                         GError                    *error);
+    void       (* load_changed)           (WebKitWebView               *web_view,
+                                           WebKitLoadEvent              load_event);
+    gboolean   (* load_failed)            (WebKitWebView               *web_view,
+                                           WebKitLoadEvent              load_event,
+                                           const gchar                 *failing_uri,
+                                           GError                      *error);
 
-    GtkWidget *(* create)               (WebKitWebView             *web_view);
-    void       (* ready_to_show)        (WebKitWebView             *web_view);
-    void       (* close)                (WebKitWebView             *web_view);
+    GtkWidget *(* create)                 (WebKitWebView               *web_view);
+    void       (* ready_to_show)          (WebKitWebView               *web_view);
+    void       (* run_as_modal)           (WebKitWebView               *web_view);
+    void       (* close)                  (WebKitWebView               *web_view);
 
-    gboolean   (* script_alert)         (WebKitWebView             *web_view,
-                                         const gchar               *message);
-    gboolean   (* script_confirm)       (WebKitWebView             *web_view,
-                                         const gchar               *message,
-                                         gboolean                  *confirmed);
-    gboolean   (* script_prompt)        (WebKitWebView             *web_view,
-                                         const gchar               *message,
-                                         const gchar               *default_text,
-                                         gchar                    **text);
-    gboolean   (* decide_policy)        (WebKitWebView             *web_view,
-                                         WebKitPolicyDecision      *decision,
-                                         WebKitPolicyDecisionType   type);
-    void       (* mouse_target_changed) (WebKitWebView             *web_view,
-                                         WebKitHitTestResult       *hit_test_result,
-                                         guint                      modifiers);
-    gboolean   (* print_requested)      (WebKitWebView             *web_view,
-                                         WebKitPrintOperation      *print_operation);
+    gboolean   (* script_dialog)          (WebKitWebView               *web_view,
+                                           WebKitScriptDialog          *dialog);
+
+    gboolean   (* decide_policy)          (WebKitWebView               *web_view,
+                                           WebKitPolicyDecision        *decision,
+                                           WebKitPolicyDecisionType     type);
+    gboolean   (* permission_request)     (WebKitWebView               *web_view,
+                                           WebKitPermissionRequest     *permission_request);
+    void       (* mouse_target_changed)   (WebKitWebView               *web_view,
+                                           WebKitHitTestResult         *hit_test_result,
+                                           guint                        modifiers);
+    gboolean   (* print)                  (WebKitWebView               *web_view,
+                                           WebKitPrintOperation        *print_operation);
+    void       (* resource_load_started)  (WebKitWebView               *web_view,
+                                           WebKitWebResource           *resource,
+                                           WebKitURIRequest            *request);
+    gboolean   (* enter_fullscreen)       (WebKitWebView               *web_view);
+    gboolean   (* leave_fullscreen)       (WebKitWebView               *web_view);
+    gboolean   (* run_file_chooser)       (WebKitWebView               *web_view,
+                                           WebKitFileChooserRequest    *request);
+    gboolean   (* context_menu)           (WebKitWebView               *web_view,
+                                           WebKitContextMenu           *context_menu,
+                                           GdkEvent                    *event,
+                                           WebKitHitTestResult         *hit_test_result);
+    void       (* context_menu_dismissed) (WebKitWebView               *web_view);
+    void       (* submit_form)            (WebKitWebView               *web_view,
+                                           WebKitFormSubmissionRequest *request);
 
     /* Padding for future expansion */
     void (*_webkit_reserved0) (void);
@@ -181,7 +210,11 @@ WEBKIT_API void
 webkit_web_view_load_html                          (WebKitWebView             *web_view,
                                                     const gchar               *content,
                                                     const gchar               *base_uri);
-
+WEBKIT_API void
+webkit_web_view_load_alternate_html                (WebKitWebView             *web_view,
+                                                    const gchar               *content,
+                                                    const gchar               *content_uri,
+                                                    const gchar               *base_uri);
 WEBKIT_API void
 webkit_web_view_load_plain_text                    (WebKitWebView             *web_view,
                                                     const gchar               *plain_text);
@@ -192,12 +225,6 @@ webkit_web_view_load_request                       (WebKitWebView             *w
 
 WEBKIT_API void
 webkit_web_view_stop_loading                       (WebKitWebView             *web_view);
-
-WEBKIT_API void
-webkit_web_view_replace_content                    (WebKitWebView             *web_view,
-                                                    const gchar               *content,
-                                                    const gchar               *content_uri,
-                                                    const gchar               *base_uri);
 
 WEBKIT_API const gchar *
 webkit_web_view_get_title                          (WebKitWebView             *web_view);
@@ -258,6 +285,7 @@ webkit_web_view_get_zoom_level                     (WebKitWebView             *w
 WEBKIT_API void
 webkit_web_view_can_execute_editing_command        (WebKitWebView             *web_view,
                                                     const gchar               *command,
+                                                    GCancellable              *cancellable,
                                                     GAsyncReadyCallback        callback,
                                                     gpointer                   user_data);
 
@@ -272,6 +300,58 @@ webkit_web_view_execute_editing_command            (WebKitWebView             *w
 
 WEBKIT_API WebKitFindController *
 webkit_web_view_get_find_controller                (WebKitWebView             *web_view);
+
+WEBKIT_API JSGlobalContextRef
+webkit_web_view_get_javascript_global_context      (WebKitWebView             *web_view);
+
+WEBKIT_API void
+webkit_web_view_run_javascript                     (WebKitWebView             *web_view,
+                                                    const gchar               *script,
+                                                    GCancellable              *cancellable,
+                                                    GAsyncReadyCallback        callback,
+                                                    gpointer                   user_data);
+WEBKIT_API WebKitJavascriptResult *
+webkit_web_view_run_javascript_finish              (WebKitWebView             *web_view,
+                                                    GAsyncResult              *result,
+                                                    GError                   **error);
+
+WEBKIT_API WebKitWebResource *
+webkit_web_view_get_main_resource                  (WebKitWebView             *web_view);
+
+WEBKIT_API GList *
+webkit_web_view_get_subresources                   (WebKitWebView             *web_view);
+
+WEBKIT_API WebKitWebInspector *
+webkit_web_view_get_inspector                      (WebKitWebView             *web_view);
+
+WEBKIT_API gboolean
+webkit_web_view_can_show_mime_type                 (WebKitWebView             *web_view,
+                                                    const gchar               *mime_type);
+
+WEBKIT_API void
+webkit_web_view_save                               (WebKitWebView             *web_view,
+                                                    WebKitSaveMode             save_mode,
+                                                    GCancellable              *cancellable,
+                                                    GAsyncReadyCallback        callback,
+                                                    gpointer                   user_data);
+
+WEBKIT_API GInputStream *
+webkit_web_view_save_finish                        (WebKitWebView             *web_view,
+                                                    GAsyncResult              *result,
+                                                    GError                   **error);
+
+WEBKIT_API void
+webkit_web_view_save_to_file                       (WebKitWebView             *web_view,
+                                                    GFile                     *file,
+                                                    WebKitSaveMode             save_mode,
+                                                    GCancellable              *cancellable,
+                                                    GAsyncReadyCallback        callback,
+                                                    gpointer                   user_data);
+
+WEBKIT_API gboolean
+webkit_web_view_save_to_file_finish                (WebKitWebView             *web_view,
+                                                    GAsyncResult              *result,
+                                                    GError                   **error);
 
 G_END_DECLS
 

@@ -21,11 +21,10 @@
 #ifndef WebKitDOMEvent_h
 #define WebKitDOMEvent_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_EVENT            (webkit_dom_event_get_type())
@@ -69,15 +68,15 @@ webkit_dom_event_prevent_default(WebKitDOMEvent* self);
 /**
  * webkit_dom_event_init_event:
  * @self: A #WebKitDOMEvent
- * @event_type_arg: A #gchar
- * @can_bubble_arg: A #gboolean
- * @cancelable_arg: A #gboolean
+ * @eventTypeArg: A #gchar
+ * @canBubbleArg: A #gboolean
+ * @cancelableArg: A #gboolean
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_event_init_event(WebKitDOMEvent* self, const gchar* event_type_arg, gboolean can_bubble_arg, gboolean cancelable_arg);
+webkit_dom_event_init_event(WebKitDOMEvent* self, const gchar* eventTypeArg, gboolean canBubbleArg, gboolean cancelableArg);
 
 /**
  * webkit_dom_event_stop_immediate_propagation:

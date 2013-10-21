@@ -2,34 +2,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Cairo Rendering</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>Pango Reference Manual: Cairo Rendering</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="Pango Reference Manual">
 <link rel="up" href="rendering.html" title="Rendering with Pango">
 <link rel="prev" href="pango-Xft-Fonts-and-Rendering.html" title="Xft Fonts and Rendering">
-<link rel="next" href="pango-ATSUI-Fonts.html" title="ATSUI Fonts">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="next" href="pango-CoreText-Fonts.html" title="CoreText Fonts">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="pango-Xft-Fonts-and-Rendering.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="rendering.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">Pango Reference Manual</th>
-<td><a accesskey="n" href="pango-ATSUI-Fonts.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#pango-Cairo-Rendering.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#pango-Cairo-Rendering.description" class="shortcut">Description</a>
                    | 
                   <a href="#pango-Cairo-Rendering.object-hierarchy" class="shortcut">Object Hierarchy</a>
                    | 
                   <a href="#pango-Cairo-Rendering.prerequisites" class="shortcut">Prerequisites</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="rendering.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="pango-Xft-Fonts-and-Rendering.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="pango-CoreText-Fonts.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="pango-Cairo-Rendering"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -314,7 +311,7 @@ to the floating point units used in Cairo divide by <a class="link" href="pango-
 </div>
 <br class="example-break"><div class="figure">
 <a name="rotated-example-output"></a><p class="title"><b>Figure 2. Output of <a class="xref" href="pango-Cairo-Rendering.html#rotated-example" title="Example 1. Using Pango with Cairo">Example 1, “Using Pango with Cairo”</a></b></p>
-<div class="figure-contents"><div><img src="rotated-text.png" alt="Output of"></div></div>
+<div class="figure-contents"><div><img src="rotated-text.png" alt="Output of Example 1, “Using Pango with Cairo”"></div></div>
 </div>
 <br class="figure-break">
 </div>
@@ -360,12 +357,20 @@ The default Cairo fontmap can be changed by using
 change the Cairo font backend that the default fontmap
 uses for example.
 </p>
-<div class="variablelist"><table border="0">
+<p>
+Note that since Pango 1.32.6, the default fontmap is per-thread.
+Each thread gets its own default fontmap.  In this way,
+PangoCairo can be used safely from multiple threads.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the default Cairo fontmap
-for Pango. This object is owned by Pango and must not be freed. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+<td>the default PangoCairo fontmap
+for the current thread. This object is owned by Pango and must not be freed. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr></tbody>
 </table></div>
@@ -384,12 +389,22 @@ default fontmap uses for example.  The old default font map
 is unreffed and the new font map referenced.
 </p>
 <p>
+Note that since Pango 1.32.6, the default fontmap is per-thread.
+This function only changes the default fontmap for
+the current thread.   Default fontmaps of exisiting threads
+are not changed.  Default fontmaps of any new threads will
+still be created using <a class="link" href="pango-Cairo-Rendering.html#pango-cairo-font-map-new" title="pango_cairo_font_map_new ()"><code class="function">pango_cairo_font_map_new()</code></a>.
+</p>
+<p>
 A value of <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for <em class="parameter"><code>fontmap</code></em> will cause the current default
 font map to be released and a new default font
 map to be created on demand, using <a class="link" href="pango-Cairo-Rendering.html#pango-cairo-font-map-new" title="pango_cairo_font_map_new ()"><code class="function">pango_cairo_font_map_new()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>fontmap</code></em> :</span></p></td>
 <td>The new default font map, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
@@ -415,8 +430,11 @@ on the particular font backend Cairo was compiled to use;
 You generally should only use the <a class="link" href="pango-Fonts.html#PangoFontMap"><span class="type">PangoFontMap</span></a> and
 <a class="link" href="pango-Cairo-Rendering.html#PangoCairoFontMap"><span class="type">PangoCairoFontMap</span></a> interfaces on the returned object.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the newly allocated <a class="link" href="pango-Fonts.html#PangoFontMap"><span class="type">PangoFontMap</span></a>,
@@ -440,8 +458,11 @@ In most cases one should simply use <em class="parameter"><code><a class="link" 
 or in fact in most of those cases, just use
 <em class="parameter"><code><a class="link" href="pango-Cairo-Rendering.html#pango-cairo-font-map-get-default" title="pango_cairo_font_map_get_default ()"><code class="function">pango_cairo_font_map_get_default()</code></a></code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>fonttype</code></em> :</span></p></td>
@@ -466,8 +487,11 @@ font backend is not supported / compiled in.</td>
 <p>
 Gets the type of Cairo font backend that <em class="parameter"><code>fontmap</code></em> uses.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>fontmap</code></em> :</span></p></td>
@@ -493,8 +517,11 @@ points specified in a <a class="link" href="pango-Fonts.html#PangoFontDescriptio
 default value is 96, meaning that a 10 point font will be 13
 units high. (10 * 96. / 72. = 13.3).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>fontmap</code></em> :</span></p></td>
@@ -517,8 +544,11 @@ involved; the terminology is conventional.)</td>
 <p>
 Gets the resolution for the fontmap. See <a class="link" href="pango-Cairo-Rendering.html#pango-cairo-font-map-set-resolution" title="pango_cairo_font_map_set_resolution ()"><code class="function">pango_cairo_font_map_set_resolution()</code></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>fontmap</code></em> :</span></p></td>
@@ -537,15 +567,18 @@ Gets the resolution for the fontmap. See <a class="link" href="pango-Cairo-Rende
 <div class="refsect2">
 <a name="pango-cairo-font-map-create-context"></a><h3>pango_cairo_font_map_create_context ()</h3>
 <pre class="programlisting"><a class="link" href="pango-Text-Processing.html#PangoContext"><span class="returnvalue">PangoContext</span></a> *      pango_cairo_font_map_create_context (<em class="parameter"><code><a class="link" href="pango-Cairo-Rendering.html#PangoCairoFontMap"><span class="type">PangoCairoFontMap</span></a> *fontmap</code></em>);</pre>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="warning">
 <h3 class="title">Warning</h3>
 <p><code class="literal">pango_cairo_font_map_create_context</code> has been deprecated since version 1.22 and should not be used in newly-written code. Use <a class="link" href="pango-Fonts.html#pango-font-map-create-context" title="pango_font_map_create_context ()"><code class="function">pango_font_map_create_context()</code></a> instead.</p>
 </div>
 <p>
 Create a <a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a> for the given fontmap.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>fontmap</code></em> :</span></p></td>
@@ -569,8 +602,11 @@ Gets the <span class="type">cairo_scaled_font_t</span> used by <em class="parame
 The scaled font can be referenced and kept using
 <code class="function">cairo_scaled_font_reference()</code>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>font</code></em> :</span></p></td>
@@ -597,8 +633,11 @@ points specified in a <a class="link" href="pango-Fonts.html#PangoFontDescriptio
 default value is 96, meaning that a 10 point font will be 13
 units high. (10 * 96. / 72. = 13.3).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -621,8 +660,11 @@ means to use the resolution from the font map.</td>
 <p>
 Gets the resolution for the context. See <a class="link" href="pango-Cairo-Rendering.html#pango-cairo-context-set-resolution" title="pango_cairo_context_set_resolution ()"><code class="function">pango_cairo_context_set_resolution()</code></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -648,8 +690,11 @@ Sets the font options used when rendering text with this context.
 These options override any options that <a class="link" href="pango-Cairo-Rendering.html#pango-cairo-update-context" title="pango_cairo_update_context ()"><code class="function">pango_cairo_update_context()</code></a>
 derives from the target surface.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -674,8 +719,11 @@ Retrieves any font rendering options previously set with
 <code class="function">pango_cairo_font_map_set_font_options()</code>. This function does not report options
 that are derived from the target surface by <a class="link" href="pango-Cairo-Rendering.html#pango-cairo-update-context" title="pango_cairo_update_context ()"><code class="function">pango_cairo_update_context()</code></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -702,8 +750,11 @@ and must not be modified or freed.</td>
 Function type for rendering attributes of type <a class="link" href="pango-Text-Attributes.html#PANGO-ATTR-SHAPE:CAPS"><code class="literal">PANGO_ATTR_SHAPE</code></a>
 with Pango's Cairo renderer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
@@ -742,8 +793,11 @@ Sets callback function for context to use for rendering attributes
 of type <a class="link" href="pango-Text-Attributes.html#PANGO-ATTR-SHAPE:CAPS"><code class="literal">PANGO_ATTR_SHAPE</code></a>.  See <a class="link" href="pango-Cairo-Rendering.html#PangoCairoShapeRendererFunc" title="PangoCairoShapeRendererFunc ()"><span class="type">PangoCairoShapeRendererFunc</span></a> for
 details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -783,8 +837,11 @@ Retrieves callback function and associated user data for rendering
 attributes of type <a class="link" href="pango-Text-Attributes.html#PANGO-ATTR-SHAPE:CAPS"><code class="literal">PANGO_ATTR_SHAPE</code></a> as set by
 <a class="link" href="pango-Cairo-Rendering.html#pango-cairo-context-set-shape-renderer" title="pango_cairo_context_set_shape_renderer ()"><code class="function">pango_cairo_context_set_shape_renderer()</code></a>, if any.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -818,8 +875,11 @@ the default font map, then updates it to <em class="parameter"><code>cr</code></
 create a layout for use with <em class="parameter"><code>cr</code></em> and do not need to access <a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a>
 directly, you can use <a class="link" href="pango-Cairo-Rendering.html#pango-cairo-create-layout" title="pango_cairo_create_layout ()"><code class="function">pango_cairo_create_layout()</code></a> instead.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
@@ -847,8 +907,11 @@ context. If any layouts have been created for the context,
 it's necessary to call <a class="link" href="pango-Layout-Objects.html#pango-layout-context-changed" title="pango_layout_context_changed ()"><code class="function">pango_layout_context_changed()</code></a> on those
 layouts.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
@@ -880,8 +943,11 @@ however it is slightly inefficient since it creates a separate
 <a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a> object for each layout. This might matter in an
 application that was laying out large amounts of text.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
@@ -907,8 +973,11 @@ Updates the private <a class="link" href="pango-Text-Processing.html#PangoContex
 <a class="link" href="pango-Cairo-Rendering.html#pango-cairo-create-layout" title="pango_cairo_create_layout ()"><code class="function">pango_cairo_create_layout()</code></a> to match the current transformation
 and target surface of a Cairo context.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
@@ -934,8 +1003,11 @@ Draws the glyphs in <em class="parameter"><code>glyphs</code></em> in the specif
 The origin of the glyphs (the left edge of the baseline) will
 be drawn at the current point of the cairo context.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
@@ -975,8 +1047,11 @@ be drawn at the current point of the cairo context.
 Note that <em class="parameter"><code>text</code></em> is the start of the text for layout, which is then
 indexed by <code class="literal"><em class="parameter"><code>glyph_item-&gt;item-&gt;offset</code></em></code>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
@@ -1005,8 +1080,11 @@ Draws a <a class="link" href="pango-Layout-Objects.html#PangoLayoutLine"><span c
 The origin of the glyphs (the left edge of the line) will
 be drawn at the current point of the cairo context.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
@@ -1031,8 +1109,11 @@ Draws a <a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class
 The top-left corner of the <a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a> will be drawn
 at the current point of the cairo context.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
@@ -1061,8 +1142,11 @@ spelling error.  (The width of the underline is rounded to an integer
 number of up/down segments and the resulting rectangle is centered in the
 original rectangle)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
@@ -1099,8 +1183,11 @@ Adds the glyphs in <em class="parameter"><code>glyphs</code></em> to the current
 cairo context. The origin of the glyphs (the left edge of the baseline)
 will be at the current point of the cairo context.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
@@ -1130,8 +1217,11 @@ Adds the text in <a class="link" href="pango-Layout-Objects.html#PangoLayoutLine
 specified cairo context.  The origin of the glyphs (the left edge
 of the line) will be at the current point of the cairo context.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
@@ -1156,8 +1246,11 @@ Adds the text in a <a class="link" href="pango-Layout-Objects.html#PangoLayout">
 specified cairo context.  The top-left corner of the <a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a>
 will be at the current point of the cairo context.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
@@ -1186,8 +1279,11 @@ to indicate a spelling error.  (The width of the underline is rounded to an
 integer number of up/down segments and the resulting rectangle is centered
 in the original rectangle)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cr</code></em> :</span></p></td>
@@ -1217,6 +1313,6 @@ in the original rectangle)
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

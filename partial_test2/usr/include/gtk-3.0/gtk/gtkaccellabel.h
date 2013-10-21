@@ -25,13 +25,13 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
-#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
-#error "Only <gtk/gtk.h> can be included directly."
-#endif
-
 #ifndef __GTK_ACCEL_LABEL_H__
 #define __GTK_ACCEL_LABEL_H__
 
+
+#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
+#error "Only <gtk/gtk.h> can be included directly."
+#endif
 
 #include <gtk/gtklabel.h>
 
@@ -81,15 +81,26 @@ struct _GtkAccelLabelClass
 };
 
 
+GDK_AVAILABLE_IN_ALL
 GType	   gtk_accel_label_get_type	     (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkWidget* gtk_accel_label_new		     (const gchar   *string);
+GDK_AVAILABLE_IN_ALL
 GtkWidget* gtk_accel_label_get_accel_widget  (GtkAccelLabel *accel_label);
+GDK_AVAILABLE_IN_ALL
 guint	   gtk_accel_label_get_accel_width   (GtkAccelLabel *accel_label);
+GDK_AVAILABLE_IN_ALL
 void	   gtk_accel_label_set_accel_widget  (GtkAccelLabel *accel_label,
 					      GtkWidget	    *accel_widget);
+GDK_AVAILABLE_IN_ALL
 void	   gtk_accel_label_set_accel_closure (GtkAccelLabel *accel_label,
 					      GClosure	    *accel_closure);
+GDK_AVAILABLE_IN_ALL
 gboolean   gtk_accel_label_refetch           (GtkAccelLabel *accel_label);
+GDK_AVAILABLE_IN_3_6
+void       gtk_accel_label_set_accel         (GtkAccelLabel   *accel_label,
+                                              guint            accelerator_key,
+                                              GdkModifierType  accelerator_mods);
 
 /* private */
 gchar *    _gtk_accel_label_class_get_accelerator_label (GtkAccelLabelClass *klass,

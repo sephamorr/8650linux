@@ -21,11 +21,10 @@
 #ifndef WebKitDOMMessagePort_h
 #define WebKitDOMMessagePort_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_MESSAGE_PORT            (webkit_dom_message_port_get_type())

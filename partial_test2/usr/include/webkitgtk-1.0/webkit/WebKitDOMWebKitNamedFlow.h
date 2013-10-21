@@ -21,11 +21,10 @@
 #ifndef WebKitDOMWebKitNamedFlow_h
 #define WebKitDOMWebKitNamedFlow_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_WEBKIT_NAMED_FLOW            (webkit_dom_webkit_named_flow_get_type())
@@ -47,14 +46,77 @@ WEBKIT_API GType
 webkit_dom_webkit_named_flow_get_type (void);
 
 /**
- * webkit_dom_webkit_named_flow_get_overflow:
+ * webkit_dom_webkit_named_flow_get_regions_by_content:
+ * @self: A #WebKitDOMWebKitNamedFlow
+ * @contentNode: A #WebKitDOMNode
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMNodeList*
+webkit_dom_webkit_named_flow_get_regions_by_content(WebKitDOMWebKitNamedFlow* self, WebKitDOMNode* contentNode);
+
+/**
+ * webkit_dom_webkit_named_flow_get_regions:
+ * @self: A #WebKitDOMWebKitNamedFlow
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMNodeList*
+webkit_dom_webkit_named_flow_get_regions(WebKitDOMWebKitNamedFlow* self);
+
+/**
+ * webkit_dom_webkit_named_flow_get_content:
+ * @self: A #WebKitDOMWebKitNamedFlow
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMNodeList*
+webkit_dom_webkit_named_flow_get_content(WebKitDOMWebKitNamedFlow* self);
+
+/**
+ * webkit_dom_webkit_named_flow_dispatch_event:
+ * @self: A #WebKitDOMWebKitNamedFlow
+ * @event: A #WebKitDOMEvent
+ * @error: #GError
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gboolean
+webkit_dom_webkit_named_flow_dispatch_event(WebKitDOMWebKitNamedFlow* self, WebKitDOMEvent* event, GError** error);
+
+/**
+ * webkit_dom_webkit_named_flow_get_name:
+ * @self: A #WebKitDOMWebKitNamedFlow
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_webkit_named_flow_get_name(WebKitDOMWebKitNamedFlow* self);
+
+/**
+ * webkit_dom_webkit_named_flow_get_overset:
  * @self: A #WebKitDOMWebKitNamedFlow
  *
  * Returns:
  *
 **/
 WEBKIT_API gboolean
-webkit_dom_webkit_named_flow_get_overflow(WebKitDOMWebKitNamedFlow* self);
+webkit_dom_webkit_named_flow_get_overset(WebKitDOMWebKitNamedFlow* self);
+
+/**
+ * webkit_dom_webkit_named_flow_get_first_empty_region_index:
+ * @self: A #WebKitDOMWebKitNamedFlow
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API glong
+webkit_dom_webkit_named_flow_get_first_empty_region_index(WebKitDOMWebKitNamedFlow* self);
 
 G_END_DECLS
 

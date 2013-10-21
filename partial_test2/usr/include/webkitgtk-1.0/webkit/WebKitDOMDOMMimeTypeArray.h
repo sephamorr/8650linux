@@ -21,11 +21,10 @@
 #ifndef WebKitDOMDOMMimeTypeArray_h
 #define WebKitDOMDOMMimeTypeArray_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_DOM_MIME_TYPE_ARRAY            (webkit_dom_dom_mime_type_array_get_type())

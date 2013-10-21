@@ -21,11 +21,10 @@
 #ifndef WebKitDOMCSSStyleSheet_h
 #define WebKitDOMCSSStyleSheet_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMStyleSheet.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMStyleSheet.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_CSS_STYLE_SHEET            (webkit_dom_css_style_sheet_get_type())
@@ -57,7 +56,7 @@ webkit_dom_css_style_sheet_get_type (void);
  *
 **/
 WEBKIT_API gulong
-webkit_dom_css_style_sheet_insert_rule(WebKitDOMCSSStyleSheet* self, const gchar* rule, gulong index, GError **error);
+webkit_dom_css_style_sheet_insert_rule(WebKitDOMCSSStyleSheet* self, const gchar* rule, gulong index, GError** error);
 
 /**
  * webkit_dom_css_style_sheet_delete_rule:
@@ -69,7 +68,7 @@ webkit_dom_css_style_sheet_insert_rule(WebKitDOMCSSStyleSheet* self, const gchar
  *
 **/
 WEBKIT_API void
-webkit_dom_css_style_sheet_delete_rule(WebKitDOMCSSStyleSheet* self, gulong index, GError **error);
+webkit_dom_css_style_sheet_delete_rule(WebKitDOMCSSStyleSheet* self, gulong index, GError** error);
 
 /**
  * webkit_dom_css_style_sheet_add_rule:
@@ -83,7 +82,7 @@ webkit_dom_css_style_sheet_delete_rule(WebKitDOMCSSStyleSheet* self, gulong inde
  *
 **/
 WEBKIT_API glong
-webkit_dom_css_style_sheet_add_rule(WebKitDOMCSSStyleSheet* self, const gchar* selector, const gchar* style, gulong index, GError **error);
+webkit_dom_css_style_sheet_add_rule(WebKitDOMCSSStyleSheet* self, const gchar* selector, const gchar* style, gulong index, GError** error);
 
 /**
  * webkit_dom_css_style_sheet_remove_rule:
@@ -95,7 +94,7 @@ webkit_dom_css_style_sheet_add_rule(WebKitDOMCSSStyleSheet* self, const gchar* s
  *
 **/
 WEBKIT_API void
-webkit_dom_css_style_sheet_remove_rule(WebKitDOMCSSStyleSheet* self, gulong index, GError **error);
+webkit_dom_css_style_sheet_remove_rule(WebKitDOMCSSStyleSheet* self, gulong index, GError** error);
 
 /**
  * webkit_dom_css_style_sheet_get_owner_rule:

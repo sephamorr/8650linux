@@ -21,11 +21,10 @@
 #ifndef WebKitDOMDOMStringMap_h
 #define WebKitDOMDOMStringMap_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_DOM_STRING_MAP            (webkit_dom_dom_string_map_get_type())

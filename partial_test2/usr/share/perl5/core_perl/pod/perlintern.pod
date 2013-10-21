@@ -144,6 +144,20 @@ dump the contents of a CV
 =for hackers
 Found in file pad.c
 
+=item cv_forget_slab
+X<cv_forget_slab>
+
+When a CV has a reference count on its slab (CvSLABBED), it is responsible
+for making sure it is freed.  (Hence, no two CVs should ever have a
+reference count on the same slab.)  The CV only needs to reference the slab
+during compilation.  Once it is compiled and CvROOT attached, it has
+finished its job, so it can forget the slab.
+
+	void	cv_forget_slab(CV *cv)
+
+=for hackers
+Found in file pad.c
+
 =item do_dump_pad
 X<do_dump_pad>
 
@@ -158,7 +172,9 @@ Found in file pad.c
 =item intro_my
 X<intro_my>
 
-"Introduce" my variables to visible status.
+"Introduce" my variables to visible status.  This is called during parsing
+at the end of each statement to make lexical variables visible to
+subsequent statements.
 
 	U32	intro_my()
 
@@ -170,7 +186,8 @@ X<padlist_dup>
 
 Duplicates a pad.
 
-	AV *	padlist_dup(AV *srcpad, CLONE_PARAMS *param)
+	PADLIST * padlist_dup(PADLIST *srcpad,
+	                      CLONE_PARAMS *param)
 
 =for hackers
 Found in file pad.c
@@ -196,7 +213,7 @@ Found in file pad.c
 =item pad_block_start
 X<pad_block_start>
 
-Update the pad compilation state variables on entry to a new block
+Update the pad compilation state variables on entry to a new block.
 
 	void	pad_block_start(int full)
 
@@ -329,7 +346,7 @@ X<core_prototype>
 This function assigns the prototype of the named core function to C<sv>, or
 to a new mortal SV if C<sv> is NULL.  It returns the modified C<sv>, or
 NULL if the core function has no prototype.  C<code> is a code as returned
-by C<keyword()>.  It must be negative and unequal to -KEY_CORE.
+by C<keyword()>.  It must not be equal to 0 or -KEY_CORE.
 
 	SV *	core_prototype(SV *sv, const char *name,
 		               const int code,
@@ -846,6 +863,58 @@ context block structure (can be used as an lvalue).
 =for hackers
 Found in file pad.h
 
+=item PadnameIsOUR
+X<PadnameIsOUR>
+
+Whether this is an "our" variable.
+
+	bool	PadnameIsOUR(PADNAME pn)
+
+=for hackers
+Found in file pad.h
+
+=item PadnameIsSTATE
+X<PadnameIsSTATE>
+
+Whether this is a "state" variable.
+
+	bool	PadnameIsSTATE(PADNAME pn)
+
+=for hackers
+Found in file pad.h
+
+=item PadnameOURSTASH
+X<PadnameOURSTASH>
+
+The stash in which this "our" variable was declared.
+
+	HV *	PadnameOURSTASH()
+
+=for hackers
+Found in file pad.h
+
+=item PadnameOUTER
+X<PadnameOUTER>
+
+Whether this entry belongs to an outer pad.
+
+	bool	PadnameOUTER(PADNAME pn)
+
+=for hackers
+Found in file pad.h
+
+=item PadnameTYPE
+X<PadnameTYPE>
+
+The stash associated with a typed lexical.  This returns the %Foo:: hash
+for C<my Foo $bar>.
+
+
+	HV *	PadnameTYPE(PADNAME pn)
+
+=for hackers
+Found in file pad.h
+
 =item PAD_BASE_SV
 X<PAD_BASE_SV>
 
@@ -1055,9 +1124,6 @@ X<SAVECOMPPAD>
 save PL_comppad and PL_curpad
 
 
-
-
-
 	void	SAVECOMPPAD()
 
 =for hackers
@@ -1195,6 +1261,32 @@ Found in file pp.h
 
 =over 8
 
+=item SvTHINKFIRST
+X<SvTHINKFIRST>
+
+A quick flag check to see whether an sv should be passed to sv_force_normal
+to be "downgraded" before SvIVX or SvPVX can be modified directly.
+
+For example, if your scalar is a reference and you want to modify the SvIVX
+slot, you can't just do SvROK_off, as that will leak the referent.
+
+This is used internally by various sv-modifying functions, such as
+sv_setsv, sv_setiv and sv_pvn_force.
+
+One case that this does not handle is a gv without SvFAKE set.  After
+
+    if (SvTHINKFIRST(gv)) sv_force_normal(gv);
+
+it will still be a gv.
+
+SvTHINKFIRST sometimes produces false positives.  In those cases
+sv_force_normal does nothing.
+
+	U32	SvTHINKFIRST(SV *sv)
+
+=for hackers
+Found in file sv.h
+
 =item sv_add_arena
 X<sv_add_arena>
 
@@ -1258,6 +1350,22 @@ NOTE: this function is experimental and may change or be
 removed without notice.
 
 	SV*	sv_2num(SV *const sv)
+
+=for hackers
+Found in file sv.c
+
+=item sv_copypv
+X<sv_copypv>
+
+Copies a stringified representation of the source SV into the
+destination SV.  Automatically performs any necessary mg_get and
+coercion of numeric values into strings.  Guaranteed to preserve
+UTF8 flag even from overloaded objects.  Similar in nature to
+sv_2pv[_flags] but operates directly on an SV instead of just the
+string.  Mostly uses sv_2pv_flags to do its work, except when that
+would lose the UTF-8'ness of the PV.
+
+	void	sv_copypv(SV *const dsv, SV *const ssv)
 
 =for hackers
 Found in file sv.c
@@ -1328,14 +1436,38 @@ it.
 
 =over
 
+=item Perl_croak_memory_wrap
+X<Perl_croak_memory_wrap>
+
+=item Slab_Alloc
+X<Slab_Alloc>
+
+=item Slab_Free
+X<Slab_Free>
+
+=item Slab_to_ro
+X<Slab_to_ro>
+
+=item Slab_to_rw
+X<Slab_to_rw>
+
 =item _add_range_to_invlist
 X<_add_range_to_invlist>
 
 =item _core_swash_init
 X<_core_swash_init>
 
+=item _get_invlist_len_addr
+X<_get_invlist_len_addr>
+
+=item _get_swash_invlist
+X<_get_swash_invlist>
+
 =item _invlist_array_init
 X<_invlist_array_init>
+
+=item _invlist_contains_cp
+X<_invlist_contains_cp>
 
 =item _invlist_contents
 X<_invlist_contents>
@@ -1352,8 +1484,14 @@ X<_invlist_invert>
 =item _invlist_invert_prop
 X<_invlist_invert_prop>
 
+=item _invlist_len
+X<_invlist_len>
+
 =item _invlist_populate_swatch
 X<_invlist_populate_swatch>
+
+=item _invlist_search
+X<_invlist_search>
 
 =item _invlist_subtract
 X<_invlist_subtract>
@@ -1363,9 +1501,6 @@ X<_invlist_union>
 
 =item _invlist_union_maybe_complement_2nd
 X<_invlist_union_maybe_complement_2nd>
-
-=item _is_utf8__perl_idstart
-X<_is_utf8__perl_idstart>
 
 =item _new_invlist
 X<_new_invlist>
@@ -1391,6 +1526,9 @@ X<add_cp_to_invlist>
 =item addmad
 X<addmad>
 
+=item alloc_maybe_populate_EXACT
+X<alloc_maybe_populate_EXACT>
+
 =item allocmy
 X<allocmy>
 
@@ -1402,6 +1540,9 @@ X<append_madprops>
 
 =item apply
 X<apply>
+
+=item av_extend_guts
+X<av_extend_guts>
 
 =item av_reify
 X<av_reify>
@@ -1433,6 +1574,9 @@ X<check_utf8_print>
 =item ck_entersub_args_core
 X<ck_entersub_args_core>
 
+=item compute_EXACTish
+X<compute_EXACTish>
+
 =item convert
 X<convert>
 
@@ -1442,8 +1586,20 @@ X<coresub_op>
 =item create_eval_scope
 X<create_eval_scope>
 
+=item croak_no_mem
+X<croak_no_mem>
+
+=item croak_popstack
+X<croak_popstack>
+
+=item current_re_engine
+X<current_re_engine>
+
 =item cv_ckproto_len_flags
 X<cv_ckproto_len_flags>
+
+=item cv_clone_into
+X<cv_clone_into>
 
 =item cvgv_set
 X<cvgv_set>
@@ -1553,6 +1709,12 @@ X<emulate_cop_io>
 =item feature_is_enabled
 X<feature_is_enabled>
 
+=item find_lexical_cv
+X<find_lexical_cv>
+
+=item find_runcv_where
+X<find_runcv_where>
+
 =item find_rundefsv2
 X<find_rundefsv2>
 
@@ -1561,6 +1723,9 @@ X<find_script>
 
 =item free_tied_hv_pool
 X<free_tied_hv_pool>
+
+=item get_and_check_backslash_N_name
+X<get_and_check_backslash_N_name>
 
 =item get_db_sub
 X<get_db_sub>
@@ -1574,8 +1739,8 @@ X<get_hash_seed>
 =item get_invlist_iter_addr
 X<get_invlist_iter_addr>
 
-=item get_invlist_len_addr
-X<get_invlist_len_addr>
+=item get_invlist_previous_index_addr
+X<get_invlist_previous_index_addr>
 
 =item get_invlist_version_id_addr
 X<get_invlist_version_id_addr>
@@ -1595,6 +1760,9 @@ X<get_re_arg>
 =item getenv_len
 X<getenv_len>
 
+=item grok_bslash_x
+X<grok_bslash_x>
+
 =item hfree_next_entry
 X<hfree_next_entry>
 
@@ -1609,6 +1777,9 @@ X<hv_undef_flags>
 
 =item init_argv_symbols
 X<init_argv_symbols>
+
+=item init_constants
+X<init_constants>
 
 =item init_dbargs
 X<init_dbargs>
@@ -1625,17 +1796,29 @@ X<invlist_array>
 =item invlist_clone
 X<invlist_clone>
 
+=item invlist_highest
+X<invlist_highest>
+
+=item invlist_is_iterating
+X<invlist_is_iterating>
+
+=item invlist_iterfinish
+X<invlist_iterfinish>
+
 =item invlist_iterinit
 X<invlist_iterinit>
-
-=item invlist_len
-X<invlist_len>
 
 =item invlist_max
 X<invlist_max>
 
+=item invlist_previous_index
+X<invlist_previous_index>
+
 =item invlist_set_len
 X<invlist_set_len>
+
+=item invlist_set_previous_index
+X<invlist_set_previous_index>
 
 =item invlist_trim
 X<invlist_trim>
@@ -1643,35 +1826,17 @@ X<invlist_trim>
 =item io_close
 X<io_close>
 
-=item is_utf8_X_L
-X<is_utf8_X_L>
+=item isALNUM_lazy
+X<isALNUM_lazy>
 
-=item is_utf8_X_LV
-X<is_utf8_X_LV>
+=item isIDFIRST_lazy
+X<isIDFIRST_lazy>
 
-=item is_utf8_X_LVT
-X<is_utf8_X_LVT>
+=item is_utf8_char_slow
+X<is_utf8_char_slow>
 
-=item is_utf8_X_LV_LVT_V
-X<is_utf8_X_LV_LVT_V>
-
-=item is_utf8_X_T
-X<is_utf8_X_T>
-
-=item is_utf8_X_V
-X<is_utf8_X_V>
-
-=item is_utf8_X_begin
-X<is_utf8_X_begin>
-
-=item is_utf8_X_extend
-X<is_utf8_X_extend>
-
-=item is_utf8_X_non_hangul
-X<is_utf8_X_non_hangul>
-
-=item is_utf8_X_prepend
-X<is_utf8_X_prepend>
+=item is_utf8_common
+X<is_utf8_common>
 
 =item jmaybe
 X<jmaybe>
@@ -1700,6 +1865,9 @@ X<madparse>
 =item magic_clear_all_env
 X<magic_clear_all_env>
 
+=item magic_cleararylen_p
+X<magic_cleararylen_p>
+
 =item magic_clearenv
 X<magic_clearenv>
 
@@ -1711,6 +1879,9 @@ X<magic_clearpack>
 
 =item magic_clearsig
 X<magic_clearsig>
+
+=item magic_copycallchecker
+X<magic_copycallchecker>
 
 =item magic_existspack
 X<magic_existspack>
@@ -1757,9 +1928,6 @@ X<magic_getvec>
 =item magic_killbackrefs
 X<magic_killbackrefs>
 
-=item magic_len
-X<magic_len>
-
 =item magic_nextpack
 X<magic_nextpack>
 
@@ -1780,9 +1948,6 @@ X<magic_set>
 
 =item magic_set_all_env
 X<magic_set_all_env>
-
-=item magic_setamagic
-X<magic_setamagic>
 
 =item magic_setarylen
 X<magic_setarylen>
@@ -1835,9 +2000,6 @@ X<magic_setuvar>
 =item magic_setvec
 X<magic_setvec>
 
-=item magic_setvstring
-X<magic_setvstring>
-
 =item magic_sizepack
 X<magic_sizepack>
 
@@ -1864,9 +2026,6 @@ X<mro_meta_dup>
 
 =item mro_meta_init
 X<mro_meta_init>
-
-=item munge_qwlist_to_paren_list
-X<munge_qwlist_to_paren_list>
 
 =item my_attrs
 X<my_attrs>
@@ -1970,6 +2129,9 @@ X<newMADPROP>
 =item newMADsv
 X<newMADsv>
 
+=item newSTUB
+X<newSTUB>
+
 =item newTOKEN
 X<newTOKEN>
 
@@ -2015,8 +2177,20 @@ X<op_refcnt_inc>
 =item op_std_init
 X<op_std_init>
 
+=item op_unscope
+X<op_unscope>
+
 =item op_xmldump
 X<op_xmldump>
+
+=item opslab_force_free
+X<opslab_force_free>
+
+=item opslab_free
+X<opslab_free>
+
+=item opslab_free_nopad
+X<opslab_free_nopad>
 
 =item package
 X<package>
@@ -2024,17 +2198,20 @@ X<package>
 =item package_version
 X<package_version>
 
+=item padlist_store
+X<padlist_store>
+
 =item parse_unicode_opts
 X<parse_unicode_opts>
 
 =item parser_free
 X<parser_free>
 
+=item parser_free_nexttoke_ops
+X<parser_free_nexttoke_ops>
+
 =item peep
 X<peep>
-
-=item pending_Slabs_to_ro
-X<pending_Slabs_to_ro>
 
 =item pmop_xmldump
 X<pmop_xmldump>
@@ -2050,6 +2227,9 @@ X<prepend_madprops>
 
 =item qerror
 X<qerror>
+
+=item re_op_compile
+X<re_op_compile>
 
 =item reg_named_buff
 X<reg_named_buff>
@@ -2074,6 +2254,9 @@ X<reg_temp_copy>
 
 =item regcurly
 X<regcurly>
+
+=item regpposixcc
+X<regpposixcc>
 
 =item regprop
 X<regprop>
@@ -2111,9 +2294,6 @@ X<scalar>
 =item scalarvoid
 X<scalarvoid>
 
-=item set_regclass_bit
-X<set_regclass_bit>
-
 =item sighandler
 X<sighandler>
 
@@ -2135,9 +2315,6 @@ X<sv_catxmlpvn>
 =item sv_catxmlsv
 X<sv_catxmlsv>
 
-=item sv_compile_2op_is_broken
-X<sv_compile_2op_is_broken>
-
 =item sv_del_backref
 X<sv_del_backref>
 
@@ -2146,6 +2323,15 @@ X<sv_free2>
 
 =item sv_kill_backrefs
 X<sv_kill_backrefs>
+
+=item sv_len_utf8_nomg
+X<sv_len_utf8_nomg>
+
+=item sv_mortalcopy_flags
+X<sv_mortalcopy_flags>
+
+=item sv_resetpvn
+X<sv_resetpvn>
 
 =item sv_sethek
 X<sv_sethek>
@@ -2200,6 +2386,9 @@ X<was_lvalue_sub>
 
 =item watch
 X<watch>
+
+=item win32_croak_not_implemented
+X<win32_croak_not_implemented>
 
 =item write_to_stderr
 X<write_to_stderr>

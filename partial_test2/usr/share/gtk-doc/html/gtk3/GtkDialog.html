@@ -2,26 +2,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>GtkDialog</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>GTK+ 3 Reference Manual: GtkDialog</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GTK+ 3 Reference Manual">
 <link rel="up" href="WindowWidgets.html" title="Windows">
 <link rel="prev" href="WindowWidgets.html" title="Windows">
-<link rel="next" href="GtkInvisible.html" title="GtkInvisible">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="next" href="GtkMessageDialog.html" title="GtkMessageDialog">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="WindowWidgets.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="WindowWidgets.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GTK+ 3 Reference Manual</th>
-<td><a accesskey="n" href="GtkInvisible.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#GtkDialog.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#GtkDialog.description" class="shortcut">Description</a>
                    | 
@@ -32,8 +25,12 @@
                   <a href="#GtkDialog.style-properties" class="shortcut">Style Properties</a>
                    | 
                   <a href="#GtkDialog.signals" class="shortcut">Signals</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="WindowWidgets.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="WindowWidgets.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="GtkMessageDialog.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="GtkDialog"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -52,51 +49,51 @@ struct              <a class="link" href="GtkDialog.html#GtkDialog-struct" title
 enum                <a class="link" href="GtkDialog.html#GtkDialogFlags" title="enum GtkDialogFlags">GtkDialogFlags</a>;
 enum                <a class="link" href="GtkDialog.html#GtkResponseType" title="enum GtkResponseType">GtkResponseType</a>;
 <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GtkDialog.html#gtk-dialog-new" title="gtk_dialog_new ()">gtk_dialog_new</a>                      (<em class="parameter"><code><span class="type">void</span></code></em>);
-<a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GtkDialog.html#gtk-dialog-new-with-buttons" title="gtk_dialog_new_with_buttons ()">gtk_dialog_new_with_buttons</a>         (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *title</code></em>,
+<a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GtkDialog.html#gtk-dialog-new-with-buttons" title="gtk_dialog_new_with_buttons ()">gtk_dialog_new_with_buttons</a>         (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *title</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a> *parent</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkDialog.html#GtkDialogFlags" title="enum GtkDialogFlags"><span class="type">GtkDialogFlags</span></a> flags</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_button_text</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_button_text</code></em>,
                                                          <em class="parameter"><code>...</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="GtkDialog.html#gtk-dialog-run" title="gtk_dialog_run ()">gtk_dialog_run</a>                      (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>);
+<a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="GtkDialog.html#gtk-dialog-run" title="gtk_dialog_run ()">gtk_dialog_run</a>                      (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkDialog.html#gtk-dialog-response" title="gtk_dialog_response ()">gtk_dialog_response</a>                 (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);
 <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GtkDialog.html#gtk-dialog-add-button" title="gtk_dialog_add_button ()">gtk_dialog_add_button</a>               (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *button_text</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *button_text</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkDialog.html#gtk-dialog-add-buttons" title="gtk_dialog_add_buttons ()">gtk_dialog_add_buttons</a>              (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_button_text</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_button_text</code></em>,
                                                          <em class="parameter"><code>...</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkDialog.html#gtk-dialog-add-action-widget" title="gtk_dialog_add_action_widget ()">gtk_dialog_add_action_widget</a>        (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkDialog.html#gtk-dialog-set-default-response" title="gtk_dialog_set_default_response ()">gtk_dialog_set_default_response</a>     (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkDialog.html#gtk-dialog-set-response-sensitive" title="gtk_dialog_set_response_sensitive ()">gtk_dialog_set_response_sensitive</a>   (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="GtkDialog.html#gtk-dialog-get-response-for-widget" title="gtk_dialog_get_response_for_widget ()">gtk_dialog_get_response_for_widget</a>  (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);
+<a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="GtkDialog.html#gtk-dialog-get-response-for-widget" title="gtk_dialog_get_response_for_widget ()">gtk_dialog_get_response_for_widget</a>  (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>);
 <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GtkDialog.html#gtk-dialog-get-widget-for-response" title="gtk_dialog_get_widget_for_response ()">gtk_dialog_get_widget_for_response</a>  (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);
 <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GtkDialog.html#gtk-dialog-get-action-area" title="gtk_dialog_get_action_area ()">gtk_dialog_get_action_area</a>          (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>);
 <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GtkDialog.html#gtk-dialog-get-content-area" title="gtk_dialog_get_content_area ()">gtk_dialog_get_content_area</a>         (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>);
 
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GtkDialog.html#gtk-alternative-dialog-button-order" title="gtk_alternative_dialog_button_order ()">gtk_alternative_dialog_button_order</a> (<em class="parameter"><code><a href="http://developer.gnome.org/devel/gdk/GdkScreen.html"><span class="type">GdkScreen</span></a> *screen</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GtkDialog.html#gtk-alternative-dialog-button-order" title="gtk_alternative_dialog_button_order ()">gtk_alternative_dialog_button_order</a> (<em class="parameter"><code><a href="../gdk3/GdkScreen.html"><span class="type">GdkScreen</span></a> *screen</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkDialog.html#gtk-dialog-set-alternative-button-order" title="gtk_dialog_set_alternative_button_order ()">gtk_dialog_set_alternative_button_order</a>
                                                         (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> first_response_id</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> first_response_id</code></em>,
                                                          <em class="parameter"><code>...</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkDialog.html#gtk-dialog-set-alternative-button-order-from-array" title="gtk_dialog_set_alternative_button_order_from_array ()">gtk_dialog_set_alternative_button_order_from_array</a>
                                                         (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_params</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *new_order</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_params</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *new_order</code></em>);
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkDialog.object-hierarchy"></a><h2>Object Hierarchy</h2>
 <pre class="synopsis">
-  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
-   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="../gobject/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
          +----<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
                +----<a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
                      +----<a class="link" href="GtkBin.html" title="GtkBin">GtkBin</a>
@@ -124,17 +121,17 @@ GtkDialog implements
 <div class="refsect1">
 <a name="GtkDialog.style-properties"></a><h2>Style Properties</h2>
 <pre class="synopsis">
-  "<a class="link" href="GtkDialog.html#GtkDialog--s-action-area-border" title='The "action-area-border" style property'>action-area-border</a>"       <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read
-  "<a class="link" href="GtkDialog.html#GtkDialog--s-button-spacing" title='The "button-spacing" style property'>button-spacing</a>"           <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read
-  "<a class="link" href="GtkDialog.html#GtkDialog--s-content-area-border" title='The "content-area-border" style property'>content-area-border</a>"      <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read
-  "<a class="link" href="GtkDialog.html#GtkDialog--s-content-area-spacing" title='The "content-area-spacing" style property'>content-area-spacing</a>"     <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read
+  "<a class="link" href="GtkDialog.html#GtkDialog--s-action-area-border" title='The "action-area-border" style property'>action-area-border</a>"       <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read
+  "<a class="link" href="GtkDialog.html#GtkDialog--s-button-spacing" title='The "button-spacing" style property'>button-spacing</a>"           <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read
+  "<a class="link" href="GtkDialog.html#GtkDialog--s-content-area-border" title='The "content-area-border" style property'>content-area-border</a>"      <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read
+  "<a class="link" href="GtkDialog.html#GtkDialog--s-content-area-spacing" title='The "content-area-spacing" style property'>content-area-spacing</a>"     <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkDialog.signals"></a><h2>Signals</h2>
 <pre class="synopsis">
-  "<a class="link" href="GtkDialog.html#GtkDialog-close" title='The "close" signal'>close</a>"                                          : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS"><code class="literal">Action</code></a>
-  "<a class="link" href="GtkDialog.html#GtkDialog-response" title='The "response" signal'>response</a>"                                       : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
+  "<a class="link" href="GtkDialog.html#GtkDialog-close" title='The "close" signal'>close</a>"                                          : <a href="../gobject/gobject-Signals.html#G-SIGNAL-ACTION:CAPS"><code class="literal">Action</code></a>
+  "<a class="link" href="GtkDialog.html#GtkDialog-response" title='The "response" signal'>response</a>"                                       : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a>
 </pre>
 </div>
 <div class="refsect1">
@@ -195,7 +192,7 @@ create the dialog contents manually if you had more than a simple message
 in the dialog.
 </p>
 <div class="example">
-<a name="id802199"></a><p class="title"><b>Example 44. Simple GtkDialog usage</b></p>
+<a name="id-1.3.6.2.8.9.2"></a><p class="title"><b>Example 10. Simple GtkDialog usage</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -237,16 +234,16 @@ in the dialog.
 <span class="normal">   dialog </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkDialog.html#gtk-dialog-new-with-buttons">gtk_dialog_new_with_buttons</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Message"</span><span class="symbol">,</span>
 <span class="normal">                                         main_application_window</span><span class="symbol">,</span>
 <span class="normal">                                         <a href="GtkDialog.html#GTK-DIALOG-DESTROY-WITH-PARENT:CAPS">GTK_DIALOG_DESTROY_WITH_PARENT</a></span><span class="symbol">,</span>
-<span class="normal">                                         <a href="gtk3-Stock-Items.html#GTK-STOCK-OK:CAPS">GTK_STOCK_OK</a></span><span class="symbol">,</span>
+<span class="normal">                                         </span><span class="function"><a href="../glib/glib-I18N.html#gettext-macro">_</a></span><span class="symbol">(</span><span class="string">"_OK"</span><span class="symbol">),</span>
 <span class="normal">                                         <a href="GtkDialog.html#GTK-RESPONSE-NONE:CAPS">GTK_RESPONSE_NONE</a></span><span class="symbol">,</span>
-<span class="normal">                                         <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="normal">                                         <a href="../glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
 <span class="normal">   content_area </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkDialog.html#gtk-dialog-get-content-area">gtk_dialog_get_content_area</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_DIALOG</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">dialog</span><span class="symbol">));</span>
 <span class="normal">   label </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkLabel.html#gtk-label-new">gtk_label_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">message</span><span class="symbol">);</span>
 
 <span class="normal">   </span><span class="comment">/* Ensure that the dialog box is destroyed when the user responds */</span>
-<span class="normal">   </span><span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#g-signal-connect-swapped">g_signal_connect_swapped</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">dialog</span><span class="symbol">,</span>
+<span class="normal">   </span><span class="function"><a href="../gobject/gobject-Signals.html#g-signal-connect-swapped">g_signal_connect_swapped</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">dialog</span><span class="symbol">,</span>
 <span class="normal">                             </span><span class="string">"response"</span><span class="symbol">,</span>
-<span class="normal">                             </span><span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="GtkWidget.html#gtk-widget-destroy">gtk_widget_destroy</a></span><span class="symbol">),</span>
+<span class="normal">                             </span><span class="function"><a href="../gobject/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="GtkWidget.html#gtk-widget-destroy">gtk_widget_destroy</a></span><span class="symbol">),</span>
 <span class="normal">                             dialog</span><span class="symbol">);</span>
 
 <span class="normal">   </span><span class="comment">/* Add the label, and show everything we've added to the dialog */</span>
@@ -278,7 +275,7 @@ attribute specifies a numeric response, and the content of the element
 is the id of widget (which should be a child of the dialogs <em class="parameter"><code>action_area</code></em>).
 </p>
 <div class="example">
-<a name="id802269"></a><p class="title"><b>Example 45. A <span class="structname">GtkDialog</span> UI definition fragment.</b></p>
+<a name="id-1.3.6.2.8.10.1.4"></a><p class="title"><b>Example 11. A <span class="structname">GtkDialog</span> UI definition fragment.</b></p>
 <div class="example-contents">
   <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
     <tbody>
@@ -355,8 +352,11 @@ and should not be directly accessed.
 <p>
 Flags used to influence dialog construction.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="GTK-DIALOG-MODAL:CAPS"></a><span class="term"><code class="literal">GTK_DIALOG_MODAL</code></span></p></td>
@@ -395,8 +395,11 @@ Predefined values for use as response ids in <a class="link" href="GtkDialog.htm
 All predefined values are negative, GTK+ leaves positive values for
 application-defined response ids.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="GTK-RESPONSE-NONE:CAPS"></a><span class="term"><code class="literal">GTK_RESPONSE_NONE</code></span></p></td>
@@ -468,8 +471,11 @@ Creates a new dialog box.
 Widgets should not be packed into this <a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a>
 directly, but into the <em class="parameter"><code>vbox</code></em> and <em class="parameter"><code>action_area</code></em>, as described above.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the new dialog as a <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a>
@@ -480,21 +486,20 @@ directly, but into the <em class="parameter"><code>vbox</code></em> and <em clas
 <hr>
 <div class="refsect2">
 <a name="gtk-dialog-new-with-buttons"></a><h3>gtk_dialog_new_with_buttons ()</h3>
-<pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_dialog_new_with_buttons         (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *title</code></em>,
+<pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_dialog_new_with_buttons         (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *title</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a> *parent</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkDialog.html#GtkDialogFlags" title="enum GtkDialogFlags"><span class="type">GtkDialogFlags</span></a> flags</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_button_text</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_button_text</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
-Creates a new <a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> with title <em class="parameter"><code>title</code></em> (or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for the default
+Creates a new <a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> with title <em class="parameter"><code>title</code></em> (or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for the default
 title; see <a class="link" href="GtkWindow.html#gtk-window-set-title" title="gtk_window_set_title ()"><code class="function">gtk_window_set_title()</code></a>) and transient parent <em class="parameter"><code>parent</code></em> (or
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for none; see <a class="link" href="GtkWindow.html#gtk-window-set-transient-for" title="gtk_window_set_transient_for ()"><code class="function">gtk_window_set_transient_for()</code></a>). The <em class="parameter"><code>flags</code></em>
+<a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for none; see <a class="link" href="GtkWindow.html#gtk-window-set-transient-for" title="gtk_window_set_transient_for ()"><code class="function">gtk_window_set_transient_for()</code></a>). The <em class="parameter"><code>flags</code></em>
 argument can be used to make the dialog modal (<a class="link" href="GtkDialog.html#GTK-DIALOG-MODAL:CAPS"><span class="type">GTK_DIALOG_MODAL</span></a>)
 and/or to have it destroyed along with its transient parent
 (<a class="link" href="GtkDialog.html#GTK-DIALOG-DESTROY-WITH-PARENT:CAPS"><span class="type">GTK_DIALOG_DESTROY_WITH_PARENT</span></a>). After <em class="parameter"><code>flags</code></em>, button
-text/response ID pairs should be listed, with a <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> pointer ending
-the list. Button text can be either a stock ID such as
-<a class="link" href="gtk3-Stock-Items.html#GTK-STOCK-OK:CAPS" title="GTK_STOCK_OK"><span class="type">GTK_STOCK_OK</span></a>, or some arbitrary text. A response ID can be
+text/response ID pairs should be listed, with a <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> pointer ending
+the list. Button text can be arbitrary text. A response ID can be
 any positive number, or one of the values in the <a class="link" href="GtkDialog.html#GtkResponseType" title="enum GtkResponseType"><span class="type">GtkResponseType</span></a>
 enumeration. If the user clicks one of these dialog buttons,
 <a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> will emit the <a class="link" href="GtkDialog.html#GtkDialog-response" title='The "response" signal'><span class="type">"response"</span></a> signal with the corresponding
@@ -523,11 +528,11 @@ Here's a simple example:
         <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkWidget</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">dialog </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkDialog.html#gtk-dialog-new-with-buttons">gtk_dialog_new_with_buttons</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"My dialog"</span><span class="symbol">,</span>
 <span class="normal">                                                 main_app_window</span><span class="symbol">,</span>
 <span class="normal">                                                 <a href="GtkDialog.html#GTK-DIALOG-MODAL:CAPS">GTK_DIALOG_MODAL</a> </span><span class="symbol">|</span><span class="normal"> <a href="GtkDialog.html#GTK-DIALOG-DESTROY-WITH-PARENT:CAPS">GTK_DIALOG_DESTROY_WITH_PARENT</a></span><span class="symbol">,</span>
-<span class="normal">                                                 <a href="gtk3-Stock-Items.html#GTK-STOCK-OK:CAPS">GTK_STOCK_OK</a></span><span class="symbol">,</span>
+<span class="normal">                                                 </span><span class="function"><a href="../glib/glib-I18N.html#gettext-macro">_</a></span><span class="symbol">(</span><span class="string">"_OK"</span><span class="symbol">),</span>
 <span class="normal">                                                 <a href="GtkDialog.html#GTK-RESPONSE-ACCEPT:CAPS">GTK_RESPONSE_ACCEPT</a></span><span class="symbol">,</span>
-<span class="normal">                                                 <a href="gtk3-Stock-Items.html#GTK-STOCK-CANCEL:CAPS">GTK_STOCK_CANCEL</a></span><span class="symbol">,</span>
+<span class="normal">                                                 </span><span class="function"><a href="../glib/glib-I18N.html#gettext-macro">_</a></span><span class="symbol">(</span><span class="string">"_Cancel"</span><span class="symbol">),</span>
 <span class="normal">                                                 <a href="GtkDialog.html#GTK-RESPONSE-REJECT:CAPS">GTK_RESPONSE_REJECT</a></span><span class="symbol">,</span>
-<span class="normal">                                                 <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span></pre></td>
+<span class="normal">                                                 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -535,17 +540,20 @@ Here's a simple example:
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>title</code></em> :</span></p></td>
-<td>Title of the dialog, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>Title of the dialog, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
-<td>Transient parent of the dialog, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>Transient parent of the dialog, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -555,12 +563,12 @@ Here's a simple example:
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>first_button_text</code></em> :</span></p></td>
-<td>stock ID or text to go in first button, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>text to go in first button, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
-<td>response ID for first button, then additional buttons, ending with <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<td>response ID for first button, then additional buttons, ending with <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 </td>
 </tr>
 <tr>
@@ -574,7 +582,7 @@ Here's a simple example:
 <hr>
 <div class="refsect2">
 <a name="gtk-dialog-run"></a><h3>gtk_dialog_run ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gtk_dialog_run                      (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gtk_dialog_run                      (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>);</pre>
 <p>
 Blocks in a recursive main loop until the <em class="parameter"><code>dialog</code></em> either emits the
 <a class="link" href="GtkDialog.html#GtkDialog-response" title='The "response" signal'><span class="type">"response"</span></a> signal, or is destroyed. If the dialog is
@@ -644,8 +652,11 @@ windows in the same window group while the dialog is run), callbacks
 such as timeouts, IO channel watches, DND drops, etc, <span class="emphasis"><em>will</em></span>
 be triggered during a <a class="link" href="GtkDialog.html#gtk-dialog-run" title="gtk_dialog_run ()"><code class="function">gtk_dialog_run()</code></a> call.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
@@ -663,15 +674,18 @@ be triggered during a <a class="link" href="GtkDialog.html#gtk-dialog-run" title
 <div class="refsect2">
 <a name="gtk-dialog-response"></a><h3>gtk_dialog_response ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_dialog_response                 (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);</pre>
 <p>
 Emits the <a class="link" href="GtkDialog.html#GtkDialog-response" title='The "response" signal'><span class="type">"response"</span></a> signal with the given response ID.
 Used to indicate that the user has responded to the dialog in some way;
 typically either you or <a class="link" href="GtkDialog.html#gtk-dialog-run" title="gtk_dialog_run ()"><code class="function">gtk_dialog_run()</code></a> will be monitoring the
 ::response signal and take appropriate action.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
@@ -689,17 +703,20 @@ typically either you or <a class="link" href="GtkDialog.html#gtk-dialog-run" tit
 <div class="refsect2">
 <a name="gtk-dialog-add-button"></a><h3>gtk_dialog_add_button ()</h3>
 <pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_dialog_add_button               (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *button_text</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);</pre>
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *button_text</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);</pre>
 <p>
-Adds a button with the given text (or a stock button, if <em class="parameter"><code>button_text</code></em> is a
-stock ID) and sets things up so that clicking the button will emit the
-<a class="link" href="GtkDialog.html#GtkDialog-response" title='The "response" signal'><span class="type">"response"</span></a> signal with the given <em class="parameter"><code>response_id</code></em>. The button is
-appended to the end of the dialog's action area. The button widget is
-returned, but usually you don't need it.
+Adds a button with the given text and sets things up so that
+clicking the button will emit the <a class="link" href="GtkDialog.html#GtkDialog-response" title='The "response" signal'><span class="type">"response"</span></a> signal with
+the given <em class="parameter"><code>response_id</code></em>. The button is appended to the end of the
+dialog's action area. The button widget is returned, but usually
+you don't need it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
@@ -708,7 +725,7 @@ returned, but usually you don't need it.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>button_text</code></em> :</span></p></td>
-<td>text of button, or stock ID</td>
+<td>text of button</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>response_id</code></em> :</span></p></td>
@@ -726,16 +743,19 @@ returned, but usually you don't need it.
 <div class="refsect2">
 <a name="gtk-dialog-add-buttons"></a><h3>gtk_dialog_add_buttons ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_dialog_add_buttons              (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_button_text</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_button_text</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
 Adds more buttons, same as calling <a class="link" href="GtkDialog.html#gtk-dialog-add-button" title="gtk_dialog_add_button ()"><code class="function">gtk_dialog_add_button()</code></a>
-repeatedly.  The variable argument list should be <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated
+repeatedly.  The variable argument list should be <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated
 as with <a class="link" href="GtkDialog.html#gtk-dialog-new-with-buttons" title="gtk_dialog_new_with_buttons ()"><code class="function">gtk_dialog_new_with_buttons()</code></a>. Each button must have both
 text and response ID.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
@@ -744,7 +764,7 @@ text and response ID.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>first_button_text</code></em> :</span></p></td>
-<td>button text or stock ID</td>
+<td>button text</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
@@ -758,7 +778,7 @@ text and response ID.
 <a name="gtk-dialog-add-action-widget"></a><h3>gtk_dialog_add_action_widget ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_dialog_add_action_widget        (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);</pre>
 <p>
 Adds an activatable widget to the action area of a <a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a>,
 connecting a signal handler that will emit the <a class="link" href="GtkDialog.html#GtkDialog-response" title='The "response" signal'><span class="type">"response"</span></a>
@@ -767,8 +787,11 @@ appended to the end of the dialog's action area. If you want to add a
 non-activatable widget, simply pack it into the <em class="parameter"><code>action_area</code></em> field
 of the <a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> struct.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
@@ -791,14 +814,17 @@ of the <a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type
 <div class="refsect2">
 <a name="gtk-dialog-set-default-response"></a><h3>gtk_dialog_set_default_response ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_dialog_set_default_response     (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);</pre>
 <p>
 Sets the last widget in the dialog's action area with the given <em class="parameter"><code>response_id</code></em>
 as the default widget for the dialog. Pressing "Enter" normally activates
 the default widget.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
@@ -816,15 +842,18 @@ the default widget.
 <div class="refsect2">
 <a name="gtk-dialog-set-response-sensitive"></a><h3>gtk_dialog_set_response_sensitive ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_dialog_set_response_sensitive   (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);</pre>
 <p>
 Calls <code class="literal">gtk_widget_set_sensitive (widget, <em class="parameter"><code>setting</code></em>)</code>
 for each widget in the dialog's action area with the given <em class="parameter"><code>response_id</code></em>.
 A convenient way to sensitize/desensitize dialog buttons.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
@@ -838,7 +867,7 @@ A convenient way to sensitize/desensitize dialog buttons.
 <tr>
 <td><p><span class="term"><em class="parameter"><code>setting</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> for sensitive</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> for sensitive</td>
 </tr>
 </tbody>
 </table></div>
@@ -846,14 +875,17 @@ A convenient way to sensitize/desensitize dialog buttons.
 <hr>
 <div class="refsect2">
 <a name="gtk-dialog-get-response-for-widget"></a><h3>gtk_dialog_get_response_for_widget ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gtk_dialog_get_response_for_widget  (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gtk_dialog_get_response_for_widget  (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>);</pre>
 <p>
 Gets the response id of a widget in the action area
 of a dialog.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
@@ -878,13 +910,16 @@ if <em class="parameter"><code>widget</code></em> doesn't have a response id set
 <div class="refsect2">
 <a name="gtk-dialog-get-widget-for-response"></a><h3>gtk_dialog_get_widget_for_response ()</h3>
 <pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_dialog_get_widget_for_response  (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> response_id</code></em>);</pre>
 <p>
 Gets the widget button that uses the given response ID in the action area
 of a dialog.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
@@ -898,7 +933,7 @@ of a dialog.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the <em class="parameter"><code>widget</code></em> button that uses the given
-<em class="parameter"><code>response_id</code></em>, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+<em class="parameter"><code>response_id</code></em>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -912,8 +947,11 @@ of a dialog.
 <p>
 Returns the action area of <em class="parameter"><code>dialog</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
@@ -936,8 +974,11 @@ Returns the action area of <em class="parameter"><code>dialog</code></em>.
 <p>
 Returns the content area of <em class="parameter"><code>dialog</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
@@ -956,9 +997,9 @@ Returns the content area of <em class="parameter"><code>dialog</code></em>.
 <hr>
 <div class="refsect2">
 <a name="gtk-alternative-dialog-button-order"></a><h3>gtk_alternative_dialog_button_order ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_alternative_dialog_button_order (<em class="parameter"><code><a href="http://developer.gnome.org/devel/gdk/GdkScreen.html"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_alternative_dialog_button_order (<em class="parameter"><code><a href="../gdk3/GdkScreen.html"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
 <p>
-Returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if dialogs are expected to use an alternative
+Returns <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if dialogs are expected to use an alternative
 button order on the screen <em class="parameter"><code>screen</code></em>. See
 <a class="link" href="GtkDialog.html#gtk-dialog-set-alternative-button-order" title="gtk_dialog_set_alternative_button_order ()"><code class="function">gtk_dialog_set_alternative_button_order()</code></a> for more details
 about alternative button order.
@@ -969,12 +1010,15 @@ to the ::notify:gtk-alternative-button-order signal on the
 <a class="link" href="GtkSettings.html" title="Settings"><span class="type">GtkSettings</span></a> object associated to <em class="parameter"><code>screen</code></em>, in order to be
 notified if the button order setting changes.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
-<td>a <a href="http://developer.gnome.org/devel/gdk/GdkScreen.html"><span class="type">GdkScreen</span></a>, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default screen. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>a <a href="../gdk3/GdkScreen.html"><span class="type">GdkScreen</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default screen. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -990,11 +1034,11 @@ notified if the button order setting changes.
 <a name="gtk-dialog-set-alternative-button-order"></a><h3>gtk_dialog_set_alternative_button_order ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_dialog_set_alternative_button_order
                                                         (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> first_response_id</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> first_response_id</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
 Sets an alternative button order. If the
-<a class="link" href="GtkSettings.html#GtkSettings--gtk-alternative-button-order" title='The "gtk-alternative-button-order" property'><span class="type">"gtk-alternative-button-order"</span></a> setting is set to <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>,
+<a class="link" href="GtkSettings.html#GtkSettings--gtk-alternative-button-order" title='The "gtk-alternative-button-order" property'><span class="type">"gtk-alternative-button-order"</span></a> setting is set to <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>,
 the dialog buttons are reordered according to the order of the
 response ids passed to this function.
 </p>
@@ -1034,17 +1078,17 @@ following example shows:
 18
 19</pre></td>
         <td class="listing_code"><pre class="programlisting"><span class="normal">cancel_button </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkDialog.html#gtk-dialog-add-button">gtk_dialog_add_button</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_DIALOG</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">dialog</span><span class="symbol">),</span>
-<span class="normal">                                       <a href="gtk3-Stock-Items.html#GTK-STOCK-CANCEL:CAPS">GTK_STOCK_CANCEL</a></span><span class="symbol">,</span>
+<span class="normal">                                       </span><span class="function"><a href="../glib/glib-I18N.html#gettext-macro">_</a></span><span class="symbol">(</span><span class="string">"_Cancel"</span><span class="symbol">),</span>
 <span class="normal">                                       <a href="GtkDialog.html#GTK-RESPONSE-CANCEL:CAPS">GTK_RESPONSE_CANCEL</a></span><span class="symbol">);</span>
 
 <span class="normal">ok_button </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkDialog.html#gtk-dialog-add-button">gtk_dialog_add_button</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_DIALOG</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">dialog</span><span class="symbol">),</span>
-<span class="normal">                                   <a href="gtk3-Stock-Items.html#GTK-STOCK-OK:CAPS">GTK_STOCK_OK</a></span><span class="symbol">,</span>
+<span class="normal">                                   </span><span class="function"><a href="../glib/glib-I18N.html#gettext-macro">_</a></span><span class="symbol">(</span><span class="string">"_OK"</span><span class="symbol">),</span>
 <span class="normal">                                   <a href="GtkDialog.html#GTK-RESPONSE-OK:CAPS">GTK_RESPONSE_OK</a></span><span class="symbol">);</span>
 
 <span class="function"><a href="GtkWidget.html#gtk-widget-grab-default">gtk_widget_grab_default</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">ok_button</span><span class="symbol">);</span>
 
 <span class="normal">help_button </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkDialog.html#gtk-dialog-add-button">gtk_dialog_add_button</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_DIALOG</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">dialog</span><span class="symbol">),</span>
-<span class="normal">                                     <a href="gtk3-Stock-Items.html#GTK-STOCK-HELP:CAPS">GTK_STOCK_HELP</a></span><span class="symbol">,</span>
+<span class="normal">                                     </span><span class="function"><a href="../glib/glib-I18N.html#gettext-macro">_</a></span><span class="symbol">(</span><span class="string">"_Help"</span><span class="symbol">),</span>
 <span class="normal">                                     <a href="GtkDialog.html#GTK-RESPONSE-HELP:CAPS">GTK_RESPONSE_HELP</a></span><span class="symbol">);</span>
 
 <span class="function"><a href="GtkDialog.html#gtk-dialog-set-alternative-button-order">gtk_dialog_set_alternative_button_order</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_DIALOG</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">dialog</span><span class="symbol">),</span>
@@ -1059,8 +1103,11 @@ following example shows:
 
 <p>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
@@ -1084,11 +1131,11 @@ following example shows:
 <a name="gtk-dialog-set-alternative-button-order-from-array"></a><h3>gtk_dialog_set_alternative_button_order_from_array ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_dialog_set_alternative_button_order_from_array
                                                         (<em class="parameter"><code><a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_params</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *new_order</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_params</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *new_order</code></em>);</pre>
 <p>
 Sets an alternative button order. If the
-<a class="link" href="GtkSettings.html#GtkSettings--gtk-alternative-button-order" title='The "gtk-alternative-button-order" property'><span class="type">"gtk-alternative-button-order"</span></a> setting is set to <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>,
+<a class="link" href="GtkSettings.html#GtkSettings--gtk-alternative-button-order" title='The "gtk-alternative-button-order" property'><span class="type">"gtk-alternative-button-order"</span></a> setting is set to <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>,
 the dialog buttons are reordered according to the order of the
 response ids in <em class="parameter"><code>new_order</code></em>.
 </p>
@@ -1098,8 +1145,11 @@ See <a class="link" href="GtkDialog.html#gtk-dialog-set-alternative-button-order
 <p>
 This function is for use by language bindings.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
@@ -1126,7 +1176,7 @@ This function is for use by language bindings.
 <a name="GtkDialog.style-property-details"></a><h2>Style Property Details</h2>
 <div class="refsect2">
 <a name="GtkDialog--s-action-area-border"></a><h3>The <code class="literal">"action-area-border"</code> style property</h3>
-<pre class="programlisting">  "action-area-border"       <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read</pre>
+<pre class="programlisting">  "action-area-border"       <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read</pre>
 <p>Width of border around the button area at the bottom of the dialog.</p>
 <p>Allowed values: &gt;= 0</p>
 <p>Default value: 5</p>
@@ -1134,7 +1184,7 @@ This function is for use by language bindings.
 <hr>
 <div class="refsect2">
 <a name="GtkDialog--s-button-spacing"></a><h3>The <code class="literal">"button-spacing"</code> style property</h3>
-<pre class="programlisting">  "button-spacing"           <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read</pre>
+<pre class="programlisting">  "button-spacing"           <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read</pre>
 <p>Spacing between buttons.</p>
 <p>Allowed values: &gt;= 0</p>
 <p>Default value: 6</p>
@@ -1142,7 +1192,7 @@ This function is for use by language bindings.
 <hr>
 <div class="refsect2">
 <a name="GtkDialog--s-content-area-border"></a><h3>The <code class="literal">"content-area-border"</code> style property</h3>
-<pre class="programlisting">  "content-area-border"      <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read</pre>
+<pre class="programlisting">  "content-area-border"      <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read</pre>
 <p>Width of border around the main dialog area.</p>
 <p>Allowed values: &gt;= 0</p>
 <p>Default value: 2</p>
@@ -1150,7 +1200,7 @@ This function is for use by language bindings.
 <hr>
 <div class="refsect2">
 <a name="GtkDialog--s-content-area-spacing"></a><h3>The <code class="literal">"content-area-spacing"</code> style property</h3>
-<pre class="programlisting">  "content-area-spacing"     <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read</pre>
+<pre class="programlisting">  "content-area-spacing"     <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read</pre>
 <p>
 The default spacing used between elements of the
 content area of the dialog, as returned by
@@ -1167,7 +1217,7 @@ was called on that widget directly.
 <div class="refsect2">
 <a name="GtkDialog-close"></a><h3>The <code class="literal">"close"</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *arg0,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>   user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-ACTION:CAPS"><code class="literal">Action</code></a></pre>
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>   user_data)      : <a href="../gobject/gobject-Signals.html#G-SIGNAL-ACTION:CAPS"><code class="literal">Action</code></a></pre>
 <p>
 The ::close signal is a
 <a class="link" href="gtk3-Bindings.html#keybinding-signals">keybinding signal</a>
@@ -1177,8 +1227,11 @@ the dialog.
 <p>
 The default binding for this signal is the Escape key.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
 <td>user data set when the signal handler was connected.</td>
@@ -1189,16 +1242,19 @@ The default binding for this signal is the Escape key.
 <div class="refsect2">
 <a name="GtkDialog-response"></a><h3>The <code class="literal">"response"</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GtkDialog.html" title="GtkDialog"><span class="type">GtkDialog</span></a> *dialog,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>       response_id,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>   user_data)        : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
+                                                        <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>       response_id,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>   user_data)        : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS"><code class="literal">Run Last</code></a></pre>
 <p>
 Emitted when an action widget is clicked, the dialog receives a
 delete event, or the application programmer calls <a class="link" href="GtkDialog.html#gtk-dialog-response" title="gtk_dialog_response ()"><code class="function">gtk_dialog_response()</code></a>.
 On a delete event, the response ID is <a class="link" href="GtkDialog.html#GTK-RESPONSE-DELETE-EVENT:CAPS"><span class="type">GTK_RESPONSE_DELETE_EVENT</span></a>.
 Otherwise, it depends on which action widget was clicked.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
@@ -1223,6 +1279,6 @@ Otherwise, it depends on which action widget was clicked.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

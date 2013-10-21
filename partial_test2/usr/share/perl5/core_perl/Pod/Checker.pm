@@ -11,7 +11,7 @@ package Pod::Checker;
 use strict;
 
 use vars qw($VERSION @ISA @EXPORT %VALID_COMMANDS %VALID_SEQUENCES);
-$VERSION = '1.51';  ## Current version of this package
+$VERSION = '1.60';  ## Current version of this package
 require  5.005;    ## requires this Perl version or later
 
 use Pod::ParseUtils; ## for hyperlinks and lists
@@ -24,7 +24,7 @@ Pod::Checker, podchecker() - check pod documents for syntax errors
 
   use Pod::Checker;
 
-  $syntax_okay = podchecker($filepath, $outputpath, %options);
+  $num_errors = podchecker($filepath, $outputpath, %options);
 
   my $checker = new Pod::Checker %options;
   $checker->parse_from_file($filepath, \*STDERR);
@@ -1323,7 +1323,8 @@ Marek Rouchal E<lt>marekr@cpan.orgE<gt>
 Based on code for B<Pod::Text::pod2text()> written by
 Tom Christiansen E<lt>tchrist@mox.perl.comE<gt>
 
-B<Pod::Checker> is part of the L<Pod::Parser> distribution.
+B<Pod::Checker> is part of the Pod-Checker distribution, and is based on
+L<Pod::Parser>.
 
 =cut
 

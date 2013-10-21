@@ -2,32 +2,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Layout Objects</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>Pango Reference Manual: Layout Objects</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="Pango Reference Manual">
 <link rel="up" href="pango.html" title="Basic Pango Interfaces">
 <link rel="prev" href="PangoMarkupFormat.html" title="Text Attribute Markup">
 <link rel="next" href="pango-Scripts-and-Languages.html" title="Scripts and Languages">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="PangoMarkupFormat.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="pango.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">Pango Reference Manual</th>
-<td><a accesskey="n" href="pango-Scripts-and-Languages.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#pango-Layout-Objects.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#pango-Layout-Objects.description" class="shortcut">Description</a>
                    | 
                   <a href="#pango-Layout-Objects.object-hierarchy" class="shortcut">Object Hierarchy</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="pango.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="PangoMarkupFormat.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="pango-Scripts-and-Languages.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="pango-Layout-Objects"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -45,6 +42,7 @@
 <a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class="returnvalue">PangoLayout</span></a> *       <a class="link" href="pango-Layout-Objects.html#pango-layout-copy" title="pango_layout_copy ()">pango_layout_copy</a>                   (<em class="parameter"><code><a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a> *src</code></em>);
 <a class="link" href="pango-Text-Processing.html#PangoContext"><span class="returnvalue">PangoContext</span></a> *      <a class="link" href="pango-Layout-Objects.html#pango-layout-get-context" title="pango_layout_get_context ()">pango_layout_get_context</a>            (<em class="parameter"><code><a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a> *layout</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="pango-Layout-Objects.html#pango-layout-context-changed" title="pango_layout_context_changed ()">pango_layout_context_changed</a>        (<em class="parameter"><code><a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a> *layout</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="pango-Layout-Objects.html#pango-layout-get-serial" title="pango_layout_get_serial ()">pango_layout_get_serial</a>             (<em class="parameter"><code><a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a> *layout</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="pango-Layout-Objects.html#pango-layout-set-text" title="pango_layout_set_text ()">pango_layout_set_text</a>               (<em class="parameter"><code><a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a> *layout</code></em>,
                                                          <em class="parameter"><code>const <span class="type">char</span> *text</code></em>,
                                                          <em class="parameter"><code><span class="type">int</span> length</code></em>);
@@ -308,8 +306,11 @@ has no user-visible fields.
 Create a new <a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a> object with attributes initialized to
 default values for a particular <a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
@@ -334,8 +335,11 @@ Does a deep copy-by-value of the <em class="parameter"><code>src</code></em> lay
 tab array, and text from the original layout are all copied by
 value.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
@@ -359,8 +363,11 @@ with <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-O
 <p>
 Retrieves the <a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a> used for this layout.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -387,14 +394,53 @@ might depend on the layout's context. This function should
 be called if you make changes to the context subsequent
 to creating the layout.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
 <td>a <a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a>
 </td>
 </tr></tbody>
 </table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="pango-layout-get-serial"></a><h3>pango_layout_get_serial ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               pango_layout_get_serial             (<em class="parameter"><code><a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a> *layout</code></em>);</pre>
+<p>
+Returns the current serial number of <em class="parameter"><code>layout</code></em>.  The serial number is
+initialized to an small number  larger than zero when a new layout
+is created and is increased whenever the layout is changed using any
+of the setter functions, or the <a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a> it uses has changed.
+The serial may wrap, but will never have the value 0. Since it
+can wrap, never compare it with "less than", always use "not equals".
+</p>
+<p>
+This can be used to automatically detect changes to a <a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a>, and
+is useful for example to decide whether a layout needs redrawing.
+To force the serial to be increased, use <a class="link" href="pango-Layout-Objects.html#pango-layout-context-changed" title="pango_layout_context_changed ()"><code class="function">pango_layout_context_changed()</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
+<td>a <a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The current serial number of <em class="parameter"><code>layout</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 1.32.4</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -412,8 +458,11 @@ Note that if you have used
 the attributes set on the layout from the markup as this function does not
 clear attributes.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -443,8 +492,11 @@ positive.</td>
 Gets the text in the layout. The returned text should not
 be freed or modified.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -466,8 +518,11 @@ be freed or modified.
 Returns the number of Unicode characters in the
 the text of <em class="parameter"><code>layout</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -494,8 +549,11 @@ in the text of <em class="parameter"><code>layout</code></em>
 Same as <a class="link" href="pango-Layout-Objects.html#pango-layout-set-markup-with-accel" title="pango_layout_set_markup_with_accel ()"><code class="function">pango_layout_set_markup_with_accel()</code></a>, but
 the markup text isn't scanned for accelerators.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -536,8 +594,11 @@ and the first character so marked will be returned in <em class="parameter"><cod
 Two <em class="parameter"><code>accel_marker</code></em> characters following each other produce a single
 literal <em class="parameter"><code>accel_marker</code></em> character.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -576,8 +637,11 @@ for first located accelerator, or <a href="http://library.gnome.org/devel/glib/u
 Sets the text attributes for a layout object.
 References <em class="parameter"><code>attrs</code></em>, so the caller can unref its reference.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -586,7 +650,7 @@ References <em class="parameter"><code>attrs</code></em>, so the caller can unre
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>attrs</code></em> :</span></p></td>
-<td>a <a class="link" href="pango-Text-Attributes.html#PangoAttrList"><span class="type">PangoAttrList</span></a>, can be <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+<td>a <a class="link" href="pango-Text-Attributes.html#PangoAttrList"><span class="type">PangoAttrList</span></a>, can be <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -599,8 +663,11 @@ References <em class="parameter"><code>attrs</code></em>, so the caller can unre
 <p>
 Gets the attribute list for the layout, if any.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -609,7 +676,8 @@ Gets the attribute list for the layout, if any.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a <a class="link" href="pango-Text-Attributes.html#PangoAttrList"><span class="type">PangoAttrList</span></a>.</td>
+<td>a <a class="link" href="pango-Text-Attributes.html#PangoAttrList"><span class="type">PangoAttrList</span></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -624,8 +692,11 @@ Sets the default font description for the layout. If no font
 description is set on the layout, the font description from
 the layout's context is used.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -649,8 +720,11 @@ current font description. <span class="annotation">[<acronym title="NULL is ok, 
 <p>
 Gets the font description for the layout, if any.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -677,8 +751,11 @@ and must not be modified or freed.</td>
 Sets the width to which the lines of the <a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a> should wrap or
 ellipsized.  The default value is -1: no width set.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -699,8 +776,11 @@ wrapping or ellipsization should be performed.</td>
 <p>
 Gets the width to which the lines of the <a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a> should wrap.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -747,8 +827,11 @@ The behavior is undefined if a height other than -1 is set and
 ellipsization mode is set to <a class="link" href="pango-Layout-Objects.html#PANGO-ELLIPSIZE-NONE:CAPS"><code class="literal">PANGO_ELLIPSIZE_NONE</code></a>, and may change in the
 future.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -771,8 +854,11 @@ or desired number of lines if negative.</td>
 Gets the height of layout used for ellipsization.  See
 <a class="link" href="pango-Layout-Objects.html#pango-layout-set-height" title="pango_layout_set_height ()"><code class="function">pango_layout_set_height()</code></a> for details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -798,8 +884,11 @@ Sets the wrap mode; the wrap mode only has effect if a width
 is set on the layout with <a class="link" href="pango-Layout-Objects.html#pango-layout-set-width" title="pango_layout_set_width ()"><code class="function">pango_layout_set_width()</code></a>.
 To turn off wrapping, set the width to -1.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -824,8 +913,11 @@ Gets the wrap mode for the layout.
 Use <a class="link" href="pango-Layout-Objects.html#pango-layout-is-wrapped" title="pango_layout_is_wrapped ()"><code class="function">pango_layout_is_wrapped()</code></a> to query whether any paragraphs
 were actually wrapped.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -852,8 +944,11 @@ ellipsization mode of <em class="parameter"><code>layout</code></em> is set to <
 and there are paragraphs exceeding the layout width that have
 to be wrapped.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -882,8 +977,11 @@ otherwise.</td>
 <p>
 A <a class="link" href="pango-Layout-Objects.html#PangoWrapMode"><span class="type">PangoWrapMode</span></a> describes how to wrap the lines of a <a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a> to the desired width.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="PANGO-WRAP-WORD:CAPS"></a><span class="term"><code class="literal">PANGO_WRAP_WORD</code></span></p></td>
@@ -907,7 +1005,7 @@ enough space for a full word.
 <hr>
 <div class="refsect2">
 <a name="PANGO-TYPE-WRAP-MODE:CAPS"></a><h3>PANGO_TYPE_WRAP_MODE</h3>
-<pre class="programlisting">#define PANGO_TYPE_WRAP_MODE (pango_wrap_mode_get_type())
+<pre class="programlisting">#define PANGO_TYPE_WRAP_MODE (pango_wrap_mode_get_type ())
 </pre>
 <p>
 The <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> type for <a class="link" href="pango-Layout-Objects.html#PangoWrapMode"><span class="type">PangoWrapMode</span></a>.
@@ -932,8 +1030,11 @@ each paragraph is ellipsized separately or the entire layout
 is ellipsized as a whole depends on the set height of the layout.
 See <a class="link" href="pango-Layout-Objects.html#pango-layout-set-height" title="pango_layout_set_height ()"><code class="function">pango_layout_set_height()</code></a> for details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -957,8 +1058,11 @@ See <a class="link" href="pango-Layout-Objects.html#pango-layout-set-height" tit
 Gets the type of ellipsization being performed for <em class="parameter"><code>layout</code></em>.
 See <a class="link" href="pango-Layout-Objects.html#pango-layout-set-ellipsize" title="pango_layout_set_ellipsize ()"><code class="function">pango_layout_set_ellipsize()</code></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -988,8 +1092,11 @@ is not <a class="link" href="pango-Layout-Objects.html#PANGO-ELLIPSIZE-NONE:CAPS
 and there are paragraphs exceeding that width that have to be
 ellipsized.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1023,8 +1130,11 @@ the ellipsization process characters are removed from the
 text in order to make it fit to a given width and replaced
 with an ellipsis.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="PANGO-ELLIPSIZE-NONE:CAPS"></a><span class="term"><code class="literal">PANGO_ELLIPSIZE_NONE</code></span></p></td>
@@ -1052,7 +1162,7 @@ with an ellipsis.
 <hr>
 <div class="refsect2">
 <a name="PANGO-TYPE-ELLIPSIZE-MODE:CAPS"></a><h3>PANGO_TYPE_ELLIPSIZE_MODE</h3>
-<pre class="programlisting">#define PANGO_TYPE_ELLIPSIZE_MODE (pango_ellipsize_mode_get_type())
+<pre class="programlisting">#define PANGO_TYPE_ELLIPSIZE_MODE (pango_ellipsize_mode_get_type ())
 </pre>
 <p>
 The <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> type for <a class="link" href="pango-Layout-Objects.html#PangoEllipsizeMode"><span class="type">PangoEllipsizeMode</span></a>.
@@ -1073,8 +1183,11 @@ absolute value of <em class="parameter"><code>indent</code></em>.
 The indent setting is ignored if layout alignment is set to
 <a class="link" href="pango-Layout-Objects.html#PANGO-ALIGN-CENTER:CAPS"><code class="literal">PANGO_ALIGN_CENTER</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1095,8 +1208,11 @@ The indent setting is ignored if layout alignment is set to
 Gets the paragraph indent width in Pango units. A negative value
 indicates a hanging indentation.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1117,8 +1233,11 @@ indicates a hanging indentation.
 <p>
 Gets the amount of spacing between the lines of the layout.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1141,8 +1260,11 @@ Gets the amount of spacing between the lines of the layout.
 Sets the amount of spacing in Pango unit between the lines of the
 layout.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1171,8 +1293,11 @@ the characters.
 Note that this setting is not implemented and so is ignored in Pango
 older than 1.18.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1194,8 +1319,11 @@ older than 1.18.
 Gets whether each complete line should be stretched to fill the entire
 width of the layout.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1234,8 +1362,11 @@ When the auto-computed direction of a paragraph differs from the
 base direction of the context, the interpretation of
 <a class="link" href="pango-Layout-Objects.html#PANGO-ALIGN-LEFT:CAPS"><code class="literal">PANGO_ALIGN_LEFT</code></a> and <a class="link" href="pango-Layout-Objects.html#PANGO-ALIGN-RIGHT:CAPS"><code class="literal">PANGO_ALIGN_RIGHT</code></a> are swapped.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1260,8 +1391,11 @@ Gets whether to calculate the bidirectional base direction
 for the layout according to the contents of the layout.
 See <a class="link" href="pango-Layout-Objects.html#pango-layout-set-auto-dir" title="pango_layout_set_auto_dir ()"><code class="function">pango_layout_set_auto_dir()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1287,8 +1421,11 @@ is computed from the layout's contents, <a href="http://library.gnome.org/devel/
 Sets the alignment for the layout: how partial lines are
 positioned within the horizontal space available.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1310,8 +1447,11 @@ positioned within the horizontal space available.
 Gets the alignment for the layout: how partial lines are
 positioned within the horizontal space available.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1336,8 +1476,11 @@ Sets the tabs to use for <em class="parameter"><code>layout</code></em>, overrid
 tabs are reinstated. <em class="parameter"><code>tabs</code></em> is copied into the layout; you must
 free your copy of <em class="parameter"><code>tabs</code></em> yourself.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1362,8 +1505,11 @@ Gets the current <a class="link" href="pango-Tab-Stops.html#PangoTabArray"><span
 and <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is returned. Default tabs are every 8 spaces.
 The return value should be freed with <a class="link" href="pango-Tab-Stops.html#pango-tab-array-free" title="pango_tab_array_free ()"><code class="function">pango_tab_array_free()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1389,8 +1535,11 @@ as paragraph separators; instead, keep all text in a single paragraph,
 and display a glyph for paragraph separator characters. Used when
 you want to allow editing of newlines on a single text line.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1412,8 +1561,11 @@ you want to allow editing of newlines on a single text line.
 <p>
 Obtains the value set by <a class="link" href="pango-Layout-Objects.html#pango-layout-set-single-paragraph-mode" title="pango_layout_set_single_paragraph_mode ()"><code class="function">pango_layout_set_single_paragraph_mode()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1443,8 +1595,11 @@ A <a class="link" href="pango-Layout-Objects.html#PangoAlignment"><span class="t
 available space. If the <a class="link" href="pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a> is set to justify
 using <a class="link" href="pango-Layout-Objects.html#pango-layout-set-justify" title="pango_layout_set_justify ()"><code class="function">pango_layout_set_justify()</code></a>, this only has effect for partial lines.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><a name="PANGO-ALIGN-LEFT:CAPS"></a><span class="term"><code class="literal">PANGO_ALIGN_LEFT</code></span></p></td>
@@ -1467,7 +1622,7 @@ using <a class="link" href="pango-Layout-Objects.html#pango-layout-set-justify" 
 <hr>
 <div class="refsect2">
 <a name="PANGO-TYPE-ALIGNMENT:CAPS"></a><h3>PANGO_TYPE_ALIGNMENT</h3>
-<pre class="programlisting">#define PANGO_TYPE_ALIGNMENT (pango_alignment_get_type())
+<pre class="programlisting">#define PANGO_TYPE_ALIGNMENT (pango_alignment_get_type ())
 </pre>
 <p>
 The <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> type for <a class="link" href="pango-Layout-Objects.html#PangoAlignment"><span class="type">PangoAlignment</span></a>.
@@ -1489,8 +1644,11 @@ available to render all characters in a certain string, or when
 used in combination with <a class="link" href="pango-Text-Attributes.html#PANGO-ATTR-FALLBACK:CAPS"><code class="literal">PANGO_ATTR_FALLBACK</code></a>, to check if a
 certain font supports all the characters in the string.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1515,8 +1673,11 @@ certain font supports all the characters in the string.
 Retrieves an array of logical attributes for each character in
 the <em class="parameter"><code>layout</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1535,7 +1696,8 @@ This value must be freed with <a href="http://library.gnome.org/devel/glib/unsta
 array. (The stored value will be one more than the total number
 of characters in the layout, since there need to be attributes
 corresponding to both the position before the first character
-and the position after the last character.)</td>
+and the position after the last character.). <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -1561,8 +1723,11 @@ than the total number of characters in the layout, since there
 need to be attributes corresponding to both the position before
 the first character and the position after the last character.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1571,11 +1736,14 @@ the first character and the position after the last character.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>n_attrs</code></em> :</span></p></td>
-<td>location to store the number of the attributes in the array</td>
+<td>location to store the number of the attributes in
+the array. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>an array of logical attributes</td>
+<td>an array of logical attributes. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_attrs]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -1595,8 +1763,11 @@ edge of the grapheme and <code class="literal">pos-&gt;x + pos-&gt;width</code> 
 edge of the grapheme. If the directionality of the grapheme is right-to-left,
 then <code class="literal">pos-&gt;width</code> will be negative.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1628,8 +1799,11 @@ then <code class="literal">pos-&gt;width</code> will be negative.
 Converts from byte <em class="parameter"><code>index_</code></em> within the <em class="parameter"><code>layout</code></em> to line and X position.
 (X position is measured from the left edge of the line)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1679,8 +1853,11 @@ end of the line is chosen as  described for <code class="function">pango_layout_
 If either the X or Y positions were not inside the layout, then the
 function returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>; on an exact hit, it returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1735,8 +1912,11 @@ layout are inserted.  The weak cursor location is the location
 where characters of the directionality opposite to the base
 direction of the layout are inserted.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1791,8 +1971,11 @@ single call to <a class="link" href="pango-Layout-Objects.html#pango-layout-move
 cursor over multiple characters when multiple characters combine
 to form a single grapheme.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1859,8 +2042,11 @@ a set width.
 The extents are given in layout coordinates and in Pango units; layout
 coordinates begin at the top left corner of the layout.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1897,8 +2083,11 @@ two <a class="link" href="pango-Glyph-Storage.html#pango-extents-to-pixels" titl
 such that the rounded rectangles fully contain the unrounded one (that is,
 passes them as first argument to <a class="link" href="pango-Glyph-Storage.html#pango-extents-to-pixels" title="pango_extents_to_pixels ()"><code class="function">pango_extents_to_pixels()</code></a>).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1933,8 +2122,11 @@ Determines the logical width and height of a <a class="link" href="pango-Layout-
 in Pango units (device units scaled by <a class="link" href="pango-Glyph-Storage.html#PANGO-SCALE:CAPS" title="PANGO_SCALE"><code class="literal">PANGO_SCALE</code></a>). This
 is simply a convenience function around <a class="link" href="pango-Layout-Objects.html#pango-layout-get-extents" title="pango_layout_get_extents ()"><code class="function">pango_layout_get_extents()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1967,8 +2159,11 @@ and height scaled by <a class="link" href="pango-Glyph-Storage.html#PANGO-SCALE:
 is simply a convenience function around
 <a class="link" href="pango-Layout-Objects.html#pango-layout-get-pixel-extents" title="pango_layout_get_pixel_extents ()"><code class="function">pango_layout_get_pixel_extents()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -1995,8 +2190,11 @@ is simply a convenience function around
 <p>
 Gets the Y position of baseline of the first line in <em class="parameter"><code>layout</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -2018,8 +2216,11 @@ Gets the Y position of baseline of the first line in <em class="parameter"><code
 <p>
 Retrieves the count of lines for the <em class="parameter"><code>layout</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -2044,8 +2245,11 @@ Retrieves a particular line from a <a class="link" href="pango-Layout-Objects.ht
 Use the faster <a class="link" href="pango-Layout-Objects.html#pango-layout-get-line-readonly" title="pango_layout_get_line_readonly ()"><code class="function">pango_layout_get_line_readonly()</code></a> if you do not plan
 to modify the contents of the line (glyphs, glyph widths, etc.).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -2081,8 +2285,11 @@ This is a faster alternative to <a class="link" href="pango-Layout-Objects.html#
 but the user is not expected
 to modify the contents of the line (glyphs, glyph widths, etc.).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -2118,8 +2325,11 @@ Returns the lines of the <em class="parameter"><code>layout</code></em> as a lis
 Use the faster <a class="link" href="pango-Layout-Objects.html#pango-layout-get-lines-readonly" title="pango_layout_get_lines_readonly ()"><code class="function">pango_layout_get_lines_readonly()</code></a> if you do not plan
 to modify the contents of the lines (glyphs, glyph widths, etc.).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -2149,8 +2359,11 @@ This is a faster alternative to <a class="link" href="pango-Layout-Objects.html#
 but the user is not expected
 to modify the contents of the lines (glyphs, glyph widths, etc.).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -2176,8 +2389,11 @@ text or properties.  No changes should be made to the lines. <span class="annota
 <p>
 Returns an iterator to iterate over the visual extents of the layout.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
@@ -2199,8 +2415,11 @@ Returns an iterator to iterate over the visual extents of the layout.
 <p>
 Copies a <a class="link" href="pango-Layout-Objects.html#PangoLayoutIter"><span class="type">PangoLayoutIter</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -2224,8 +2443,11 @@ be freed with <a class="link" href="pango-Layout-Objects.html#pango-layout-iter-
 <p>
 Frees an iterator that's no longer in use.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
 <td>a <a class="link" href="pango-Layout-Objects.html#PangoLayoutIter"><span class="type">PangoLayoutIter</span></a>, may be <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
@@ -2241,8 +2463,11 @@ Frees an iterator that's no longer in use.
 Moves <em class="parameter"><code>iter</code></em> forward to the next run in visual order. If <em class="parameter"><code>iter</code></em> was
 already at the end of the layout, returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -2264,8 +2489,11 @@ already at the end of the layout, returns <a href="http://library.gnome.org/deve
 Moves <em class="parameter"><code>iter</code></em> forward to the next character in visual order. If <em class="parameter"><code>iter</code></em> was already at
 the end of the layout, returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -2287,8 +2515,11 @@ the end of the layout, returns <a href="http://library.gnome.org/devel/glib/unst
 Moves <em class="parameter"><code>iter</code></em> forward to the next cluster in visual order. If <em class="parameter"><code>iter</code></em>
 was already at the end of the layout, returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -2310,8 +2541,11 @@ was already at the end of the layout, returns <a href="http://library.gnome.org/
 Moves <em class="parameter"><code>iter</code></em> forward to the start of the next line. If <em class="parameter"><code>iter</code></em> is
 already on the last line, returns <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -2332,8 +2566,11 @@ already on the last line, returns <a href="http://library.gnome.org/devel/glib/u
 <p>
 Determines whether <em class="parameter"><code>iter</code></em> is on the last line of the layout.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -2358,8 +2595,11 @@ moves in visual order, not logical order, so indexes may not be
 sequential. Also, the index may be equal to the length of the text
 in the layout, if on the <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> run (see <a class="link" href="pango-Layout-Objects.html#pango-layout-iter-get-run" title="pango_layout_iter_get_run ()"><code class="function">pango_layout_iter_get_run()</code></a>).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -2381,8 +2621,11 @@ in the layout, if on the <a href="http://library.gnome.org/devel/glib/unstable/g
 Gets the Y position of the current line's baseline, in layout
 coordinates (origin at top left of the entire layout).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -2410,8 +2653,11 @@ at least one run, even lines consisting of only a newline.
 Use the faster <a class="link" href="pango-Layout-Objects.html#pango-layout-iter-get-run-readonly" title="pango_layout_iter_get_run_readonly ()"><code class="function">pango_layout_iter_get_run_readonly()</code></a> if you do not plan
 to modify the contents of the run (glyphs, glyph widths, etc.).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -2441,8 +2687,11 @@ This is a faster alternative to <a class="link" href="pango-Layout-Objects.html#
 but the user is not expected
 to modify the contents of the run (glyphs, glyph widths, etc.).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -2469,8 +2718,11 @@ Gets the current line.
 Use the faster <a class="link" href="pango-Layout-Objects.html#pango-layout-iter-get-line-readonly" title="pango_layout_iter_get_line_readonly ()"><code class="function">pango_layout_iter_get_line_readonly()</code></a> if you do not plan
 to modify the contents of the line (glyphs, glyph widths, etc.).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -2496,8 +2748,11 @@ This is a faster alternative to <a class="link" href="pango-Layout-Objects.html#
 but the user is not expected
 to modify the contents of the line (glyphs, glyph widths, etc.).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -2506,7 +2761,9 @@ to modify the contents of the line (glyphs, glyph widths, etc.).
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the current line, that should not be modified.</td>
+<td>the current line, that should not be
+modified. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -2519,8 +2776,11 @@ to modify the contents of the line (glyphs, glyph widths, etc.).
 <p>
 Gets the layout associated with a <a class="link" href="pango-Layout-Objects.html#PangoLayoutIter"><span class="type">PangoLayoutIter</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -2547,8 +2807,11 @@ Gets the extents of the current character, in layout coordinates
 can sensibly be obtained for characters; ink extents make sense only
 down to the level of clusters.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -2557,7 +2820,9 @@ down to the level of clusters.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>logical_rect</code></em> :</span></p></td>
-<td>rectangle to fill with logical extents</td>
+<td>rectangle to fill with
+logical extents. <span class="annotation">[<acronym title="Out parameter, where caller must allocate storage."><span class="acronym">out caller-allocates</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -2573,8 +2838,11 @@ down to the level of clusters.
 Gets the extents of the current cluster, in layout coordinates
 (origin is the top left of the entire layout).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -2604,8 +2872,11 @@ Gets the extents of the current cluster, in layout coordinates
 Gets the extents of the current run in layout coordinates
 (origin is the top left of the entire layout).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -2640,8 +2911,11 @@ extents, plus half of the spacing above and below the line, if
 The Y positions are in layout coordinates (origin at top left of the
 entire layout).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -2675,8 +2949,11 @@ coordinates (origin is the top-left corner of the entire
 the same width/height but not at the same x/y as the extents
 returned from <a class="link" href="pango-Layout-Objects.html#pango-layout-line-get-extents" title="pango_layout_line_get_extents ()"><code class="function">pango_layout_line_get_extents()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -2708,8 +2985,11 @@ Obtains the extents of the <a class="link" href="pango-Layout-Objects.html#Pango
 over. <em class="parameter"><code>ink_rect</code></em> or <em class="parameter"><code>logical_rect</code></em> can be <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if you
 aren't interested in them.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
@@ -2774,8 +3054,11 @@ See the <a class="link" href="pango-Glyph-Storage.html#PangoGlyphItem"><span cla
 <p>
 Increase the reference count of a <a class="link" href="pango-Layout-Objects.html#PangoLayoutLine"><span class="type">PangoLayoutLine</span></a> by one.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>line</code></em> :</span></p></td>
@@ -2799,8 +3082,11 @@ Decrease the reference count of a <a class="link" href="pango-Layout-Objects.htm
 If the result is zero, the line and all associated memory
 will be freed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>line</code></em> :</span></p></td>
 <td>a <a class="link" href="pango-Layout-Objects.html#PangoLayoutLine"><span class="type">PangoLayoutLine</span></a>
@@ -2819,8 +3105,11 @@ Computes the logical and ink extents of a layout line. See
 <a class="link" href="pango-Fonts.html#pango-font-get-glyph-extents" title="pango_font_get_glyph_extents ()"><code class="function">pango_font_get_glyph_extents()</code></a> for details about the interpretation
 of the rectangles.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>line</code></em> :</span></p></td>
@@ -2855,8 +3144,11 @@ two <a class="link" href="pango-Glyph-Storage.html#pango-extents-to-pixels" titl
 such that the rounded rectangles fully contain the unrounded one (that is,
 passes them as first argument to <a class="link" href="pango-Glyph-Storage.html#pango-extents-to-pixels" title="pango_extents_to_pixels ()"><code class="function">pango_extents_to_pixels()</code></a>).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>layout_line</code></em> :</span></p></td>
@@ -2888,8 +3180,11 @@ extents of the glyph string, or <a href="http://library.gnome.org/devel/glib/uns
 <p>
 Converts an index within a line to a X position.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>line</code></em> :</span></p></td>
@@ -2933,8 +3228,11 @@ left of the line results in <em class="parameter"><code>index_</code></em> point
 grapheme in the line and <em class="parameter"><code>trailing</code></em> being set to the number of characters
 in that grapheme. The reverse is true for a left-to-right line.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>line</code></em> :</span></p></td>
@@ -2983,8 +3281,11 @@ ranges which are adjacent. The ranges will be sorted from left to
 right. The ranges are with respect to the left edge of the entire
 layout, not with respect to the line.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>line</code></em> :</span></p></td>
@@ -3028,6 +3329,6 @@ to the layout and are in Pango units. <span class="annotation">[<acronym title="
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

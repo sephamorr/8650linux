@@ -15,13 +15,13 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
-#error "Only <gtk/gtk.h> can be included directly."
-#endif
-
 #ifndef __GTK_CELL_RENDERER_TEXT_H__
 #define __GTK_CELL_RENDERER_TEXT_H__
 
+
+#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
+#error "Only <gtk/gtk.h> can be included directly."
+#endif
 
 #include <gtk/gtkcellrenderer.h>
 
@@ -63,9 +63,12 @@ struct _GtkCellRendererTextClass
   void (*_gtk_reserved4) (void);
 };
 
+GDK_AVAILABLE_IN_ALL
 GType            gtk_cell_renderer_text_get_type (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkCellRenderer *gtk_cell_renderer_text_new      (void);
 
+GDK_AVAILABLE_IN_ALL
 void             gtk_cell_renderer_text_set_fixed_height_from_font (GtkCellRendererText *renderer,
 								    gint                 number_of_rows);
 

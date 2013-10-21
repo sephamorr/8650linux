@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GstBaseSink</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GStreamer 0.10 Library Reference Manual">
 <link rel="up" href="gstreamer-base.html" title="GStreamer Base and Utillity Classes">
 <link rel="prev" href="GstBaseSrc.html" title="GstBaseSrc">
@@ -329,8 +329,11 @@ Subclasses can override any of the available virtual methods or not, as
 needed. At the minimum, the <em class="parameter"><code>render</code></em> method should be overridden to
 output/present buffers.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="../gstreamer-0.10/GstElement.html#GstElementClass"><span class="type">GstElementClass</span></a> <em class="structfield"><code><a name="GstBaseSinkClass.parent-class"></a>parent_class</code></em>;</span></p></td>
@@ -438,8 +441,11 @@ for the latency introduced by the upstream elements by setting the
 <p>
 This function is mostly used by subclasses.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -480,8 +486,11 @@ This function is mostly used by subclasses.
 <p>
 Get the currently configured latency.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -509,8 +518,11 @@ until the element state is changed.
 <p>
 This function should be called with the PREROLL_LOCK held.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -550,8 +562,11 @@ returns <a href="../gstreamer-0.10/GstPad.html#GST-FLOW-WRONG-STATE:CAPS"><span 
 This function should only be called with the PREROLL_LOCK held, like in the
 render function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -593,8 +608,11 @@ The <em class="parameter"><code>time</code></em> argument should be the running_
 return and is not adjusted with any latency or offset configured in the
 sink.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -636,8 +654,11 @@ receiving an EOS event in the ::event vmethod.
 The <em class="parameter"><code>time</code></em> argument should be the running_time of when the EOS should happen
 and will be adjusted with any latency and offset configured in the sink.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -672,8 +693,11 @@ possible. If <em class="parameter"><code>sync</code></em> is TRUE, the timestamp
 buffers will be used to schedule the exact render time of its
 contents.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -695,8 +719,11 @@ contents.
 Checks if <em class="parameter"><code>sink</code></em> is currently configured to synchronize against the
 clock.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -721,8 +748,11 @@ used to decide if a buffer should be dropped or not based on the
 buffer timestamp and the current clock time. A value of -1 means
 an unlimited time.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -744,8 +774,11 @@ an unlimited time.
 Gets the max lateness value. See gst_base_sink_set_max_lateness for
 more details.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -769,8 +802,11 @@ unlimited time.</td>
 <p>
 Configures <em class="parameter"><code>sink</code></em> to send Quality-of-Service events upstream.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -792,8 +828,11 @@ Configures <em class="parameter"><code>sink</code></em> to send Quality-of-Servi
 Checks if <em class="parameter"><code>sink</code></em> is currently configured to send Quality-of-Service events
 upstream.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -818,8 +857,11 @@ disabled, the sink will immediately go to PAUSED instead of waiting for a
 preroll buffer. This feature is useful if the sink does not synchronize
 against the clock or when it is dealing with sparse streams.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -841,8 +883,11 @@ against the clock or when it is dealing with sparse streams.
 Checks if <em class="parameter"><code>sink</code></em> is currently configured to perform asynchronous state
 changes to PAUSED.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -868,8 +913,11 @@ render buffers earlier than their timestamp. A positive value will delay
 rendering. This function can be used to fix playback of badly timestamped
 buffers.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -890,8 +938,11 @@ buffers.
 <p>
 Get the synchronisation offset of <em class="parameter"><code>sink</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -923,8 +974,11 @@ other sinks will adjust their latency to delay the rendering of their media.
 <p>
 This function is usually called by subclasses.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -947,8 +1001,11 @@ This function is usually called by subclasses.
 Get the render delay of <em class="parameter"><code>sink</code></em>. see <a class="link" href="GstBaseSink.html#gst-base-sink-set-render-delay" title="gst_base_sink_set_render_delay ()"><code class="function">gst_base_sink_set_render_delay()</code></a> for more
 information about the render delay.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -973,8 +1030,11 @@ information about the render delay.
 Configures <em class="parameter"><code>sink</code></em> to store the last received buffer in the last-buffer
 property.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -997,8 +1057,11 @@ property.
 Checks if <em class="parameter"><code>sink</code></em> is currently configured to store the last received buffer in
 the last-buffer property.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -1026,8 +1089,11 @@ The <a href="../gstreamer-0.10/gstreamer-GstCaps.html#GstCaps"><span class="type
 <p>
 Free-function: gst_buffer_unref
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -1053,8 +1119,11 @@ or when the sink is not in PAUSED or PLAYING. <span class="annotation">[<acronym
 Set the number of bytes that the sink will pull when it is operating in pull
 mode.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -1077,8 +1146,11 @@ mode.
 Get the number of bytes that the sink will pull when it is operating in pull
 mode.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -1101,8 +1173,11 @@ mode.
 Get the time that will be inserted between frames to control the 
 maximum buffers per second.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -1127,8 +1202,11 @@ Set the time that will be inserted between rendered buffers. This
 can be used to control the maximum buffers per second that the sink
 will render.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>sink</code></em> :</span></p></td>
@@ -1151,8 +1229,11 @@ will render.
 <p>
 Gives the pointer to the <a href="../gstreamer-0.10/GstPad.html"><span class="type">GstPad</span></a> object of the element.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
 <td>base sink instance</td>

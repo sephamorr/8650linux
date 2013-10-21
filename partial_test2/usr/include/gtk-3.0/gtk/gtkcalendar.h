@@ -25,13 +25,13 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
-#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
-#error "Only <gtk/gtk.h> can be included directly."
-#endif
-
 #ifndef __GTK_CALENDAR_H__
 #define __GTK_CALENDAR_H__
 
+
+#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
+#error "Only <gtk/gtk.h> can be included directly."
+#endif
 
 #include <gtk/gtkwidget.h>
 
@@ -123,44 +123,60 @@ struct _GtkCalendarClass
 };
 
 
+GDK_AVAILABLE_IN_ALL
 GType	   gtk_calendar_get_type	(void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkWidget* gtk_calendar_new		(void);
 
+GDK_AVAILABLE_IN_ALL
 void       gtk_calendar_select_month	(GtkCalendar *calendar,
 					 guint	      month,
 					 guint	      year);
+GDK_AVAILABLE_IN_ALL
 void	   gtk_calendar_select_day	(GtkCalendar *calendar,
 					 guint	      day);
 
+GDK_AVAILABLE_IN_ALL
 void       gtk_calendar_mark_day	(GtkCalendar *calendar,
 					 guint	      day);
+GDK_AVAILABLE_IN_ALL
 void       gtk_calendar_unmark_day	(GtkCalendar *calendar,
 					 guint	      day);
+GDK_AVAILABLE_IN_ALL
 void	   gtk_calendar_clear_marks	(GtkCalendar *calendar);
 
 
+GDK_AVAILABLE_IN_ALL
 void	   gtk_calendar_set_display_options (GtkCalendar    	      *calendar,
 					     GtkCalendarDisplayOptions flags);
+GDK_AVAILABLE_IN_ALL
 GtkCalendarDisplayOptions
            gtk_calendar_get_display_options (GtkCalendar   	      *calendar);
+GDK_AVAILABLE_IN_ALL
 void	   gtk_calendar_get_date	(GtkCalendar *calendar, 
 					 guint	     *year,
 					 guint	     *month,
 					 guint	     *day);
 
+GDK_AVAILABLE_IN_ALL
 void       gtk_calendar_set_detail_func (GtkCalendar           *calendar,
                                          GtkCalendarDetailFunc  func,
                                          gpointer               data,
                                          GDestroyNotify         destroy);
 
+GDK_AVAILABLE_IN_ALL
 void       gtk_calendar_set_detail_width_chars (GtkCalendar    *calendar,
                                                 gint            chars);
+GDK_AVAILABLE_IN_ALL
 void       gtk_calendar_set_detail_height_rows (GtkCalendar    *calendar,
                                                 gint            rows);
 
+GDK_AVAILABLE_IN_ALL
 gint       gtk_calendar_get_detail_width_chars (GtkCalendar    *calendar);
+GDK_AVAILABLE_IN_ALL
 gint       gtk_calendar_get_detail_height_rows (GtkCalendar    *calendar);
 
+GDK_AVAILABLE_IN_ALL
 gboolean   gtk_calendar_get_day_is_marked      (GtkCalendar    *calendar,
                                                 guint           day);
 

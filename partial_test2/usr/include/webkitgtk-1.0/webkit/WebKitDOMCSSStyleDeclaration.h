@@ -21,11 +21,10 @@
 #ifndef WebKitDOMCSSStyleDeclaration_h
 #define WebKitDOMCSSStyleDeclaration_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_CSS_STYLE_DECLARATION            (webkit_dom_css_style_declaration_get_type())
@@ -49,52 +48,52 @@ webkit_dom_css_style_declaration_get_type (void);
 /**
  * webkit_dom_css_style_declaration_get_property_value:
  * @self: A #WebKitDOMCSSStyleDeclaration
- * @property_name: A #gchar
+ * @propertyName: A #gchar
  *
  * Returns:
  *
 **/
 WEBKIT_API gchar*
-webkit_dom_css_style_declaration_get_property_value(WebKitDOMCSSStyleDeclaration* self, const gchar* property_name);
+webkit_dom_css_style_declaration_get_property_value(WebKitDOMCSSStyleDeclaration* self, const gchar* propertyName);
 
 /**
  * webkit_dom_css_style_declaration_get_property_css_value:
  * @self: A #WebKitDOMCSSStyleDeclaration
- * @property_name: A #gchar
+ * @propertyName: A #gchar
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMCSSValue*
-webkit_dom_css_style_declaration_get_property_css_value(WebKitDOMCSSStyleDeclaration* self, const gchar* property_name);
+webkit_dom_css_style_declaration_get_property_css_value(WebKitDOMCSSStyleDeclaration* self, const gchar* propertyName);
 
 /**
  * webkit_dom_css_style_declaration_remove_property:
  * @self: A #WebKitDOMCSSStyleDeclaration
- * @property_name: A #gchar
+ * @propertyName: A #gchar
  * @error: #GError
  *
  * Returns:
  *
 **/
 WEBKIT_API gchar*
-webkit_dom_css_style_declaration_remove_property(WebKitDOMCSSStyleDeclaration* self, const gchar* property_name, GError **error);
+webkit_dom_css_style_declaration_remove_property(WebKitDOMCSSStyleDeclaration* self, const gchar* propertyName, GError** error);
 
 /**
  * webkit_dom_css_style_declaration_get_property_priority:
  * @self: A #WebKitDOMCSSStyleDeclaration
- * @property_name: A #gchar
+ * @propertyName: A #gchar
  *
  * Returns:
  *
 **/
 WEBKIT_API gchar*
-webkit_dom_css_style_declaration_get_property_priority(WebKitDOMCSSStyleDeclaration* self, const gchar* property_name);
+webkit_dom_css_style_declaration_get_property_priority(WebKitDOMCSSStyleDeclaration* self, const gchar* propertyName);
 
 /**
  * webkit_dom_css_style_declaration_set_property:
  * @self: A #WebKitDOMCSSStyleDeclaration
- * @property_name: A #gchar
+ * @propertyName: A #gchar
  * @value: A #gchar
  * @priority: A #gchar
  * @error: #GError
@@ -103,7 +102,7 @@ webkit_dom_css_style_declaration_get_property_priority(WebKitDOMCSSStyleDeclarat
  *
 **/
 WEBKIT_API void
-webkit_dom_css_style_declaration_set_property(WebKitDOMCSSStyleDeclaration* self, const gchar* property_name, const gchar* value, const gchar* priority, GError **error);
+webkit_dom_css_style_declaration_set_property(WebKitDOMCSSStyleDeclaration* self, const gchar* propertyName, const gchar* value, const gchar* priority, GError** error);
 
 /**
  * webkit_dom_css_style_declaration_item:
@@ -119,24 +118,24 @@ webkit_dom_css_style_declaration_item(WebKitDOMCSSStyleDeclaration* self, gulong
 /**
  * webkit_dom_css_style_declaration_get_property_shorthand:
  * @self: A #WebKitDOMCSSStyleDeclaration
- * @property_name: A #gchar
+ * @propertyName: A #gchar
  *
  * Returns:
  *
 **/
 WEBKIT_API gchar*
-webkit_dom_css_style_declaration_get_property_shorthand(WebKitDOMCSSStyleDeclaration* self, const gchar* property_name);
+webkit_dom_css_style_declaration_get_property_shorthand(WebKitDOMCSSStyleDeclaration* self, const gchar* propertyName);
 
 /**
  * webkit_dom_css_style_declaration_is_property_implicit:
  * @self: A #WebKitDOMCSSStyleDeclaration
- * @property_name: A #gchar
+ * @propertyName: A #gchar
  *
  * Returns:
  *
 **/
 WEBKIT_API gboolean
-webkit_dom_css_style_declaration_is_property_implicit(WebKitDOMCSSStyleDeclaration* self, const gchar* property_name);
+webkit_dom_css_style_declaration_is_property_implicit(WebKitDOMCSSStyleDeclaration* self, const gchar* propertyName);
 
 /**
  * webkit_dom_css_style_declaration_get_css_text:
@@ -158,7 +157,7 @@ webkit_dom_css_style_declaration_get_css_text(WebKitDOMCSSStyleDeclaration* self
  *
 **/
 WEBKIT_API void
-webkit_dom_css_style_declaration_set_css_text(WebKitDOMCSSStyleDeclaration* self, const gchar* value, GError **error);
+webkit_dom_css_style_declaration_set_css_text(WebKitDOMCSSStyleDeclaration* self, const gchar* value, GError** error);
 
 /**
  * webkit_dom_css_style_declaration_get_length:

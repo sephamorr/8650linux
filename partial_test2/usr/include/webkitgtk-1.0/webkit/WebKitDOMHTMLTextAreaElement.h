@@ -21,11 +21,10 @@
 #ifndef WebKitDOMHTMLTextAreaElement_h
 #define WebKitDOMHTMLTextAreaElement_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMHTMLElement.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMHTMLElement.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_HTML_TEXT_AREA_ELEMENT            (webkit_dom_html_text_area_element_get_type())
@@ -45,16 +44,6 @@ struct _WebKitDOMHTMLTextAreaElementClass {
 
 WEBKIT_API GType
 webkit_dom_html_text_area_element_get_type (void);
-
-/**
- * webkit_dom_html_text_area_element_select:
- * @self: A #WebKitDOMHTMLTextAreaElement
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_text_area_element_select(WebKitDOMHTMLTextAreaElement* self);
 
 /**
  * webkit_dom_html_text_area_element_check_validity:
@@ -78,6 +67,16 @@ WEBKIT_API void
 webkit_dom_html_text_area_element_set_custom_validity(WebKitDOMHTMLTextAreaElement* self, const gchar* error);
 
 /**
+ * webkit_dom_html_text_area_element_select:
+ * @self: A #WebKitDOMHTMLTextAreaElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_text_area_element_select(WebKitDOMHTMLTextAreaElement* self);
+
+/**
  * webkit_dom_html_text_area_element_set_selection_range:
  * @self: A #WebKitDOMHTMLTextAreaElement
  * @start: A #glong
@@ -91,45 +90,25 @@ WEBKIT_API void
 webkit_dom_html_text_area_element_set_selection_range(WebKitDOMHTMLTextAreaElement* self, glong start, glong end, const gchar* direction);
 
 /**
- * webkit_dom_html_text_area_element_get_default_value:
+ * webkit_dom_html_text_area_element_get_autofocus:
  * @self: A #WebKitDOMHTMLTextAreaElement
  *
  * Returns:
  *
 **/
-WEBKIT_API gchar*
-webkit_dom_html_text_area_element_get_default_value(WebKitDOMHTMLTextAreaElement* self);
+WEBKIT_API gboolean
+webkit_dom_html_text_area_element_get_autofocus(WebKitDOMHTMLTextAreaElement* self);
 
 /**
- * webkit_dom_html_text_area_element_set_default_value:
+ * webkit_dom_html_text_area_element_set_autofocus:
  * @self: A #WebKitDOMHTMLTextAreaElement
- * @value: A #gchar
+ * @value: A #gboolean
  *
  * Returns:
  *
 **/
 WEBKIT_API void
-webkit_dom_html_text_area_element_set_default_value(WebKitDOMHTMLTextAreaElement* self, const gchar* value);
-
-/**
- * webkit_dom_html_text_area_element_get_form:
- * @self: A #WebKitDOMHTMLTextAreaElement
- *
- * Returns: (transfer none):
- *
-**/
-WEBKIT_API WebKitDOMHTMLFormElement*
-webkit_dom_html_text_area_element_get_form(WebKitDOMHTMLTextAreaElement* self);
-
-/**
- * webkit_dom_html_text_area_element_get_validity:
- * @self: A #WebKitDOMHTMLTextAreaElement
- *
- * Returns: (transfer none):
- *
-**/
-WEBKIT_API WebKitDOMValidityState*
-webkit_dom_html_text_area_element_get_validity(WebKitDOMHTMLTextAreaElement* self);
+webkit_dom_html_text_area_element_set_autofocus(WebKitDOMHTMLTextAreaElement* self, gboolean value);
 
 /**
  * webkit_dom_html_text_area_element_get_cols:
@@ -195,25 +174,14 @@ WEBKIT_API void
 webkit_dom_html_text_area_element_set_disabled(WebKitDOMHTMLTextAreaElement* self, gboolean value);
 
 /**
- * webkit_dom_html_text_area_element_get_autofocus:
+ * webkit_dom_html_text_area_element_get_form:
  * @self: A #WebKitDOMHTMLTextAreaElement
  *
- * Returns:
+ * Returns: (transfer none):
  *
 **/
-WEBKIT_API gboolean
-webkit_dom_html_text_area_element_get_autofocus(WebKitDOMHTMLTextAreaElement* self);
-
-/**
- * webkit_dom_html_text_area_element_set_autofocus:
- * @self: A #WebKitDOMHTMLTextAreaElement
- * @value: A #gboolean
- *
- * Returns:
- *
-**/
-WEBKIT_API void
-webkit_dom_html_text_area_element_set_autofocus(WebKitDOMHTMLTextAreaElement* self, gboolean value);
+WEBKIT_API WebKitDOMHTMLFormElement*
+webkit_dom_html_text_area_element_get_form(WebKitDOMHTMLTextAreaElement* self);
 
 /**
  * webkit_dom_html_text_area_element_get_max_length:
@@ -235,7 +203,7 @@ webkit_dom_html_text_area_element_get_max_length(WebKitDOMHTMLTextAreaElement* s
  *
 **/
 WEBKIT_API void
-webkit_dom_html_text_area_element_set_max_length(WebKitDOMHTMLTextAreaElement* self, glong value, GError **error);
+webkit_dom_html_text_area_element_set_max_length(WebKitDOMHTMLTextAreaElement* self, glong value, GError** error);
 
 /**
  * webkit_dom_html_text_area_element_get_name:
@@ -364,6 +332,27 @@ WEBKIT_API void
 webkit_dom_html_text_area_element_set_wrap(WebKitDOMHTMLTextAreaElement* self, const gchar* value);
 
 /**
+ * webkit_dom_html_text_area_element_get_default_value:
+ * @self: A #WebKitDOMHTMLTextAreaElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_html_text_area_element_get_default_value(WebKitDOMHTMLTextAreaElement* self);
+
+/**
+ * webkit_dom_html_text_area_element_set_default_value:
+ * @self: A #WebKitDOMHTMLTextAreaElement
+ * @value: A #gchar
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_text_area_element_set_default_value(WebKitDOMHTMLTextAreaElement* self, const gchar* value);
+
+/**
  * webkit_dom_html_text_area_element_get_value:
  * @self: A #WebKitDOMHTMLTextAreaElement
  *
@@ -405,6 +394,16 @@ WEBKIT_API gboolean
 webkit_dom_html_text_area_element_get_will_validate(WebKitDOMHTMLTextAreaElement* self);
 
 /**
+ * webkit_dom_html_text_area_element_get_validity:
+ * @self: A #WebKitDOMHTMLTextAreaElement
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMValidityState*
+webkit_dom_html_text_area_element_get_validity(WebKitDOMHTMLTextAreaElement* self);
+
+/**
  * webkit_dom_html_text_area_element_get_validation_message:
  * @self: A #WebKitDOMHTMLTextAreaElement
  *
@@ -413,6 +412,16 @@ webkit_dom_html_text_area_element_get_will_validate(WebKitDOMHTMLTextAreaElement
 **/
 WEBKIT_API gchar*
 webkit_dom_html_text_area_element_get_validation_message(WebKitDOMHTMLTextAreaElement* self);
+
+/**
+ * webkit_dom_html_text_area_element_get_labels:
+ * @self: A #WebKitDOMHTMLTextAreaElement
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMNodeList*
+webkit_dom_html_text_area_element_get_labels(WebKitDOMHTMLTextAreaElement* self);
 
 /**
  * webkit_dom_html_text_area_element_get_selection_start:
@@ -476,16 +485,6 @@ webkit_dom_html_text_area_element_get_selection_direction(WebKitDOMHTMLTextAreaE
 **/
 WEBKIT_API void
 webkit_dom_html_text_area_element_set_selection_direction(WebKitDOMHTMLTextAreaElement* self, const gchar* value);
-
-/**
- * webkit_dom_html_text_area_element_get_labels:
- * @self: A #WebKitDOMHTMLTextAreaElement
- *
- * Returns: (transfer none):
- *
-**/
-WEBKIT_API WebKitDOMNodeList*
-webkit_dom_html_text_area_element_get_labels(WebKitDOMHTMLTextAreaElement* self);
 
 G_END_DECLS
 

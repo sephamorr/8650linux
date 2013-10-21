@@ -18,12 +18,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GTK_FONT_CHOOSER_H__
+#define __GTK_FONT_CHOOSER_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_FONT_CHOOSER_H__
-#define __GTK_FONT_CHOOSER_H__
 
 #include <gtk/gtkwidget.h>
 
@@ -57,13 +57,13 @@ struct _GtkFontChooserIface
   GTypeInterface base_iface;
 
   /* Methods */
-  PangoFontFamily * (* get_font_family)         (GtkFontChooser  *chooser);
-  PangoFontFace *   (* get_font_face)           (GtkFontChooser  *chooser);
-  gint              (* get_font_size)           (GtkFontChooser  *chooser);
+  PangoFontFamily * (* get_font_family)         (GtkFontChooser  *fontchooser);
+  PangoFontFace *   (* get_font_face)           (GtkFontChooser  *fontchooser);
+  gint              (* get_font_size)           (GtkFontChooser  *fontchooser);
 
-  void              (* set_filter_func)         (GtkFontChooser   *chooser,
+  void              (* set_filter_func)         (GtkFontChooser   *fontchooser,
                                                  GtkFontFilterFunc filter,
-                                                 gpointer          data,
+                                                 gpointer          user_data,
                                                  GDestroyNotify    destroy);
 
   /* Signals */

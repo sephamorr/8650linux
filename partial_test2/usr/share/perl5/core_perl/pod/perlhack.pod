@@ -381,6 +381,21 @@ extra paren, e.g. "if (a && (b = c)) ..."
 
 "if (!foo) ..." rather than "if (foo == FALSE) ..." etc.
 
+=item *
+
+Do not declare variables using "register".  It may be counterproductive
+with modern compilers, and is deprecated in C++, under which the Perl
+source is regularly compiled.
+
+=item *
+
+In-line functions that are in headers that are accessible to XS code
+need to be able to compile without warnings with commonly used extra
+compilation flags, such as gcc's C<-Wswitch-default> which warns
+whenever a switch statement does not have a "default" case.  The use of
+these extra flags is to catch potential problems in legal C code, and is
+often used by Perl aggregators, such as Linux distributors.
+
 =back
 
 =head3 Test suite
@@ -702,11 +717,13 @@ Protocol|http://testanything.org>.
 
 =over 4
 
-=item * F<t/base> and F<t/comp>
+=item * F<t/base>, F<t/comp> and F<t/opbasic>
 
 Since we don't know if require works, or even subroutines, use ad hoc
-tests for these two. Step carefully to avoid using the feature being
-tested.
+tests for these three. Step carefully to avoid using the feature being
+tested.  Tests in F<t/opbasic>, for instance, have been placed there rather
+than in F<t/op> because they test functionality which F<t/test.pl> presumes
+has already been demonstrated to work.
 
 =item * F<t/cmd>, F<t/run>, F<t/io> and F<t/op>
 
@@ -948,6 +965,13 @@ Setting this variable skips the vrexx.t tests for OS2::REXX.
 
 This sets a variable in op/numconvert.t.
 
+=item * PERL_TEST_MEMORY
+
+Setting this variable includes the tests in F<t/bigmem/>.  This should
+be set to the number of gigabytes of memory available for testing,
+eg. C<PERL_TEST_MEMORY=4> indicates that tests that require 4GiB of
+available memory can be run safely.
+
 =back
 
 See also the documentation for the Test and Test::Harness modules, for
@@ -1014,13 +1038,6 @@ functions do, as well as the many macros used in the source.
 This is a collection of words of wisdom for a Perl porter; some of it
 is only useful to the pumpkin holder, but most of it applies to anyone
 wanting to go about Perl development.
-
-=item * The perl5-porters FAQ
-
-This should be available from
-http://dev.perl.org/perl5/docs/p5p-faq.html . It contains hints on
-reading perl5-porters, information on how perl5-porters works and how
-Perl development in general works.
 
 =back
 

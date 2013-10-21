@@ -61,7 +61,7 @@ class Position(object):
             return '%s:' % (filename, )
 
     def offset(self, offset):
-        return Position(self.filename, self.line+offset, self.column)
+        return Position(self.filename, self.line + offset, self.column)
 
 
 class MessageLogger(object):
@@ -90,7 +90,7 @@ class MessageLogger(object):
 
     def log(self, log_type, text, positions=None, prefix=None):
         """Log a warning, using optional file positioning information.
-If the warning is related to a ast.Node type, see log_node_warning()."""
+If the warning is related to a ast.Node type, see log_node()."""
         utils.break_on_debug_flag('warning')
 
         self._warning_count += 1
@@ -119,12 +119,14 @@ If the warning is related to a ast.Node type, see log_node_warning()."""
         elif log_type == FATAL:
             error_type = "Fatal"
         if prefix:
-            text = (
-'''%s: %s: %s: %s: %s\n''' % (last_position, error_type, self._namespace.name,
-                            prefix, text))
+            text = ('%s: %s: %s: %s: %s\n' % (last_position, error_type,
+                                              self._namespace.name, prefix, text))
         else:
-            text = (
-'''%s: %s: %s: %s\n''' % (last_position, error_type, self._namespace.name, text))
+            if self._namespace:
+                text = ('%s: %s: %s: %s\n' % (last_position, error_type,
+                                              self._namespace.name, text))
+            else:
+                text = ('%s: %s: %s\n' % (last_position, error_type, text))
 
         self._output.write(text)
         if log_type == FATAL:
@@ -165,16 +167,20 @@ def log_node(log_type, node, text, context=None, positions=None):
     ml = MessageLogger.get()
     ml.log_node(log_type, node, text, context=context, positions=positions)
 
+
 def warn(text, positions=None, prefix=None):
     ml = MessageLogger.get()
     ml.log(WARNING, text, positions, prefix)
 
+
 def warn_node(node, text, context=None, positions=None):
     log_node(WARNING, node, text, context=context, positions=positions)
+
 
 def warn_symbol(symbol, text):
     ml = MessageLogger.get()
     ml.log_symbol(WARNING, symbol, text)
+
 
 def fatal(text, positions=None, prefix=None):
     ml = MessageLogger.get()

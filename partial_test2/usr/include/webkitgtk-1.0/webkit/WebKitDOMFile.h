@@ -21,11 +21,10 @@
 #ifndef WebKitDOMFile_h
 #define WebKitDOMFile_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMBlob.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMBlob.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_FILE            (webkit_dom_file_get_type())
@@ -55,26 +54,6 @@ webkit_dom_file_get_type (void);
 **/
 WEBKIT_API gchar*
 webkit_dom_file_get_name(WebKitDOMFile* self);
-
-/**
- * webkit_dom_file_get_file_name:
- * @self: A #WebKitDOMFile
- *
- * Returns:
- *
-**/
-WEBKIT_API gchar*
-webkit_dom_file_get_file_name(WebKitDOMFile* self);
-
-/**
- * webkit_dom_file_get_file_size:
- * @self: A #WebKitDOMFile
- *
- * Returns:
- *
-**/
-WEBKIT_API guint64
-webkit_dom_file_get_file_size(WebKitDOMFile* self);
 
 G_END_DECLS
 

@@ -17,12 +17,12 @@
  * Author: Ryan Lortie <desrt@desrt.ca>
  */
 
+#ifndef __GTK_APPLICATION_H__
+#define __GTK_APPLICATION_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_APPLICATION_H__
-#define __GTK_APPLICATION_H__
 
 #include <gtk/gtkwidget.h>
 #include <gio/gio.h>
@@ -61,16 +61,21 @@ struct _GtkApplicationClass
   gpointer padding[12];
 };
 
+GDK_AVAILABLE_IN_ALL
 GType            gtk_application_get_type      (void) G_GNUC_CONST;
 
+GDK_AVAILABLE_IN_ALL
 GtkApplication * gtk_application_new           (const gchar       *application_id,
                                                 GApplicationFlags  flags);
 
+GDK_AVAILABLE_IN_ALL
 void             gtk_application_add_window    (GtkApplication    *application,
                                                 GtkWindow         *window);
 
+GDK_AVAILABLE_IN_ALL
 void             gtk_application_remove_window (GtkApplication    *application,
                                                 GtkWindow         *window);
+GDK_AVAILABLE_IN_ALL
 GList *          gtk_application_get_windows   (GtkApplication    *application);
 
 GDK_AVAILABLE_IN_3_4
@@ -114,6 +119,13 @@ void             gtk_application_uninhibit          (GtkApplication             
 GDK_AVAILABLE_IN_3_4
 gboolean         gtk_application_is_inhibited       (GtkApplication             *application,
                                                      GtkApplicationInhibitFlags  flags);
+
+GDK_AVAILABLE_IN_3_6
+GtkWindow *      gtk_application_get_window_by_id   (GtkApplication             *application,
+                                                     guint                       id);
+
+GDK_AVAILABLE_IN_3_6
+GtkWindow *      gtk_application_get_active_window  (GtkApplication             *application);
 
 G_END_DECLS
 

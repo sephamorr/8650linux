@@ -21,11 +21,10 @@
 #ifndef WebKitDOMHTMLScriptElement_h
 #define WebKitDOMHTMLScriptElement_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMHTMLElement.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMHTMLElement.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_HTML_SCRIPT_ELEMENT            (webkit_dom_html_script_element_get_type())
@@ -192,6 +191,48 @@ webkit_dom_html_script_element_get_src(WebKitDOMHTMLScriptElement* self);
 **/
 WEBKIT_API void
 webkit_dom_html_script_element_set_src(WebKitDOMHTMLScriptElement* self, const gchar* value);
+
+/**
+ * webkit_dom_html_script_element_get_cross_origin:
+ * @self: A #WebKitDOMHTMLScriptElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_html_script_element_get_cross_origin(WebKitDOMHTMLScriptElement* self);
+
+/**
+ * webkit_dom_html_script_element_set_cross_origin:
+ * @self: A #WebKitDOMHTMLScriptElement
+ * @value: A #gchar
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_script_element_set_cross_origin(WebKitDOMHTMLScriptElement* self, const gchar* value);
+
+/**
+ * webkit_dom_html_script_element_get_nonce:
+ * @self: A #WebKitDOMHTMLScriptElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_html_script_element_get_nonce(WebKitDOMHTMLScriptElement* self);
+
+/**
+ * webkit_dom_html_script_element_set_nonce:
+ * @self: A #WebKitDOMHTMLScriptElement
+ * @value: A #gchar
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_script_element_set_nonce(WebKitDOMHTMLScriptElement* self, const gchar* value);
 
 G_END_DECLS
 

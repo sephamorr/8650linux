@@ -289,7 +289,7 @@ Enable/disable UTF-8 (or UTF-EBCDIC) in source code
 
 =item vars
 
-Predeclare global variable names (obsolete)
+Predeclare global variable names
 
 =item version
 
@@ -462,6 +462,10 @@ Query, download and build perl modules from CPAN sites
 
 A recipe book for programming with CPAN.pm
 
+=item CPAN::Debug
+
+Internal debugging for CPAN.pm
+
 =item CPAN::Distroprefs
 
 Read and match distroprefs
@@ -469,6 +473,10 @@ Read and match distroprefs
 =item CPAN::FirstTime
 
 Utility for CPAN::Config file Initialization
+
+=item CPAN::HandleConfig
+
+Internal configuration handling for CPAN.pm
 
 =item CPAN::Kwalify
 
@@ -514,6 +522,14 @@ Read and write a subset of YAML for CPAN Meta files
 
 Wrapper around CPAN.pm without using any XS module
 
+=item CPAN::Queue
+
+Internal queue support for CPAN.pm
+
+=item CPAN::Tarzip
+
+Internal handling of tar archives for CPAN.pm
+
 =item CPAN::Version
 
 Utility functions to compare CPAN versions
@@ -533,6 +549,10 @@ Return value objects
 =item CPANPLUS::Config
 
 Configuration defaults and heuristics for CPANPLUS
+
+=item CPANPLUS::Config::HomeEnv
+
+Set the environment for the CPANPLUS base dir
 
 =item CPANPLUS::Configure
 
@@ -689,6 +709,10 @@ Interface to zlib compression library
 =item Config
 
 Access Perl configuration information
+
+=item Config::Perl::V
+
+Structured data retrieval of perl -V output
 
 =item Cwd
 
@@ -1742,6 +1766,10 @@ DEPRECATED
 
 What modules shipped with versions of perl
 
+=item Module::CoreList::Utils
+
+What utilities shipped with versions of perl
+
 =item Module::Load
 
 Runtime require of both modules and files
@@ -1894,17 +1922,9 @@ Helper class for PerlIO layers implemented in perl
 
 PerlIO layer for quoted-printable strings
 
-=item Pod::Checker
-
-Check pod documents for syntax errors
-
 =item Pod::Escapes
 
 For resolving Pod EE<lt>...E<gt> sequences
-
-=item Pod::Find
-
-Find POD documents in directory trees
 
 =item Pod::Functions
 
@@ -1913,10 +1933,6 @@ Group Perl's functions a la perlfunc.pod
 =item Pod::Html
 
 Module to convert pod files to HTML
-
-=item Pod::InputObjects
-
-Objects representing POD input paragraphs, commands, etc.
 
 =item Pod::LaTeX
 
@@ -1929,14 +1945,6 @@ Convert POD data to formatted *roff input
 =item Pod::ParseLink
 
 Parse an LE<lt>E<gt> formatting code in POD text
-
-=item Pod::ParseUtils
-
-Helpers for POD parsing and conversion
-
-=item Pod::Parser
-
-Base class for creating POD filters and translators
 
 =item Pod::Perldoc
 
@@ -1989,14 +1997,6 @@ Let Perldoc use Tk::Pod to render Pod
 =item Pod::Perldoc::ToXml
 
 Let Perldoc render Pod as XML
-
-=item Pod::PlainText
-
-Convert POD data to formatted ASCII text
-
-=item Pod::Select
-
-Extract selected sections of POD from input
 
 =item Pod::Simple
 
@@ -2097,10 +2097,6 @@ Convert POD data to formatted color ASCII text
 =item Pod::Text::Termcap
 
 Convert POD data to ASCII text with format escapes
-
-=item Pod::Usage
-
-Print a usage message from embedded pod documentation
 
 =item SDBM_File
 
@@ -2396,7 +2392,7 @@ Implementation of the soundex algorithm.
 
 =item Text::Tabs
 
-Expand and unexpand tabs per the unix expand(1) and unexpand(1)
+Expand and unexpand tabs like unix expand(1) and unexpand(1)
 
 =item Text::Wrap
 
@@ -2514,6 +2510,10 @@ Weighting CJK Unified Ideographs
 
 Weighting CJK Unified Ideographs
 
+=item Unicode::Collate::CJK::Zhuyin
+
+Weighting CJK Unified Ideographs
+
 =item Unicode::Collate::Locale
 
 Linguistic tailoring for DUCET via Unicode::Collate
@@ -2542,9 +2542,9 @@ Perl extension to manipulate DCL symbols
 
 Standard I/O functions via VMS extensions
 
-=item Version::Requirements
+=item Win32
 
-A set of version requirements for a CPAN dist
+Interfaces to some Win32 API Functions
 
 =item Win32API::File
 

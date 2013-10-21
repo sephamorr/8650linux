@@ -15,10 +15,12 @@
 //
 // Copyright (C) 2005-2007 Kristian Høgsberg <krh@redhat.com>
 // Copyright (C) 2006 Ed Catmur <ed@catmur.co.uk>
-// Copyright (C) 2007, 2008, 2011 Carlos Garcia Campos <carlosgc@gnome.org>
+// Copyright (C) 2007, 2008, 2011, 2013 Carlos Garcia Campos <carlosgc@gnome.org>
 // Copyright (C) 2007 Adrian Johnson <ajohnson@redneon.com>
 // Copyright (C) 2008, 2010 Albert Astals Cid <aacid@kde.org>
 // Copyright (C) 2010 Brian Ewins <brian.ewins@gmail.com>
+// Copyright (C) 2012, 2013 Jason Crain <jason@aquaticape.us>
+// Copyright (C) 2013 Thomas Freitag <Thomas.Freitag@alfa.de>
 //
 // To see a description of the changes please see the Changelog file that
 // came with your tarball or type make ChangeLog if you are building from git
@@ -113,16 +115,15 @@ class TextWord {
 public:
 
   // Constructor.
-  TextWord(GfxState *state, int rotA, double x0, double y0,
-	   TextFontInfo *fontA, double fontSize);
+  TextWord(GfxState *state, int rotA, double fontSize);
 
   // Destructor.
   ~TextWord();
 
   // Add a character to the word.
-  void addChar(GfxState *state, double x, double y,
+  void addChar(GfxState *state, TextFontInfo *fontA, double x, double y,
 	       double dx, double dy, int charPosA, int charLen,
-	       CharCode c, Unicode u);
+	       CharCode c, Unicode u, Matrix textMatA);
 
   // Merge <word> onto the end of <this>.
   void merge(TextWord *word);
@@ -141,8 +142,8 @@ public:
 		      PDFRectangle *selection,
 		      SelectionStyle style);
 
-  // Get the TextFontInfo object associated with this word.
-  TextFontInfo *getFontInfo() { return font; }
+  // Get the TextFontInfo object associated with a character.
+  TextFontInfo *getFontInfo(int idx) { return font[idx]; }
 
   // Get the next TextWord on the linked list.
   TextWord *getNext() { return next; }
@@ -151,7 +152,7 @@ public:
   int getLength() { return len; }
   const Unicode *getChar(int idx) { return &text[idx]; }
   GooString *getText();
-  GooString *getFontName() { return font->fontName; }
+  GooString *getFontName(int idx) { return font[idx]->fontName; }
   void getColor(double *r, double *g, double *b)
     { *r = colorR; *g = colorG; *b = colorB; }
   void getBBox(double *xMinA, double *yMinA, double *xMaxA, double *yMaxA)
@@ -184,13 +185,15 @@ private:
   int *charPos;			// character position (within content stream)
 				//   of each char (plus one extra entry for
 				//   the last char)
-  int len;			// length of text/edge/charPos arrays
-  int size;			// size of text/edge/charPos arrays
-  TextFontInfo *font;		// font information
+  int len;			// length of text/edge/charPos/font arrays
+  int size;			// size of text/edge/charPos/font arrays
+  TextFontInfo **font;		// font information for each char
+  Matrix *textMat;		// transformation matrix for each char
   double fontSize;		// font size
   GBool spaceAfter;		// set if there is a space between this
 				//   word and the next word on the line
   TextWord *next;		// next word in line
+  int wMode;			// horizontal (0) or vertical (1) writing mode
 
 #if TEXTOUT_WORD_LIST
   double colorR,		// word color
@@ -498,7 +501,7 @@ public:
   void updateFont(GfxState *state);
 
   // Begin a new word.
-  void beginWord(GfxState *state, double x0, double y0);
+  void beginWord(GfxState *state);
 
   // Add a character to the current word.
   void addChar(GfxState *state, double x, double y,
@@ -559,6 +562,10 @@ public:
 
   GooString *getSelectionText(PDFRectangle *selection,
 			      SelectionStyle style);
+
+  GooList **getSelectionWords(PDFRectangle *selection,
+                              SelectionStyle style,
+                              int *nLines);
 
   // Find a string by character position and length.  If found, sets
   // the text bounding rectangle and returns true; otherwise returns
@@ -717,7 +724,7 @@ public:
   //----- initialization and control
 
   // Start a page.
-  virtual void startPage(int pageNum, GfxState *state);
+  virtual void startPage(int pageNum, GfxState *state, XRef *xref);
 
   // End a page.
   virtual void endPage();

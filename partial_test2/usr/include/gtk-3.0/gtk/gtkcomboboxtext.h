@@ -16,12 +16,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GTK_COMBO_BOX_TEXT_H__
+#define __GTK_COMBO_BOX_TEXT_H__
+
 #if defined(GTK_DISABLE_SINGLE_INCLUDES) && !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_COMBO_BOX_TEXT_H__
-#define __GTK_COMBO_BOX_TEXT_H__
 
 #include <gtk/gtkcombobox.h>
 
@@ -57,28 +57,40 @@ struct _GtkComboBoxTextClass
   void (*_gtk_reserved4) (void);
 };
 
+GDK_AVAILABLE_IN_ALL
 GType         gtk_combo_box_text_get_type        (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkWidget*    gtk_combo_box_text_new             (void);
+GDK_AVAILABLE_IN_ALL
 GtkWidget*    gtk_combo_box_text_new_with_entry  (void);
+GDK_AVAILABLE_IN_ALL
 void          gtk_combo_box_text_append_text     (GtkComboBoxText     *combo_box,
                                                   const gchar         *text);
+GDK_AVAILABLE_IN_ALL
 void          gtk_combo_box_text_insert_text     (GtkComboBoxText     *combo_box,
                                                   gint                 position,
                                                   const gchar         *text);
+GDK_AVAILABLE_IN_ALL
 void          gtk_combo_box_text_prepend_text    (GtkComboBoxText     *combo_box,
                                                   const gchar         *text);
+GDK_AVAILABLE_IN_ALL
 void          gtk_combo_box_text_remove          (GtkComboBoxText     *combo_box,
                                                   gint                 position);
+GDK_AVAILABLE_IN_ALL
 void          gtk_combo_box_text_remove_all      (GtkComboBoxText     *combo_box);
+GDK_AVAILABLE_IN_ALL
 gchar        *gtk_combo_box_text_get_active_text (GtkComboBoxText     *combo_box);
 
+GDK_AVAILABLE_IN_ALL
 void          gtk_combo_box_text_insert          (GtkComboBoxText     *combo_box,
                                                   gint                 position,
                                                   const gchar         *id,
                                                   const gchar         *text);
+GDK_AVAILABLE_IN_ALL
 void          gtk_combo_box_text_append          (GtkComboBoxText     *combo_box,
                                                   const gchar         *id,
                                                   const gchar         *text);
+GDK_AVAILABLE_IN_ALL
 void          gtk_combo_box_text_prepend         (GtkComboBoxText     *combo_box,
                                                   const gchar         *id,
                                                   const gchar         *text);

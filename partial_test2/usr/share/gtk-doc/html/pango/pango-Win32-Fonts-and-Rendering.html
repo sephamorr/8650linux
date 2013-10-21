@@ -2,30 +2,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Win32 Fonts and Rendering</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>Pango Reference Manual: Win32 Fonts and Rendering</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="Pango Reference Manual">
 <link rel="up" href="rendering.html" title="Rendering with Pango">
 <link rel="prev" href="rendering.html" title="Rendering with Pango">
 <link rel="next" href="pango-FreeType-Fonts-and-Rendering.html" title="FreeType Fonts and Rendering">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="rendering.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="rendering.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">Pango Reference Manual</th>
-<td><a accesskey="n" href="pango-FreeType-Fonts-and-Rendering.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#pango-Win32-Fonts-and-Rendering.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#pango-Win32-Fonts-and-Rendering.description" class="shortcut">Description</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="rendering.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="rendering.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="pango-FreeType-Fonts-and-Rendering.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="pango-Win32-Fonts-and-Rendering"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -111,7 +108,7 @@ A string constant identifying the Win32 renderer. The associated quark (see
 <div class="refsect2">
 <a name="pango-win32-get-context"></a><h3>pango_win32_get_context ()</h3>
 <pre class="programlisting"><a class="link" href="pango-Text-Processing.html#PangoContext"><span class="returnvalue">PangoContext</span></a> *      pango_win32_get_context             (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="warning">
 <h3 class="title">Warning</h3>
 <p><code class="literal">pango_win32_get_context</code> has been deprecated since version 1.22 and should not be used in newly-written code. Use <a class="link" href="pango-Win32-Fonts-and-Rendering.html#pango-win32-font-map-for-display" title="pango_win32_font_map_for_display ()"><code class="function">pango_win32_font_map_for_display()</code></a> followed by
 <a class="link" href="pango-Fonts.html#pango-font-map-create-context" title="pango_font_map_create_context ()"><code class="function">pango_font_map_create_context()</code></a> instead.</p>
@@ -119,8 +116,11 @@ A string constant identifying the Win32 renderer. The associated quark (see
 <p>
 Retrieves a <a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a> appropriate for rendering with Windows fonts.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the new <a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a>
@@ -139,8 +139,11 @@ Retrieves a <a class="link" href="pango-Text-Processing.html#PangoContext"><span
 <p>
 Render a <a class="link" href="pango-Glyph-Storage.html#PangoGlyphString"><span class="type">PangoGlyphString</span></a> onto a Windows DC
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hdc</code></em> :</span></p></td>
@@ -182,8 +185,11 @@ changed, so to produce correct rendering results, the <em class="parameter"><cod
 must have been loaded using a <a class="link" href="pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a> with an identical
 transformation matrix to that passed in to this function.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hdc</code></em> :</span></p></td>
@@ -226,8 +232,11 @@ Render a <a class="link" href="pango-Layout-Objects.html#PangoLayoutLine"><span 
 work property the text alignment of the DC should have TA_BASELINE
 and TA_LEFT.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hdc</code></em> :</span></p></td>
@@ -259,8 +268,11 @@ and TA_LEFT.
 <p>
 Render a <a class="link" href="pango-Layout-Objects.html#PangoLayoutLine"><span class="type">PangoLayoutLine</span></a> onto an X drawable
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hdc</code></em> :</span></p></td>
@@ -287,7 +299,7 @@ Render a <a class="link" href="pango-Layout-Objects.html#PangoLayoutLine"><span 
 <a name="pango-win32-get-unknown-glyph"></a><h3>pango_win32_get_unknown_glyph ()</h3>
 <pre class="programlisting"><a class="link" href="pango-Glyph-Storage.html#PangoGlyph" title="PangoGlyph"><span class="returnvalue">PangoGlyph</span></a>          pango_win32_get_unknown_glyph       (<em class="parameter"><code><a class="link" href="pango-Fonts.html#PangoFont"><span class="type">PangoFont</span></a> *font</code></em>,
                                                          <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Unicode-Manipulation.html#gunichar"><span class="type">gunichar</span></a> wc</code></em>);</pre>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="warning">
 <h3 class="title">Warning</h3>
 <p><code class="literal">pango_win32_get_unknown_glyph</code> is deprecated and should not be used in newly-written code.</p>
 </div>
@@ -298,8 +310,11 @@ unknown character.
 <p>
 Use <a class="link" href="pango-Glyph-Storage.html#PANGO-GET-UNKNOWN-GLYPH:CAPS" title="PANGO_GET_UNKNOWN_GLYPH()"><code class="function">PANGO_GET_UNKNOWN_GLYPH()</code></a> instead.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>font</code></em> :</span></p></td>
@@ -327,8 +342,11 @@ Use <a class="link" href="pango-Glyph-Storage.html#PANGO-GET-UNKNOWN-GLYPH:CAPS"
 Obtains the index of the glyph for <em class="parameter"><code>wc</code></em> in <em class="parameter"><code>font</code></em>, or 0, if not
 covered.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>font</code></em> :</span></p></td>
@@ -362,8 +380,11 @@ See <a class="link" href="pango-Win32-Fonts-and-Rendering.html#pango-win32-font-
 converting from the coordinate space used by this function
 into Pango units.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>font</code></em> :</span></p></td>
@@ -388,8 +409,11 @@ into Pango units.
 <p>
 Releases any resources allocated by <a class="link" href="pango-Win32-Fonts-and-Rendering.html#pango-win32-font-done-font" title="pango_win32_font_done_font ()"><code class="function">pango_win32_font_done_font()</code></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>font</code></em> :</span></p></td>
 <td>a <a class="link" href="pango-Fonts.html#PangoFont"><span class="type">PangoFont</span></a> from the win32 backend</td>
@@ -405,8 +429,11 @@ Returns the scale factor from logical units in the coordinate
 space used by <a class="link" href="pango-Win32-Fonts-and-Rendering.html#pango-win32-font-select-font" title="pango_win32_font_select_font ()"><code class="function">pango_win32_font_select_font()</code></a> to Pango units
 in user space.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>font</code></em> :</span></p></td>
@@ -427,8 +454,11 @@ units.</td>
 <p>
 Returns whether debugging is turned on.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
@@ -444,8 +474,11 @@ Returns whether debugging is turned on.
 <p>
 Obtains a handle to the Windows device context that is used by Pango.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>A handle to the Windows device context that is used by Pango.</td>
@@ -468,8 +501,11 @@ HFONTs by their LOGFONT descriptions.
 <p>
 Creates a font cache.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>The new font cache. This must be freed with
@@ -485,8 +521,11 @@ Creates a font cache.
 Frees a <a class="link" href="pango-Win32-Fonts-and-Rendering.html#PangoWin32FontCache" title="PangoWin32FontCache"><span class="type">PangoWin32FontCache</span></a> and all associated memory. All fonts loaded
 through this font cache will be freed along with the cache.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>cache</code></em> :</span></p></td>
 <td>a <a class="link" href="pango-Win32-Fonts-and-Rendering.html#PangoWin32FontCache" title="PangoWin32FontCache"><span class="type">PangoWin32FontCache</span></a>
@@ -504,8 +543,11 @@ Creates a HFONT from a LOGFONTA. The
 result may be newly loaded, or it may have been previously
 stored
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cache</code></em> :</span></p></td>
@@ -535,8 +577,11 @@ Creates a HFONT from a LOGFONTW. The
 result may be newly loaded, or it may have been previously
 stored
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cache</code></em> :</span></p></td>
@@ -565,8 +610,11 @@ not be loaded. In order to free this structure, you must call
 <p>
 Frees a font structure previously loaded with <a class="link" href="pango-Win32-Fonts-and-Rendering.html#pango-win32-font-cache-load" title="pango_win32_font_cache_load ()"><code class="function">pango_win32_font_cache_load()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cache</code></em> :</span></p></td>
@@ -589,8 +637,11 @@ Returns a <span class="type">PangoWin32FontMap</span>. Font maps are cached and 
 not be freed. If the font map is no longer needed, it can
 be released with <a class="link" href="pango-Win32-Fonts-and-Rendering.html#pango-win32-shutdown-display" title="pango_win32_shutdown_display ()"><code class="function">pango_win32_shutdown_display()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a <a class="link" href="pango-Fonts.html#PangoFontMap"><span class="type">PangoFontMap</span></a>.</td>
@@ -613,8 +664,11 @@ Free cached resources.
 <p>
 Obtains the font cache associated with the given font map.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>font_map</code></em> :</span></p></td>
@@ -640,8 +694,11 @@ LOGFONTW of a PangoFont, use <a class="link" href="pango-Win32-Fonts-and-Renderi
 is recommended to do that always even if you don't expect
 to come across fonts with odd names.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>font</code></em> :</span></p></td>
@@ -662,8 +719,11 @@ freed with <a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-All
 <p>
 Determine the LOGFONTW struct for the specified font.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>font</code></em> :</span></p></td>
@@ -695,8 +755,11 @@ name for it is looked up from the font name tables in the font
 data. If that doesn't work, the face name is converted from the
 system codepage to UTF-8 and that is used.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>lfp</code></em> :</span></p></td>
@@ -729,8 +792,11 @@ name for it is looked up from the font name tables in the font
 data. If that doesn't work, the face name is converted from UTF-16
 to UTF-8 and that is used.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>lfp</code></em> :</span></p></td>
@@ -750,6 +816,6 @@ should be freed using <a class="link" href="pango-Fonts.html#pango-font-descript
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

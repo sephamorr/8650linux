@@ -67,7 +67,8 @@ typedef struct
     struct pi_header header;
 
     int count;
-    char data[NUMWORDS][MAXWORDLEN];
+    char data_put[NUMWORDS][MAXWORDLEN];
+    char data_get[NUMWORDS][MAXWORDLEN];
 } PWDICT;
 
 #define PW_WORDS(x) ((x)->header.pih_numwords)
@@ -93,5 +94,6 @@ extern int PMatch(char *control, char *string);
 extern char *Mangle(char *input, char *control);
 extern char Chop(char *string);
 extern char *Trim(char *string);
+extern char *FascistLook(PWDICT *pwp, char *instring);
 
 #endif

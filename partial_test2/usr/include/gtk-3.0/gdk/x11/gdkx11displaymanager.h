@@ -15,12 +15,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GDK_X11_DISPLAY_MANAGER_H__
+#define __GDK_X11_DISPLAY_MANAGER_H__
+
 #if !defined (__GDKX_H_INSIDE__) && !defined (GDK_COMPILATION)
 #error "Only <gdk/gdkx.h> can be included directly."
 #endif
-
-#ifndef __GDK_X11_DISPLAY_MANAGER_H__
-#define __GDK_X11_DISPLAY_MANAGER_H__
 
 #include <gdk/gdk.h>
 
@@ -40,6 +40,7 @@ typedef struct _GdkX11DisplayManagerClass GdkX11DisplayManagerClass;
 #define GDK_IS_X11_DISPLAY_MANAGER_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), GDK_TYPE_X11_DISPLAY_MANAGER))
 #define GDK_X11_DISPLAY_MANAGER_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), GDK_TYPE_X11_DISPLAY_MANAGER, GdkX11DisplayManagerClass))
 
+GDK_AVAILABLE_IN_ALL
 GType      gdk_x11_display_manager_get_type            (void);
 
 G_END_DECLS

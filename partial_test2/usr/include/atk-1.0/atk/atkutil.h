@@ -71,7 +71,7 @@ typedef void  (*AtkEventListenerInit) (void);
  * AtkKeySnoopFunc:
  * @event: an AtkKeyEventStruct containing information about the key event for which
  * notification is being given.
- * @func_data: a block of data which will be passed to the event listener, on notification.
+ * @user_data: a block of data which will be passed to the event listener, on notification.
  *
  * An #AtkKeySnoopFunc is a type of callback which is called whenever a key event occurs, 
  * if registered via atk_add_key_event_listener.  It allows for pre-emptive 
@@ -84,7 +84,7 @@ typedef void  (*AtkEventListenerInit) (void);
  * see atk_add_key_event_listener.
  **/
 typedef gint  (*AtkKeySnoopFunc)  (AtkKeyEventStruct *event,
-				   gpointer func_data);
+				   gpointer user_data);
 
 /**
  * AtkKeyEventStruct:
@@ -166,9 +166,13 @@ typedef enum {
   ATK_XY_WINDOW
 }AtkCoordType;
 
+G_DEPRECATED
 guint    atk_add_focus_tracker     (AtkEventListener      focus_tracker);
+G_DEPRECATED
 void     atk_remove_focus_tracker  (guint                tracker_id);
+G_DEPRECATED
 void     atk_focus_tracker_init    (AtkEventListenerInit  init);
+G_DEPRECATED
 void     atk_focus_tracker_notify  (AtkObject            *object);
 guint	atk_add_global_event_listener (GSignalEmissionHook listener,
 				       const gchar        *event_type);

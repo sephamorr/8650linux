@@ -6,9 +6,9 @@
 # Source file position: <groff-source>/src/roff/grog/grog.pl
 # Installed position: <prefix>/bin/grog
 
-# Copyright (C) 1993, 2006, 2009 Free Software Foundation, Inc.
+# Copyright (C) 1993, 2006, 2009, 2011-2012 Free Software Foundation, Inc.
 # Written by James Clark, maintained by Werner Lemberg.
-# Rewritten and put under GPL by Bernd Warken.
+# Rewritten and put under GPL by Bernd Warken <groff-bernd.warken-72@web.de>.
 
 # This file is part of `grog', which is part of `groff'.
 
@@ -26,7 +26,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 ########################################################################
-my $Last_Update = '5 Jan 2009';
+my $Last_Update = '24 May 2012';
 ########################################################################
 
 require v5.6;
@@ -128,30 +128,29 @@ sub process {
 
     if (/^(.cstart)|(begin\s+chem)$/) {
       $Groff{'chem'}++;
-      $Groff{'pic'}++;
+      $Groff{'soelim'}++ if $level;
     } elsif (/^\.TS$Sp/) {
       $_ = <FILE>;
-      if (!/^\./) {
+      if (!/^\./ || /^\.so/) {
 	$Groff{'tbl'}++;
 	$Groff{'soelim'}++ if $level;
       }
     } elsif (/^\.EQ$Sp/) {
       $_ = <FILE>;
-      if (!/^\./ || /^\.[0-9]/) {
+      if (!/^\./ || /^\.[0-9]/ || /^\.so/) {
 	$Groff{'eqn'}++;
 	$Groff{'soelim'}++ if $level;
       }
     } elsif (/^\.GS$Sp/) {
       $_ = <FILE>;
-      if (!/^\./) {
+      if (!/^\./ || /^\.so/) {
 	$Groff{'grn'}++;
 	$Groff{'soelim'}++ if $level;
       }
     } elsif (/^\.G1$Sp/) {
       $_ = <FILE>;
-      if (!/^\./) {
+      if (!/^\./ || /^\.so/) {
 	$Groff{'grap'}++;
-	$Groff{'pic'}++;
 	$Groff{'soelim'}++ if $level;
       }
 #    } elsif (/^\.PS\Sp([ 0-9.<].*)?$/) {
@@ -161,7 +160,7 @@ sub process {
 #	&process($1, $level);
 #      } else {
 #	$_ = <FILE>;
-#	if (!/^\./ || /^\.ps/) {
+#	if (!/^\./ || /^\.ps/ || /^\.so/) {
 #	  $Groff{'pic'}++;
 #	  $Groff{'soelim'}++ if $level;
 #	}
@@ -244,6 +243,22 @@ sub process {
       s/^.so *//;
       s/\\\".*//;
       s/ .*$//;
+      # The next if-clause catches e.g.
+      #
+      #   .EQ
+      #   .so foo
+      #   .EN
+      #
+      # However, the code is not fully correct since it is too generous.
+      # Theoretically, we should check for .so only within preprocessor
+      # blocks like .EQ/.EN or .TS/.TE; but it doesn't harm if we call
+      # soelim even if we don't need to.
+      if ( $Groff{'pic'} || $Groff{'tbl'} || $Groff{'eqn'} ||
+	   $Groff{'grn'} || $Groff{'grap'} || $Groff{'refer'} ||
+	   $Groff{'refer_open'} || $Groff{'refer_close'} ||
+	   $Groff{'chem'} ) {
+	$Groff{'soelim'}++;
+      }
       &process($_, $level + 1) unless /\\/ || $_ eq "";
     }
   }
@@ -273,7 +288,7 @@ EOF
 sub version {
   my ($exit_status) = @_;
   print "Perl version of GNU $Prog of $Last_Update " .
-    "in groff version 1.21\n";
+    "in groff version 1.22.2\n";
   exit $exit_status;
 }
 
@@ -286,12 +301,13 @@ sub version {
   $Groff{'refer'} ||= $Groff{'refer_open'} && $Groff{'refer_close'};
 
   if ( $Groff{'pic'} || $Groff{'tbl'} || $Groff{'eqn'} ||
-       $Groff{'grn'} || $Groff{'grap'} || $Groff{'refer'} ) {
+       $Groff{'grn'} || $Groff{'grap'} || $Groff{'refer'} ||
+       $Groff{'chem'} ) {
     my $s = "-";
     $s .= "s" if $Groff{'soelim'};
     $s .= "R" if $Groff{'refer'};
-    # grap must be run before pic
     $s .= "G" if $Groff{'grap'};
+    $s .= "j" if $Groff{'chem'};
     $s .= "p" if $Groff{'pic'};
     $s .= "g" if $Groff{'grn'};
     $s .= "t" if $Groff{'tbl'};
@@ -331,13 +347,8 @@ sub version {
     push(@Command, $s);
   }
 
-  if ($Groff{'chem'}) {
-    my @chem = ('chem', @ARGV, '|', 'groff');
-    unshift(@Command, @chem);
-  } else {
-    unshift @Command, 'groff';
-    push(@Command, @ARGV);
-  }
+  unshift @Command, 'groff';
+  push(@Command, @ARGV);
 
   foreach (@Command) {
     next unless /\s/;

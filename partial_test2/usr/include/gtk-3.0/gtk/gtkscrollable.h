@@ -15,13 +15,14 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GTK_SCROLLABLE_H__
+#define __GTK_SCROLLABLE_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
 
-#ifndef __GTK_SCROLLABLE_H__
-#define __GTK_SCROLLABLE_H__
-
+#include <gdk/gdk.h>
 #include <gtk/gtkenums.h>
 #include <gtk/gtktypes.h>
 
@@ -41,17 +42,26 @@ struct _GtkScrollableInterface
 };
 
 /* Public API */
+GDK_AVAILABLE_IN_ALL
 GType                gtk_scrollable_get_type               (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkAdjustment       *gtk_scrollable_get_hadjustment        (GtkScrollable       *scrollable);
+GDK_AVAILABLE_IN_ALL
 void                 gtk_scrollable_set_hadjustment        (GtkScrollable       *scrollable,
 							    GtkAdjustment       *hadjustment);
+GDK_AVAILABLE_IN_ALL
 GtkAdjustment       *gtk_scrollable_get_vadjustment        (GtkScrollable       *scrollable);
+GDK_AVAILABLE_IN_ALL
 void                 gtk_scrollable_set_vadjustment        (GtkScrollable       *scrollable,
 							    GtkAdjustment       *vadjustment);
+GDK_AVAILABLE_IN_ALL
 GtkScrollablePolicy  gtk_scrollable_get_hscroll_policy     (GtkScrollable       *scrollable);
+GDK_AVAILABLE_IN_ALL
 void                 gtk_scrollable_set_hscroll_policy     (GtkScrollable       *scrollable,
 							    GtkScrollablePolicy  policy);
+GDK_AVAILABLE_IN_ALL
 GtkScrollablePolicy  gtk_scrollable_get_vscroll_policy     (GtkScrollable       *scrollable);
+GDK_AVAILABLE_IN_ALL
 void                 gtk_scrollable_set_vscroll_policy     (GtkScrollable       *scrollable,
 							    GtkScrollablePolicy  policy);
 

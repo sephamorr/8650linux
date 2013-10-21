@@ -25,8 +25,10 @@
 #define WebKitWebContext_h
 
 #include <glib-object.h>
+#include <webkit2/WebKitCookieManager.h>
 #include <webkit2/WebKitDefines.h>
 #include <webkit2/WebKitDownload.h>
+#include <webkit2/WebKitURISchemeRequest.h>
 
 G_BEGIN_DECLS
 
@@ -49,13 +51,24 @@ G_BEGIN_DECLS
  * @WEBKIT_CACHE_MODEL_WEB_BROWSER: Improve document load speed substantially
  *   by caching a very large number of resources and previously viewed content.
  *
- * Enum values used for determining the webview cache model.
+ * Enum values used for determining the #WebKitWebContext cache model.
  */
 typedef enum {
     WEBKIT_CACHE_MODEL_DOCUMENT_VIEWER,
     WEBKIT_CACHE_MODEL_WEB_BROWSER,
     WEBKIT_CACHE_MODEL_DOCUMENT_BROWSER
 } WebKitCacheModel;
+
+/**
+ * WebKitURISchemeRequestCallback:
+ * @request: the #WebKitURISchemeRequest
+ * @user_data: user data passed to the callback
+ *
+ * Type definition for a function that will be called back when an URI request is
+ * made for a user registered URI scheme.
+ */
+typedef void (* WebKitURISchemeRequestCallback) (WebKitURISchemeRequest *request,
+                                                 gpointer                user_data);
 
 typedef struct _WebKitWebContext        WebKitWebContext;
 typedef struct _WebKitWebContextClass   WebKitWebContextClass;
@@ -79,20 +92,64 @@ struct _WebKitWebContextClass {
 };
 
 WEBKIT_API GType
-webkit_web_context_get_type        (void);
+webkit_web_context_get_type                         (void);
 
 WEBKIT_API WebKitWebContext *
-webkit_web_context_get_default     (void);
+webkit_web_context_get_default                      (void);
 
 WEBKIT_API void
-webkit_web_context_set_cache_model (WebKitWebContext *context,
-                                    WebKitCacheModel  cache_model);
+webkit_web_context_set_cache_model                  (WebKitWebContext              *context,
+                                                     WebKitCacheModel               cache_model);
 WEBKIT_API WebKitCacheModel
-webkit_web_context_get_cache_model (WebKitWebContext *context);
+webkit_web_context_get_cache_model                  (WebKitWebContext              *context);
+
+WEBKIT_API void
+webkit_web_context_clear_cache                      (WebKitWebContext              *context);
 
 WEBKIT_API WebKitDownload *
-webkit_web_context_download_uri    (WebKitWebContext *context,
-                                    const gchar      *uri);
+webkit_web_context_download_uri                     (WebKitWebContext              *context,
+                                                     const gchar                   *uri);
+
+WEBKIT_API WebKitCookieManager *
+webkit_web_context_get_cookie_manager               (WebKitWebContext              *context);
+
+WEBKIT_API void
+webkit_web_context_set_additional_plugins_directory (WebKitWebContext              *context,
+                                                     const gchar                   *directory);
+
+WEBKIT_API void
+webkit_web_context_get_plugins                      (WebKitWebContext              *context,
+                                                     GCancellable                  *cancellable,
+                                                     GAsyncReadyCallback            callback,
+                                                     gpointer                       user_data);
+
+WEBKIT_API GList *
+webkit_web_context_get_plugins_finish               (WebKitWebContext              *context,
+                                                     GAsyncResult                  *result,
+                                                     GError                       **error);
+WEBKIT_API void
+webkit_web_context_register_uri_scheme              (WebKitWebContext              *context,
+                                                     const gchar                   *scheme,
+                                                     WebKitURISchemeRequestCallback callback,
+                                                     gpointer                       user_data,
+                                                     GDestroyNotify                 user_data_destroy_func);
+
+WEBKIT_API gboolean
+webkit_web_context_get_spell_checking_enabled       (WebKitWebContext              *context);
+
+WEBKIT_API void
+webkit_web_context_set_spell_checking_enabled       (WebKitWebContext              *context,
+                                                     gboolean                       enabled);
+WEBKIT_API const gchar * const *
+webkit_web_context_get_spell_checking_languages     (WebKitWebContext              *context);
+
+WEBKIT_API void
+webkit_web_context_set_spell_checking_languages     (WebKitWebContext              *context,
+                                                     const gchar * const           *languages);
+
+WEBKIT_API void
+webkit_web_context_set_preferred_languages          (WebKitWebContext              *context,
+                                                     const gchar * const           *languages);
 
 G_END_DECLS
 

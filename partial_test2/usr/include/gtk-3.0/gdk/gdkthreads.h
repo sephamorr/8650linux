@@ -22,45 +22,63 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
+#ifndef __GDK_THREADS_H__
+#define __GDK_THREADS_H__
+
 #if !defined (__GDK_H_INSIDE__) && !defined (GDK_COMPILATION)
 #error "Only <gdk/gdk.h> can be included directly."
 #endif
 
-#ifndef __GDK_THREADS_H__
-#define __GDK_THREADS_H__
-
 #include <gdk/gdktypes.h>
+#include <gdk/gdkversionmacros.h>
 
 G_BEGIN_DECLS
 
+#if defined(GDK_COMPILATION) || defined(GTK_COMPILATION)
+#define GDK_THREADS_DEPRECATED _GDK_EXTERN
+#else
+#define GDK_THREADS_DEPRECATED GDK_DEPRECATED_IN_3_6
+#endif
+
+GDK_THREADS_DEPRECATED
 void     gdk_threads_init                     (void);
+GDK_THREADS_DEPRECATED
 void     gdk_threads_enter                    (void);
+GDK_THREADS_DEPRECATED
 void     gdk_threads_leave                    (void);
+GDK_THREADS_DEPRECATED
 void     gdk_threads_set_lock_functions       (GCallback enter_fn,
                                                GCallback leave_fn);
 
+GDK_AVAILABLE_IN_ALL
 guint    gdk_threads_add_idle_full            (gint           priority,
                                                GSourceFunc    function,
                                                gpointer       data,
                                                GDestroyNotify notify);
+GDK_AVAILABLE_IN_ALL
 guint    gdk_threads_add_idle                 (GSourceFunc    function,
                                                gpointer       data);
+GDK_AVAILABLE_IN_ALL
 guint    gdk_threads_add_timeout_full         (gint           priority,
                                                guint          interval,
                                                GSourceFunc    function,
                                                gpointer       data,
                                                GDestroyNotify notify);
+GDK_AVAILABLE_IN_ALL
 guint    gdk_threads_add_timeout              (guint          interval,
                                                GSourceFunc    function,
                                                gpointer       data);
+GDK_AVAILABLE_IN_ALL
 guint    gdk_threads_add_timeout_seconds_full (gint           priority,
                                                guint          interval,
                                                GSourceFunc    function,
                                                gpointer       data,
                                                GDestroyNotify notify);
+GDK_AVAILABLE_IN_ALL
 guint    gdk_threads_add_timeout_seconds      (guint          interval,
                                                GSourceFunc    function,
                                                gpointer       data);
+
 
 /**
  * GDK_THREADS_ENTER:
@@ -71,6 +89,9 @@ guint    gdk_threads_add_timeout_seconds      (guint          interval,
  * section. The macro expands to a no-op if #G_THREADS_ENABLED has not
  * been defined. Typically gdk_threads_enter() should be used instead of
  * this macro.
+ *
+ * Deprecated:3.6: Use g_main_context_invoke(), g_idle_add() and related
+ *     functions if you need to schedule GTK+ calls from other threads.
  */
 #define GDK_THREADS_ENTER() gdk_threads_enter()
 
@@ -79,8 +100,12 @@ guint    gdk_threads_add_timeout_seconds      (guint          interval,
  *
  * This macro marks the end of a critical section
  * begun with #GDK_THREADS_ENTER.
+ *
+ * Deprecated:3.6: Deprecated in 3.6.
  */
 #define GDK_THREADS_LEAVE() gdk_threads_leave()
+
+#undef GDK_THREADS_DEPRECATED
 
 G_END_DECLS
 

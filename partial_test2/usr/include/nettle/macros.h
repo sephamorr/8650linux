@@ -4,7 +4,7 @@
 
 /* nettle, low-level cryptographics library
  *
- * Copyright (C) 2001, 2010 Niels Möller
+ * Copyright (C) 2001, 2010 Niels MÃ¶ller
  *  
  * The nettle library is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -18,8 +18,8 @@
  * 
  * You should have received a copy of the GNU Lesser General Public License
  * along with the nettle library; see the file COPYING.LIB.  If not, write to
- * the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
- * MA 02111-1307, USA.
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02111-1301, USA.
  */
 
 #ifndef NETTLE_MACROS_H_INCLUDED
@@ -87,6 +87,28 @@ do {						\
 } while(0)
 
 /* And the other, little-endian, byteorder */
+#define LE_READ_UINT64(p)			\
+(  (((uint64_t) (p)[7]) << 56)			\
+ | (((uint64_t) (p)[6]) << 48)			\
+ | (((uint64_t) (p)[5]) << 40)			\
+ | (((uint64_t) (p)[4]) << 32)			\
+ | (((uint64_t) (p)[3]) << 24)			\
+ | (((uint64_t) (p)[2]) << 16)			\
+ | (((uint64_t) (p)[1]) << 8)			\
+ |  ((uint64_t) (p)[0]))
+
+#define LE_WRITE_UINT64(p, i)			\
+do {						\
+  (p)[7] = ((i) >> 56) & 0xff;			\
+  (p)[6] = ((i) >> 48) & 0xff;			\
+  (p)[5] = ((i) >> 40) & 0xff;			\
+  (p)[4] = ((i) >> 32) & 0xff;			\
+  (p)[3] = ((i) >> 24) & 0xff;			\
+  (p)[2] = ((i) >> 16) & 0xff;			\
+  (p)[1] = ((i) >> 8) & 0xff;			\
+  (p)[0] = (i) & 0xff;				\
+} while (0)
+    
 #define LE_READ_UINT32(p)			\
 (  (((uint32_t) (p)[3]) << 24)			\
  | (((uint32_t) (p)[2]) << 16)			\
@@ -119,20 +141,22 @@ do {						\
 		  (dst) += (blocksize),		\
 		  (src) += (blocksize)) )
 
-/* Requires that size >= 2 */
+#define ROTL32(n,x) (((x)<<(n)) | ((x)>>(32-(n))))
+
+#define ROTL64(n,x) (((x)<<(n)) | ((x)>>(64-(n))))
+
+/* Requires that size > 0 */
 #define INCREMENT(size, ctr)			\
   do {						\
     unsigned increment_i = (size) - 1;		\
     if (++(ctr)[increment_i] == 0)		\
-      {						\
-	while (++(ctr)[--increment_i] == 0	\
-	       && increment_i > 0)		\
-	  ;					\
-      }						\
+      while (increment_i > 0			\
+	     && ++(ctr)[--increment_i] == 0 )	\
+	;					\
   } while (0)
 
 
-/* Helper macro for Merkle-Damgård hash functions. Assumes the context
+/* Helper macro for Merkle-DamgÃ¥rd hash functions. Assumes the context
    structs includes the following fields:
 
      xxx count_low, count_high;		// Two word block count

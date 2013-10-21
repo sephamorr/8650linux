@@ -2,12 +2,12 @@ prefix=/usr
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
-targets=x11
+targets=x11 broadway wayland
 
 Name: GDK
 Description: GTK+ Drawing Kit
-Version: 3.4.3
+Version: 3.10.2
 Requires: pango pangocairo gdk-pixbuf-2.0 cairo cairo-gobject
-Requires.private: gio-unix-2.0 fontconfig x11 xext xinerama xi xrandr xcursor xfixes xcomposite xdamage   cairo-xlib pangoft2
+Requires.private: gio-unix-2.0 fontconfig x11 xext xinerama xi xrandr xcursor xfixes xcomposite xdamage wayland-client >= 1.2.0 xkbcommon >= 0.2.0 wayland-cursor  cairo-xlib cairo cairo pangoft2
 Libs: -L${libdir} -lgdk-3 
 Cflags: -I${includedir}/gtk-3.0 

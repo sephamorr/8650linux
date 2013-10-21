@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GstBin</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GStreamer 0.10 Core Reference Manual">
 <link rel="up" href="libgstreamer.html" title="GStreamer Core Library">
 <link rel="prev" href="gstreamer-GstAtomicQueue.html" title="GstAtomicQueue">
@@ -158,13 +158,16 @@ element is removed from the bin.
 <p>
 </p>
 <div class="refsect2">
-<a name="idp5837112"></a><h3>Notes</h3>
+<a name="idp4667920"></a><h3>Notes</h3>
 <p>
 A <a class="link" href="GstBin.html" title="GstBin"><span class="type">GstBin</span></a> internally intercepts every <a class="link" href="gstreamer-GstMessage.html#GstMessage" title="struct GstMessage"><span class="type">GstMessage</span></a> posted by its children and
 implements the following default behaviour for each of them:
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">GST_MESSAGE_EOS</span></p></td>
@@ -230,8 +233,11 @@ implements the following default behaviour for each of them:
 A <a class="link" href="GstBin.html" title="GstBin"><span class="type">GstBin</span></a> implements the following default behaviour for answering to a
 <a class="link" href="gstreamer-GstQuery.html#GstQuery" title="struct GstQuery"><span class="type">GstQuery</span></a>:
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term">GST_QUERY_DURATION</span></p></td>
@@ -300,8 +306,11 @@ Last reviewed on 2006-04-28 (0.10.6)
 The GstBin base class. Subclasses can access these fields provided
 the LOCK is taken.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><span class="type">gint</span> <em class="structfield"><code><a name="GstBin-struct.numchildren"></a>numchildren</code></em>;</span></p></td>
@@ -369,8 +378,11 @@ The <em class="parameter"><code>handle_message</code></em> method can be overrid
 message handling.  <em class="parameter"><code>handle_message</code></em> takes ownership of the message, just like
 <a class="link" href="GstElement.html#gst-element-post-message" title="gst_element_post_message ()"><span class="type">gst_element_post_message</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="GstElement.html#GstElementClass" title="struct GstElementClass"><span class="type">GstElementClass</span></a> <em class="structfield"><code><a name="GstBinClass.parent-class"></a>parent_class</code></em>;</span></p></td>
@@ -398,8 +410,11 @@ message handling.  <em class="parameter"><code>handle_message</code></em> takes 
 <p>
 Creates a new bin with the given name.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -441,8 +456,11 @@ The bin or pipeline will not take care of this for you.
 <p>
 MT safe.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
@@ -482,8 +500,11 @@ before the element is removed from the bin.
 <p>
 MT safe.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
@@ -518,8 +539,11 @@ Returns NULL if no element with the given name is found in the bin.
 <p>
 MT safe.  Caller owns returned reference.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
@@ -550,14 +574,17 @@ element is not found, a recursion is performed on the parent bin.
 <p>
 Returns NULL if:
 </p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>no element with the given name is found in the bin</p></li></ul></div>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>no element with the given name is found in the bin</p></li></ul></div>
 <p>
 </p>
 <p>
 MT safe.  Caller owns returned reference.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
@@ -591,8 +618,11 @@ all elements that implement the interface, use
 <p>
 MT safe.  Caller owns returned reference.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
@@ -625,8 +655,11 @@ unref after use.
 <p>
 MT safe.  Caller owns returned value.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
@@ -656,8 +689,11 @@ unref after use.
 <p>
 MT safe.  Caller owns returned value.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
@@ -687,8 +723,11 @@ unref after use.
 <p>
 MT safe.  Caller owns returned value.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
@@ -723,8 +762,11 @@ unref after use.
 <p>
 MT safe.  Caller owns returned value.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
@@ -754,8 +796,11 @@ unref after use.
 <p>
 MT safe.  Caller owns returned value.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
@@ -788,8 +833,11 @@ unref after use.
 <p>
 MT safe.  Caller owns returned value.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
@@ -825,8 +873,11 @@ is posted on the bus.
 This function simply emits the 'do-latency' signal so any custom latency
 calculations will be performed.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
@@ -853,8 +904,11 @@ Adds a NULL-terminated list of elements to a bin.  This function is
 equivalent to calling <a class="link" href="GstBin.html#gst-bin-add" title="gst_bin_add ()"><code class="function">gst_bin_add()</code></a> for each member of the list. The return
 value of each <a class="link" href="GstBin.html#gst-bin-add" title="gst_bin_add ()"><code class="function">gst_bin_add()</code></a> is ignored.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
@@ -884,8 +938,11 @@ value of each <a class="link" href="GstBin.html#gst-bin-add" title="gst_bin_add 
 Remove a list of elements from a bin. This function is equivalent
 to calling <a class="link" href="GstBin.html#gst-bin-remove" title="gst_bin_remove ()"><code class="function">gst_bin_remove()</code></a> with each member of the list.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
@@ -917,8 +974,11 @@ if one is found, or NULL otherwise. If a pad is found, the caller
 owns a reference to it and should use <a class="link" href="GstObject.html#gst-object-unref" title="gst_object_unref ()"><code class="function">gst_object_unref()</code></a> on the
 pad when it is not needed any longer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
@@ -953,8 +1013,11 @@ if one is found, or NULL otherwise. If a pad is found, the caller
 owns a reference to it and should use <a class="link" href="GstObject.html#gst-object-unref" title="gst_object_unref ()"><code class="function">gst_object_unref()</code></a> on the
 pad when it is not needed any longer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
@@ -986,8 +1049,11 @@ GstBinFlags are a set of flags specific to bins. Most are set/used
 internally. They can be checked using the <a class="link" href="GstObject.html#GST-OBJECT-FLAG-IS-SET:CAPS" title="GST_OBJECT_FLAG_IS_SET()"><code class="function">GST_OBJECT_FLAG_IS_SET()</code></a> macro,
 and (un)set using <a class="link" href="GstObject.html#GST-OBJECT-FLAG-SET:CAPS" title="GST_OBJECT_FLAG_SET()"><code class="function">GST_OBJECT_FLAG_SET()</code></a> and <a class="link" href="GstObject.html#GST-OBJECT-FLAG-UNSET:CAPS" title="GST_OBJECT_FLAG_UNSET()"><code class="function">GST_OBJECT_FLAG_UNSET()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><a name="GST-BIN-FLAG-LAST:CAPS"></a><span class="term"><code class="literal">GST_BIN_FLAG_LAST</code></span></p></td>
 <td>the last enum in the series of flags for bins.
@@ -1004,8 +1070,11 @@ Derived classes can use this as first value in a list of flags.
 <p>
 Gets the list with children in a bin.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
 <td>a <a class="link" href="GstBin.html" title="GstBin"><span class="type">GstBin</span></a>
@@ -1021,8 +1090,11 @@ Gets the list with children in a bin.
 <p>
 Gets the children cookie that watches the children list.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
 <td>a <a class="link" href="GstBin.html" title="GstBin"><span class="type">GstBin</span></a>
@@ -1038,8 +1110,11 @@ Gets the children cookie that watches the children list.
 <p>
 Gets the number of children in a bin.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
 <td>a <a class="link" href="GstBin.html" title="GstBin"><span class="type">GstBin</span></a>
@@ -1101,8 +1176,11 @@ Connect to this signal if the default latency calculations are not
 sufficient, like when you need different latencies for different sinks in
 the same pipeline.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
@@ -1126,8 +1204,11 @@ the same pipeline.
 <p>
 Will be emitted after the element was added to the bin.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
@@ -1154,8 +1235,11 @@ Will be emitted after the element was added to the bin.
 <p>
 Will be emitted after the element was removed from the bin.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>

@@ -21,11 +21,10 @@
 #ifndef WebKitDOMNavigator_h
 #define WebKitDOMNavigator_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_NAVIGATOR            (webkit_dom_navigator_get_type())
@@ -65,6 +64,56 @@ webkit_dom_navigator_java_enabled(WebKitDOMNavigator* self);
 **/
 WEBKIT_API void
 webkit_dom_navigator_get_storage_updates(WebKitDOMNavigator* self);
+
+/**
+ * webkit_dom_navigator_register_protocol_handler:
+ * @self: A #WebKitDOMNavigator
+ * @scheme: A #gchar
+ * @url: A #gchar
+ * @title: A #gchar
+ * @error: #GError
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_navigator_register_protocol_handler(WebKitDOMNavigator* self, const gchar* scheme, const gchar* url, const gchar* title, GError** error);
+
+/**
+ * webkit_dom_navigator_is_protocol_handler_registered:
+ * @self: A #WebKitDOMNavigator
+ * @scheme: A #gchar
+ * @url: A #gchar
+ * @error: #GError
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_navigator_is_protocol_handler_registered(WebKitDOMNavigator* self, const gchar* scheme, const gchar* url, GError** error);
+
+/**
+ * webkit_dom_navigator_unregister_protocol_handler:
+ * @self: A #WebKitDOMNavigator
+ * @scheme: A #gchar
+ * @url: A #gchar
+ * @error: #GError
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_navigator_unregister_protocol_handler(WebKitDOMNavigator* self, const gchar* scheme, const gchar* url, GError** error);
+
+/**
+ * webkit_dom_navigator_webkit_get_gamepads:
+ * @self: A #WebKitDOMNavigator
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMGamepadList*
+webkit_dom_navigator_webkit_get_gamepads(WebKitDOMNavigator* self);
 
 /**
  * webkit_dom_navigator_get_app_code_name:

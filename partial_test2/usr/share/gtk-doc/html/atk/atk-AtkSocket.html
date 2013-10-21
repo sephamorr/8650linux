@@ -3,35 +3,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AtkSocket</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="ATK - Accessibility Toolkit">
 <link rel="up" href="atk.html" title="ATK Library">
 <link rel="prev" href="AtkSelection.html" title="AtkSelection">
 <link rel="next" href="atk-AtkState.html" title="AtkState">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="AtkSelection.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="atk.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">ATK - Accessibility Toolkit</th>
-<td><a accesskey="n" href="atk-AtkState.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#atk-AtkSocket.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#atk-AtkSocket.description" class="shortcut">Description</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="atk.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="AtkSelection.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="atk-AtkState.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="atk-AtkSocket"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="atk-AtkSocket.top_of_page"></a>AtkSocket</span></h2>
-<p>AtkSocket</p>
+<p>AtkSocket — Container for AtkPlug objects from other processes</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -47,6 +44,30 @@
 <div class="refsect1">
 <a name="atk-AtkSocket.description"></a><h2>Description</h2>
 <p>
+Together with <a class="link" href="atk-AtkPlug.html#AtkPlug" title="struct AtkPlug"><span class="type">AtkPlug</span></a>, <a class="link" href="atk-AtkSocket.html#AtkSocket" title="struct AtkSocket"><span class="type">AtkSocket</span></a> provides the ability to embed
+accessibles from one process into another in a fashion that is
+transparent to assistive technologies. <a class="link" href="atk-AtkSocket.html#AtkSocket" title="struct AtkSocket"><span class="type">AtkSocket</span></a> works as the
+container of <a class="link" href="atk-AtkPlug.html#AtkPlug" title="struct AtkPlug"><span class="type">AtkPlug</span></a>, embedding it using the method
+<a class="link" href="atk-AtkSocket.html#atk-socket-embed" title="atk_socket_embed ()"><code class="function">atk_socket_embed()</code></a>. Any accessible contained in the <a class="link" href="atk-AtkPlug.html#AtkPlug" title="struct AtkPlug"><span class="type">AtkPlug</span></a> will
+appear to the assistive technologies as being inside the
+application that created the <a class="link" href="atk-AtkSocket.html#AtkSocket" title="struct AtkSocket"><span class="type">AtkSocket</span></a>.
+</p>
+<p>
+The communication between a <a class="link" href="atk-AtkSocket.html#AtkSocket" title="struct AtkSocket"><span class="type">AtkSocket</span></a> and a <a class="link" href="atk-AtkPlug.html#AtkPlug" title="struct AtkPlug"><span class="type">AtkPlug</span></a> is done by
+the IPC layer of the accessibility framework, normally implemented
+by the D-Bus based implementation of AT-SPI (at-spi2). If that is
+the case, at-spi-atk2 is the responsible to implement the abstract
+methods <a class="link" href="atk-AtkPlug.html#atk-plug-get-id" title="atk_plug_get_id ()"><code class="function">atk_plug_get_id()</code></a> and <a class="link" href="atk-AtkSocket.html#atk-socket-embed" title="atk_socket_embed ()"><code class="function">atk_socket_embed()</code></a>, so an ATK
+implementor shouldn't reimplement them. The process that contains
+the <a class="link" href="atk-AtkPlug.html#AtkPlug" title="struct AtkPlug"><span class="type">AtkPlug</span></a> is responsible to send the ID returned by
+<code class="function">atk_plug_id()</code> to the process that contains the <a class="link" href="atk-AtkSocket.html#AtkSocket" title="struct AtkSocket"><span class="type">AtkSocket</span></a>, so it
+could call the method <a class="link" href="atk-AtkSocket.html#atk-socket-embed" title="atk_socket_embed ()"><code class="function">atk_socket_embed()</code></a> in order to embed it.
+</p>
+<p>
+For the same reasons, an implementor doesn't need to implement
+<a class="link" href="AtkObject.html#atk-object-get-n-accessible-children" title="atk_object_get_n_accessible_children ()"><code class="function">atk_object_get_n_accessible_children()</code></a> and
+<a class="link" href="AtkObject.html#atk-object-ref-accessible-child" title="atk_object_ref_accessible_child ()"><code class="function">atk_object_ref_accessible_child()</code></a>. All the logic related to those
+functions will be implemented by the IPC layer.
 </p>
 </div>
 <div class="refsect1">
@@ -73,13 +94,17 @@
 <pre class="programlisting"><span class="returnvalue">void</span>                atk_socket_embed                    (<em class="parameter"><code><a class="link" href="atk-AtkSocket.html#AtkSocket" title="struct AtkSocket"><span class="type">AtkSocket</span></a> *obj</code></em>,
                                                          <em class="parameter"><code><span class="type">gchar</span> *plug_id</code></em>);</pre>
 <p>
-Embeds the children of an <a class="link" href="atk-AtkPlug.html#AtkPlug" title="struct AtkPlug"><span class="type">AtkPlug</span></a> as the children of the <a class="link" href="atk-AtkSocket.html#AtkSocket" title="struct AtkSocket"><span class="type">AtkSocket</span></a>.  The
-plug may be in the same process or in a different process.
-THe class item used by this function should be filled in by the IPC layer
-(ie, at-spi2-atk).  The implementor of the AtkSocket should call this
-function and pass the id for the plug as returned by atk_plug_get_id.
-It is the responsibility of the application to pass the plug id on to
-the process implementing the AtkSocket as needed.
+Embeds the children of an <a class="link" href="atk-AtkPlug.html#AtkPlug" title="struct AtkPlug"><span class="type">AtkPlug</span></a> as the children of the
+<a class="link" href="atk-AtkSocket.html#AtkSocket" title="struct AtkSocket"><span class="type">AtkSocket</span></a>. The plug may be in the same process or in a different
+process.
+</p>
+<p>
+The class item used by this function should be filled in by the IPC
+layer (usually at-spi2-atk). The implementor of the AtkSocket
+should call this function and pass the id for the plug as returned
+by <a class="link" href="atk-AtkPlug.html#atk-plug-get-id" title="atk_plug_get_id ()"><code class="function">atk_plug_get_id()</code></a>.  It is the responsibility of the application
+to pass the plug id on to the process implementing the <a class="link" href="atk-AtkSocket.html#AtkSocket" title="struct AtkSocket"><span class="type">AtkSocket</span></a>
+as needed.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -122,9 +147,13 @@ Determines whether or not the socket has an embedded plug.
 <p class="since">Since 1.30</p>
 </div>
 </div>
+<div class="refsect1">
+<a name="atk-AtkSocket.see-also"></a><h2>See Also</h2>
+<a class="link" href="atk-AtkPlug.html#AtkPlug" title="struct AtkPlug"><span class="type">AtkPlug</span></a>
+</div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

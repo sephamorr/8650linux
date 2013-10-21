@@ -9,7 +9,7 @@
       <sub name="AtkEditableText" link="AtkEditableText.html"/>
       <sub name="AtkGObjectAccessible" link="AtkGObjectAccessible.html"/>
       <sub name="AtkHyperlink" link="AtkHyperlink.html"/>
-      <sub name="AtkHyperlinkImpl" link="atk-AtkHyperlinkImpl.html"/>
+      <sub name="AtkHyperlinImpl" link="atk-AtkHyperlinkImpl.html"/>
       <sub name="AtkHypertext" link="AtkHypertext.html"/>
       <sub name="AtkImage" link="AtkImage.html"/>
       <sub name="AtkNoOpObject" link="AtkNoOpObject.html"/>
@@ -29,6 +29,10 @@
       <sub name="AtkText" link="AtkText.html"/>
       <sub name="AtkUtil" link="AtkUtil.html"/>
       <sub name="AtkValue" link="AtkValue.html"/>
+      <sub name="AtkWindow" link="AtkWindow.html"/>
+    </sub>
+    <sub name="Utilities" link="utilities.html">
+      <sub name="Versioning macros" link="atk-Versioning-Utilities.html"/>
     </sub>
     <sub name="Index of all symbols" link="api-index-full.html"/>
     <sub name="Index of deprecated symbols" link="api-index-deprecated.html"/>
@@ -48,6 +52,7 @@
   </chapters>
   <functions>
     <keyword type="struct" name="AtkAction" link="AtkAction.html#AtkAction-struct"/>
+    <keyword type="struct" name="struct AtkActionIface" link="AtkAction.html#AtkActionIface"/>
     <keyword type="function" name="atk_action_do_action ()" link="AtkAction.html#atk-action-do-action"/>
     <keyword type="function" name="atk_action_get_n_actions ()" link="AtkAction.html#atk-action-get-n-actions"/>
     <keyword type="function" name="atk_action_get_description ()" link="AtkAction.html#atk-action-get-description"/>
@@ -56,7 +61,10 @@
     <keyword type="function" name="atk_action_get_keybinding ()" link="AtkAction.html#atk-action-get-keybinding"/>
     <keyword type="function" name="atk_action_set_description ()" link="AtkAction.html#atk-action-set-description"/>
     <keyword type="struct" name="AtkComponent" link="AtkComponent.html#AtkComponent-struct"/>
-    <keyword type="function" name="atk_component_add_focus_handler ()" link="AtkComponent.html#atk-component-add-focus-handler"/>
+    <keyword type="struct" name="struct AtkComponentIface" link="AtkComponent.html#AtkComponentIface"/>
+    <keyword type="function" name="AtkFocusHandler ()" link="AtkComponent.html#AtkFocusHandler" deprecated=""/>
+    <keyword type="struct" name="struct AtkRectangle" link="AtkComponent.html#AtkRectangle"/>
+    <keyword type="function" name="atk_component_add_focus_handler ()" link="AtkComponent.html#atk-component-add-focus-handler" deprecated=""/>
     <keyword type="function" name="atk_component_contains ()" link="AtkComponent.html#atk-component-contains"/>
     <keyword type="function" name="atk_component_get_extents ()" link="AtkComponent.html#atk-component-get-extents"/>
     <keyword type="function" name="atk_component_get_layer ()" link="AtkComponent.html#atk-component-get-layer"/>
@@ -65,19 +73,20 @@
     <keyword type="function" name="atk_component_get_size ()" link="AtkComponent.html#atk-component-get-size"/>
     <keyword type="function" name="atk_component_grab_focus ()" link="AtkComponent.html#atk-component-grab-focus"/>
     <keyword type="function" name="atk_component_ref_accessible_at_point ()" link="AtkComponent.html#atk-component-ref-accessible-at-point"/>
-    <keyword type="function" name="atk_component_remove_focus_handler ()" link="AtkComponent.html#atk-component-remove-focus-handler"/>
+    <keyword type="function" name="atk_component_remove_focus_handler ()" link="AtkComponent.html#atk-component-remove-focus-handler" deprecated=""/>
     <keyword type="function" name="atk_component_set_extents ()" link="AtkComponent.html#atk-component-set-extents"/>
     <keyword type="function" name="atk_component_set_position ()" link="AtkComponent.html#atk-component-set-position"/>
     <keyword type="function" name="atk_component_set_size ()" link="AtkComponent.html#atk-component-set-size"/>
     <keyword type="function" name="atk_component_get_alpha ()" link="AtkComponent.html#atk-component-get-alpha" since="1.12"/>
     <keyword type="signal" name="The &quot;bounds-changed&quot; signal" link="AtkComponent.html#AtkComponent-bounds-changed"/>
     <keyword type="struct" name="AtkDocument" link="AtkDocument.html#AtkDocument-struct"/>
+    <keyword type="struct" name="struct AtkDocumentIface" link="AtkDocument.html#AtkDocumentIface"/>
     <keyword type="function" name="atk_document_get_document_type ()" link="AtkDocument.html#atk-document-get-document-type"/>
     <keyword type="function" name="atk_document_get_document ()" link="AtkDocument.html#atk-document-get-document"/>
     <keyword type="function" name="atk_document_get_attribute_value ()" link="AtkDocument.html#atk-document-get-attribute-value" since="1.12"/>
     <keyword type="function" name="atk_document_set_attribute_value ()" link="AtkDocument.html#atk-document-set-attribute-value" since="1.12"/>
     <keyword type="function" name="atk_document_get_attributes ()" link="AtkDocument.html#atk-document-get-attributes" since="1.12"/>
-    <keyword type="function" name="atk_document_get_locale ()" link="AtkDocument.html#atk-document-get-locale"/>
+    <keyword type="function" name="atk_document_get_locale ()" link="AtkDocument.html#atk-document-get-locale" deprecated=""/>
     <keyword type="signal" name="The &quot;load-complete&quot; signal" link="AtkDocument.html#AtkDocument-load-complete"/>
     <keyword type="signal" name="The &quot;load-stopped&quot; signal" link="AtkDocument.html#AtkDocument-load-stopped"/>
     <keyword type="signal" name="The &quot;reload&quot; signal" link="AtkDocument.html#AtkDocument-reload"/>
@@ -101,7 +110,7 @@
     <keyword type="function" name="atk_hyperlink_is_valid ()" link="AtkHyperlink.html#atk-hyperlink-is-valid"/>
     <keyword type="function" name="atk_hyperlink_is_inline ()" link="AtkHyperlink.html#atk-hyperlink-is-inline"/>
     <keyword type="function" name="atk_hyperlink_get_n_anchors ()" link="AtkHyperlink.html#atk-hyperlink-get-n-anchors"/>
-    <keyword type="function" name="atk_hyperlink_is_selected_link ()" link="AtkHyperlink.html#atk-hyperlink-is-selected-link" deprecated="Please use ATK_STATE_SELECTED to indicate when a hyperlink within a Hypertext container is selected." since="1.4"/>
+    <keyword type="function" name="atk_hyperlink_is_selected_link ()" link="AtkHyperlink.html#atk-hyperlink-is-selected-link" deprecated="" since="1.4"/>
     <keyword type="property" name="The &quot;end-index&quot; property" link="AtkHyperlink.html#AtkHyperlink--end-index"/>
     <keyword type="property" name="The &quot;number-of-anchors&quot; property" link="AtkHyperlink.html#AtkHyperlink--number-of-anchors"/>
     <keyword type="property" name="The &quot;selected-link&quot; property" link="AtkHyperlink.html#AtkHyperlink--selected-link"/>
@@ -155,6 +164,7 @@
     <keyword type="function" name="atk_object_add_relationship ()" link="AtkObject.html#atk-object-add-relationship"/>
     <keyword type="function" name="atk_object_remove_relationship ()" link="AtkObject.html#atk-object-remove-relationship"/>
     <keyword type="function" name="atk_object_get_attributes ()" link="AtkObject.html#atk-object-get-attributes" since="1.12"/>
+    <keyword type="function" name="atk_object_get_object_locale ()" link="AtkObject.html#atk-object-get-object-locale" since="2.7.90"/>
     <keyword type="function" name="atk_role_get_name ()" link="AtkObject.html#atk-role-get-name"/>
     <keyword type="function" name="atk_role_get_localized_name ()" link="AtkObject.html#atk-role-get-localized-name"/>
     <keyword type="function" name="atk_role_for_name ()" link="AtkObject.html#atk-role-for-name"/>
@@ -185,7 +195,7 @@
     <keyword type="function" name="atk_object_factory_invalidate ()" link="AtkObjectFactory.html#atk-object-factory-invalidate"/>
     <keyword type="struct" name="struct AtkPlug" link="atk-AtkPlug.html#AtkPlug"/>
     <keyword type="function" name="atk_plug_new ()" link="atk-AtkPlug.html#atk-plug-new"/>
-    <keyword type="function" name="atk_plug_get_id ()" link="atk-AtkPlug.html#atk-plug-get-id"/>
+    <keyword type="function" name="atk_plug_get_id ()" link="atk-AtkPlug.html#atk-plug-get-id" since="1.30"/>
     <keyword type="struct" name="AtkRegistry" link="AtkRegistry.html#AtkRegistry-struct"/>
     <keyword type="function" name="atk_registry_set_factory_type ()" link="AtkRegistry.html#atk-registry-set-factory-type"/>
     <keyword type="function" name="atk_registry_get_factory_type ()" link="AtkRegistry.html#atk-registry-get-factory-type"/>
@@ -285,7 +295,9 @@
     <keyword type="signal" name="The &quot;row-inserted&quot; signal" link="AtkTable.html#AtkTable-row-inserted"/>
     <keyword type="signal" name="The &quot;row-reordered&quot; signal" link="AtkTable.html#AtkTable-row-reordered"/>
     <keyword type="struct" name="AtkText" link="AtkText.html#AtkText-struct"/>
+    <keyword type="struct" name="struct AtkTextIface" link="AtkText.html#AtkTextIface"/>
     <keyword type="enum" name="enum AtkTextBoundary" link="AtkText.html#AtkTextBoundary"/>
+    <keyword type="enum" name="enum AtkTextGranularity" link="AtkText.html#AtkTextGranularity"/>
     <keyword type="enum" name="enum AtkTextClipType" link="AtkText.html#AtkTextClipType"/>
     <keyword type="struct" name="struct AtkTextRange" link="AtkText.html#AtkTextRange"/>
     <keyword type="struct" name="struct AtkTextRectangle" link="AtkText.html#AtkTextRectangle"/>
@@ -294,9 +306,10 @@
     <keyword type="enum" name="enum AtkTextAttribute" link="AtkText.html#AtkTextAttribute"/>
     <keyword type="function" name="atk_text_get_text ()" link="AtkText.html#atk-text-get-text"/>
     <keyword type="function" name="atk_text_get_character_at_offset ()" link="AtkText.html#atk-text-get-character-at-offset"/>
-    <keyword type="function" name="atk_text_get_text_after_offset ()" link="AtkText.html#atk-text-get-text-after-offset"/>
-    <keyword type="function" name="atk_text_get_text_at_offset ()" link="AtkText.html#atk-text-get-text-at-offset"/>
-    <keyword type="function" name="atk_text_get_text_before_offset ()" link="AtkText.html#atk-text-get-text-before-offset"/>
+    <keyword type="function" name="atk_text_get_text_after_offset ()" link="AtkText.html#atk-text-get-text-after-offset" deprecated=""/>
+    <keyword type="function" name="atk_text_get_text_at_offset ()" link="AtkText.html#atk-text-get-text-at-offset" deprecated=""/>
+    <keyword type="function" name="atk_text_get_text_before_offset ()" link="AtkText.html#atk-text-get-text-before-offset" deprecated=""/>
+    <keyword type="function" name="atk_text_get_string_at_offset ()" link="AtkText.html#atk-text-get-string-at-offset" since="2.9.4"/>
     <keyword type="function" name="atk_text_get_caret_offset ()" link="AtkText.html#atk-text-get-caret-offset"/>
     <keyword type="function" name="atk_text_get_character_extents ()" link="AtkText.html#atk-text-get-character-extents"/>
     <keyword type="function" name="atk_text_get_run_attributes ()" link="AtkText.html#atk-text-get-run-attributes"/>
@@ -323,13 +336,12 @@
     <keyword type="signal" name="The &quot;text-insert&quot; signal" link="AtkText.html#AtkText-text-insert"/>
     <keyword type="signal" name="The &quot;text-remove&quot; signal" link="AtkText.html#AtkText-text-remove"/>
     <keyword type="signal" name="The &quot;text-selection-changed&quot; signal" link="AtkText.html#AtkText-text-selection-changed"/>
-    <keyword type="signal" name="The &quot;text-update&quot; signal" link="AtkText.html#AtkText-text-update"/>
     <keyword type="struct" name="struct AtkUtil" link="AtkUtil.html#AtkUtil-struct"/>
     <keyword type="enum" name="enum AtkCoordType" link="AtkUtil.html#AtkCoordType"/>
-    <keyword type="function" name="atk_add_focus_tracker ()" link="AtkUtil.html#atk-add-focus-tracker"/>
-    <keyword type="function" name="atk_remove_focus_tracker ()" link="AtkUtil.html#atk-remove-focus-tracker"/>
-    <keyword type="function" name="atk_focus_tracker_init ()" link="AtkUtil.html#atk-focus-tracker-init"/>
-    <keyword type="function" name="atk_focus_tracker_notify ()" link="AtkUtil.html#atk-focus-tracker-notify"/>
+    <keyword type="function" name="atk_add_focus_tracker ()" link="AtkUtil.html#atk-add-focus-tracker" deprecated=""/>
+    <keyword type="function" name="atk_remove_focus_tracker ()" link="AtkUtil.html#atk-remove-focus-tracker" deprecated=""/>
+    <keyword type="function" name="atk_focus_tracker_init ()" link="AtkUtil.html#atk-focus-tracker-init" deprecated=""/>
+    <keyword type="function" name="atk_focus_tracker_notify ()" link="AtkUtil.html#atk-focus-tracker-notify" deprecated=""/>
     <keyword type="function" name="AtkEventListener ()" link="AtkUtil.html#AtkEventListener"/>
     <keyword type="function" name="AtkEventListenerInit ()" link="AtkUtil.html#AtkEventListenerInit"/>
     <keyword type="function" name="atk_add_global_event_listener ()" link="AtkUtil.html#atk-add-global-event-listener"/>
@@ -355,6 +367,25 @@
     <keyword type="function" name="atk_value_get_minimum_value ()" link="AtkValue.html#atk-value-get-minimum-value"/>
     <keyword type="function" name="atk_value_set_current_value ()" link="AtkValue.html#atk-value-set-current-value"/>
     <keyword type="function" name="atk_value_get_minimum_increment ()" link="AtkValue.html#atk-value-get-minimum-increment" since="1.12"/>
+    <keyword type="struct" name="AtkWindow" link="AtkWindow.html#AtkWindow-struct"/>
+    <keyword type="signal" name="The &quot;activate&quot; signal" link="AtkWindow.html#AtkWindow-activate"/>
+    <keyword type="signal" name="The &quot;create&quot; signal" link="AtkWindow.html#AtkWindow-create"/>
+    <keyword type="signal" name="The &quot;deactivate&quot; signal" link="AtkWindow.html#AtkWindow-deactivate"/>
+    <keyword type="signal" name="The &quot;destroy&quot; signal" link="AtkWindow.html#AtkWindow-destroy"/>
+    <keyword type="signal" name="The &quot;maximize&quot; signal" link="AtkWindow.html#AtkWindow-maximize"/>
+    <keyword type="signal" name="The &quot;minimize&quot; signal" link="AtkWindow.html#AtkWindow-minimize"/>
+    <keyword type="signal" name="The &quot;move&quot; signal" link="AtkWindow.html#AtkWindow-move"/>
+    <keyword type="signal" name="The &quot;resize&quot; signal" link="AtkWindow.html#AtkWindow-resize"/>
+    <keyword type="signal" name="The &quot;restore&quot; signal" link="AtkWindow.html#AtkWindow-restore"/>
+    <keyword type="function" name="atk_get_major_version ()" link="atk-Versioning-Utilities.html#atk-get-major-version" since="2.7.4"/>
+    <keyword type="function" name="atk_get_minor_version ()" link="atk-Versioning-Utilities.html#atk-get-minor-version" since="2.7.4"/>
+    <keyword type="function" name="atk_get_micro_version ()" link="atk-Versioning-Utilities.html#atk-get-micro-version" since="2.7.4"/>
+    <keyword type="function" name="atk_get_binary_age ()" link="atk-Versioning-Utilities.html#atk-get-binary-age" since="2.7.4"/>
+    <keyword type="function" name="atk_get_interface_age ()" link="atk-Versioning-Utilities.html#atk-get-interface-age" since="2.7.4"/>
+    <keyword type="macro" name="ATK_MAJOR_VERSION" link="atk-Versioning-Utilities.html#ATK-MAJOR-VERSION:CAPS" since="2.7.4"/>
+    <keyword type="macro" name="ATK_MINOR_VERSION" link="atk-Versioning-Utilities.html#ATK-MINOR-VERSION:CAPS" since="2.7.4"/>
+    <keyword type="macro" name="ATK_MICRO_VERSION" link="atk-Versioning-Utilities.html#ATK-MICRO-VERSION:CAPS" since="2.7.4"/>
+    <keyword type="macro" name="ATK_CHECK_VERSION()" link="atk-Versioning-Utilities.html#ATK-CHECK-VERSION:CAPS" since="2.7.4"/>
     <keyword type="constant" name="ATK_HYPERLINK_IS_INLINE" link="AtkHyperlink.html#ATK-HYPERLINK-IS-INLINE:CAPS"/>
     <keyword type="constant" name="ATK_ROLE_INVALID" link="AtkObject.html#ATK-ROLE-INVALID:CAPS"/>
     <keyword type="constant" name="ATK_ROLE_ACCEL_LABEL" link="AtkObject.html#ATK-ROLE-ACCEL-LABEL:CAPS"/>
@@ -457,6 +488,7 @@
     <keyword type="constant" name="ATK_ROLE_IMAGE_MAP" link="AtkObject.html#ATK-ROLE-IMAGE-MAP:CAPS"/>
     <keyword type="constant" name="ATK_ROLE_NOTIFICATION" link="AtkObject.html#ATK-ROLE-NOTIFICATION:CAPS"/>
     <keyword type="constant" name="ATK_ROLE_INFO_BAR" link="AtkObject.html#ATK-ROLE-INFO-BAR:CAPS"/>
+    <keyword type="constant" name="ATK_ROLE_LEVEL_BAR" link="AtkObject.html#ATK-ROLE-LEVEL-BAR:CAPS"/>
     <keyword type="constant" name="ATK_ROLE_LAST_DEFINED" link="AtkObject.html#ATK-ROLE-LAST-DEFINED:CAPS"/>
     <keyword type="constant" name="ATK_LAYER_INVALID" link="AtkObject.html#ATK-LAYER-INVALID:CAPS"/>
     <keyword type="constant" name="ATK_LAYER_BACKGROUND" link="AtkObject.html#ATK-LAYER-BACKGROUND:CAPS"/>
@@ -531,6 +563,11 @@
     <keyword type="constant" name="ATK_TEXT_BOUNDARY_SENTENCE_END" link="AtkText.html#ATK-TEXT-BOUNDARY-SENTENCE-END:CAPS"/>
     <keyword type="constant" name="ATK_TEXT_BOUNDARY_LINE_START" link="AtkText.html#ATK-TEXT-BOUNDARY-LINE-START:CAPS"/>
     <keyword type="constant" name="ATK_TEXT_BOUNDARY_LINE_END" link="AtkText.html#ATK-TEXT-BOUNDARY-LINE-END:CAPS"/>
+    <keyword type="constant" name="ATK_TEXT_GRANULARITY_CHAR" link="AtkText.html#ATK-TEXT-GRANULARITY-CHAR:CAPS"/>
+    <keyword type="constant" name="ATK_TEXT_GRANULARITY_WORD" link="AtkText.html#ATK-TEXT-GRANULARITY-WORD:CAPS"/>
+    <keyword type="constant" name="ATK_TEXT_GRANULARITY_SENTENCE" link="AtkText.html#ATK-TEXT-GRANULARITY-SENTENCE:CAPS"/>
+    <keyword type="constant" name="ATK_TEXT_GRANULARITY_LINE" link="AtkText.html#ATK-TEXT-GRANULARITY-LINE:CAPS"/>
+    <keyword type="constant" name="ATK_TEXT_GRANULARITY_PARAGRAPH" link="AtkText.html#ATK-TEXT-GRANULARITY-PARAGRAPH:CAPS"/>
     <keyword type="constant" name="ATK_TEXT_CLIP_NONE" link="AtkText.html#ATK-TEXT-CLIP-NONE:CAPS"/>
     <keyword type="constant" name="ATK_TEXT_CLIP_MIN" link="AtkText.html#ATK-TEXT-CLIP-MIN:CAPS"/>
     <keyword type="constant" name="ATK_TEXT_CLIP_MAX" link="AtkText.html#ATK-TEXT-CLIP-MAX:CAPS"/>

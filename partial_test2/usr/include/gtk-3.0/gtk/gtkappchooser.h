@@ -19,15 +19,16 @@
  * Authors: Cosimo Cecchi <ccecchi@redhat.com>
  */
 
+#ifndef __GTK_APP_CHOOSER_H__
+#define __GTK_APP_CHOOSER_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
 
-#ifndef __GTK_APP_CHOOSER_H__
-#define __GTK_APP_CHOOSER_H__
-
 #include <glib.h>
 #include <gio/gio.h>
+#include <gdk/gdk.h>
 
 G_BEGIN_DECLS
 
@@ -37,10 +38,14 @@ G_BEGIN_DECLS
 
 typedef struct _GtkAppChooser GtkAppChooser;
 
+GDK_AVAILABLE_IN_ALL
 GType      gtk_app_chooser_get_type         (void) G_GNUC_CONST;
 
+GDK_AVAILABLE_IN_ALL
 GAppInfo * gtk_app_chooser_get_app_info     (GtkAppChooser *self);
+GDK_AVAILABLE_IN_ALL
 gchar *    gtk_app_chooser_get_content_type (GtkAppChooser *self);
+GDK_AVAILABLE_IN_ALL
 void       gtk_app_chooser_refresh          (GtkAppChooser *self);
 
 G_END_DECLS

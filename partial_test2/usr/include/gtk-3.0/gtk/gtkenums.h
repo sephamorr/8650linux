@@ -22,12 +22,12 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
+#ifndef __GTK_ENUMS_H__
+#define __GTK_ENUMS_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_ENUMS_H__
-#define __GTK_ENUMS_H__
 
 #include <glib-object.h>
 
@@ -51,6 +51,7 @@ G_BEGIN_DECLS
  *     or top
  * @GTK_ALIGN_CENTER: center natural width of widget inside the
  *     allocation
+ * @GTK_ALIGN_BASELINE: align the widget according to the baseline. Since 3.10.
  *
  * Controls how a widget deals with extra space in a single (x or y)
  * dimension.
@@ -64,13 +65,18 @@ G_BEGIN_DECLS
  *
  * Note that in horizontal context @GTK_ALIGN_START and @GTK_ALIGN_END
  * are interpreted relative to text direction.
+ *
+ * GTK_ALIGN_BASELINE support for it is optional for containers and widgets, and
+ * it is only supported for vertical alignment.  When its not supported by
+ * a child or a container it is treated as @GTK_ALIGN_FILL.
  */
 typedef enum
 {
   GTK_ALIGN_FILL,
   GTK_ALIGN_START,
   GTK_ALIGN_END,
-  GTK_ALIGN_CENTER
+  GTK_ALIGN_CENTER,
+  GTK_ALIGN_BASELINE
 } GtkAlign;
 
 
@@ -124,6 +130,28 @@ typedef enum
   GTK_SHRINK = 1 << 1,
   GTK_FILL   = 1 << 2
 } GtkAttachOptions;
+
+/**
+ * GtkBaselinePosition:
+ * @GTK_BASELINE_POSITION_TOP: Align the baseline at the top
+ * @GTK_BASELINE_POSITION_CENTER: Center the baseline
+ * @GTK_BASELINE_POSITION_BOTTOM: Align the baseline at the bottom
+ *
+ * Whenever a container has some form of natural row it may align
+ * children in that row along a common typographical baseline. If
+ * the amount of verical space in the row is taller than the total
+ * requested height of the baseline-aligned children then it can use a
+ * #GtkBaselinePosition to select where to put the baseline inside the
+ * extra availible space.
+ *
+ * Since: 3.10
+ */
+typedef enum
+{
+  GTK_BASELINE_POSITION_TOP,
+  GTK_BASELINE_POSITION_CENTER,
+  GTK_BASELINE_POSITION_BOTTOM
+} GtkBaselinePosition;
 
 /**
  * GtkButtonBoxStyle:
@@ -266,7 +294,7 @@ typedef enum
 /**
  * GtkMessageType:
  * @GTK_MESSAGE_INFO: Informational message
- * @GTK_MESSAGE_WARNING: Nonfatal warning message
+ * @GTK_MESSAGE_WARNING: Non-fatal warning message
  * @GTK_MESSAGE_QUESTION: Question requiring a choice
  * @GTK_MESSAGE_ERROR: Fatal error message
  * @GTK_MESSAGE_OTHER: None of the above, doesn't get an icon
@@ -488,7 +516,6 @@ typedef enum
  *      The Ctrl key may be used to enlarge the selection, and Shift
  *      key to select between the focus and the child pointed to.
  *      Some widgets may also allow Click-drag to select a range of elements.
- * @GTK_SELECTION_EXTENDED: Deprecated, behaves identical to %GTK_SELECTION_MULTIPLE.
  *
  * Used to control what selections users are allowed to make.
  */
@@ -675,7 +702,7 @@ typedef enum
  * @GTK_PACK_DIRECTION_TTB: Widgets are packed top-to-bottom
  * @GTK_PACK_DIRECTION_BTT: Widgets are packed bottom-to-top
  *
- * Determines how widgets should be packed insided menubars
+ * Determines how widgets should be packed inside menubars
  * and menuitems contained in menubars.
  */
 typedef enum
@@ -753,11 +780,13 @@ typedef enum
 
 typedef enum
 {
-  GTK_UNIT_PIXEL,
+  GTK_UNIT_NONE,
   GTK_UNIT_POINTS,
   GTK_UNIT_INCH,
   GTK_UNIT_MM
 } GtkUnit;
+
+#define GTK_UNIT_PIXEL GTK_UNIT_NONE
 
 /**
  * GtkTreeViewGridLines:
@@ -802,10 +831,27 @@ typedef enum
 } GtkDragResult;
 
 /**
+ * GtkSizeGroupMode:
+ * @GTK_SIZE_GROUP_NONE: group has no effect
+ * @GTK_SIZE_GROUP_HORIZONTAL: group affects horizontal requisition
+ * @GTK_SIZE_GROUP_VERTICAL: group affects vertical requisition
+ * @GTK_SIZE_GROUP_BOTH: group affects both horizontal and vertical requisition
+ *
+ * The mode of the size group determines the directions in which the size
+ * group affects the requested sizes of its component widgets.
+ **/
+typedef enum {
+  GTK_SIZE_GROUP_NONE,
+  GTK_SIZE_GROUP_HORIZONTAL,
+  GTK_SIZE_GROUP_VERTICAL,
+  GTK_SIZE_GROUP_BOTH
+} GtkSizeGroupMode;
+
+/**
  * GtkSizeRequestMode:
  * @GTK_SIZE_REQUEST_HEIGHT_FOR_WIDTH: Prefer height-for-width geometry management
  * @GTK_SIZE_REQUEST_WIDTH_FOR_HEIGHT: Prefer width-for-height geometry management
- * @GTK_SIZE_REQUEST_CONSTANT_SIZE: Dont trade height-for-width or width-for-height
+ * @GTK_SIZE_REQUEST_CONSTANT_SIZE: Don't trade height-for-width or width-for-height
  * 
  * Specifies a preference for height-for-width or
  * width-for-height geometry management.
@@ -841,8 +887,12 @@ typedef enum
  * @GTK_STATE_FLAG_INCONSISTENT: Widget is inconsistent.
  * @GTK_STATE_FLAG_FOCUSED: Widget has the keyboard focus.
  * @GTK_STATE_FLAG_BACKDROP: Widget is in a background toplevel window.
+ * @GTK_STATE_FLAG_DIR_LTR: Widget is in left-to-right text direction. Since 3.8
+ * @GTK_STATE_FLAG_DIR_RTL: Widget is in right-to-left text direction. Since 3.8
  *
- * Describes a widget state.
+ * Describes a widget state. Widget states are used to match the widget
+ * against CSS pseudo-classes. Note that GTK extends the regular CSS
+ * classes and sometimes uses different names.
  */
 typedef enum
 {
@@ -853,7 +903,9 @@ typedef enum
   GTK_STATE_FLAG_INSENSITIVE  = 1 << 3,
   GTK_STATE_FLAG_INCONSISTENT = 1 << 4,
   GTK_STATE_FLAG_FOCUSED      = 1 << 5,
-  GTK_STATE_FLAG_BACKDROP     = 1 << 6
+  GTK_STATE_FLAG_BACKDROP     = 1 << 6,
+  GTK_STATE_FLAG_DIR_LTR      = 1 << 7,
+  GTK_STATE_FLAG_DIR_RTL      = 1 << 8
 } GtkStateFlags;
 
 /**
@@ -911,7 +963,7 @@ typedef enum {
  * @GTK_BORDER_STYLE_HIDDEN: Same as @GTK_BORDER_STYLE_NONE
  * @GTK_BORDER_STYLE_DOTTED: A series of round dots
  * @GTK_BORDER_STYLE_DASHED: A series of square-ended dashes
- * @GTK_BORDER_STYLE_DOUBLE: Two parrallel lines with some space between them
+ * @GTK_BORDER_STYLE_DOUBLE: Two parallel lines with some space between them
  * @GTK_BORDER_STYLE_GROOVE: Looks as if it were carved in the canvas
  * @GTK_BORDER_STYLE_RIDGE: Looks as if it were coming out of the canvas
  *
@@ -930,7 +982,110 @@ typedef enum {
   GTK_BORDER_STYLE_RIDGE
 } GtkBorderStyle;
 
+/**
+ * GtkLevelBarMode:
+ * @GTK_LEVEL_BAR_MODE_CONTINUOUS: the bar has a continuous mode
+ * @GTK_LEVEL_BAR_MODE_DISCRETE: the bar has a discrete mode
+ *
+ * Describes how #GtkLevelBar contents should be rendered.
+ * Note that this enumeration could be extended with additional modes
+ * in the future.
+ *
+ * Since: 3.6
+ */
+typedef enum {
+  GTK_LEVEL_BAR_MODE_CONTINUOUS,
+  GTK_LEVEL_BAR_MODE_DISCRETE
+} GtkLevelBarMode;
+
 G_END_DECLS
 
+/**
+ * GtkInputPurpose:
+ * @GTK_INPUT_PURPOSE_FREE_FORM: Allow any character
+ * @GTK_INPUT_PURPOSE_ALPHA: Allow only alphabetic characters
+ * @GTK_INPUT_PURPOSE_DIGITS: Allow only digits
+ * @GTK_INPUT_PURPOSE_NUMBER: Edited field expects numbers
+ * @GTK_INPUT_PURPOSE_PHONE: Edited field expects phone number
+ * @GTK_INPUT_PURPOSE_URL: Edited field expects URL
+ * @GTK_INPUT_PURPOSE_EMAIL: Edited field expects email address
+ * @GTK_INPUT_PURPOSE_NAME: Edited field expects the name of a person
+ * @GTK_INPUT_PURPOSE_PASSWORD: Like @GTK_INPUT_PURPOSE_FREE_FORM, but characters are hidden
+ * @GTK_INPUT_PURPOSE_PIN: Like @GTK_INPUT_PURPOSE_DIGITS, but characters are hidden
+ *
+ * Describes primary purpose of the input widget. This information is
+ * useful for on-screen keyboards and similar input methods to decide
+ * which keys should be presented to the user.
+ *
+ * Note that the purpose is not meant to impose a totally strict rule
+ * about allowed characters, and does not replace input validation.
+ * It is fine for an on-screen keyboard to let the user override the
+ * character set restriction that is expressed by the purpose. The
+ * application is expected to validate the entry contents, even if
+ * it specified a purpose.
+ *
+ * The difference between @GTK_INPUT_PURPOSE_DIGITS and
+ * @GTK_INPUT_PURPOSE_NUMBER is that the former accepts only digits
+ * while the latter also some punctuation (like commas or points, plus,
+ * minus) and 'e' or 'E' as in 3.14E+000.
+ *
+ * This enumeration may be extended in the future; input methods should
+ * interpret unknown values as 'free form'.
+ *
+ * Since: 3.6
+ */
+typedef enum
+{
+  GTK_INPUT_PURPOSE_FREE_FORM,
+  GTK_INPUT_PURPOSE_ALPHA,
+  GTK_INPUT_PURPOSE_DIGITS,
+  GTK_INPUT_PURPOSE_NUMBER,
+  GTK_INPUT_PURPOSE_PHONE,
+  GTK_INPUT_PURPOSE_URL,
+  GTK_INPUT_PURPOSE_EMAIL,
+  GTK_INPUT_PURPOSE_NAME,
+  GTK_INPUT_PURPOSE_PASSWORD,
+  GTK_INPUT_PURPOSE_PIN
+} GtkInputPurpose;
+
+/**
+ * GtkInputHints:
+ * @GTK_INPUT_HINT_NONE: No special behaviour suggested
+ * @GTK_INPUT_HINT_SPELLCHECK: Suggest checking for typos
+ * @GTK_INPUT_HINT_NO_SPELLCHECK: Suggest not checking for typos
+ * @GTK_INPUT_HINT_WORD_COMPLETION: Suggest word completion
+ * @GTK_INPUT_HINT_LOWERCASE: Suggest to convert all text to lowercase
+ * @GTK_INPUT_HINT_UPPERCASE_CHARS: Suggest to capitalize all text
+ * @GTK_INPUT_HINT_UPPERCASE_WORDS: Suggest to capitalize the first
+ *     character of each word
+ * @GTK_INPUT_HINT_UPPERCASE_SENTENCES: Suggest to capitalize the
+ *     first word of each sentence
+ * @GTK_INPUT_HINT_INHIBIT_OSK: Suggest to not show an onscreen keyboard
+ *     (e.g for a calculator that already has all the keys).
+ *
+ * Describes hints that might be taken into account by input methods
+ * or applications. Note that input methods may already tailor their
+ * behaviour according to the #GtkInputPurpose of the entry.
+ *
+ * Some common sense is expected when using these flags - mixing
+ * @GTK_INPUT_HINT_LOWERCASE with any of the uppercase hints makes no sense.
+ *
+ * This enumeration may be extended in the future; input methods should
+ * ignore unknown values.
+ *
+ * Since: 3.6
+ */
+typedef enum
+{
+  GTK_INPUT_HINT_NONE                = 0,
+  GTK_INPUT_HINT_SPELLCHECK          = 1 << 0,
+  GTK_INPUT_HINT_NO_SPELLCHECK       = 1 << 1,
+  GTK_INPUT_HINT_WORD_COMPLETION     = 1 << 2,
+  GTK_INPUT_HINT_LOWERCASE           = 1 << 3,
+  GTK_INPUT_HINT_UPPERCASE_CHARS     = 1 << 4,
+  GTK_INPUT_HINT_UPPERCASE_WORDS     = 1 << 5,
+  GTK_INPUT_HINT_UPPERCASE_SENTENCES = 1 << 6,
+  GTK_INPUT_HINT_INHIBIT_OSK         = 1 << 7
+} GtkInputHints;
 
 #endif /* __GTK_ENUMS_H__ */

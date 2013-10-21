@@ -2,26 +2,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>GtkBox</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>GTK+ 3 Reference Manual: GtkBox</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GTK+ 3 Reference Manual">
 <link rel="up" href="LayoutContainers.html" title="Layout Containers">
-<link rel="prev" href="GtkAspectFrame.html" title="GtkAspectFrame">
-<link rel="next" href="GtkHBox.html" title="GtkHBox">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<link rel="prev" href="LayoutContainers.html" title="Layout Containers">
+<link rel="next" href="GtkGrid.html" title="GtkGrid">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="GtkAspectFrame.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="LayoutContainers.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GTK+ 3 Reference Manual</th>
-<td><a accesskey="n" href="GtkHBox.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#GtkBox.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#GtkBox.description" class="shortcut">Description</a>
                    | 
@@ -32,8 +25,12 @@
                   <a href="#GtkBox.properties" class="shortcut">Properties</a>
                    | 
                   <a href="#GtkBox.child-properties" class="shortcut">Child Properties</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="LayoutContainers.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="LayoutContainers.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="GtkGrid.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="GtkBox"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -50,45 +47,48 @@
 
 struct              <a class="link" href="GtkBox.html#GtkBox-struct" title="struct GtkBox">GtkBox</a>;
 <a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="GtkBox.html#gtk-box-new" title="gtk_box_new ()">gtk_box_new</a>                         (<em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkOrientation" title="enum GtkOrientation"><span class="type">GtkOrientation</span></a> orientation</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> spacing</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> spacing</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkBox.html#gtk-box-pack-start" title="gtk_box_pack_start ()">gtk_box_pack_start</a>                  (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> expand</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> fill</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> expand</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> fill</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkBox.html#gtk-box-pack-end" title="gtk_box_pack_end ()">gtk_box_pack_end</a>                    (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> expand</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> fill</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GtkBox.html#gtk-box-get-homogeneous" title="gtk_box_get_homogeneous ()">gtk_box_get_homogeneous</a>             (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> expand</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> fill</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="GtkBox.html#gtk-box-get-homogeneous" title="gtk_box_get_homogeneous ()">gtk_box_get_homogeneous</a>             (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkBox.html#gtk-box-set-homogeneous" title="gtk_box_set_homogeneous ()">gtk_box_set_homogeneous</a>             (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> homogeneous</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="GtkBox.html#gtk-box-get-spacing" title="gtk_box_get_spacing ()">gtk_box_get_spacing</a>                 (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> homogeneous</code></em>);
+<a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="GtkBox.html#gtk-box-get-spacing" title="gtk_box_get_spacing ()">gtk_box_get_spacing</a>                 (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkBox.html#gtk-box-set-spacing" title="gtk_box_set_spacing ()">gtk_box_set_spacing</a>                 (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> spacing</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> spacing</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkBox.html#gtk-box-reorder-child" title="gtk_box_reorder_child ()">gtk_box_reorder_child</a>               (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> position</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> position</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkBox.html#gtk-box-query-child-packing" title="gtk_box_query_child_packing ()">gtk_box_query_child_packing</a>         (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *expand</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *fill</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *expand</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *fill</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkPackType" title="enum GtkPackType"><span class="type">GtkPackType</span></a> *pack_type</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkBox.html#gtk-box-set-child-packing" title="gtk_box_set_child_packing ()">gtk_box_set_child_packing</a>           (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> expand</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> fill</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> expand</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> fill</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkPackType" title="enum GtkPackType"><span class="type">GtkPackType</span></a> pack_type</code></em>);
+<span class="returnvalue">GtkBaselinePosition</span> <a class="link" href="GtkBox.html#gtk-box-get-baseline-position" title="gtk_box_get_baseline_position ()">gtk_box_get_baseline_position</a>       (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GtkBox.html#gtk-box-set-baseline-position" title="gtk_box_set_baseline_position ()">gtk_box_set_baseline_position</a>       (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkBaselinePosition</span> position</code></em>);
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkBox.object-hierarchy"></a><h2>Object Hierarchy</h2>
 <pre class="synopsis">
-  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
-   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="../gobject/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
          +----<a class="link" href="GtkWidget.html" title="GtkWidget">GtkWidget</a>
                +----<a class="link" href="GtkContainer.html" title="GtkContainer">GtkContainer</a>
                      +----GtkBox
@@ -103,6 +103,7 @@ struct              <a class="link" href="GtkBox.html#GtkBox-struct" title="stru
                            +----<a class="link" href="GtkHBox.html" title="GtkHBox">GtkHBox</a>
                            +----<a class="link" href="GtkInfoBar.html" title="GtkInfoBar">GtkInfoBar</a>
                            +----<a class="link" href="GtkRecentChooserWidget.html" title="GtkRecentChooserWidget">GtkRecentChooserWidget</a>
+                           +----<a class="link" href="GtkStackSwitcher.html" title="GtkStackSwitcher">GtkStackSwitcher</a>
                            +----<a class="link" href="GtkStatusbar.html" title="GtkStatusbar">GtkStatusbar</a>
                            +----<a class="link" href="GtkVBox.html" title="GtkVBox">GtkVBox</a>
 </pre>
@@ -116,18 +117,19 @@ GtkBox implements
 <div class="refsect1">
 <a name="GtkBox.properties"></a><h2>Properties</h2>
 <pre class="synopsis">
-  "<a class="link" href="GtkBox.html#GtkBox--homogeneous" title='The "homogeneous" property'>homogeneous</a>"              <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write
-  "<a class="link" href="GtkBox.html#GtkBox--spacing" title='The "spacing" property'>spacing</a>"                  <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write
+  "<a class="link" href="GtkBox.html#GtkBox--baseline-position" title='The "baseline-position" property'>baseline-position</a>"        <span class="type">GtkBaselinePosition</span>   : Read / Write
+  "<a class="link" href="GtkBox.html#GtkBox--homogeneous" title='The "homogeneous" property'>homogeneous</a>"              <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write
+  "<a class="link" href="GtkBox.html#GtkBox--spacing" title='The "spacing" property'>spacing</a>"                  <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkBox.child-properties"></a><h2>Child Properties</h2>
 <pre class="synopsis">
-  "<a class="link" href="GtkBox.html#GtkBox--c-expand" title='The "expand" child property'>expand</a>"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write
-  "<a class="link" href="GtkBox.html#GtkBox--c-fill" title='The "fill" child property'>fill</a>"                     <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write
+  "<a class="link" href="GtkBox.html#GtkBox--c-expand" title='The "expand" child property'>expand</a>"                   <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write
+  "<a class="link" href="GtkBox.html#GtkBox--c-fill" title='The "fill" child property'>fill</a>"                     <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write
   "<a class="link" href="GtkBox.html#GtkBox--c-pack-type" title='The "pack-type" child property'>pack-type</a>"                <a class="link" href="gtk3-Standard-Enumerations.html#GtkPackType" title="enum GtkPackType"><span class="type">GtkPackType</span></a>           : Read / Write
-  "<a class="link" href="GtkBox.html#GtkBox--c-padding" title='The "padding" child property'>padding</a>"                  <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write
-  "<a class="link" href="GtkBox.html#GtkBox--c-position" title='The "position" child property'>position</a>"                 <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write
+  "<a class="link" href="GtkBox.html#GtkBox--c-padding" title='The "padding" child property'>padding</a>"                  <a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write
+  "<a class="link" href="GtkBox.html#GtkBox--c-position" title='The "position" child property'>position</a>"                 <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write
 </pre>
 </div>
 <div class="refsect1">
@@ -184,7 +186,7 @@ Use <a class="link" href="GtkBox.html#gtk-box-query-child-packing" title="gtk_bo
 </p>
 <p>
 </p>
-<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="note">
 <h3 class="title">Note</h3>
 <p>
 Note that a single-row or single-column <a class="link" href="GtkGrid.html" title="GtkGrid"><span class="type">GtkGrid</span></a> provides exactly
@@ -204,12 +206,15 @@ the same functionality as <a class="link" href="GtkBox.html" title="GtkBox"><spa
 <div class="refsect2">
 <a name="gtk-box-new"></a><h3>gtk_box_new ()</h3>
 <pre class="programlisting"><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_box_new                         (<em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkOrientation" title="enum GtkOrientation"><span class="type">GtkOrientation</span></a> orientation</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> spacing</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> spacing</code></em>);</pre>
 <p>
 Creates a new <a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>orientation</code></em> :</span></p></td>
@@ -232,16 +237,19 @@ Creates a new <a class="link" href="GtkBox.html" title="GtkBox"><span class="typ
 <a name="gtk-box-pack-start"></a><h3>gtk_box_pack_start ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_box_pack_start                  (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> expand</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> fill</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> expand</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> fill</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding</code></em>);</pre>
 <p>
 Adds <em class="parameter"><code>child</code></em> to <em class="parameter"><code>box</code></em>, packed with reference to the start of <em class="parameter"><code>box</code></em>.
 The <em class="parameter"><code>child</code></em> is packed after any other child packed with reference
 to the start of <em class="parameter"><code>box</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>box</code></em> :</span></p></td>
@@ -256,16 +264,16 @@ to the start of <em class="parameter"><code>box</code></em>.
 <tr>
 <td><p><span class="term"><em class="parameter"><code>expand</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the new child is to be given extra space allocated
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the new child is to be given extra space allocated
 to <em class="parameter"><code>box</code></em>. The extra space will be divided evenly between all children
 that use this option</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>fill</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if space given to <em class="parameter"><code>child</code></em> by the <em class="parameter"><code>expand</code></em> option is
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if space given to <em class="parameter"><code>child</code></em> by the <em class="parameter"><code>expand</code></em> option is
 actually allocated to <em class="parameter"><code>child</code></em>, rather than just padding it.  This
-parameter has no effect if <em class="parameter"><code>expand</code></em> is set to <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.  A child is
+parameter has no effect if <em class="parameter"><code>expand</code></em> is set to <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.  A child is
 always allocated the full height of a horizontal <a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> and the full width
 of a vertical <a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a>. This option affects the other dimension</td>
 </tr>
@@ -286,16 +294,19 @@ reference ends of <em class="parameter"><code>box</code></em>, then <em class="p
 <a name="gtk-box-pack-end"></a><h3>gtk_box_pack_end ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_box_pack_end                    (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> expand</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> fill</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> expand</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> fill</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding</code></em>);</pre>
 <p>
 Adds <em class="parameter"><code>child</code></em> to <em class="parameter"><code>box</code></em>, packed with reference to the end of <em class="parameter"><code>box</code></em>.
 The <em class="parameter"><code>child</code></em> is packed after (away from end of) any other child
 packed with reference to the end of <em class="parameter"><code>box</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>box</code></em> :</span></p></td>
@@ -310,16 +321,16 @@ packed with reference to the end of <em class="parameter"><code>box</code></em>.
 <tr>
 <td><p><span class="term"><em class="parameter"><code>expand</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the new child is to be given extra space allocated
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the new child is to be given extra space allocated
 to <em class="parameter"><code>box</code></em>. The extra space will be divided evenly between all children
 of <em class="parameter"><code>box</code></em> that use this option</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>fill</code></em> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if space given to <em class="parameter"><code>child</code></em> by the <em class="parameter"><code>expand</code></em> option is
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if space given to <em class="parameter"><code>child</code></em> by the <em class="parameter"><code>expand</code></em> option is
 actually allocated to <em class="parameter"><code>child</code></em>, rather than just padding it.  This
-parameter has no effect if <em class="parameter"><code>expand</code></em> is set to <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.  A child is
+parameter has no effect if <em class="parameter"><code>expand</code></em> is set to <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.  A child is
 always allocated the full height of a horizontal <a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> and the full width
 of a vertical <a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a>.  This option affects the other dimension</td>
 </tr>
@@ -338,13 +349,16 @@ reference ends of <em class="parameter"><code>box</code></em>, then <em class="p
 <hr>
 <div class="refsect2">
 <a name="gtk-box-get-homogeneous"></a><h3>gtk_box_get_homogeneous ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_box_get_homogeneous             (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_box_get_homogeneous             (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>);</pre>
 <p>
 Returns whether the box is homogeneous (all children are the
 same size). See <a class="link" href="GtkBox.html#gtk-box-set-homogeneous" title="gtk_box_set_homogeneous ()"><code class="function">gtk_box_set_homogeneous()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>box</code></em> :</span></p></td>
@@ -354,7 +368,7 @@ same size). See <a class="link" href="GtkBox.html#gtk-box-set-homogeneous" title
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the box is homogeneous.</td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the box is homogeneous.</td>
 </tr>
 </tbody>
 </table></div>
@@ -363,14 +377,17 @@ same size). See <a class="link" href="GtkBox.html#gtk-box-set-homogeneous" title
 <div class="refsect2">
 <a name="gtk-box-set-homogeneous"></a><h3>gtk_box_set_homogeneous ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_box_set_homogeneous             (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> homogeneous</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> homogeneous</code></em>);</pre>
 <p>
 Sets the <a class="link" href="GtkBox.html#GtkBox--homogeneous" title='The "homogeneous" property'><span class="type">"homogeneous"</span></a> property of <em class="parameter"><code>box</code></em>, controlling
 whether or not all children of <em class="parameter"><code>box</code></em> are given equal space
 in the box.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>box</code></em> :</span></p></td>
@@ -379,8 +396,8 @@ in the box.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>homogeneous</code></em> :</span></p></td>
-<td>a boolean value, <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> to create equal allotments,
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> for variable allotments</td>
+<td>a boolean value, <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> to create equal allotments,
+<a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> for variable allotments</td>
 </tr>
 </tbody>
 </table></div>
@@ -388,12 +405,15 @@ in the box.
 <hr>
 <div class="refsect2">
 <a name="gtk-box-get-spacing"></a><h3>gtk_box_get_spacing ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gtk_box_get_spacing                 (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gtk_box_get_spacing                 (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>);</pre>
 <p>
 Gets the value set by <a class="link" href="GtkBox.html#gtk-box-set-spacing" title="gtk_box_set_spacing ()"><code class="function">gtk_box_set_spacing()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>box</code></em> :</span></p></td>
@@ -411,13 +431,16 @@ Gets the value set by <a class="link" href="GtkBox.html#gtk-box-set-spacing" tit
 <div class="refsect2">
 <a name="gtk-box-set-spacing"></a><h3>gtk_box_set_spacing ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_box_set_spacing                 (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> spacing</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> spacing</code></em>);</pre>
 <p>
 Sets the <a class="link" href="GtkBox.html#GtkBox--spacing" title='The "spacing" property'><span class="type">"spacing"</span></a> property of <em class="parameter"><code>box</code></em>, which is the
 number of pixels to place between children of <em class="parameter"><code>box</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>box</code></em> :</span></p></td>
@@ -436,7 +459,7 @@ number of pixels to place between children of <em class="parameter"><code>box</c
 <a name="gtk-box-reorder-child"></a><h3>gtk_box_reorder_child ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_box_reorder_child               (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> position</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> position</code></em>);</pre>
 <p>
 Moves <em class="parameter"><code>child</code></em> to a new <em class="parameter"><code>position</code></em> in the list of <em class="parameter"><code>box</code></em> children.
 The list is the <em class="structfield"><code>children</code></em> field of
@@ -450,8 +473,11 @@ the widget is packed into <em class="parameter"><code>box</code></em>.  A child 
 in the list will be packed just after all other widgets of the
 same packing type that appear earlier in the list.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>box</code></em> :</span></p></td>
@@ -476,15 +502,18 @@ the list</td>
 <a name="gtk-box-query-child-packing"></a><h3>gtk_box_query_child_packing ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_box_query_child_packing         (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *expand</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *fill</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *expand</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> *fill</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkPackType" title="enum GtkPackType"><span class="type">GtkPackType</span></a> *pack_type</code></em>);</pre>
 <p>
 Obtains information about how <em class="parameter"><code>child</code></em> is packed into <em class="parameter"><code>box</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>box</code></em> :</span></p></td>
@@ -527,15 +556,18 @@ child property. <span class="annotation">[<acronym title="Parameter for returnin
 <a name="gtk-box-set-child-packing"></a><h3>gtk_box_set_child_packing ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_box_set_child_packing           (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>,
                                                          <em class="parameter"><code><a class="link" href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> expand</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> fill</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> expand</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> fill</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkPackType" title="enum GtkPackType"><span class="type">GtkPackType</span></a> pack_type</code></em>);</pre>
 <p>
 Sets the way <em class="parameter"><code>child</code></em> is packed into <em class="parameter"><code>box</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>box</code></em> :</span></p></td>
@@ -565,19 +597,85 @@ Sets the way <em class="parameter"><code>child</code></em> is packed into <em cl
 </tbody>
 </table></div>
 </div>
+<hr>
+<div class="refsect2">
+<a name="gtk-box-get-baseline-position"></a><h3>gtk_box_get_baseline_position ()</h3>
+<pre class="programlisting"><span class="returnvalue">GtkBaselinePosition</span> gtk_box_get_baseline_position       (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>);</pre>
+<p>
+Gets the value set by <a class="link" href="GtkBox.html#gtk-box-set-baseline-position" title="gtk_box_set_baseline_position ()"><code class="function">gtk_box_set_baseline_position()</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>box</code></em> :</span></p></td>
+<td>a <a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the baseline position</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.10</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-box-set-baseline-position"></a><h3>gtk_box_set_baseline_position ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_box_set_baseline_position       (<em class="parameter"><code><a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a> *box</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkBaselinePosition</span> position</code></em>);</pre>
+<p>
+Sets the baseline position of a box. This affects
+only horizontal boxes with at least one baseline aligned
+child. If there is more vertical space availible than requested,
+and the baseline is not allocated by the parent then
+<em class="parameter"><code>position</code></em> is used to allocate the baseline wrt the
+extra space available.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>box</code></em> :</span></p></td>
+<td>a <a class="link" href="GtkBox.html" title="GtkBox"><span class="type">GtkBox</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>position</code></em> :</span></p></td>
+<td>a <span class="type">GtkBaselinePosition</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.10</p>
+</div>
 </div>
 <div class="refsect1">
 <a name="GtkBox.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
+<a name="GtkBox--baseline-position"></a><h3>The <code class="literal">"baseline-position"</code> property</h3>
+<pre class="programlisting">  "baseline-position"        <span class="type">GtkBaselinePosition</span>   : Read / Write</pre>
+<p>The position of the baseline aligned widgets if extra space is available.</p>
+<p>Default value: GTK_BASELINE_POSITION_CENTER</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="GtkBox--homogeneous"></a><h3>The <code class="literal">"homogeneous"</code> property</h3>
-<pre class="programlisting">  "homogeneous"              <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write</pre>
+<pre class="programlisting">  "homogeneous"              <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write</pre>
 <p>Whether the children should all be the same size.</p>
 <p>Default value: FALSE</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkBox--spacing"></a><h3>The <code class="literal">"spacing"</code> property</h3>
-<pre class="programlisting">  "spacing"                  <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write</pre>
+<pre class="programlisting">  "spacing"                  <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write</pre>
 <p>The amount of space between children.</p>
 <p>Allowed values: &gt;= 0</p>
 <p>Default value: 0</p>
@@ -587,26 +685,30 @@ Sets the way <em class="parameter"><code>child</code></em> is packed into <em cl
 <a name="GtkBox.child-property-details"></a><h2>Child Property Details</h2>
 <div class="refsect2">
 <a name="GtkBox--c-expand"></a><h3>The <code class="literal">"expand"</code> child property</h3>
-<pre class="programlisting">  "expand"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write</pre>
+<pre class="programlisting">  "expand"                   <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write</pre>
 <p>
 Whether the child should receive extra space when the parent grows.
 </p>
 <p>
-Note that the default value for this property is <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> for GtkBox,
+Note that the default value for this property is <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> for GtkBox,
 but <a class="link" href="GtkHBox.html" title="GtkHBox"><span class="type">GtkHBox</span></a>, <a class="link" href="GtkVBox.html" title="GtkVBox"><span class="type">GtkVBox</span></a> and other subclasses use the old default
-of <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>.
+of <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>.
 </p>
 <p>
 Note that the <a class="link" href="GtkWidget.html#GtkWidget--halign" title='The "halign" property'><span class="type">"halign"</span></a>, <a class="link" href="GtkWidget.html#GtkWidget--valign" title='The "valign" property'><span class="type">"valign"</span></a>, <a class="link" href="GtkWidget.html#GtkWidget--hexpand" title='The "hexpand" property'><span class="type">"hexpand"</span></a>
 and <a class="link" href="GtkWidget.html#GtkWidget--vexpand" title='The "vexpand" property'><span class="type">"vexpand"</span></a> properties are the preferred way to influence
 child size allocation in containers.
 </p>
+<p>
+In contrast to <span class="type">"hexpand"</span>, the expand child property does
+not cause the box to expand itself.
+</p>
 <p>Default value: FALSE</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GtkBox--c-fill"></a><h3>The <code class="literal">"fill"</code> child property</h3>
-<pre class="programlisting">  "fill"                     <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write</pre>
+<pre class="programlisting">  "fill"                     <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write</pre>
 <p>
 Whether the child should receive extra space when the parent grows.
 </p>
@@ -627,7 +729,7 @@ child size allocation in containers.
 <hr>
 <div class="refsect2">
 <a name="GtkBox--c-padding"></a><h3>The <code class="literal">"padding"</code> child property</h3>
-<pre class="programlisting">  "padding"                  <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write</pre>
+<pre class="programlisting">  "padding"                  <a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read / Write</pre>
 <p>Extra space to put between the child and its neighbors, in pixels.</p>
 <p>Allowed values: &lt;= G_MAXINT</p>
 <p>Default value: 0</p>
@@ -635,9 +737,9 @@ child size allocation in containers.
 <hr>
 <div class="refsect2">
 <a name="GtkBox--c-position"></a><h3>The <code class="literal">"position"</code> child property</h3>
-<pre class="programlisting">  "position"                 <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write</pre>
+<pre class="programlisting">  "position"                 <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write</pre>
 <p>The index of the child in the parent.</p>
-<p>Allowed values: &gt;= G_MAXULONG</p>
+<p>Allowed values: &gt;= -1</p>
 <p>Default value: 0</p>
 </div>
 </div>
@@ -648,6 +750,6 @@ child size allocation in containers.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

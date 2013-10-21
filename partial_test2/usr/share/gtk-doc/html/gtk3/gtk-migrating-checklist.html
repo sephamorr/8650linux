@@ -2,27 +2,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Migration Details Checklist</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>GTK+ 3 Reference Manual: Migration Details Checklist</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GTK+ 3 Reference Manual">
 <link rel="up" href="migrating.html" title="Part V. Migrating from Previous Versions of GTK+">
 <link rel="prev" href="ch28s03.html" title="GtkBox versus GtkGrid: spacing">
 <link rel="next" href="checklist-gdkeventexpose-region.html" title="Use GdkEventExpose.region">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
-<td><a accesskey="p" href="ch28s03.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="migrating.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GTK+ 3 Reference Manual</th>
-<td><a accesskey="n" href="checklist-gdkeventexpose-region.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left"></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="migrating.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="ch28s03.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="checklist-gdkeventexpose-region.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="chapter">
 <div class="titlepage"><div><div><h2 class="title">
 <a name="gtk-migrating-checklist"></a>Migration Details Checklist</h2></div></div></div>
-<div class="toc"><dl>
+<div class="toc"><dl class="toc">
 <dt><span class="section"><a href="gtk-migrating-checklist.html#checklist-popup-menu">Implement GtkWidget::popup_menu</a></span></dt>
 <dt><span class="section"><a href="checklist-gdkeventexpose-region.html">Use GdkEventExpose.region</a></span></dt>
 <dt><span class="section"><a href="checklist-modifiers.html">Test for modifier keys correctly</a></span></dt>
@@ -127,7 +127,7 @@ my_widget_popup_menu_handler (GtkWidget *widget)
         </pre>
 </li>
 </ol></div>
-<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="note">
 <h3 class="title">Note</h3>
 <p>
         If you do not pass a positioning function to <a class="link" href="GtkMenu.html#gtk-menu-popup" title="gtk_menu_popup ()"><code class="function">gtk_menu_popup()</code></a>,
@@ -139,26 +139,26 @@ my_widget_popup_menu_handler (GtkWidget *widget)
         mouse cursor may not be near the widget at all.  In the <a class="link" href="gtk-migrating-checklist.html#do_popup_menu">example above</a>, you may want to
         provide your own <a class="link" href="GtkMenu.html#GtkMenuPositionFunc" title="GtkMenuPositionFunc ()">menu-positioning function</a>
         in the case where the <em class="parameter"><code>event</code></em> is
-        <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.  This function should compute the desired position for
+        <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.  This function should compute the desired position for
         a menu when it is invoked through the keyboard.  For example,
         <a class="link" href="GtkEntry.html" title="GtkEntry"><span class="type">GtkEntry</span></a> aligns the top edge of its popup menu with the bottom
         edge of the entry.
       </p>
 </div>
-<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<div class="note">
 <h3 class="title">Note</h3>
 <p>
         For the standard key bindings to work, your widget must be
         able to take the keyboard focus.  In general, widgets should
         be fully usable through the keyboard and not just the mouse.
         The very first step of this is to ensure that your widget
-        turns on the <a href="http://library.gnome.org/devel/gtk3/GtkWidget.html#GTK-CAN-FOCUS:CAPS"><code class="literal">GTK_CAN_FOCUS</code></a> flag.
+        turns on the <code class="literal">GTK_CAN_FOCUS</code> flag.
       </p>
 </div>
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

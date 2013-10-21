@@ -21,11 +21,10 @@
 #ifndef WebKitDOMText_h
 #define WebKitDOMText_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMCharacterData.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMCharacterData.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_TEXT            (webkit_dom_text_get_type())
@@ -56,7 +55,7 @@ webkit_dom_text_get_type (void);
  *
 **/
 WEBKIT_API WebKitDOMText*
-webkit_dom_text_split_text(WebKitDOMText* self, gulong offset, GError **error);
+webkit_dom_text_split_text(WebKitDOMText* self, gulong offset, GError** error);
 
 /**
  * webkit_dom_text_replace_whole_text:
@@ -68,7 +67,7 @@ webkit_dom_text_split_text(WebKitDOMText* self, gulong offset, GError **error);
  *
 **/
 WEBKIT_API WebKitDOMText*
-webkit_dom_text_replace_whole_text(WebKitDOMText* self, const gchar* content, GError **error);
+webkit_dom_text_replace_whole_text(WebKitDOMText* self, const gchar* content, GError** error);
 
 /**
  * webkit_dom_text_get_whole_text:

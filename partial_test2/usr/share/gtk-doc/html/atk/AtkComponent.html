@@ -3,25 +3,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AtkComponent</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="ATK - Accessibility Toolkit">
 <link rel="up" href="atk.html" title="ATK Library">
 <link rel="prev" href="AtkAction.html" title="AtkAction">
 <link rel="next" href="AtkDocument.html" title="AtkDocument">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="AtkAction.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="atk.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">ATK - Accessibility Toolkit</th>
-<td><a accesskey="n" href="AtkDocument.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#AtkComponent.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#AtkComponent.description" class="shortcut">Description</a>
                    | 
@@ -30,23 +23,32 @@
                   <a href="#AtkComponent.implementations" class="shortcut">Known Implementations</a>
                    | 
                   <a href="#AtkComponent.signals" class="shortcut">Signals</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="atk.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="AtkAction.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="AtkDocument.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="AtkComponent"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="AtkComponent.top_of_page"></a>AtkComponent</span></h2>
-<p>AtkComponent — The ATK interface provided by UI components which occupy a physical area on
-the screen.</p>
+<p>AtkComponent — The ATK interface provided by UI components
+which occupy a physical area on the screen.
+which the user can activate/interact with.</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsynopsisdiv">
 <a name="AtkComponent.synopsis"></a><h2>Synopsis</h2>
 <pre class="synopsis">                    <a class="link" href="AtkComponent.html#AtkComponent-struct" title="AtkComponent">AtkComponent</a>;
+struct              <a class="link" href="AtkComponent.html#AtkComponentIface" title="struct AtkComponentIface">AtkComponentIface</a>;
+<span class="returnvalue">void</span>                (<a class="link" href="AtkComponent.html#AtkFocusHandler" title="AtkFocusHandler ()">*AtkFocusHandler</a>)                  (<em class="parameter"><code><a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> focus_in</code></em>);
+struct              <a class="link" href="AtkComponent.html#AtkRectangle" title="struct AtkRectangle">AtkRectangle</a>;
 <span class="returnvalue">guint</span>               <a class="link" href="AtkComponent.html#atk-component-add-focus-handler" title="atk_component_add_focus_handler ()">atk_component_add_focus_handler</a>     (<em class="parameter"><code><a class="link" href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a> *component</code></em>,
-                                                         <em class="parameter"><code><span class="type">AtkFocusHandler</span> handler</code></em>);
+                                                         <em class="parameter"><code><a class="link" href="AtkComponent.html#AtkFocusHandler" title="AtkFocusHandler ()"><span class="type">AtkFocusHandler</span></a> handler</code></em>);
 <span class="returnvalue">gboolean</span>            <a class="link" href="AtkComponent.html#atk-component-contains" title="atk_component_contains ()">atk_component_contains</a>              (<em class="parameter"><code><a class="link" href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a> *component</code></em>,
                                                          <em class="parameter"><code><span class="type">gint</span> x</code></em>,
                                                          <em class="parameter"><code><span class="type">gint</span> y</code></em>,
@@ -112,17 +114,17 @@ AtkComponent is implemented by
 <div class="refsect1">
 <a name="AtkComponent.description"></a><h2>Description</h2>
 <p>
-<a class="link" href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a> should be implemented by most if not all UI elements with
-an actual on-screen presence, i.e. components which can be said to have
-a screen-coordinate bounding box.  Virtually all widgets will need to
-have <a class="link" href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a> implementations provided for their corresponding
-<a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> class.  In short, only UI elements which are *not* GUI
-elements will omit this ATK interface.
+<a class="link" href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a> should be implemented by most if not all UI elements
+with an actual on-screen presence, i.e. components which can be
+said to have a screen-coordinate bounding box.  Virtually all
+widgets will need to have <a class="link" href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a> implementations provided
+for their corresponding <a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> class.  In short, only UI
+elements which are *not* GUI elements will omit this ATK interface.
 </p>
 <p>
-A possible exception might be textual information with a transparent
-background, in which case text glyph bounding box information is
-provided by <a class="link" href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a>.
+A possible exception might be textual information with a
+transparent background, in which case text glyph bounding box
+information is provided by <a class="link" href="AtkText.html" title="AtkText"><span class="type">AtkText</span></a>.
 </p>
 </div>
 <div class="refsect1">
@@ -131,14 +133,219 @@ provided by <a class="link" href="AtkText.html" title="AtkText"><span class="typ
 <a name="AtkComponent-struct"></a><h3>AtkComponent</h3>
 <pre class="programlisting">typedef struct _AtkComponent AtkComponent;</pre>
 <p>
-The AtkComponent structure does not contain any fields.
 </p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AtkComponentIface"></a><h3>struct AtkComponentIface</h3>
+<pre class="programlisting">struct AtkComponentIface {
+  GTypeInterface parent;
+
+  guint          (* add_focus_handler)  (AtkComponent          *component,
+                                         AtkFocusHandler        handler);
+
+  gboolean       (* contains)           (AtkComponent          *component,
+                                         gint                   x,
+                                         gint                   y,
+                                         AtkCoordType           coord_type);
+
+  AtkObject*    (* ref_accessible_at_point)  (AtkComponent     *component,
+                                         gint                   x,
+                                         gint                   y,
+                                         AtkCoordType           coord_type);
+  void          (* get_extents)         (AtkComponent          *component,
+                                         gint                  *x,
+                                         gint                  *y,
+                                         gint                  *width,
+                                         gint                  *height,
+                                         AtkCoordType          coord_type);
+  void                     (* get_position)     (AtkComponent   *component,
+                                                 gint           *x,
+                                                 gint           *y,
+                                                 AtkCoordType   coord_type);
+  void                     (* get_size)                 (AtkComponent   *component,
+                                                         gint           *width,
+                                                         gint           *height);
+  gboolean                 (* grab_focus)               (AtkComponent   *component);
+  void                     (* remove_focus_handler)      (AtkComponent  *component,
+                                                          guint         handler_id);
+  gboolean                 (* set_extents)      (AtkComponent   *component,
+                                                 gint           x,
+                                                 gint           y,
+                                                 gint           width,
+                                                 gint           height,
+                                                 AtkCoordType   coord_type);
+  gboolean                 (* set_position)     (AtkComponent   *component,
+                                                 gint           x,
+                                                 gint           y,
+                                                 AtkCoordType   coord_type);
+  gboolean                 (* set_size)         (AtkComponent   *component,
+                                                 gint           width,
+                                                 gint           height);
+  	
+  AtkLayer                 (* get_layer)        (AtkComponent   *component);
+  gint                     (* get_mdi_zorder)   (AtkComponent   *component);
+
+  /*
+   * signal handlers
+   */
+  void                     (* bounds_changed)   (AtkComponent   *component,
+                                                 AtkRectangle   *bounds);
+  gdouble                  (* get_alpha)        (AtkComponent   *component);
+};
+</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><span class="type">GTypeInterface</span> <em class="structfield"><code><a name="AtkComponentIface.parent"></a>parent</code></em>;</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkComponentIface.add-focus-handler"></a>add_focus_handler</code></em> ()</span></p></td>
+<td>This virtual function is deprecated since 2.9.4
+and it should not be overriden. See
+<a class="link" href="AtkComponent.html#atk-component-add-focus-handler" title="atk_component_add_focus_handler ()"><code class="function">atk_component_add_focus_handler()</code></a> for more information.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkComponentIface.contains"></a>contains</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkComponentIface.ref-accessible-at-point"></a>ref_accessible_at_point</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkComponentIface.get-extents"></a>get_extents</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkComponentIface.get-position"></a>get_position</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkComponentIface.get-size"></a>get_size</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkComponentIface.grab-focus"></a>grab_focus</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkComponentIface.remove-focus-handler"></a>remove_focus_handler</code></em> ()</span></p></td>
+<td>This virtual function is deprecated since
+2.9.4 and it should not be overriden. See
+<a class="link" href="AtkComponent.html#atk-component-remove-focus-handler" title="atk_component_remove_focus_handler ()"><code class="function">atk_component_remove_focus_handler()</code></a> for more information.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkComponentIface.set-extents"></a>set_extents</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkComponentIface.set-position"></a>set_position</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkComponentIface.set-size"></a>set_size</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkComponentIface.get-layer"></a>get_layer</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkComponentIface.get-mdi-zorder"></a>get_mdi_zorder</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkComponentIface.bounds-changed"></a>bounds_changed</code></em> ()</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="AtkComponentIface.get-alpha"></a>get_alpha</code></em> ()</span></p></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AtkFocusHandler"></a><h3>AtkFocusHandler ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*AtkFocusHandler)                  (<em class="parameter"><code><a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> focus_in</code></em>);</pre>
+<div class="warning">
+<h3 class="title">Warning</h3>
+<p><code class="literal">AtkFocusHandler</code> is deprecated and should not be used in newly-written code. This type is deprecated since ATK version 2.9.4. as
+<a class="link" href="AtkComponent.html#atk-component-add-focus-handler" title="atk_component_add_focus_handler ()"><code class="function">atk_component_add_focus_handler()</code></a> and
+<a class="link" href="AtkComponent.html#atk-component-remove-focus-handler" title="atk_component_remove_focus_handler ()"><code class="function">atk_component_remove_focus_handler()</code></a> are deprecated. See those
+methods for more information.</p>
+</div>
+<p>
+The type of callback function used for
+<a class="link" href="AtkComponent.html#atk-component-add-focus-handler" title="atk_component_add_focus_handler ()"><code class="function">atk_component_add_focus_handler()</code></a> and
+<a class="link" href="AtkComponent.html#atk-component-remove-focus-handler" title="atk_component_remove_focus_handler ()"><code class="function">atk_component_remove_focus_handler()</code></a>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>the <a class="link" href="AtkObject.html" title="AtkObject"><span class="type">AtkObject</span></a> that receives/lose the focus</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>focus_in</code></em> :</span></p></td>
+<td>TRUE if the object receives the focus</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AtkRectangle"></a><h3>struct AtkRectangle</h3>
+<pre class="programlisting">struct AtkRectangle {
+  gint x;
+  gint y;
+  gint width;
+  gint height;
+};
+</pre>
+<p>
+A data structure for holding a rectangle. Those coordinates are
+relative to the component top-level parent.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><span class="type">gint</span> <em class="structfield"><code><a name="AtkRectangle.x"></a>x</code></em>;</span></p></td>
+<td>X coordinate of the left side of the rectangle.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gint</span> <em class="structfield"><code><a name="AtkRectangle.y"></a>y</code></em>;</span></p></td>
+<td>Y coordinate of the top side of the rectangle.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gint</span> <em class="structfield"><code><a name="AtkRectangle.width"></a>width</code></em>;</span></p></td>
+<td>width of the rectangle.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gint</span> <em class="structfield"><code><a name="AtkRectangle.height"></a>height</code></em>;</span></p></td>
+<td>height of the rectangle.</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="atk-component-add-focus-handler"></a><h3>atk_component_add_focus_handler ()</h3>
 <pre class="programlisting"><span class="returnvalue">guint</span>               atk_component_add_focus_handler     (<em class="parameter"><code><a class="link" href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a> *component</code></em>,
-                                                         <em class="parameter"><code><span class="type">AtkFocusHandler</span> handler</code></em>);</pre>
+                                                         <em class="parameter"><code><a class="link" href="AtkComponent.html#AtkFocusHandler" title="AtkFocusHandler ()"><span class="type">AtkFocusHandler</span></a> handler</code></em>);</pre>
+<div class="warning">
+<h3 class="title">Warning</h3>
+<p><code class="literal">atk_component_add_focus_handler</code> is deprecated and should not be used in newly-written code. This method is deprecated since ATK version 2.9.4. If
+you need to track when an object gains or lose the focus, use
+state-changed:focused notification instead.</p>
+</div>
 <p>
 Add the specified handler to the set of functions to be called 
 when this object receives focus events (in or out). If the handler is
@@ -153,12 +360,12 @@ already added it is not added again
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>handler</code></em> :</span></p></td>
-<td>The <span class="type">AtkFocusHandler</span> to be attached to <em class="parameter"><code>component</code></em>
+<td>The <a class="link" href="AtkComponent.html#AtkFocusHandler" title="AtkFocusHandler ()"><span class="type">AtkFocusHandler</span></a> to be attached to <em class="parameter"><code>component</code></em>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a handler id which can be used in atk_component_remove_focus_handler
+<td>a handler id which can be used in <a class="link" href="AtkComponent.html#atk-component-remove-focus-handler" title="atk_component_remove_focus_handler ()"><code class="function">atk_component_remove_focus_handler()</code></a>
 or zero if the handler was already added.</td>
 </tr>
 </tbody>
@@ -429,6 +636,12 @@ or to the components top level window</td>
 <a name="atk-component-remove-focus-handler"></a><h3>atk_component_remove_focus_handler ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                atk_component_remove_focus_handler  (<em class="parameter"><code><a class="link" href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a> *component</code></em>,
                                                          <em class="parameter"><code><span class="type">guint</span> handler_id</code></em>);</pre>
+<div class="warning">
+<h3 class="title">Warning</h3>
+<p><code class="literal">atk_component_remove_focus_handler</code> is deprecated and should not be used in newly-written code. This method is deprecated since ATK version 2.9.4. If
+you need to track when an object gains or lose the focus, use
+state-changed:focused notification instead.</p>
+</div>
 <p>
 Remove the handler specified by <em class="parameter"><code>handler_id</code></em> from the list of
 functions to be executed when this object receives focus events 
@@ -606,11 +819,11 @@ Returns the alpha value (i.e. the opacity) for this
 <div class="refsect2">
 <a name="AtkComponent-bounds-changed"></a><h3>The <code class="literal">"bounds-changed"</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="AtkComponent.html" title="AtkComponent"><span class="type">AtkComponent</span></a> *atkcomponent,
-                                                        <span class="type">AtkRectangle</span> *arg1,
+                                                        <a class="link" href="AtkComponent.html#AtkRectangle" title="struct AtkRectangle"><span class="type">AtkRectangle</span></a> *arg1,
                                                         <span class="type">gpointer</span>      user_data)         : <code class="literal">Run Last</code></pre>
 <p>
-The 'bounds-changed" signal is emitted when the bposition or size of the
-a component changes.
+The 'bounds-changed" signal is emitted when the bposition or
+size of the component changes.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -634,6 +847,6 @@ a component changes.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

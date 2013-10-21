@@ -5,7 +5,7 @@
 
 /* nettle, low-level cryptographics library
  *
- * Copyright (C) 2002 Niels Möller
+ * Copyright (C) 2002 Niels MÃ¶ller
  *  
  * The nettle library is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -19,8 +19,8 @@
  * 
  * You should have received a copy of the GNU Lesser General Public License
  * along with the nettle library; see the file COPYING.LIB.  If not, write to
- * the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
- * MA 02111-1307, USA.
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02111-1301, USA.
  */
 
 #ifndef NETTLE_META_H_INCLUDED
@@ -158,12 +158,17 @@ extern const struct nettle_hash * const nettle_hashes[];
 extern const struct nettle_hash nettle_md2;
 extern const struct nettle_hash nettle_md4;
 extern const struct nettle_hash nettle_md5;
+extern const struct nettle_hash nettle_gosthash94;
 extern const struct nettle_hash nettle_ripemd160;
 extern const struct nettle_hash nettle_sha1;
 extern const struct nettle_hash nettle_sha224;
 extern const struct nettle_hash nettle_sha256;
 extern const struct nettle_hash nettle_sha384;
 extern const struct nettle_hash nettle_sha512;
+extern const struct nettle_hash nettle_sha3_224;
+extern const struct nettle_hash nettle_sha3_256;
+extern const struct nettle_hash nettle_sha3_384;
+extern const struct nettle_hash nettle_sha3_512;
 
 struct nettle_armor
 {

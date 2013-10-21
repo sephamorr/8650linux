@@ -22,13 +22,13 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
-#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
-#error "Only <gtk/gtk.h> can be included directly."
-#endif
-
 #ifndef __GTK_CHECK_BUTTON_H__
 #define __GTK_CHECK_BUTTON_H__
 
+
+#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
+#error "Only <gtk/gtk.h> can be included directly."
+#endif
 
 #include <gtk/gtktogglebutton.h>
 
@@ -66,9 +66,13 @@ struct _GtkCheckButtonClass
 };
 
 
+GDK_AVAILABLE_IN_ALL
 GType      gtk_check_button_get_type       (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkWidget* gtk_check_button_new               (void);
+GDK_AVAILABLE_IN_ALL
 GtkWidget* gtk_check_button_new_with_label    (const gchar *label);
+GDK_AVAILABLE_IN_ALL
 GtkWidget* gtk_check_button_new_with_mnemonic (const gchar *label);
 
 void _gtk_check_button_get_props (GtkCheckButton *check_button,

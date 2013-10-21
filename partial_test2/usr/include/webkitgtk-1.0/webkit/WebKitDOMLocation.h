@@ -21,11 +21,10 @@
 #ifndef WebKitDOMLocation_h
 #define WebKitDOMLocation_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_LOCATION            (webkit_dom_location_get_type())
@@ -55,6 +54,16 @@ webkit_dom_location_get_type (void);
 **/
 WEBKIT_API gchar*
 webkit_dom_location_get_origin(WebKitDOMLocation* self);
+
+/**
+ * webkit_dom_location_get_ancestor_origins:
+ * @self: A #WebKitDOMLocation
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMDOMStringList*
+webkit_dom_location_get_ancestor_origins(WebKitDOMLocation* self);
 
 G_END_DECLS
 

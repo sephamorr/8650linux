@@ -22,14 +22,15 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
+#ifndef __GTK_BORDER_H__
+#define __GTK_BORDER_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
 
-#ifndef __GTK_BORDER_H__
-#define __GTK_BORDER_H__
-
 #include <glib-object.h>
+#include <gdk/gdk.h>
 
 G_BEGIN_DECLS
 
@@ -55,9 +56,13 @@ struct _GtkBorder
   gint16 bottom;
 };
 
+GDK_AVAILABLE_IN_ALL
 GType      gtk_border_get_type (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkBorder *gtk_border_new      (void) G_GNUC_MALLOC;
+GDK_AVAILABLE_IN_ALL
 GtkBorder *gtk_border_copy     (const GtkBorder *border_);
+GDK_AVAILABLE_IN_ALL
 void       gtk_border_free     (GtkBorder       *border_);
 
 

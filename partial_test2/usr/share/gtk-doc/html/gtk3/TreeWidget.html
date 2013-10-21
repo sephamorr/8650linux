@@ -2,22 +2,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Tree and List Widget Overview</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>GTK+ 3 Reference Manual: Tree and List Widget Overview</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GTK+ 3 Reference Manual">
 <link rel="up" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
 <link rel="prev" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
 <link rel="next" href="GtkTreeModel.html" title="GtkTreeModel">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
-<td><a accesskey="p" href="TreeWidgetObjects.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="TreeWidgetObjects.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GTK+ 3 Reference Manual</th>
-<td><a accesskey="n" href="GtkTreeModel.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left"></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="TreeWidgetObjects.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="TreeWidgetObjects.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="GtkTreeModel.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
 <a name="TreeWidget"></a><div class="titlepage"></div>
@@ -29,7 +29,7 @@
 <td valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsect1">
-<a name="id670413"></a><h2>Overview</h2>
+<a name="id-1.3.12.2.3"></a><h2>Overview</h2>
 <p>
       To create a tree or list in GTK+, use the <a class="link" href="GtkTreeModel.html" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a> interface in
       conjunction with the <a class="link" href="GtkTreeView.html" title="GtkTreeView"><span class="type">GtkTreeView</span></a> widget.  This widget is
@@ -60,7 +60,7 @@
     </p>
 </div>
 <div class="refsect1">
-<a name="id943701"></a><h2>Creating a model</h2>
+<a name="id-1.3.12.2.4"></a><h2>Creating a model</h2>
 <p>
       GTK+ provides two simple models that can be used: the <a class="link" href="GtkListStore.html" title="GtkListStore"><span class="type">GtkListStore</span></a>
       and the <a class="link" href="GtkTreeStore.html" title="GtkTreeStore"><span class="type">GtkTreeStore</span></a>.  GtkListStore is used to model list widgets, 
@@ -74,7 +74,7 @@
     <tbody>
       <tr>
         <td class="listing_lines" align="right"><pre>1</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkListStore</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">store </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkListStore.html#gtk-list-store-new">gtk_list_store_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="number">2</span><span class="symbol">,</span><span class="normal"> <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-TYPE-STRING:CAPS">G_TYPE_STRING</a></span><span class="symbol">,</span><span class="normal"> <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-TYPE-BOOLEAN:CAPS">G_TYPE_BOOLEAN</a></span><span class="symbol">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkListStore</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">store </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkListStore.html#gtk-list-store-new">gtk_list_store_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="number">2</span><span class="symbol">,</span><span class="normal"> <a href="../gobject/gobject-Type-Information.html#G-TYPE-STRING:CAPS">G_TYPE_STRING</a></span><span class="symbol">,</span><span class="normal"> <a href="../gobject/gobject-Type-Information.html#G-TYPE-BOOLEAN:CAPS">G_TYPE_BOOLEAN</a></span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -113,9 +113,9 @@
 <span class="cbracket">}</span><span class="symbol">;</span>
 
 <span class="usertype">GtkTreeStore</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">store </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTreeStore.html#gtk-tree-store-new">gtk_tree_store_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">N_COLUMNS</span><span class="symbol">,</span><span class="normal">       </span><span class="comment">/* Total number of columns */</span>
-<span class="normal">                                          <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-TYPE-STRING:CAPS">G_TYPE_STRING</a></span><span class="symbol">,</span><span class="normal">   </span><span class="comment">/* Book title              */</span>
-<span class="normal">                                          <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-TYPE-STRING:CAPS">G_TYPE_STRING</a></span><span class="symbol">,</span><span class="normal">   </span><span class="comment">/* Author                  */</span>
-<span class="normal">                                          <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-TYPE-BOOLEAN:CAPS">G_TYPE_BOOLEAN</a></span><span class="symbol">);</span><span class="normal"> </span><span class="comment">/* Is checked out?         */</span></pre></td>
+<span class="normal">                                          <a href="../gobject/gobject-Type-Information.html#G-TYPE-STRING:CAPS">G_TYPE_STRING</a></span><span class="symbol">,</span><span class="normal">   </span><span class="comment">/* Book title              */</span>
+<span class="normal">                                          <a href="../gobject/gobject-Type-Information.html#G-TYPE-STRING:CAPS">G_TYPE_STRING</a></span><span class="symbol">,</span><span class="normal">   </span><span class="comment">/* Author                  */</span>
+<span class="normal">                                          <a href="../gobject/gobject-Type-Information.html#G-TYPE-BOOLEAN:CAPS">G_TYPE_BOOLEAN</a></span><span class="symbol">);</span><span class="normal"> </span><span class="comment">/* Is checked out?         */</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -147,12 +147,12 @@
 9</pre></td>
         <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkTreeIter</span><span class="normal">   iter</span><span class="symbol">;</span>
 
-<span class="function"><a href="GtkTreeStore.html#gtk-tree-store-append">gtk_tree_store_append</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">store</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">iter</span><span class="symbol">,</span><span class="normal"> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span><span class="normal">  </span><span class="comment">/* Acquire an iterator */</span>
+<span class="function"><a href="GtkTreeStore.html#gtk-tree-store-append">gtk_tree_store_append</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">store</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">iter</span><span class="symbol">,</span><span class="normal"> <a href="../glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span><span class="normal">  </span><span class="comment">/* Acquire an iterator */</span>
 
 <span class="function"><a href="GtkTreeStore.html#gtk-tree-store-set">gtk_tree_store_set</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">store</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">iter</span><span class="symbol">,</span>
 <span class="normal">                    TITLE_COLUMN</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"The Principle of Reason"</span><span class="symbol">,</span>
 <span class="normal">                    AUTHOR_COLUMN</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"Martin Heidegger"</span><span class="symbol">,</span>
-<span class="normal">                    CHECKED_COLUMN</span><span class="symbol">,</span><span class="normal"> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">,</span>
+<span class="normal">                    CHECKED_COLUMN</span><span class="symbol">,</span><span class="normal"> <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">,</span>
 <span class="normal">                    </span><span class="symbol">-</span><span class="number">1</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
@@ -202,11 +202,11 @@
         <td class="listing_code"><pre class="programlisting"><span class="usertype">GtkTreeIter</span><span class="normal"> iter1</span><span class="symbol">;</span><span class="normal">  </span><span class="comment">/* Parent iter */</span>
 <span class="usertype">GtkTreeIter</span><span class="normal"> iter2</span><span class="symbol">;</span><span class="normal">  </span><span class="comment">/* Child iter  */</span>
 
-<span class="function"><a href="GtkTreeStore.html#gtk-tree-store-append">gtk_tree_store_append</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">store</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">iter1</span><span class="symbol">,</span><span class="normal"> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span><span class="normal">  </span><span class="comment">/* Acquire a top-level iterator */</span>
+<span class="function"><a href="GtkTreeStore.html#gtk-tree-store-append">gtk_tree_store_append</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">store</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">iter1</span><span class="symbol">,</span><span class="normal"> <a href="../glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span><span class="normal">  </span><span class="comment">/* Acquire a top-level iterator */</span>
 <span class="function"><a href="GtkTreeStore.html#gtk-tree-store-set">gtk_tree_store_set</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">store</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">iter1</span><span class="symbol">,</span>
 <span class="normal">                    TITLE_COLUMN</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"The Art of Computer Programming"</span><span class="symbol">,</span>
 <span class="normal">                    AUTHOR_COLUMN</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"Donald E. Knuth"</span><span class="symbol">,</span>
-<span class="normal">                    CHECKED_COLUMN</span><span class="symbol">,</span><span class="normal"> <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">,</span>
+<span class="normal">                    CHECKED_COLUMN</span><span class="symbol">,</span><span class="normal"> <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS">FALSE</a></span><span class="symbol">,</span>
 <span class="normal">                    </span><span class="symbol">-</span><span class="number">1</span><span class="symbol">);</span>
 
 <span class="function"><a href="GtkTreeStore.html#gtk-tree-store-append">gtk_tree_store_append</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">store</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">iter2</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">iter1</span><span class="symbol">);</span><span class="normal">  </span><span class="comment">/* Acquire a child iterator */</span>
@@ -230,7 +230,7 @@
 
 </div>
 <div class="refsect1">
-<a name="id967294"></a><h2>Creating the view component</h2>
+<a name="id-1.3.12.2.5"></a><h2>Creating the view component</h2>
 <p>
       While there are several different models to choose from, there is
       only one view widget to deal with.  It works with either the list
@@ -254,7 +254,7 @@
 </div>
 
 <div class="refsect2">
-<a name="id967601"></a><h3>Columns and cell renderers</h3>
+<a name="id-1.3.12.2.5.4"></a><h3>Columns and cell renderers</h3>
 <p>
 	Once the <a class="link" href="GtkTreeView.html" title="GtkTreeView"><span class="type">GtkTreeView</span></a> widget has a model, it will need to know how 
         to display the model.  It does this with columns and cell renderers.
@@ -292,7 +292,7 @@
 <span class="normal">column </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTreeViewColumn.html#gtk-tree-view-column-new-with-attributes">gtk_tree_view_column_new_with_attributes</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Author"</span><span class="symbol">,</span>
 <span class="normal">                                                   renderer</span><span class="symbol">,</span>
 <span class="normal">                                                   </span><span class="string">"text"</span><span class="symbol">,</span><span class="normal"> AUTHOR_COLUMN</span><span class="symbol">,</span>
-<span class="normal">                                                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="normal">                                                   <a href="../glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
 <span class="function"><a href="GtkTreeView.html#gtk-tree-view-append-column">gtk_tree_view_append_column</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TREE_VIEW</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">tree</span><span class="symbol">),</span><span class="normal"> column</span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
@@ -307,7 +307,7 @@
 </div>
 <hr>
 <div class="refsect2">
-<a name="id922472"></a><h3>Selection handling</h3>
+<a name="id-1.3.12.2.5.5"></a><h3>Selection handling</h3>
 <p>
         Most applications will need to not only deal with displaying data, but 
         also receiving input events from users.  To do this, simply get a 
@@ -337,9 +337,9 @@
 
 <span class="normal">select </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTreeView.html#gtk-tree-view-get-selection">gtk_tree_view_get_selection</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TREE_VIEW</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">tree</span><span class="symbol">));</span>
 <span class="function"><a href="GtkTreeSelection.html#gtk-tree-selection-set-mode">gtk_tree_selection_set_mode</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">select</span><span class="symbol">,</span><span class="normal"> <a href="gtk3-Standard-Enumerations.html#GTK-SELECTION-SINGLE:CAPS">GTK_SELECTION_SINGLE</a></span><span class="symbol">);</span>
-<span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#G-OBJECT:CAPS">G_OBJECT</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">select</span><span class="symbol">),</span><span class="normal"> </span><span class="string">"changed"</span><span class="symbol">,</span>
-<span class="normal">                  </span><span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">tree_selection_changed_cb</span><span class="symbol">),</span>
-<span class="normal">                  <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span></pre></td>
+<span class="function"><a href="../gobject/gobject-Signals.html#g-signal-connect">g_signal_connect</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="../gobject/gobject-The-Base-Object-Type.html#G-OBJECT:CAPS">G_OBJECT</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">select</span><span class="symbol">),</span><span class="normal"> </span><span class="string">"changed"</span><span class="symbol">,</span>
+<span class="normal">                  </span><span class="function"><a href="../gobject/gobject-Closures.html#G-CALLBACK:CAPS">G_CALLBACK</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">tree_selection_changed_cb</span><span class="symbol">),</span>
+<span class="normal">                  <a href="../glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -379,9 +379,9 @@
 <span class="normal">        </span><span class="cbracket">{</span>
 <span class="normal">                </span><span class="function"><a href="GtkTreeModel.html#gtk-tree-model-get">gtk_tree_model_get</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">model</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">iter</span><span class="symbol">,</span><span class="normal"> AUTHOR_COLUMN</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">&amp;</span><span class="normal">author</span><span class="symbol">,</span><span class="normal"> </span><span class="symbol">-</span><span class="number">1</span><span class="symbol">);</span>
 
-<span class="normal">                </span><span class="function"><a href="http://library.gnome.org/devel/glib/unstable/glib-Warnings-and-Assertions.html#g-print">g_print</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"You selected a book by %s</span><span class="specialchar">\n</span><span class="string">"</span><span class="symbol">,</span><span class="normal"> author</span><span class="symbol">);</span>
+<span class="normal">                </span><span class="function"><a href="../glib/glib-Warnings-and-Assertions.html#g-print">g_print</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"You selected a book by %s</span><span class="specialchar">\n</span><span class="string">"</span><span class="symbol">,</span><span class="normal"> author</span><span class="symbol">);</span>
 
-<span class="normal">                </span><span class="function"><a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free">g_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">author</span><span class="symbol">);</span>
+<span class="normal">                </span><span class="function"><a href="../glib/glib-Memory-Allocation.html#g-free">g_free</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">author</span><span class="symbol">);</span>
 <span class="normal">        </span><span class="cbracket">}</span>
 <span class="cbracket">}</span></pre></td>
       </tr>
@@ -392,7 +392,7 @@
 </div>
 </div>
 <div class="refsect1">
-<a name="id1012331"></a><h2>Simple Example</h2>
+<a name="id-1.3.12.2.6"></a><h2>Simple Example</h2>
 <p>
       Here is a simple example of using a <a class="link" href="GtkTreeView.html" title="GtkTreeView"><span class="type">GtkTreeView</span></a> widget in context 
       of the other widgets.  It simply creates a simple model and view, 
@@ -491,9 +491,9 @@
 <span class="normal">   </span><span class="comment">/* Create a model.  We are using the store model for now, though we</span>
 <span class="comment">    * could use any other GtkTreeModel */</span>
 <span class="normal">   store </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTreeStore.html#gtk-tree-store-new">gtk_tree_store_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">N_COLUMNS</span><span class="symbol">,</span>
-<span class="normal">                               <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-TYPE-STRING:CAPS">G_TYPE_STRING</a></span><span class="symbol">,</span>
-<span class="normal">                               <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-TYPE-STRING:CAPS">G_TYPE_STRING</a></span><span class="symbol">,</span>
-<span class="normal">                               <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-TYPE-BOOLEAN:CAPS">G_TYPE_BOOLEAN</a></span><span class="symbol">);</span>
+<span class="normal">                               <a href="../gobject/gobject-Type-Information.html#G-TYPE-STRING:CAPS">G_TYPE_STRING</a></span><span class="symbol">,</span>
+<span class="normal">                               <a href="../gobject/gobject-Type-Information.html#G-TYPE-STRING:CAPS">G_TYPE_STRING</a></span><span class="symbol">,</span>
+<span class="normal">                               <a href="../gobject/gobject-Type-Information.html#G-TYPE-BOOLEAN:CAPS">G_TYPE_BOOLEAN</a></span><span class="symbol">);</span>
 
 <span class="normal">   </span><span class="comment">/* custom function to fill the model with data */</span>
 <span class="normal">   </span><span class="function">populate_tree_model</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">store</span><span class="symbol">);</span>
@@ -503,20 +503,20 @@
 
 <span class="normal">   </span><span class="comment">/* The view now holds a reference.  We can get rid of our own</span>
 <span class="comment">    * reference */</span>
-<span class="normal">   </span><span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#G-OBJECT:CAPS">G_OBJECT</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">store</span><span class="symbol">));</span>
+<span class="normal">   </span><span class="function"><a href="../gobject/gobject-The-Base-Object-Type.html#g-object-unref">g_object_unref</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="../gobject/gobject-The-Base-Object-Type.html#G-OBJECT:CAPS">G_OBJECT</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">store</span><span class="symbol">));</span>
 
 <span class="normal">   </span><span class="comment">/* Create a cell render and arbitrarily make it red for demonstration</span>
 <span class="comment">    * purposes */</span>
 <span class="normal">   renderer </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkCellRendererText.html#gtk-cell-renderer-text-new">gtk_cell_renderer_text_new</a></span><span class="normal"> </span><span class="symbol">();</span>
-<span class="normal">   </span><span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-set">g_object_set</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#G-OBJECT:CAPS">G_OBJECT</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">renderer</span><span class="symbol">),</span>
+<span class="normal">   </span><span class="function"><a href="../gobject/gobject-The-Base-Object-Type.html#g-object-set">g_object_set</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function"><a href="../gobject/gobject-The-Base-Object-Type.html#G-OBJECT:CAPS">G_OBJECT</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">renderer</span><span class="symbol">),</span>
 <span class="normal">                 </span><span class="string">"foreground"</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"red"</span><span class="symbol">,</span>
-<span class="normal">                 <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="normal">                 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
 
 <span class="normal">   </span><span class="comment">/* Create a column, associating the "text" attribute of the</span>
 <span class="comment">    * cell_renderer to the first column of the model */</span>
 <span class="normal">   column </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTreeViewColumn.html#gtk-tree-view-column-new-with-attributes">gtk_tree_view_column_new_with_attributes</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Author"</span><span class="symbol">,</span><span class="normal"> renderer</span><span class="symbol">,</span>
 <span class="normal">                                                      </span><span class="string">"text"</span><span class="symbol">,</span><span class="normal"> AUTHOR_COLUMN</span><span class="symbol">,</span>
-<span class="normal">                                                      <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="normal">                                                      <a href="../glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
 
 <span class="normal">   </span><span class="comment">/* Add the column to the view. */</span>
 <span class="normal">   </span><span class="function"><a href="GtkTreeView.html#gtk-tree-view-append-column">gtk_tree_view_append_column</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TREE_VIEW</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">tree</span><span class="symbol">),</span><span class="normal"> column</span><span class="symbol">);</span>
@@ -526,7 +526,7 @@
 <span class="normal">   column </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTreeViewColumn.html#gtk-tree-view-column-new-with-attributes">gtk_tree_view_column_new_with_attributes</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Title"</span><span class="symbol">,</span>
 <span class="normal">                                                      renderer</span><span class="symbol">,</span>
 <span class="normal">                                                      </span><span class="string">"text"</span><span class="symbol">,</span><span class="normal"> TITLE_COLUMN</span><span class="symbol">,</span>
-<span class="normal">                                                      <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="normal">                                                      <a href="../glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
 <span class="normal">   </span><span class="function"><a href="GtkTreeView.html#gtk-tree-view-append-column">gtk_tree_view_append_column</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TREE_VIEW</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">tree</span><span class="symbol">),</span><span class="normal"> column</span><span class="symbol">);</span>
 
 <span class="normal">   </span><span class="comment">/* Last column.. whether a book is checked out. */</span>
@@ -534,7 +534,7 @@
 <span class="normal">   column </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtkTreeViewColumn.html#gtk-tree-view-column-new-with-attributes">gtk_tree_view_column_new_with_attributes</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Checked out"</span><span class="symbol">,</span>
 <span class="normal">                                                      renderer</span><span class="symbol">,</span>
 <span class="normal">                                                      </span><span class="string">"active"</span><span class="symbol">,</span><span class="normal"> CHECKED_COLUMN</span><span class="symbol">,</span>
-<span class="normal">                                                      <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
+<span class="normal">                                                      <a href="../glib/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">);</span>
 <span class="normal">   </span><span class="function"><a href="GtkTreeView.html#gtk-tree-view-append-column">gtk_tree_view_append_column</a></span><span class="normal"> </span><span class="symbol">(</span><span class="function">GTK_TREE_VIEW</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">tree</span><span class="symbol">),</span><span class="normal"> column</span><span class="symbol">);</span>
 
 <span class="normal">   </span><span class="comment">/* Now we can manipulate the view just like any other GTK widget */</span>
@@ -551,6 +551,6 @@
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

@@ -5,7 +5,7 @@
 
 /* nettle, low-level cryptographics library
  *
- * Copyright (C) 2001 Niels Möller
+ * Copyright (C) 2001 Niels MÃ¶ller
  *  
  * The nettle library is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -19,8 +19,8 @@
  * 
  * You should have received a copy of the GNU Lesser General Public License
  * along with the nettle library; see the file COPYING.LIB.  If not, write to
- * the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
- * MA 02111-1307, USA.
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02111-1301, USA.
  */
  
 #ifndef NETTLE_BIGNUM_H_INCLUDED
@@ -71,29 +71,29 @@ nettle_mpz_init_set_str_256_u(mpz_t x,
 /* Returns a uniformly distributed random number 0 <= x < 2^n */
 void
 nettle_mpz_random_size(mpz_t x,
-		       void *ctx, nettle_random_func random,
+		       void *ctx, nettle_random_func *random,
 		       unsigned bits);
 
 /* Returns a number x, almost uniformly random in the range
  * 0 <= x < n. */
 void
 nettle_mpz_random(mpz_t x, 
-		  void *ctx, nettle_random_func random,
+		  void *ctx, nettle_random_func *random,
 		  const mpz_t n);
 
 void
 nettle_next_prime(mpz_t p, mpz_t n, unsigned count, unsigned prime_limit,
-		  void *progress_ctx, nettle_progress_func progress);
+		  void *progress_ctx, nettle_progress_func *progress);
 
 void
 nettle_random_prime(mpz_t p, unsigned bits, int top_bits_set,
-		    void *ctx, nettle_random_func random,
-		    void *progress_ctx, nettle_progress_func progress);
+		    void *ctx, nettle_random_func *random,
+		    void *progress_ctx, nettle_progress_func *progress);
 
 void
 _nettle_generate_pocklington_prime (mpz_t p, mpz_t r,
 				    unsigned bits, int top_bits_set, 
-				    void *ctx, nettle_random_func random, 
+				    void *ctx, nettle_random_func *random, 
 				    const mpz_t p0,
 				    const mpz_t q,
 				    const mpz_t p0q);

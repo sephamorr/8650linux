@@ -77,6 +77,9 @@ typedef struct _WebKitDOMDOMPluginClass WebKitDOMDOMPluginClass;
 typedef struct _WebKitDOMDOMPluginArray WebKitDOMDOMPluginArray;
 typedef struct _WebKitDOMDOMPluginArrayClass WebKitDOMDOMPluginArrayClass;
 
+typedef struct _WebKitDOMDOMSecurityPolicy WebKitDOMDOMSecurityPolicy;
+typedef struct _WebKitDOMDOMSecurityPolicyClass WebKitDOMDOMSecurityPolicyClass;
+
 typedef struct _WebKitDOMDOMSelection WebKitDOMDOMSelection;
 typedef struct _WebKitDOMDOMSelectionClass WebKitDOMDOMSelectionClass;
 
@@ -124,6 +127,12 @@ typedef struct _WebKitDOMFileClass WebKitDOMFileClass;
 
 typedef struct _WebKitDOMFileList WebKitDOMFileList;
 typedef struct _WebKitDOMFileListClass WebKitDOMFileListClass;
+
+typedef struct _WebKitDOMGamepad WebKitDOMGamepad;
+typedef struct _WebKitDOMGamepadClass WebKitDOMGamepadClass;
+
+typedef struct _WebKitDOMGamepadList WebKitDOMGamepadList;
+typedef struct _WebKitDOMGamepadListClass WebKitDOMGamepadListClass;
 
 typedef struct _WebKitDOMGeolocation WebKitDOMGeolocation;
 typedef struct _WebKitDOMGeolocationClass WebKitDOMGeolocationClass;
@@ -373,6 +382,9 @@ typedef struct _WebKitDOMScreenClass WebKitDOMScreenClass;
 
 typedef struct _WebKitDOMStorage WebKitDOMStorage;
 typedef struct _WebKitDOMStorageClass WebKitDOMStorageClass;
+
+typedef struct _WebKitDOMStorageInfo WebKitDOMStorageInfo;
+typedef struct _WebKitDOMStorageInfoClass WebKitDOMStorageInfoClass;
 
 typedef struct _WebKitDOMStyleMedia WebKitDOMStyleMedia;
 typedef struct _WebKitDOMStyleMediaClass WebKitDOMStyleMediaClass;

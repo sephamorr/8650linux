@@ -47,13 +47,13 @@
  *
  */
 
-#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
-#error "Only <gtk/gtk.h> can be included directly."
-#endif
-
 #ifndef __GTK_TEXT_TAG_H__
 #define __GTK_TEXT_TAG_H__
 
+
+#if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
+#error "Only <gtk/gtk.h> can be included directly."
+#endif
 
 #include <gdk/gdk.h>
 #include <gtk/gtkenums.h>
@@ -98,11 +98,16 @@ struct _GtkTextTagClass
   void (*_gtk_reserved4) (void);
 };
 
+GDK_AVAILABLE_IN_ALL
 GType        gtk_text_tag_get_type     (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkTextTag  *gtk_text_tag_new          (const gchar       *name);
+GDK_AVAILABLE_IN_ALL
 gint         gtk_text_tag_get_priority (GtkTextTag        *tag);
+GDK_AVAILABLE_IN_ALL
 void         gtk_text_tag_set_priority (GtkTextTag        *tag,
                                         gint               priority);
+GDK_AVAILABLE_IN_ALL
 gboolean     gtk_text_tag_event        (GtkTextTag        *tag,
                                         GObject           *event_object,
                                         GdkEvent          *event,

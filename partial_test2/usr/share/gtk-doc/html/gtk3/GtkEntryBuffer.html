@@ -2,26 +2,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>GtkEntryBuffer</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<title>GTK+ 3 Reference Manual: GtkEntryBuffer</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="GTK+ 3 Reference Manual">
 <link rel="up" href="NumericEntry.html" title="Numeric/Text Data Entry">
 <link rel="prev" href="GtkEntry.html" title="GtkEntry">
 <link rel="next" href="GtkEntryCompletion.html" title="GtkEntryCompletion">
-<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
-<tr valign="middle">
-<td><a accesskey="p" href="GtkEntry.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="NumericEntry.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GTK+ 3 Reference Manual</th>
-<td><a accesskey="n" href="GtkEntryCompletion.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
-</tr>
-<tr><td colspan="5" class="shortcuts">
-<a href="#GtkEntryBuffer.synopsis" class="shortcut">Top</a>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<td width="100%" align="left">
+<a href="#" class="shortcut">Top</a>
                    | 
                   <a href="#GtkEntryBuffer.description" class="shortcut">Description</a>
                    | 
@@ -30,8 +23,12 @@
                   <a href="#GtkEntryBuffer.properties" class="shortcut">Properties</a>
                    | 
                   <a href="#GtkEntryBuffer.signals" class="shortcut">Signals</a>
-</td></tr>
-</table>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="NumericEntry.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="GtkEntry.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="GtkEntryCompletion.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
 <div class="refentry">
 <a name="GtkEntryBuffer"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
@@ -47,53 +44,53 @@
 #include &lt;gtk/gtk.h&gt;
 
 struct              <a class="link" href="GtkEntryBuffer.html#GtkEntryBuffer-struct" title="struct GtkEntryBuffer">GtkEntryBuffer</a>;
-<a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="returnvalue">GtkEntryBuffer</span></a> *    <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-new" title="gtk_entry_buffer_new ()">gtk_entry_buffer_new</a>                (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *initial_chars</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_initial_chars</code></em>);
-const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-get-text" title="gtk_entry_buffer_get_text ()">gtk_entry_buffer_get_text</a>           (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>);
+<a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="returnvalue">GtkEntryBuffer</span></a> *    <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-new" title="gtk_entry_buffer_new ()">gtk_entry_buffer_new</a>                (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *initial_chars</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_initial_chars</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-get-text" title="gtk_entry_buffer_get_text ()">gtk_entry_buffer_get_text</a>           (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-set-text" title="gtk_entry_buffer_set_text ()">gtk_entry_buffer_set_text</a>           (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *chars</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_chars</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="returnvalue">gsize</span></a>               <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-get-bytes" title="gtk_entry_buffer_get_bytes ()">gtk_entry_buffer_get_bytes</a>          (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-get-length" title="gtk_entry_buffer_get_length ()">gtk_entry_buffer_get_length</a>         (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-get-max-length" title="gtk_entry_buffer_get_max_length ()">gtk_entry_buffer_get_max_length</a>     (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>);
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *chars</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_chars</code></em>);
+<a href="../glib/glib-Basic-Types.html#gsize"><span class="returnvalue">gsize</span></a>               <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-get-bytes" title="gtk_entry_buffer_get_bytes ()">gtk_entry_buffer_get_bytes</a>          (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>);
+<a href="../glib/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-get-length" title="gtk_entry_buffer_get_length ()">gtk_entry_buffer_get_length</a>         (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>);
+<a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-get-max-length" title="gtk_entry_buffer_get_max_length ()">gtk_entry_buffer_get_max_length</a>     (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-set-max-length" title="gtk_entry_buffer_set_max_length ()">gtk_entry_buffer_set_max_length</a>     (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> max_length</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-insert-text" title="gtk_entry_buffer_insert_text ()">gtk_entry_buffer_insert_text</a>        (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> position</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *chars</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_chars</code></em>);
-<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-delete-text" title="gtk_entry_buffer_delete_text ()">gtk_entry_buffer_delete_text</a>        (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> position</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_chars</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> max_length</code></em>);
+<a href="../glib/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-insert-text" title="gtk_entry_buffer_insert_text ()">gtk_entry_buffer_insert_text</a>        (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> position</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *chars</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_chars</code></em>);
+<a href="../glib/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-delete-text" title="gtk_entry_buffer_delete_text ()">gtk_entry_buffer_delete_text</a>        (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> position</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_chars</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-emit-deleted-text" title="gtk_entry_buffer_emit_deleted_text ()">gtk_entry_buffer_emit_deleted_text</a>  (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> position</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_chars</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> position</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_chars</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-emit-inserted-text" title="gtk_entry_buffer_emit_inserted_text ()">gtk_entry_buffer_emit_inserted_text</a> (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> position</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *chars</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_chars</code></em>);
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> position</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *chars</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_chars</code></em>);
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkEntryBuffer.object-hierarchy"></a><h2>Object Hierarchy</h2>
 <pre class="synopsis">
-  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
    +----GtkEntryBuffer
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkEntryBuffer.properties"></a><h2>Properties</h2>
 <pre class="synopsis">
-  "<a class="link" href="GtkEntryBuffer.html#GtkEntryBuffer--length" title='The "length" property'>length</a>"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read
-  "<a class="link" href="GtkEntryBuffer.html#GtkEntryBuffer--max-length" title='The "max-length" property'>max-length</a>"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write
-  "<a class="link" href="GtkEntryBuffer.html#GtkEntryBuffer--text" title='The "text" property'>text</a>"                     <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
+  "<a class="link" href="GtkEntryBuffer.html#GtkEntryBuffer--length" title='The "length" property'>length</a>"                   <a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read
+  "<a class="link" href="GtkEntryBuffer.html#GtkEntryBuffer--max-length" title='The "max-length" property'>max-length</a>"               <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write
+  "<a class="link" href="GtkEntryBuffer.html#GtkEntryBuffer--text" title='The "text" property'>text</a>"                     <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
 </pre>
 </div>
 <div class="refsect1">
 <a name="GtkEntryBuffer.signals"></a><h2>Signals</h2>
 <pre class="synopsis">
-  "<a class="link" href="GtkEntryBuffer.html#GtkEntryBuffer-deleted-text" title='The "deleted-text" signal'>deleted-text</a>"                                   : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a>
-  "<a class="link" href="GtkEntryBuffer.html#GtkEntryBuffer-inserted-text" title='The "inserted-text" signal'>inserted-text</a>"                                  : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a>
+  "<a class="link" href="GtkEntryBuffer.html#GtkEntryBuffer-deleted-text" title='The "deleted-text" signal'>deleted-text</a>"                                   : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a>
+  "<a class="link" href="GtkEntryBuffer.html#GtkEntryBuffer-inserted-text" title='The "inserted-text" signal'>inserted-text</a>"                                  : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a>
 </pre>
 </div>
 <div class="refsect1">
@@ -123,20 +120,23 @@ integrate with an application's concept of undo/redo.
 <hr>
 <div class="refsect2">
 <a name="gtk-entry-buffer-new"></a><h3>gtk_entry_buffer_new ()</h3>
-<pre class="programlisting"><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="returnvalue">GtkEntryBuffer</span></a> *    gtk_entry_buffer_new                (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *initial_chars</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_initial_chars</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="returnvalue">GtkEntryBuffer</span></a> *    gtk_entry_buffer_new                (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *initial_chars</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_initial_chars</code></em>);</pre>
 <p>
 Create a new GtkEntryBuffer object.
 </p>
 <p>
 Optionally, specify initial text to set in the buffer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>initial_chars</code></em> :</span></p></td>
-<td>initial buffer text, or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>initial buffer text, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -154,7 +154,7 @@ Optionally, specify initial text to set in the buffer.
 <hr>
 <div class="refsect2">
 <a name="gtk-entry-buffer-get-text"></a><h3>gtk_entry_buffer_get_text ()</h3>
-<pre class="programlisting">const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       gtk_entry_buffer_get_text           (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>);</pre>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       gtk_entry_buffer_get_text           (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>);</pre>
 <p>
 Retrieves the contents of the buffer.
 </p>
@@ -162,8 +162,11 @@ Retrieves the contents of the buffer.
 The memory pointer returned by this call will not change
 unless this object emits a signal, or is finalized.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
@@ -185,8 +188,8 @@ stored.</td>
 <div class="refsect2">
 <a name="gtk-entry-buffer-set-text"></a><h3>gtk_entry_buffer_set_text ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_entry_buffer_set_text           (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *chars</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_chars</code></em>);</pre>
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *chars</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_chars</code></em>);</pre>
 <p>
 Sets the text in the buffer.
 </p>
@@ -197,8 +200,11 @@ and <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-insert-text" titl
 <p>
 Note that <em class="parameter"><code>n_chars</code></em> is in characters, not in bytes.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
@@ -220,13 +226,16 @@ Note that <em class="parameter"><code>n_chars</code></em> is in characters, not 
 <hr>
 <div class="refsect2">
 <a name="gtk-entry-buffer-get-bytes"></a><h3>gtk_entry_buffer_get_bytes ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gsize"><span class="returnvalue">gsize</span></a>               gtk_entry_buffer_get_bytes          (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gsize"><span class="returnvalue">gsize</span></a>               gtk_entry_buffer_get_bytes          (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>);</pre>
 <p>
 Retrieves the length in bytes of the buffer.
 See <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-get-length" title="gtk_entry_buffer_get_length ()"><code class="function">gtk_entry_buffer_get_length()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
@@ -244,12 +253,15 @@ See <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-get-length" title
 <hr>
 <div class="refsect2">
 <a name="gtk-entry-buffer-get-length"></a><h3>gtk_entry_buffer_get_length ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gtk_entry_buffer_get_length         (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gtk_entry_buffer_get_length         (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>);</pre>
 <p>
 Retrieves the length in characters of the buffer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
@@ -267,13 +279,16 @@ Retrieves the length in characters of the buffer.
 <hr>
 <div class="refsect2">
 <a name="gtk-entry-buffer-get-max-length"></a><h3>gtk_entry_buffer_get_max_length ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gtk_entry_buffer_get_max_length     (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gtk_entry_buffer_get_max_length     (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>);</pre>
 <p>
 Retrieves the maximum allowed length of the text in
 <em class="parameter"><code>buffer</code></em>. See <a class="link" href="GtkEntryBuffer.html#gtk-entry-buffer-set-max-length" title="gtk_entry_buffer_set_max_length ()"><code class="function">gtk_entry_buffer_set_max_length()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
@@ -293,14 +308,17 @@ in <a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class
 <div class="refsect2">
 <a name="gtk-entry-buffer-set-max-length"></a><h3>gtk_entry_buffer_set_max_length ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_entry_buffer_set_max_length     (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> max_length</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> max_length</code></em>);</pre>
 <p>
 Sets the maximum allowed length of the contents of the buffer. If
 the current contents are longer than the given length, then they
 will be truncated to fit.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
@@ -320,10 +338,10 @@ be clamped to the range 0-65536.</td>
 <hr>
 <div class="refsect2">
 <a name="gtk-entry-buffer-insert-text"></a><h3>gtk_entry_buffer_insert_text ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gtk_entry_buffer_insert_text        (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> position</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *chars</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_chars</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gtk_entry_buffer_insert_text        (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> position</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *chars</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_chars</code></em>);</pre>
 <p>
 Inserts <em class="parameter"><code>n_chars</code></em> characters of <em class="parameter"><code>chars</code></em> into the contents of the
 buffer, at position <em class="parameter"><code>position</code></em>.
@@ -337,8 +355,11 @@ coerced to sane values.
 <p>
 Note that the position and length are in characters, not in bytes.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
@@ -368,9 +389,9 @@ Note that the position and length are in characters, not in bytes.
 <hr>
 <div class="refsect2">
 <a name="gtk-entry-buffer-delete-text"></a><h3>gtk_entry_buffer_delete_text ()</h3>
-<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gtk_entry_buffer_delete_text        (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> position</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_chars</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gtk_entry_buffer_delete_text        (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> position</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_chars</code></em>);</pre>
 <p>
 Deletes a sequence of characters from the buffer. <em class="parameter"><code>n_chars</code></em> characters are
 deleted starting at <em class="parameter"><code>position</code></em>. If <em class="parameter"><code>n_chars</code></em> is negative, then all characters
@@ -383,8 +404,11 @@ values.
 <p>
 Note that the positions are specified in characters, not bytes.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
@@ -411,13 +435,16 @@ Note that the positions are specified in characters, not bytes.
 <div class="refsect2">
 <a name="gtk-entry-buffer-emit-deleted-text"></a><h3>gtk_entry_buffer_emit_deleted_text ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_entry_buffer_emit_deleted_text  (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> position</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_chars</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> position</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_chars</code></em>);</pre>
 <p>
 Used when subclassing <a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
@@ -440,14 +467,17 @@ Used when subclassing <a class="link" href="GtkEntryBuffer.html" title="GtkEntry
 <div class="refsect2">
 <a name="gtk-entry-buffer-emit-inserted-text"></a><h3>gtk_entry_buffer_emit_inserted_text ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_entry_buffer_emit_inserted_text (<em class="parameter"><code><a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> position</code></em>,
-                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *chars</code></em>,
-                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_chars</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> position</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *chars</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> n_chars</code></em>);</pre>
 <p>
 Used when subclassing <a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
@@ -475,7 +505,7 @@ Used when subclassing <a class="link" href="GtkEntryBuffer.html" title="GtkEntry
 <a name="GtkEntryBuffer.property-details"></a><h2>Property Details</h2>
 <div class="refsect2">
 <a name="GtkEntryBuffer--length"></a><h3>The <code class="literal">"length"</code> property</h3>
-<pre class="programlisting">  "length"                   <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read</pre>
+<pre class="programlisting">  "length"                   <a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a>                 : Read</pre>
 <p>
 The length (in characters) of the text in buffer.
 </p>
@@ -486,7 +516,7 @@ The length (in characters) of the text in buffer.
 <hr>
 <div class="refsect2">
 <a name="GtkEntryBuffer--max-length"></a><h3>The <code class="literal">"max-length"</code> property</h3>
-<pre class="programlisting">  "max-length"               <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write</pre>
+<pre class="programlisting">  "max-length"               <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a>                  : Read / Write</pre>
 <p>
 The maximum length (in characters) of the text in the buffer.
 </p>
@@ -497,7 +527,7 @@ The maximum length (in characters) of the text in the buffer.
 <hr>
 <div class="refsect2">
 <a name="GtkEntryBuffer--text"></a><h3>The <code class="literal">"text"</code> property</h3>
-<pre class="programlisting">  "text"                     <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
+<pre class="programlisting">  "text"                     <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
 <p>
 The contents of the buffer.
 </p>
@@ -510,14 +540,17 @@ The contents of the buffer.
 <div class="refsect2">
 <a name="GtkEntryBuffer-deleted-text"></a><h3>The <code class="literal">"deleted-text"</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>           position,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>           n_chars,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>        user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a></pre>
+                                                        <a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a>           position,
+                                                        <a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a>           n_chars,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>        user_data)      : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a></pre>
 <p>
 This signal is emitted after text is deleted from the buffer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
@@ -544,15 +577,18 @@ This signal is emitted after text is deleted from the buffer.
 <div class="refsect2">
 <a name="GtkEntryBuffer-inserted-text"></a><h3>The <code class="literal">"inserted-text"</code> signal</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GtkEntryBuffer.html" title="GtkEntryBuffer"><span class="type">GtkEntryBuffer</span></a> *buffer,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>           position,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>          *chars,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a>           n_chars,
-                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>        user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a></pre>
+                                                        <a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a>           position,
+                                                        <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>          *chars,
+                                                        <a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a>           n_chars,
+                                                        <a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>        user_data)      : <a href="../gobject/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a></pre>
 <p>
 This signal is emitted after text is inserted into the buffer.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
@@ -583,6 +619,6 @@ This signal is emitted after text is inserted into the buffer.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18.1</div>
+          Generated by GTK-Doc V1.19.1</div>
 </body>
 </html>

@@ -7,31 +7,14 @@
 PACKAGE="sane-backends"
 scriptname="sane-config"
 
-LINKER_RPATH="-Wl,-rpath,"
-
 prefix="/usr"
 exec_prefix="${prefix}"
 
-LDFLAGS=" "
-LIBS=" -L/usr/lib -lnetsnmp -lcrypto -lm -ldl -lv4l1   -lm -ltiff -ljpeg  -lgphoto2 -lgphoto2_port -lm -lexif     -lavahi-common -lavahi-client    -lusb  "
-pkgincludedir="@pkgincludedir@"
-pkglibdir="@pkglibdir@"
-includedir="${prefix}/include"
-mandir="${datarootdir}/man"
-infodir="${datarootdir}/info"
-libdir="${exec_prefix}/lib"
-localstatedir="/var"
-sysconfdir="/etc"
-datarootdir="${prefix}/share"
-datadir="${datarootdir}"
-libexecdir="${exec_prefix}/libexec"
-sbindir="${exec_prefix}/sbin"
-bindir="${exec_prefix}/bin"
-#${prefix}
-#exec_prefix_set=no
-srcdir="."
-top_srcdir=".."
-cflags=
+# using our installed *.pc only - neither default nor user paths
+export PKG_CONFIG_LIBDIR="${exec_prefix}/lib/pkgconfig"
+export PKG_CONFIG_PATH=""
+
+pkgconfig_package=sane-backends
 
 usage ()
 {
@@ -54,13 +37,13 @@ fi
 if test $# -gt 0; then
   case $1 in
     --version)
-      echo 1.0.22
+      echo 1.0.24
       ;;
     --help)
       if test $# -eq 1; then
         usage
       elif test $# -eq 2; then
-        case $2 in 
+        case $2 in
           --cflags)
             echo "Usage: $0 --cflags"
             echo "  Print C compiler flags for compiling code that uses SANE."
@@ -85,33 +68,19 @@ if test $# -gt 0; then
       exit 1
       ;;
     --ldflags)
-
-      if test -z "$LINKER_RPATH"; then
-        echo "-L${libdir} " 
-      else
-        echo "-L${libdir}  ${LINKER_RPATH}${libdir}"
-      fi
+      pkg-config --libs-only-L "$pkgconfig_package"
       ;;
     --libs)
-      echo "-lsane ${LIBS}"
+      pkg-config --libs "$pkgconfig_package"
       ;;
     --cflags)
-      unique_cflags=
-      if test "${includedir}" != "/usr/include"; then
-        unique_cflags="${unique_cflags} -I${includedir}"
-      fi
-      for i in $cflags; do
-        if test "${i}" != "-I${includedir}"; then
-          unique_cflags="${unique_cflags} $i"
-        fi
-      done
-      echo ${unique_cflags}
+      pkg-config --cflags "$pkgconfig_package"
       ;;
     --prefix)
-      echo ${prefix}
+      echo "${prefix}"
       ;;
     --exec-prefix)
-      echo ${exec_prefix}
+      echo "${exec_prefix}"
       ;;
     *)
       usage

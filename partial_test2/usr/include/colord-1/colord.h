@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*-
  *
- * Copyright (C) 2010-2011 Richard Hughes <richard@hughsie.com>
+ * Copyright (C) 2010-2013 Richard Hughes <richard@hughsie.com>
  *
  * Licensed under the GNU Lesser General Public License Version 2.1
  *
@@ -34,19 +34,33 @@
 
 #define __COLORD_H_INSIDE__
 
+#ifdef CD_DISABLE_DEPRECATED
+ #define CD_USE_ALLOC_GSLICE
+#endif
+
+#include <colord/cd-buffer.h>
 #include <colord/cd-client.h>
 #include <colord/cd-client-sync.h>
 #include <colord/cd-color.h>
+#include <colord/cd-deprecated.h>
 #include <colord/cd-device.h>
 #include <colord/cd-device-sync.h>
+#include <colord/cd-dom.h>
 #include <colord/cd-enum.h>
+#include <colord/cd-icc.h>
+#include <colord/cd-icc-store.h>
+#include <colord/cd-interp-akima.h>
+#include <colord/cd-interp-linear.h>
+#include <colord/cd-interp.h>
 #include <colord/cd-it8.h>
 #include <colord/cd-it8-utils.h>
 #include <colord/cd-math.h>
 #include <colord/cd-profile.h>
 #include <colord/cd-profile-sync.h>
+#include <colord/cd-quirk.h>
 #include <colord/cd-sensor.h>
 #include <colord/cd-sensor-sync.h>
+#include <colord/cd-transform.h>
 #include <colord/cd-version.h>
 
 #undef __COLORD_H_INSIDE__

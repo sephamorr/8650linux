@@ -21,11 +21,10 @@
 #ifndef WebKitDOMUIEvent_h
 #define WebKitDOMUIEvent_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMEvent.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMEvent.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_UI_EVENT            (webkit_dom_ui_event_get_type())
@@ -50,7 +49,7 @@ webkit_dom_ui_event_get_type (void);
  * webkit_dom_ui_event_init_ui_event:
  * @self: A #WebKitDOMUIEvent
  * @type: A #gchar
- * @can_bubble: A #gboolean
+ * @canBubble: A #gboolean
  * @cancelable: A #gboolean
  * @view: A #WebKitDOMDOMWindow
  * @detail: A #glong
@@ -59,7 +58,7 @@ webkit_dom_ui_event_get_type (void);
  *
 **/
 WEBKIT_API void
-webkit_dom_ui_event_init_ui_event(WebKitDOMUIEvent* self, const gchar* type, gboolean can_bubble, gboolean cancelable, WebKitDOMDOMWindow* view, glong detail);
+webkit_dom_ui_event_init_ui_event(WebKitDOMUIEvent* self, const gchar* type, gboolean canBubble, gboolean cancelable, WebKitDOMDOMWindow* view, glong detail);
 
 /**
  * webkit_dom_ui_event_get_view:

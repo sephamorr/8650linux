@@ -23,35 +23,26 @@
     </property>
 
     <!--***********************************************************-->
-<!--
-    <method name='GetProfilesForFile'>
+    <property name='SystemVendor' type='s' access='read'>
       <doc:doc>
         <doc:description>
           <doc:para>
-            Gets the profiles for a file.
+            The system vendor.
           </doc:para>
         </doc:description>
       </doc:doc>
-      <arg type='s' name='filename' direction='in'>
-        <doc:doc>
-          <doc:summary>
-            <doc:para>
-              Fully qualified filename, e.g. <doc:tt>/home/hughsie/Photos/Hughsie.jpg</doc:tt>.
-            </doc:para>
-          </doc:summary>
-        </doc:doc>
-      </arg>
-      <arg type='ao' name='profiles' direction='out'>
-        <doc:doc>
-          <doc:summary>
-            <doc:para>
-              An array of profile paths to use with this type of device.
-            </doc:para>
-          </doc:summary>
-        </doc:doc>
-      </arg>
-    </method>
--->
+    </property>
+
+    <!--***********************************************************-->
+    <property name='SystemModel' type='s' access='read'>
+      <doc:doc>
+        <doc:description>
+          <doc:para>
+            The system model.
+          </doc:para>
+        </doc:description>
+      </doc:doc>
+    </property>
 
     <!--***********************************************************-->
     <method name='GetDevices'>
@@ -137,6 +128,35 @@
     </method>
 
     <!--***********************************************************-->
+    <method name='FindSensorById'>
+      <doc:doc>
+        <doc:description>
+          <doc:para>
+            Gets a sensor path for the sensor ID.
+          </doc:para>
+        </doc:description>
+      </doc:doc>
+      <arg type='s' name='sensor_id' direction='in'>
+        <doc:doc>
+          <doc:summary>
+            <doc:para>
+              A sensor ID.
+            </doc:para>
+          </doc:summary>
+        </doc:doc>
+      </arg>
+      <arg type='o' name='object_path' direction='out'>
+        <doc:doc>
+          <doc:summary>
+            <doc:para>
+              A sensor path.
+            </doc:para>
+          </doc:summary>
+        </doc:doc>
+      </arg>
+    </method>
+
+    <!--***********************************************************-->
     <method name='FindDeviceByProperty'>
       <doc:doc>
         <doc:description>
@@ -204,11 +224,50 @@
     </method>
 
     <!--***********************************************************-->
+    <method name='FindProfileByProperty'>
+      <doc:doc>
+        <doc:description>
+          <doc:para>
+            Gets a profile path for the profile with the specified property.
+          </doc:para>
+        </doc:description>
+      </doc:doc>
+      <arg type='s' name='key' direction='in'>
+        <doc:doc>
+          <doc:summary>
+            <doc:para>
+              A property key, e.g. <doc:tt>FILE_checksum</doc:tt>.
+            </doc:para>
+          </doc:summary>
+        </doc:doc>
+      </arg>
+      <arg type='s' name='value' direction='in'>
+        <doc:doc>
+          <doc:summary>
+            <doc:para>
+              A property value, e.g. <doc:tt>5b3855e8630c9d8a48177cc70680da93</doc:tt>.
+            </doc:para>
+          </doc:summary>
+        </doc:doc>
+      </arg>
+      <arg type='o' name='object_path' direction='out'>
+        <doc:doc>
+          <doc:summary>
+            <doc:para>
+              A profile path.
+            </doc:para>
+          </doc:summary>
+        </doc:doc>
+      </arg>
+    </method>
+
+    <!--***********************************************************-->
     <method name='FindProfileByFilename'>
       <doc:doc>
         <doc:description>
           <doc:para>
-            Gets a profile path for the profile filename.
+            Gets a profile path for the profile filename, either a fully-qualified
+            filename with path or just the basename of the profile.
           </doc:para>
         </doc:description>
       </doc:doc>
@@ -249,7 +308,7 @@
           </doc:para>
         </doc:description>
       </doc:doc>
-      <arg type='s' name='standard-space' direction='in'>
+      <arg type='s' name='standard_space' direction='in'>
         <doc:doc>
           <doc:summary>
             <doc:para>
@@ -420,6 +479,7 @@
         </doc:doc>
       </arg>
       <arg type='a{ss}' name='properties' direction='in'>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.In3" value="CdStringMap"/>
         <doc:doc>
           <doc:summary>
             <doc:para>
@@ -481,6 +541,7 @@
         </doc:doc>
       </arg>
       <arg type='a{ss}' name='properties' direction='in'>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.In2" value="CdStringMap"/>
         <doc:doc>
           <doc:summary>
             <doc:para>
@@ -561,6 +622,7 @@
         </doc:doc>
       </arg>
       <arg type='a{ss}' name='properties' direction='in'>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.In2" value="CdStringMap"/>
         <doc:doc>
           <doc:summary>
             <doc:para>

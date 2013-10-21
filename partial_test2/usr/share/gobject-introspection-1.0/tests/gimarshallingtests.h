@@ -21,14 +21,14 @@ typedef struct _GIMarshallingTestsBoxedStruct GIMarshallingTestsBoxedStruct;
 gboolean gi_marshalling_tests_boolean_return_true (void);
 gboolean gi_marshalling_tests_boolean_return_false (void);
 
-void gi_marshalling_tests_boolean_in_true (gboolean bool_);
-void gi_marshalling_tests_boolean_in_false (gboolean bool_);
+void gi_marshalling_tests_boolean_in_true (gboolean v);
+void gi_marshalling_tests_boolean_in_false (gboolean v);
 
-void gi_marshalling_tests_boolean_out_true (gboolean *bool_);
-void gi_marshalling_tests_boolean_out_false (gboolean *bool_);
+void gi_marshalling_tests_boolean_out_true (gboolean *v);
+void gi_marshalling_tests_boolean_out_false (gboolean *v);
 
-void gi_marshalling_tests_boolean_inout_true_false (gboolean *bool_);
-void gi_marshalling_tests_boolean_inout_false_true (gboolean *bool_);
+void gi_marshalling_tests_boolean_inout_true_false (gboolean *v);
+void gi_marshalling_tests_boolean_inout_false_true (gboolean *v);
 
 
 /* Integers */
@@ -36,85 +36,85 @@ void gi_marshalling_tests_boolean_inout_false_true (gboolean *bool_);
 gint8 gi_marshalling_tests_int8_return_max (void);
 gint8 gi_marshalling_tests_int8_return_min (void);
 
-void gi_marshalling_tests_int8_in_max (gint8 int8);
-void gi_marshalling_tests_int8_in_min (gint8 int8);
+void gi_marshalling_tests_int8_in_max (gint8 v);
+void gi_marshalling_tests_int8_in_min (gint8 v);
 
-void gi_marshalling_tests_int8_out_max (gint8 *int8);
-void gi_marshalling_tests_int8_out_min (gint8 *int8);
+void gi_marshalling_tests_int8_out_max (gint8 *v);
+void gi_marshalling_tests_int8_out_min (gint8 *v);
 
-void gi_marshalling_tests_int8_inout_max_min (gint8 *int8);
-void gi_marshalling_tests_int8_inout_min_max (gint8 *int8);
+void gi_marshalling_tests_int8_inout_max_min (gint8 *v);
+void gi_marshalling_tests_int8_inout_min_max (gint8 *v);
 
 
 guint8 gi_marshalling_tests_uint8_return (void);
 
-void gi_marshalling_tests_uint8_in (guint8 uint8);
+void gi_marshalling_tests_uint8_in (guint8 v);
 
-void gi_marshalling_tests_uint8_out (guint8 *uint8);
-void gi_marshalling_tests_uint8_inout (guint8 *uint8);
+void gi_marshalling_tests_uint8_out (guint8 *v);
+void gi_marshalling_tests_uint8_inout (guint8 *v);
 
 
 gint16 gi_marshalling_tests_int16_return_max (void);
 gint16 gi_marshalling_tests_int16_return_min (void);
 
-void gi_marshalling_tests_int16_in_max (gint16 int16);
-void gi_marshalling_tests_int16_in_min (gint16 int16);
+void gi_marshalling_tests_int16_in_max (gint16 v);
+void gi_marshalling_tests_int16_in_min (gint16 v);
 
-void gi_marshalling_tests_int16_out_max (gint16 *int16);
-void gi_marshalling_tests_int16_out_min (gint16 *int16);
+void gi_marshalling_tests_int16_out_max (gint16 *v);
+void gi_marshalling_tests_int16_out_min (gint16 *v);
 
-void gi_marshalling_tests_int16_inout_max_min (gint16 *int16);
-void gi_marshalling_tests_int16_inout_min_max (gint16 *int16);
+void gi_marshalling_tests_int16_inout_max_min (gint16 *v);
+void gi_marshalling_tests_int16_inout_min_max (gint16 *v);
 
 
 guint16 gi_marshalling_tests_uint16_return (void);
 
-void gi_marshalling_tests_uint16_in (guint16 uint16);
+void gi_marshalling_tests_uint16_in (guint16 v);
 
-void gi_marshalling_tests_uint16_out (guint16 *uint16);
-void gi_marshalling_tests_uint16_inout (guint16 *uint16);
+void gi_marshalling_tests_uint16_out (guint16 *v);
+void gi_marshalling_tests_uint16_inout (guint16 *v);
 
 
 gint32 gi_marshalling_tests_int32_return_max (void);
 gint32 gi_marshalling_tests_int32_return_min (void);
 
-void gi_marshalling_tests_int32_in_max (gint32 int32);
-void gi_marshalling_tests_int32_in_min (gint32 int32);
+void gi_marshalling_tests_int32_in_max (gint32 v);
+void gi_marshalling_tests_int32_in_min (gint32 v);
 
-void gi_marshalling_tests_int32_out_max (gint32 *int32);
-void gi_marshalling_tests_int32_out_min (gint32 *int32);
+void gi_marshalling_tests_int32_out_max (gint32 *v);
+void gi_marshalling_tests_int32_out_min (gint32 *v);
 
-void gi_marshalling_tests_int32_inout_max_min (gint32 *int32);
-void gi_marshalling_tests_int32_inout_min_max (gint32 *int32);
+void gi_marshalling_tests_int32_inout_max_min (gint32 *v);
+void gi_marshalling_tests_int32_inout_min_max (gint32 *v);
 
 
 guint32 gi_marshalling_tests_uint32_return (void);
 
-void gi_marshalling_tests_uint32_in (guint32 uint32);
+void gi_marshalling_tests_uint32_in (guint32 v);
 
-void gi_marshalling_tests_uint32_out (guint32 *uint32);
-void gi_marshalling_tests_uint32_inout (guint32 *uint32);
+void gi_marshalling_tests_uint32_out (guint32 *v);
+void gi_marshalling_tests_uint32_inout (guint32 *v);
 
 
 gint64 gi_marshalling_tests_int64_return_max (void);
 gint64 gi_marshalling_tests_int64_return_min (void);
 
-void gi_marshalling_tests_int64_in_max (gint64 int64);
-void gi_marshalling_tests_int64_in_min (gint64 int64);
+void gi_marshalling_tests_int64_in_max (gint64 v);
+void gi_marshalling_tests_int64_in_min (gint64 v);
 
-void gi_marshalling_tests_int64_out_max (gint64 *int64);
-void gi_marshalling_tests_int64_out_min (gint64 *int64);
+void gi_marshalling_tests_int64_out_max (gint64 *v);
+void gi_marshalling_tests_int64_out_min (gint64 *v);
 
-void gi_marshalling_tests_int64_inout_max_min (gint64 *int64);
-void gi_marshalling_tests_int64_inout_min_max (gint64 *int64);
+void gi_marshalling_tests_int64_inout_max_min (gint64 *v);
+void gi_marshalling_tests_int64_inout_min_max (gint64 *v);
 
 
 guint64 gi_marshalling_tests_uint64_return (void);
 
-void gi_marshalling_tests_uint64_in (guint64 uint64);
+void gi_marshalling_tests_uint64_in (guint64 v);
 
-void gi_marshalling_tests_uint64_out (guint64 *uint64);
-void gi_marshalling_tests_uint64_inout (guint64 *uint64);
+void gi_marshalling_tests_uint64_out (guint64 *v);
+void gi_marshalling_tests_uint64_inout (guint64 *v);
 
 
 gshort gi_marshalling_tests_short_return_max (void);
@@ -205,31 +205,31 @@ void gi_marshalling_tests_size_inout (gsize *size);
 
 gfloat gi_marshalling_tests_float_return (void);
 
-void gi_marshalling_tests_float_in (gfloat float_);
+void gi_marshalling_tests_float_in (gfloat v);
 
-void gi_marshalling_tests_float_out (gfloat *float_);
+void gi_marshalling_tests_float_out (gfloat *v);
 
-void gi_marshalling_tests_float_inout (gfloat *float_);
+void gi_marshalling_tests_float_inout (gfloat *v);
 
 
 gdouble gi_marshalling_tests_double_return (void);
 
-void gi_marshalling_tests_double_in (gdouble double_);
+void gi_marshalling_tests_double_in (gdouble v);
 
-void gi_marshalling_tests_double_out (gdouble *double_);
+void gi_marshalling_tests_double_out (gdouble *v);
 
-void gi_marshalling_tests_double_inout (gdouble *double_);
+void gi_marshalling_tests_double_inout (gdouble *v);
 
 
 /* Timestamps */
 
 time_t gi_marshalling_tests_time_t_return (void);
 
-void gi_marshalling_tests_time_t_in (time_t time_t_);
+void gi_marshalling_tests_time_t_in (time_t v);
 
-void gi_marshalling_tests_time_t_out (time_t *time_t_);
+void gi_marshalling_tests_time_t_out (time_t *v);
 
-void gi_marshalling_tests_time_t_inout (time_t *time_t_);
+void gi_marshalling_tests_time_t_inout (time_t *v);
 
 
 /* GType */
@@ -267,6 +267,10 @@ void gi_marshalling_tests_utf8_full_inout (gchar **utf8);
 
 GSList *gi_marshalling_tests_filename_list_return (void);
 
+void gi_marshalling_tests_utf8_as_uint8array_in (const guint8 *array,
+                                                 gsize         len);
+
+
 /* Enum */
 
 typedef enum
@@ -284,11 +288,11 @@ typedef enum
 
 GIMarshallingTestsEnum gi_marshalling_tests_enum_returnv (void);
 
-void gi_marshalling_tests_enum_in (GIMarshallingTestsEnum enum_);
+void gi_marshalling_tests_enum_in (GIMarshallingTestsEnum v);
 
-void gi_marshalling_tests_enum_out (GIMarshallingTestsEnum *enum_);
+void gi_marshalling_tests_enum_out (GIMarshallingTestsEnum *v);
 
-void gi_marshalling_tests_enum_inout (GIMarshallingTestsEnum *enum_);
+void gi_marshalling_tests_enum_inout (GIMarshallingTestsEnum *v);
 
 
 /* GEnum */
@@ -303,13 +307,13 @@ typedef enum
 GType gi_marshalling_tests_genum_get_type (void) G_GNUC_CONST;
 #define GI_MARSHALLING_TESTS_TYPE_GENUM (gi_marshalling_tests_genum_get_type ())
 
-GIMarshallingTestsEnum gi_marshalling_tests_genum_returnv (void);
+GIMarshallingTestsGEnum gi_marshalling_tests_genum_returnv (void);
 
-void gi_marshalling_tests_genum_in (GIMarshallingTestsGEnum enum_);
+void gi_marshalling_tests_genum_in (GIMarshallingTestsGEnum v);
 
-void gi_marshalling_tests_genum_out (GIMarshallingTestsGEnum *enum_);
+void gi_marshalling_tests_genum_out (GIMarshallingTestsGEnum *v);
 
-void gi_marshalling_tests_genum_inout (GIMarshallingTestsGEnum *enum_);
+void gi_marshalling_tests_genum_inout (GIMarshallingTestsGEnum *v);
 
 
 /* GFlags */
@@ -329,12 +333,12 @@ GType gi_marshalling_tests_flags_get_type (void) G_GNUC_CONST;
 
 GIMarshallingTestsFlags gi_marshalling_tests_flags_returnv (void);
 
-void gi_marshalling_tests_flags_in (GIMarshallingTestsFlags flags_);
-void gi_marshalling_tests_flags_in_zero (GIMarshallingTestsFlags flags);
+void gi_marshalling_tests_flags_in (GIMarshallingTestsFlags v);
+void gi_marshalling_tests_flags_in_zero (GIMarshallingTestsFlags v);
 
-void gi_marshalling_tests_flags_out (GIMarshallingTestsFlags *flags_);
+void gi_marshalling_tests_flags_out (GIMarshallingTestsFlags *v);
 
-void gi_marshalling_tests_flags_inout (GIMarshallingTestsFlags *flags_);
+void gi_marshalling_tests_flags_inout (GIMarshallingTestsFlags *v);
 
 /* Flags with no GType */
 
@@ -350,12 +354,12 @@ typedef enum
 
 GIMarshallingTestsNoTypeFlags gi_marshalling_tests_no_type_flags_returnv (void);
 
-void gi_marshalling_tests_no_type_flags_in (GIMarshallingTestsNoTypeFlags flags_);
-void gi_marshalling_tests_no_type_flags_in_zero (GIMarshallingTestsNoTypeFlags flags);
+void gi_marshalling_tests_no_type_flags_in (GIMarshallingTestsNoTypeFlags v);
+void gi_marshalling_tests_no_type_flags_in_zero (GIMarshallingTestsNoTypeFlags v);
 
-void gi_marshalling_tests_no_type_flags_out (GIMarshallingTestsNoTypeFlags *flags_);
+void gi_marshalling_tests_no_type_flags_out (GIMarshallingTestsNoTypeFlags *v);
 
-void gi_marshalling_tests_no_type_flags_inout (GIMarshallingTestsNoTypeFlags *flags_);
+void gi_marshalling_tests_no_type_flags_inout (GIMarshallingTestsNoTypeFlags *v);
 
 /* Arrays */
 
@@ -385,6 +389,7 @@ void gi_marshalling_tests_array_in_len_zero_terminated (const gint *ints, gint l
 void gi_marshalling_tests_array_string_in (const gchar **strings, gint length);
 void gi_marshalling_tests_array_uint8_in (const guint8 *chars, gint length);
 void gi_marshalling_tests_array_struct_in (GIMarshallingTestsBoxedStruct **structs, gint length);
+void gi_marshalling_tests_array_struct_value_in (GIMarshallingTestsBoxedStruct *structs, gint length);
 void gi_marshalling_tests_array_struct_take_in (GIMarshallingTestsBoxedStruct **structs, gint length);
 void gi_marshalling_tests_array_simple_struct_in (GIMarshallingTestsSimpleStruct *structs, gint length);
 void gi_marshalling_tests_multi_array_key_value_in (gint length, const gchar **keys, const GValue *values);
@@ -397,6 +402,8 @@ void gi_marshalling_tests_array_out_etc (gint first, gint **ints, gint *length, 
 
 void gi_marshalling_tests_array_inout (gint **ints, gint *length);
 void gi_marshalling_tests_array_inout_etc (gint first, gint **ints, gint *length, gint last, gint *sum);
+
+void gi_marshalling_tests_array_in_nonzero_nonlen (gint first, const guint8 *chars);
 
 /* Zero-terminated */
 
@@ -420,16 +427,19 @@ GVariant **gi_marshalling_tests_array_gvariant_full_in (GVariant **variants);
 /* GArray */
 
 GArray *gi_marshalling_tests_garray_int_none_return (void);
+GArray *gi_marshalling_tests_garray_uint64_none_return (void);
 GArray *gi_marshalling_tests_garray_utf8_none_return (void);
 GArray *gi_marshalling_tests_garray_utf8_container_return (void);
 GArray *gi_marshalling_tests_garray_utf8_full_return (void);
 
 void gi_marshalling_tests_garray_int_none_in (GArray *array_);
+void gi_marshalling_tests_garray_uint64_none_in (GArray *array_);
 void gi_marshalling_tests_garray_utf8_none_in (GArray *array_);
 
 void gi_marshalling_tests_garray_utf8_none_out (GArray **array_);
 void gi_marshalling_tests_garray_utf8_container_out (GArray **array_);
 void gi_marshalling_tests_garray_utf8_full_out (GArray **array_);
+void gi_marshalling_tests_garray_utf8_full_out_caller_allocated (GArray *array_);
 
 void gi_marshalling_tests_garray_utf8_none_inout (GArray **array_);
 void gi_marshalling_tests_garray_utf8_container_inout (GArray **array_);
@@ -453,7 +463,12 @@ void gi_marshalling_tests_gptrarray_utf8_full_inout (GPtrArray **parray_);
 /* GByteArray */
 
 GByteArray *gi_marshalling_tests_bytearray_full_return (void);
-void gi_marshalling_tests_bytearray_none_in (GByteArray* array_);
+void gi_marshalling_tests_bytearray_none_in (GByteArray* v);
+
+/* GBytes */
+
+GBytes *gi_marshalling_tests_gbytes_full_return (void);
+void gi_marshalling_tests_gbytes_none_in (GBytes* v);
 
 /* GStrv */
 
@@ -465,11 +480,13 @@ void gi_marshalling_tests_gstrv_inout (GStrv *g_strv);
 /* GList */
 
 GList *gi_marshalling_tests_glist_int_none_return (void);
+GList *gi_marshalling_tests_glist_uint32_none_return (void);
 GList *gi_marshalling_tests_glist_utf8_none_return (void);
 GList *gi_marshalling_tests_glist_utf8_container_return (void);
 GList *gi_marshalling_tests_glist_utf8_full_return (void);
 
 void gi_marshalling_tests_glist_int_none_in (GList *list);
+void gi_marshalling_tests_glist_uint32_none_in (GList *list);
 void gi_marshalling_tests_glist_utf8_none_in (GList *list);
 
 void gi_marshalling_tests_glist_utf8_none_out (GList **list);
@@ -526,11 +543,15 @@ void gi_marshalling_tests_ghashtable_utf8_full_inout (GHashTable **hash_table);
 GValue *gi_marshalling_tests_gvalue_return (void);
 
 void gi_marshalling_tests_gvalue_in (GValue *value);
+void gi_marshalling_tests_gvalue_int64_in (GValue *value);
 void gi_marshalling_tests_gvalue_in_with_type (GValue *value, GType type);
+void gi_marshalling_tests_gvalue_in_with_modification (GValue *value);
 
 void gi_marshalling_tests_gvalue_in_enum (GValue *value);
 
 void gi_marshalling_tests_gvalue_out (GValue **value);
+void gi_marshalling_tests_gvalue_int64_out (GValue **value);
+void gi_marshalling_tests_gvalue_out_caller_allocates (GValue *value);
 
 void gi_marshalling_tests_gvalue_inout (GValue **value);
 
@@ -553,7 +574,7 @@ GClosure *gi_marshalling_tests_gclosure_return (void);
 /**
  * GIMarshallingTestsCallbackReturnValueOnly:
  */
-typedef glong (* GIMarshallingTestsCallbackReturnValueOnly) ();
+typedef glong (* GIMarshallingTestsCallbackReturnValueOnly) (void);
 
 glong gi_marshalling_tests_callback_return_value_only (GIMarshallingTestsCallbackReturnValueOnly callback);
 
@@ -636,6 +657,7 @@ void gi_marshalling_tests_pointer_struct_inv (GIMarshallingTestsPointerStruct *s
 
 struct _GIMarshallingTestsBoxedStruct {
     glong long_;
+    gchar *string_;
     GStrv g_strv;
 };
 
@@ -698,6 +720,26 @@ struct _GIMarshallingTestsObjectClass
     void (* method_int8_out) (GIMarshallingTestsObject *self, gint8 *out);
 
     /**
+     * GIMarshallingTestsObjectClass::method_int8_arg_and_out_caller:
+     * @out: (out caller-allocates):
+     */
+    void (* method_int8_arg_and_out_caller) (GIMarshallingTestsObject *self, gint8 arg, gint8 *out);
+
+    /**
+     * GIMarshallingTestsObjectClass::method_int8_arg_and_out_callee:
+     * @out: (out):
+     */
+    void (* method_int8_arg_and_out_callee) (GIMarshallingTestsObject *self, gint8 arg, gint8 **out);
+
+    /**
+     * GIMarshallingTestsObjectClass::method_str_arg_out_ret:
+     * @out: (out caller-allocates):
+     *
+     * Returns: (transfer none)
+     */
+    const gchar* (* method_str_arg_out_ret) (GIMarshallingTestsObject *self, const gchar* arg, guint *out);
+
+    /**
      * GIMarshallingTestsObjectClass::method_with_default_implementation:
      * @in: (in):
      */
@@ -732,6 +774,18 @@ struct _GIMarshallingTestsObjectClass
     void  (* vfunc_multiple_out_parameters) (GIMarshallingTestsObject *self, gfloat *a, gfloat *b);
 
     /**
+     * GIMarshallingTestsObjectClass::vfunc_caller_allocated_out_parameter:
+     * @a: (out):
+     */
+    void  (* vfunc_caller_allocated_out_parameter) (GIMarshallingTestsObject *self, GValue *a);
+
+    /**
+     * GIMarshallingTestsObjectClass::vfunc_array_out_parameter:
+     * @a: (out) (array zero-terminated=1):
+     */
+    void  (* vfunc_array_out_parameter) (GIMarshallingTestsObject *self, gfloat **a);
+
+    /**
      * GIMarshallingTestsObjectClass::vfunc_return_value_and_one_out_parameter:
      * @a: (out):
      */
@@ -750,6 +804,55 @@ struct _GIMarshallingTestsObjectClass
      * @error: A #GError
      */
     gboolean (*vfunc_meth_with_err) (GIMarshallingTestsObject *object, gint x, GError **error);
+
+    /**
+     * GIMarshallingTestsObjectClass::vfunc_return_enum:
+     */
+    GIMarshallingTestsEnum (* vfunc_return_enum) (GIMarshallingTestsObject *self);
+
+    /**
+     * GIMarshallingTestsObjectClass::vfunc_out_enum:
+     * @_enum: (out):
+     */
+    void (* vfunc_out_enum) (GIMarshallingTestsObject *self, GIMarshallingTestsEnum *_enum);
+
+    /**
+     * GIMarshallingTestsObjectClass::vfunc_return_object_transfer_none:
+     *
+     * Returns: (transfer none)
+     */
+    GObject* (* vfunc_return_object_transfer_none) (GIMarshallingTestsObject *self);
+
+    /**
+     * GIMarshallingTestsObjectClass::vfunc_return_object_transfer_full:
+     *
+     * Returns: (transfer full)
+     */
+    GObject* (* vfunc_return_object_transfer_full) (GIMarshallingTestsObject *self);
+
+    /**
+     * GIMarshallingTestsObjectClass::vfunc_out_object_transfer_none:
+     * @object: (out) (transfer none):
+     */
+    void (* vfunc_out_object_transfer_none) (GIMarshallingTestsObject *self, GObject **object);
+
+    /**
+     * GIMarshallingTestsObjectClass::vfunc_out_object_transfer_full:
+     * @object: (out) (transfer full):
+     */
+    void (* vfunc_out_object_transfer_full) (GIMarshallingTestsObject *self, GObject **object);
+
+    /**
+     * GIMarshallingTestsObjectClass::vfunc_in_object_transfer_none:
+     * @object: (in) (transfer none):
+     */
+    void (* vfunc_in_object_transfer_none) (GIMarshallingTestsObject *self, GObject *object);
+
+    /**
+     * GIMarshallingTestsObjectClass::vfunc_in_object_transfer_full:
+     * @object: (in) (transfer full):
+     */
+    void (* vfunc_in_object_transfer_full) (GIMarshallingTestsObject *self, GObject *object);
 };
 
 struct _GIMarshallingTestsObject
@@ -772,14 +875,30 @@ const gint *gi_marshalling_tests_object_method_array_return (GIMarshallingTestsO
 
 void gi_marshalling_tests_object_method_int8_in (GIMarshallingTestsObject *object, gint8 in);
 void gi_marshalling_tests_object_method_int8_out (GIMarshallingTestsObject *object, gint8 *out);
+void gi_marshalling_tests_object_method_int8_arg_and_out_caller (GIMarshallingTestsObject *object, gint8 arg, gint8 *out);
+void gi_marshalling_tests_object_method_int8_arg_and_out_callee (GIMarshallingTestsObject *object, gint8 arg, gint8 **out);
+const gchar* gi_marshalling_tests_object_method_str_arg_out_ret (GIMarshallingTestsObject *object, const gchar* arg, guint *out);
 void gi_marshalling_tests_object_method_with_default_implementation (GIMarshallingTestsObject *object, gint8 in);
+void gi_marshalling_tests_object_method_variant_array_in (GIMarshallingTestsObject *object, GVariant **in, gsize n_in);
 
 glong gi_marshalling_tests_object_vfunc_return_value_only (GIMarshallingTestsObject *self);
 void gi_marshalling_tests_object_vfunc_one_out_parameter (GIMarshallingTestsObject *self, gfloat *a);
 void gi_marshalling_tests_object_vfunc_multiple_out_parameters (GIMarshallingTestsObject *self, gfloat *a, gfloat *b);
+void gi_marshalling_tests_object_vfunc_caller_allocated_out_parameter (GIMarshallingTestsObject *self, GValue *a);
+void gi_marshalling_tests_object_vfunc_array_out_parameter (GIMarshallingTestsObject *self, gfloat **a);
 glong gi_marshalling_tests_object_vfunc_return_value_and_one_out_parameter (GIMarshallingTestsObject *self, glong *a);
 glong gi_marshalling_tests_object_vfunc_return_value_and_multiple_out_parameters (GIMarshallingTestsObject *self, glong *a, glong *b);
 gboolean gi_marshalling_tests_object_vfunc_meth_with_error (GIMarshallingTestsObject *object, gint x, GError **error);
+
+GIMarshallingTestsEnum gi_marshalling_tests_object_vfunc_return_enum (GIMarshallingTestsObject *self);
+void gi_marshalling_tests_object_vfunc_out_enum (GIMarshallingTestsObject *self, GIMarshallingTestsEnum *_enum);
+
+void gi_marshalling_tests_object_get_ref_info_for_vfunc_return_object_transfer_none (GIMarshallingTestsObject *self, guint *ref_count, gboolean *is_floating);
+void gi_marshalling_tests_object_get_ref_info_for_vfunc_return_object_transfer_full (GIMarshallingTestsObject *self, guint *ref_count, gboolean *is_floating);
+void gi_marshalling_tests_object_get_ref_info_for_vfunc_out_object_transfer_none (GIMarshallingTestsObject *self, guint *ref_count, gboolean *is_floating);
+void gi_marshalling_tests_object_get_ref_info_for_vfunc_out_object_transfer_full (GIMarshallingTestsObject *self, guint *ref_count, gboolean *is_floating);
+void gi_marshalling_tests_object_get_ref_info_for_vfunc_in_object_transfer_none (GIMarshallingTestsObject *self, GType type, guint *ref_count, gboolean *is_floating);
+void gi_marshalling_tests_object_get_ref_info_for_vfunc_in_object_transfer_full (GIMarshallingTestsObject *self, GType type, guint *ref_count, gboolean *is_floating);
 
 GIMarshallingTestsObject *gi_marshalling_tests_object_none_return (void);
 GIMarshallingTestsObject *gi_marshalling_tests_object_full_return (void);
@@ -792,7 +911,6 @@ void gi_marshalling_tests_object_full_out (GIMarshallingTestsObject **object);
 
 void gi_marshalling_tests_object_none_inout (GIMarshallingTestsObject **object);
 void gi_marshalling_tests_object_full_inout (GIMarshallingTestsObject **object);
-void gi_marshalling_tests_object_inout_same (GIMarshallingTestsObject **object);
 
 void gi_marshalling_tests_object_int8_in (GIMarshallingTestsObject *object, gint8 in);
 void gi_marshalling_tests_object_int8_out (GIMarshallingTestsObject *object, gint8 *out);
@@ -881,7 +999,7 @@ void gi_marshalling_tests_test_interface_test_int8_in (GIMarshallingTestsInterfa
 #define GI_MARSHALLING_TESTS_TYPE_INTERFACE2              (gi_marshalling_tests_interface2_get_type ())
 #define GI_MARSHALLING_TESTS_INTERFACE2(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), GI_MARSHALLING_TESTS_TYPE_INTERFACE2, GIMarshallingTestsInterface2))
 #define GI_MARSHALLING_TESTS_IS_INTERFACE2(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GI_MARSHALLING_TESTS_TYPE_INTERFACE2))
-#define GI_MARSHALLING_TESTS_INTERFACE2_GET_IFACE(obj)    (G_TYPE_INSTANCE_GET_INTERFACE2 ((obj), GI_MARSHALLING_TESTS_TYPE_INTERFACE2, GIMarshallingTestsInterface2Iface))
+#define GI_MARSHALLING_TESTS_INTERFACE2_GET_IFACE(obj)    (G_TYPE_INSTANCE_GET_INTERFACE ((obj), GI_MARSHALLING_TESTS_TYPE_INTERFACE2, GIMarshallingTestsInterface2Iface))
 
 typedef struct _GIMarshallingTestsInterface2 GIMarshallingTestsInterface2;
 typedef struct _GIMarshallingTestsInterface2Iface GIMarshallingTestsInterface2Iface;
@@ -898,6 +1016,29 @@ struct _GIMarshallingTestsInterface2Iface {
 
 GType gi_marshalling_tests_interface2_get_type (void) G_GNUC_CONST;
 
+/* GIMarshallingTestsInterface3 tests passing arrays of variants from C to @lang */
+
+#define GI_MARSHALLING_TESTS_TYPE_INTERFACE3              (gi_marshalling_tests_interface3_get_type ())
+#define GI_MARSHALLING_TESTS_INTERFACE3(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), GI_MARSHALLING_TESTS_TYPE_INTERFACE3, GIMarshallingTestsInterface3))
+#define GI_MARSHALLING_TESTS_IS_INTERFACE3(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GI_MARSHALLING_TESTS_TYPE_INTERFACE3))
+#define GI_MARSHALLING_TESTS_INTERFACE3_GET_IFACE(obj)    (G_TYPE_INSTANCE_GET_INTERFACE ((obj), GI_MARSHALLING_TESTS_TYPE_INTERFACE3, GIMarshallingTestsInterface3Iface))
+
+typedef struct _GIMarshallingTestsInterface3 GIMarshallingTestsInterface3;
+typedef struct _GIMarshallingTestsInterface3Iface GIMarshallingTestsInterface3Iface;
+
+struct _GIMarshallingTestsInterface3Iface {
+    GTypeInterface base_iface;
+
+    /**
+     * GIMarshallingTestsInterface3::test_variant_array_in:
+     * @in: (in) (array length=n_in):
+     */
+    void (* test_variant_array_in) (GIMarshallingTestsInterface3 *self, GVariant **in, gsize n_in);
+};
+
+GType gi_marshalling_tests_interface3_get_type (void) G_GNUC_CONST;
+
+void gi_marshalling_tests_interface3_test_variant_array_in (GIMarshallingTestsInterface3 *self, GVariant **in, gsize n_in);
 
 /* Multiple output arguments */
 
@@ -919,6 +1060,11 @@ void gi_marshalling_tests_gerror_array_in(gint *in_ints, GError **error);
 void gi_marshalling_tests_gerror_out(GError **error, gchar **debug);
 void gi_marshalling_tests_gerror_out_transfer_none(GError **err, const gchar **debug);
 GError *gi_marshalling_tests_gerror_return(void);
+
+/* GParamSpec */
+void gi_marshalling_tests_param_spec_in_bool(const GParamSpec *param);
+GParamSpec *gi_marshalling_tests_param_spec_return (void);
+void gi_marshalling_tests_param_spec_out(GParamSpec **param);
 
 /* Overrides */
 
@@ -994,6 +1140,11 @@ struct _GIMarshallingTestsPropertiesObject {
     guint64 some_uint64;
     gfloat some_float;
     gdouble some_double;
+    gchar **some_strv;
+    GIMarshallingTestsBoxedStruct* some_boxed_struct;
+    GList* some_boxed_glist;
+    GVariant *some_variant;
+    GObject *some_object;
 };
 
 struct _GIMarshallingTestsPropertiesObjectClass {

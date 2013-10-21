@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>6.22. pam_namespace - setup a private namespace</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.0"><link rel="home" href="Linux-PAM_SAG.html" title="The Linux-PAM System Administrators' Guide"><link rel="up" href="sag-module-reference.html" title="Chapter 6. A reference guide for available modules"><link rel="prev" href="sag-pam_motd.html" title="6.21. pam_motd - display the motd file"><link rel="next" href="sag-pam_nologin.html" title="6.23. pam_nologin - prevent non-root users from login"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.22. pam_namespace - setup a private namespace</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="sag-pam_motd.html">Prev</a> </td><th width="60%" align="center">Chapter 6. A reference guide for available modules</th><td width="20%" align="right"> <a accesskey="n" href="sag-pam_nologin.html">Next</a></td></tr></table><hr></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sag-pam_namespace"></a>6.22. pam_namespace - setup a private namespace</h2></div></div></div><div class="cmdsynopsis"><p><code class="command">pam_namespace.so</code>  [
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>6.22. pam_namespace - setup a private namespace</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="Linux-PAM_SAG.html" title="The Linux-PAM System Administrators' Guide"><link rel="up" href="sag-module-reference.html" title="Chapter 6. A reference guide for available modules"><link rel="prev" href="sag-pam_motd.html" title="6.21. pam_motd - display the motd file"><link rel="next" href="sag-pam_nologin.html" title="6.23. pam_nologin - prevent non-root users from login"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.22. pam_namespace - setup a private namespace</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="sag-pam_motd.html">Prev</a> </td><th width="60%" align="center">Chapter 6. A reference guide for available modules</th><td width="20%" align="right"> <a accesskey="n" href="sag-pam_nologin.html">Next</a></td></tr></table><hr></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sag-pam_namespace"></a>6.22. pam_namespace - setup a private namespace</h2></div></div></div><div class="cmdsynopsis"><p><code class="command">pam_namespace.so</code>  [
         debug
       ] [
         unmnt_remnt
@@ -13,7 +13,7 @@
       ] [
         ignore_instance_parent_mode
       ] [
-        no_unmount_on_close
+        unmount_on_close
       ] [
         use_current_context
       ] [
@@ -73,7 +73,7 @@
     </p><p>
       The second field, <em class="replaceable"><code>instance_prefix</code></em> is
       the string prefix used to build the pathname for the instantiation
-      of &lt;polydir&gt;. Depending on the polyinstantiation 
+      of &lt;polydir&gt;. Depending on the polyinstantiation
       <em class="replaceable"><code>method</code></em> it is then appended with
       "instance differentiation string" to generate the final
       instance directory path. This directory is created if it did not exist
@@ -85,7 +85,7 @@
     </p><p>
       The third field, <em class="replaceable"><code>method</code></em>, is the method
       used for polyinstantiation. It can take these values; "user"
-      for polyinstantiation based on user name, "level" for 
+      for polyinstantiation based on user name, "level" for
       polyinstantiation based on process MLS level and user name, "context" for
       polyinstantiation based on process security context and user name,
       "tmpfs" for mounting tmpfs filesystem as an instance dir, and
@@ -115,6 +115,10 @@
     </p><p><span class="emphasis"><em>shared</em></span>
       - the instance directories for "context" and "level" methods will not
       contain the user name and will be shared among all users.
+    </p><p><span class="emphasis"><em>mntopts</em></span>=<em class="replaceable"><code>value</code></em>
+      - value of this flag is passed to the mount call when the tmpfs mount is
+      done. It allows for example the specification of the maximum size of the
+      tmpfs instance that is created by the mount call. See <span class="citerefentry"><span class="refentrytitle">mount</span>(8)</span> for details.
     </p><p>
       The directory where polyinstantiated instances are to be
       created, must exist and must have, by default, the mode of 0000.  The
@@ -187,14 +191,15 @@
             should be used with caution as it will reduce security and
             isolation goals of the polyinstantiation mechanism.
           </p></dd><dt><span class="term">
-          <code class="option">no_unmount_on_close</code>
+          <code class="option">unmount_on_close</code>
         </span></dt><dd><p>
-           For certain trusted programs such as newrole, open session
-           is called from a child process while the parent performs
-           close session and pam end functions. For these commands
-           use this option to instruct pam_close_session to not
-           unmount the bind mounted polyinstantiated directory in the
-            parent.
+           Explicitly unmount the polyinstantiated directories instead
+           of relying on automatic namespace destruction after the last
+           process in a namespace exits. This option should be used
+           only in case it is ensured by other means that there cannot be
+           any processes running in the private namespace left after the
+           session close. It is also useful only in case there are
+           multiple pam session calls in sequence from the same process.
           </p></dd><dt><span class="term">
           <code class="option">use_current_context</code>
         </span></dt><dd><p>
@@ -215,11 +220,16 @@
 	    This option can be used on systems where the / mount point or
 	    its submounts are made shared (for example with a
 	    <span class="command"><strong>mount --make-rshared /</strong></span> command).
-	    The module will make the polyinstantiated directory mount points
-	    private. Normally the pam_namespace will try to detect the
+	    The module will mark the whole directory tree so any mount and
+	    unmount operations in the polyinstantiation namespace are private.
+	    Normally the pam_namespace will try to detect the
 	    shared / mount point and make the polyinstantiated directories
 	    private automatically. This option has to be used just when
 	    only a subtree is shared and / is not.
+          </p><p>
+	    Note that mounts and unmounts done in the private namespace will not
+	    affect the parent namespace if this option is used or when the
+	    shared / mount point is autodetected.
           </p></dd></dl></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="sag-pam_namespace-types"></a>6.22.4. MODULE TYPES PROVIDED</h3></div></div></div><p>
       Only the <code class="option">session</code> module type is provided.
       The module must not be called from multithreaded processes.

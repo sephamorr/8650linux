@@ -21,11 +21,10 @@
 #ifndef WebKitDOMXPathResult_h
 #define WebKitDOMXPathResult_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_XPATH_RESULT            (webkit_dom_xpath_result_get_type())
@@ -55,7 +54,7 @@ webkit_dom_xpath_result_get_type (void);
  *
 **/
 WEBKIT_API WebKitDOMNode*
-webkit_dom_xpath_result_iterate_next(WebKitDOMXPathResult* self, GError **error);
+webkit_dom_xpath_result_iterate_next(WebKitDOMXPathResult* self, GError** error);
 
 /**
  * webkit_dom_xpath_result_snapshot_item:
@@ -67,7 +66,7 @@ webkit_dom_xpath_result_iterate_next(WebKitDOMXPathResult* self, GError **error)
  *
 **/
 WEBKIT_API WebKitDOMNode*
-webkit_dom_xpath_result_snapshot_item(WebKitDOMXPathResult* self, gulong index, GError **error);
+webkit_dom_xpath_result_snapshot_item(WebKitDOMXPathResult* self, gulong index, GError** error);
 
 /**
  * webkit_dom_xpath_result_get_result_type:
@@ -88,7 +87,7 @@ webkit_dom_xpath_result_get_result_type(WebKitDOMXPathResult* self);
  *
 **/
 WEBKIT_API gdouble
-webkit_dom_xpath_result_get_number_value(WebKitDOMXPathResult* self, GError **error);
+webkit_dom_xpath_result_get_number_value(WebKitDOMXPathResult* self, GError** error);
 
 /**
  * webkit_dom_xpath_result_get_string_value:
@@ -99,7 +98,7 @@ webkit_dom_xpath_result_get_number_value(WebKitDOMXPathResult* self, GError **er
  *
 **/
 WEBKIT_API gchar*
-webkit_dom_xpath_result_get_string_value(WebKitDOMXPathResult* self, GError **error);
+webkit_dom_xpath_result_get_string_value(WebKitDOMXPathResult* self, GError** error);
 
 /**
  * webkit_dom_xpath_result_get_boolean_value:
@@ -110,7 +109,7 @@ webkit_dom_xpath_result_get_string_value(WebKitDOMXPathResult* self, GError **er
  *
 **/
 WEBKIT_API gboolean
-webkit_dom_xpath_result_get_boolean_value(WebKitDOMXPathResult* self, GError **error);
+webkit_dom_xpath_result_get_boolean_value(WebKitDOMXPathResult* self, GError** error);
 
 /**
  * webkit_dom_xpath_result_get_single_node_value:
@@ -121,7 +120,7 @@ webkit_dom_xpath_result_get_boolean_value(WebKitDOMXPathResult* self, GError **e
  *
 **/
 WEBKIT_API WebKitDOMNode*
-webkit_dom_xpath_result_get_single_node_value(WebKitDOMXPathResult* self, GError **error);
+webkit_dom_xpath_result_get_single_node_value(WebKitDOMXPathResult* self, GError** error);
 
 /**
  * webkit_dom_xpath_result_get_invalid_iterator_state:
@@ -142,7 +141,7 @@ webkit_dom_xpath_result_get_invalid_iterator_state(WebKitDOMXPathResult* self);
  *
 **/
 WEBKIT_API gulong
-webkit_dom_xpath_result_get_snapshot_length(WebKitDOMXPathResult* self, GError **error);
+webkit_dom_xpath_result_get_snapshot_length(WebKitDOMXPathResult* self, GError** error);
 
 G_END_DECLS
 

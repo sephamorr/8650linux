@@ -21,11 +21,10 @@
 #ifndef WebKitDOMCharacterData_h
 #define WebKitDOMCharacterData_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMNode.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMNode.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_CHARACTER_DATA            (webkit_dom_character_data_get_type())
@@ -57,7 +56,7 @@ webkit_dom_character_data_get_type (void);
  *
 **/
 WEBKIT_API gchar*
-webkit_dom_character_data_substring_data(WebKitDOMCharacterData* self, gulong offset, gulong length, GError **error);
+webkit_dom_character_data_substring_data(WebKitDOMCharacterData* self, gulong offset, gulong length, GError** error);
 
 /**
  * webkit_dom_character_data_append_data:
@@ -69,7 +68,7 @@ webkit_dom_character_data_substring_data(WebKitDOMCharacterData* self, gulong of
  *
 **/
 WEBKIT_API void
-webkit_dom_character_data_append_data(WebKitDOMCharacterData* self, const gchar* data, GError **error);
+webkit_dom_character_data_append_data(WebKitDOMCharacterData* self, const gchar* data, GError** error);
 
 /**
  * webkit_dom_character_data_insert_data:
@@ -82,7 +81,7 @@ webkit_dom_character_data_append_data(WebKitDOMCharacterData* self, const gchar*
  *
 **/
 WEBKIT_API void
-webkit_dom_character_data_insert_data(WebKitDOMCharacterData* self, gulong offset, const gchar* data, GError **error);
+webkit_dom_character_data_insert_data(WebKitDOMCharacterData* self, gulong offset, const gchar* data, GError** error);
 
 /**
  * webkit_dom_character_data_delete_data:
@@ -95,7 +94,7 @@ webkit_dom_character_data_insert_data(WebKitDOMCharacterData* self, gulong offse
  *
 **/
 WEBKIT_API void
-webkit_dom_character_data_delete_data(WebKitDOMCharacterData* self, gulong offset, gulong length, GError **error);
+webkit_dom_character_data_delete_data(WebKitDOMCharacterData* self, gulong offset, gulong length, GError** error);
 
 /**
  * webkit_dom_character_data_replace_data:
@@ -109,7 +108,7 @@ webkit_dom_character_data_delete_data(WebKitDOMCharacterData* self, gulong offse
  *
 **/
 WEBKIT_API void
-webkit_dom_character_data_replace_data(WebKitDOMCharacterData* self, gulong offset, gulong length, const gchar* data, GError **error);
+webkit_dom_character_data_replace_data(WebKitDOMCharacterData* self, gulong offset, gulong length, const gchar* data, GError** error);
 
 /**
  * webkit_dom_character_data_get_data:
@@ -131,7 +130,7 @@ webkit_dom_character_data_get_data(WebKitDOMCharacterData* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_character_data_set_data(WebKitDOMCharacterData* self, const gchar* value, GError **error);
+webkit_dom_character_data_set_data(WebKitDOMCharacterData* self, const gchar* value, GError** error);
 
 /**
  * webkit_dom_character_data_get_length:

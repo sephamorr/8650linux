@@ -1,7 +1,7 @@
 /* gpgme.h - Public interface to GnuPG Made Easy.                   -*- c -*-
    Copyright (C) 2000 Werner Koch (dd9jn)
    Copyright (C) 2001, 2002, 2003, 2004, 2005, 2007, 2009
-                 2010 g10 Code GmbH
+                 2010, 2011, 2012, 2013 g10 Code GmbH
 
    This file is part of GPGME.
 
@@ -18,7 +18,7 @@
    You should have received a copy of the GNU Lesser General Public
    License along with this program; if not, see <http://www.gnu.org/licenses/>.
 
-   File: src/gpgme.h.  Generated from gpgme.h.in by configure.  */
+   Generated from gpgme.h.in for armv5tel-unknown-linux-gnueabi.  */
 
 #ifndef GPGME_H
 #define GPGME_H
@@ -33,11 +33,7 @@
 
 /* Include stdio.h for the FILE type definition.  */
 #include <stdio.h>
-
-#include <sys/types.h>
-
 #include <time.h>
-
 #include <gpg-error.h>
 
 #ifdef __cplusplus
@@ -47,6 +43,10 @@ extern "C" {
 #endif
 #endif /* __cplusplus */
 
+
+#include <sys/types.h>
+typedef off_t   gpgme_off_t;
+typedef ssize_t gpgme_ssize_t;
 
 
 /* Check for compiler features.  */
@@ -78,7 +78,11 @@ extern "C" {
    instead.  The purpose of this macro is to let autoconf (using the
    AM_PATH_GPGME macro) check that this header matches the installed
    library.  */
-#define GPGME_VERSION "1.3.1"
+#define GPGME_VERSION "1.4.3"
+
+/* The version number of this header.  It may be used to handle minor
+   API incompatibilities.  */
+#define GPGME_VERSION_NUMBER 0x010403
 
 /* Check for a matching _FILE_OFFSET_BITS definition.  */
 #if 64
@@ -95,7 +99,7 @@ extern "C" {
 
 /* Some opaque data types used by GPGME.  */
 
-/* The context holds some global state and configration options, as
+/* The context holds some global state and configuration options, as
    well as the results of a crypto operation.  */
 struct gpgme_context;
 typedef struct gpgme_context *gpgme_ctx_t;
@@ -208,6 +212,22 @@ typedef enum
     GPGME_DATA_ENCODING_URL0   = 6      /* Nul delimited URL list.       */
   }
 gpgme_data_encoding_t;
+
+/* Known data types.  */
+typedef enum
+  {
+    GPGME_DATA_TYPE_INVALID      = 0,   /* Not detected.  */
+    GPGME_DATA_TYPE_UNKNOWN      = 1,
+    GPGME_DATA_TYPE_PGP_SIGNED   = 0x10,
+    GPGME_DATA_TYPE_PGP_OTHER    = 0x12,
+    GPGME_DATA_TYPE_PGP_KEY      = 0x13,
+    GPGME_DATA_TYPE_CMS_SIGNED   = 0x20,
+    GPGME_DATA_TYPE_CMS_ENCRYPTED= 0x21,
+    GPGME_DATA_TYPE_CMS_OTHER    = 0x22,
+    GPGME_DATA_TYPE_X509_CERT    = 0x23,
+    GPGME_DATA_TYPE_PKCS12       = 0x24,
+  }
+gpgme_data_type_t;
 
 
 /* Public key algorithms from libgcrypt.  */
@@ -341,6 +361,8 @@ typedef enum
     GPGME_PROTOCOL_UNKNOWN = 255
   }
 gpgme_protocol_t;
+/* Convenience macro for the surprisingly mixed spelling.  */
+#define GPGME_PROTOCOL_OPENPGP GPGME_PROTOCOL_OpenPGP
 
 
 /* The available keylist mode flags.  */
@@ -352,6 +374,18 @@ gpgme_protocol_t;
 #define GPGME_KEYLIST_MODE_VALIDATE		256
 
 typedef unsigned int gpgme_keylist_mode_t;
+
+
+/* The pinentry modes. */
+typedef enum
+  {
+    GPGME_PINENTRY_MODE_DEFAULT  = 0,
+    GPGME_PINENTRY_MODE_ASK      = 1,
+    GPGME_PINENTRY_MODE_CANCEL   = 2,
+    GPGME_PINENTRY_MODE_ERROR    = 3,
+    GPGME_PINENTRY_MODE_LOOPBACK = 4
+  }
+gpgme_pinentry_mode_t;
 
 
 /* The available export mode flags.  */
@@ -499,11 +533,11 @@ typedef enum
     GPGME_STATUS_BACKUP_KEY_CREATED = 78,
     GPGME_STATUS_PKA_TRUST_BAD = 79,
     GPGME_STATUS_PKA_TRUST_GOOD = 80,
-
     GPGME_STATUS_PLAINTEXT = 81,
     GPGME_STATUS_INV_SGNR = 82,
     GPGME_STATUS_NO_SGNR = 83,
-    GPGME_STATUS_SUCCESS = 84
+    GPGME_STATUS_SUCCESS = 84,
+    GPGME_STATUS_DECRYPTION_INFO = 85
   }
 gpgme_status_code_t;
 
@@ -859,6 +893,13 @@ gpgme_error_t gpgme_set_keylist_mode (gpgme_ctx_t ctx,
 /* Get keylist mode in CTX.  */
 gpgme_keylist_mode_t gpgme_get_keylist_mode (gpgme_ctx_t ctx);
 
+/* Set the pinentry mode for CTX to MODE. */
+gpgme_error_t gpgme_set_pinentry_mode (gpgme_ctx_t ctx,
+                                       gpgme_pinentry_mode_t mode);
+
+/* Get the pinentry mode of CTX.  */
+gpgme_pinentry_mode_t gpgme_get_pinentry_mode (gpgme_ctx_t ctx);
+
 /* Set the passphrase callback function in CTX to CB.  HOOK_VALUE is
    passed as first argument to the passphrase callback function.  */
 void gpgme_set_passphrase_cb (gpgme_ctx_t ctx,
@@ -911,6 +952,9 @@ void gpgme_signers_clear (gpgme_ctx_t ctx);
 
 /* Add KEY to list of signers in CTX.  */
 gpgme_error_t gpgme_signers_add (gpgme_ctx_t ctx, const gpgme_key_t key);
+
+/* Return the number of signers in CTX.  */
+unsigned int gpgme_signers_count (const gpgme_ctx_t ctx);
 
 /* Return the SEQth signer's key in CTX.  */
 gpgme_key_t gpgme_signers_enum (const gpgme_ctx_t ctx, int seq);
@@ -1022,6 +1066,7 @@ void gpgme_get_io_cbs (gpgme_ctx_t ctx, gpgme_io_cbs_t io_cbs);
    gpgme_passphrase_cb_t and gpgme_edit_cb_t.  */
 ssize_t gpgme_io_read (int fd, void *buffer, size_t count);
 ssize_t gpgme_io_write (int fd, const void *buffer, size_t count);
+int     gpgme_io_writen (int fd, const void *buffer, size_t count);
 
 /* Process the pending operation and, if HANG is non-zero, wait for
    the pending operation to finish.  */
@@ -1048,7 +1093,8 @@ typedef ssize_t (*gpgme_data_write_cb_t) (void *handle, const void *buffer,
 /* Set the current position from where the next read or write starts
    in the data object with the handle HANDLE to OFFSET, relativ to
    WHENCE.  */
-typedef off_t (*gpgme_data_seek_cb_t) (void *handle, off_t offset, int whence);
+typedef off_t (*gpgme_data_seek_cb_t) (void *handle,
+                                       off_t offset, int whence);
 
 /* Close the data object with the handle DL.  */
 typedef void (*gpgme_data_release_cb_t) (void *handle);
@@ -1121,6 +1167,9 @@ char *gpgme_data_get_file_name (gpgme_data_t dh);
    FILE_NAME.  */
 gpgme_error_t gpgme_data_set_file_name (gpgme_data_t dh,
 					const char *file_name);
+
+/* Try to identify the type of the data in DH.  */
+gpgme_data_type_t gpgme_data_identify (gpgme_data_t dh, int reserved);
 
 
 /* Create a new data buffer which retrieves the data from the callback
@@ -2025,6 +2074,9 @@ gpgme_error_t gpgme_key_from_uid (gpgme_key_t *key, const char *name);
 
 
 /* Various functions.  */
+
+/* Set special global flags; consult the manual before use.  */
+int gpgme_set_global_flag (const char *name, const char *value);
 
 /* Check that the library fulfills the version requirement.  Note:
    This is here only for the case where a user takes a pointer from

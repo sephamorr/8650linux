@@ -21,11 +21,10 @@
 #ifndef WebKitDOMProcessingInstruction_h
 #define WebKitDOMProcessingInstruction_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMNode.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMNode.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_PROCESSING_INSTRUCTION            (webkit_dom_processing_instruction_get_type())
@@ -76,7 +75,7 @@ webkit_dom_processing_instruction_get_data(WebKitDOMProcessingInstruction* self)
  *
 **/
 WEBKIT_API void
-webkit_dom_processing_instruction_set_data(WebKitDOMProcessingInstruction* self, const gchar* value, GError **error);
+webkit_dom_processing_instruction_set_data(WebKitDOMProcessingInstruction* self, const gchar* value, GError** error);
 
 /**
  * webkit_dom_processing_instruction_get_sheet:

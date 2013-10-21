@@ -26,6 +26,7 @@ from giscanner.scannermain import (get_preprocessor_option_group,
                                    create_source_scanner,
                                    process_packages)
 
+
 def annotation_main(args):
     parser = optparse.OptionParser('%prog [options] sources')
 
@@ -52,7 +53,7 @@ def annotation_main(args):
     if options.packages:
         process_packages(options, options.packages)
 
-    logger = message.MessageLogger.get(namespace='')
+    logger = message.MessageLogger.get(namespace=None)
 
     ss = create_source_scanner(options, args)
 

@@ -32,10 +32,37 @@
 
 /**
  * @constructor
+ * @param {Array.<CSSAgent.CSSPropertyInfo|string>} properties
  */
-WebInspector.CSSCompletions = function(values, acceptEmptyPrefix)
+WebInspector.CSSCompletions = function(properties, acceptEmptyPrefix)
 {
-    this._values = values.slice();
+    this._values = [];
+    this._longhands = {};
+    this._shorthands = {};
+    for (var i = 0; i < properties.length; ++i) {
+        var property = properties[i];
+        if (typeof property === "string") {
+            this._values.push(property);
+            continue;
+        }
+
+        var propertyName = property.name;
+        this._values.push(propertyName);
+
+        var longhands = properties[i].longhands;
+        if (longhands) {
+            this._longhands[propertyName] = longhands;
+            for (var j = 0; j < longhands.length; ++j) {
+                var longhandName = longhands[j];
+                var shorthands = this._shorthands[longhandName];
+                if (!shorthands) {
+                    shorthands = [];
+                    this._shorthands[longhandName] = shorthands;
+                }
+                shorthands.push(propertyName);
+            }
+        }
+    }
     this._values.sort();
     this._acceptEmptyPrefix = acceptEmptyPrefix;
 }
@@ -44,14 +71,14 @@ WebInspector.CSSCompletions = function(values, acceptEmptyPrefix)
 /**
  * @type {WebInspector.CSSCompletions}
  */
-WebInspector.CSSCompletions.cssNameCompletions = null;
+WebInspector.CSSCompletions.cssPropertiesMetainfo = null;
 
 WebInspector.CSSCompletions.requestCSSNameCompletions = function()
 {
-    function propertyNamesCallback(error, names)
+    function propertyNamesCallback(error, properties)
     {
         if (!error)
-            WebInspector.CSSCompletions.cssNameCompletions = new WebInspector.CSSCompletions(names, false);
+            WebInspector.CSSCompletions.cssPropertiesMetainfo = new WebInspector.CSSCompletions(properties, false);
     }
     CSSAgent.getSupportedCSSProperties(propertyNamesCallback);
 }
@@ -64,7 +91,7 @@ WebInspector.CSSCompletions.prototype = {
             return [];
 
         var results = [];
-        while (firstIndex < this._values.length && this._values[firstIndex].indexOf(prefix) === 0)
+        while (firstIndex < this._values.length && this._values[firstIndex].startsWith(prefix))
             results.push(this._values[firstIndex++]);
         return results;
     },
@@ -88,7 +115,7 @@ WebInspector.CSSCompletions.prototype = {
 
         do {
             var middleIndex = (maxIndex + minIndex) >> 1;
-            if (this._values[middleIndex].indexOf(prefix) === 0) {
+            if (this._values[middleIndex].startsWith(prefix)) {
                 foundIndex = middleIndex;
                 break;
             }
@@ -101,7 +128,7 @@ WebInspector.CSSCompletions.prototype = {
         if (foundIndex === undefined)
             return -1;
 
-        while (foundIndex && this._values[foundIndex - 1].indexOf(prefix) === 0)
+        while (foundIndex && this._values[foundIndex - 1].startsWith(prefix))
             foundIndex--;
 
         return foundIndex;
@@ -142,5 +169,23 @@ WebInspector.CSSCompletions.prototype = {
         var j = propertiesWithPrefix.indexOf(str);
         j = (j + propertiesWithPrefix.length + shift) % propertiesWithPrefix.length;
         return propertiesWithPrefix[j];
+    },
+
+    /**
+     * @param {string} shorthand
+     * @return {?Array.<string>}
+     */
+    longhands: function(shorthand)
+    {
+        return this._longhands[shorthand];
+    },
+
+    /**
+     * @param {string} longhand
+     * @return {?Array.<string>}
+     */
+    shorthands: function(longhand)
+    {
+        return this._shorthands[longhand];
     }
 }

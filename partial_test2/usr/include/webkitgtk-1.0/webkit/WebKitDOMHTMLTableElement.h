@@ -21,11 +21,10 @@
 #ifndef WebKitDOMHTMLTableElement_h
 #define WebKitDOMHTMLTableElement_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMHTMLElement.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMHTMLElement.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_HTML_TABLE_ELEMENT            (webkit_dom_html_table_element_get_type())
@@ -87,6 +86,16 @@ WEBKIT_API void
 webkit_dom_html_table_element_delete_t_foot(WebKitDOMHTMLTableElement* self);
 
 /**
+ * webkit_dom_html_table_element_create_t_body:
+ * @self: A #WebKitDOMHTMLTableElement
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMHTMLElement*
+webkit_dom_html_table_element_create_t_body(WebKitDOMHTMLTableElement* self);
+
+/**
  * webkit_dom_html_table_element_create_caption:
  * @self: A #WebKitDOMHTMLTableElement
  *
@@ -116,7 +125,7 @@ webkit_dom_html_table_element_delete_caption(WebKitDOMHTMLTableElement* self);
  *
 **/
 WEBKIT_API WebKitDOMHTMLElement*
-webkit_dom_html_table_element_insert_row(WebKitDOMHTMLTableElement* self, glong index, GError **error);
+webkit_dom_html_table_element_insert_row(WebKitDOMHTMLTableElement* self, glong index, GError** error);
 
 /**
  * webkit_dom_html_table_element_delete_row:
@@ -128,7 +137,7 @@ webkit_dom_html_table_element_insert_row(WebKitDOMHTMLTableElement* self, glong 
  *
 **/
 WEBKIT_API void
-webkit_dom_html_table_element_delete_row(WebKitDOMHTMLTableElement* self, glong index, GError **error);
+webkit_dom_html_table_element_delete_row(WebKitDOMHTMLTableElement* self, glong index, GError** error);
 
 /**
  * webkit_dom_html_table_element_get_caption:
@@ -150,7 +159,7 @@ webkit_dom_html_table_element_get_caption(WebKitDOMHTMLTableElement* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_html_table_element_set_caption(WebKitDOMHTMLTableElement* self, WebKitDOMHTMLTableCaptionElement* value, GError **error);
+webkit_dom_html_table_element_set_caption(WebKitDOMHTMLTableElement* self, WebKitDOMHTMLTableCaptionElement* value, GError** error);
 
 /**
  * webkit_dom_html_table_element_get_t_head:
@@ -172,7 +181,7 @@ webkit_dom_html_table_element_get_t_head(WebKitDOMHTMLTableElement* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_html_table_element_set_t_head(WebKitDOMHTMLTableElement* self, WebKitDOMHTMLTableSectionElement* value, GError **error);
+webkit_dom_html_table_element_set_t_head(WebKitDOMHTMLTableElement* self, WebKitDOMHTMLTableSectionElement* value, GError** error);
 
 /**
  * webkit_dom_html_table_element_get_t_foot:
@@ -194,7 +203,7 @@ webkit_dom_html_table_element_get_t_foot(WebKitDOMHTMLTableElement* self);
  *
 **/
 WEBKIT_API void
-webkit_dom_html_table_element_set_t_foot(WebKitDOMHTMLTableElement* self, WebKitDOMHTMLTableSectionElement* value, GError **error);
+webkit_dom_html_table_element_set_t_foot(WebKitDOMHTMLTableElement* self, WebKitDOMHTMLTableSectionElement* value, GError** error);
 
 /**
  * webkit_dom_html_table_element_get_rows:

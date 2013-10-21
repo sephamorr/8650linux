@@ -28,6 +28,7 @@
 
 #include <webkit/webkitdefines.h>
 #include <webkit/webkitdom.h>
+#include <webkit/webkitfilechooserrequest.h>
 #include <webkit/webkitwebbackforwardlist.h>
 #include <webkit/webkitwebframe.h>
 #include <webkit/webkitwebhistoryitem.h>
@@ -176,11 +177,10 @@ struct _WebKitWebViewClass {
     void                       (* undo)                   (WebKitWebView        *web_view);
     void                       (* redo)                   (WebKitWebView        *web_view);
     gboolean                   (* should_allow_editing_action) (WebKitWebView   *web_view);
-
-    /* Padding for future expansion */
-    void (*_webkit_reserved0) (void);
-    void (*_webkit_reserved1) (void);
-    void (*_webkit_reserved2) (void);
+    gboolean                   (* entering_fullscreen) (WebKitWebView   *web_view);
+    gboolean                   (* leaving_fullscreen) (WebKitWebView   *web_view);
+    gboolean                   (* run_file_chooser)       (WebKitWebView            *web_view,
+                                                           WebKitFileChooserRequest *request);
 };
 
 WEBKIT_API GType
@@ -445,6 +445,9 @@ webkit_web_view_get_dom_document                (WebKitWebView        *web_view)
 
 WEBKIT_API WebKitViewportAttributes*
 webkit_web_view_get_viewport_attributes         (WebKitWebView        *web_view);
+
+WEBKIT_API cairo_surface_t*
+webkit_web_view_get_snapshot                    (WebKitWebView        *web_view);
 
 G_END_DECLS
 

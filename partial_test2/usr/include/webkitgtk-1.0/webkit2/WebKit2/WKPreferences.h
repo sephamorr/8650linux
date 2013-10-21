@@ -133,6 +133,10 @@ WK_EXPORT bool WKPreferencesGetPrivateBrowsingEnabled(WKPreferencesRef preferenc
 WK_EXPORT void WKPreferencesSetDeveloperExtrasEnabled(WKPreferencesRef preferencesRef, bool enabled);
 WK_EXPORT bool WKPreferencesGetDeveloperExtrasEnabled(WKPreferencesRef preferencesRef);
 
+// Defaults to false.
+WK_EXPORT void WKPreferencesSetJavaScriptExperimentsEnabled(WKPreferencesRef preferencesRef, bool enabled);
+WK_EXPORT bool WKPreferencesGetJavaScriptExperimentsEnabled(WKPreferencesRef preferencesRef);
+
 // Defaults to true.
 WK_EXPORT void WKPreferencesSetTextAreasAreResizable(WKPreferencesRef preferencesRef, bool resizable);
 WK_EXPORT bool WKPreferencesGetTextAreasAreResizable(WKPreferencesRef preferencesRef);
@@ -170,8 +174,8 @@ WK_EXPORT void WKPreferencesSetWebAudioEnabled(WKPreferencesRef preferencesRef, 
 WK_EXPORT bool WKPreferencesGetWebAudioEnabled(WKPreferencesRef preferencesRef);
     
 // Defaults to false
-WK_EXPORT void WKPreferencesSetSuppressIncrementalRendering(WKPreferencesRef preferencesRef, bool enabled);
-WK_EXPORT bool WKPreferencesGetSuppressIncrementalRendering(WKPreferencesRef preferencesRef);
+WK_EXPORT void WKPreferencesSetSuppressesIncrementalRendering(WKPreferencesRef preferencesRef, bool enabled);
+WK_EXPORT bool WKPreferencesGetSuppressesIncrementalRendering(WKPreferencesRef preferencesRef);
 
 // Defaults to true
 WK_EXPORT void WKPreferencesSetBackspaceKeyNavigationEnabled(WKPreferencesRef preferencesRef, bool enabled);
@@ -196,6 +200,14 @@ WK_EXPORT bool WKPreferencesGetShouldDisplayTextDescriptions(WKPreferencesRef pr
 // Defaults to false
 WK_EXPORT void WKPreferencesSetNotificationsEnabled(WKPreferencesRef preferencesRef, bool enabled);
 WK_EXPORT bool WKPreferencesGetNotificationsEnabled(WKPreferencesRef preferencesRef);
+
+// Defaults to false
+WK_EXPORT void WKPreferencesSetShouldRespectImageOrientation(WKPreferencesRef preferencesRef, bool enabled);
+WK_EXPORT bool WKPreferencesGetShouldRespectImageOrientation(WKPreferencesRef preferencesRef);
+
+// Defaults to false
+WK_EXPORT void WKPreferencesSetThirdPartyStorageBlockingEnabled(WKPreferencesRef preferencesRef, bool enabled);
+WK_EXPORT bool WKPreferencesGetThirdPartyStorageBlockingEnabled(WKPreferencesRef preferencesRef);
 
 #ifdef __cplusplus
 }

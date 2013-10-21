@@ -21,11 +21,10 @@
 #ifndef WebKitDOMHTMLFieldSetElement_h
 #define WebKitDOMHTMLFieldSetElement_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMHTMLElement.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMHTMLElement.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_HTML_FIELD_SET_ELEMENT            (webkit_dom_html_field_set_element_get_type())
@@ -68,6 +67,27 @@ WEBKIT_API void
 webkit_dom_html_field_set_element_set_custom_validity(WebKitDOMHTMLFieldSetElement* self, const gchar* error);
 
 /**
+ * webkit_dom_html_field_set_element_get_disabled:
+ * @self: A #WebKitDOMHTMLFieldSetElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gboolean
+webkit_dom_html_field_set_element_get_disabled(WebKitDOMHTMLFieldSetElement* self);
+
+/**
+ * webkit_dom_html_field_set_element_set_disabled:
+ * @self: A #WebKitDOMHTMLFieldSetElement
+ * @value: A #gboolean
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_field_set_element_set_disabled(WebKitDOMHTMLFieldSetElement* self, gboolean value);
+
+/**
  * webkit_dom_html_field_set_element_get_form:
  * @self: A #WebKitDOMHTMLFieldSetElement
  *
@@ -78,14 +98,35 @@ WEBKIT_API WebKitDOMHTMLFormElement*
 webkit_dom_html_field_set_element_get_form(WebKitDOMHTMLFieldSetElement* self);
 
 /**
- * webkit_dom_html_field_set_element_get_validity:
+ * webkit_dom_html_field_set_element_get_name:
+ * @self: A #WebKitDOMHTMLFieldSetElement
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API gchar*
+webkit_dom_html_field_set_element_get_name(WebKitDOMHTMLFieldSetElement* self);
+
+/**
+ * webkit_dom_html_field_set_element_set_name:
+ * @self: A #WebKitDOMHTMLFieldSetElement
+ * @value: A #gchar
+ *
+ * Returns:
+ *
+**/
+WEBKIT_API void
+webkit_dom_html_field_set_element_set_name(WebKitDOMHTMLFieldSetElement* self, const gchar* value);
+
+/**
+ * webkit_dom_html_field_set_element_get_elements:
  * @self: A #WebKitDOMHTMLFieldSetElement
  *
  * Returns: (transfer none):
  *
 **/
-WEBKIT_API WebKitDOMValidityState*
-webkit_dom_html_field_set_element_get_validity(WebKitDOMHTMLFieldSetElement* self);
+WEBKIT_API WebKitDOMHTMLCollection*
+webkit_dom_html_field_set_element_get_elements(WebKitDOMHTMLFieldSetElement* self);
 
 /**
  * webkit_dom_html_field_set_element_get_will_validate:
@@ -96,6 +137,16 @@ webkit_dom_html_field_set_element_get_validity(WebKitDOMHTMLFieldSetElement* sel
 **/
 WEBKIT_API gboolean
 webkit_dom_html_field_set_element_get_will_validate(WebKitDOMHTMLFieldSetElement* self);
+
+/**
+ * webkit_dom_html_field_set_element_get_validity:
+ * @self: A #WebKitDOMHTMLFieldSetElement
+ *
+ * Returns: (transfer none):
+ *
+**/
+WEBKIT_API WebKitDOMValidityState*
+webkit_dom_html_field_set_element_get_validity(WebKitDOMHTMLFieldSetElement* self);
 
 /**
  * webkit_dom_html_field_set_element_get_validation_message:

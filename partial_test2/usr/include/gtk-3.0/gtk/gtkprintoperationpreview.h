@@ -16,12 +16,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GTK_PRINT_OPERATION_PREVIEW_H__
+#define __GTK_PRINT_OPERATION_PREVIEW_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_PRINT_OPERATION_PREVIEW_H__
-#define __GTK_PRINT_OPERATION_PREVIEW_H__
 
 #include <cairo.h>
 #include <gtk/gtkprintcontext.h>
@@ -66,11 +66,15 @@ struct _GtkPrintOperationPreviewIface
   void (*_gtk_reserved8) (void);
 };
 
+GDK_AVAILABLE_IN_ALL
 GType   gtk_print_operation_preview_get_type       (void) G_GNUC_CONST;
 
+GDK_AVAILABLE_IN_ALL
 void     gtk_print_operation_preview_render_page (GtkPrintOperationPreview *preview,
 						  gint                      page_nr);
+GDK_AVAILABLE_IN_ALL
 void     gtk_print_operation_preview_end_preview (GtkPrintOperationPreview *preview);
+GDK_AVAILABLE_IN_ALL
 gboolean gtk_print_operation_preview_is_selected (GtkPrintOperationPreview *preview,
 						  gint                      page_nr);
 

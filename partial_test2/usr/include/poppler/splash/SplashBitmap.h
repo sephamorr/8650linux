@@ -13,7 +13,7 @@
 //
 // Copyright (C) 2007 Ilmari Heikkinen <ilmari.heikkinen@gmail.com>
 // Copyright (C) 2009 Shen Liang <shenzhuxi@gmail.com>
-// Copyright (C) 2009 Albert Astals Cid <aacid@kde.org>
+// Copyright (C) 2009, 2012 Albert Astals Cid <aacid@kde.org>
 // Copyright (C) 2009 Stefan Thomas <thomas@eload24.com>
 // Copyright (C) 2010 Adrian Johnson <ajohnson@redneon.com>
 // Copyright (C) 2010 Harry Roberts <harry.roberts@midnight-labs.org>
@@ -34,6 +34,7 @@
 #endif
 
 #include "SplashTypes.h"
+#include "poppler/GfxState.h"
 #include <stdio.h>
 
 class ImgWriter;
@@ -51,7 +52,7 @@ public:
   // upside-down, i.e., with the last row first in memory.
   SplashBitmap(int widthA, int heightA, int rowPad,
 	       SplashColorMode modeA, GBool alphaA,
-	       GBool topDown = gTrue);
+	       GBool topDown = gTrue, GooList *separationList = NULL);
   static SplashBitmap *copy(SplashBitmap *src);
 
   ~SplashBitmap();
@@ -64,6 +65,7 @@ public:
   SplashColorMode getMode() { return mode; }
   SplashColorPtr getDataPtr() { return data; }
   Guchar *getAlphaPtr() { return alpha; }
+  GooList *getSeparationList() { return separationList; }
 
   SplashError writePNMFile(char *fileName);
   SplashError writePNMFile(FILE *f);
@@ -73,8 +75,14 @@ public:
   SplashError writeImgFile(SplashImageFileFormat format, FILE *f, int hDPI, int vDPI, const char *compressionString = "");
   SplashError writeImgFile(ImgWriter *writer, FILE *f, int hDPI, int vDPI);
 
+  GBool convertToXBGR();
+
   void getPixel(int x, int y, SplashColorPtr pixel);
   void getRGBLine(int y, SplashColorPtr line);
+  void getXBGRLine(int y, SplashColorPtr line);
+#if SPLASH_CMYK
+  void getCMYKLine(int y, SplashColorPtr line);
+#endif
   Guchar getAlpha(int x, int y);
 
   // Caller takes ownership of the bitmap data.  The SplashBitmap
@@ -92,6 +100,7 @@ private:
   SplashColorPtr data;		// pointer to row zero of the color data
   Guchar *alpha;		// pointer to row zero of the alpha data
 				//   (always top-down)
+  GooList *separationList; // list of spot colorants and their mapping functions
 
   friend class Splash;
 };

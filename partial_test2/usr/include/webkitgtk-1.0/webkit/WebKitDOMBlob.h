@@ -21,11 +21,10 @@
 #ifndef WebKitDOMBlob_h
 #define WebKitDOMBlob_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_BLOB            (webkit_dom_blob_get_type())
@@ -47,17 +46,17 @@ WEBKIT_API GType
 webkit_dom_blob_get_type (void);
 
 /**
- * webkit_dom_blob_webkit_slice:
+ * webkit_dom_blob_slice:
  * @self: A #WebKitDOMBlob
  * @start: A #gint64
  * @end: A #gint64
- * @content_type: A #gchar
+ * @contentType: A #gchar
  *
  * Returns: (transfer none):
  *
 **/
 WEBKIT_API WebKitDOMBlob*
-webkit_dom_blob_webkit_slice(WebKitDOMBlob* self, gint64 start, gint64 end, const gchar* content_type);
+webkit_dom_blob_slice(WebKitDOMBlob* self, gint64 start, gint64 end, const gchar* contentType);
 
 /**
  * webkit_dom_blob_get_size:

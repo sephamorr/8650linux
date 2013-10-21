@@ -21,11 +21,10 @@
 #ifndef WebKitDOMNodeIterator_h
 #define WebKitDOMNodeIterator_h
 
-#include "webkit/webkitdomdefines.h"
 #include <glib-object.h>
+#include <webkit/WebKitDOMObject.h>
 #include <webkit/webkitdefines.h>
-#include "webkit/WebKitDOMObject.h"
-
+#include <webkit/webkitdomdefines.h>
 
 G_BEGIN_DECLS
 #define WEBKIT_TYPE_DOM_NODE_ITERATOR            (webkit_dom_node_iterator_get_type())
@@ -55,7 +54,7 @@ webkit_dom_node_iterator_get_type (void);
  *
 **/
 WEBKIT_API WebKitDOMNode*
-webkit_dom_node_iterator_next_node(WebKitDOMNodeIterator* self, GError **error);
+webkit_dom_node_iterator_next_node(WebKitDOMNodeIterator* self, GError** error);
 
 /**
  * webkit_dom_node_iterator_previous_node:
@@ -66,7 +65,7 @@ webkit_dom_node_iterator_next_node(WebKitDOMNodeIterator* self, GError **error);
  *
 **/
 WEBKIT_API WebKitDOMNode*
-webkit_dom_node_iterator_previous_node(WebKitDOMNodeIterator* self, GError **error);
+webkit_dom_node_iterator_previous_node(WebKitDOMNodeIterator* self, GError** error);
 
 /**
  * webkit_dom_node_iterator_detach:

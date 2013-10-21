@@ -15,12 +15,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef __GTK_CELL_RENDERER_TOGGLE_H__
+#define __GTK_CELL_RENDERER_TOGGLE_H__
+
 #if !defined (__GTK_H_INSIDE__) && !defined (GTK_COMPILATION)
 #error "Only <gtk/gtk.h> can be included directly."
 #endif
-
-#ifndef __GTK_CELL_RENDERER_TOGGLE_H__
-#define __GTK_CELL_RENDERER_TOGGLE_H__
 
 #include <gtk/gtkcellrenderer.h>
 
@@ -61,18 +61,26 @@ struct _GtkCellRendererToggleClass
   void (*_gtk_reserved4) (void);
 };
 
+GDK_AVAILABLE_IN_ALL
 GType            gtk_cell_renderer_toggle_get_type       (void) G_GNUC_CONST;
+GDK_AVAILABLE_IN_ALL
 GtkCellRenderer *gtk_cell_renderer_toggle_new            (void);
 
+GDK_AVAILABLE_IN_ALL
 gboolean         gtk_cell_renderer_toggle_get_radio      (GtkCellRendererToggle *toggle);
+GDK_AVAILABLE_IN_ALL
 void             gtk_cell_renderer_toggle_set_radio      (GtkCellRendererToggle *toggle,
                                                           gboolean               radio);
 
+GDK_AVAILABLE_IN_ALL
 gboolean        gtk_cell_renderer_toggle_get_active      (GtkCellRendererToggle *toggle);
+GDK_AVAILABLE_IN_ALL
 void            gtk_cell_renderer_toggle_set_active      (GtkCellRendererToggle *toggle,
                                                           gboolean               setting);
 
+GDK_AVAILABLE_IN_ALL
 gboolean        gtk_cell_renderer_toggle_get_activatable (GtkCellRendererToggle *toggle);
+GDK_AVAILABLE_IN_ALL
 void            gtk_cell_renderer_toggle_set_activatable (GtkCellRendererToggle *toggle,
                                                           gboolean               setting);
 
